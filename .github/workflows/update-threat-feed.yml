@@ -1,0 +1,223 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#  Supply Chain Guardian — Automated Threat Feed Updater
+#  Copyright (c) 2025-2026 Anshumaan Singh. All rights reserved.
+#
+#  This workflow runs on a cron schedule to automatically pull the latest
+#  threat intelligence and update the threat-feed branch.
+#
+#  Architecture:
+#    main branch    → Source code, attack_db.py (bundled, versioned)
+#    threat-feed    → threat-feed.json (auto-updated, unversioned)
+#
+#  At scan time, the scanner fetches threat-feed.json from the threat-feed
+#  branch and merges it with the bundled attack_db.py. This means:
+#    - No version bump needed for new threat patterns
+#    - Scanner always has the latest intelligence
+#    - If the feed is unavailable, the bundled DB is used as fallback
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: Update Threat Feed
+
+on:
+  # ── Scheduled Runs ─────────────────────────────────────────────────────
+  schedule:
+    # Every 6 hours — 00:00, 06:00, 12:00, 18:00 UTC
+    - cron: '0 */6 * * *'
+
+  # ── Manual Trigger ─────────────────────────────────────────────────────
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force update even if no changes detected'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+      verbose:
+        description: 'Enable verbose output'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+permissions:
+  contents: write  # needed to push to threat-feed branch
+
+jobs:
+  update-threat-feed:
+    name: Update Threat Intelligence Feed
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          fetch-depth: 0  # full history for branch operations
+
+      - name: Set up Python
+        uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests 2>/dev/null
+
+      - name: Configure Git identity
+        run: |
+          git config user.name "SCG Threat Feed Bot"
+          git config user.email "threat-feed-bot@supply-chain-guardian"
+
+      - name: Pull latest threat intelligence
+        id: fetch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "========================================"
+          echo "  Supply Chain Guardian"
+          echo "  Automated Threat Feed Updater"
+          echo "  $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "========================================"
+          echo ""
+
+          # Run the updater script
+          python scripts/update_threat_db.py --commit --verbose 2>&1 | tee /tmp/update-output.txt
+
+          # Check if feed file was created/updated
+          if [ -f threat-feed.json ]; then
+            PATTERN_COUNT=$(python3 -c "import json; d=json.load(open('threat-feed.json')); print(len(d.get('patterns',[])))")
+            SHA_COUNT=$(python3 -c "import json; d=json.load(open('threat-feed.json')); print(len(d.get('compromised_shas',{})))")
+            ACTION_COUNT=$(python3 -c "import json; d=json.load(open('threat-feed.json')); print(len(d.get('compromised_actions',{})))")
+            echo "patterns=$PATTERN_COUNT" >> $GITHUB_OUTPUT
+            echo "shas=$SHA_COUNT" >> $GITHUB_OUTPUT
+            echo "actions=$ACTION_COUNT" >> $GITHUB_OUTPUT
+            echo "updated=true" >> $GITHUB_OUTPUT
+          else
+            echo "updated=false" >> $GITHUB_OUTPUT
+            echo "patterns=0" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Push to threat-feed branch
+        if: steps.fetch.outputs.updated == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "[*] Creating/updating threat-feed branch..."
+
+          # Stash the feed file
+          cp threat-feed.json /tmp/threat-feed.json
+
+          # Create orphan branch if it doesn't exist, or checkout existing
+          if git rev-parse --verify origin/threat-feed >/dev/null 2>&1; then
+            git checkout threat-feed
+            git pull origin threat-feed || true
+          else
+            git checkout --orphan threat-feed
+            git rm -rf . 2>/dev/null || true
+          fi
+
+          # Copy in the feed file
+          cp /tmp/threat-feed.json threat-feed.json
+
+          # Build a minimal README for the branch
+          cat > README.md <<'EOF'
+          # Supply Chain Guardian -- Live Threat Feed
+
+          This branch contains the auto-generated threat-feed.json file.
+          It is updated every 6 hours by the cron workflow.
+
+          Do not edit this file manually.
+
+          The scanner fetches this file at runtime to get the latest
+          threat intelligence without requiring a version bump.
+          EOF
+
+          # Commit and push
+          git add threat-feed.json README.md
+          git diff --cached --quiet && echo "[=] No changes to commit" && exit 0
+
+          PATTERNS="${{ steps.fetch.outputs.patterns }}"
+          SHAS="${{ steps.fetch.outputs.shas }}"
+          ACTIONS="${{ steps.fetch.outputs.actions }}"
+          DATE=$(date -u +%Y-%m-%d)
+
+          git commit -m "threat-feed: ${DATE} — ${PATTERNS} patterns, ${SHAS} SHAs, ${ACTIONS} actions"
+          git push --force origin threat-feed
+
+          echo "[+] Pushed to origin/threat-feed"
+          echo "    Patterns: $PATTERNS"
+          echo "    SHAs: $SHAS"
+          echo "    Actions: $ACTIONS"
+
+          # Return to main
+          git checkout main
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Threat Feed Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Metric | Count |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Patterns | ${{ steps.fetch.outputs.patterns }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Compromised SHAs | ${{ steps.fetch.outputs.shas }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Compromised Actions | ${{ steps.fetch.outputs.actions }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Updated | ${{ steps.fetch.outputs.updated }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Feed branch: \`threat-feed\`" >> $GITHUB_STEP_SUMMARY
+          echo "Next run: in 6 hours" >> $GITHUB_STEP_SUMMARY
+
+  # ── Integrity Validation ─────────────────────────────────────────────────
+  validate-feed:
+    name: Validate Feed Integrity
+    needs: update-threat-feed
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout threat-feed branch
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          ref: threat-feed
+
+      - name: Validate threat-feed.json schema
+        run: |
+          python3 << 'PYEOF'
+          import json, sys
+
+          with open("threat-feed.json") as f:
+              data = json.load(f)
+
+          errors = []
+
+          # Required top-level keys
+          for key in ["version", "last_updated", "patterns"]:
+              if key not in data:
+                  errors.append(f"Missing required key: {key}")
+
+          # Validate patterns
+          for i, p in enumerate(data.get("patterns", [])):
+              for field in ["id", "name", "category", "severity"]:
+                  if field not in p:
+                      errors.append(f"Pattern {i}: missing '{field}'")
+              if p.get("severity") not in ("critical", "high", "medium", "low", "info"):
+                  errors.append(f"Pattern {i} ({p.get('id')}): invalid severity '{p.get('severity')}'")
+
+          # Validate no duplicate IDs
+          ids = [p["id"] for p in data.get("patterns", []) if "id" in p]
+          dupes = set(x for x in ids if ids.count(x) > 1)
+          if dupes:
+              errors.append(f"Duplicate pattern IDs: {dupes}")
+
+          if errors:
+              print("VALIDATION FAILED:")
+              for e in errors:
+                  print(f"  - {e}")
+              sys.exit(1)
+          else:
+              print(f"VALIDATION PASSED: {len(data['patterns'])} patterns, schema OK")
+          PYEOF

@@ -46,6 +46,13 @@ from alerting.slack_alerter import SlackAlerter
 from alerting.teams_alerter import TeamsAlerter
 from db.attack_db import AttackDatabase
 
+# Try to load live threat feed module
+try:
+    from db.threat_feed import fetch_live_patterns, merge_live_patterns
+    _HAS_THREAT_FEED = True
+except ImportError:
+    _HAS_THREAT_FEED = False
+
 # ── Version & Metadata ──────────────────────────────────────────────────────
 __version__ = "2.0.0"
 __author__ = "Anshumaan Singh"
@@ -200,7 +207,28 @@ def main():
 
     # ── Attack Database ──────────────────────────────────────────────────
     attack_db = AttackDatabase()
-    logger.info(f"Attack database loaded: {attack_db.total_attacks()} known patterns (v{attack_db.version})")
+    bundled_count = attack_db.total_attacks()
+    logger.info(f"Attack database loaded: {bundled_count} bundled patterns (v{attack_db.version})")
+
+    # ── Live Threat Feed ─────────────────────────────────────────────────
+    if _HAS_THREAT_FEED:
+        try:
+            live_patterns, feed_meta = fetch_live_patterns(verbose=config.verbose)
+            if live_patterns:
+                added = merge_live_patterns(attack_db, live_patterns, feed_meta)
+                if added > 0:
+                    logger.info(
+                        f"Live threat feed: +{added} patterns from {feed_meta.get('feed_source', 'unknown')} "
+                        f"({feed_meta.get('fetch_time_ms', 0)}ms)"
+                    )
+                else:
+                    logger.debug(f"Live threat feed: no new patterns (source={feed_meta.get('feed_source', 'none')})")
+            else:
+                logger.debug("Live threat feed: no patterns fetched (bundled DB is authoritative)")
+        except Exception as e:
+            logger.debug(f"Live threat feed unavailable: {e} (using bundled DB)")
+
+    logger.info(f"Total patterns available: {attack_db.total_attacks()}")
     logger.blank()
 
     # ── Build Scanner Registry ───────────────────────────────────────────
