@@ -94,20 +94,28 @@ inputs:
 outputs:
   scan-status:
     description: 'Overall scan result: PASSED, WARNING, FAILED'
+    value: ${{ steps.scan.outputs.scan-status }}
   total-findings:
     description: 'Total number of findings'
+    value: ${{ steps.scan.outputs.total-findings }}
   critical-findings:
     description: 'Number of critical findings'
+    value: ${{ steps.scan.outputs.critical-findings }}
   high-findings:
     description: 'Number of high severity findings'
+    value: ${{ steps.scan.outputs.high-findings }}
   medium-findings:
     description: 'Number of medium severity findings'
+    value: ${{ steps.scan.outputs.medium-findings }}
   low-findings:
     description: 'Number of low severity findings'
+    value: ${{ steps.scan.outputs.low-findings }}
   report-path:
     description: 'Path to the JSON report file'
+    value: ${{ steps.scan.outputs.report-path }}
   sarif-path:
     description: 'Path to the SARIF report file'
+    value: ${{ steps.scan.outputs.sarif-path }}
 
 runs:
   using: 'composite'
