@@ -37,13 +37,19 @@ from db.attack_db import AttackPattern, AttackDatabase
 
 # ── Feed Configuration ───────────────────────────────────────────────────────
 
-# Primary feed: raw JSON hosted on the `threat-feed` branch of the main repo
+# Primary feed: JSON hosted on the `threat-feed` branch of the main repo
 _OWNER = "anshumaan-10"
 _REPO = "supply-chain-guardian"
 _FEED_BRANCH = "threat-feed"
 _FEED_FILE = "threat-feed.json"
 
-PRIMARY_FEED_URL = (
+# Use GitHub API (works for both public and private repos with GITHUB_TOKEN)
+PRIMARY_FEED_API_URL = (
+    f"https://api.github.com/repos/{_OWNER}/{_REPO}/contents/{_FEED_FILE}"
+    f"?ref={_FEED_BRANCH}"
+)
+# Fallback: raw URL (works only for public repos)
+PRIMARY_FEED_RAW_URL = (
     f"https://raw.githubusercontent.com/{_OWNER}/{_REPO}/{_FEED_BRANCH}/{_FEED_FILE}"
 )
 
@@ -134,14 +140,39 @@ def _fetch_primary_feed() -> Optional[Dict]:
     """
     if not _HAS_REQUESTS:
         return None
+
+    token = os.environ.get("GITHUB_TOKEN", "")
+    headers = {}
+    if token:
+        headers["Authorization"] = f"token {token}"
+
+    # Attempt 1: GitHub API (works for private repos)
     try:
-        resp = requests.get(PRIMARY_FEED_URL, timeout=FEED_TIMEOUT_SECONDS)
+        api_headers = {**headers, "Accept": "application/vnd.github.v3.raw"}
+        resp = requests.get(
+            PRIMARY_FEED_API_URL, headers=api_headers,
+            timeout=FEED_TIMEOUT_SECONDS,
+        )
         if resp.status_code == 200:
             data = resp.json()
             if "patterns" in data or "compromised_shas" in data:
                 return data
     except Exception:
         pass
+
+    # Attempt 2: Raw URL (public repos or repos with fine-grained PAT)
+    try:
+        resp = requests.get(
+            PRIMARY_FEED_RAW_URL, headers=headers,
+            timeout=FEED_TIMEOUT_SECONDS,
+        )
+        if resp.status_code == 200:
+            data = resp.json()
+            if "patterns" in data or "compromised_shas" in data:
+                return data
+    except Exception:
+        pass
+
     return None
 
 
