@@ -1,13 +1,25 @@
 name: 'Supply Chain Guardian'
-description: 'Enterprise-grade GitHub Actions supply chain security scanner. Detects 90+ real-world attack patterns across 16 scanner modules — OIDC, artifacts, containers, reusable workflows, and behavioral indicators. Scans, alerts, and blocks pipelines on true-positive threats.'
+description: 'Enterprise-grade GitHub Actions supply chain security scanner. Detects 110+ real-world attack patterns across 16 scanner modules. Supports split-mode invocation: start monitor early, run your pipeline, then scan at the end.'
 author: 'Anshumaan Singh (anshumaan-10)'
 branding:
   icon: 'shield'
   color: 'red'
 
 inputs:
+  mode:
+    description: |
+      Action execution mode:
+        scan           — Full scan (default). Runs all scanners, reports, and optionally starts/stops the runtime monitor within this single step.
+        monitor-start  — Only start the runtime monitoring daemon. Use this BEFORE your build/test/deploy steps. The daemon runs in the background watching for threats.
+        monitor-stop   — Only stop the runtime monitor and collect findings. Use this AFTER your build steps but before the final scan.
+      For split-mode runtime monitoring across multiple pipeline stages, call the action 3 times:
+        1. mode: monitor-start  (before your pipeline)
+        2. (your build/test/deploy steps)
+        3. mode: scan + scan-runtime: true  (collects daemon findings + runs all scanners)
+    required: false
+    default: 'scan'
   runtime-monitor:
-    description: 'Enable continuous runtime monitoring daemon. Starts a background process at the beginning of the job that monitors for threats until the job exits. The main scan collects daemon findings automatically.'
+    description: 'Enable continuous runtime monitoring daemon (only used in scan mode). Starts and stops the monitor automatically around the scan.'
     required: false
     default: 'false'
   runtime-monitor-interval:
@@ -132,27 +144,57 @@ outputs:
 runs:
   using: 'composite'
   steps:
+    # ── Setup (always needed) ────────────────────────────────────────────
     - name: Setup Python
       uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0
       with:
         python-version: '3.11'
 
     - name: Install scanner dependencies
+      if: inputs.mode == 'scan' || inputs.mode == 'monitor-start'
       shell: bash
       run: |
         pip install -q pyyaml requests tabulate colorama jsonschema semver 2>/dev/null
 
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # MODE: monitor-start — Start daemon and exit (user's steps run next)
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     - name: Start runtime monitor daemon
-      if: inputs.runtime-monitor == 'true'
+      if: inputs.mode == 'monitor-start' || (inputs.mode == 'scan' && inputs.runtime-monitor == 'true')
       shell: bash
       env:
         SCG_POLL_INTERVAL: ${{ inputs.runtime-monitor-interval }}
       run: |
-        echo "[SCG] Starting continuous runtime monitor..."
+        echo "┌──────────────────────────────────────────────┐"
+        echo "│  SCG Runtime Monitor — Starting daemon       │"
+        echo "│  Interval: ${{ inputs.runtime-monitor-interval }}s                                │"
+        echo "└──────────────────────────────────────────────┘"
         python3 ${{ github.action_path }}/src/runtime_monitor.py start ${{ inputs.runtime-monitor-interval }}
-        echo "[SCG] Monitor will run in background until job completes."
+        echo ""
+        echo "[SCG] ✓ Daemon is now watching for:"
+        echo "        · Cryptominers, reverse shells, C2 connections"
+        echo "        · /proc/mem access (TeamPCP CVE-2026-33634)"
+        echo "        · Persistence mechanisms (sysmon.py, systemd)"
+        echo "        · Credential file creation/modification"
+        echo "        · Suspicious executables in /tmp"
+        echo ""
+        echo "[SCG] The monitor will run until 'monitor-stop' or job exit."
 
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # MODE: monitor-stop — Stop daemon, print findings
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    - name: Stop runtime monitor daemon
+      if: inputs.mode == 'monitor-stop' || (inputs.mode == 'scan' && inputs.runtime-monitor == 'true')
+      shell: bash
+      run: |
+        echo "[SCG] Stopping runtime monitor and collecting findings..."
+        python3 ${{ github.action_path }}/src/runtime_monitor.py stop || true
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # MODE: scan — Full supply chain scan (default mode)
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     - name: Run Supply Chain Guardian
+      if: inputs.mode == 'scan'
       id: scan
       shell: bash
       env:
@@ -189,21 +231,14 @@ runs:
         python3 ${{ github.action_path }}/src/main.py
 
     - name: Upload SARIF report
-      if: inputs.sarif-output == 'true' && always()
+      if: inputs.mode == 'scan' && inputs.sarif-output == 'true' && always()
       uses: github/codeql-action/upload-sarif@ebcb5b36ded6beda4ceefea6a8bc4cc885255bb3 # v3
       with:
         sarif_file: supply-chain-guardian.sarif
       continue-on-error: true
 
-    - name: Stop runtime monitor daemon
-      if: inputs.runtime-monitor == 'true' && always()
-      shell: bash
-      run: |
-        echo "[SCG] Stopping runtime monitor and collecting findings..."
-        python3 ${{ github.action_path }}/src/runtime_monitor.py stop || true
-
     - name: Upload scan report artifact
-      if: always()
+      if: (inputs.mode == 'scan' || inputs.mode == 'monitor-stop') && always()
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
       with:
         name: supply-chain-guardian-report
