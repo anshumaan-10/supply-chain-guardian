@@ -1,0 +1,148 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Supply Chain Guardian — Exception / Exemption Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#
+# Drop this file at your repo root as .scg-config.yml
+# SCG will auto-detect it. No action input needed.
+#
+# For org-wide central policies, pass via action input:
+#   uses: anshumaan-10/supply-chain-guardian@v4
+#   with:
+#     exceptions-config: /path/to/central-scg-exceptions.yml
+#
+# Or via environment variable:
+#   SCG_EXCEPTIONS=/path/to/scg-exceptions.yml python src/main.py
+#
+# See README.md §Exception & Exemption System for full documentation.
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+version: "1"
+
+# ── Exemptions ──────────────────────────────────────────────────────────────
+# Suppress specific rule IDs from blocking the pipeline.
+# IMPORTANT: Exempted findings are PRESERVED in the audit report with
+# status=exempted and the reason/approver. They never silently disappear.
+#
+# Fields:
+#   rule_id      (required) — SCA-NNN or wildcard SCA-0* or SCA-*
+#   reason       (required) — Plain English business justification
+#   approved_by  (required) — Who approved this exemption (team/person/ticket)
+#   expires      (optional) — ISO date YYYY-MM-DD; SCG will warn when expired
+#   scope        (optional) — Documentation label: ci-only, dev-only, etc.
+#   file_pattern (optional) — Only suppress in files matching this glob pattern
+
+exemptions:
+  # Example 1: Ngrok used for Playwright browser testing on PR preview URLs.
+  # Restricted to test branches only.
+  - rule_id: SCA-017
+    reason: "ngrok used exclusively for Playwright e2e browser testing in preview environments"
+    approved_by: "security-team"
+    expires: "2026-06-30"
+    scope: "ci-only"
+
+  # Example 2: Internal Artifactory pulls from our private registry.
+  # Matches all dependency-related network rules.
+  - rule_id: "SCA-015"
+    reason: "Internal artifact pulls from private Artifactory — confirmed legitimate"
+    approved_by: "platform-team"
+    scope: "ci-only"
+
+  # Example 3: Wildcard — suppress all provenance rules project-wide.
+  # Team has not adopted SLSA yet; tracked in TECH-DEBT-2024.
+  - rule_id: "SCA-07*"
+    reason: "SLSA adoption tracked in TECH-DEBT-2024, planned Q2 2026"
+    approved_by: "ciso"
+    expires: "2026-07-01"
+
+  # Example 4: Specific file scope — suppress only in integration test configs.
+  - rule_id: SCA-042
+    reason: "Integration test harness uses socat for local port forwarding — sandboxed environment"
+    approved_by: "security-team"
+    file_pattern: "tests/integration/**"
+    scope: "test-only"
+
+# ── Egress Allowlist ─────────────────────────────────────────────────────────
+# Additional domains to trust beyond SCG's built-in 80+ domain allowlist.
+# Wildcards supported: *.corp.example.com matches foo.corp.example.com
+#
+# NEVER add these — they remain blocked regardless of this list:
+#   · Known C2 infrastructure (TeamPCP, Shai-Hulud IOCs)
+#   · IP addresses directly (use domains only)
+#   · Tor exit nodes / known-bad IP ranges
+
+egress_allowlist:
+  # Internal infrastructure
+  - "*.internal.corp.example.com"
+  - "artifactory.corp.example.com"
+  - "sonarqube.infra.example.com"
+  - "nexus.corp.example.com"
+  - "harbor.registry.example.com"
+
+  # Internal package registries
+  - "npm.internal.corp.example.com"
+  - "pypi.internal.corp.example.com"
+  - "maven.internal.corp.example.com"
+
+  # Internal CI/CD tools
+  - "jenkins.infra.corp.example.com"
+  - "vault.corp.example.com"
+
+  # Approved third-party SaaS endpoints
+  - "api.datadoghq.com"
+  - "intake.logs.datadoghq.com"
+  - "api.snyk.io"
+  - "app.terraformcloud.io"
+
+# ── Egress Blocklist ──────────────────────────────────────────────────────────
+# Extra domains to always flag as suspicious, beyond SCG's built-in C2 list.
+# Useful for blocking known-bad vendors or shadow-IT endpoints in your org.
+
+egress_blocklist:
+  - "*.shadow-it-tool.io"
+  - "upload.personal-storage-site.com"
+
+# ── Disabled Scanners ─────────────────────────────────────────────────────────
+# Turn off specific scanner modules entirely for this repo.
+# Use sparingly — prefer rule_id exemptions over disabling whole scanners.
+#
+# Available scanner names:
+#   workflow_analysis, compromised_actions, pwn_request, cache_poisoning,
+#   permissions_audit, secret_exposure, network_exfiltration, dependency_integrity,
+#   typosquatting, provenance, runtime_monitor, oidc_audit, artifact_integrity,
+#   container_security, reusable_workflow_trust, behavioral_analysis,
+#   cross_platform, binary_analysis
+
+disabled_scanners:
+  # Example: This repo uses GitLab CI — cross-platform scanner not applicable
+  # - cross_platform
+
+  # Example: SLSA not in scope for this project
+  # - provenance
+
+# ── Severity Overrides ────────────────────────────────────────────────────────
+# Downgrade specific rule IDs to a lower severity for this repo.
+# The finding still appears in the report, but at the overridden severity.
+# This affects the fail-on-severity threshold calculation.
+#
+# Common use case: risk-accepted medium findings that show up in every scan.
+
+severity_overrides:
+  # SCA-042: Downgraded from HIGH to MEDIUM — risk accepted in JIRA-SEC-1234
+  # SCA-042: medium
+
+  # SCA-055: Downgraded from MEDIUM to LOW — known false positive in this codebase
+  # SCA-055: low
+
+# ── Inline Suppression Examples ───────────────────────────────────────────────
+# These work directly in your workflow YAML or source files.
+# No config file changes needed.
+#
+# Suppress a single finding on the SAME line:
+#   - run: curl https://internal.corp.example.com/health  # scg-ignore:SCA-012
+#
+# Suppress the NEXT line:
+#   # scg-ignore-next-line:SCA-017
+#   - run: ngrok http 8080
+#
+# Suppress ALL rules on a line (use sparingly):
+#   - run: some-legacy-script.sh  # scg-ignore:SCA-*

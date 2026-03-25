@@ -55,7 +55,7 @@ except ImportError:
     _HAS_THREAT_FEED = False
 
 # ── Version & Metadata ──────────────────────────────────────────────────────
-__version__ = "3.0.0"
+__version__ = "4.0.0"
 __author__ = "Anshumaan Singh"
 __github__ = "anshumaan-10"
 __tool_id__ = "supply-chain-guardian"
@@ -91,6 +91,20 @@ try:
 except ImportError:
     _HAS_CROSS_PLATFORM = False
 
+try:
+    from scanners.binary_scanner import BinaryScanner
+    _HAS_BINARY = True
+except ImportError:
+    _HAS_BINARY = False
+
+try:
+    from utils.exceptions import (
+        load_exception_config, apply_exemptions, ExceptionConfig
+    )
+    _HAS_EXCEPTIONS = True
+except ImportError:
+    _HAS_EXCEPTIONS = False
+
 
 def _banner():
     """Print the Supply Chain Guardian banner — clean, no AI, author branded."""
@@ -105,8 +119,9 @@ def _banner():
   |   ╚══════╝ ╚═════╝ ╚═════╝    By {__author__:<25s}|
   |                                github.com/{__github__:<18s}|
   +================================================================+{C.RST}
-{C.DIM}  Detects 75+ attack signatures | 80+ behavioral indicators
-  Scans >> Alerts >> Blocks pipelines on true-positive threats
+{C.DIM}  110+ attack signatures | 80+ behavioral indicators | 17 scanners
+  Runtime monitoring | Binary analysis | Egress allowlisting
+  Enterprise exemption engine | Split-mode CI/CD integration
   ----------------------------------------------------------------{C.RST}
 """)
 
@@ -182,6 +197,10 @@ def _build_scanner_registry(config, attack_db):
     # ── Phase 4: Cross-Platform CI/CD ────────────────────────────────────
     if _HAS_CROSS_PLATFORM:
         scanners.append(("Cross-Platform CI/CD", CrossPlatformScanner(config, attack_db), 1))
+
+    # ── Phase 5: Binary Analysis ─────────────────────────────────────────
+    if _HAS_BINARY and config.scan_mode in ("deep", "paranoid"):
+        scanners.append(("Binary Analysis", BinaryScanner(config, attack_db), 2))
 
     return scanners
 
@@ -321,6 +340,25 @@ def main():
     logger.info(f"Total patterns available: {attack_db.total_attacks()}")
     logger.blank()
 
+    # ── Exception / Exemption Engine ─────────────────────────────────────
+    exception_config = None
+    if _HAS_EXCEPTIONS:
+        custom_exceptions_path = os.environ.get("INPUT_EXCEPTIONS_CONFIG", "")
+        exception_config = load_exception_config(
+            workspace_dir=config.workspace_dir,
+            config_path=custom_exceptions_path,
+        )
+        if exception_config.source != "defaults-only":
+            logger.info(f"Exception config loaded: {exception_config.source}")
+            if exception_config.exemptions:
+                logger.info(f"  Exemptions: {len(exception_config.exemptions)} rules")
+            if exception_config.disabled_scanners:
+                logger.info(f"  Disabled scanners: {', '.join(exception_config.disabled_scanners)}")
+        else:
+            logger.debug("Exception engine: defaults only (no .scg-config.yml found)")
+        logger.debug(f"Egress allowlist: {len(exception_config.egress_allowlist)} domains")
+    logger.blank()
+
     # ── Build Scanner Registry ───────────────────────────────────────────
     scanners = _build_scanner_registry(config, attack_db)
     total_scanners = len(scanners)
@@ -375,12 +413,22 @@ def main():
                 "phase": phase,
             }
 
+    # ── Apply Exemptions ─────────────────────────────────────────────────
+    exempted_count = 0
+    if _HAS_EXCEPTIONS and exception_config:
+        all_findings, exempted_count = apply_exemptions(all_findings, exception_config)
+        if exempted_count > 0:
+            logger.info(f"Exemptions applied: {exempted_count} finding(s) marked as exempted")
+
+    # Filter active findings for blocking decisions (exempted don't block)
+    active_findings = [f for f in all_findings if f.get("status") != "exempted"]
+
     # ── Categorize Findings ──────────────────────────────────────────────
-    critical = [f for f in all_findings if f.get("severity") == "critical"]
-    high     = [f for f in all_findings if f.get("severity") == "high"]
-    medium   = [f for f in all_findings if f.get("severity") == "medium"]
-    low      = [f for f in all_findings if f.get("severity") == "low"]
-    info     = [f for f in all_findings if f.get("severity") == "info"]
+    critical = [f for f in active_findings if f.get("severity") == "critical"]
+    high     = [f for f in active_findings if f.get("severity") == "high"]
+    medium   = [f for f in active_findings if f.get("severity") == "medium"]
+    low      = [f for f in active_findings if f.get("severity") == "low"]
+    info     = [f for f in active_findings if f.get("severity") == "info"]
 
     elapsed = time.time() - start_time
 
@@ -398,21 +446,21 @@ def main():
     fail_threshold = severity_order.get(config.fail_on_severity, 4)
 
     sig_max = 0
-    for f in all_findings:
+    for f in active_findings:
         if f.get("scanner") in SIGNATURE_SCANNERS:
             sev = severity_order.get(f.get("severity", "info"), 1)
             if sev > sig_max:
                 sig_max = sev
 
     bhv_max = 0
-    for f in all_findings:
+    for f in active_findings:
         if f.get("scanner") in HEURISTIC_SCANNERS:
             sev = severity_order.get(f.get("severity", "info"), 1)
             if sev > bhv_max:
                 bhv_max = sev
 
     all_max = 0
-    for f in all_findings:
+    for f in active_findings:
         sev = severity_order.get(f.get("severity", "info"), 1)
         if sev > all_max:
             all_max = sev
@@ -521,6 +569,8 @@ def main():
     logger.kv("  Patterns Checked", str(attack_db.total_attacks()))
     logger.kv("  Scanners Run", str(total_scanners))
     logger.kv("  Total Findings", str(len(all_findings)))
+    if exempted_count > 0:
+        logger.kv("  Exempted", f"{exempted_count} (still in report, won't block)")
     print(f"  {C.R}{C.BLD}  Critical: {len(critical)}{C.RST}  "
           f"{C.R}High: {len(high)}{C.RST}  "
           f"{C.Y}Medium: {len(medium)}{C.RST}  "

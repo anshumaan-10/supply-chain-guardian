@@ -11,10 +11,26 @@ Inspired by StepSecurity Harden-Runner's network egress monitoring.
 """
 
 import re
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 
 from scanners.base_scanner import BaseScanner
 from utils.files import find_workflow_files, find_action_files, read_file_lines
+
+# Lazy-loaded at scan time
+_exception_config = None
+
+
+def _extract_domain(text: str) -> Optional[str]:
+    """Extract the domain from a URL or network reference in text."""
+    # Match URLs: https://example.com/path or http://1.2.3.4:8080
+    m = re.search(r'https?://([a-zA-Z0-9._-]+)', text)
+    if m:
+        return m.group(1).lower()
+    # Match bare domain references: curl example.com
+    m = re.search(r'\b([a-zA-Z0-9][-a-zA-Z0-9]*\.(?:com|org|net|io|dev|sh|cloud|app|co|me|info|xyz|cc|su))\b', text)
+    if m:
+        return m.group(1).lower()
+    return None
 
 
 class NetworkScanner(BaseScanner):
@@ -97,6 +113,17 @@ class NetworkScanner(BaseScanner):
     def scan(self) -> List[Dict[str, Any]]:
         self.findings = []
 
+        # Load exception config for egress allowlisting
+        global _exception_config
+        try:
+            from utils.exceptions import load_exception_config
+            _exception_config = load_exception_config(self.config.workspace_dir)
+            if self.config.verbose and _exception_config.source != "defaults-only":
+                self.logger.debug(f"Egress allowlist loaded: {_exception_config.source} "
+                                  f"({len(_exception_config.egress_allowlist)} domains)")
+        except ImportError:
+            _exception_config = None
+
         # Get suspicious domains from attack DB
         suspicious_domains = self.attack_db.get_suspicious_domains()
 
@@ -175,6 +202,7 @@ class NetworkScanner(BaseScanner):
             # Check known domains from DB
             for domain, attack_info in suspicious_domains.items():
                 if domain in stripped.lower():
+                    # C2 / known-bad domains are NEVER allowlisted
                     self.add_finding(
                         attack_id="SCA-039",
                         title=f"Suspicious domain access: {domain}",
@@ -329,6 +357,15 @@ class NetworkScanner(BaseScanner):
                 except re.error:
                     continue
 
+    def _is_allowed_egress(self, text: str) -> bool:
+        """Check if a network reference targets an allowed (legitimate) domain."""
+        if _exception_config is None:
+            return False
+        domain = _extract_domain(text)
+        if domain and _exception_config.is_domain_allowed(domain):
+            return True
+        return False
+
     def _check_egress_anomalies(self, filepath, lines):
         """Check for egress anomaly patterns (Harden-Runner inspired)."""
         for i, line in enumerate(lines, 1):
@@ -336,6 +373,9 @@ class NetworkScanner(BaseScanner):
             for pattern, name, severity in self.EGRESS_ANOMALY_PATTERNS:
                 try:
                     if re.search(pattern, stripped, re.IGNORECASE):
+                        # Smart allowlist: skip if target domain is legitimate
+                        if self._is_allowed_egress(stripped):
+                            continue
                         self.add_finding(
                             attack_id="SCA-109",
                             title=f"Egress anomaly: {name}",
@@ -346,7 +386,8 @@ class NetworkScanner(BaseScanner):
                             file=filepath,
                             line=i,
                             remediation="Use StepSecurity Harden-Runner for network egress monitoring. "
-                                        "Block outbound traffic to non-allowed endpoints.",
+                                        "Block outbound traffic to non-allowed endpoints. "
+                                        "If this is a legitimate domain, add it to .scg-config.yml egress_allowlist.",
                             evidence=stripped[:200],
                         )
                 except re.error:

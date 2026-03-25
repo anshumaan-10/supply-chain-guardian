@@ -1,5 +1,5 @@
 name: 'Supply Chain Guardian'
-description: 'Enterprise-grade GitHub Actions supply chain security scanner. Detects 110+ real-world attack patterns across 16 scanner modules. Supports split-mode invocation: start monitor early, run your pipeline, then scan at the end.'
+description: 'Enterprise-grade GitHub Actions supply chain security scanner. Detects 110+ real-world attack patterns across 17 scanner modules with binary analysis, smart egress allowlisting, and enterprise exemption engine. Supports split-mode invocation: start monitor early, run your pipeline, then scan at the end.'
 author: 'Anshumaan Singh (anshumaan-10)'
 branding:
   icon: 'shield'
@@ -110,6 +110,18 @@ inputs:
     description: 'Automatically comment on PRs with scan results'
     required: false
     default: 'true'
+  exceptions-config:
+    description: |
+      Path to a custom SCG exceptions/exemption config file (YAML).
+      If not set, the scanner looks for .scg-config.yml in the repo root.
+      Use this for org-wide central exception policies.
+      Format: YAML with keys: exemptions, egress_allowlist, disabled_scanners, severity_overrides.
+    required: false
+    default: ''
+  scan-binaries:
+    description: 'Enable binary analysis scanner to detect suspicious executables in the workspace. Auto-enabled in deep/paranoid modes.'
+    required: false
+    default: 'false'
   verbose:
     description: 'Enable verbose/debug output'
     required: false
@@ -140,6 +152,9 @@ outputs:
   sarif-path:
     description: 'Path to the SARIF report file'
     value: ${{ steps.scan.outputs.sarif-path }}
+  exempted-findings:
+    description: 'Number of findings that were exempted by .scg-config.yml rules'
+    value: ${{ steps.scan.outputs.exempted-findings }}
 
 runs:
   using: 'composite'
@@ -220,6 +235,8 @@ runs:
         INPUT_CREATE_ISSUE: ${{ inputs.create-issue }}
         INPUT_AUTO_COMMENT_PR: ${{ inputs.auto-comment-pr }}
         INPUT_VERBOSE: ${{ inputs.verbose }}
+        INPUT_EXCEPTIONS_CONFIG: ${{ inputs.exceptions-config }}
+        INPUT_SCAN_BINARIES: ${{ inputs.scan-binaries }}
         GITHUB_REPOSITORY: ${{ github.repository }}
         GITHUB_SHA: ${{ github.sha }}
         GITHUB_REF: ${{ github.ref }}
