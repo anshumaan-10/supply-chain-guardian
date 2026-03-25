@@ -18,6 +18,7 @@ import sys
 import json
 import time
 import hashlib
+import argparse
 import traceback
 from pathlib import Path
 
@@ -185,12 +186,55 @@ def _build_scanner_registry(config, attack_db):
     return scanners
 
 
+def _parse_cli_args():
+    """Parse command-line arguments for local CLI usage."""
+    parser = argparse.ArgumentParser(
+        description="Supply Chain Guardian — CI/CD Supply Chain Security Scanner",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument("--workspace", "-w", dest="target", default=None,
+                        help="Target workspace directory to scan (default: current directory)")
+    parser.add_argument("--scan-mode", "-m", dest="scan_mode", default="standard",
+                        choices=["quick", "standard", "deep", "paranoid"],
+                        help="Scan depth mode (default: standard)")
+    parser.add_argument("--fail-on-severity", "-f", dest="fail_on_severity", default="high",
+                        choices=["critical", "high", "medium", "low", "info"],
+                        help="Minimum severity to fail the pipeline (default: high)")
+    parser.add_argument("--verbose", "-v", action="store_true", default=False,
+                        help="Enable verbose output")
+    parser.add_argument("--output-format", "-o", dest="output_format", default="table",
+                        choices=["table", "json", "sarif"],
+                        help="Output format (default: table)")
+    parser.add_argument("--scan-workflows", action="store_true", default=True)
+    parser.add_argument("--no-scan-workflows", dest="scan_workflows", action="store_false")
+    parser.add_argument("--scan-dependencies", action="store_true", default=True)
+    parser.add_argument("--no-scan-dependencies", dest="scan_dependencies", action="store_false")
+    parser.add_argument("--scan-secrets", action="store_true", default=True)
+    parser.add_argument("--no-scan-secrets", dest="scan_secrets", action="store_false")
+    parser.add_argument("--scan-network", action="store_true", default=True)
+    parser.add_argument("--no-scan-network", dest="scan_network", action="store_false")
+    parser.add_argument("--scan-permissions", action="store_true", default=True)
+    parser.add_argument("--no-scan-permissions", dest="scan_permissions", action="store_false")
+    parser.add_argument("--scan-provenance", action="store_true", default=True)
+    parser.add_argument("--no-scan-provenance", dest="scan_provenance", action="store_false")
+    parser.add_argument("--scan-runtime", action="store_true", default=False)
+    parser.add_argument("--no-scan-runtime", dest="scan_runtime", action="store_false")
+    parser.add_argument("--exclude", default="", help="Comma-separated paths to exclude")
+    parser.add_argument("--json-output", default="", help="Path for JSON report output")
+    return parser.parse_args()
+
+
 def main():
     start_time = time.time()
     _banner()
 
     # ── Configuration ────────────────────────────────────────────────────
-    config = ScanConfig.from_environment()
+    # Use CLI args if running locally, env vars in GitHub Actions
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        config = ScanConfig.from_environment()
+    else:
+        args = _parse_cli_args()
+        config = ScanConfig.from_cli_args(args)
     logger = Logger(config.verbose)
 
     logger.section("SCAN CONFIGURATION")
