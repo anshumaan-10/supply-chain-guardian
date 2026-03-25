@@ -12,7 +12,9 @@ Inspired by StepSecurity Harden-Runner's process and file monitoring.
 
 import os
 import re
+import json
 import subprocess
+from pathlib import Path
 from typing import List, Dict, Any
 
 from scanners.base_scanner import BaseScanner
@@ -47,11 +49,21 @@ class RuntimeScanner(BaseScanner):
         ("Runner.Worker", "Runner Worker process targeting"),
     ]
 
+    # Path where the background monitor daemon writes findings
+    DAEMON_FINDINGS_PATH = Path(
+        os.environ.get("SCG_MONITOR_DIR", "/tmp/scg-runtime-monitor")
+    ) / "runtime-findings.json"
+
     def scan(self) -> List[Dict[str, Any]]:
         self.findings = []
 
+        # Always ingest findings from the background runtime monitor daemon
+        # (if it was started earlier in the pipeline)
+        self._ingest_daemon_findings()
+
         if not os.environ.get("GITHUB_ACTIONS") == "true":
-            self.logger.debug("Runtime scanner only works in GitHub Actions environment")
+            if not self.findings:
+                self.logger.debug("Runtime scanner only works in GitHub Actions environment")
             return self.findings
 
         self._check_credential_files()
@@ -63,6 +75,45 @@ class RuntimeScanner(BaseScanner):
         self._check_tpcp_exfil()
 
         return self.findings
+
+    def _ingest_daemon_findings(self):
+        """
+        Ingest findings from the background runtime monitoring daemon.
+
+        The daemon (runtime_monitor.py) runs continuously from pipeline start
+        to finish, writing findings to a shared JSON file. This method reads
+        those findings and converts them into standard scanner findings.
+        """
+        if not self.DAEMON_FINDINGS_PATH.exists():
+            self.logger.debug("No daemon findings file (monitor may not be running)")
+            return
+
+        try:
+            daemon_findings = json.loads(self.DAEMON_FINDINGS_PATH.read_text())
+            if not daemon_findings:
+                return
+
+            self.logger.info(
+                f"Ingesting {len(daemon_findings)} finding(s) from runtime monitor daemon"
+            )
+
+            for df in daemon_findings:
+                self.add_finding(
+                    attack_id=df.get("attack_id", "SCA-RT-DAEMON"),
+                    title=f"[RUNTIME] {df.get('title', 'Unknown')}",
+                    severity=df.get("severity", "high"),
+                    description=(
+                        f"{df.get('description', '')} "
+                        f"[Detected at {df.get('timestamp', 'unknown')} by continuous monitor]"
+                    ),
+                    file="",
+                    line=0,
+                    remediation=df.get("remediation", "Investigate immediately."),
+                    evidence=df.get("evidence", ""),
+                )
+
+        except (json.JSONDecodeError, OSError) as e:
+            self.logger.debug(f"Failed to read daemon findings: {e}")
 
     def _check_credential_files(self):
         """Check for credential files that shouldn't exist in CI."""

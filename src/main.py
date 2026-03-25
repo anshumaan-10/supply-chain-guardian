@@ -221,11 +221,48 @@ def _parse_cli_args():
     parser.add_argument("--no-scan-runtime", dest="scan_runtime", action="store_false")
     parser.add_argument("--exclude", default="", help="Comma-separated paths to exclude")
     parser.add_argument("--json-output", default="", help="Path for JSON report output")
+
+    # Runtime monitor daemon commands
+    parser.add_argument("--monitor-start", action="store_true", default=False,
+                        help="Start the runtime monitoring daemon in the background")
+    parser.add_argument("--monitor-stop", action="store_true", default=False,
+                        help="Stop the runtime monitoring daemon and collect findings")
+    parser.add_argument("--monitor-status", action="store_true", default=False,
+                        help="Check if the runtime monitor daemon is running")
+    parser.add_argument("--monitor-interval", type=int, default=5,
+                        help="Poll interval for the monitor daemon in seconds (default: 5)")
+
     return parser.parse_args()
 
 
 def main():
     start_time = time.time()
+
+    # ── Handle monitor daemon commands (before banner) ───────────────────
+    # These are lightweight commands that exit immediately
+    if not os.environ.get("GITHUB_ACTIONS") == "true":
+        args = _parse_cli_args()
+
+        if args.monitor_start:
+            from runtime_monitor import cmd_start
+            sys.exit(cmd_start(args.monitor_interval))
+
+        if args.monitor_stop:
+            from runtime_monitor import cmd_stop
+            result = cmd_stop()
+            for f in result.get("findings", []):
+                sev = f.get("severity", "info").upper()
+                title = f.get("title", "Unknown")
+                ts = f.get("timestamp", "")[:19]
+                print(f"  [{sev}] {ts} — {title}")
+            sys.exit(0)
+
+        if args.monitor_status:
+            from runtime_monitor import cmd_status
+            sys.exit(cmd_status())
+    else:
+        args = None
+
     _banner()
 
     # ── Configuration ────────────────────────────────────────────────────
@@ -233,7 +270,6 @@ def main():
     if os.environ.get("GITHUB_ACTIONS") == "true":
         config = ScanConfig.from_environment()
     else:
-        args = _parse_cli_args()
         config = ScanConfig.from_cli_args(args)
     logger = Logger(config.verbose)
 
