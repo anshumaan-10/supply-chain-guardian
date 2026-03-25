@@ -39,9 +39,9 @@ class AttackPattern:
 
 
 class AttackDatabase:
-    """Database of 60+ known supply chain attack patterns with behavioral detection."""
+    """Database of 90+ known supply chain attack patterns with behavioral detection."""
 
-    version = "2025.03.1"
+    version = "2025.06.1"
 
     def __init__(self):
         self.attacks: List[AttackPattern] = []
@@ -1611,4 +1611,483 @@ class AttackDatabase:
                 ],
             },
             remediation="Use OIDC-based authentication where possible. Store AI keys only in GitHub Secrets. Rotate keys regularly."
+        ))
+
+        # ── SCA-061 to SCA-090: New categories (OIDC, Artifact, Container, Reusable Workflow) ──
+
+        self.attacks.append(AttackPattern(
+            id="SCA-061",
+            name="OIDC Token Scope Escalation via Workflow-Level Permission",
+            category="oidc_abuse",
+            severity="high",
+            cve="N/A",
+            description="Granting id-token: write at the workflow level allows every job to mint OIDC tokens, even jobs that don't need cloud authentication. A compromised step in any job can escalate to cloud access.",
+            date="2024-09-01",
+            affected=["GitHub Actions OIDC"],
+            references=["https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect"],
+            detection_signatures={
+                "permission_patterns": [r"id-token:\s*write"],
+            },
+            remediation="Move id-token: write to job-level permissions only for jobs that need cloud auth."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-062",
+            name="OIDC Token Exfiltration via Shell Script",
+            category="oidc_abuse",
+            severity="high",
+            cve="N/A",
+            description="OIDC token request URL and bearer token accessed directly in shell run blocks instead of through trusted cloud authentication actions. An attacker can forward the token to impersonate the repository.",
+            date="2024-09-01",
+            affected=["GitHub Actions OIDC"],
+            references=[],
+            detection_signatures={
+                "exfil_patterns": [
+                    r"ACTIONS_ID_TOKEN_REQUEST_URL",
+                    r"ACTIONS_ID_TOKEN_REQUEST_TOKEN",
+                    r"curl.*ACTIONS_ID_TOKEN",
+                ],
+            },
+            remediation="Use official cloud auth actions instead of manual OIDC token handling."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-063",
+            name="OIDC Token Forwarding to External Endpoint",
+            category="oidc_abuse",
+            severity="critical",
+            cve="N/A",
+            description="Workflow forwards an OIDC token to an external HTTP endpoint. An attacker can use the token to assume the GitHub OIDC identity and access cloud resources.",
+            date="2024-09-01",
+            affected=["GitHub Actions OIDC", "AWS", "GCP", "Azure"],
+            references=[],
+            detection_signatures={
+                "forward_patterns": [
+                    r"curl\s+.*-[dH].*id.token",
+                    r"requests\.post.*id.token",
+                ],
+            },
+            remediation="Never forward OIDC tokens manually. Use official cloud provider actions."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-064",
+            name="Wildcard OIDC Audience Misconfiguration",
+            category="oidc_abuse",
+            severity="critical",
+            cve="N/A",
+            description="OIDC token audience set to wildcard (*), allowing the token to authenticate against any service that trusts GitHub OIDC.",
+            date="2024-09-01",
+            affected=["GitHub Actions OIDC"],
+            references=[],
+            detection_signatures={
+                "audience_patterns": [r"audience:\s*[\"']?\*"],
+            },
+            remediation="Set a specific audience value matching only your intended cloud provider."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-065",
+            name="OIDC in pull_request_target Context (Identity Confusion)",
+            category="oidc_abuse",
+            severity="critical",
+            cve="N/A",
+            description="Workflow triggers on pull_request_target AND grants id-token: write. A malicious PR can modify workflow behavior to mint OIDC tokens, gaining access to cloud resources.",
+            date="2024-09-01",
+            affected=["GitHub Actions OIDC"],
+            references=[],
+            detection_signatures={
+                "trigger_patterns": [r"pull_request_target"],
+                "permission_patterns": [r"id-token:\s*write"],
+            },
+            remediation="Do NOT grant id-token: write in pull_request_target workflows."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-066",
+            name="Unnecessary OIDC Permission Grant",
+            category="oidc_abuse",
+            severity="medium",
+            cve="N/A",
+            description="Job has id-token: write permission but does not appear to use any cloud authentication action. Unnecessary OIDC permissions expand the attack surface.",
+            date="2024-09-01",
+            affected=["GitHub Actions OIDC"],
+            references=[],
+            detection_signatures={},
+            remediation="Remove id-token: write from jobs that don't need cloud OIDC authentication."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-067",
+            name="Artifact Upload Without Provenance Attestation",
+            category="artifact_integrity",
+            severity="medium",
+            cve="N/A",
+            description="Artifacts are uploaded without generating SLSA provenance attestation. Downstream consumers cannot verify the artifact was built by this CI pipeline.",
+            date="2024-10-01",
+            affected=["GitHub Actions Artifacts"],
+            references=["https://slsa.dev/spec/v1.0/levels"],
+            detection_signatures={},
+            remediation="Add actions/attest-build-provenance@v2 after upload steps."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-068",
+            name="Artifact Download Without Integrity Verification",
+            category="artifact_integrity",
+            severity="medium",
+            cve="N/A",
+            description="Artifacts are downloaded and used without checksum or signature verification. A compromised artifact can inject malicious code.",
+            date="2024-10-01",
+            affected=["GitHub Actions Artifacts"],
+            references=[],
+            detection_signatures={},
+            remediation="Verify downloaded artifact integrity with sha256sum, cosign verify, or slsa-verifier."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-069",
+            name="Untrusted Artifact in workflow_run Context (Artifact Poisoning)",
+            category="artifact_integrity",
+            severity="high",
+            cve="CVE-2023-GENERIC",
+            description="workflow_run event downloads artifacts from a triggering workflow. Artifacts from fork PRs are untrusted and can contain malicious payloads that execute in the privileged workflow_run context.",
+            date="2024-10-01",
+            affected=["GitHub Actions"],
+            references=["https://securitylab.github.com/research/github-actions-preventing-pwn-requests/"],
+            detection_signatures={
+                "artifact_patterns": [
+                    r"gh\s+api.*artifacts",
+                    r"gh\s+run\s+download",
+                ],
+            },
+            remediation="Validate artifact contents before use. Never execute downloaded artifacts directly."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-070",
+            name="Artifact Download Path Traversal",
+            category="artifact_integrity",
+            severity="high",
+            cve="N/A",
+            description="Artifact download path contains traversal patterns (..) that could overwrite files outside the intended directory.",
+            date="2024-10-01",
+            affected=["GitHub Actions Artifacts"],
+            references=[],
+            detection_signatures={
+                "path_patterns": [r"\.\."],
+            },
+            remediation="Use relative, non-traversal paths for artifact downloads."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-071",
+            name="Artifact Overwrite Race Condition",
+            category="artifact_integrity",
+            severity="medium",
+            cve="N/A",
+            description="Artifact upload with overwrite: true allows a race condition where a compromised parallel job replaces a legitimate artifact.",
+            date="2024-10-01",
+            affected=["GitHub Actions Artifacts"],
+            references=[],
+            detection_signatures={
+                "overwrite_patterns": [r"overwrite:\s*true"],
+            },
+            remediation="Use unique artifact names per run. Verify checksums after download."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-072",
+            name="Build and Publish in Same Job (TOCTOU)",
+            category="artifact_integrity",
+            severity="medium",
+            cve="N/A",
+            description="Build and publish steps in the same job create a TOCTOU vulnerability. A compromised build step can modify artifacts before publish.",
+            date="2024-10-01",
+            affected=["GitHub Actions"],
+            references=[],
+            detection_signatures={},
+            remediation="Separate build and publish into different jobs with artifact transfer."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-073",
+            name="Privileged Container in CI Job",
+            category="container_supply_chain",
+            severity="critical",
+            cve="N/A",
+            description="Job container runs with --privileged flag, enabling container escape and host access. A compromised step can access other jobs' secrets and the Docker daemon.",
+            date="2024-11-01",
+            affected=["Docker", "GitHub Actions"],
+            references=[],
+            detection_signatures={
+                "container_patterns": [r"--privileged"],
+            },
+            remediation="Remove --privileged. Use specific capabilities with --cap-add if needed."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-074",
+            name="Unpinned Container Image (Mutable Tag)",
+            category="container_supply_chain",
+            severity="high",
+            cve="N/A",
+            description="Container image referenced with :latest or untagged. Mutable tags can be replaced with malicious images on the registry.",
+            date="2024-11-01",
+            affected=["Docker", "Container Registries"],
+            references=[],
+            detection_signatures={
+                "image_patterns": [r":latest", r"FROM\s+\S+\s*$"],
+            },
+            remediation="Pin container images to SHA256 digests: image@sha256:<digest>"
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-075",
+            name="Container Image from Untrusted Registry",
+            category="container_supply_chain",
+            severity="medium",
+            cve="N/A",
+            description="Container image pulled from a registry not in the trusted list. Untrusted registries may serve malicious images.",
+            date="2024-11-01",
+            affected=["Docker", "Container Registries"],
+            references=[],
+            detection_signatures={},
+            remediation="Use trusted registries (ghcr.io, docker.io, public.ecr.aws). Verify image signatures."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-076",
+            name="Docker Socket Mount (Container Escape)",
+            category="container_supply_chain",
+            severity="critical",
+            cve="N/A",
+            description="Docker socket mounted into a container gives full Docker daemon control, enabling container escape, image manipulation, and host access.",
+            date="2024-11-01",
+            affected=["Docker"],
+            references=[],
+            detection_signatures={
+                "socket_patterns": [r"/var/run/docker\.sock"],
+            },
+            remediation="Avoid mounting the Docker socket. Use Docker-in-Docker with proper isolation."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-077",
+            name="Secret Passed via Docker --build-arg",
+            category="container_supply_chain",
+            severity="high",
+            cve="N/A",
+            description="Secrets passed as Docker build arguments are stored in image layers and can be extracted from image history.",
+            date="2024-11-01",
+            affected=["Docker"],
+            references=[],
+            detection_signatures={
+                "build_arg_patterns": [r"--build-arg\s+\w*(token|key|secret|password|auth)"],
+            },
+            remediation="Use Docker BuildKit --secret flag instead of --build-arg for secrets."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-078",
+            name="Docker Image Push Without Signing",
+            category="container_supply_chain",
+            severity="medium",
+            cve="N/A",
+            description="Docker image pushed to registry without signing. Unsigned images cannot be verified for integrity.",
+            date="2024-11-01",
+            affected=["Docker", "Container Registries"],
+            references=["https://docs.sigstore.dev/cosign/signing/signing_with_containers/"],
+            detection_signatures={
+                "push_patterns": [r"docker\s+push"],
+            },
+            remediation="Sign images after push with cosign: cosign sign --key <key> <image>@<digest>"
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-079",
+            name="Insecure Docker Registry Configuration",
+            category="container_supply_chain",
+            severity="high",
+            cve="N/A",
+            description="Docker configured to use insecure (non-TLS) registry, enabling man-in-the-middle image substitution.",
+            date="2024-11-01",
+            affected=["Docker"],
+            references=[],
+            detection_signatures={
+                "insecure_patterns": [r"--insecure-registry", r"--tls-verify=false"],
+            },
+            remediation="Always use TLS for registry communication."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-080",
+            name="Unpinned Dockerfile Base Image",
+            category="container_supply_chain",
+            severity="high",
+            cve="N/A",
+            description="Dockerfile FROM instruction not pinned to a digest. Base images can be poisoned on public registries.",
+            date="2024-11-01",
+            affected=["Docker"],
+            references=[],
+            detection_signatures={
+                "from_patterns": [r"^FROM\s+\S+\s*$", r"^FROM\s+\S+:latest"],
+            },
+            remediation="Pin Dockerfile base images to SHA256 digest."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-081",
+            name="Remote URL in Dockerfile ADD",
+            category="container_supply_chain",
+            severity="high",
+            cve="N/A",
+            description="Dockerfile ADD fetches from a remote URL that can be changed after the Dockerfile was created.",
+            date="2024-11-01",
+            affected=["Docker"],
+            references=[],
+            detection_signatures={
+                "add_patterns": [r"^ADD\s+https?://"],
+            },
+            remediation="Use COPY with pre-downloaded and checksum-verified files."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-082",
+            name="Pipe-to-Shell in Dockerfile RUN",
+            category="container_supply_chain",
+            severity="critical",
+            cve="N/A",
+            description="Dockerfile RUN pipes downloaded content to a shell, the primary supply chain attack vector for containers.",
+            date="2024-11-01",
+            affected=["Docker"],
+            references=[],
+            detection_signatures={
+                "pipe_patterns": [r"curl.*\|\s*(bash|sh|python)"],
+            },
+            remediation="Download scripts first, verify checksum, then execute."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-083",
+            name="Dockerfile Running as Root",
+            category="container_supply_chain",
+            severity="low",
+            cve="N/A",
+            description="Dockerfile does not set a non-root USER. Running as root increases the impact of container escapes.",
+            date="2024-11-01",
+            affected=["Docker"],
+            references=[],
+            detection_signatures={},
+            remediation="Add USER 1001:1001 instruction to run as non-root."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-084",
+            name="Reusable Workflow with Mutable Ref",
+            category="reusable_workflow",
+            severity="high",
+            cve="N/A",
+            description="Reusable workflow called with a mutable tag or branch ref. The workflow owner can change the code without the caller's knowledge.",
+            date="2024-12-01",
+            affected=["GitHub Actions"],
+            references=["https://docs.github.com/en/actions/using-workflows/reusing-workflows"],
+            detection_signatures={},
+            remediation="Pin reusable workflow calls to full commit SHAs."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-085",
+            name="Reusable Workflow from External Organization",
+            category="reusable_workflow",
+            severity="medium",
+            cve="N/A",
+            description="Reusable workflow called from an external organization. External workflows can access inherited secrets and OIDC tokens.",
+            date="2024-12-01",
+            affected=["GitHub Actions"],
+            references=[],
+            detection_signatures={},
+            remediation="Audit external workflows. Fork and maintain your own copy. Pin to a SHA."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-086",
+            name="All Secrets Inherited by Reusable Workflow",
+            category="reusable_workflow",
+            severity="high",
+            cve="N/A",
+            description="secrets: inherit passes ALL repository secrets to external reusable workflow. A compromised workflow can exfiltrate every secret.",
+            date="2024-12-01",
+            affected=["GitHub Actions"],
+            references=[],
+            detection_signatures={
+                "inherit_patterns": [r"secrets:\s*inherit"],
+            },
+            remediation="Pass only specific secrets needed by the workflow."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-087",
+            name="Excessive Secrets Passed to Reusable Workflow",
+            category="reusable_workflow",
+            severity="medium",
+            cve="N/A",
+            description="Many secrets passed to a reusable workflow increases the blast radius if the external workflow is compromised.",
+            date="2024-12-01",
+            affected=["GitHub Actions"],
+            references=[],
+            detection_signatures={},
+            remediation="Minimize secrets. Use OIDC for cloud auth instead of long-lived secrets."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-088",
+            name="Untrusted Data in Reusable Workflow Input",
+            category="reusable_workflow",
+            severity="high",
+            cve="N/A",
+            description="Attacker-controllable data (PR title, body, branch name) passed as input to a reusable workflow. Creates script injection if the workflow uses it in run blocks.",
+            date="2024-12-01",
+            affected=["GitHub Actions"],
+            references=[],
+            detection_signatures={
+                "input_patterns": [
+                    r"github\.event\..*\.title",
+                    r"github\.event\..*\.body",
+                    r"github\.head_ref",
+                ],
+            },
+            remediation="Sanitize inputs. Use intermediate environment variables."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-089",
+            name="Reusable Workflow with write-all Permissions",
+            category="reusable_workflow",
+            severity="high",
+            cve="N/A",
+            description="Reusable workflow has write-all permissions. Any caller grants it maximum permissions, increasing the impact of vulnerabilities.",
+            date="2024-12-01",
+            affected=["GitHub Actions"],
+            references=[],
+            detection_signatures={
+                "permission_patterns": [r"permissions:\s*write-all"],
+            },
+            remediation="Apply least-privilege permissions. Specify only needed permissions."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-090",
+            name="Reusable Workflow Input Used in Run Block (Injection)",
+            category="reusable_workflow",
+            severity="medium",
+            cve="N/A",
+            description="Reusable workflow input interpolated directly in a run block. If the caller passes attacker-controlled data, this is a script injection.",
+            date="2024-12-01",
+            affected=["GitHub Actions"],
+            references=[],
+            detection_signatures={
+                "injection_patterns": [r"inputs\.\w+.*run:"],
+            },
+            remediation="Pass inputs through environment variables instead of direct interpolation."
         ))

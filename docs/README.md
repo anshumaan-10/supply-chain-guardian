@@ -1,70 +1,62 @@
 # Supply Chain Guardian
 
-Enterprise-grade GitHub Actions supply chain security scanner.  
-Detects **60+ known attack patterns** plus **behavioral indicators of future compromises** that no signature database can catch.  
-Scans, alerts, and blocks pipelines on true-positive threats.
+**Enterprise-grade supply chain security scanner for GitHub Actions & CI/CD pipelines.**
 
-```
-uses: anshumaan-10/supply-chain-guardian@v1
+Detects **90+ known attack patterns** across **16 scanner modules** — plus **80+ behavioral indicators** of future compromises that no signature database can catch. Scans, alerts, and blocks pipelines on true-positive threats.
+
+Created by **Anshumaan Singh** ([github.com/anshumaan-10](https://github.com/anshumaan-10))
+
+```yaml
+uses: anshumaan-10/supply-chain-guardian@v2
 ```
 
 ---
 
-## Why This Exists
+## What It Does
 
-Every major supply chain attack on GitHub Actions follows the same lifecycle:
+Every supply chain attack on GitHub Actions follows the same lifecycle:
 
 ```
-Infiltrate → Persist → Exfiltrate → Weaponise
+Infiltrate >> Persist >> Exfiltrate >> Weaponise
 ```
 
-Most security tools only detect attacks **after** a signature is published — days or weeks later.  
-Supply Chain Guardian detects the **behavioral invariants** of that lifecycle, catching novel attacks **before** any advisory is issued.
+Most security tools only detect attacks **after** a signature is published — days or weeks later. Supply Chain Guardian detects the **behavioral invariants** of that lifecycle, catching novel attacks before any advisory is issued.
 
 ---
 
-## What It Detects
+## Scanner Modules (16)
 
-### Signature-Based (Known Attacks)
+### Signature Scanners (True-Positive Detection)
 
-| Category | What's Detected | Patterns |
-|----------|----------------|----------|
-| **Compromised Actions** | Known-bad commit SHAs, tag mutation victims | 10+ |
-| **Pwn Requests** | `pull_request_target` + checkout, script injection | 8 |
-| **Dependency Attacks** | Malicious packages across npm, PyPI, Maven, RubyGems | 20+ |
-| **Secret Exfiltration** | Hardcoded AWS keys, GitHub PATs, API keys, curl-to-evil | 35+ |
-| **Network Attacks** | Reverse shells, DNS exfil, tunneling, C2 endpoints | 30+ |
-| **Cache Poisoning** | Broad restore-keys, cross-branch cache injection | 5 |
-| **Typosquatting** | Known typosquats + Levenshtein distance detection | Dynamic |
+| # | Scanner | What It Detects | Patterns |
+|---|---------|----------------|----------|
+| 1 | **Compromised Actions** | Known-bad commit SHAs, tag mutation victims (tj-actions, reviewdog) | 10+ |
+| 2 | **Pwn Request** | `pull_request_target` + checkout, script injection, env injection | 8 |
+| 3 | **Workflow Analysis** | Unsafe triggers, missing concurrency, overly broad paths | 15+ |
+| 4 | **Cache Poisoning** | Broad restore-keys, cross-branch cache injection | 5 |
+| 5 | **Permission Audit** | write-all, missing least-privilege, job-level violations | 10+ |
+| 6 | **Secret Exposure** | Hardcoded keys (AWS, GitHub, AI/LLM), exfiltration patterns | 35+ |
+| 7 | **Network Exfiltration** | Reverse shells, DNS exfil, tunneling, C2 endpoints | 30+ |
+| 8 | **Dependency Integrity** | Malicious packages across npm, PyPI, Maven, RubyGems, Cargo | 20+ |
+| 9 | **Typosquatting** | Known typosquats + Levenshtein distance detection | Dynamic |
+| 10 | **Provenance Verification** | SLSA attestation, Sigstore, unsigned releases | 10+ |
+| 11 | **Runtime Monitor** | Credential dumping, memory scraping, proc filesystem abuse | 15+ |
 
-### Behavioral (Future Attacks)
+### New Scanner Categories (v2.0)
 
-| Category | What's Detected | Why It Matters |
-|----------|----------------|----------------|
-| **Obfuscation** | base64\|sh, hex chains, eval(decode()), gzip\|sh | Every supply chain attack hides its payload |
-| **Dynamic Loading** | curl\|sh, download-then-execute, fetch+eval | Remote code injection without review |
-| **Credential Harvesting** | Mass env dump, key file enumeration, token access | First step of every exfiltration |
-| **Persistence** | Cron injection, git hooks, shell profile modification | Self-hosted runner takeover |
-| **Anomalous Flow** | Time bombs, background exec, error suppression | Evasion of logging and detection |
-| **Trust Boundary Abuse** | Privileged containers, host mounts, namespace escape | Runner compromise |
-| **Artifact Tampering** | Post-build injection, checksum suppression | Poisoned releases |
-| **Shadow Dependencies** | Non-standard registries, install-script overrides | Dependency confusion |
-| **Covert Channels** | Steganographic payloads, zero-width Unicode | Invisible payloads |
-
-**Total: 60+ signature patterns + 80+ behavioral indicators.**
-
-### Proactive Monitoring (Pre-Compromise)
-
-| Tool | Purpose |
-|------|---------|
-| `scripts/action_integrity_monitor.py` | Monitors upstream action repos for tag mutation, new maintainers, unsigned commits, suspicious commit patterns |
-| `scripts/workflow_lockfile.py` | Generates and verifies a cryptographic lockfile of all action SHAs — detects when a tag is force-pushed |
+| # | Scanner | What It Detects |
+|---|---------|----------------|
+| 12 | **OIDC Token Audit** | Token scope escalation, exfiltration, wildcard audiences, identity confusion in PR contexts |
+| 13 | **Artifact Integrity** | Unsigned uploads, download without verification, workflow_run artifact poisoning, TOCTOU |
+| 14 | **Container Security** | Unpinned base images, --privileged, Docker socket mount, insecure registries, build-arg secrets |
+| 15 | **Reusable Workflow Trust** | Mutable refs, secret inheritance, input injection, external org trust boundaries |
+| 16 | **Behavioral Analysis** | 80+ patterns across 10 categories (obfuscation, dynamic loading, persistence, etc.) |
 
 ---
 
 ## Quick Start
 
-### Basic (push + PR)
+### Basic Usage
 
 ```yaml
 name: Supply Chain Security
@@ -76,134 +68,192 @@ permissions:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: anshumaan-10/supply-chain-guardian@v1
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: anshumaan-10/supply-chain-guardian@v2
         with:
           scan-mode: standard
           fail-on-severity: high
-      - uses: github/codeql-action/upload-sarif@v3
-        if: always()
-        with:
-          sarif_file: supply-chain-guardian.sarif
 ```
 
-### Paranoid (schedule + workflow_call + dispatch)
+### Paranoid Mode (Maximum Detection)
 
 ```yaml
-name: Supply Chain Guardian (Paranoid)
-on:
-  push:
-    branches: [main, release/*]
-  pull_request:
-    branches: [main]
-  schedule:
-    - cron: "0 6 * * 1"
-  workflow_dispatch:
-  workflow_call:
-    inputs:
-      scan-mode:
-        type: string
-        default: 'paranoid'
-
-permissions:
-  contents: read
-  security-events: write
-  pull-requests: write
-  issues: write
-
-jobs:
-  scan:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: anshumaan-10/supply-chain-guardian@v1
+      - uses: anshumaan-10/supply-chain-guardian@v2
         with:
           scan-mode: paranoid
           fail-on-severity: medium
-          scan-provenance: "true"
-          scan-runtime: "true"
-          slack-webhook-url: ${{ secrets.SLACK_SECURITY_WEBHOOK }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-```
-
-### Proactive Integrity Monitoring (schedule)
-
-```yaml
-name: Action Integrity Monitor
-on:
-  schedule:
-    - cron: "0 */6 * * *"
-  workflow_dispatch:
-  repository_dispatch:
-    types: [integrity-check]
-
-jobs:
-  verify:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - run: pip install -q requests
-      - name: Verify Action Lockfile
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/workflow_lockfile.py --verify --workspace ${{ github.workspace }}
+          scan-runtime: 'true'
+          verbose: 'true'
 ```
 
 ---
 
-## Inputs
+## DevSecOps Pipeline Placement
+
+### Where to Scan in Your Pipeline
+
+```
++------------------+     +-----------+     +-------------------+     +--------+
+| Pre-Build Scan   | --> |   Build   | --> | Post-Build Scan   | --> | Deploy |
+| (source, deps,   |     | (compile, |     | (container, art-  |     |        |
+|  workflows,      |     |  test)    |     |  ifact integrity) |     |        |
+|  secrets, OIDC)  |     |           |     |                   |     |        |
++------------------+     +-----------+     +-------------------+     +--------+
+        |                                          |
+        v                                          v
+  BLOCK if critical                        BLOCK if critical
+  (poisoned deps,                          (tampered images,
+   compromised actions)                     unsigned artifacts)
+```
+
+### Pre-Build Scan (BEFORE `docker build` / `npm ci` / `go build`)
+
+Catches: compromised actions, poisoned dependencies, secret exposure, OIDC abuse, pwn requests.
+
+```yaml
+  pre-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: anshumaan-10/supply-chain-guardian@v2
+        id: scan
+        with:
+          scan-mode: deep
+          fail-on-severity: high
+```
+
+### Post-Build Scan (AFTER build, BEFORE push/deploy)
+
+Catches: tampered artifacts, unsigned images, Dockerfile issues, container escape patterns.
+
+```yaml
+  post-build:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: anshumaan-10/supply-chain-guardian@v2
+        with:
+          scan-mode: paranoid
+          fail-on-severity: high
+```
+
+### Docker Build Pipeline
+
+**Critical rule: scan BEFORE push. If a finding is detected between build and push, the image is NEVER pushed to the registry.**
+
+See [examples/docker-pipeline.yml](../examples/docker-pipeline.yml) for the complete workflow.
+
+---
+
+## Complete Configuration
 
 | Input | Default | Description |
 |-------|---------|-------------|
-| `scan-mode` | `standard` | Scan intensity: `quick`, `standard`, `deep`, `paranoid` |
-| `fail-on-severity` | `high` | Minimum severity to fail the pipeline |
-| `scan-workflows` | `true` | Scan workflow files for safety issues |
-| `scan-dependencies` | `true` | Scan package manifests for malicious packages |
-| `scan-secrets` | `true` | Detect hardcoded secrets and credential exfiltration |
-| `scan-network` | `true` | Detect reverse shells, tunneling, DNS exfil |
-| `scan-permissions` | `true` | Audit workflow permissions for least privilege |
-| `scan-provenance` | `true` | Verify dependency provenance and integrity |
-| `scan-runtime` | `false` | Monitor runner environment at execution time |
-| `slack-webhook-url` | — | Slack Incoming Webhook URL for alerts |
-| `teams-webhook-url` | — | Microsoft Teams Webhook URL for alerts |
-| `github-token` | — | GitHub token for PR comments and issue creation |
-| `exclude-paths` | — | Comma-separated paths to exclude |
+| `scan-mode` | `standard` | `quick`, `standard`, `deep`, `paranoid` |
+| `fail-on-severity` | `high` | `critical`, `high`, `medium`, `low`, `info` |
+| `scan-workflows` | `true` | Scan workflow files (enables 7 sub-scanners) |
+| `scan-dependencies` | `true` | Package dependency scanning |
+| `scan-secrets` | `true` | Secret exposure detection |
+| `scan-network` | `true` | Network exfiltration patterns |
+| `scan-permissions` | `true` | Permission audit |
+| `scan-provenance` | `true` | Provenance verification |
+| `scan-runtime` | `false` | Runtime monitoring (enable for paranoid mode) |
+| `verbose` | `false` | Detailed debug output |
+| `exclude-paths` | `` | Comma-separated paths to exclude |
+| `slack-webhook-url` | `` | Slack alerting |
+| `teams-webhook-url` | `` | Microsoft Teams alerting |
+| `alert-on-severity` | `high` | Minimum severity for alerts |
+| `sarif-output` | `true` | SARIF report for GitHub Advanced Security |
+| `json-output` | `...report.json` | JSON report path |
+| `github-token` | `github.token` | GitHub API token |
+| `block-pr` | `true` | Block PR merge on critical findings |
+| `create-issue` | `true` | Create issue on critical findings |
+| `auto-comment-pr` | `true` | Comment on PRs with results |
 
 ## Outputs
 
 | Output | Description |
 |--------|-------------|
 | `scan-status` | `PASSED`, `WARNING`, or `FAILED` |
-| `total-findings` | Total finding count |
-| `critical-findings` | Critical severity count |
-| `high-findings` | High severity count |
-| `medium-findings` | Medium severity count |
-| `low-findings` | Low severity count |
+| `total-findings` | Total number of findings |
+| `critical-findings` | Number of critical findings |
+| `high-findings` | Number of high findings |
+| `medium-findings` | Number of medium findings |
+| `low-findings` | Number of low findings |
 | `report-path` | Path to JSON report |
 | `sarif-path` | Path to SARIF report |
 
 ---
 
-## How Blocking Works
+## Attack Database
 
-Supply Chain Guardian uses **confidence-aware blocking** to minimise false positives:
+**90 known attack patterns** (SCA-001 to SCA-090) organized by category:
 
-| Scanner Type | Blocking Rule |
-|---|---|
-| **Signature scanners** (compromised actions, known SHAs, network exfil, secrets) | Block at configured `fail-on-severity` threshold |
-| **Behavioral scanner** (obfuscation, dynamic loading, credential harvest) | Block only on **critical** behavioral findings (e.g., `base64\|sh`, `curl\|sh`) |
-| **Informational/heuristic** (low, info) | Alert only — never block |
+| Category | Pattern Range | Count |
+|----------|--------------|-------|
+| Actions Compromise | SCA-001 to SCA-010 | 10 |
+| Pwn Requests | SCA-011 to SCA-018 | 8 |
+| Credential Exfiltration | SCA-019 to SCA-030 | 12 |
+| Package Compromise | SCA-031 to SCA-040 | 10 |
+| Build System | SCA-041 to SCA-045 | 5 |
+| Dependency Confusion | SCA-046 to SCA-050 | 5 |
+| Typosquatting | SCA-051 to SCA-055 | 5 |
+| Container Supply Chain | SCA-056 to SCA-058 | 3 |
+| Script Injection | SCA-059 | 1 |
+| AI/LLM Key Exposure | SCA-060 | 1 |
+| **OIDC Token Abuse** | SCA-061 to SCA-066 | **6** |
+| **Artifact Integrity** | SCA-067 to SCA-072 | **6** |
+| **Container Security** | SCA-073 to SCA-083 | **11** |
+| **Reusable Workflows** | SCA-084 to SCA-090 | **7** |
 
-This means: a signature match for a known-compromised SHA always blocks. A behavioral finding like "no timeout-minutes" (low severity) only alerts.
+Plus **80+ behavioral patterns** across obfuscation, dynamic code loading, credential harvesting, persistence, control flow anomalies, trust boundary violations, artifact tampering, shadow dependencies, and covert channels.
+
+---
+
+## Blocking Logic
+
+Supply Chain Guardian uses a **true-positive blocking strategy**:
+
+- **Signature matches** (compromised SHAs, known-bad patterns) → **BLOCK** at threshold
+- **Behavioral matches** → **Alert only** unless critical (e.g., curl|sh, base64|sh are always TP)
+- **Combined** → BLOCK if any finding meets the `fail-on-severity` threshold
+
+This prevents false-positive pipeline failures while catching real attacks.
+
+---
+
+## Examples
+
+| Example | Description |
+|---------|-------------|
+| [basic-scan.yml](../examples/basic-scan.yml) | Simple PR/push scan |
+| [paranoid-scan.yml](../examples/paranoid-scan.yml) | Maximum detection mode |
+| [dependency-scan.yml](../examples/dependency-scan.yml) | Dependency-focused scan |
+| [devsecops-pipeline.yml](../examples/devsecops-pipeline.yml) | **Full 5-stage DevSecOps pipeline** |
+| [docker-pipeline.yml](../examples/docker-pipeline.yml) | **Docker build scan pipeline** |
+| [reusable-workflow.yml](../examples/reusable-workflow.yml) | Reusable workflow pattern |
+
+---
+
+## FAQ
+
+### Q: Where should I place the scan in my pipeline?
+
+**Before the build** to catch compromised dependencies and actions. **After the build** to catch tampered artifacts and containers. See the [DevSecOps pipeline example](../examples/devsecops-pipeline.yml).
+
+### Q: How do I scan Docker images?
+
+Supply Chain Guardian scans Dockerfiles for unpinned base images, pipe-to-shell patterns, and build-arg secrets. For image-level vulnerability scanning, combine with Trivy or Grype. See [docker-pipeline.yml](../examples/docker-pipeline.yml).
+
+### Q: Why does it block my pipeline?
+
+A finding at or above your `fail-on-severity` threshold was detected. Check the scan output for the specific finding and its remediation guidance. To get alerts without blocking, set `fail-on-severity: critical`.
+
+### Q: How do I pin actions to SHA?
+
+Replace `uses: actions/checkout@v4` with `uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2`. The SHA ensures the action code cannot be changed without your knowledge.
 
 ---
 
@@ -211,71 +261,50 @@ This means: a signature match for a known-compromised SHA always blocks. A behav
 
 ```
 src/
-├── main.py                            # Orchestrator + blocking logic
-├── db/attack_db.py                    # 60+ attack patterns
-├── scanners/
-│   ├── base_scanner.py                # Abstract base class
-│   ├── behavioral_scanner.py          # 80+ behavioral / future indicators
-│   ├── compromised_action_scanner.py  # Known-bad action signatures
-│   ├── pwn_request_scanner.py         # PR privilege escalation
-│   ├── workflow_scanner.py            # General workflow analysis
-│   ├── cache_poisoning_scanner.py     # Cache attack patterns
-│   ├── permission_scanner.py          # Least-privilege auditing
-│   ├── secret_scanner.py              # Secret detection + exfiltration
-│   ├── network_scanner.py             # Reverse shells, tunnels, DNS exfil
-│   ├── dependency_scanner.py          # Package manifest scanning
-│   ├── typosquat_scanner.py           # Package name confusion
-│   ├── provenance_scanner.py          # Integrity verification
-│   └── runtime_scanner.py             # Runtime anomaly detection
-├── reporters/
-│   ├── table_reporter.py              # Console output
-│   ├── json_reporter.py               # JSON report file
-│   ├── sarif_reporter.py              # SARIF 2.1.0 for GitHub Code Scanning
-│   └── github_reporter.py             # PR comments, issues, annotations
-├── alerting/
-│   ├── slack_alerter.py               # Slack webhooks
-│   └── teams_alerter.py               # Teams Adaptive Cards
-├── utils/
-│   ├── config.py                      # Configuration management
-│   ├── files.py                       # File discovery and YAML parsing
-│   └── logger.py                      # Colorized logging
-scripts/
-├── action_integrity_monitor.py        # Proactive upstream monitoring
-└── workflow_lockfile.py               # Cryptographic action lockfile
+  main.py                          # Orchestrator (DevSecOps pipeline phases)
+  scanners/
+    base_scanner.py                # Abstract base class
+    compromised_action_scanner.py  # SHA / tag detection
+    pwn_request_scanner.py         # pull_request_target analysis
+    workflow_scanner.py            # General workflow scanning
+    cache_poisoning_scanner.py     # Cache attack patterns
+    permission_scanner.py          # Least-privilege audit
+    secret_scanner.py              # Secret detection
+    network_scanner.py             # Network exfiltration
+    dependency_scanner.py          # Package scanning
+    typosquat_scanner.py           # Levenshtein detection
+    provenance_scanner.py          # Integrity verification
+    runtime_scanner.py             # Runtime monitoring
+    oidc_scanner.py                # OIDC token audit (NEW)
+    artifact_scanner.py            # Artifact integrity (NEW)
+    container_scanner.py           # Container security (NEW)
+    reusable_workflow_scanner.py   # Reusable workflow trust (NEW)
+    behavioral_scanner.py          # 80+ behavioral patterns
+  reporters/
+    table_reporter.py              # Colored terminal tables
+    json_reporter.py               # Structured JSON
+    sarif_reporter.py              # GitHub Code Scanning
+    github_reporter.py             # PR comments, issues, annotations
+  alerting/
+    slack_alerter.py               # Slack webhook
+    teams_alerter.py               # Teams webhook
+  db/
+    attack_db.py                   # 90 attack patterns
+  utils/
+    config.py                      # 22 configuration inputs
+    logger.py                      # Color-coded arrow logging
+    files.py                       # File and YAML utilities
 ```
-
----
-
-## Running Locally
-
-```bash
-export GITHUB_WORKSPACE=/path/to/your/repo
-export INPUT_SCAN_MODE=standard
-export INPUT_FAIL_ON_SEVERITY=high
-python3 src/main.py
-```
-
-## Running Tests
-
-```bash
-pip install pyyaml tabulate colorama
-python -m pytest tests/ -v
-```
-
-## Examples
-
-See [`examples/`](../examples/) for ready-to-use workflows:
-
-| File | Purpose |
-|------|---------|
-| `basic-scan.yml` | Push + PR scan with SARIF upload |
-| `paranoid-scan.yml` | Maximum security with Slack/Teams alerts |
-| `dependency-scan.yml` | Lightweight dependency-only scan |
-| `reusable-workflow.yml` | Reusable `workflow_call` pattern |
-| `integrity-monitor.yml` | Scheduled proactive monitoring |
 
 ---
 
 ## License
 
-MIT
+Copyright (c) 2025-2026 Anshumaan Singh. All rights reserved.
+
+This software is distributed under the [Business Source License 1.1](../LICENSE).
+Use only via the published GitHub Action: `anshumaan-10/supply-chain-guardian@v2`.
+
+---
+
+**Built by Anshumaan Singh** | [github.com/anshumaan-10](https://github.com/anshumaan-10)

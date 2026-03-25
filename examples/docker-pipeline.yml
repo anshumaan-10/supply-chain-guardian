@@ -1,0 +1,133 @@
+# ==========================================================================
+#  Supply Chain Guardian — Docker Build Pipeline
+#  Author: Anshumaan Singh (github.com/anshumaan-10)
+#
+#  Shows exactly WHERE to place scans around Docker builds:
+#
+#    1. BEFORE docker build  →  Catch poisoned dependencies, bad actions
+#    2. AFTER docker build   →  Catch tampered images, unsigned pushes
+#    3. BEFORE docker push   →  Final integrity gate
+#
+#  Key rule: if a scan finds critical findings between build and push,
+#  the image is NEVER pushed to the registry.
+# ==========================================================================
+name: Docker Build with Supply Chain Guardian
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+
+permissions:
+  contents: read
+  packages: write
+  security-events: write
+  id-token: write  # For OIDC auth to container registry
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # ── Step 1: Pre-Build Scan (BEFORE docker build) ────────────────────
+  pre-build:
+    name: "Pre-Build: Scan Source & Dependencies"
+    runs-on: ubuntu-latest
+    outputs:
+      scan-status: ${{ steps.scan.outputs.scan-status }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Supply Chain Guardian (Pre-Build)
+        id: scan
+        uses: anshumaan-10/supply-chain-guardian@v2
+        with:
+          scan-mode: deep
+          fail-on-severity: high
+          scan-workflows: 'true'
+          scan-dependencies: 'true'
+          scan-secrets: 'true'
+          scan-network: 'true'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ── Step 2: Build Docker Image ──────────────────────────────────────
+  build:
+    name: "Build Docker Image"
+    needs: pre-build
+    if: needs.pre-build.outputs.scan-status != 'FAILED'
+    runs-on: ubuntu-latest
+    outputs:
+      image-digest: ${{ steps.build.outputs.digest }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image (NO push yet)
+        id: build
+        uses: docker/build-push-action@14487ce63c7a62a4a324b0bfb37086795e31c6c1 # v6.16.0
+        with:
+          context: .
+          push: false
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          load: true
+
+  # ── Step 3: Post-Build Scan (AFTER build, BEFORE push) ─────────────
+  post-build:
+    name: "Post-Build: Scan Before Push"
+    needs: build
+    runs-on: ubuntu-latest
+    outputs:
+      scan-status: ${{ steps.scan.outputs.scan-status }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Supply Chain Guardian (Post-Build)
+        id: scan
+        uses: anshumaan-10/supply-chain-guardian@v2
+        with:
+          scan-mode: paranoid
+          fail-on-severity: high
+          scan-workflows: 'true'
+          scan-dependencies: 'true'
+          scan-secrets: 'true'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ── Step 4: Push + Sign (only if ALL scans pass) ───────────────────
+  push-and-sign:
+    name: "Push & Sign Image"
+    needs: [build, post-build]
+    if: needs.post-build.outputs.scan-status != 'FAILED'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Docker image
+        uses: docker/build-push-action@14487ce63c7a62a4a324b0bfb37086795e31c6c1 # v6.16.0
+        id: push
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+
+      - name: Install cosign
+        uses: sigstore/cosign-installer@3454372f43399081ed03b604cb2d021dabca52bb # v3.8.2
+
+      - name: Sign container image
+        run: |
+          cosign sign --yes \
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.push.outputs.digest }}

@@ -1,6 +1,6 @@
 name: 'Supply Chain Guardian'
-description: 'Enterprise-grade GitHub Actions supply chain security scanner. Detects 60+ real-world attack patterns plus behavioral indicators of future compromises. Scans, alerts, and blocks pipelines on true-positive threats.'
-author: 'anshumaan-10'
+description: 'Enterprise-grade GitHub Actions supply chain security scanner. Detects 90+ real-world attack patterns across 16 scanner modules — OIDC, artifacts, containers, reusable workflows, and behavioral indicators. Scans, alerts, and blocks pipelines on true-positive threats.'
+author: 'Anshumaan Singh (anshumaan-10)'
 branding:
   icon: 'shield'
   color: 'red'
@@ -15,11 +15,11 @@ inputs:
     required: false
     default: 'high'
   scan-workflows:
-    description: 'Scan GitHub Actions workflow files'
+    description: 'Scan GitHub Actions workflow files for compromised actions, pwn requests, cache poisoning, OIDC abuse, artifact integrity, container supply chain, and reusable workflow trust issues'
     required: false
     default: 'true'
   scan-dependencies:
-    description: 'Scan package dependencies for known compromised packages'
+    description: 'Scan package dependencies for known compromised packages and typosquatting'
     required: false
     default: 'true'
   scan-secrets:
@@ -27,7 +27,7 @@ inputs:
     required: false
     default: 'true'
   scan-network:
-    description: 'Scan for network exfiltration patterns'
+    description: 'Scan for network exfiltration, reverse shells, DNS tunneling, and C2 patterns'
     required: false
     default: 'true'
   scan-permissions:
@@ -90,6 +90,10 @@ inputs:
     description: 'Automatically comment on PRs with scan results'
     required: false
     default: 'true'
+  verbose:
+    description: 'Enable verbose/debug output'
+    required: false
+    default: 'false'
 
 outputs:
   scan-status:
@@ -128,7 +132,7 @@ runs:
     - name: Install scanner dependencies
       shell: bash
       run: |
-        pip install -q pyyaml requests tabulate colorama jsonschema semver
+        pip install -q pyyaml requests tabulate colorama jsonschema semver 2>/dev/null
 
     - name: Run Supply Chain Guardian
       id: scan
@@ -155,6 +159,7 @@ runs:
         INPUT_BLOCK_PR: ${{ inputs.block-pr }}
         INPUT_CREATE_ISSUE: ${{ inputs.create-issue }}
         INPUT_AUTO_COMMENT_PR: ${{ inputs.auto-comment-pr }}
+        INPUT_VERBOSE: ${{ inputs.verbose }}
         GITHUB_REPOSITORY: ${{ github.repository }}
         GITHUB_SHA: ${{ github.sha }}
         GITHUB_REF: ${{ github.ref }}
@@ -167,14 +172,14 @@ runs:
 
     - name: Upload SARIF report
       if: inputs.sarif-output == 'true' && always()
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@4fa2a7953630fd2f3fb380f21f89e2b8cbc9e4ea # v3.28.18
       with:
         sarif_file: supply-chain-guardian.sarif
       continue-on-error: true
 
     - name: Upload scan report artifact
       if: always()
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
       with:
         name: supply-chain-guardian-report
         path: |

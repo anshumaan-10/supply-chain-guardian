@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#  Supply Chain Guardian — Table Reporter
+#  Copyright (c) 2025-2026 Anshumaan Singh. All rights reserved.
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
-Table Reporter
-==============
-Prints formatted scan results as tables to stdout for
-GitHub Actions workflow logs.
+Table Reporter — prints formatted scan results as tables to stdout
+for GitHub Actions workflow logs and terminal output.
 """
 
 import sys
@@ -15,27 +17,10 @@ try:
 except ImportError:
     HAS_TABULATE = False
 
-
-class Colors:
-    """ANSI colors for terminal output."""
-    RED = "\033[91m"
-    GREEN = "\033[92m"
-    YELLOW = "\033[93m"
-    BLUE = "\033[94m"
-    MAGENTA = "\033[95m"
-    CYAN = "\033[96m"
-    BOLD = "\033[1m"
-    DIM = "\033[2m"
-    RESET = "\033[0m"
+from utils.logger import C, SEV_MARKERS, SEV_COLORS
 
 
-SEVERITY_COLORS = {
-    "critical": Colors.RED + Colors.BOLD,
-    "high": Colors.RED,
-    "medium": Colors.YELLOW,
-    "low": Colors.BLUE,
-    "info": Colors.DIM,
-}
+SEVERITY_COLORS = SEV_COLORS
 
 
 class TableReporter:
@@ -52,7 +37,7 @@ class TableReporter:
         status = report_data.get("overall_status", "UNKNOWN")
 
         # Scanner summary
-        print(f"\n  {Colors.BOLD}Scanner Results:{Colors.RESET}")
+        print(f"\n  {C.BLD}Scanner Results:{C.RST}")
         print(f"  {'─' * 58}")
 
         scanner_rows = []
@@ -61,11 +46,11 @@ class TableReporter:
             count = result.get("findings_count", 0)
 
             if status_str == "error":
-                status_display = f"{Colors.RED}ERROR{Colors.RESET}"
+                status_display = f"{C.R}ERROR{C.RST}"
             elif count > 0:
-                status_display = f"{Colors.YELLOW}{count} finding(s){Colors.RESET}"
+                status_display = f"{C.Y}{count} finding(s){C.RST}"
             else:
-                status_display = f"{Colors.GREEN}CLEAN{Colors.RESET}"
+                status_display = f"{C.G}CLEAN{C.RST}"
 
             scanner_rows.append([f"  {scanner_name}", status_display])
 
@@ -79,11 +64,11 @@ class TableReporter:
         print(f"  {'─' * 58}\n")
 
         if not findings:
-            print(f"  {Colors.GREEN}{Colors.BOLD}No findings detected!{Colors.RESET}\n")
+            print(f"  {C.G}{C.BLD}No findings detected!{C.RST}\n")
             return
 
         # Findings table
-        print(f"  {Colors.BOLD}Findings ({len(findings)} total):{Colors.RESET}")
+        print(f"  {C.BLD}Findings ({len(findings)} total):{C.RST}")
         print(f"  {'─' * 78}")
 
         # Sort by severity
@@ -93,9 +78,9 @@ class TableReporter:
         rows = []
         for i, finding in enumerate(sorted_findings, 1):
             sev = finding.get("severity", "info")
-            color = SEVERITY_COLORS.get(sev, Colors.DIM)
+            color = SEVERITY_COLORS.get(sev, C.DIM)
 
-            sev_display = f"{color}{sev.upper():>8}{Colors.RESET}"
+            sev_display = f"{color}{sev.upper():>8}{C.RST}"
             title = finding.get("title", "Unknown")[:60]
             file_info = finding.get("file", "")
             line = finding.get("line", 0)
@@ -121,47 +106,46 @@ class TableReporter:
         # Print detailed findings for critical/high
         critical_high = [f for f in sorted_findings if f.get("severity") in ("critical", "high")]
         if critical_high:
-            print(f"  {Colors.BOLD}{Colors.RED}Detailed Critical/High Findings:{Colors.RESET}\n")
+            print(f"  {C.BLD}{C.R}Detailed Critical/High Findings:{C.RST}\n")
 
             for finding in critical_high:
                 sev = finding.get("severity", "info")
-                color = SEVERITY_COLORS.get(sev, Colors.DIM)
+                color = SEVERITY_COLORS.get(sev, C.DIM)
 
-                print(f"  {color}┌──────────────────────────────────────────────────────────────┐{Colors.RESET}")
-                print(f"  {color}│ [{sev.upper()}] {finding.get('title', 'Unknown')[:56]:<56} │{Colors.RESET}")
-                print(f"  {color}├──────────────────────────────────────────────────────────────┤{Colors.RESET}")
+                print(f"  {color}+--------------------------------------------------------------+{C.RST}")
+                print(f"  {color}| [{sev.upper()}] {finding.get('title', 'Unknown')[:56]:<56} |{C.RST}")
+                print(f"  {color}+--------------------------------------------------------------+{C.RST}")
 
                 file_info = finding.get("file", "")
                 line = finding.get("line", 0)
                 if file_info:
-                    print(f"  {color}│{Colors.RESET} File: {file_info}:{line}")
+                    print(f"  {color}|{C.RST} File: {file_info}:{line}")
 
                 desc = finding.get("description", "")
-                # Wrap description
                 for desc_line in _wrap_text(desc, 58):
-                    print(f"  {color}│{Colors.RESET} {desc_line}")
+                    print(f"  {color}|{C.RST} {desc_line}")
 
                 remediation = finding.get("remediation", "")
                 if remediation:
-                    print(f"  {color}│{Colors.RESET}")
-                    print(f"  {color}│{Colors.RESET} {Colors.GREEN}Remediation:{Colors.RESET}")
+                    print(f"  {color}|{C.RST}")
+                    print(f"  {color}|{C.RST} {C.G}Remediation:{C.RST}")
                     for rem_line in _wrap_text(remediation, 58):
-                        print(f"  {color}│{Colors.RESET}   {rem_line}")
+                        print(f"  {color}|{C.RST}   {rem_line}")
 
                 evidence = finding.get("evidence", "")
                 if evidence:
-                    print(f"  {color}│{Colors.RESET}")
-                    print(f"  {color}│{Colors.RESET} {Colors.DIM}Evidence: {evidence[:56]}{Colors.RESET}")
+                    print(f"  {color}|{C.RST}")
+                    print(f"  {color}|{C.RST} {C.DIM}Evidence: {evidence[:56]}{C.RST}")
 
-                print(f"  {color}└──────────────────────────────────────────────────────────────┘{Colors.RESET}\n")
+                print(f"  {color}+--------------------------------------------------------------+{C.RST}\n")
 
         # Summary
-        print(f"\n  {Colors.BOLD}Summary:{Colors.RESET}")
-        print(f"  {Colors.RED}{Colors.BOLD}  Critical: {summary.get('critical', 0)}{Colors.RESET}")
-        print(f"  {Colors.RED}  High:     {summary.get('high', 0)}{Colors.RESET}")
-        print(f"  {Colors.YELLOW}  Medium:   {summary.get('medium', 0)}{Colors.RESET}")
-        print(f"  {Colors.BLUE}  Low:      {summary.get('low', 0)}{Colors.RESET}")
-        print(f"  {Colors.DIM}  Info:     {summary.get('info', 0)}{Colors.RESET}")
+        print(f"\n  {C.BLD}Summary:{C.RST}")
+        print(f"  {C.R}{C.BLD}  Critical: {summary.get('critical', 0)}{C.RST}")
+        print(f"  {C.R}  High:     {summary.get('high', 0)}{C.RST}")
+        print(f"  {C.Y}  Medium:   {summary.get('medium', 0)}{C.RST}")
+        print(f"  {C.B}  Low:      {summary.get('low', 0)}{C.RST}")
+        print(f"  {C.DIM}  Info:     {summary.get('info', 0)}{C.RST}")
         print()
 
 

@@ -1,0 +1,166 @@
+# ==========================================================================
+#  Supply Chain Guardian — Complete DevSecOps Pipeline
+#  Author: Anshumaan Singh (github.com/anshumaan-10)
+#
+#  This workflow demonstrates WHERE to place supply chain scans
+#  in a production CI/CD pipeline:
+#
+#    Stage 1: Pre-Build  (source + workflow + dependency scanning)
+#    Stage 2: Build      (compile, test, package)
+#    Stage 3: Post-Build (container + artifact integrity scanning)
+#    Stage 4: Pre-Deploy (final security gate before release)
+#
+#  Key principle: scan BEFORE the build to catch poisoned deps,
+#  and AFTER the build to catch tampered artifacts.
+# ==========================================================================
+name: DevSecOps Pipeline with Supply Chain Guardian
+
+on:
+  push:
+    branches: [main, release/*]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  # ── Stage 1: Pre-Build Security Scan ─────────────────────────────────
+  # Runs BEFORE any build step. Catches:
+  #   - Compromised actions / mutable tags
+  #   - Pwn requests / script injection
+  #   - Dependency confusion / typosquatting
+  #   - Secret exposure patterns
+  #   - Permission violations
+  #   - OIDC token abuse
+  pre-build-scan:
+    name: "Stage 1: Pre-Build Security Scan"
+    runs-on: ubuntu-latest
+    outputs:
+      scan-status: ${{ steps.scan.outputs.scan-status }}
+      critical: ${{ steps.scan.outputs.critical-findings }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Supply Chain Guardian (Pre-Build)
+        id: scan
+        uses: anshumaan-10/supply-chain-guardian@v2
+        with:
+          scan-mode: deep
+          fail-on-severity: high
+          scan-workflows: 'true'
+          scan-dependencies: 'true'
+          scan-secrets: 'true'
+          scan-network: 'true'
+          scan-permissions: 'true'
+          scan-provenance: 'true'
+          sarif-output: 'true'
+          json-output: 'pre-build-scan-report.json'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ── Stage 2: Build (only if pre-build passes) ───────────────────────
+  build:
+    name: "Stage 2: Build Application"
+    needs: pre-build-scan
+    if: needs.pre-build-scan.outputs.scan-status != 'FAILED'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Build application
+        run: |
+          echo ">> Building application..."
+          # Replace with your actual build commands:
+          # npm ci && npm run build
+          # go build -o app ./cmd/...
+          # cargo build --release
+          echo ">> Build complete."
+
+      - name: Run tests
+        run: |
+          echo ">> Running tests..."
+          # npm test
+          # go test ./...
+          echo ">> Tests passed."
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: build-artifact
+          path: .
+          retention-days: 1
+
+  # ── Stage 3: Post-Build Container Scan ───────────────────────────────
+  # Runs AFTER the build. Scans:
+  #   - Docker image for supply chain issues
+  #   - Dockerfile for unpinned base images
+  #   - Container configuration for privilege escalation
+  #   - Build artifact integrity
+  post-build-scan:
+    name: "Stage 3: Post-Build Container Scan"
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      # Build Docker image (if applicable)
+      - name: Build Docker image
+        run: |
+          if [ -f Dockerfile ]; then
+            docker build -t myapp:${{ github.sha }} .
+          fi
+
+      # Run Supply Chain Guardian on the built state
+      - name: Supply Chain Guardian (Post-Build)
+        uses: anshumaan-10/supply-chain-guardian@v2
+        with:
+          scan-mode: deep
+          fail-on-severity: high
+          scan-workflows: 'true'
+          scan-dependencies: 'true'
+          scan-secrets: 'true'
+          json-output: 'post-build-scan-report.json'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ── Stage 4: Pre-Deploy Gate ─────────────────────────────────────────
+  # Final security gate before deployment. Paranoid mode.
+  # Only runs on main branch pushes (not PRs).
+  pre-deploy-gate:
+    name: "Stage 4: Pre-Deploy Security Gate"
+    needs: [pre-build-scan, post-build-scan]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Supply Chain Guardian (Paranoid)
+        uses: anshumaan-10/supply-chain-guardian@v2
+        with:
+          scan-mode: paranoid
+          fail-on-severity: medium
+          scan-workflows: 'true'
+          scan-dependencies: 'true'
+          scan-secrets: 'true'
+          scan-network: 'true'
+          scan-permissions: 'true'
+          scan-provenance: 'true'
+          scan-runtime: 'true'
+          sarif-output: 'true'
+          json-output: 'pre-deploy-scan-report.json'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-comment-pr: 'false'
+          create-issue: 'true'
+
+  # ── Stage 5: Deploy (only if ALL gates pass) ────────────────────────
+  deploy:
+    name: "Stage 5: Deploy"
+    needs: [pre-deploy-gate]
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Deploy application
+        run: |
+          echo ">> All security gates passed."
+          echo ">> Deploying to production..."
+          # Your deployment commands here

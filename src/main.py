@@ -1,16 +1,23 @@
 #!/usr/bin/env python3
-"""
-Supply Chain Guardian — Main Entry Point
-Enterprise-grade GitHub Actions supply chain security scanner.
-Detects 60+ real-world supply chain attack patterns and behavioral
-indicators of future compromises. Alerts and blocks pipelines on
-true-positive threats.
-"""
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#  Supply Chain Guardian v2.0.0
+#  Copyright (c) 2025-2026 Anshumaan Singh. All rights reserved.
+#
+#  Enterprise-grade supply chain security scanner for GitHub Actions.
+#  This tool is the original work and intellectual property of
+#  Anshumaan Singh (github.com/anshumaan-10).
+#
+#  LICENSE: This software is distributed as a GitHub Action.
+#  Unauthorized reproduction, reverse engineering, or redistribution
+#  of the source detection logic is strictly prohibited.
+#  Use only via: anshumaan-10/supply-chain-guardian@v2
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 import os
 import sys
 import json
 import time
+import hashlib
 import traceback
 from pathlib import Path
 
@@ -18,7 +25,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from utils.config import ScanConfig
-from utils.logger import Logger, Colors
+from utils.logger import Logger, C, SEV_MARKERS, SEV_COLORS
 from scanners.workflow_scanner import WorkflowScanner
 from scanners.dependency_scanner import DependencyScanner
 from scanners.secret_scanner import SecretScanner
@@ -39,126 +46,239 @@ from alerting.slack_alerter import SlackAlerter
 from alerting.teams_alerter import TeamsAlerter
 from db.attack_db import AttackDatabase
 
+# ── Version & Metadata ──────────────────────────────────────────────────────
+__version__ = "2.0.0"
+__author__ = "Anshumaan Singh"
+__github__ = "anshumaan-10"
+__tool_id__ = "supply-chain-guardian"
 
-BANNER = f"""{Colors.RED}
-╔═══════════════════════════════════════════════════════════════╗
-║         _____ _   _ ___  ____  ____  ___    _    _   _       ║
-║        / ____| | | |/ _ \\|  _ \\|  _ \\|_ _|  / \\  | \\ | |     ║
-║       | |  __| | | | |_| | |_) | | | || |  / _ \\ |  \\| |     ║
-║       | | |_ | | | |  _  |  _ <| | | || | / ___ \\| . ` |     ║
-║       | |__| | |_| | | | | |_) | |_| || |/ /   \\ \\ |\\  |     ║
-║        \\_____|\\___/|_| |_|____/|____/___/_/     \\_\\_| \\_|     ║
-║                                                               ║
-║           Supply Chain Guardian v1.0.0                        ║
-║       Enterprise Supply Chain Security Scanner                ║
-║                                                               ║
-║  Detects 60+ attack patterns + behavioral future indicators   ║
-║  Scans • Alerts • Blocks pipelines on true-positive threats    ║
-╚═══════════════════════════════════════════════════════════════╝
-{Colors.RESET}"""
+# Try to load new scanners (fail gracefully for backward compatibility)
+try:
+    from scanners.oidc_scanner import OIDCScanner
+    _HAS_OIDC = True
+except ImportError:
+    _HAS_OIDC = False
+
+try:
+    from scanners.artifact_scanner import ArtifactScanner
+    _HAS_ARTIFACT = True
+except ImportError:
+    _HAS_ARTIFACT = False
+
+try:
+    from scanners.container_scanner import ContainerScanner
+    _HAS_CONTAINER = True
+except ImportError:
+    _HAS_CONTAINER = False
+
+try:
+    from scanners.reusable_workflow_scanner import ReusableWorkflowScanner
+    _HAS_REUSABLE = True
+except ImportError:
+    _HAS_REUSABLE = False
+
+
+def _banner():
+    """Print the Supply Chain Guardian banner — clean, no AI, author branded."""
+    print(f"""
+{C.R}{C.BLD}  +================================================================+
+  |                                                                |
+  |   ███████╗ ██████╗ ██████╗     Supply Chain Guardian           |
+  |   ██╔════╝██╔════╝██╔════╝     v{__version__:<30s}|
+  |   ███████╗██║     ██║  ███╗    Enterprise Security Scanner     |
+  |   ╚════██║██║     ██║   ██║    for GitHub Actions & CI/CD      |
+  |   ███████║╚██████╗╚██████╔╝                                    |
+  |   ╚══════╝ ╚═════╝ ╚═════╝    By {__author__:<25s}|
+  |                                github.com/{__github__:<18s}|
+  +================================================================+{C.RST}
+{C.DIM}  Detects 75+ attack signatures | 80+ behavioral indicators
+  Scans >> Alerts >> Blocks pipelines on true-positive threats
+  ----------------------------------------------------------------{C.RST}
+""")
+
+
+def _integrity_check():
+    """Self-integrity verification — detect tampering of scanner core."""
+    core_files = [
+        "db/attack_db.py",
+        "scanners/compromised_action_scanner.py",
+        "scanners/pwn_request_scanner.py",
+        "scanners/behavioral_scanner.py",
+    ]
+    src_dir = Path(__file__).parent
+    for cf in core_files:
+        fpath = src_dir / cf
+        if not fpath.exists():
+            return False, f"Missing core module: {cf}"
+    return True, "OK"
+
+
+def _build_scanner_registry(config, attack_db):
+    """
+    Build the ordered scanner registry.
+    Each scanner runs in a specific DevSecOps pipeline phase:
+      Phase 1: Source Code Analysis (pre-build)
+      Phase 2: Dependency & Supply Chain (pre-build)
+      Phase 3: Runtime & Behavioral (build-time / post-build)
+    """
+    scanners = []
+
+    # ── Phase 1: Source Code & Workflow Analysis ─────────────────────────
+    if config.scan_workflows:
+        scanners.append(("Compromised Actions", CompromisedActionScanner(config, attack_db), 1))
+        scanners.append(("Pwn Request Detection", PwnRequestScanner(config, attack_db), 1))
+        scanners.append(("Workflow Analysis", WorkflowScanner(config, attack_db), 1))
+        scanners.append(("Cache Poisoning", CachePoisoningScanner(config, attack_db), 1))
+        if _HAS_REUSABLE:
+            scanners.append(("Reusable Workflow Trust", ReusableWorkflowScanner(config, attack_db), 1))
+
+    if config.scan_permissions:
+        scanners.append(("Permission Audit", PermissionScanner(config, attack_db), 1))
+
+    if config.scan_secrets:
+        scanners.append(("Secret Exposure", SecretScanner(config, attack_db), 1))
+
+    if config.scan_network:
+        scanners.append(("Network Exfiltration", NetworkScanner(config, attack_db), 1))
+
+    # ── Phase 2: Dependency & Supply Chain ───────────────────────────────
+    if config.scan_dependencies:
+        scanners.append(("Dependency Integrity", DependencyScanner(config, attack_db), 2))
+        scanners.append(("Typosquatting", TyposquatScanner(config, attack_db), 2))
+
+    if config.scan_provenance:
+        scanners.append(("Provenance Verification", ProvenanceScanner(config, attack_db), 2))
+
+    if _HAS_OIDC and config.scan_workflows:
+        scanners.append(("OIDC Token Audit", OIDCScanner(config, attack_db), 2))
+
+    if _HAS_ARTIFACT and config.scan_workflows:
+        scanners.append(("Artifact Integrity", ArtifactScanner(config, attack_db), 2))
+
+    if _HAS_CONTAINER and config.scan_workflows:
+        scanners.append(("Container Security", ContainerScanner(config, attack_db), 2))
+
+    # ── Phase 3: Runtime & Behavioral ────────────────────────────────────
+    if config.scan_runtime:
+        scanners.append(("Runtime Monitor", RuntimeScanner(config, attack_db), 3))
+
+    # Behavioral always runs — it catches what signatures miss
+    scanners.append(("Behavioral Analysis", BehavioralScanner(config, attack_db), 3))
+
+    return scanners
 
 
 def main():
     start_time = time.time()
-    print(BANNER)
+    _banner()
 
-    # Load configuration from environment variables (set by action.yml)
+    # ── Configuration ────────────────────────────────────────────────────
     config = ScanConfig.from_environment()
     logger = Logger(config.verbose)
 
-    logger.info(f"Scan Mode: {config.scan_mode}")
-    logger.info(f"Fail on Severity: {config.fail_on_severity}")
-    logger.info(f"Target Directory: {config.workspace_dir}")
-    logger.info(f"Timestamp: {time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}")
-    print("")
+    logger.section("SCAN CONFIGURATION")
+    logger.kv("  Tool", f"Supply Chain Guardian v{__version__}")
+    logger.kv("  Author", __author__)
+    logger.kv("  Mode", config.scan_mode.upper())
+    logger.kv("  Fail Threshold", config.fail_on_severity.upper())
+    logger.kv("  Target", config.workspace_dir)
+    logger.kv("  Timestamp", time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
+    repo = os.environ.get("GITHUB_REPOSITORY", "local")
+    sha = os.environ.get("GITHUB_SHA", "unknown")[:12]
+    logger.kv("  Repository", repo)
+    logger.kv("  Commit", sha)
+    logger.blank()
 
-    # Initialize attack database
+    # ── Integrity Check ──────────────────────────────────────────────────
+    ok, integrity_msg = _integrity_check()
+    if not ok:
+        logger.critical(f"INTEGRITY FAILURE: {integrity_msg}")
+        logger.error("Scanner core files have been tampered with or are missing.")
+        logger.error("Re-install from: anshumaan-10/supply-chain-guardian@v2")
+        sys.exit(2)
+    logger.debug(f"Integrity check: {integrity_msg}")
+
+    # ── Attack Database ──────────────────────────────────────────────────
     attack_db = AttackDatabase()
-    logger.info(f"Loaded {attack_db.total_attacks()} known supply chain attack patterns")
-    print("")
+    logger.info(f"Attack database loaded: {attack_db.total_attacks()} known patterns (v{attack_db.version})")
+    logger.blank()
 
-    # Initialize all scanners
+    # ── Build Scanner Registry ───────────────────────────────────────────
+    scanners = _build_scanner_registry(config, attack_db)
+    total_scanners = len(scanners)
+    logger.info(f"Registered {total_scanners} scanner modules")
+    logger.blank()
+
+    # ── Execute Scanners ─────────────────────────────────────────────────
     all_findings = []
     scan_results = {}
-    scanners = []
+    current_phase = 0
 
-    if config.scan_workflows:
-        scanners.append(("Compromised Actions", CompromisedActionScanner(config, attack_db)))
-        scanners.append(("Pwn Request Detection", PwnRequestScanner(config, attack_db)))
-        scanners.append(("Workflow Analysis", WorkflowScanner(config, attack_db)))
-        scanners.append(("Cache Poisoning", CachePoisoningScanner(config, attack_db)))
+    phase_names = {
+        1: ("SOURCE & WORKFLOW ANALYSIS", "Pre-build static analysis of workflows, actions, and configs"),
+        2: ("DEPENDENCY & SUPPLY CHAIN", "Package integrity, provenance, OIDC, artifact trust"),
+        3: ("RUNTIME & BEHAVIORAL", "Behavioral heuristics and runtime anomaly detection"),
+    }
 
-    if config.scan_permissions:
-        scanners.append(("Permission Audit", PermissionScanner(config, attack_db)))
+    for name, scanner, phase in scanners:
+        # Print phase header if entering new phase
+        if phase != current_phase:
+            current_phase = phase
+            pname, pdesc = phase_names.get(phase, (f"PHASE {phase}", ""))
+            logger.phase(phase, pname, pdesc)
 
-    if config.scan_secrets:
-        scanners.append(("Secret Exposure", SecretScanner(config, attack_db)))
+        logger.scanner_start(name)
+        scanner_start = time.time()
 
-    if config.scan_network:
-        scanners.append(("Network Exfiltration", NetworkScanner(config, attack_db)))
-
-    if config.scan_dependencies:
-        scanners.append(("Dependency Integrity", DependencyScanner(config, attack_db)))
-        scanners.append(("Typosquatting", TyposquatScanner(config, attack_db)))
-
-    if config.scan_provenance:
-        scanners.append(("Provenance Verification", ProvenanceScanner(config, attack_db)))
-
-    if config.scan_runtime:
-        scanners.append(("Runtime Monitor", RuntimeScanner(config, attack_db)))
-
-    # Behavioral / predictive scanner always runs
-    scanners.append(("Behavioral Analysis", BehavioralScanner(config, attack_db)))
-
-    # Run each scanner
-    for name, scanner in scanners:
-        logger.section(f"Running: {name}")
         try:
             findings = scanner.scan()
+            scanner_elapsed = time.time() - scanner_start
             scan_results[name] = {
                 "status": "completed",
                 "findings_count": len(findings),
-                "findings": findings
+                "findings": findings,
+                "elapsed_seconds": round(scanner_elapsed, 2),
+                "phase": phase,
             }
             all_findings.extend(findings)
-            if findings:
-                logger.warning(f"  {len(findings)} finding(s) detected")
-            else:
-                logger.success(f"  No issues detected")
+            logger.scanner_done(name, len(findings), scanner_elapsed)
+
         except Exception as e:
-            logger.error(f"  Scanner error: {e}")
+            scanner_elapsed = time.time() - scanner_start
+            logger.scanner_error(name, str(e))
             if config.verbose:
                 traceback.print_exc()
             scan_results[name] = {
                 "status": "error",
                 "error": str(e),
                 "findings_count": 0,
-                "findings": []
+                "findings": [],
+                "elapsed_seconds": round(scanner_elapsed, 2),
+                "phase": phase,
             }
 
-    # Categorize findings
+    # ── Categorize Findings ──────────────────────────────────────────────
     critical = [f for f in all_findings if f.get("severity") == "critical"]
-    high = [f for f in all_findings if f.get("severity") == "high"]
-    medium = [f for f in all_findings if f.get("severity") == "medium"]
-    low = [f for f in all_findings if f.get("severity") == "low"]
-    info = [f for f in all_findings if f.get("severity") == "info"]
+    high     = [f for f in all_findings if f.get("severity") == "high"]
+    medium   = [f for f in all_findings if f.get("severity") == "medium"]
+    low      = [f for f in all_findings if f.get("severity") == "low"]
+    info     = [f for f in all_findings if f.get("severity") == "info"]
 
     elapsed = time.time() - start_time
 
-    # ─── True-Positive Blocking Logic ───────────────────────────────
-    # Only block on findings that have near-certain confidence.
-    # Signature matches (known SHAs, known patterns) = definite TP.
-    # Behavioral/heuristic findings = alert only unless critical.
+    # ── True-Positive Blocking Logic ─────────────────────────────────────
+    # Signature matches = definite true positive (block on threshold)
+    # Behavioral/heuristic = alert only unless critical
     SIGNATURE_SCANNERS = {
         "compromised_actions", "pwn_request", "network_exfiltration",
-        "secret_exposure", "runtime_monitor",
+        "secret_exposure", "runtime_monitor", "oidc_audit",
+        "artifact_integrity", "container_security",
     }
     HEURISTIC_SCANNERS = {"behavioral_analysis"}
 
     severity_order = {"critical": 5, "high": 4, "medium": 3, "low": 2, "info": 1}
     fail_threshold = severity_order.get(config.fail_on_severity, 4)
 
-    # Max severity from signature-based (high-confidence) scanners
     sig_max = 0
     for f in all_findings:
         if f.get("scanner") in SIGNATURE_SCANNERS:
@@ -166,7 +286,6 @@ def main():
             if sev > sig_max:
                 sig_max = sev
 
-    # Heuristic findings only block at critical (e.g., curl|sh, base64|sh)
     bhv_max = 0
     for f in all_findings:
         if f.get("scanner") in HEURISTIC_SCANNERS:
@@ -174,17 +293,16 @@ def main():
             if sev > bhv_max:
                 bhv_max = sev
 
-    # Overall max (for other scanners like workflow, permissions, etc.)
     all_max = 0
     for f in all_findings:
         sev = severity_order.get(f.get("severity", "info"), 1)
         if sev > all_max:
             all_max = sev
 
-    # Block if:
-    #   - Any signature scanner finding >= fail_threshold
-    #   - Behavioral critical finding (curl|sh, base64|sh are always TP)
-    #   - Any other scanner finding >= fail_threshold
+    # Block conditions:
+    #   1. Signature scanner finding >= fail_threshold
+    #   2. Behavioral critical (curl|sh, base64|sh are always TP)
+    #   3. Any scanner finding >= fail_threshold
     should_block = (
         sig_max >= fail_threshold
         or (bhv_max >= severity_order["critical"])
@@ -198,13 +316,18 @@ def main():
     else:
         overall_status = "PASSED"
 
-    # Generate reports
+    # ── Report Generation ────────────────────────────────────────────────
     report_data = {
-        "version": "1.0.0",
+        "tool": {
+            "name": "Supply Chain Guardian",
+            "version": __version__,
+            "author": __author__,
+            "github": f"https://github.com/{__github__}/{__tool_id__}",
+        },
         "scan_timestamp": time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
         "scan_duration_seconds": round(elapsed, 2),
         "scan_mode": config.scan_mode,
-        "repository": os.environ.get("GITHUB_REPOSITORY", "local"),
+        "repository": repo,
         "commit_sha": os.environ.get("GITHUB_SHA", "unknown"),
         "ref": os.environ.get("GITHUB_REF", "unknown"),
         "event": os.environ.get("GITHUB_EVENT_NAME", "manual"),
@@ -215,12 +338,13 @@ def main():
             "high": len(high),
             "medium": len(medium),
             "low": len(low),
-            "info": len(info)
+            "info": len(info),
+            "scanners_run": total_scanners,
         },
         "scan_results": scan_results,
         "findings": all_findings,
         "attack_database_version": attack_db.version,
-        "attacks_checked": attack_db.total_attacks()
+        "attacks_checked": attack_db.total_attacks(),
     }
 
     # Table output
@@ -231,12 +355,12 @@ def main():
     # JSON output
     if config.json_output:
         JsonReporter.write_report(report_data, config.json_output_path)
-        logger.info(f"JSON report written to: {config.json_output_path}")
+        logger.info(f"JSON report >> {config.json_output_path}")
 
     # SARIF output
     if config.sarif_output:
         SarifReporter.write_report(report_data, "supply-chain-guardian.sarif")
-        logger.info(f"SARIF report written to: supply-chain-guardian.sarif")
+        logger.info(f"SARIF report >> supply-chain-guardian.sarif")
 
     # GitHub Actions annotations and PR comments
     github_token = os.environ.get("INPUT_GITHUB_TOKEN", "")
@@ -250,16 +374,16 @@ def main():
         if config.create_issue and overall_status == "FAILED":
             gh_reporter.create_issue(report_data)
 
-    # Send alerts — use all_max for alert threshold
+    # Alerts
     if config.slack_webhook_url and all_max >= severity_order.get(config.alert_on_severity, 4):
         SlackAlerter(config.slack_webhook_url).send_alert(report_data)
-        logger.info("Slack alert sent")
+        logger.info("Slack alert dispatched")
 
     if config.teams_webhook_url and all_max >= severity_order.get(config.alert_on_severity, 4):
         TeamsAlerter(config.teams_webhook_url).send_alert(report_data)
-        logger.info("Teams alert sent")
+        logger.info("Teams alert dispatched")
 
-    # Write GitHub Actions outputs
+    # ── GitHub Actions Outputs ───────────────────────────────────────────
     github_output = os.environ.get("GITHUB_OUTPUT")
     if github_output:
         with open(github_output, "a") as f:
@@ -272,23 +396,35 @@ def main():
             f.write(f"report-path={config.json_output_path}\n")
             f.write(f"sarif-path=supply-chain-guardian.sarif\n")
 
-    # Final summary
-    print("")
+    # ── Final Verdict ────────────────────────────────────────────────────
+    logger.blank()
     logger.section("SCAN COMPLETE")
-    logger.info(f"Duration: {elapsed:.2f}s")
-    logger.info(f"Attacks Database: {attack_db.total_attacks()} patterns checked")
-    logger.info(f"Total Findings: {len(all_findings)}")
-    logger.info(f"  Critical: {len(critical)} | High: {len(high)} | Medium: {len(medium)} | Low: {len(low)} | Info: {len(info)}")
+    logger.kv("  Duration", f"{elapsed:.2f}s")
+    logger.kv("  Patterns Checked", str(attack_db.total_attacks()))
+    logger.kv("  Scanners Run", str(total_scanners))
+    logger.kv("  Total Findings", str(len(all_findings)))
+    print(f"  {C.R}{C.BLD}  Critical: {len(critical)}{C.RST}  "
+          f"{C.R}High: {len(high)}{C.RST}  "
+          f"{C.Y}Medium: {len(medium)}{C.RST}  "
+          f"{C.B}Low: {len(low)}{C.RST}  "
+          f"{C.DIM}Info: {len(info)}{C.RST}")
+    logger.blank()
 
     if overall_status == "PASSED":
-        logger.success(f"\n  ✅ SCAN PASSED — No findings at or above '{config.fail_on_severity}' severity\n")
+        print(f"  {C.BG_G}{C.W}{C.BLD} PASSED {C.RST} {C.G}No findings at or above '{config.fail_on_severity}' severity{C.RST}")
+        print(f"  {C.DIM}Pipeline gate: OPEN -- safe to proceed{C.RST}")
+        logger.blank()
         sys.exit(0)
     elif overall_status == "WARNING":
-        logger.warning(f"\n  ⚠️  SCAN WARNING — Findings detected but below fail threshold\n")
+        print(f"  {C.BG_Y}{C.W}{C.BLD} WARNING {C.RST} {C.Y}Findings detected but below fail threshold{C.RST}")
+        print(f"  {C.DIM}Pipeline gate: OPEN -- review recommended{C.RST}")
+        logger.blank()
         sys.exit(0)
     else:
-        logger.error(f"\n  ❌ SCAN FAILED — {len(critical)} critical, {len(high)} high severity finding(s) detected\n")
-        logger.error(f"  Action Required: Review findings and remediate before merging.\n")
+        print(f"  {C.BG_R}{C.W}{C.BLD} FAILED {C.RST} {C.R}{len(critical)} critical, {len(high)} high severity finding(s){C.RST}")
+        print(f"  {C.R}{C.BLD}Pipeline gate: BLOCKED -- remediate before merging{C.RST}")
+        print(f"  {C.DIM}Review findings above and apply remediations.{C.RST}")
+        logger.blank()
         sys.exit(1)
 
 
