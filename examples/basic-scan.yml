@@ -1,0 +1,38 @@
+# Example: Basic CI Security Scan
+# Run supply-chain-guardian on every push and PR to catch attacks early.
+name: Supply Chain Security Scan
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:  # manual trigger for ad-hoc scans
+
+permissions:
+  contents: read
+  security-events: write  # needed for SARIF upload
+
+jobs:
+  supply-chain-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Supply Chain Guardian
+        uses: anshumaan-10/supply-chain-guardian@v1
+        with:
+          scan-mode: standard
+          fail-on-severity: high
+          scan-workflows: "true"
+          scan-dependencies: "true"
+          scan-secrets: "true"
+          scan-network: "true"
+          scan-permissions: "true"
+
+      - name: Upload SARIF results
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: supply-chain-guardian.sarif

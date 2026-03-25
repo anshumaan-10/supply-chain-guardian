@@ -1,0 +1,44 @@
+# Example: Reusable Workflow (workflow_call)
+# Other repositories can call this workflow to scan their codebase.
+name: Supply Chain Guardian (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      scan-mode:
+        type: string
+        default: 'standard'
+        description: 'Scan mode: quick, standard, deep, paranoid'
+      fail-on-severity:
+        type: string
+        default: 'high'
+        description: 'Minimum severity to fail the pipeline'
+    secrets:
+      slack-webhook:
+        required: false
+        description: 'Slack webhook URL for alerts'
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  supply-chain-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Supply Chain Guardian
+        uses: anshumaan-10/supply-chain-guardian@v1
+        with:
+          scan-mode: ${{ inputs.scan-mode }}
+          fail-on-severity: ${{ inputs.fail-on-severity }}
+          slack-webhook-url: ${{ secrets.slack-webhook }}
+
+      - name: Upload SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: supply-chain-guardian.sarif
+        continue-on-error: true

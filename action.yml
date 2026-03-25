@@ -1,0 +1,176 @@
+name: 'Supply Chain Guardian'
+description: 'Enterprise-grade GitHub Actions supply chain security scanner. Detects 60+ real-world attack patterns plus behavioral indicators of future compromises. Scans, alerts, and blocks pipelines on true-positive threats.'
+author: 'anshumaan-10'
+branding:
+  icon: 'shield'
+  color: 'red'
+
+inputs:
+  scan-mode:
+    description: 'Scan mode: quick, standard, deep, paranoid'
+    required: false
+    default: 'standard'
+  fail-on-severity:
+    description: 'Minimum severity to fail the pipeline: critical, high, medium, low, info'
+    required: false
+    default: 'high'
+  scan-workflows:
+    description: 'Scan GitHub Actions workflow files'
+    required: false
+    default: 'true'
+  scan-dependencies:
+    description: 'Scan package dependencies for known compromised packages'
+    required: false
+    default: 'true'
+  scan-secrets:
+    description: 'Scan for secret exposure and credential exfiltration patterns'
+    required: false
+    default: 'true'
+  scan-network:
+    description: 'Scan for network exfiltration patterns'
+    required: false
+    default: 'true'
+  scan-permissions:
+    description: 'Audit workflow permissions for least-privilege violations'
+    required: false
+    default: 'true'
+  scan-provenance:
+    description: 'Verify dependency provenance and SLSA attestations'
+    required: false
+    default: 'true'
+  scan-runtime:
+    description: 'Enable runtime monitoring for credential dumping during workflow execution'
+    required: false
+    default: 'false'
+  custom-rules-path:
+    description: 'Path to custom YAML rules file for additional patterns'
+    required: false
+    default: ''
+  exclude-paths:
+    description: 'Comma-separated paths to exclude from scanning'
+    required: false
+    default: ''
+  slack-webhook-url:
+    description: 'Slack webhook URL for sending alerts'
+    required: false
+    default: ''
+  teams-webhook-url:
+    description: 'Microsoft Teams webhook URL for sending alerts'
+    required: false
+    default: ''
+  alert-on-severity:
+    description: 'Minimum severity to trigger Slack/Teams alerts: critical, high, medium'
+    required: false
+    default: 'high'
+  sarif-output:
+    description: 'Generate SARIF report for GitHub Advanced Security'
+    required: false
+    default: 'true'
+  json-output:
+    description: 'Path to write JSON report'
+    required: false
+    default: 'supply-chain-guardian-report.json'
+  table-output:
+    description: 'Print detailed table output to workflow logs'
+    required: false
+    default: 'true'
+  github-token:
+    description: 'GitHub token for API access (PR comments, issue creation)'
+    required: false
+    default: ${{ github.token }}
+  block-pr:
+    description: 'Block PR merge if critical findings are detected'
+    required: false
+    default: 'true'
+  create-issue:
+    description: 'Create a GitHub issue on critical findings'
+    required: false
+    default: 'true'
+  auto-comment-pr:
+    description: 'Automatically comment on PRs with scan results'
+    required: false
+    default: 'true'
+
+outputs:
+  scan-status:
+    description: 'Overall scan result: PASSED, WARNING, FAILED'
+  total-findings:
+    description: 'Total number of findings'
+  critical-findings:
+    description: 'Number of critical findings'
+  high-findings:
+    description: 'Number of high severity findings'
+  medium-findings:
+    description: 'Number of medium severity findings'
+  low-findings:
+    description: 'Number of low severity findings'
+  report-path:
+    description: 'Path to the JSON report file'
+  sarif-path:
+    description: 'Path to the SARIF report file'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Python
+      uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0
+      with:
+        python-version: '3.11'
+
+    - name: Install scanner dependencies
+      shell: bash
+      run: |
+        pip install -q pyyaml requests tabulate colorama jsonschema semver
+
+    - name: Run Supply Chain Guardian
+      id: scan
+      shell: bash
+      env:
+        INPUT_SCAN_MODE: ${{ inputs.scan-mode }}
+        INPUT_FAIL_ON_SEVERITY: ${{ inputs.fail-on-severity }}
+        INPUT_SCAN_WORKFLOWS: ${{ inputs.scan-workflows }}
+        INPUT_SCAN_DEPENDENCIES: ${{ inputs.scan-dependencies }}
+        INPUT_SCAN_SECRETS: ${{ inputs.scan-secrets }}
+        INPUT_SCAN_NETWORK: ${{ inputs.scan-network }}
+        INPUT_SCAN_PERMISSIONS: ${{ inputs.scan-permissions }}
+        INPUT_SCAN_PROVENANCE: ${{ inputs.scan-provenance }}
+        INPUT_SCAN_RUNTIME: ${{ inputs.scan-runtime }}
+        INPUT_CUSTOM_RULES_PATH: ${{ inputs.custom-rules-path }}
+        INPUT_EXCLUDE_PATHS: ${{ inputs.exclude-paths }}
+        INPUT_SLACK_WEBHOOK_URL: ${{ inputs.slack-webhook-url }}
+        INPUT_TEAMS_WEBHOOK_URL: ${{ inputs.teams-webhook-url }}
+        INPUT_ALERT_ON_SEVERITY: ${{ inputs.alert-on-severity }}
+        INPUT_SARIF_OUTPUT: ${{ inputs.sarif-output }}
+        INPUT_JSON_OUTPUT: ${{ inputs.json-output }}
+        INPUT_TABLE_OUTPUT: ${{ inputs.table-output }}
+        INPUT_GITHUB_TOKEN: ${{ inputs.github-token }}
+        INPUT_BLOCK_PR: ${{ inputs.block-pr }}
+        INPUT_CREATE_ISSUE: ${{ inputs.create-issue }}
+        INPUT_AUTO_COMMENT_PR: ${{ inputs.auto-comment-pr }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_SHA: ${{ github.sha }}
+        GITHUB_REF: ${{ github.ref }}
+        GITHUB_EVENT_NAME: ${{ github.event_name }}
+        GITHUB_RUN_ID: ${{ github.run_id }}
+        GITHUB_SERVER_URL: ${{ github.server_url }}
+        GITHUB_WORKSPACE: ${{ github.workspace }}
+      run: |
+        python3 ${{ github.action_path }}/src/main.py
+
+    - name: Upload SARIF report
+      if: inputs.sarif-output == 'true' && always()
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: supply-chain-guardian.sarif
+      continue-on-error: true
+
+    - name: Upload scan report artifact
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: supply-chain-guardian-report
+        path: |
+          supply-chain-guardian-report.json
+          supply-chain-guardian.sarif
+        retention-days: 90
+      continue-on-error: true

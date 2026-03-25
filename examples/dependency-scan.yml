@@ -1,0 +1,38 @@
+# Example: Dependency-Only Scan for Monorepos
+# Lightweight scan focused on detecting malicious/compromised packages.
+name: Dependency Security Check
+
+on:
+  pull_request:
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "requirements.txt"
+      - "Pipfile.lock"
+      - "go.sum"
+      - "Gemfile.lock"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [dependency-scan]
+
+permissions:
+  contents: read
+
+jobs:
+  dep-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scan Dependencies
+        uses: anshumaan-10/supply-chain-guardian@v1
+        with:
+          scan-mode: standard
+          fail-on-severity: high
+          scan-workflows: "false"
+          scan-dependencies: "true"
+          scan-secrets: "false"
+          scan-network: "false"
+          scan-permissions: "false"
+          scan-provenance: "true"

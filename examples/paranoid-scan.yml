@@ -1,0 +1,67 @@
+# Example: Paranoid Mode with Slack & Teams Alerts
+# Maximum security for production branches. Fails on any finding >= medium.
+name: Supply Chain Guardian (Paranoid)
+
+on:
+  push:
+    branches: [main, release/*]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1"  # Weekly Monday scan
+  workflow_dispatch:      # manual trigger
+  workflow_call:          # reusable workflow support
+    inputs:
+      scan-mode:
+        type: string
+        default: 'paranoid'
+
+permissions:
+  contents: read
+  security-events: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  supply-chain-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history for provenance checks
+
+      - name: Run Supply Chain Guardian (Paranoid Mode)
+        id: scan
+        uses: anshumaan-10/supply-chain-guardian@v1
+        with:
+          scan-mode: paranoid
+          fail-on-severity: medium
+          scan-workflows: "true"
+          scan-dependencies: "true"
+          scan-secrets: "true"
+          scan-network: "true"
+          scan-permissions: "true"
+          scan-provenance: "true"
+          scan-runtime: "true"
+          slack-webhook-url: ${{ secrets.SLACK_SECURITY_WEBHOOK }}
+          teams-webhook-url: ${{ secrets.TEAMS_SECURITY_WEBHOOK }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: supply-chain-guardian-results.sarif
+
+      - name: Comment on PR
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '🚨 **Supply Chain Guardian** detected security issues. Check the Actions tab for details.'
+            })

@@ -1,0 +1,104 @@
+# Example: Proactive Action Integrity Monitoring
+# Runs on a schedule to detect compromised actions BEFORE they hit your CI.
+# This monitors the actions you depend on for signs of compromise.
+name: Action Integrity Monitor
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # Every 6 hours
+  workflow_dispatch:
+  repository_dispatch:
+    types: [integrity-check]
+
+permissions:
+  contents: read
+  issues: write  # to create alert issues
+
+jobs:
+  # Job 1: Verify action lockfile integrity
+  verify-lockfile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -q requests
+
+      - name: Verify Action Lockfile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/workflow_lockfile.py --verify --workspace ${{ github.workspace }}
+
+  # Job 2: Monitor upstream action repos for anomalies
+  monitor-upstream:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -q requests
+
+      - name: Create action list from workflows
+        run: |
+          # Extract all third-party actions from workflows
+          grep -roh 'uses: [^/]*\/[^@]*' .github/workflows/ | \
+            sed 's/uses: //' | sort -u > /tmp/actions.txt
+          echo "Actions to monitor:"
+          cat /tmp/actions.txt
+
+      - name: Run Integrity Monitor
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/action_integrity_monitor.py \
+            --actions /tmp/actions.txt \
+            --days 7 \
+            --json-output integrity-report.json \
+            --fail-on high
+
+      - name: Upload Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integrity-report
+          path: integrity-report.json
+          retention-days: 30
+
+      - name: Create Issue on Failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = '## Action Integrity Alert\n\n';
+            body += 'The proactive integrity monitor detected anomalies in upstream action repositories.\n\n';
+            try {
+              const report = JSON.parse(fs.readFileSync('integrity-report.json', 'utf8'));
+              for (const alert of report.alerts || []) {
+                body += `### [${alert.severity.toUpperCase()}] ${alert.type}\n`;
+                body += `- **Repo:** ${alert.repo || 'N/A'}\n`;
+                body += `- ${alert.message}\n\n`;
+              }
+            } catch (e) {
+              body += 'See the workflow run for details.\n';
+            }
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🚨 Supply Chain Guardian: Action Integrity Alert',
+              body: body,
+              labels: ['security', 'supply-chain']
+            });
