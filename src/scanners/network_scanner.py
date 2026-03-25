@@ -3,7 +3,11 @@
 Network Scanner
 ===============
 Detects network exfiltration patterns including reverse shells,
-DNS exfiltration, suspicious domain access, and data tunneling.
+DNS exfiltration, suspicious domain access, data tunneling,
+TeamPCP C2 communication, cloud metadata endpoint (IMDS) access,
+and egress anomaly patterns.
+
+Inspired by StepSecurity Harden-Runner's network egress monitoring.
 """
 
 import re
@@ -56,6 +60,40 @@ class NetworkScanner(BaseScanner):
         (r"telebit", "Telebit tunnel"),
     ]
 
+    # ── TeamPCP / Trivy C2 Infrastructure (CVE-2026-33634) ──
+    TEAMPCP_C2_PATTERNS = [
+        (r"scan\.aquasecurtiy\.org", "TeamPCP C2 domain (typosquat of aquasecurity)", "critical"),
+        (r"aquasecurtiy\.org", "TeamPCP C2 base domain", "critical"),
+        (r"45\.148\.10\.212", "TeamPCP C2 IP (TECHOFF SRV LIMITED, Amsterdam)", "critical"),
+        (r"tdtqy-oyaaa-aaaae-af2dq-cai\.raw\.icp0\.io", "TeamPCP ICP fallback C2", "critical"),
+        (r"plug-tab-protective-relay.*trycloudflare\.com", "TeamPCP Cloudflare Tunnel exfil", "critical"),
+        (r"models\.litellm\.cloud", "LiteLLM compromise exfil endpoint", "critical"),
+    ]
+
+    # ── Shai-Hulud / Scavenger C2 domains ──
+    SHAI_HULUD_C2_PATTERNS = [
+        (r"firebase\.su", "Shai-Hulud/Scavenger C2 domain", "critical"),
+        (r"dieorsuffer\.com", "Scavenger C2 domain", "critical"),
+        (r"smartscreen-api\.com", "Scavenger C2 domain (typosquat)", "critical"),
+        (r"npnjs\.com", "CanisterWorm typosquat C2 (mimics npmjs)", "critical"),
+    ]
+
+    # ── Cloud IMDS endpoints (SCA-110) ──
+    IMDS_PATTERNS = [
+        (r"169\.254\.169\.254", "AWS/GCP/Azure Instance Metadata Service (IMDS)", "critical"),
+        (r"metadata\.google\.internal", "GCP Metadata endpoint", "critical"),
+        (r"metadata\.azure\.com", "Azure IMDS endpoint", "critical"),
+    ]
+
+    # ── Egress anomaly patterns (SCA-109, Harden-Runner inspired) ──
+    EGRESS_ANOMALY_PATTERNS = [
+        (r"curl\s+.*https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", "curl to raw IP address", "high"),
+        (r"wget\s+.*https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", "wget to raw IP address", "high"),
+        (r"curl.*\|\s*(bash|sh|python|python3|node|ruby|perl)", "Pipe-to-shell pattern", "critical"),
+        (r"wget.*\|\s*(bash|sh|python|python3|node|ruby|perl)", "wget pipe-to-shell", "critical"),
+        (r"curl\s+-s.*\|\s*bash", "Silent curl pipe to bash", "critical"),
+    ]
+
     def scan(self) -> List[Dict[str, Any]]:
         self.findings = []
 
@@ -75,6 +113,10 @@ class NetworkScanner(BaseScanner):
             self._check_suspicious_domains(filepath, lines, suspicious_domains)
             self._check_tunnels(filepath, lines)
             self._check_data_exfil_patterns(filepath, lines)
+            self._check_teampcp_c2(filepath, lines)
+            self._check_shai_hulud_c2(filepath, lines)
+            self._check_imds_access(filepath, lines)
+            self._check_egress_anomalies(filepath, lines)
 
         # In deep/paranoid mode, scan scripts too
         if self.config.scan_mode in ("deep", "paranoid"):
@@ -220,6 +262,96 @@ class NetworkScanner(BaseScanner):
                 except re.error:
                     continue
 
+    def _check_teampcp_c2(self, filepath, lines):
+        """Check for TeamPCP/Trivy C2 communication patterns (CVE-2026-33634)."""
+        for i, line in enumerate(lines, 1):
+            stripped = line.strip()
+            for pattern, name, severity in self.TEAMPCP_C2_PATTERNS:
+                try:
+                    if re.search(pattern, stripped, re.IGNORECASE):
+                        self.add_finding(
+                            attack_id="SCA-094",
+                            title=f"TeamPCP C2 communication: {name}",
+                            severity=severity,
+                            description=f"Detected connection to TeamPCP threat actor infrastructure: {name}. "
+                                        f"This is associated with the Trivy supply chain attack (CVE-2026-33634). "
+                                        f"Any access to these endpoints indicates active credential exfiltration.",
+                            file=filepath,
+                            line=i,
+                            remediation="Block all access. Assume full credential compromise. Rotate ALL secrets immediately.",
+                            evidence=stripped[:200],
+                        )
+                except re.error:
+                    continue
+
+    def _check_shai_hulud_c2(self, filepath, lines):
+        """Check for Shai-Hulud / Scavenger / CanisterWorm C2 domains."""
+        for i, line in enumerate(lines, 1):
+            stripped = line.strip()
+            for pattern, name, severity in self.SHAI_HULUD_C2_PATTERNS:
+                try:
+                    if re.search(pattern, stripped, re.IGNORECASE):
+                        self.add_finding(
+                            attack_id="SCA-103",
+                            title=f"Shai-Hulud/Scavenger C2: {name}",
+                            severity=severity,
+                            description=f"Detected connection to C2 domain: {name}. "
+                                        f"Associated with Shai-Hulud npm worm (1193+ compromised packages), "
+                                        f"Scavenger malware (CVE-2025-54313), or CanisterWorm.",
+                            file=filepath,
+                            line=i,
+                            remediation="Block domain immediately. Rotate npm tokens, SSH keys, and cloud credentials.",
+                            evidence=stripped[:200],
+                        )
+                except re.error:
+                    continue
+
+    def _check_imds_access(self, filepath, lines):
+        """Check for cloud Instance Metadata Service (IMDS) access."""
+        for i, line in enumerate(lines, 1):
+            stripped = line.strip()
+            for pattern, name, severity in self.IMDS_PATTERNS:
+                try:
+                    if re.search(pattern, stripped, re.IGNORECASE):
+                        self.add_finding(
+                            attack_id="SCA-110",
+                            title=f"Cloud metadata endpoint access: {name}",
+                            severity=severity,
+                            description=f"Detected access to cloud instance metadata service: {name}. "
+                                        f"IMDS endpoints expose IAM credentials, instance identity, "
+                                        f"and network configuration. Attackers use this to escalate from CI to cloud.",
+                            file=filepath,
+                            line=i,
+                            remediation="Block IMDS access (169.254.169.254). Use IMDSv2 with token requirement on AWS. "
+                                        "Implement network policies to restrict metadata access in CI.",
+                            evidence=stripped[:200],
+                        )
+                except re.error:
+                    continue
+
+    def _check_egress_anomalies(self, filepath, lines):
+        """Check for egress anomaly patterns (Harden-Runner inspired)."""
+        for i, line in enumerate(lines, 1):
+            stripped = line.strip()
+            for pattern, name, severity in self.EGRESS_ANOMALY_PATTERNS:
+                try:
+                    if re.search(pattern, stripped, re.IGNORECASE):
+                        self.add_finding(
+                            attack_id="SCA-109",
+                            title=f"Egress anomaly: {name}",
+                            severity=severity,
+                            description=f"Detected suspicious network egress: {name}. "
+                                        f"This pattern is commonly used in supply chain attacks to download "
+                                        f"and execute malicious payloads or exfiltrate data.",
+                            file=filepath,
+                            line=i,
+                            remediation="Use StepSecurity Harden-Runner for network egress monitoring. "
+                                        "Block outbound traffic to non-allowed endpoints.",
+                            evidence=stripped[:200],
+                        )
+                except re.error:
+                    continue
+
     def _scan_scripts(self, suspicious_domains):
         """In deep mode, scan shell/Python scripts for network patterns."""
         import os
@@ -239,3 +371,7 @@ class NetworkScanner(BaseScanner):
                 lines = read_file_lines(filepath)
                 self._check_reverse_shells(filepath, lines)
                 self._check_suspicious_domains(filepath, lines, suspicious_domains)
+                self._check_teampcp_c2(filepath, lines)
+                self._check_shai_hulud_c2(filepath, lines)
+                self._check_imds_access(filepath, lines)
+                self._check_egress_anomalies(filepath, lines)

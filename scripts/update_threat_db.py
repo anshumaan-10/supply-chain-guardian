@@ -79,6 +79,16 @@ WATCHLIST_ACTIONS = [
     "softprops/action-gh-release",
     "goreleaser/goreleaser-action",
     "pypa/gh-action-pypi-publish",
+    # ── Trivy/TeamPCP compromised actions (CVE-2026-33634) ──
+    "aquasecurity/trivy-action",
+    "aquasecurity/setup-trivy",
+    # ── Checkmarx KICS (TeamPCP) ──
+    "Checkmarx/kics-github-action",
+    # ── Additional high-profile actions ──
+    "step-security/harden-runner",
+    "codecov/codecov-action",
+    "snyk/actions",
+    "SonarSource/sonarcloud-github-action",
 ]
 
 # Known malicious npm packages — updated periodically
@@ -86,6 +96,24 @@ KNOWN_MALICIOUS_NPM = [
     "event-stream", "flatmap-stream", "ua-parser-js",
     "coa", "rc", "colors", "faker",
     "node-ipc", "peacenotwar",
+    # ── Shai-Hulud / Scavenger / CanisterWorm (CVE-2025-54313) ──
+    "eslint-config-prettier@8.10.1",
+    "eslint-config-prettier@9.1.1",
+    "eslint-config-prettier@10.1.6",
+    "eslint-config-prettier@10.1.7",
+    "eslint-plugin-prettier@4.2.2",
+    "eslint-plugin-prettier@4.2.3",
+    "synckit@0.11.9",
+    "@pkgr/core@0.2.8",
+    "napi-postinstall@0.3.1",
+    "got-fetch@5.1.11",
+    "got-fetch@5.1.12",
+    "is@3.3.1",
+    "is@5.0.0",
+    "@crowdstrike/node-exporter@0.2.2",
+    "@crowdstrike/threat-center@1.205.2",
+    "@ctrl/tinycolor@4.1.1",
+    "@ctrl/tinycolor@4.1.2",
 ]
 
 # Known malicious PyPI packages — updated periodically
@@ -95,6 +123,9 @@ KNOWN_MALICIOUS_PYPI = [
     "python3-dateutil", "jeIlyfish",
     "python-binance-sdk", "request",
     "urllib", "bzip", "distlib-3",
+    # ── LiteLLM PyPI compromise (TeamPCP) ──
+    "litellm==1.82.7",
+    "litellm==1.82.8",
 ]
 
 TIMEOUT = 10

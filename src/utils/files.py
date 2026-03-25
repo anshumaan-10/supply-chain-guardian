@@ -182,3 +182,70 @@ def relative_path(filepath: str, workspace: str) -> str:
         return os.path.relpath(filepath, workspace)
     except ValueError:
         return filepath
+
+
+def find_jenkinsfiles(workspace: str) -> List[str]:
+    """Find all Jenkinsfile and Jenkins pipeline files."""
+    files = []
+    for root, dirs, filenames in os.walk(workspace):
+        dirs[:] = [d for d in dirs if d not in ('.git', 'node_modules', '__pycache__', '.venv')]
+        for f in filenames:
+            if f in ('Jenkinsfile', 'jenkinsfile') or f.endswith(('.Jenkinsfile', '.jenkinsfile')):
+                files.append(os.path.join(root, f))
+    return files
+
+
+def find_gitlab_ci_files(workspace: str) -> List[str]:
+    """Find all GitLab CI configuration files."""
+    files = []
+    # Main config
+    main_ci = os.path.join(workspace, ".gitlab-ci.yml")
+    if os.path.isfile(main_ci):
+        files.append(main_ci)
+    # Included templates
+    ci_dir = os.path.join(workspace, ".gitlab", "ci")
+    if os.path.isdir(ci_dir):
+        for root, dirs, filenames in os.walk(ci_dir):
+            for f in filenames:
+                if f.endswith((".yml", ".yaml")):
+                    files.append(os.path.join(root, f))
+    return files
+
+
+def find_circleci_files(workspace: str) -> List[str]:
+    """Find all CircleCI configuration files."""
+    files = []
+    circleci_dir = os.path.join(workspace, ".circleci")
+    if os.path.isdir(circleci_dir):
+        for f in os.listdir(circleci_dir):
+            if f.endswith((".yml", ".yaml")):
+                files.append(os.path.join(circleci_dir, f))
+    return files
+
+
+def find_azure_pipelines(workspace: str) -> List[str]:
+    """Find all Azure DevOps pipeline files."""
+    files = []
+    # Standard name
+    for name in ("azure-pipelines.yml", "azure-pipelines.yaml"):
+        path = os.path.join(workspace, name)
+        if os.path.isfile(path):
+            files.append(path)
+    # Pipeline templates in .azure-pipelines/
+    azure_dir = os.path.join(workspace, ".azure-pipelines")
+    if os.path.isdir(azure_dir):
+        for f in os.listdir(azure_dir):
+            if f.endswith((".yml", ".yaml")):
+                files.append(os.path.join(azure_dir, f))
+    return files
+
+
+def find_all_ci_files(workspace: str) -> Dict[str, List[str]]:
+    """Find all CI/CD configuration files across all platforms."""
+    return {
+        "github_actions": find_workflow_files(workspace) + find_action_files(workspace),
+        "jenkins": find_jenkinsfiles(workspace),
+        "gitlab_ci": find_gitlab_ci_files(workspace),
+        "circleci": find_circleci_files(workspace),
+        "azure_devops": find_azure_pipelines(workspace),
+    }

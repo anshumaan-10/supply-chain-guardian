@@ -54,7 +54,7 @@ except ImportError:
     _HAS_THREAT_FEED = False
 
 # ── Version & Metadata ──────────────────────────────────────────────────────
-__version__ = "2.0.0"
+__version__ = "3.0.0"
 __author__ = "Anshumaan Singh"
 __github__ = "anshumaan-10"
 __tool_id__ = "supply-chain-guardian"
@@ -84,6 +84,12 @@ try:
 except ImportError:
     _HAS_REUSABLE = False
 
+try:
+    from scanners.cross_platform_scanner import CrossPlatformScanner
+    _HAS_CROSS_PLATFORM = True
+except ImportError:
+    _HAS_CROSS_PLATFORM = False
+
 
 def _banner():
     """Print the Supply Chain Guardian banner — clean, no AI, author branded."""
@@ -93,7 +99,7 @@ def _banner():
   |   ███████╗ ██████╗ ██████╗     Supply Chain Guardian           |
   |   ██╔════╝██╔════╝██╔════╝     v{__version__:<30s}|
   |   ███████╗██║     ██║  ███╗    Enterprise Security Scanner     |
-  |   ╚════██║██║     ██║   ██║    for GitHub Actions & CI/CD      |
+  |   ╚════██║██║     ██║   ██║    for CI/CD Supply Chain Defense   |
   |   ███████║╚██████╗╚██████╔╝                                    |
   |   ╚══════╝ ╚═════╝ ╚═════╝    By {__author__:<25s}|
   |                                github.com/{__github__:<18s}|
@@ -171,6 +177,10 @@ def _build_scanner_registry(config, attack_db):
 
     # Behavioral always runs — it catches what signatures miss
     scanners.append(("Behavioral Analysis", BehavioralScanner(config, attack_db), 3))
+
+    # ── Phase 4: Cross-Platform CI/CD ────────────────────────────────────
+    if _HAS_CROSS_PLATFORM:
+        scanners.append(("Cross-Platform CI/CD", CrossPlatformScanner(config, attack_db), 1))
 
     return scanners
 

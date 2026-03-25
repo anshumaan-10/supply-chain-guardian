@@ -2091,3 +2091,899 @@ class AttackDatabase:
             },
             remediation="Pass inputs through environment variables instead of direct interpolation."
         ))
+
+        # ═══════════════════════════════════════════════════════
+        # CATEGORY 17: Trivy/TeamPCP Supply Chain Attack (2026)
+        # ═══════════════════════════════════════════════════════
+
+        # ── All 75 compromised trivy-action SHAs ──
+        _TRIVY_ACTION_COMPROMISED_SHAS = [
+            "f77738448eec70113cf711656914b61905b3bd47",  # 0.0.1
+            "b9faa60f85f6f780a34b8d0faaf45b3e3966fdda",  # 0.0.10
+            "3c615ac0f29e743eda8863377f9776619fd2db76",  # 0.0.11
+            "c19401b2f58dc6d2632cb473d44be98dd8292a93",  # 0.0.12
+            "4209dcadeaea6a7df69262fef1beeda940881d4d",  # 0.0.13
+            "61fbe20b7589e6b61eedcd5fe1e958e1a95fbd13",  # 0.0.14
+            "0d49ceb356f7d4735c63bd0d5c7e67665ec7f80c",  # 0.0.15
+            "2e7964d59cd24d1fd2aa4d6a5f93b7f09ea96947",  # 0.0.16
+            "1d74e4cf63b7cf083cf92bf5923cf037f7011c6b",  # 0.0.17
+            "3201ddddd69a1419c6f1511a14c5945ba3217126",  # 0.0.18
+            "ea56cd31d82b853932d50f1144e95b21817e52cf",  # 0.0.19
+            "f5c9fd927027beaa3760d2a84daa8b00e6e5ee21",  # 0.0.2
+            "9738180dd24427b8824445dbbc23c30ffc1cb0d8",  # 0.0.20
+            "ef3a510e3f94df3ea9fcd01621155ca5f2c3bf5b",  # 0.0.21
+            "bb75a9059c2d5803db49e6ed6c6f7e0b367f96be",  # 0.0.22
+            "22e864e71155122e2834eb0c10d0e7e0b8f65aa3",  # 0.0.3
+            "6ec7aaf336b7d2593d980908be9bc4fed6d407c6",  # 0.0.4
+            "555e7ad4c895c558c7214496df1cd56d1390c516",  # 0.0.5
+            "794b6d99daefd5e27ecb33e12691c4026739bf98",  # 0.0.6
+            "506d7ff06abc509692c600b5b69b4dc6ceaa4b15",  # 0.0.7
+            "91d5e0a13afab54533a95f8019dd7530bd38a071",  # 0.0.8
+            "252554b0e1130467f4301ba65c55a9c373508e35",  # 0.0.9
+            "9e8968cb83234f0de0217aa8c934a68a317ee518",  # 0.1.0
+            "8aa8af3ea1de8e968a3e49a40afb063692ab8eae",  # 0.10.0
+            "e53b0483d08da44da9dfe8a84bf2837e5163699b",  # 0.11.0
+            "276ca9680f6df9016db12f7c48571e5c4639451d",  # 0.11.1
+            "8ae5a08aec3013ee8f6132b2a9012b45002f8eaa",  # 0.11.2
+            "820428afeb64484d311211658383ce7f79d31a0a",  # 0.12.0
+            "cf19d27c8a7fb7a8bbf1e1000e9318749bcd82cf",  # 0.13.0
+            "405e91f329294fb696f55793203abf1f6aba9b40",  # 0.13.1
+            "2297a1b967ecc05ba2285eb6af56ab4da554ecae",  # 0.14.0
+            "2b1dac84ff12ba56158b3a97e2941a587cb20da9",  # 0.15.0
+            "f4f1785be270ae13f36f6a8cfbf6faaae50e660a",  # 0.16.0
+            "3d1b5be1589a83fc98b82781c263708b2eb3b47b",  # 0.16.1
+            "985447b035c447c1ed45f38fad7ca7a4254cb668",  # 0.17.0
+            "85cb72f1e8ee5e6e44488cd6cbdbca94722f96ed",  # 0.18.0
+            "38623bf26706d51c45647909dcfb669825442804",  # 0.19.0
+            "7f6f0ce52a59bdfc5757c3982aac2353b58f4c73",  # 0.2.0
+            "0891663bc55073747be0eb864fbec3727840945d",  # 0.2.1
+            "3dffed04dc90cf1c548f40577d642c52241ec76c",  # 0.2.2
+            "cf1692a1fc7a47120e6508309765db7e33477946",  # 0.2.3
+            "848d665ed24dc1a41f6b4b7c7ffac7693d6b37be",  # 0.2.4
+            "fa4209b6182a4c1609ce34d40b67f5cfd7f00f53",  # 0.2.5
+            "9092287c0339a8102f91c5a257a7e27625d9d029",  # 0.20.0
+            "b7befdc106c600585d3eec87d7e98e1c136839ae",  # 0.21.0
+            "9ba3c3cd3b23d033cd91253a9e61a4bf59c8a670",  # 0.22.0
+            "fd090040b5f584f4fcbe466878cb204d0735dcf4",  # 0.23.0
+            "e0198fd2b6e1679e36d32933941182d9afa82f6f",  # 0.24.0
+            "ddb94181dcbc723d96ffc07fddd14d97e4849016",  # 0.25.0
+            "b7252377a3d82c73d497bfafa3eabe84de1d02c4",  # 0.26.0
+            "66c90331c8b991e7895d37796ac712b5895dda3b",  # 0.27.0
+            "c5967f85626795f647d4bf6eb67227f9b79e02f5",  # 0.28.0
+            "9c000ba9d482773cbbc2c3544d61b109bc9eb832",  # 0.29.0
+            "8cfb9c31cc944da57458555aa398bb99336d5a1f",  # 0.3.0
+            "ad623e14ebdfe82b9627811d57b9a39e283d6128",  # 0.30.0
+            "8519037888b189f13047371758f7aed2283c6b58",  # 0.31.0
+            "fd429cf86db999572f3d9ca7c54561fdf7d388a4",  # 0.32.0
+            "19851bef764b57ff95b35e66589f31949eeb229d",  # 0.33.0
+            "91e7c2c36dcad14149d8e455b960af62a2ffb275",  # 0.33.1
+            "ab6606b76e5a054be08cab3d07da323e90e751e8",  # 0.34.0
+            "a9bc513ea7989e3234b395cafb8ed5ccc3755636",  # 0.34.1
+            "ddb9da4475c1cef7d5389062bdfdfbdbd1394648",  # 0.34.2
+            "18f01febc4c3cd70ce6b94b70e69ab866fc033f5",  # 0.4.0
+            "7b955a5ece1e1b085c12dac7ac10e0eb1f5b0d4d",  # 0.4.1
+            "d488f4388ff4aa268906e25c2144f1433a4edec2",  # 0.5.0
+            "fa78e67c0df002c509bcdea88677fb5e2fe6a9b1",  # 0.5.1
+            "a5b4818debf2adbaba872aaffd6a0f64a26449fa",  # 0.6.0
+            "6fc874a1f9d65052d4c67a314da1dae914f1daff",  # 0.6.1
+            "2a51c5c5bb1fd1f0e134c9754f1702cfa359c3dd",  # 0.6.2
+            "ddb6697447a97198bdef9bae00215059eb5e8bc2",  # 0.7.0
+            "aa3c46a9643b18125abb8aefc13219014e9c4be8",  # 0.7.1
+            "4bdcc5d9ef3ddb42ccc9126e6c07faa3df2807e3",  # 0.8.0
+            "b745a35bad072d93a9b83080e9920ec52c6b5a27",  # 0.9.0
+            "da73ae0790e458e878b300b57ceb5f81ac573b46",  # 0.9.1
+            "7550f14b64c1c724035a075b36e71423719a1f30",  # 0.9.2
+        ]
+
+        # ── All 7 compromised setup-trivy SHAs ──
+        _SETUP_TRIVY_COMPROMISED_SHAS = [
+            "8afa9b9f9183b4e00c46e2b82d34047e3c177bd0",
+            "386c0f18ac3d7f2ed33e2d884761119f4024ff8a",
+            "384add36b52014a0f99c0ab3a3d58bd47e53d00f",
+            "7a4b6f31edb8db48cc22a1d41e298b38c4a6417e",
+            "6d8d730153d6151e03549f276faca0275ed9c7b2",
+            "99b93c070aac11b52dfc3e41a55cbb24a331ae75",
+            "f4436225d8a5fd1715d3c2290d8a50643e726031",
+        ]
+
+        self.attacks.append(AttackPattern(
+            id="SCA-091",
+            name="Trivy v0.69.4 Binary Compromise (TeamPCP)",
+            category="actions_compromise",
+            severity="critical",
+            cve="CVE-2026-33634",
+            description=(
+                "The Trivy vulnerability scanner binary v0.69.4 was compromised by the TeamPCP threat actor on March 19, 2026. "
+                "The malicious binary contained a credential stealer that phones home to scan.aquasecurtiy.org (typosquat C2), "
+                "dumps Runner.Worker process memory via /proc/<pid>/mem to extract GitHub Actions secrets marked isSecret:true, "
+                "sweeps 50+ filesystem paths for SSH keys, AWS/GCP/Azure credentials, Kubernetes tokens, Docker configs, and crypto wallets, "
+                "encrypts with AES-256-CBC + RSA-4096 hybrid encryption, and exfiltrates to the C2 domain. "
+                "Fallback exfil creates a 'tpcp-docs' repo on the victim's GitHub account. "
+                "On dev machines: persistence via ~/.config/systemd/user/sysmon.py systemd unit. "
+                "Docker Hub images v0.69.5 and v0.69.6 also contained the C2 domain. "
+                "CWE-506: Embedded Malicious Code."
+            ),
+            date="2026-03-19",
+            affected=[
+                "trivy@v0.69.4",
+                "aquasec/trivy:0.69.4",
+                "aquasec/trivy:0.69.5",
+                "aquasec/trivy:0.69.6",
+            ],
+            references=[
+                "https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23",
+                "https://nvd.nist.gov/vuln/detail/CVE-2026-33634",
+                "https://wiz.io/blog/trivy-compromised-teampcp-supply-chain-attack",
+                "https://www.stepsecurity.io/blog/trivy-compromised-a-second-time---malicious-v0-69-4-release",
+                "https://docker.com/blog/trivy-supply-chain-compromise/",
+            ],
+            detection_signatures={
+                "compromised_shas": [],
+                "compromised_actions": [],
+                "suspicious_domains": [
+                    "scan.aquasecurtiy.org",
+                    "45.148.10.212",
+                    "tdtqy-oyaaa-aaaae-af2dq-cai.raw.icp0.io",
+                    "plug-tab-protective-relay.trycloudflare.com",
+                ],
+                "exfil_patterns": [
+                    r"scan\.aquasecurtiy\.org",
+                    r"45\.148\.10\.212",
+                    r"/proc/[0-9]+/mem",
+                    r"Runner\.Worker",
+                    r"isSecret.*true",
+                    r"tpcp-docs",
+                    r"teampcp",
+                    r"sysmon\.py",
+                    r"tdtqy-oyaaa-aaaae-af2dq-cai",
+                    r"trycloudflare\.com",
+                ],
+                "binary_hashes": {
+                    "FreeBSD-64bit": "887e1f5b5b50162a60bd03b66269e0ae545d0aef0583c1c5b00972152ad7e073",
+                    "Linux-64bit": "822dd269ec10459572dfaaefe163dae693c344249a0161953f0d5cdd110bd2a0",
+                    "macOS-ARM64": "6328a34b26a63423b555a61f89a6a0525a534e9c88584c815d937910f1ddd538",
+                    "Windows-64bit": "0880819ef821cff918960a39c1c1aada55a5593c61c608ea9215da858a86e349",
+                },
+                "container_digests": [
+                    "sha256:27f446230c60bbf0b70e008db798bd4f33b7826f9f76f756606f5417100beef3",  # 0.69.4
+                    "sha256:5aaa1d7cfa9ca4649d6ffad165435c519dc836fa6e21b729a2174ad10b057d2b",  # 0.69.5
+                    "sha256:425cd3e1a2846ac73944e891250377d2b03653e6f028833e30fc00c1abbc6d33",  # 0.69.6
+                ],
+            },
+            remediation=(
+                "Immediately update to Trivy v0.69.2 or v0.69.3 (safe versions). "
+                "Pin trivy-action to v0.35.0 and setup-trivy to v0.2.6. "
+                "Pin container images by digest. "
+                "Rotate ALL secrets (GITHUB_TOKEN, AWS, GCP, Azure, Docker, npm, SSH keys) if your CI ran v0.69.4 during March 19-20, 2026. "
+                "Check network logs for connections to scan.aquasecurtiy.org or 45.148.10.212. "
+                "Search GitHub for 'tpcp-docs' repos created on your account."
+            )
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-092",
+            name="aquasecurity/trivy-action Compromise (75 tags)",
+            category="actions_compromise",
+            severity="critical",
+            cve="CVE-2026-33634",
+            description=(
+                "All 75 version tags (0.0.1 through 0.34.2) of aquasecurity/trivy-action were force-pushed "
+                "to point to malicious imposter commits containing a credential stealer. The modified entrypoint.sh "
+                "harvests Runner process environment, reads Runner.Worker memory via /proc/<pid>/mem, "
+                "and exfiltrates encrypted secrets to scan.aquasecurtiy.org. Only tag 0.35.0 was unaffected. "
+                "Exposure window: ~12 hours (March 19 ~17:43 - March 20 ~05:40 UTC 2026)."
+            ),
+            date="2026-03-19",
+            affected=["aquasecurity/trivy-action (all tags except 0.35.0)"],
+            references=[
+                "https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23",
+                "https://www.stepsecurity.io/blog/trivy-compromised-a-second-time---malicious-v0-69-4-release",
+            ],
+            detection_signatures={
+                "compromised_shas": _TRIVY_ACTION_COMPROMISED_SHAS,
+                "compromised_actions": [
+                    "aquasecurity/trivy-action",
+                ],
+                "exfil_patterns": [
+                    r"scan\.aquasecurtiy\.org",
+                    r"/proc/[0-9]+/mem",
+                    r"Runner\.Worker",
+                    r"base64.*python.*credential",
+                ],
+            },
+            remediation=(
+                "Pin aquasecurity/trivy-action to @0.35.0 (safe version) or pin to a verified SHA. "
+                "Rotate all secrets if your CI ran a compromised tag during the 12-hour exposure window."
+            )
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-093",
+            name="aquasecurity/setup-trivy Compromise (7 SHAs)",
+            category="actions_compromise",
+            severity="critical",
+            cve="CVE-2026-33634",
+            description=(
+                "The aquasecurity/setup-trivy GitHub Action was compromised with credential stealer code "
+                "injected via imposter commits. All version tags were pointed to malicious commit SHAs. "
+                "The injected 'Setup environment' step harvests /proc/*/environ, reads Runner.Worker "
+                "process memory, and runs a comprehensive credential stealer targeting SSH, AWS, GCP, Azure, "
+                "K8s, Docker, crypto wallets. Exfiltrates to scan.aquasecurtiy.org with tpcp-docs repo fallback. "
+                "Exposure window: ~4 hours."
+            ),
+            date="2026-03-19",
+            affected=["aquasecurity/setup-trivy (all tags except v0.2.6)"],
+            references=[
+                "https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23",
+                "https://www.stepsecurity.io/blog/trivy-compromised-a-second-time---malicious-v0-69-4-release",
+            ],
+            detection_signatures={
+                "compromised_shas": _SETUP_TRIVY_COMPROMISED_SHAS,
+                "compromised_actions": [
+                    "aquasecurity/setup-trivy",
+                ],
+                "exfil_patterns": [
+                    r"scan\.aquasecurtiy\.org",
+                    r"/proc/\*/environ",
+                    r"/proc/[0-9]+/mem",
+                    r"Runner\.Worker",
+                    r"AES-256-CBC",
+                    r"RSA-4096",
+                    r"RSA-OAEP",
+                ],
+            },
+            remediation=(
+                "Pin aquasecurity/setup-trivy to @v0.2.6 (safe) or verified SHA (3fb12ec). "
+                "Rotate all secrets if CI ran a compromised tag during the 4-hour exposure window."
+            )
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-094",
+            name="TeamPCP C2 Communication Detection",
+            category="network_exfiltration",
+            severity="critical",
+            cve="CVE-2026-33634",
+            description=(
+                "Detection of network communication with TeamPCP threat actor infrastructure. "
+                "C2 domain: scan.aquasecurtiy.org (typosquat of aquasecurity - note 'securtiy' misspelling). "
+                "IP: 45.148.10.212 (TECHOFF SRV LIMITED, Amsterdam). "
+                "ICP fallback: tdtqy-oyaaa-aaaae-af2dq-cai.raw.icp0.io. "
+                "Cloudflare Tunnel: plug-tab-protective-relay.trycloudflare.com. "
+                "Any access to these endpoints indicates active credential exfiltration."
+            ),
+            date="2026-03-19",
+            affected=["Any CI/CD pipeline using compromised Trivy/TeamPCP components"],
+            references=[
+                "https://wiz.io/blog/trivy-compromised-teampcp-supply-chain-attack",
+            ],
+            detection_signatures={
+                "suspicious_domains": [
+                    "scan.aquasecurtiy.org",
+                    "aquasecurtiy.org",
+                    "45.148.10.212",
+                    "tdtqy-oyaaa-aaaae-af2dq-cai.raw.icp0.io",
+                    "icp0.io",
+                    "plug-tab-protective-relay.trycloudflare.com",
+                ],
+                "exfil_patterns": [
+                    r"scan\.aquasecurtiy\.org",
+                    r"45\.148\.10\.212",
+                    r"tdtqy-oyaaa.*icp0\.io",
+                    r"plug-tab-protective-relay.*trycloudflare",
+                    r"aquasecurtiy",
+                ],
+            },
+            remediation=(
+                "Block all network access to these domains/IPs at the network level. "
+                "If connections were observed, assume full credential compromise. "
+                "Rotate ALL secrets immediately."
+            )
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-095",
+            name="Runner.Worker Process Memory Dump (Credential Stealer)",
+            category="credential_exfiltration",
+            severity="critical",
+            cve="CVE-2026-33634",
+            description=(
+                "Detection of the credential stealer technique used in the Trivy/TeamPCP attack. "
+                "The malware locates the Runner.Worker process and reads /proc/<pid>/mem to extract "
+                "secrets marked isSecret:true in the GitHub Actions runner memory. This technique "
+                "bypasses normal secret masking because it reads the raw memory of the runner process. "
+                "The stolen secrets are then encrypted with AES-256-CBC + RSA-4096 and exfiltrated. "
+                "Also used in the tj-actions/changed-files attack."
+            ),
+            date="2026-03-19",
+            affected=["GitHub Actions runners (Linux)"],
+            references=[
+                "https://wiz.io/blog/trivy-compromised-teampcp-supply-chain-attack",
+                "https://www.stepsecurity.io/blog/trivy-compromised-a-second-time---malicious-v0-69-4-release",
+            ],
+            detection_signatures={
+                "exfil_patterns": [
+                    r"/proc/[0-9]+/mem",
+                    r"/proc/\*/mem",
+                    r"Runner\.Worker",
+                    r"isSecret.*true",
+                    r"process\.environ",
+                    r"/proc/\*/environ",
+                    r"cat\s+/proc/[0-9]+/environ",
+                    r"strings\s+/proc/[0-9]+/mem",
+                    r"dd\s+if=/proc/[0-9]+/mem",
+                ],
+                "process_patterns": [
+                    r"python.*import.*struct.*open.*/proc/.*mem",
+                    r"python.*proc.*mem.*read",
+                    r"base64.*python.*credential",
+                ],
+            },
+            remediation=(
+                "Use StepSecurity Harden-Runner to detect and block process memory reads. "
+                "Monitor for processes reading /proc/*/mem. "
+                "Implement network egress policies to prevent exfiltration."
+            )
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-096",
+            name="TeamPCP Persistence Mechanism (sysmon.py)",
+            category="actions_compromise",
+            severity="critical",
+            cve="CVE-2026-33634",
+            description=(
+                "The TeamPCP credential stealer establishes persistence on developer machines via "
+                "a systemd user service. It creates ~/.config/systemd/user/sysmon.py which registers "
+                "as a systemd unit to survive reboots. This persistence allows ongoing credential "
+                "harvesting from the developer's machine."
+            ),
+            date="2026-03-19",
+            affected=["Linux developer machines"],
+            references=[
+                "https://wiz.io/blog/trivy-compromised-teampcp-supply-chain-attack",
+            ],
+            detection_signatures={
+                "exfil_patterns": [
+                    r"\.config/systemd/user/sysmon\.py",
+                    r"systemd.*sysmon\.py",
+                    r"systemctl.*enable.*sysmon",
+                    r"\.config/systemd/user.*\.service",
+                ],
+            },
+            remediation=(
+                "Check for ~/.config/systemd/user/sysmon.py and related systemd units. "
+                "Remove any unexpected systemd user services. Rotate all credentials on the machine."
+            )
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-097",
+            name="TeamPCP Fallback Exfiltration (tpcp-docs repo)",
+            category="credential_exfiltration",
+            severity="critical",
+            cve="CVE-2026-33634",
+            description=(
+                "When the TeamPCP C2 domain is unreachable, the credential stealer falls back to "
+                "creating a public repository called 'tpcp-docs' on the victim's GitHub account and "
+                "uploads the encrypted stolen data as a release asset. The name 'tpcp' matches the "
+                "'teampcp owns you' message posted by spam bots."
+            ),
+            date="2026-03-19",
+            affected=["GitHub Actions"],
+            references=[
+                "https://wiz.io/blog/trivy-compromised-teampcp-supply-chain-attack",
+            ],
+            detection_signatures={
+                "exfil_patterns": [
+                    r"tpcp-docs",
+                    r"tpcp.*repo",
+                    r"gh\s+repo\s+create.*tpcp",
+                    r"api\.github\.com.*repos.*tpcp",
+                    r"teampcp",
+                ],
+            },
+            remediation=(
+                "Search your GitHub account for 'tpcp-docs' repos. Delete if found. "
+                "Rotate the GITHUB_TOKEN and all secrets."
+            )
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-098",
+            name="Imposter Commit Detection (Fork-based Tag Hijacking)",
+            category="actions_compromise",
+            severity="critical",
+            cve="N/A",
+            description=(
+                "Detection of GitHub Actions referencing commits that don't belong to any branch "
+                "in the action's repository (imposter commits). This is the exact technique used "
+                "in the Trivy/TeamPCP attack: attackers push commits via forks and then move tags "
+                "to reference those fork commits. GitHub displays a warning: 'This commit does not "
+                "belong to any branch on this repository, and may belong to a fork outside of the "
+                "repository.' This detection is inspired by StepSecurity Harden-Runner's imposter "
+                "commit detection feature."
+            ),
+            date="2026-03-19",
+            affected=["GitHub Actions"],
+            references=[
+                "https://docs.stepsecurity.io/harden-runner/detections#action-uses-imposter-commit",
+                "https://www.stepsecurity.io/blog/trivy-compromised-a-second-time---malicious-v0-69-4-release",
+            ],
+            detection_signatures={
+                "imposter_indicators": [
+                    r"does not belong to any branch",
+                    r"may belong to a fork",
+                ],
+            },
+            remediation=(
+                "Always verify that action commit SHAs belong to metadata branches (main/master). "
+                "Use GitHub's commit info API to validate commits before use."
+            )
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-099",
+            name="hackerbot-claw PWN Request Exploit (Trivy First Compromise)",
+            category="pwn_request",
+            severity="critical",
+            cve="N/A",
+            description=(
+                "On February 28, 2026, an autonomous bot called hackerbot-claw exploited a "
+                "pull_request_target workflow in aquasecurity/trivy to steal a Personal Access Token. "
+                "The stolen PAT was used to take over the repository — privatizing it, deleting "
+                "GitHub Releases between v0.27.0 and v0.69.1, and pushing a suspicious artifact to "
+                "the Trivy VSCode extension. This was the precursor to the March 19 TeamPCP attack — "
+                "incomplete credential rotation from this incident enabled the second compromise."
+            ),
+            date="2026-02-28",
+            affected=["aquasecurity/trivy"],
+            references=[
+                "https://www.stepsecurity.io/blog/hackerbot-claw-github-actions-exploitation",
+                "https://github.com/aquasecurity/trivy/discussions/10265",
+            ],
+            detection_signatures={
+                "pwn_patterns": [
+                    r"pull_request_target",
+                    r"hackerbot.claw",
+                ],
+                "compromised_actions": [
+                    "aquasecurity/trivy",
+                ],
+            },
+            remediation=(
+                "Avoid pull_request_target trigger with checkout of PR code. "
+                "Use pull_request trigger instead. Implement Harden-Runner for network monitoring."
+            )
+        ))
+
+        # ═══════════════════════════════════════════════════════
+        # CATEGORY 18: Checkmarx KICS / LiteLLM / CanisterWorm
+        # ═══════════════════════════════════════════════════════
+
+        self.attacks.append(AttackPattern(
+            id="SCA-100",
+            name="Checkmarx KICS GitHub Action Compromise (TeamPCP)",
+            category="actions_compromise",
+            severity="critical",
+            cve="N/A",
+            description=(
+                "All release tags in the Checkmarx/kics-github-action repository were compromised "
+                "with the same TeamPCP infostealer payload on March 23, 2026. The attack used imposter "
+                "commits to inject credential stealer code into every version tag."
+            ),
+            date="2026-03-23",
+            affected=["Checkmarx/kics-github-action (all tags)"],
+            references=[
+                "https://www.stepsecurity.io/blog/checkmarx-kics-github-action-compromised-malware-injected-in-all-git-tags",
+            ],
+            detection_signatures={
+                "compromised_actions": [
+                    "Checkmarx/kics-github-action",
+                    "checkmarx/kics-github-action",
+                ],
+                "exfil_patterns": [
+                    r"scan\.aquasecurtiy\.org",
+                ],
+            },
+            remediation="Remove Checkmarx/kics-github-action or pin to a verified-safe commit SHA after remediation."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-101",
+            name="LiteLLM Credential Stealer (PyPI v1.82.7/v1.82.8)",
+            category="package_compromise",
+            severity="critical",
+            cve="N/A",
+            description=(
+                "LiteLLM PyPI packages versions 1.82.7 and 1.82.8 were poisoned with the same "
+                "TeamPCP infostealer. The credential stealer exfiltrates to models.litellm.cloud. "
+                "This was part of the broader TeamPCP campaign expanding from GitHub Actions to "
+                "PyPI package registries."
+            ),
+            date="2026-03-24",
+            affected=["litellm==1.82.7", "litellm==1.82.8"],
+            references=[
+                "https://www.stepsecurity.io/blog/litellm-credential-stealer-hidden-in-pypi-wheel",
+                "https://blog.gitguardian.com/trivys-march-supply-chain-attack/",
+            ],
+            detection_signatures={
+                "malicious_packages": {
+                    "pypi": ["litellm==1.82.7", "litellm==1.82.8"],
+                },
+                "suspicious_domains": [
+                    "models.litellm.cloud",
+                ],
+                "exfil_patterns": [
+                    r"models\.litellm\.cloud",
+                ],
+            },
+            remediation="Update litellm to a version >= 1.82.9. Rotate all credentials."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-102",
+            name="CanisterWorm npm Self-Propagating Worm (TeamPCP)",
+            category="package_compromise",
+            severity="critical",
+            cve="N/A",
+            description=(
+                "Following the Trivy compromise, TeamPCP deployed CanisterWorm — a self-propagating "
+                "npm worm that used stolen npm tokens from compromised CI pipelines to publish backdoored "
+                "patch versions across every namespace they could reach, including the @opengov scope "
+                "(16+ packages). The worm is a direct continuation of the v0.69.4 attack chain."
+            ),
+            date="2026-03-23",
+            affected=["@opengov/* (16+ packages)", "Multiple npm scopes"],
+            references=[
+                "https://www.stepsecurity.io/blog/canisterworm-how-a-self-propagating-npm-worm-is-spreading-backdoors-across-the-ecosystem",
+                "https://blog.gitguardian.com/trivys-march-supply-chain-attack/",
+            ],
+            detection_signatures={
+                "exfil_patterns": [
+                    r"canisterworm",
+                    r"CanisterWorm",
+                    r"npm.*publish.*--access\s*public",
+                    r"npm\s+token\s+create",
+                    r"\.npmrc.*_authToken",
+                ],
+                "suspicious_domains": [
+                    "npnjs.com",
+                ],
+            },
+            remediation=(
+                "Audit all npm packages for unexpected patch versions. Rotate npm tokens. "
+                "Enable 2FA for npm publishing. Check for unauthorized publishes."
+            )
+        ))
+
+        # ═══════════════════════════════════════════════════════
+        # CATEGORY 19: Shai-Hulud npm Worm & CVE-2025-54313
+        # ═══════════════════════════════════════════════════════
+
+        self.attacks.append(AttackPattern(
+            id="SCA-103",
+            name="Shai-Hulud npm Worm (CrowdStrike Packages)",
+            category="package_compromise",
+            severity="critical",
+            cve="N/A",
+            description=(
+                "The Shai-Hulud npm worm compromised 1193+ package versions including CrowdStrike npm packages. "
+                "The original attack (September 2025) and Shai-Hulud 2.0 (November 2025) used bundle.js and "
+                "Bun payloads (setup_bun.js, bun_environment.js) for credential exfiltration. "
+                "Targets: npm tokens, GitHub tokens, SSH keys, AWS credentials, cloud metadata endpoints. "
+                "Creates repos named 'Shai-Hulud' on GitHub for exfiltration. Fallback: destructive rm -rf ~."
+            ),
+            date="2025-09-01",
+            affected=[
+                "@crowdstrike/node-exporter@0.2.2",
+                "@crowdstrike/threat-center@1.205.2",
+                "@ctrl/tinycolor@4.1.1",
+                "@ctrl/tinycolor@4.1.2",
+                "@nativescript-community/*",
+                "@operato/*",
+                "@things-factory/*",
+                "@asyncapi/*",
+                "@actbase/*",
+                "@accordproject/*",
+                "@antstackio/*",
+            ],
+            references=[
+                "https://socket.dev/blog/ongoing-supply-chain-attack-targets-crowdstrike-npm-packages",
+                "https://github.com/Drasrax/npm-shai-hulud-scanner",
+            ],
+            detection_signatures={
+                "exfil_patterns": [
+                    r"Shai.Hulud",
+                    r"shai.hulud",
+                    r"setup_bun\.js",
+                    r"bun_environment\.js",
+                    r"bundle\.js.*postinstall",
+                    r"rm\s+-rf\s+~",
+                    r"rm\s+-rf\s+\$HOME",
+                ],
+                "suspicious_domains": [
+                    "webhook.site/bb8ca5f6-4175-45d2-b042-fc9ebb8170b7",
+                ],
+                "malicious_packages": {
+                    "npm": [
+                        "@crowdstrike/node-exporter@0.2.2",
+                        "@crowdstrike/threat-center@1.205.2",
+                        "@ctrl/tinycolor@4.1.1",
+                        "@ctrl/tinycolor@4.1.2",
+                    ],
+                },
+                "file_hashes": {
+                    "bun_environment.js": [
+                        "62ee164b9b306250c1172583f138c9614139264f889fa99614903c12755468d0",
+                        "f099c5d9ec417d4445a0328ac0ada9cde79fc37410914103ae9c609cbc0ee068",
+                        "cbb9bc5a8496243e02f3cc080efbe3e4a1430ba0671f2e43a202bf45b05479cd",
+                    ],
+                    "setup_bun.js": [
+                        "a3894003ad1d293ba96d77881ccd2071446dc3f65f434669b49b3da92421901a",
+                    ],
+                },
+            },
+            remediation=(
+                "Scan node_modules with npm-shai-hulud-scanner. Remove compromised packages. "
+                "Rotate all npm tokens, SSH keys, and cloud credentials. "
+                "Check for unauthorized GitHub repos named 'Shai-Hulud'."
+            )
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-104",
+            name="CVE-2025-54313 Scavenger npm Malware",
+            category="package_compromise",
+            severity="critical",
+            cve="CVE-2025-54313",
+            description=(
+                "The Scavenger malware (July 2025) compromised popular npm packages including "
+                "eslint-config-prettier, eslint-plugin-prettier, synckit, @pkgr/core, napi-postinstall. "
+                "Uses DLL/SO loading (node-gyp.dll, loader.dll, version.dll), logDiskSpace function, "
+                "and C2 domains (firebase.su, dieorsuffer.com, smartscreen-api.com)."
+            ),
+            date="2025-07-01",
+            affected=[
+                "eslint-config-prettier@8.10.1",
+                "eslint-config-prettier@9.1.1",
+                "eslint-config-prettier@10.1.6",
+                "eslint-config-prettier@10.1.7",
+                "eslint-plugin-prettier@4.2.2",
+                "eslint-plugin-prettier@4.2.3",
+                "synckit@0.11.9",
+                "@pkgr/core@0.2.8",
+                "napi-postinstall@0.3.1",
+                "got-fetch@5.1.11",
+                "got-fetch@5.1.12",
+                "is@3.3.1",
+                "is@5.0.0",
+            ],
+            references=[
+                "https://nvd.nist.gov/vuln/detail/CVE-2025-54313",
+            ],
+            detection_signatures={
+                "malicious_packages": {
+                    "npm": [
+                        "eslint-config-prettier@8.10.1",
+                        "eslint-config-prettier@9.1.1",
+                        "eslint-config-prettier@10.1.6",
+                        "eslint-config-prettier@10.1.7",
+                        "eslint-plugin-prettier@4.2.2",
+                        "eslint-plugin-prettier@4.2.3",
+                        "synckit@0.11.9",
+                        "@pkgr/core@0.2.8",
+                        "napi-postinstall@0.3.1",
+                        "got-fetch@5.1.11",
+                        "got-fetch@5.1.12",
+                        "is@3.3.1",
+                        "is@5.0.0",
+                    ],
+                },
+                "suspicious_domains": [
+                    "firebase.su",
+                    "dieorsuffer.com",
+                    "smartscreen-api.com",
+                ],
+                "exfil_patterns": [
+                    r"node-gyp\.dll",
+                    r"loader\.dll",
+                    r"version\.dll",
+                    r"logDiskSpace",
+                    r"rundll32",
+                    r"regsvr32",
+                    r"firebase\.su",
+                    r"dieorsuffer\.com",
+                    r"smartscreen-api\.com",
+                ],
+                "file_hashes": {
+                    "node-gyp.dll": ["c68e42f416f482d43653f36cd14384270b54b68d6496a8e34ce887687de5b441"],
+                    "scavenger_stage2": ["5bed39728e404838ecd679df65048abcb443f8c7a9484702a2ded60104b8c4a9"],
+                    "install.js": ["32d0dbdfef0e5520ba96a2673244267e204b94a49716ea13bf635fa9af6f66bf"],
+                },
+            },
+            remediation=(
+                "Remove compromised npm package versions. Update to safe versions. "
+                "Check for node-gyp.dll, loader.dll, version.dll files. "
+                "Scan for connections to C2 domains."
+            )
+        ))
+
+        # ═══════════════════════════════════════════════════════
+        # CATEGORY 20: Cross-Platform CI/CD Patterns
+        # ═══════════════════════════════════════════════════════
+
+        self.attacks.append(AttackPattern(
+            id="SCA-105",
+            name="Jenkins Pipeline Secret Exposure",
+            category="credential_exfiltration",
+            severity="high",
+            cve="N/A",
+            description=(
+                "Jenkins pipeline scripts that expose credentials via shell commands, echo, "
+                "or pass to unauthorized external services. Applies to Jenkinsfile and shared libraries."
+            ),
+            date="2024-01-01",
+            affected=["Jenkins CI/CD"],
+            references=[
+                "https://www.jenkins.io/doc/book/security/",
+            ],
+            detection_signatures={
+                "jenkins_patterns": [
+                    r"withCredentials\s*\(",
+                    r"credentials\s*\(",
+                    r"echo\s+.*\$\{.*PASSWORD",
+                    r"echo\s+.*\$\{.*TOKEN",
+                    r"sh\s+.*curl.*\$\{.*CREDENTIAL",
+                    r"env\.\w+.*password",
+                ],
+            },
+            remediation="Use Jenkins credentials binding. Never echo secrets. Use withCredentials() block."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-106",
+            name="GitLab CI Secret Exposure",
+            category="credential_exfiltration",
+            severity="high",
+            cve="N/A",
+            description=(
+                "GitLab CI/CD pipeline configurations that expose secrets via echo, curl, "
+                "or pass to unauthorized commands. Covers .gitlab-ci.yml and included templates."
+            ),
+            date="2024-01-01",
+            affected=["GitLab CI/CD"],
+            references=[
+                "https://docs.gitlab.com/ee/ci/variables/",
+            ],
+            detection_signatures={
+                "gitlab_patterns": [
+                    r"echo\s+.*\$CI_JOB_TOKEN",
+                    r"echo\s+.*\$CI_REGISTRY_PASSWORD",
+                    r"curl.*\$CI_JOB_TOKEN",
+                    r"curl.*\$PRIVATE_TOKEN",
+                    r"variables:.*password",
+                    r"variables:.*secret",
+                ],
+            },
+            remediation="Use GitLab CI masked variables. Never echo tokens. Use protected branches for secrets."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-107",
+            name="CircleCI Secret Exposure",
+            category="credential_exfiltration",
+            severity="high",
+            cve="N/A",
+            description=(
+                "CircleCI pipeline configurations that expose secrets. CircleCI was the target "
+                "of a major breach in January 2023 that exposed all customer secrets."
+            ),
+            date="2023-01-04",
+            affected=["CircleCI"],
+            references=[
+                "https://circleci.com/blog/jan-4-2023-incident-report/",
+            ],
+            detection_signatures={
+                "circleci_patterns": [
+                    r"echo\s+.*\$CIRCLE_TOKEN",
+                    r"curl.*\$CIRCLE_TOKEN",
+                    r"CIRCLECI.*token",
+                    r"context:.*production",
+                ],
+            },
+            remediation="Rotate all CircleCI secrets regularly. Use contexts with restricted access."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-108",
+            name="Azure DevOps Pipeline Secret Exposure",
+            category="credential_exfiltration",
+            severity="high",
+            cve="N/A",
+            description=(
+                "Azure DevOps pipeline (azure-pipelines.yml) configurations that expose secrets "
+                "via echo, curl, or pass to unauthorized external services."
+            ),
+            date="2024-01-01",
+            affected=["Azure DevOps"],
+            references=[
+                "https://learn.microsoft.com/en-us/azure/devops/pipelines/security/",
+            ],
+            detection_signatures={
+                "azure_devops_patterns": [
+                    r"echo\s+.*\$\(System\.AccessToken\)",
+                    r"echo\s+.*\$\(secret\.\w+\)",
+                    r"curl.*System\.AccessToken",
+                    r"variables:.*issecret.*true",
+                ],
+            },
+            remediation="Use Azure DevOps secret variables. Never echo $(System.AccessToken)."
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-109",
+            name="Network Egress Anomaly Detection (Harden-Runner Inspired)",
+            category="network_exfiltration",
+            severity="high",
+            cve="N/A",
+            description=(
+                "Inspired by StepSecurity Harden-Runner's network egress monitoring. "
+                "Detects outbound connections to domains not in the expected baseline for CI/CD workflows. "
+                "Harden-Runner builds a baseline of expected network destinations over time and flags "
+                "new/anomalous destinations. This pattern detects common CI/CD egress anomalies."
+            ),
+            date="2026-03-19",
+            affected=["Any CI/CD system"],
+            references=[
+                "https://github.com/step-security/harden-runner",
+                "https://docs.stepsecurity.io/harden-runner",
+            ],
+            detection_signatures={
+                "egress_patterns": [
+                    r"curl\s+.*https?://[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+",
+                    r"wget\s+.*https?://[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+",
+                    r"curl.*\|\s*(bash|sh|python)",
+                    r"wget.*\|\s*(bash|sh|python)",
+                    r"curl\s+-o\s*/dev/null",
+                ],
+            },
+            remediation=(
+                "Use StepSecurity Harden-Runner for comprehensive egress monitoring. "
+                "Block outbound traffic to non-allowed endpoints with egress-policy: block."
+            )
+        ))
+
+        self.attacks.append(AttackPattern(
+            id="SCA-110",
+            name="Cloud Metadata Endpoint Access (IMDS)",
+            category="credential_exfiltration",
+            severity="critical",
+            cve="N/A",
+            description=(
+                "Detection of cloud instance metadata endpoint (IMDS) access in CI/CD workflows. "
+                "Accessing 169.254.169.254 allows retrieval of IAM credentials, instance identity, "
+                "and other sensitive cloud metadata. Used by attackers to escalate from CI to cloud."
+            ),
+            date="2024-01-01",
+            affected=["AWS", "GCP", "Azure", "Any cloud CI runners"],
+            references=[
+                "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html",
+            ],
+            detection_signatures={
+                "imds_patterns": [
+                    r"169\.254\.169\.254",
+                    r"metadata\.google\.internal",
+                    r"metadata\.azure\.com",
+                    r"curl.*169\.254\.169\.254",
+                    r"wget.*169\.254\.169\.254",
+                    r"curl.*metadata\.google",
+                    r"curl.*metadata\.azure",
+                ],
+            },
+            remediation=(
+                "Block access to 169.254.169.254 in CI/CD. "
+                "Use IMDSv2 with token requirement on AWS. "
+                "Implement network policies to restrict IMDS access."
+            )
+        ))

@@ -3,7 +3,11 @@
 Runtime Scanner
 ===============
 Monitors for runtime indicators of compromise during
-workflow execution (credential dumping, suspicious processes, etc.).
+workflow execution. Detects credential dumping, suspicious processes,
+Runner.Worker memory access (TeamPCP technique), persistence mechanisms,
+tpcp-docs fallback exfiltration, and suspicious network connections.
+
+Inspired by StepSecurity Harden-Runner's process and file monitoring.
 """
 
 import os
@@ -19,6 +23,30 @@ class RuntimeScanner(BaseScanner):
 
     scanner_name = "runtime_monitor"
 
+    # ── TeamPCP persistence paths and suspicious files ──
+    PERSISTENCE_PATHS = [
+        ("~/.config/systemd/user/sysmon.py", "TeamPCP systemd persistence (sysmon.py)"),
+        ("~/.config/systemd/user/sysmon.service", "TeamPCP systemd service unit"),
+        ("/tmp/sysmon.py", "TeamPCP sysmon.py in /tmp"),
+        ("/tmp/tpcp", "TeamPCP temp working directory"),
+    ]
+
+    # ── Expanded suspicious process patterns (includes TeamPCP) ──
+    SUSPICIOUS_PROCESSES = [
+        ("xmrig", "Cryptominer (XMRig)"),
+        ("minergate", "Cryptominer (Minergate)"),
+        ("minerd", "Cryptominer (minerd)"),
+        ("cpuminer", "Cryptominer (cpuminer)"),
+        ("nc ", "Netcat (potential reverse shell)"),
+        ("ncat ", "Ncat (potential reverse shell)"),
+        ("socat ", "Socat (potential tunnel)"),
+        ("ngrok", "ngrok tunnel"),
+        ("cloudflared", "Cloudflare tunnel"),
+        ("sysmon.py", "TeamPCP persistence daemon"),
+        ("/proc/", "Process memory read (potential TeamPCP)"),
+        ("Runner.Worker", "Runner Worker process targeting"),
+    ]
+
     def scan(self) -> List[Dict[str, Any]]:
         self.findings = []
 
@@ -30,6 +58,9 @@ class RuntimeScanner(BaseScanner):
         self._check_environment_leaks()
         self._check_suspicious_processes()
         self._check_network_connections()
+        self._check_proc_mem_access()
+        self._check_persistence_mechanisms()
+        self._check_tpcp_exfil()
 
         return self.findings
 
@@ -110,12 +141,6 @@ class RuntimeScanner(BaseScanner):
 
     def _check_suspicious_processes(self):
         """Check for suspicious processes running during CI."""
-        suspicious = [
-            "xmrig", "minergate", "minerd", "cpuminer",
-            "nc ", "ncat ", "socat ",
-            "ngrok", "cloudflared",
-        ]
-
         try:
             result = subprocess.run(
                 ["ps", "aux"],
@@ -124,14 +149,14 @@ class RuntimeScanner(BaseScanner):
             if result.returncode == 0:
                 for line in result.stdout.splitlines():
                     line_lower = line.lower()
-                    for pattern in suspicious:
-                        if pattern in line_lower:
+                    for pattern, description in self.SUSPICIOUS_PROCESSES:
+                        if pattern.lower() in line_lower:
                             self.add_finding(
                                 attack_id="SCA-RT-PROC",
-                                title=f"Suspicious process detected: {pattern.strip()}",
+                                title=f"Suspicious process: {description}",
                                 severity="critical",
-                                description=f"A suspicious process matching '{pattern.strip()}' was found running. "
-                                            f"This could indicate cryptomining, reverse shell, or tunneling activity.",
+                                description=f"A suspicious process matching '{pattern.strip()}' was found running: {description}. "
+                                            f"This could indicate cryptomining, reverse shell, tunneling, or TeamPCP credential stealer activity.",
                                 file="",
                                 line=0,
                                 remediation="Investigate the process origin. Kill it and rotate all secrets. "
@@ -174,4 +199,120 @@ class RuntimeScanner(BaseScanner):
                 except FileNotFoundError:
                     continue
         except (subprocess.TimeoutExpired, OSError):
+            pass
+
+    def _check_proc_mem_access(self):
+        """
+        Detect Runner.Worker process memory access — the TeamPCP credential stealer technique.
+        The malware reads /proc/<pid>/mem of the Runner.Worker process to extract secrets
+        marked isSecret:true from the runner's memory.
+        """
+        try:
+            # Check if any process is reading /proc/*/mem (the TeamPCP technique)
+            result = subprocess.run(
+                ["ps", "aux"],
+                capture_output=True, text=True, timeout=10
+            )
+            if result.returncode == 0:
+                for line in result.stdout.splitlines():
+                    # Detect processes reading proc memory
+                    if re.search(r'/proc/\d+/mem', line) or re.search(r'/proc/\*/mem', line):
+                        self.add_finding(
+                            attack_id="SCA-095",
+                            title="Runner.Worker memory access detected",
+                            severity="critical",
+                            description="A process is reading /proc/<pid>/mem which is the exact technique "
+                                        "used by TeamPCP to steal GitHub Actions secrets (CVE-2026-33634). "
+                                        "The credential stealer targets Runner.Worker process memory to extract "
+                                        "secrets marked isSecret:true, bypassing normal secret masking.",
+                            file="",
+                            line=0,
+                            remediation="Kill the process immediately. Rotate ALL secrets. "
+                                        "Use StepSecurity Harden-Runner to block proc memory reads.",
+                            evidence=line[:200],
+                        )
+                    # Detect /proc/*/environ reads
+                    if re.search(r'/proc/\d+/environ', line) or re.search(r'/proc/\*/environ', line):
+                        self.add_finding(
+                            attack_id="SCA-095",
+                            title="Process environment read via /proc detected",
+                            severity="critical",
+                            description="A process is reading /proc/<pid>/environ which exposes all "
+                                        "environment variables including secrets. Used in TeamPCP attack.",
+                            file="",
+                            line=0,
+                            remediation="Kill the process. Rotate all secrets.",
+                            evidence=line[:200],
+                        )
+        except (subprocess.TimeoutExpired, FileNotFoundError, OSError):
+            pass
+
+    def _check_persistence_mechanisms(self):
+        """Detect TeamPCP persistence mechanisms (sysmon.py, systemd units)."""
+        for filepath, description in self.PERSISTENCE_PATHS:
+            expanded = os.path.expanduser(filepath)
+            if os.path.exists(expanded):
+                self.add_finding(
+                    attack_id="SCA-096",
+                    title=f"TeamPCP persistence: {description}",
+                    severity="critical",
+                    description=f"Detected TeamPCP persistence mechanism at {filepath}: {description}. "
+                                f"The TeamPCP credential stealer establishes persistence via systemd user services "
+                                f"to survive reboots and continue harvesting credentials.",
+                    file=expanded,
+                    line=0,
+                    remediation=f"Remove {filepath} immediately. Check systemd user services: "
+                                f"systemctl --user list-units. Rotate ALL credentials on this machine.",
+                )
+
+        # Also check for unexpected systemd user services
+        systemd_user_dir = os.path.expanduser("~/.config/systemd/user/")
+        if os.path.isdir(systemd_user_dir):
+            try:
+                for f in os.listdir(systemd_user_dir):
+                    if f.endswith((".py", ".sh", ".bash")):
+                        self.add_finding(
+                            attack_id="SCA-096",
+                            title=f"Script in systemd user dir: {f}",
+                            severity="high",
+                            description=f"A script file ({f}) was found in ~/.config/systemd/user/. "
+                                        f"This is unusual and may indicate persistence by a credential stealer.",
+                            file=os.path.join(systemd_user_dir, f),
+                            line=0,
+                            remediation=f"Remove {f} and investigate its contents. Rotate credentials.",
+                        )
+            except OSError:
+                pass
+
+    def _check_tpcp_exfil(self):
+        """Detect tpcp-docs fallback exfiltration mechanism."""
+        # Check if GITHUB_TOKEN is available and if tpcp-docs repo was created
+        github_token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+        if not github_token:
+            return
+
+        try:
+            # Check git log for tpcp-related activity
+            result = subprocess.run(
+                ["git", "log", "--oneline", "-20"],
+                capture_output=True, text=True, timeout=10,
+                cwd=os.environ.get("GITHUB_WORKSPACE", ".")
+            )
+            if result.returncode == 0:
+                for line in result.stdout.splitlines():
+                    if re.search(r'tpcp|teampcp', line, re.IGNORECASE):
+                        self.add_finding(
+                            attack_id="SCA-097",
+                            title="TeamPCP exfiltration trace in git log",
+                            severity="critical",
+                            description="Found 'tpcp' or 'teampcp' references in git log. "
+                                        "The TeamPCP credential stealer creates a 'tpcp-docs' repo "
+                                        "as a fallback exfiltration channel when the C2 is unreachable.",
+                            file="",
+                            line=0,
+                            remediation="Check for 'tpcp-docs' repos on your GitHub account. "
+                                        "Delete if found. Rotate GITHUB_TOKEN and all secrets.",
+                            evidence=line[:200],
+                        )
+        except (subprocess.TimeoutExpired, FileNotFoundError, OSError):
             pass
