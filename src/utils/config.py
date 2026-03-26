@@ -27,6 +27,7 @@ class ScanConfig:
     scan_permissions: bool = True
     scan_provenance: bool = True
     scan_runtime: bool = False
+    scan_binaries: bool = False
 
     # Custom rules
     custom_rules_path: str = ""
@@ -42,6 +43,8 @@ class ScanConfig:
     json_output: bool = True
     json_output_path: str = "supply-chain-guardian-report.json"
     table_output: bool = True
+    html_output: bool = False
+    html_output_path: str = "supply-chain-guardian-report.html"
 
     # GitHub integration
     github_token: str = ""
@@ -87,6 +90,7 @@ class ScanConfig:
             scan_permissions=env_bool("INPUT_SCAN_PERMISSIONS", True),
             scan_provenance=env_bool("INPUT_SCAN_PROVENANCE", True),
             scan_runtime=env_bool("INPUT_SCAN_RUNTIME", False),
+            scan_binaries=env_bool("INPUT_SCAN_BINARIES", False),
 
             custom_rules_path=env_str("INPUT_CUSTOM_RULES_PATH"),
             exclude_paths=env_list("INPUT_EXCLUDE_PATHS"),
@@ -96,9 +100,11 @@ class ScanConfig:
             alert_on_severity=env_str("INPUT_ALERT_ON_SEVERITY", "high"),
 
             sarif_output=env_bool("INPUT_SARIF_OUTPUT", True),
-            json_output=env_str("INPUT_JSON_OUTPUT") != "",
+            json_output=True,  # always produce JSON when a path is configured
             json_output_path=env_str("INPUT_JSON_OUTPUT", "supply-chain-guardian-report.json"),
             table_output=env_bool("INPUT_TABLE_OUTPUT", True),
+            html_output=env_bool("INPUT_HTML_OUTPUT", False),
+            html_output_path=env_str("INPUT_HTML_OUTPUT_PATH", "supply-chain-guardian-report.html"),
 
             github_token=env_str("INPUT_GITHUB_TOKEN"),
             block_pr=env_bool("INPUT_BLOCK_PR", True),

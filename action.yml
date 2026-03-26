@@ -122,6 +122,14 @@ inputs:
     description: 'Enable binary analysis scanner to detect suspicious executables in the workspace. Auto-enabled in deep/paranoid modes.'
     required: false
     default: 'false'
+  html-output:
+    description: 'Generate a self-contained HTML report viewable directly in the browser. Produced alongside JSON/SARIF.'
+    required: false
+    default: 'false'
+  html-output-path:
+    description: 'Filename for the HTML report (default: supply-chain-guardian-report.html)'
+    required: false
+    default: 'supply-chain-guardian-report.html'
   verbose:
     description: 'Enable verbose/debug output'
     required: false
@@ -237,6 +245,8 @@ runs:
         INPUT_VERBOSE: ${{ inputs.verbose }}
         INPUT_EXCEPTIONS_CONFIG: ${{ inputs.exceptions-config }}
         INPUT_SCAN_BINARIES: ${{ inputs.scan-binaries }}
+        INPUT_HTML_OUTPUT: ${{ inputs.html-output }}
+        INPUT_HTML_OUTPUT_PATH: ${{ inputs.html-output-path }}
         GITHUB_REPOSITORY: ${{ github.repository }}
         GITHUB_SHA: ${{ github.sha }}
         GITHUB_REF: ${{ github.ref }}
@@ -261,6 +271,7 @@ runs:
         name: supply-chain-guardian-report
         path: |
           supply-chain-guardian-report.json
+          supply-chain-guardian-report.html
           supply-chain-guardian.sarif
           /tmp/scg-runtime-monitor/runtime-findings.json
           /tmp/scg-runtime-monitor/monitor.log

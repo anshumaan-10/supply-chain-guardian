@@ -43,6 +43,11 @@ from reporters.table_reporter import TableReporter
 from reporters.json_reporter import JsonReporter
 from reporters.sarif_reporter import SarifReporter
 from reporters.github_reporter import GitHubReporter
+try:
+    from reporters.html_reporter import generate_html as _generate_html
+    _HAS_HTML = True
+except ImportError:
+    _HAS_HTML = False
 from alerting.slack_alerter import SlackAlerter
 from alerting.teams_alerter import TeamsAlerter
 from db.attack_db import AttackDatabase
@@ -55,7 +60,7 @@ except ImportError:
     _HAS_THREAT_FEED = False
 
 # ── Version & Metadata ──────────────────────────────────────────────────────
-__version__ = "4.0.0"
+__version__ = "4.0.2"
 __author__ = "Anshumaan Singh"
 __github__ = "anshumaan-10"
 __tool_id__ = "supply-chain-guardian"
@@ -199,7 +204,7 @@ def _build_scanner_registry(config, attack_db):
         scanners.append(("Cross-Platform CI/CD", CrossPlatformScanner(config, attack_db), 1))
 
     # ── Phase 5: Binary Analysis ─────────────────────────────────────────
-    if _HAS_BINARY and config.scan_mode in ("deep", "paranoid"):
+    if _HAS_BINARY and (config.scan_binaries or config.scan_mode in ("deep", "paranoid")):
         scanners.append(("Binary Analysis", BinaryScanner(config, attack_db), 2))
 
     return scanners
@@ -528,6 +533,16 @@ def main():
         SarifReporter.write_report(report_data, "supply-chain-guardian.sarif")
         logger.info(f"SARIF report >> supply-chain-guardian.sarif")
 
+    # HTML output
+    if config.html_output and _HAS_HTML:
+        try:
+            html = _generate_html(report_data)
+            with open(config.html_output_path, "w", encoding="utf-8") as _hf:
+                _hf.write(html)
+            logger.info(f"HTML report >> {config.html_output_path}")
+        except Exception as _he:
+            logger.error(f"HTML report generation failed: {_he}")
+
     # GitHub Actions annotations and PR comments
     github_token = os.environ.get("INPUT_GITHUB_TOKEN", "")
     if github_token and os.environ.get("GITHUB_ACTIONS") == "true":
@@ -561,6 +576,7 @@ def main():
             f.write(f"low-findings={len(low)}\n")
             f.write(f"report-path={config.json_output_path}\n")
             f.write(f"sarif-path=supply-chain-guardian.sarif\n")
+            f.write(f"exempted-findings={exempted_count}\n")
 
     # ── Final Verdict ────────────────────────────────────────────────────
     logger.blank()
