@@ -113,15 +113,6 @@ class SarifReporter:
                     },
                 }]
 
-            # Add fix suggestion
-            remediation = finding.get("remediation", "")
-            if remediation:
-                result["fixes"] = [{
-                    "description": {
-                        "text": remediation
-                    },
-                }]
-
             results.append(result)
 
         # Build SARIF document
