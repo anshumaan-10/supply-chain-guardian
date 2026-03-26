@@ -138,6 +138,10 @@ inputs:
     description: 'Skip automatic artifact upload (set true if you handle artifacts manually)'
     required: false
     default: 'false'
+  extra-scan-paths:
+    description: 'Comma-separated list of additional directories to scan for workflow files, package manifests, Dockerfiles, and CI configs. Paths are relative to the workspace root.'
+    required: false
+    default: ''
   verbose:
     description: 'Enable verbose/debug output'
     required: false
@@ -255,6 +259,7 @@ runs:
         INPUT_SCAN_BINARIES: ${{ inputs.scan-binaries }}
         INPUT_HTML_OUTPUT: ${{ inputs.html-output }}
         INPUT_HTML_OUTPUT_PATH: ${{ inputs.html-output-path }}
+        INPUT_EXTRA_SCAN_PATHS: ${{ inputs.extra-scan-paths }}
         GITHUB_REPOSITORY: ${{ github.repository }}
         GITHUB_SHA: ${{ github.sha }}
         GITHUB_REF: ${{ github.ref }}

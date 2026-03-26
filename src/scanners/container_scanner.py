@@ -76,12 +76,13 @@ class ContainerScanner(BaseScanner):
         return self.findings
 
     def _find_dockerfiles(self, workspace: str) -> List[str]:
-        """Find all Dockerfiles in the workspace."""
+        """Find all Dockerfiles in the workspace (incl. prefixed names like 26-Dockerfile)."""
         dockerfiles = []
         for root, dirs, files in os.walk(workspace):
             dirs[:] = [d for d in dirs if d not in ('.git', 'node_modules', '__pycache__', '.venv')]
             for f in files:
-                if f == "Dockerfile" or f.startswith("Dockerfile.") or f.endswith(".Dockerfile"):
+                if f == "Dockerfile" or f.startswith("Dockerfile.") or f.endswith(".Dockerfile") \
+                        or (f.endswith("Dockerfile") and "-" in f):
                     dockerfiles.append(os.path.join(root, f))
         return dockerfiles
 

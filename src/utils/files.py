@@ -12,14 +12,39 @@ from pathlib import Path
 from typing import List, Dict, Optional, Any
 
 
+def _get_extra_scan_dirs(workspace: str) -> List[str]:
+    """Resolve extra scan path directories from INPUT_EXTRA_SCAN_PATHS env var."""
+    raw = os.environ.get("INPUT_EXTRA_SCAN_PATHS", "")
+    dirs = []
+    for p in raw.split(","):
+        p = p.strip()
+        if not p:
+            continue
+        resolved = os.path.join(workspace, p) if not os.path.isabs(p) else p
+        if os.path.isdir(resolved):
+            dirs.append(resolved)
+    return dirs
+
+
 def find_workflow_files(workspace: str) -> List[str]:
-    """Find all GitHub Actions workflow files."""
+    """Find all GitHub Actions workflow files, including extra scan paths."""
     workflows_dir = os.path.join(workspace, ".github", "workflows")
     files = []
     if os.path.isdir(workflows_dir):
         for f in os.listdir(workflows_dir):
             if f.endswith((".yml", ".yaml")):
                 files.append(os.path.join(workflows_dir, f))
+
+    # Include yml/yaml from extra scan directories
+    for extra_dir in _get_extra_scan_dirs(workspace):
+        for root, dirs, filenames in os.walk(extra_dir):
+            dirs[:] = [d for d in dirs if d not in ('.git', 'node_modules', '__pycache__', '.venv')]
+            for f in filenames:
+                if f.endswith((".yml", ".yaml")):
+                    full = os.path.join(root, f)
+                    if full not in files:
+                        files.append(full)
+
     return files
 
 
@@ -66,7 +91,8 @@ def read_file_lines(filepath: str) -> List[str]:
 
 
 def find_package_files(workspace: str) -> Dict[str, List[str]]:
-    """Find all package manifest files by ecosystem."""
+    """Find all package manifest files by ecosystem.
+    Uses substring matching to find files with prefixed names (e.g. 07-package.json)."""
     result = {
         "npm": [],
         "python": [],
@@ -82,18 +108,26 @@ def find_package_files(workspace: str) -> Dict[str, List[str]]:
 
         for f in files:
             path = os.path.join(root, f)
-            if f == "package.json":
+            fl = f.lower()
+            # npm ecosystem
+            if f == "package.json" or (fl.endswith("package.json") and "lock" not in fl):
                 result["npm"].append(path)
-            elif f == "package-lock.json":
+            elif f == "package-lock.json" or fl.endswith("package-lock.json"):
                 result["npm"].append(path)
-            elif f in ("requirements.txt", "Pipfile", "Pipfile.lock", "pyproject.toml", "setup.py", "setup.cfg"):
+            # Python ecosystem
+            elif f in ("requirements.txt", "Pipfile", "Pipfile.lock", "pyproject.toml", "setup.py", "setup.cfg") \
+                    or fl.endswith("requirements.txt") or fl.endswith("setup.py") or fl.endswith("pyproject.toml"):
                 result["python"].append(path)
+            # Go
             elif f in ("go.mod", "go.sum"):
                 result["go"].append(path)
+            # Ruby
             elif f in ("Gemfile", "Gemfile.lock"):
                 result["ruby"].append(path)
+            # Rust
             elif f in ("Cargo.toml", "Cargo.lock"):
                 result["rust"].append(path)
+            # Java
             elif f in ("pom.xml", "build.gradle", "build.gradle.kts"):
                 result["java"].append(path)
 
@@ -185,18 +219,19 @@ def relative_path(filepath: str, workspace: str) -> str:
 
 
 def find_jenkinsfiles(workspace: str) -> List[str]:
-    """Find all Jenkinsfile and Jenkins pipeline files."""
+    """Find all Jenkinsfile and Jenkins pipeline files (including prefixed names)."""
     files = []
     for root, dirs, filenames in os.walk(workspace):
         dirs[:] = [d for d in dirs if d not in ('.git', 'node_modules', '__pycache__', '.venv')]
         for f in filenames:
-            if f in ('Jenkinsfile', 'jenkinsfile') or f.endswith(('.Jenkinsfile', '.jenkinsfile')):
+            fl = f.lower()
+            if fl == 'jenkinsfile' or fl.endswith('jenkinsfile') or fl.endswith('.jenkinsfile'):
                 files.append(os.path.join(root, f))
     return files
 
 
 def find_gitlab_ci_files(workspace: str) -> List[str]:
-    """Find all GitLab CI configuration files."""
+    """Find all GitLab CI configuration files (including prefixed names)."""
     files = []
     # Main config
     main_ci = os.path.join(workspace, ".gitlab-ci.yml")
@@ -209,22 +244,40 @@ def find_gitlab_ci_files(workspace: str) -> List[str]:
             for f in filenames:
                 if f.endswith((".yml", ".yaml")):
                     files.append(os.path.join(root, f))
+    # Extra scan paths: find files with 'gitlab-ci' in the name
+    for extra_dir in _get_extra_scan_dirs(workspace):
+        for root, dirs, filenames in os.walk(extra_dir):
+            dirs[:] = [d for d in dirs if d not in ('.git', 'node_modules', '__pycache__', '.venv')]
+            for f in filenames:
+                if 'gitlab-ci' in f.lower() and f.endswith((".yml", ".yaml")):
+                    full = os.path.join(root, f)
+                    if full not in files:
+                        files.append(full)
     return files
 
 
 def find_circleci_files(workspace: str) -> List[str]:
-    """Find all CircleCI configuration files."""
+    """Find all CircleCI configuration files (including prefixed names)."""
     files = []
     circleci_dir = os.path.join(workspace, ".circleci")
     if os.path.isdir(circleci_dir):
         for f in os.listdir(circleci_dir):
             if f.endswith((".yml", ".yaml")):
                 files.append(os.path.join(circleci_dir, f))
+    # Extra scan paths: find files with 'circleci' in the name
+    for extra_dir in _get_extra_scan_dirs(workspace):
+        for root, dirs, filenames in os.walk(extra_dir):
+            dirs[:] = [d for d in dirs if d not in ('.git', 'node_modules', '__pycache__', '.venv')]
+            for f in filenames:
+                if 'circleci' in f.lower() and f.endswith((".yml", ".yaml")):
+                    full = os.path.join(root, f)
+                    if full not in files:
+                        files.append(full)
     return files
 
 
 def find_azure_pipelines(workspace: str) -> List[str]:
-    """Find all Azure DevOps pipeline files."""
+    """Find all Azure DevOps pipeline files (including prefixed names)."""
     files = []
     # Standard name
     for name in ("azure-pipelines.yml", "azure-pipelines.yaml"):
@@ -237,6 +290,15 @@ def find_azure_pipelines(workspace: str) -> List[str]:
         for f in os.listdir(azure_dir):
             if f.endswith((".yml", ".yaml")):
                 files.append(os.path.join(azure_dir, f))
+    # Extra scan paths: find files with 'azure-pipeline' in the name
+    for extra_dir in _get_extra_scan_dirs(workspace):
+        for root, dirs, filenames in os.walk(extra_dir):
+            dirs[:] = [d for d in dirs if d not in ('.git', 'node_modules', '__pycache__', '.venv')]
+            for f in filenames:
+                if 'azure-pipeline' in f.lower() and f.endswith((".yml", ".yaml")):
+                    full = os.path.join(root, f)
+                    if full not in files:
+                        files.append(full)
     return files
 
 
