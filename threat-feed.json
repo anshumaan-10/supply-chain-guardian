@@ -1,8 +1,27 @@
 {
   "version": "2026.03.30",
-  "last_updated": "2026-03-30T07:26:18.204343+00:00",
+  "last_updated": "2026-03-30T13:18:04.169931+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-xqmp-fxgv-xvq5",
+      "name": "libp2p-gossipsub: Remote crash via unchecked Instant overflow in heartbeat backoff expiry handling",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-xqmp-fxgv-xvq5",
+      "description": "libp2p-gossipsub: Remote crash via unchecked Instant overflow in heartbeat backoff expiry handling",
+      "date": "2026-03-30",
+      "affected": [
+        "libp2p-gossipsub"
+      ],
+      "references": [
+        "https://github.com/libp2p/rust-libp2p/security/advisories/GHSA-xqmp-fxgv-xvq5",
+        "https://github.com/advisories/GHSA-gc42-3jg7-rxr2",
+        "https://github.com/advisories/GHSA-xqmp-fxgv-xvq5"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-4hmj-39m8-jwc7",
       "name": "OpenClaw has ACP CLI approval prompt ANSI escape sequence injection",
@@ -1245,43 +1264,6 @@
             "dompurify"
           ]
         }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qr99-7898-vr7c",
-      "name": "Traefik Vulnerable to BasicAuth/DigestAuth Identity Spoofing via Non-Canonical headerField",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-qr99-7898-vr7c",
-      "description": "Traefik Vulnerable to BasicAuth/DigestAuth Identity Spoofing via Non-Canonical headerField",
-      "date": "2026-03-27",
-      "affected": [
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v2"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-qr99-7898-vr7c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-33433",
-        "https://github.com/traefik/traefik/releases/tag/v2.11.42",
-        "https://github.com/traefik/traefik/releases/tag/v3.6.11",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.0-ea.3",
-        "https://github.com/advisories/GHSA-qr99-7898-vr7c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v2"
-        ]
       },
       "remediation": "Update affected packages per advisory guidance."
     }
