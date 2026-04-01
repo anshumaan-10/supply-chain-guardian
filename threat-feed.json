@@ -1,8 +1,38 @@
 {
   "version": "2026.04.01",
-  "last_updated": "2026-04-01T13:20:06.950015+00:00",
+  "last_updated": "2026-04-01T19:00:49.375887+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-hp5w-3hxx-vmwf",
+      "name": "Payload has Unvalidated Input in Password Recovery Endpoints",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-hp5w-3hxx-vmwf",
+      "description": "Payload has Unvalidated Input in Password Recovery Endpoints",
+      "date": "2026-04-01",
+      "affected": [
+        "@payloadcms/graphql",
+        "payload"
+      ],
+      "references": [
+        "https://github.com/payloadcms/payload/security/advisories/GHSA-hp5w-3hxx-vmwf",
+        "https://github.com/payloadcms/payload/releases/tag/v3.79.1",
+        "https://github.com/advisories/GHSA-hp5w-3hxx-vmwf"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@payloadcms/graphql",
+            "payload"
+          ]
+        },
+        "compromised_actions": [
+          "@payloadcms/graphql"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-73g7-86qr-jrg3",
       "name": "SiYuan vulnerable to reflected XSS via SVG namespace prefix bypass in SanitizeSVG (getDynamicIcon, u",
@@ -1249,37 +1279,11 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-68p4-j234-43mv",
-      "name": "SiYuan is Vulnerable to Cross-Origin RCE via Permissive CORS Policy and JavaScript Snippet Injection",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-68p4-j234-43mv",
-      "description": "SiYuan is Vulnerable to Cross-Origin RCE via Permissive CORS Policy and JavaScript Snippet Injection",
-      "date": "2026-03-31",
-      "affected": [
-        "github.com/siyuan-note/siyuan/kernel"
-      ],
-      "references": [
-        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-68p4-j234-43mv",
-        "https://github.com/advisories/GHSA-68p4-j234-43mv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/siyuan-note/siyuan/kernel"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/siyuan-note/siyuan/kernel"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@payloadcms/graphql": "Payload has Unvalidated Input in Password Recovery Endpoints",
     "github.com/siyuan-note/siyuan/kernel": "SiYuan vulnerable to reflected XSS via SVG namespace prefix bypass in SanitizeSVG (getDynamicIcon, u",
     "@tinacms/graphql": "@tinacms/graphql's `FilesystemBridge` Path Validation Can Be Bypassed via Symlinks or Junctions",
     "yeswiki/yeswiki": "YesWiki has Multiple Reflected Cross-site Scripting Vulnerabilities",
