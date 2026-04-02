@@ -1,8 +1,131 @@
 {
   "version": "2026.04.02",
-  "last_updated": "2026-04-02T13:12:03.456001+00:00",
+  "last_updated": "2026-04-02T18:55:53.927289+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-q4qf-9j86-f5mh",
+      "name": "Rack:: Static header_rules bypass via URL-encoded paths",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-q4qf-9j86-f5mh",
+      "description": "Rack:: Static header_rules bypass via URL-encoded paths",
+      "date": "2026-04-02",
+      "affected": [
+        "rack",
+        "rack",
+        "rack"
+      ],
+      "references": [
+        "https://github.com/rack/rack/security/advisories/GHSA-q4qf-9j86-f5mh",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-34786",
+        "https://github.com/advisories/GHSA-q4qf-9j86-f5mh"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "rack",
+            "rack",
+            "rack"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h2jq-g4cq-5ppq",
+      "name": "Rack::Static prefix matching can expose unintended files under the static root",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-h2jq-g4cq-5ppq",
+      "description": "Rack::Static prefix matching can expose unintended files under the static root",
+      "date": "2026-04-02",
+      "affected": [
+        "rack",
+        "rack",
+        "rack"
+      ],
+      "references": [
+        "https://github.com/rack/rack/security/advisories/GHSA-h2jq-g4cq-5ppq",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-34785",
+        "https://github.com/advisories/GHSA-h2jq-g4cq-5ppq"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "rack",
+            "rack",
+            "rack"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3hfp-gqgh-xc5g",
+      "name": "Axios supply chain attack - dependency in @lightdash/cli may resolve to compromised axios versions",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-3hfp-gqgh-xc5g",
+      "description": "Axios supply chain attack - dependency in @lightdash/cli may resolve to compromised axios versions",
+      "date": "2026-04-02",
+      "affected": [
+        "@lightdash/cli"
+      ],
+      "references": [
+        "https://github.com/lightdash/lightdash/security/advisories/GHSA-3hfp-gqgh-xc5g",
+        "https://github.com/axios/axios/issues/10604",
+        "https://github.com/advisories/GHSA-fw8c-xr5c-95f9",
+        "https://security.snyk.io/vuln/SNYK-JS-AXIOS-15850650",
+        "https://security.snyk.io/vuln/SNYK-JS-PLAINCRYPTOJS-15850652",
+        "https://socket.dev/blog/axios-npm-package-compromised",
+        "https://thehackernews.com/2026/03/axios-supply-chain-attack-pushes-cross.html",
+        "https://www.stepsecurity.io/blog/axios-compromised-on-npm-malicious-versions-drop-remote-access-trojan",
+        "https://github.com/advisories/GHSA-3hfp-gqgh-xc5g"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@lightdash/cli"
+          ]
+        },
+        "compromised_actions": [
+          "@lightdash/cli"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-658g-p7jg-wx5g",
+      "name": "Axios npm Supply Chain Incident Impacting @usebruno/cli",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-658g-p7jg-wx5g",
+      "description": "Axios npm Supply Chain Incident Impacting @usebruno/cli",
+      "date": "2026-04-02",
+      "affected": [
+        "@usebruno/cli"
+      ],
+      "references": [
+        "https://github.com/usebruno/bruno/security/advisories/GHSA-658g-p7jg-wx5g",
+        "https://github.com/axios/axios/issues/10604",
+        "https://github.com/usebruno/bruno/pull/7632",
+        "https://github.com/advisories/GHSA-fw8c-xr5c-95f9",
+        "https://www.aikido.dev/blog/axios-npm-compromised-maintainer-hijacked-rat",
+        "https://github.com/advisories/GHSA-658g-p7jg-wx5g"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@usebruno/cli"
+          ]
+        },
+        "compromised_actions": [
+          "@usebruno/cli"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-gvrj-cjch-728p",
       "name": "Juju has Improper TLS Client/Server authentication and certificate verification on Database Cluster",
@@ -1052,98 +1175,12 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-85m8-g393-jcxf",
-      "name": "CI4MS: Backup Management Full Account Takeover for All-Roles & Privilege-Escalation via Stored DOM B",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-85m8-g393-jcxf",
-      "description": "CI4MS: Backup Management Full Account Takeover for All-Roles & Privilege-Escalation via Stored DOM Blind XSS",
-      "date": "2026-04-01",
-      "affected": [
-        "ci4-cms-erp/ci4ms"
-      ],
-      "references": [
-        "https://github.com/ci4-cms-erp/ci4ms/security/advisories/GHSA-85m8-g393-jcxf",
-        "https://github.com/advisories/GHSA-85m8-g393-jcxf"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "ci4-cms-erp/ci4ms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-v897-c6vq-6cr3",
-      "name": "CI4MS: System Settings (Company Information) Full Platform Compromise & Full Account Takeover for Al",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-v897-c6vq-6cr3",
-      "description": "CI4MS: System Settings (Company Information) Full Platform Compromise & Full Account Takeover for All-Roles & Privilege-Escalation via Stored DOM XSS",
-      "date": "2026-04-01",
-      "affected": [
-        "ci4-cms-erp/ci4ms"
-      ],
-      "references": [
-        "https://github.com/ci4-cms-erp/ci4ms/security/advisories/GHSA-v897-c6vq-6cr3",
-        "https://github.com/advisories/GHSA-v897-c6vq-6cr3"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "ci4-cms-erp/ci4ms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gcfj-cf7j-vwgj",
-      "name": "CI4MS: System Settings (Social Media Management) Full Platform Compromise & Full Account Takeover fo",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-gcfj-cf7j-vwgj",
-      "description": "CI4MS: System Settings (Social Media Management) Full Platform Compromise & Full Account Takeover for All-Roles & Privilege-Escalation via Stored DOM XSS",
-      "date": "2026-04-01",
-      "affected": [
-        "ci4-cms-erp/ci4ms"
-      ],
-      "references": [
-        "https://github.com/ci4-cms-erp/ci4ms/security/advisories/GHSA-gcfj-cf7j-vwgj",
-        "https://github.com/advisories/GHSA-gcfj-cf7j-vwgj"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "ci4-cms-erp/ci4ms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r4v5-rwr2-q7r4",
-      "name": "CI4MS: Logs Full Account Takeover for All-Roles & Privilege-Escalation via Stored DOM XSS",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-r4v5-rwr2-q7r4",
-      "description": "CI4MS: Logs Full Account Takeover for All-Roles & Privilege-Escalation via Stored DOM XSS",
-      "date": "2026-04-01",
-      "affected": [
-        "ci4-cms-erp/ci4ms"
-      ],
-      "references": [
-        "https://github.com/ci4-cms-erp/ci4ms/security/advisories/GHSA-r4v5-rwr2-q7r4",
-        "https://github.com/advisories/GHSA-r4v5-rwr2-q7r4"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "ci4-cms-erp/ci4ms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@lightdash/cli": "Axios supply chain attack - dependency in @lightdash/cli may resolve to compromised axios versions",
+    "@usebruno/cli": "Axios npm Supply Chain Incident Impacting @usebruno/cli",
     "github.com/juju/juju": "Juju has Improper TLS Client/Server authentication and certificate verification on Database Cluster",
     "github.com/knadh/listmonk": "listmonk's active sessions remain valid after password reset and password change",
     "@nocobase/plugin-workflow-sql": "NocoBase Has SQL Injection via template variable substitution in workflow SQL node",
