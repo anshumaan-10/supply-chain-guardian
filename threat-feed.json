@@ -1,8 +1,85 @@
 {
   "version": "2026.04.03",
-  "last_updated": "2026-04-03T13:02:10.580075+00:00",
+  "last_updated": "2026-04-03T18:45:30.003519+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-245v-p8fj-vwm2",
+      "name": "Juju has a resource poisoning vulnerability",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-245v-p8fj-vwm2",
+      "description": "Juju has a resource poisoning vulnerability",
+      "date": "2026-04-03",
+      "affected": [
+        "github.com/juju/juju"
+      ],
+      "references": [
+        "https://github.com/juju/juju/security/advisories/GHSA-245v-p8fj-vwm2",
+        "https://github.com/juju/juju/commit/26ff93c903d55b0712c6fb3f6b254710edb971d4",
+        "https://github.com/advisories/GHSA-245v-p8fj-vwm2"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/juju/juju"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/juju/juju"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-j6f6-jp3p-53mw",
+      "name": "Juju: Read All Controller Logs From Compromised Workload",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-j6f6-jp3p-53mw",
+      "description": "Juju: Read All Controller Logs From Compromised Workload",
+      "date": "2026-04-03",
+      "affected": [
+        "github.com/juju/juju"
+      ],
+      "references": [
+        "https://github.com/juju/juju/security/advisories/GHSA-j6f6-jp3p-53mw",
+        "https://github.com/juju/juju/commit/22cdcf6b54c2f371822e1c203d4f341be6c9589e",
+        "https://github.com/juju/juju/commit/c91a1f4046956874ba77c8b398aecee3d61a2dc3",
+        "https://github.com/advisories/GHSA-j6f6-jp3p-53mw"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/juju/juju"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/juju/juju"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3mwp-wvh9-7528",
+      "name": "vLLM: Unauthenticated OOM Denial of Service via Unbounded `n` Parameter in OpenAI API Server",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3mwp-wvh9-7528",
+      "description": "vLLM: Unauthenticated OOM Denial of Service via Unbounded `n` Parameter in OpenAI API Server",
+      "date": "2026-04-03",
+      "affected": [
+        "vllm"
+      ],
+      "references": [
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-3mwp-wvh9-7528",
+        "https://github.com/vllm-project/vllm/pull/37952",
+        "https://github.com/vllm-project/vllm/commit/b111f8a61f100fdca08706f41f29ef3548de7380",
+        "https://github.com/advisories/GHSA-3mwp-wvh9-7528"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-jg56-wf8x-qrv5",
       "name": "goshs: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') in goshs POST ",
@@ -1177,88 +1254,11 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xj9w-5r6q-x6v4",
-      "name": "OpenClaw: Device-Paired Node Skips Node Scope Gate \u2192 Host RCE.md",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-xj9w-5r6q-x6v4",
-      "description": "OpenClaw: Device-Paired Node Skips Node Scope Gate \u2192 Host RCE.md",
-      "date": "2026-04-03",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-xj9w-5r6q-x6v4",
-        "https://github.com/openclaw/openclaw/commit/3886b65ef21d02808c1a106fa1f9f69e22f71c32",
-        "https://github.com/openclaw/openclaw/releases/tag/v2026.3.31",
-        "https://github.com/advisories/GHSA-xj9w-5r6q-x6v4"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-37v6-fxx8-xjmx",
-      "name": "OpenClaw: Telnyx Webhook Replay Detection Bypass via Base64 Signature Re-encoding",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-37v6-fxx8-xjmx",
-      "description": "OpenClaw: Telnyx Webhook Replay Detection Bypass via Base64 Signature Re-encoding",
-      "date": "2026-04-03",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-37v6-fxx8-xjmx",
-        "https://github.com/openclaw/openclaw/commit/ad77666054651c1fd77b1dc60fd6a8db6600a29a",
-        "https://github.com/openclaw/openclaw/releases/tag/v2026.3.31",
-        "https://github.com/advisories/GHSA-37v6-fxx8-xjmx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9gp8-hjxr-6f34",
-      "name": "OpenClaw: Host exec environment overrides miss proxy, TLS, Docker, and Git TLS controls",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-9gp8-hjxr-6f34",
-      "description": "OpenClaw: Host exec environment overrides miss proxy, TLS, Docker, and Git TLS controls",
-      "date": "2026-04-03",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-9gp8-hjxr-6f34",
-        "https://github.com/openclaw/openclaw/commit/4d912e04519b4bd53b248437c53748cdebce9a41",
-        "https://github.com/openclaw/openclaw/releases/tag/v2026.3.31",
-        "https://github.com/advisories/GHSA-9gp8-hjxr-6f34"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/juju/juju": "Juju has a resource poisoning vulnerability",
     "github.com/patrickhener/goshs": "goshs: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') in goshs POST ",
     "antrea.io/antrea": "Antrea has Missing Encryption of Sensitive Data",
     "ci4-cms-erp/ci4ms": "CI4MS: Profile & User Management Full Account Takeover for All-Roles & Privilege-Escalation via Stor",
