@@ -1,8 +1,687 @@
 {
   "version": "2026.04.10",
-  "last_updated": "2026-04-10T13:08:07.710330+00:00",
+  "last_updated": "2026-04-10T18:51:38.207980+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-5f5r-95pg-xrpm",
+      "name": "Beszel has an IDOR in hub API endpoints that read system ID from URL parameter",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-5f5r-95pg-xrpm",
+      "description": "Beszel has an IDOR in hub API endpoints that read system ID from URL parameter",
+      "date": "2026-04-10",
+      "affected": [
+        "github.com/henrygd/beszel"
+      ],
+      "references": [
+        "https://github.com/henrygd/beszel/security/advisories/GHSA-5f5r-95pg-xrpm",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-40077",
+        "https://github.com/henrygd/beszel/releases/tag/v0.18.7",
+        "https://github.com/advisories/GHSA-5f5r-95pg-xrpm"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/henrygd/beszel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/henrygd/beszel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3f6h-2hrp-w5wx",
+      "name": "@sveltejs/kit: Unvalidated redirect in handle hook causes Denial-of-Service",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3f6h-2hrp-w5wx",
+      "description": "@sveltejs/kit: Unvalidated redirect in handle hook causes Denial-of-Service",
+      "date": "2026-04-10",
+      "affected": [
+        "@sveltejs/kit"
+      ],
+      "references": [
+        "https://github.com/sveltejs/kit/security/advisories/GHSA-3f6h-2hrp-w5wx",
+        "https://github.com/sveltejs/kit/commit/10d7b44425c3d9da642eecce373d0c6ef83b4fcd",
+        "https://github.com/sveltejs/kit/releases/tag/%40sveltejs%2Fkit%402.57.1",
+        "https://github.com/advisories/GHSA-3f6h-2hrp-w5wx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@sveltejs/kit"
+          ]
+        },
+        "compromised_actions": [
+          "@sveltejs/kit"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2crg-3p73-43xp",
+      "name": "@sveltejs/adapter-node has a BODY_SIZE_LIMIT bypass",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2crg-3p73-43xp",
+      "description": "@sveltejs/adapter-node has a BODY_SIZE_LIMIT bypass",
+      "date": "2026-04-10",
+      "affected": [
+        "@sveltejs/kit"
+      ],
+      "references": [
+        "https://github.com/sveltejs/kit/security/advisories/GHSA-2crg-3p73-43xp",
+        "https://github.com/sveltejs/kit/commit/3202ed6c98f9e8d86bf0c4c7ad0f2e273e5e3b95",
+        "https://github.com/sveltejs/kit/releases/tag/%40sveltejs%2Fkit%402.57.1",
+        "https://github.com/advisories/GHSA-2crg-3p73-43xp"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@sveltejs/kit"
+          ]
+        },
+        "compromised_actions": [
+          "@sveltejs/kit"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-99j8-wv67-4c72",
+      "name": "Aiven Operator has cross-namespace secret exfiltration via ClickhouseUser connInfoSecretSource",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-99j8-wv67-4c72",
+      "description": "Aiven Operator has cross-namespace secret exfiltration via ClickhouseUser connInfoSecretSource",
+      "date": "2026-04-10",
+      "affected": [
+        "github.com/aiven/aiven-operator"
+      ],
+      "references": [
+        "https://github.com/aiven/aiven-operator/security/advisories/GHSA-99j8-wv67-4c72",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-39961",
+        "https://github.com/aiven/aiven-operator/commit/032c9ba63257fdd2fddfb7f73f71830e371ff182",
+        "https://github.com/aiven/aiven-operator/releases/tag/v0.37.0",
+        "https://github.com/advisories/GHSA-99j8-wv67-4c72"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/aiven/aiven-operator"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/aiven/aiven-operator"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v479-vf79-mg83",
+      "name": "Vikunja: Scoped API tokens with projects.background permission can delete project backgrounds",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-v479-vf79-mg83",
+      "description": "Vikunja: Scoped API tokens with projects.background permission can delete project backgrounds",
+      "date": "2026-04-10",
+      "affected": [
+        "code.vikunja.io/api"
+      ],
+      "references": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-v479-vf79-mg83",
+        "https://github.com/go-vikunja/vikunja/pull/2584",
+        "https://github.com/go-vikunja/vikunja/commit/6a0f39b252a81fa4b19dc56dc889183acc9225ae",
+        "https://github.com/go-vikunja/vikunja/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-v479-vf79-mg83"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "code.vikunja.io/api"
+          ]
+        },
+        "compromised_actions": [
+          "code.vikunja.io/api"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v457-wxvj-p9w9",
+      "name": "@vitejs/plugin-rsc has a Denial of Service with React Server Components",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-v457-wxvj-p9w9",
+      "description": "@vitejs/plugin-rsc has a Denial of Service with React Server Components",
+      "date": "2026-04-10",
+      "affected": [
+        "@vitejs/plugin-rsc"
+      ],
+      "references": [
+        "https://github.com/vitejs/vite-plugin-react/security/advisories/GHSA-v457-wxvj-p9w9",
+        "https://github.com/advisories/GHSA-v457-wxvj-p9w9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@vitejs/plugin-rsc"
+          ]
+        },
+        "compromised_actions": [
+          "@vitejs/plugin-rsc"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-q4gf-8mx6-v5v3",
+      "name": "Next.js has a Denial of Service with Server Components",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-q4gf-8mx6-v5v3",
+      "description": "Next.js has a Denial of Service with Server Components",
+      "date": "2026-04-10",
+      "affected": [
+        "next",
+        "next"
+      ],
+      "references": [
+        "https://github.com/vercel/next.js/security/advisories/GHSA-q4gf-8mx6-v5v3",
+        "https://vercel.com/changelog/summary-of-cve-2026-23869",
+        "https://github.com/advisories/GHSA-q4gf-8mx6-v5v3"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "next",
+            "next"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-479c-33wc-g2pg",
+      "name": "React Server Components have a Denial of Service Vulnerability",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-479c-33wc-g2pg",
+      "description": "React Server Components have a Denial of Service Vulnerability",
+      "date": "2026-04-10",
+      "affected": [
+        "react-server-dom-webpack",
+        "react-server-dom-webpack",
+        "react-server-dom-webpack",
+        "react-server-dom-turbopack",
+        "react-server-dom-turbopack",
+        "react-server-dom-turbopack",
+        "react-server-dom-parcel",
+        "react-server-dom-parcel",
+        "react-server-dom-parcel"
+      ],
+      "references": [
+        "https://github.com/facebook/react/security/advisories/GHSA-479c-33wc-g2pg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-23869",
+        "https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components",
+        "https://github.com/advisories/GHSA-479c-33wc-g2pg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "react-server-dom-webpack",
+            "react-server-dom-webpack",
+            "react-server-dom-webpack",
+            "react-server-dom-turbopack",
+            "react-server-dom-turbopack",
+            "react-server-dom-turbopack",
+            "react-server-dom-parcel",
+            "react-server-dom-parcel",
+            "react-server-dom-parcel"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qh78-rvg3-cv54",
+      "name": "Vikunja has File Size Limit Bypass via Vikunja Import",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-qh78-rvg3-cv54",
+      "description": "Vikunja has File Size Limit Bypass via Vikunja Import",
+      "date": "2026-04-10",
+      "affected": [
+        "code.vikunja.io/api"
+      ],
+      "references": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-qh78-rvg3-cv54",
+        "https://github.com/go-vikunja/vikunja/pull/2575",
+        "https://github.com/go-vikunja/vikunja/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-qh78-rvg3-cv54"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "code.vikunja.io/api"
+          ]
+        },
+        "compromised_actions": [
+          "code.vikunja.io/api"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2g7h-7rqr-9p4r",
+      "name": "Vikunja has iCalendar Property Injection via CRLF in CalDAV Task Output",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-2g7h-7rqr-9p4r",
+      "description": "Vikunja has iCalendar Property Injection via CRLF in CalDAV Task Output",
+      "date": "2026-04-10",
+      "affected": [
+        "code.vikunja.io/api"
+      ],
+      "references": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-2g7h-7rqr-9p4r",
+        "https://github.com/go-vikunja/vikunja/pull/2580",
+        "https://github.com/go-vikunja/vikunja/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-2g7h-7rqr-9p4r"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "code.vikunja.io/api"
+          ]
+        },
+        "compromised_actions": [
+          "code.vikunja.io/api"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-45q4-x4r9-8fqj",
+      "name": "Vikunja has HTML Injection via Task Titles in Overdue Email Notifications",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-45q4-x4r9-8fqj",
+      "description": "Vikunja has HTML Injection via Task Titles in Overdue Email Notifications",
+      "date": "2026-04-10",
+      "affected": [
+        "code.vikunja.io/api"
+      ],
+      "references": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-45q4-x4r9-8fqj",
+        "https://github.com/go-vikunja/vikunja/pull/2580",
+        "https://github.com/go-vikunja/vikunja/commit/0f3730d045f20e261e3cdfc6d93c325653395b64",
+        "https://github.com/go-vikunja/vikunja/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-45q4-x4r9-8fqj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "code.vikunja.io/api"
+          ]
+        },
+        "compromised_actions": [
+          "code.vikunja.io/api"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-r4fg-73rc-hhh7",
+      "name": "Vikunja has Algorithmic Complexity DoS in Repeating Task Handler",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-r4fg-73rc-hhh7",
+      "description": "Vikunja has Algorithmic Complexity DoS in Repeating Task Handler",
+      "date": "2026-04-10",
+      "affected": [
+        "code.vikunja.io/api"
+      ],
+      "references": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-r4fg-73rc-hhh7",
+        "https://github.com/go-vikunja/vikunja/pull/2577",
+        "https://github.com/go-vikunja/vikunja/commit/6df0d6c8f54b01db6464c42810e40e55f12b481b",
+        "https://github.com/go-vikunja/vikunja/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-r4fg-73rc-hhh7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "code.vikunja.io/api"
+          ]
+        },
+        "compromised_actions": [
+          "code.vikunja.io/api"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-48ch-p4gq-x46x",
+      "name": "Vikunja Missing Authorization on CalDAV Task Read",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-48ch-p4gq-x46x",
+      "description": "Vikunja Missing Authorization on CalDAV Task Read",
+      "date": "2026-04-10",
+      "affected": [
+        "code.vikunja.io/api"
+      ],
+      "references": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-48ch-p4gq-x46x",
+        "https://github.com/go-vikunja/vikunja/pull/2579",
+        "https://github.com/go-vikunja/vikunja/commit/879462d717351fe5d276ddec5246bdec31b41661",
+        "https://github.com/go-vikunja/vikunja/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-48ch-p4gq-x46x"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "code.vikunja.io/api"
+          ]
+        },
+        "compromised_actions": [
+          "code.vikunja.io/api"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fgfv-pv97-6cmj",
+      "name": "Vikunja Vulnerable to TOTP Brute-Force Due to Non-Functional Account Lockout",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-fgfv-pv97-6cmj",
+      "description": "Vikunja Vulnerable to TOTP Brute-Force Due to Non-Functional Account Lockout",
+      "date": "2026-04-10",
+      "affected": [
+        "code.vikunja.io/api"
+      ],
+      "references": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-fgfv-pv97-6cmj",
+        "https://github.com/go-vikunja/vikunja/pull/2576",
+        "https://github.com/go-vikunja/vikunja/commit/6ca0151d02fa0e8c7e2181ab916a28e08caaaec8",
+        "https://github.com/go-vikunja/vikunja/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-fgfv-pv97-6cmj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "code.vikunja.io/api"
+          ]
+        },
+        "compromised_actions": [
+          "code.vikunja.io/api"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hj5c-mhh2-g7jq",
+      "name": "Vikunja has Broken Access Control on Label Read via SQL Operator Precedence Bug",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-hj5c-mhh2-g7jq",
+      "description": "Vikunja has Broken Access Control on Label Read via SQL Operator Precedence Bug",
+      "date": "2026-04-10",
+      "affected": [
+        "code.vikunja.io/api"
+      ],
+      "references": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-hj5c-mhh2-g7jq",
+        "https://github.com/go-vikunja/vikunja/pull/2578",
+        "https://github.com/go-vikunja/vikunja/commit/fc216c38afaa51dd56dde7a97343d2148ecf24c1",
+        "https://github.com/go-vikunja/vikunja/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-hj5c-mhh2-g7jq"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "code.vikunja.io/api"
+          ]
+        },
+        "compromised_actions": [
+          "code.vikunja.io/api"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2vq4-854f-5c72",
+      "name": "Vikunja vulnerable to Privilege Escalation via Project Reparenting",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2vq4-854f-5c72",
+      "description": "Vikunja vulnerable to Privilege Escalation via Project Reparenting",
+      "date": "2026-04-10",
+      "affected": [
+        "code.vikunja.io/api"
+      ],
+      "references": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-2vq4-854f-5c72",
+        "https://github.com/go-vikunja/vikunja/pull/2583",
+        "https://github.com/go-vikunja/vikunja/commit/c03d682f48aff890eeb3c8b41d38226069722827",
+        "https://github.com/go-vikunja/vikunja/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-2vq4-854f-5c72"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "code.vikunja.io/api"
+          ]
+        },
+        "compromised_actions": [
+          "code.vikunja.io/api"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hr2v-4r36-88hr",
+      "name": "Helm Chart extraction output directory collapse via `Chart.yaml` name dot-segment",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-hr2v-4r36-88hr",
+      "description": "Helm Chart extraction output directory collapse via `Chart.yaml` name dot-segment",
+      "date": "2026-04-10",
+      "affected": [
+        "helm.sh/helm/v3",
+        "helm.sh/helm/v4"
+      ],
+      "references": [
+        "https://github.com/helm/helm/security/advisories/GHSA-hr2v-4r36-88hr",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-35206",
+        "https://github.com/helm/helm/commit/4e7994d4467182f535b6797c94b5b0e994a91436",
+        "https://github.com/helm/helm/releases/tag/v4.1.4",
+        "https://github.com/advisories/GHSA-hr2v-4r36-88hr"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "helm.sh/helm/v3",
+            "helm.sh/helm/v4"
+          ]
+        },
+        "compromised_actions": [
+          "helm.sh/helm/v3",
+          "helm.sh/helm/v4"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-q5jf-9vfq-h4h7",
+      "name": "Helm's plugin verification fails open when .prov is missing, allowing unsigned plugin install",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-q5jf-9vfq-h4h7",
+      "description": "Helm's plugin verification fails open when .prov is missing, allowing unsigned plugin install",
+      "date": "2026-04-10",
+      "affected": [
+        "helm.sh/helm/v4"
+      ],
+      "references": [
+        "https://github.com/helm/helm/security/advisories/GHSA-q5jf-9vfq-h4h7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-35205",
+        "https://github.com/helm/helm/commit/05fa37973dc9e42b76e1d2883494c87174b6074f",
+        "https://github.com/helm/helm/releases/tag/v4.1.4",
+        "https://helm.sh/docs/topics/provenance/#the-provenance-file",
+        "https://github.com/advisories/GHSA-q5jf-9vfq-h4h7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "helm.sh/helm/v4"
+          ]
+        },
+        "compromised_actions": [
+          "helm.sh/helm/v4"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vmx8-mqv2-9gmg",
+      "name": "Helm has a path traversal in plugin metadata version enables arbitrary file write outside Helm plugi",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-vmx8-mqv2-9gmg",
+      "description": "Helm has a path traversal in plugin metadata version enables arbitrary file write outside Helm plugin directory",
+      "date": "2026-04-10",
+      "affected": [
+        "helm.sh/helm/v4"
+      ],
+      "references": [
+        "https://github.com/helm/helm/security/advisories/GHSA-vmx8-mqv2-9gmg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-35204",
+        "https://github.com/helm/helm/commit/36c8539e99bc42d7aef9b87d136254662d04f027",
+        "https://github.com/helm/helm/releases/tag/v4.1.4",
+        "https://github.com/advisories/GHSA-vmx8-mqv2-9gmg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "helm.sh/helm/v4"
+          ]
+        },
+        "compromised_actions": [
+          "helm.sh/helm/v4"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f984-pcp8-v2p7",
+      "name": "Wasmtime has improperly masked return value from `table.grow` with Winch compiler backend",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-f984-pcp8-v2p7",
+      "description": "Wasmtime has improperly masked return value from `table.grow` with Winch compiler backend",
+      "date": "2026-04-10",
+      "affected": [
+        "wasmtime",
+        "wasmtime",
+        "wasmtime"
+      ],
+      "references": [
+        "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-f984-pcp8-v2p7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-35186",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0094.html",
+        "https://github.com/advisories/GHSA-f984-pcp8-v2p7"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xx5w-cvp6-jv83",
+      "name": "Wasmtime with Winch compiler backend on aarch64 may allow a sandbox-escaping memory access",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-xx5w-cvp6-jv83",
+      "description": "Wasmtime with Winch compiler backend on aarch64 may allow a sandbox-escaping memory access",
+      "date": "2026-04-10",
+      "affected": [
+        "wasmtime",
+        "wasmtime",
+        "wasmtime"
+      ],
+      "references": [
+        "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-xx5w-cvp6-jv83",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-34987",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0095.html",
+        "https://github.com/advisories/GHSA-xx5w-cvp6-jv83"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-96q5-xm3p-7m84",
+      "name": "Vikunja: Link Share JWT tokens remain valid for 72 hours after share deletion or permission downgrad",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-96q5-xm3p-7m84",
+      "description": "Vikunja: Link Share JWT tokens remain valid for 72 hours after share deletion or permission downgrade",
+      "date": "2026-04-10",
+      "affected": [
+        "code.vikunja.io/api"
+      ],
+      "references": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-96q5-xm3p-7m84",
+        "https://github.com/go-vikunja/vikunja/pull/2581",
+        "https://github.com/go-vikunja/vikunja/commit/379d8a5c19334ffe4846003f590e202c31a75479",
+        "https://github.com/go-vikunja/vikunja/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-96q5-xm3p-7m84"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "code.vikunja.io/api"
+          ]
+        },
+        "compromised_actions": [
+          "code.vikunja.io/api"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8jvc-mcx6-r4cg",
+      "name": "Vikunja has TOTP Two-Factor Authentication Bypass via OIDC Login Path",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-8jvc-mcx6-r4cg",
+      "description": "Vikunja has TOTP Two-Factor Authentication Bypass via OIDC Login Path",
+      "date": "2026-04-10",
+      "affected": [
+        "code.vikunja.io/api"
+      ],
+      "references": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-8jvc-mcx6-r4cg",
+        "https://github.com/go-vikunja/vikunja/pull/2582",
+        "https://github.com/go-vikunja/vikunja/commit/b642b2a4536a3846e627a78dce2fdd1be425e6a1",
+        "https://github.com/go-vikunja/vikunja/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-8jvc-mcx6-r4cg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "code.vikunja.io/api"
+          ]
+        },
+        "compromised_actions": [
+          "code.vikunja.io/api"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-9gjv-jvm7-vv2v",
       "name": "Gramps Web API: Private Sub-Object Data in Non-Private Objects Exposed to Guest Users",
@@ -149,6 +828,8 @@
       ],
       "references": [
         "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-394w-hwhg-8vgm",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-35195",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0091.html",
         "https://github.com/advisories/GHSA-394w-hwhg-8vgm"
       ],
       "detection_signatures": {},
@@ -169,6 +850,8 @@
       ],
       "references": [
         "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-6wgr-89rj-399p",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-34988",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0088.html",
         "https://github.com/advisories/GHSA-6wgr-89rj-399p"
       ],
       "detection_signatures": {},
@@ -187,6 +870,8 @@
       ],
       "references": [
         "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-hfr4-7c6c-48w2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-34983",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0090.html",
         "https://github.com/advisories/GHSA-hfr4-7c6c-48w2"
       ],
       "detection_signatures": {},
@@ -207,6 +892,8 @@
       ],
       "references": [
         "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-jhxm-h53p-jm7w",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-34971",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0096.html",
         "https://github.com/advisories/GHSA-jhxm-h53p-jm7w"
       ],
       "detection_signatures": {},
@@ -227,6 +914,8 @@
       ],
       "references": [
         "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-q49f-xg75-m9xw",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-34946",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0089.html",
         "https://github.com/advisories/GHSA-q49f-xg75-m9xw"
       ],
       "detection_signatures": {},
@@ -247,6 +936,8 @@
       ],
       "references": [
         "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-m9w2-8782-2946",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-34945",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0086.html",
         "https://github.com/advisories/GHSA-m9w2-8782-2946"
       ],
       "detection_signatures": {},
@@ -337,7 +1028,32 @@
       ],
       "references": [
         "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-hx6p-xpx3-jvvv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-34941",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0093.html",
         "https://github.com/advisories/GHSA-hx6p-xpx3-jvvv"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xvqc-pp94-fmpx",
+      "name": "Apache ActiveMQ, Apache ActiveMQ All, Apache ActiveMQ MQTT vulnerable to Integer Overflow or Wraparo",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-xvqc-pp94-fmpx",
+      "description": "Apache ActiveMQ, Apache ActiveMQ All, Apache ActiveMQ MQTT vulnerable to Integer Overflow or Wraparound",
+      "date": "2026-04-09",
+      "affected": [
+        "org.apache.activemq:activemq-mqtt",
+        "org.apache.activemq:activemq-all",
+        "org.apache.activemq:apache-activemq"
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-40046",
+        "https://activemq.apache.org/security-advisories.data/CVE-2026-40046-announcement.txt",
+        "https://lists.apache.org/thread/zdntj5rcgjjzrpow84o339lzldy68zrg",
+        "https://www.cve.org/CVERecord?id=CVE-2025-66168",
+        "https://github.com/advisories/GHSA-xvqc-pp94-fmpx"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
@@ -606,618 +1322,17 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-25wv-8phj-8p7r",
-      "name": "OpenClaw: Concurrent async auth attempts can bypass the intended shared-secret rate-limit budget on ",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-25wv-8phj-8p7r",
-      "description": "OpenClaw: Concurrent async auth attempts can bypass the intended shared-secret rate-limit budget on Tailscale-capable paths",
-      "date": "2026-04-09",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-25wv-8phj-8p7r",
-        "https://github.com/advisories/GHSA-25wv-8phj-8p7r"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5wj5-87vq-39xm",
-      "name": "OpenClaw: Node Pairing Reconnect Command Escalation Bypasses operator.admin Scope Requirement",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-5wj5-87vq-39xm",
-      "description": "OpenClaw: Node Pairing Reconnect Command Escalation Bypasses operator.admin Scope Requirement",
-      "date": "2026-04-09",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-5wj5-87vq-39xm",
-        "https://github.com/advisories/GHSA-5wj5-87vq-39xm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vc32-h5mq-453v",
-      "name": "OpenClaw: /allowlist omits owner-only enforcement for cross-channel allowlist writes",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-vc32-h5mq-453v",
-      "description": "OpenClaw: /allowlist omits owner-only enforcement for cross-channel allowlist writes",
-      "date": "2026-04-09",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-vc32-h5mq-453v",
-        "https://github.com/advisories/GHSA-vc32-h5mq-453v"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-68x5-xx89-w9mm",
-      "name": "OpenClaw: resolvedAuth closure becomes stale after config reload",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-68x5-xx89-w9mm",
-      "description": "OpenClaw: resolvedAuth closure becomes stale after config reload",
-      "date": "2026-04-09",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-68x5-xx89-w9mm",
-        "https://github.com/advisories/GHSA-68x5-xx89-w9mm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-cmfr-9m2r-xwhq",
-      "name": "OpenClaw `node.invoke(browser.proxy)` bypasses `browser.request` persistent profile-mutation guard",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-cmfr-9m2r-xwhq",
-      "description": "OpenClaw `node.invoke(browser.proxy)` bypasses `browser.request` persistent profile-mutation guard",
-      "date": "2026-04-09",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-cmfr-9m2r-xwhq",
-        "https://github.com/advisories/GHSA-cmfr-9m2r-xwhq"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-whf9-3hcx-gq54",
-      "name": "OpenClaw `device.token.rotate` mints tokens for unapproved roles, bypassing device role-upgrade pair",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-whf9-3hcx-gq54",
-      "description": "OpenClaw `device.token.rotate` mints tokens for unapproved roles, bypassing device role-upgrade pairing",
-      "date": "2026-04-09",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-whf9-3hcx-gq54",
-        "https://github.com/advisories/GHSA-whf9-3hcx-gq54"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qqq7-4hxc-x63c",
-      "name": "OpenClaw: Shared reply MEDIA - paths are treated as trusted and can trigger cross-channel local file",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-qqq7-4hxc-x63c",
-      "description": "OpenClaw: Shared reply MEDIA - paths are treated as trusted and can trigger cross-channel local file exfiltration",
-      "date": "2026-04-09",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-qqq7-4hxc-x63c",
-        "https://github.com/advisories/GHSA-qqq7-4hxc-x63c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-q2gc-xjqw-qp89",
-      "name": "OpenClaw: strictInlineEval explicit-approval boundary bypassed by approval-timeout fallback on gatew",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-q2gc-xjqw-qp89",
-      "description": "OpenClaw: strictInlineEval explicit-approval boundary bypassed by approval-timeout fallback on gateway and node exec hosts",
-      "date": "2026-04-09",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-q2gc-xjqw-qp89",
-        "https://github.com/advisories/GHSA-q2gc-xjqw-qp89"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h749-fxx7-pwpg",
-      "name": "MinIO affected a DoS via Unbounded Memory Allocation in S3 Select CSV Parsing",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-h749-fxx7-pwpg",
-      "description": "MinIO affected a DoS via Unbounded Memory Allocation in S3 Select CSV Parsing",
-      "date": "2026-04-09",
-      "affected": [
-        "github.com/minio/minio"
-      ],
-      "references": [
-        "https://github.com/minio/minio/security/advisories/GHSA-h749-fxx7-pwpg",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-39414",
-        "https://github.com/minio/minio/pull/8200",
-        "https://github.com/minio/minio/commit/7c14cdb60e53dbfdad2be644dfb180cab19fffa7",
-        "https://docs.min.io/enterprise/aistor-object-store/upgrade-aistor-server/community-edition",
-        "https://github.com/advisories/GHSA-h749-fxx7-pwpg"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/minio/minio"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/minio/minio"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3p68-rc4w-qgx5",
-      "name": "Axios has a NO_PROXY Hostname Normalization Bypass Leads to SSRF",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-3p68-rc4w-qgx5",
-      "description": "Axios has a NO_PROXY Hostname Normalization Bypass Leads to SSRF",
-      "date": "2026-04-09",
-      "affected": [
-        "axios"
-      ],
-      "references": [
-        "https://github.com/axios/axios/security/advisories/GHSA-3p68-rc4w-qgx5",
-        "https://nvd.nist.gov/vuln/detail/CVE-2025-62718",
-        "https://github.com/axios/axios/pull/10661",
-        "https://github.com/axios/axios/commit/fb3befb6daac6cad26b2e54094d0f2d9e47f24df",
-        "https://datatracker.ietf.org/doc/html/rfc1034#section-3.1",
-        "https://datatracker.ietf.org/doc/html/rfc3986#section-3.2.2",
-        "https://github.com/axios/axios/releases/tag/v1.15.0",
-        "https://github.com/advisories/GHSA-3p68-rc4w-qgx5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "axios"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-cjw9-ghj4-fwxf",
-      "name": "fast-jwt has a ReDoS when using RegExp in allowed* leading to CPU exhaustion during token verificati",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-cjw9-ghj4-fwxf",
-      "description": "fast-jwt has a ReDoS when using RegExp in allowed* leading to CPU exhaustion during token verification",
-      "date": "2026-04-09",
-      "affected": [
-        "fast-jwt"
-      ],
-      "references": [
-        "https://github.com/nearform/fast-jwt/security/advisories/GHSA-cjw9-ghj4-fwxf",
-        "https://github.com/nearform/fast-jwt/pull/595",
-        "https://github.com/nearform/fast-jwt/commit/b0be0ca161593836a153d5180ca5358ad9b5de94",
-        "https://github.com/nearform/fast-jwt/releases/tag/v6.2.1",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-35041",
-        "https://github.com/advisories/GHSA-cjw9-ghj4-fwxf"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "fast-jwt"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3j8v-cgw4-2g6q",
-      "name": "fast-jwt: Stateful RegExp (/g or /y) causes non-deterministic allowed-claim validation (logical DoS)",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-3j8v-cgw4-2g6q",
-      "description": "fast-jwt: Stateful RegExp (/g or /y) causes non-deterministic allowed-claim validation (logical DoS)",
-      "date": "2026-04-09",
-      "affected": [
-        "fast-jwt"
-      ],
-      "references": [
-        "https://github.com/nearform/fast-jwt/security/advisories/GHSA-3j8v-cgw4-2g6q",
-        "https://github.com/nearform/fast-jwt/pull/593",
-        "https://github.com/nearform/fast-jwt/commit/18d25904e4617e8753526d1b3ab5a2cccdea726a",
-        "https://github.com/nearform/fast-jwt/releases/tag/v6.2.1",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-35040",
-        "https://github.com/advisories/GHSA-3j8v-cgw4-2g6q"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "fast-jwt"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7437-7hg8-frrw",
-      "name": "OpenClaw: HGRCPATH, CARGO_BUILD_RUSTC_WRAPPER, RUSTC_WRAPPER, and MAKEFLAGS missing from exec env de",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7437-7hg8-frrw",
-      "description": "OpenClaw: HGRCPATH, CARGO_BUILD_RUSTC_WRAPPER, RUSTC_WRAPPER, and MAKEFLAGS missing from exec env denylist \u2014 RCE via build tool env injection (GHSA-cm8v-2vh9-cxf3 class)",
-      "date": "2026-04-09",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-7437-7hg8-frrw",
-        "https://github.com/openclaw/openclaw/commit/d7c3210cd6f5fdfdc1beff4c9541673e814354d5",
-        "https://github.com/advisories/GHSA-7437-7hg8-frrw"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jf56-mccx-5f3f",
-      "name": "OpenClaw: Authenticated `/hooks/wake` and mapped `wake` payloads are promoted into the trusted `Syst",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-jf56-mccx-5f3f",
-      "description": "OpenClaw: Authenticated `/hooks/wake` and mapped `wake` payloads are promoted into the trusted `System:` prompt channel",
-      "date": "2026-04-09",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-jf56-mccx-5f3f",
-        "https://github.com/advisories/GHSA-jf56-mccx-5f3f"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gfmx-pph7-g46x",
-      "name": "OpenClaw: Lower-trust background runtime output is injected into trusted `System:` events, and local",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-gfmx-pph7-g46x",
-      "description": "OpenClaw: Lower-trust background runtime output is injected into trusted `System:` events, and local async exec completion misses the intended `exec-event` downgrade",
-      "date": "2026-04-09",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-gfmx-pph7-g46x",
-        "https://github.com/advisories/GHSA-gfmx-pph7-g46x"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2763-cj5r-c79m",
-      "name": "PraisonAI Vulnerable to OS Command Injection",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-2763-cj5r-c79m",
-      "description": "PraisonAI Vulnerable to OS Command Injection",
-      "date": "2026-04-08",
-      "affected": [
-        "PraisonAI"
-      ],
-      "references": [
-        "https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-2763-cj5r-c79m",
-        "https://github.com/MervinPraison/PraisonAI/releases/tag/v4.5.121",
-        "https://github.com/advisories/GHSA-2763-cj5r-c79m"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-68m9-983m-f3v5",
-      "name": "OpenFGA: Unauthenticated playground endpoint discloses preshared API key in HTML response",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-68m9-983m-f3v5",
-      "description": "OpenFGA: Unauthenticated playground endpoint discloses preshared API key in HTML response",
-      "date": "2026-04-08",
-      "affected": [
-        "github.com/openfga/openfga"
-      ],
-      "references": [
-        "https://github.com/openfga/openfga/security/advisories/GHSA-68m9-983m-f3v5",
-        "https://github.com/openfga/openfga/releases/tag/v1.14.0",
-        "https://github.com/advisories/GHSA-68m9-983m-f3v5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/openfga/openfga"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/openfga/openfga"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-926x-3r5x-gfhw",
-      "name": "LangChain has incomplete f-string validation in prompt templates",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-926x-3r5x-gfhw",
-      "description": "LangChain has incomplete f-string validation in prompt templates",
-      "date": "2026-04-08",
-      "affected": [
-        "langchain-core",
-        "langchain-core"
-      ],
-      "references": [
-        "https://github.com/langchain-ai/langchain/security/advisories/GHSA-926x-3r5x-gfhw",
-        "https://github.com/langchain-ai/langchain/pull/36612",
-        "https://github.com/langchain-ai/langchain/pull/36613",
-        "https://github.com/langchain-ai/langchain/commit/6bab0ba3c12328008ddca3e0d54ff5a6151cd27b",
-        "https://github.com/langchain-ai/langchain/commit/af2ed47c6f008cdd551f3c0d87db3774c8dfe258",
-        "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D0.3.84",
-        "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.2.28",
-        "https://github.com/advisories/GHSA-926x-3r5x-gfhw"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2679-6mx9-h9xc",
-      "name": "Marimo: Pre-Auth Remote Code Execution via Terminal WebSocket Authentication Bypass",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-2679-6mx9-h9xc",
-      "description": "Marimo: Pre-Auth Remote Code Execution via Terminal WebSocket Authentication Bypass",
-      "date": "2026-04-08",
-      "affected": [
-        "marimo"
-      ],
-      "references": [
-        "https://github.com/marimo-team/marimo/security/advisories/GHSA-2679-6mx9-h9xc",
-        "https://github.com/marimo-team/marimo/pull/9098",
-        "https://github.com/marimo-team/marimo/commit/c24d4806398f30be6b12acd6c60d1d7c68cfd12a",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-39987",
-        "https://github.com/advisories/GHSA-2679-6mx9-h9xc"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5478-66c3-rhxr",
-      "name": "Pretext: Algorithmic Complexity (DoS) in the text analysis phase",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-5478-66c3-rhxr",
-      "description": "Pretext: Algorithmic Complexity (DoS) in the text analysis phase",
-      "date": "2026-04-08",
-      "affected": [
-        "@chenglou/pretext"
-      ],
-      "references": [
-        "https://github.com/chenglou/pretext/security/advisories/GHSA-5478-66c3-rhxr",
-        "https://github.com/chenglou/pretext/releases/tag/v0.0.5",
-        "https://github.com/advisories/GHSA-5478-66c3-rhxr"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@chenglou/pretext"
-          ]
-        },
-        "compromised_actions": [
-          "@chenglou/pretext"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-chqc-8p9q-pq6q",
-      "name": "basic-ftp has FTP Command Injection via CRLF",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-chqc-8p9q-pq6q",
-      "description": "basic-ftp has FTP Command Injection via CRLF",
-      "date": "2026-04-08",
-      "affected": [
-        "basic-ftp"
-      ],
-      "references": [
-        "https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-chqc-8p9q-pq6q",
-        "https://github.com/patrickjuchli/basic-ftp/commit/2ecc8e2c500c5234115f06fd1dbde1aa03d70f4b",
-        "https://github.com/patrickjuchli/basic-ftp/releases/tag/v5.2.1",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-39983",
-        "https://github.com/advisories/GHSA-chqc-8p9q-pq6q"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "basic-ftp"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5gfj-64gh-mgmw",
-      "name": "AGiXT Vulnerable to Path Traversal in safe_join()",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-5gfj-64gh-mgmw",
-      "description": "AGiXT Vulnerable to Path Traversal in safe_join()",
-      "date": "2026-04-08",
-      "affected": [
-        "agixt"
-      ],
-      "references": [
-        "https://github.com/Josh-XT/AGiXT/security/advisories/GHSA-5gfj-64gh-mgmw",
-        "https://github.com/Josh-XT/AGiXT/releases/tag/v1.9.2",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-39981",
-        "https://github.com/Josh-XT/AGiXT/commit/2079ea5a88fa671a921bf0b5eba887a5a1b73d5f",
-        "https://github.com/advisories/GHSA-5gfj-64gh-mgmw"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-349c-2h2f-mxf6",
-      "name": "Laravel Passport: TokenGuard Authenticates Unrelated User for Client Credentials Tokens",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-349c-2h2f-mxf6",
-      "description": "Laravel Passport: TokenGuard Authenticates Unrelated User for Client Credentials Tokens",
-      "date": "2026-04-08",
-      "affected": [
-        "laravel/passport"
-      ],
-      "references": [
-        "https://github.com/laravel/passport/security/advisories/GHSA-349c-2h2f-mxf6",
-        "https://github.com/laravel/passport/issues/1900",
-        "https://github.com/thephpleague/oauth2-server/issues/1456#issuecomment-2734989996",
-        "https://github.com/laravel/passport/pull/1901",
-        "https://github.com/laravel/passport/pull/1902",
-        "https://github.com/advisories/GHSA-349c-2h2f-mxf6"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "laravel/passport"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4ggg-h7ph-26qr",
-      "name": "n8n-mcp has authenticated SSRF via instance-URL header in multi-tenant HTTP mode",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-4ggg-h7ph-26qr",
-      "description": "n8n-mcp has authenticated SSRF via instance-URL header in multi-tenant HTTP mode",
-      "date": "2026-04-08",
-      "affected": [
-        "n8n-mcp"
-      ],
-      "references": [
-        "https://github.com/czlonkowski/n8n-mcp/security/advisories/GHSA-4ggg-h7ph-26qr",
-        "https://github.com/czlonkowski/n8n-mcp/commit/d9d847f230923d96e0857ccecf3a4dedcc9b0096",
-        "https://github.com/czlonkowski/n8n-mcp/releases/tag/v2.47.4",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-39974",
-        "https://github.com/advisories/GHSA-4ggg-h7ph-26qr"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n-mcp"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
-    "github.com/minio/minio": "MinIO affected a DoS via Unbounded Memory Allocation in S3 Select CSV Parsing",
-    "github.com/openfga/openfga": "OpenFGA: Unauthenticated playground endpoint discloses preshared API key in HTML response",
-    "@chenglou/pretext": "Pretext: Algorithmic Complexity (DoS) in the text analysis phase",
-    "laravel/passport": "Laravel Passport: TokenGuard Authenticates Unrelated User for Client Credentials Tokens"
+    "github.com/henrygd/beszel": "Beszel has an IDOR in hub API endpoints that read system ID from URL parameter",
+    "@sveltejs/kit": "@sveltejs/kit: Unvalidated redirect in handle hook causes Denial-of-Service",
+    "github.com/aiven/aiven-operator": "Aiven Operator has cross-namespace secret exfiltration via ClickhouseUser connInfoSecretSource",
+    "code.vikunja.io/api": "Vikunja: Scoped API tokens with projects.background permission can delete project backgrounds",
+    "@vitejs/plugin-rsc": "@vitejs/plugin-rsc has a Denial of Service with React Server Components",
+    "helm.sh/helm/v3": "Helm Chart extraction output directory collapse via `Chart.yaml` name dot-segment",
+    "helm.sh/helm/v4": "Helm Chart extraction output directory collapse via `Chart.yaml` name dot-segment"
   },
   "malicious_packages": {
     "npm": {},
