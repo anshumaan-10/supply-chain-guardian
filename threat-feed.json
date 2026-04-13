@@ -1,8 +1,221 @@
 {
   "version": "2026.04.13",
-  "last_updated": "2026-04-13T13:24:28.634312+00:00",
+  "last_updated": "2026-04-13T19:13:32.455805+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-26qp-ffjh-2x4v",
+      "name": "ImageMagick has an integer overflow in despeckle operation causing a heap buffer overflow on 32-bit ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-26qp-ffjh-2x4v",
+      "description": "ImageMagick has an integer overflow in despeckle operation causing a heap buffer overflow on 32-bit builds",
+      "date": "2026-04-13",
+      "affected": [
+        "Magick.NET-Q8-x86",
+        "Magick.NET-Q8-AnyCPU",
+        "Magick.NET-Q16-x86",
+        "Magick.NET-Q16-HDRI-x86",
+        "Magick.NET-Q16-HDRI-AnyCPU",
+        "Magick.NET-Q16-AnyCPU"
+      ],
+      "references": [
+        "https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-26qp-ffjh-2x4v",
+        "https://github.com/ImageMagick/ImageMagick/commit/bcd8519c70ecd9ebbc180920f2cf97b267d1f440",
+        "https://github.com/ImageMagick/ImageMagick/releases/tag/7.1.2-19",
+        "https://github.com/dlemstra/Magick.NET/releases/tag/14.12.0",
+        "https://github.com/advisories/GHSA-26qp-ffjh-2x4v"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v67w-737x-v2c9",
+      "name": "ImageMagick has a heap overflow caused by integer overflow/wraparound in viff encoder on 32-bit buil",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-v67w-737x-v2c9",
+      "description": "ImageMagick has a heap overflow caused by integer overflow/wraparound in viff encoder on 32-bit builds",
+      "date": "2026-04-13",
+      "affected": [
+        "Magick.NET-Q8-x86",
+        "Magick.NET-Q8-AnyCPU",
+        "Magick.NET-Q16-x86",
+        "Magick.NET-Q16-HDRI-x86",
+        "Magick.NET-Q16-HDRI-AnyCPU",
+        "Magick.NET-Q16-AnyCPU"
+      ],
+      "references": [
+        "https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-v67w-737x-v2c9",
+        "https://github.com/ImageMagick/ImageMagick/commit/d27b840a61b322419a66d0d192ff56d52498148d",
+        "https://github.com/ImageMagick/ImageMagick/releases/tag/7.1.2-19",
+        "https://github.com/dlemstra/Magick.NET/releases/tag/14.12.0",
+        "https://github.com/advisories/GHSA-v67w-737x-v2c9"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vffh-x6r8-xx99",
+      "name": "Prometheus has Stored XSS via metric names and label values in Prometheus web UI tooltips and metric",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vffh-x6r8-xx99",
+      "description": "Prometheus has Stored XSS via metric names and label values in Prometheus web UI tooltips and metrics explorer",
+      "date": "2026-04-13",
+      "affected": [
+        "github.com/prometheus/prometheus",
+        "github.com/prometheus/prometheus",
+        "github.com/prometheus/prometheus"
+      ],
+      "references": [
+        "https://github.com/prometheus/prometheus/security/advisories/GHSA-vffh-x6r8-xx99",
+        "https://github.com/prometheus/prometheus/pull/18506",
+        "https://github.com/prometheus/prometheus/commit/07c6232d159bfb474a077788be184d87adcfac3c",
+        "https://github.com/advisories/GHSA-vffh-x6r8-xx99"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/prometheus/prometheus",
+            "github.com/prometheus/prometheus",
+            "github.com/prometheus/prometheus"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/prometheus/prometheus",
+          "github.com/prometheus/prometheus",
+          "github.com/prometheus/prometheus"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3p24-9x7v-7789",
+      "name": "Emissary has an OS Command Injection via Unvalidated IN_FILE_ENDING / OUT_FILE_ENDING in Executrix",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-3p24-9x7v-7789",
+      "description": "Emissary has an OS Command Injection via Unvalidated IN_FILE_ENDING / OUT_FILE_ENDING in Executrix",
+      "date": "2026-04-13",
+      "affected": [
+        "gov.nsa.emissary:emissary"
+      ],
+      "references": [
+        "https://github.com/NationalSecurityAgency/emissary/security/advisories/GHSA-3p24-9x7v-7789",
+        "https://github.com/NationalSecurityAgency/emissary/commit/1faf33f2494c0128f250d7d2e8f2da99bbd32ae8",
+        "https://github.com/advisories/GHSA-3p24-9x7v-7789"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-r2pg-r6h7-crf3",
+      "name": "External Secrets Operator has DNS-based secret exfiltration via getHostByName in External Secrets v2",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-r2pg-r6h7-crf3",
+      "description": "External Secrets Operator has DNS-based secret exfiltration via getHostByName in External Secrets v2 template engine",
+      "date": "2026-04-13",
+      "affected": [
+        "github.com/external-secrets/external-secrets",
+        "github.com/external-secrets/external-secrets"
+      ],
+      "references": [
+        "https://github.com/external-secrets/external-secrets/security/advisories/GHSA-r2pg-r6h7-crf3",
+        "https://github.com/external-secrets/external-secrets/commit/6800989bdc12782ca2605d3b8bf7f2876a16551a",
+        "https://github.com/external-secrets/external-secrets/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-r2pg-r6h7-crf3"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/external-secrets/external-secrets",
+            "github.com/external-secrets/external-secrets"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/external-secrets/external-secrets",
+          "github.com/external-secrets/external-secrets"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-48m6-486p-9j8p",
+      "name": "nimiq-consensus panics via RequestMacroChain micro-block locator",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-48m6-486p-9j8p",
+      "description": "nimiq-consensus panics via RequestMacroChain micro-block locator",
+      "date": "2026-04-13",
+      "affected": [
+        "nimiq-consensus"
+      ],
+      "references": [
+        "https://github.com/nimiq/core-rs-albatross/security/advisories/GHSA-48m6-486p-9j8p",
+        "https://github.com/nimiq/core-rs-albatross/pull/3660",
+        "https://github.com/nimiq/core-rs-albatross/commit/ae6c1e92342e72f80fd12accbe66ee80dd6802ac",
+        "https://github.com/nimiq/core-rs-albatross/releases/tag/v1.3.0",
+        "https://github.com/advisories/GHSA-48m6-486p-9j8p"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jcxm-m3jx-f287",
+      "name": "simple-git Affected by Command Execution via Option-Parsing Bypass",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-jcxm-m3jx-f287",
+      "description": "simple-git Affected by Command Execution via Option-Parsing Bypass",
+      "date": "2026-04-13",
+      "affected": [
+        "simple-git"
+      ],
+      "references": [
+        "https://github.com/steveukx/git-js/security/advisories/GHSA-jcxm-m3jx-f287",
+        "https://github.com/steveukx/git-js/blob/789c13ebabcf18ebe0b3a0c88ebb4037dede42e3/simple-git/src/lib/plugins/block-unsafe-operations-plugin.ts#L26",
+        "https://www.cve.org/CVERecord?id=CVE-2022-25860",
+        "https://github.com/advisories/GHSA-jcxm-m3jx-f287"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "simple-git"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fc46-r95f-hq7g",
+      "name": "Decidim has a cross-site scripting (XSS) in user name",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-fc46-r95f-hq7g",
+      "description": "Decidim has a cross-site scripting (XSS) in user name",
+      "date": "2026-04-13",
+      "affected": [
+        "decidim-core",
+        "decidim-core"
+      ],
+      "references": [
+        "https://github.com/decidim/decidim/security/advisories/GHSA-fc46-r95f-hq7g",
+        "https://github.com/decidim/decidim/releases/tag/v0.30.5",
+        "https://github.com/decidim/decidim/releases/tag/v0.31.1",
+        "https://github.com/advisories/GHSA-fc46-r95f-hq7g"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "decidim-core",
+            "decidim-core"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-9cp7-j3f8-p5jx",
       "name": "Daptin has Unauthenticated Path Traversal and Zip Slip",
@@ -1051,209 +1264,12 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vw86-c94w-v3x4",
-      "name": "SiYuan: Publish Reader Path Traversal Delete via `removeUnusedAttributeView`",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-vw86-c94w-v3x4",
-      "description": "SiYuan: Publish Reader Path Traversal Delete via `removeUnusedAttributeView`",
-      "date": "2026-04-10",
-      "affected": [
-        "github.com/siyuan-note/siyuan/kernel"
-      ],
-      "references": [
-        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-vw86-c94w-v3x4",
-        "https://github.com/advisories/GHSA-vw86-c94w-v3x4"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/siyuan-note/siyuan/kernel"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/siyuan-note/siyuan/kernel"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7m5h-w69j-qggg",
-      "name": "SiYuan: Publish Reader Can Arbitrarily Delete Attribute View Files via `/api/av/removeUnusedAttribut",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7m5h-w69j-qggg",
-      "description": "SiYuan: Publish Reader Can Arbitrarily Delete Attribute View Files via `/api/av/removeUnusedAttributeView`",
-      "date": "2026-04-10",
-      "affected": [
-        "github.com/siyuan-note/siyuan/kernel"
-      ],
-      "references": [
-        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-7m5h-w69j-qggg",
-        "https://github.com/advisories/GHSA-7m5h-w69j-qggg"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/siyuan-note/siyuan/kernel"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/siyuan-note/siyuan/kernel"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-x783-xp3g-mqhp",
-      "name": "PraisonAI: SQLiteConversationStore didn't validate table_prefix when constructing SQL queries",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-x783-xp3g-mqhp",
-      "description": "PraisonAI: SQLiteConversationStore didn't validate table_prefix when constructing SQL queries",
-      "date": "2026-04-10",
-      "affected": [
-        "PraisonAI"
-      ],
-      "references": [
-        "https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-x783-xp3g-mqhp",
-        "https://github.com/MervinPraison/PraisonAI/releases/tag/v4.5.133",
-        "https://github.com/advisories/GHSA-x783-xp3g-mqhp"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8hw4-fhww-273g",
-      "name": "Bugsink affected by authenticated arbitrary file write in artifactbundle/assemble",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-8hw4-fhww-273g",
-      "description": "Bugsink affected by authenticated arbitrary file write in artifactbundle/assemble",
-      "date": "2026-04-10",
-      "affected": [
-        "bugsink"
-      ],
-      "references": [
-        "https://github.com/bugsink/bugsink/security/advisories/GHSA-8hw4-fhww-273g",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-40162",
-        "https://github.com/bugsink/bugsink/releases/tag/2.1.1",
-        "https://github.com/advisories/GHSA-8hw4-fhww-273g"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-59xv-588h-2vmm",
-      "name": "@saltcorn/data vulnerable to SQL Injection via jsexprToSQL Literal Handler",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-59xv-588h-2vmm",
-      "description": "@saltcorn/data vulnerable to SQL Injection via jsexprToSQL Literal Handler",
-      "date": "2026-04-10",
-      "affected": [
-        "@saltcorn/data",
-        "@saltcorn/data",
-        "@saltcorn/data"
-      ],
-      "references": [
-        "https://github.com/saltcorn/saltcorn/security/advisories/GHSA-59xv-588h-2vmm",
-        "https://github.com/advisories/GHSA-59xv-588h-2vmm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@saltcorn/data",
-            "@saltcorn/data",
-            "@saltcorn/data"
-          ]
-        },
-        "compromised_actions": [
-          "@saltcorn/data",
-          "@saltcorn/data",
-          "@saltcorn/data"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-32pv-mpqg-h292",
-      "name": "Saltcorn has an Unauthenticated Path Traversal in sync endpoints, allowing arbitrary file write and ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-32pv-mpqg-h292",
-      "description": "Saltcorn has an Unauthenticated Path Traversal in sync endpoints, allowing arbitrary file write and directory read",
-      "date": "2026-04-10",
-      "affected": [
-        "@saltcorn/server",
-        "@saltcorn/server",
-        "@saltcorn/server"
-      ],
-      "references": [
-        "https://github.com/saltcorn/saltcorn/security/advisories/GHSA-32pv-mpqg-h292",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-40163",
-        "https://github.com/advisories/GHSA-32pv-mpqg-h292"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@saltcorn/server",
-            "@saltcorn/server",
-            "@saltcorn/server"
-          ]
-        },
-        "compromised_actions": [
-          "@saltcorn/server",
-          "@saltcorn/server",
-          "@saltcorn/server"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8frj-8q3m-xhgm",
-      "name": "PraisonAI Vulnerable to Server-Side Request Forgery via Unvalidated webhook_url in Jobs API",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-8frj-8q3m-xhgm",
-      "description": "PraisonAI Vulnerable to Server-Side Request Forgery via Unvalidated webhook_url in Jobs API",
-      "date": "2026-04-10",
-      "affected": [
-        "PraisonAI"
-      ],
-      "references": [
-        "https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-8frj-8q3m-xhgm",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-40114",
-        "https://github.com/MervinPraison/PraisonAI/releases/tag/v4.5.128",
-        "https://github.com/advisories/GHSA-8frj-8q3m-xhgm"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-ffp3-3562-8cv3",
-      "name": "PraisonAI: Coarse-Grained Tool Approval Cache Bypasses Per-Invocation Consent for Shell Commands",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-ffp3-3562-8cv3",
-      "description": "PraisonAI: Coarse-Grained Tool Approval Cache Bypasses Per-Invocation Consent for Shell Commands",
-      "date": "2026-04-10",
-      "affected": [
-        "praisonaiagents"
-      ],
-      "references": [
-        "https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-ffp3-3562-8cv3",
-        "https://github.com/MervinPraison/PraisonAI/releases/tag/v4.5.128",
-        "https://github.com/advisories/GHSA-ffp3-3562-8cv3"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/prometheus/prometheus": "Prometheus has Stored XSS via metric names and label values in Prometheus web UI tooltips and metric",
+    "github.com/external-secrets/external-secrets": "External Secrets Operator has DNS-based secret exfiltration via getHostByName in External Secrets v2",
     "github.com/daptin/daptin": "Daptin has Unauthenticated Path Traversal and Zip Slip",
     "@paperclipai/server": "paperclip Vulnerable to Unauthenticated Remote Code Execution via Import Authorization Bypass",
     "rhukster/dom-sanitizer": "rhukster/dom-sanitizer: SVG <style> tag allows CSS injection via unfiltered url() and @import direct",
@@ -1264,10 +1280,7 @@
     "github.com/smallstep/certificates": "Step CA affected by an index out of bounds panic in TPM attestation EKU validation",
     "github.com/patrickhener/goshs": "goshs has a file-based ACL authorization bypass in goshs state-changing routes",
     "github.com/lin-snow/ech0": "Ech0 has Stored XSS via SVG Upload and Content-Type Validation Bypass in File Upload",
-    "redaxo/source": "REDAXO has reflected XSS backend packages API via function parameter (CSRF token required)",
-    "github.com/siyuan-note/siyuan/kernel": "SiYuan: Publish Reader Path Traversal Delete via `removeUnusedAttributeView`",
-    "@saltcorn/data": "@saltcorn/data vulnerable to SQL Injection via jsexprToSQL Literal Handler",
-    "@saltcorn/server": "Saltcorn has an Unauthenticated Path Traversal in sync endpoints, allowing arbitrary file write and "
+    "redaxo/source": "REDAXO has reflected XSS backend packages API via function parameter (CSRF token required)"
   },
   "malicious_packages": {
     "npm": {},
