@@ -1,8 +1,35 @@
 {
   "version": "2026.04.15",
-  "last_updated": "2026-04-15T13:22:48.467143+00:00",
+  "last_updated": "2026-04-15T19:16:31.388039+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-43fj-qp3h-hrh5",
+      "name": "Sync-in Server has Username Enumeration via Timing Attack",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-43fj-qp3h-hrh5",
+      "description": "Sync-in Server has Username Enumeration via Timing Attack",
+      "date": "2026-04-15",
+      "affected": [
+        "@sync-in/server"
+      ],
+      "references": [
+        "https://github.com/Sync-in/server/security/advisories/GHSA-43fj-qp3h-hrh5",
+        "https://github.com/advisories/GHSA-43fj-qp3h-hrh5"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@sync-in/server"
+          ]
+        },
+        "compromised_actions": [
+          "@sync-in/server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-g4vj-cjjj-v7hg",
       "name": "Defense in Depth update for NuGet Client",
@@ -481,7 +508,7 @@
       "id": "FEED-GHSA-w3x6-4m5h-cxqf",
       "name": "Microsoft Security Advisory CVE-2026-26171 \u2013 .NET Denial of Service Vulnerability ",
       "category": "ghsa_advisory",
-      "severity": "low",
+      "severity": "high",
       "cve": "GHSA-w3x6-4m5h-cxqf",
       "description": "Microsoft Security Advisory CVE-2026-26171 \u2013 .NET Denial of Service Vulnerability ",
       "date": "2026-04-14",
@@ -503,7 +530,7 @@
       "id": "FEED-GHSA-37gx-xxp4-5rgx",
       "name": "Microsoft Security Advisory CVE-2026-33116 \u2013 .NET, .NET Framework, and Visual Studio Denial of Servi",
       "category": "ghsa_advisory",
-      "severity": "low",
+      "severity": "high",
       "cve": "GHSA-37gx-xxp4-5rgx",
       "description": "Microsoft Security Advisory CVE-2026-33116 \u2013 .NET, .NET Framework, and Visual Studio Denial of Service Vulnerability ",
       "date": "2026-04-14",
@@ -1203,33 +1230,11 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gpgp-w4x2-h3h7",
-      "name": "WWBN AVideo has an IDOR in Live Restreams list.json.php Exposes Other Users' Stream Keys and OAuth T",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-gpgp-w4x2-h3h7",
-      "description": "WWBN AVideo has an IDOR in Live Restreams list.json.php Exposes Other Users' Stream Keys and OAuth Tokens",
-      "date": "2026-04-14",
-      "affected": [
-        "wwbn/avideo"
-      ],
-      "references": [
-        "https://github.com/WWBN/AVideo/security/advisories/GHSA-gpgp-w4x2-h3h7",
-        "https://github.com/WWBN/AVideo/commit/d5992fff2811df4adad1d9fc7d0a5837b882aed7",
-        "https://github.com/advisories/GHSA-gpgp-w4x2-h3h7"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "wwbn/avideo"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@sync-in/server": "Sync-in Server has Username Enumeration via Timing Attack",
     "github.com/minio/minio": "MinIO has an Unauthenticated Object Write via Query-String Credential Signature Bypass in Unsigned-T",
     "craftcms/cms": "Craft CMS has a host header injection leading to SSRF via resource-js endpoint",
     "github.com/opentofu/opentofu": "OpenTofu has unbounded memory usage, high CPU usage, or deadlock in \"tofu init\" with maliciously-cra",
