@@ -1,8 +1,182 @@
 {
-  "version": "2026.04.21",
-  "last_updated": "2026-04-21T19:10:19.318575+00:00",
+  "version": "2026.04.22",
+  "last_updated": "2026-04-22T02:29:45.532831+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-j687-52p2-xcff",
+      "name": "Astro: XSS in define:vars via incomplete </script> tag sanitization",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-j687-52p2-xcff",
+      "description": "Astro: XSS in define:vars via incomplete </script> tag sanitization",
+      "date": "2026-04-21",
+      "affected": [
+        "astro"
+      ],
+      "references": [
+        "https://github.com/withastro/astro/security/advisories/GHSA-j687-52p2-xcff",
+        "https://github.com/withastro/astro/releases/tag/astro@6.1.6",
+        "https://github.com/advisories/GHSA-j687-52p2-xcff"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "astro"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vfmq-68hx-4jfw",
+      "name": "lxml: Default configuration of iterparse() and ETCompatXMLParser() allows XXE to local files",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-vfmq-68hx-4jfw",
+      "description": "lxml: Default configuration of iterparse() and ETCompatXMLParser() allows XXE to local files",
+      "date": "2026-04-21",
+      "affected": [
+        "lxml"
+      ],
+      "references": [
+        "https://github.com/lxml/lxml/security/advisories/GHSA-vfmq-68hx-4jfw",
+        "https://bugs.launchpad.net/lxml/+bug/2146291",
+        "https://github.com/lxml/lxml/releases/tag/lxml-6.1.0",
+        "https://github.com/advisories/GHSA-vfmq-68hx-4jfw"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-94jr-7pqp-xhcq",
+      "name": "Tekton Pipeline: Git Resolver Unsanitized Revision Parameter Enables git Argument Injection Leading ",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-94jr-7pqp-xhcq",
+      "description": "Tekton Pipeline: Git Resolver Unsanitized Revision Parameter Enables git Argument Injection Leading to RCE",
+      "date": "2026-04-21",
+      "affected": [
+        "github.com/tektoncd/pipeline"
+      ],
+      "references": [
+        "https://github.com/tektoncd/pipeline/security/advisories/GHSA-94jr-7pqp-xhcq",
+        "https://github.com/tektoncd/pipeline/releases/tag/v1.11.1",
+        "https://github.com/advisories/GHSA-94jr-7pqp-xhcq"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/tektoncd/pipeline"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/tektoncd/pipeline"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-m2cx-gpqf-qf74",
+      "name": "Tekton Pipelines: HTTP Resolver Unbounded Response Body Read Enables Denial of Service via Memory Ex",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-m2cx-gpqf-qf74",
+      "description": "Tekton Pipelines: HTTP Resolver Unbounded Response Body Read Enables Denial of Service via Memory Exhaustion",
+      "date": "2026-04-21",
+      "affected": [
+        "github.com/tektoncd/pipeline"
+      ],
+      "references": [
+        "https://github.com/tektoncd/pipeline/security/advisories/GHSA-m2cx-gpqf-qf74",
+        "https://github.com/tektoncd/pipeline/releases/tag/v1.11.1",
+        "https://github.com/advisories/GHSA-m2cx-gpqf-qf74"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/tektoncd/pipeline"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/tektoncd/pipeline"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rx35-6rhx-7858",
+      "name": "Tekton Pipelines: VolumeMount path restriction bypass via missing filepath.Clean in /tekton/ check",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-rx35-6rhx-7858",
+      "description": "Tekton Pipelines: VolumeMount path restriction bypass via missing filepath.Clean in /tekton/ check",
+      "date": "2026-04-21",
+      "affected": [
+        "github.com/tektoncd/pipeline"
+      ],
+      "references": [
+        "https://github.com/tektoncd/pipeline/security/advisories/GHSA-rx35-6rhx-7858",
+        "https://github.com/tektoncd/pipeline/releases/tag/v1.11.1",
+        "https://github.com/advisories/GHSA-rx35-6rhx-7858"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/tektoncd/pipeline"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/tektoncd/pipeline"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3hjv-c53m-58jj",
+      "name": "Flowise: CSV Agent Prompt Injection Remote Code Execution Vulnerability",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-3hjv-c53m-58jj",
+      "description": "Flowise: CSV Agent Prompt Injection Remote Code Execution Vulnerability",
+      "date": "2026-04-21",
+      "affected": [
+        "flowise-components",
+        "flowise"
+      ],
+      "references": [
+        "https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-3hjv-c53m-58jj",
+        "https://github.com/advisories/GHSA-3hjv-c53m-58jj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "flowise-components",
+            "flowise"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jj7c-x25r-r8r3",
+      "name": "Brillig: Heap corruption in foreign call results with nested tuple arrays",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-jj7c-x25r-r8r3",
+      "description": "Brillig: Heap corruption in foreign call results with nested tuple arrays",
+      "date": "2026-04-21",
+      "affected": [
+        "brillig"
+      ],
+      "references": [
+        "https://github.com/noir-lang/noir/security/advisories/GHSA-jj7c-x25r-r8r3",
+        "https://github.com/noir-lang/noir/releases/tag/v1.0.0-beta.19",
+        "https://github.com/advisories/GHSA-jj7c-x25r-r8r3"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-jwch-w7wh-gqjm",
       "name": "free5GC UDR: Fail-open handling in PolicyDataSubsToNotifyPost allows unintended subscription creatio",
@@ -811,6 +985,27 @@
       "remediation": "Update affected packages per advisory guidance."
     },
     {
+      "id": "FEED-GHSA-6ffj-2wg2-w45j",
+      "name": "Apache Airflow allows code execution through crafted XCom payloads",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-6ffj-2wg2-w45j",
+      "description": "Apache Airflow allows code execution through crafted XCom payloads",
+      "date": "2026-04-18",
+      "affected": [
+        "apache-airflow-core"
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-25917",
+        "https://github.com/apache/airflow/pull/61641",
+        "https://lists.apache.org/thread/6whgpkqbh12rvpfmvcg8b0vwlv4hq3po",
+        "http://www.openwall.com/lists/oss-security/2026/04/17/9",
+        "https://github.com/advisories/GHSA-6ffj-2wg2-w45j"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
       "id": "FEED-GHSA-8m29-fpq5-89jj",
       "name": "Zebra Vulnerable to Consensus Divergence in Transparent Sighash Hash-Type Handling",
       "category": "ghsa_advisory",
@@ -1045,199 +1240,13 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6g38-8j4p-j3pr",
-      "name": "Nhost Vulnerable to Account Takeover via OAuth Email Verification Bypass",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-6g38-8j4p-j3pr",
-      "description": "Nhost Vulnerable to Account Takeover via OAuth Email Verification Bypass",
-      "date": "2026-04-18",
-      "affected": [
-        "github.com/nhost/nhost"
-      ],
-      "references": [
-        "https://github.com/nhost/nhost/security/advisories/GHSA-6g38-8j4p-j3pr",
-        "https://github.com/nhost/nhost/pull/4162",
-        "https://github.com/nhost/nhost/commit/ec8dab3f2cf46e1131ddaf893d56c37aa00380b2",
-        "https://github.com/advisories/GHSA-6g38-8j4p-j3pr"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/nhost/nhost"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/nhost/nhost"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qrr6-mg7r-m243",
-      "name": "PHPUnit has Argument injection via newline in PHP INI values that are forwarded to child processes",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-qrr6-mg7r-m243",
-      "description": "PHPUnit has Argument injection via newline in PHP INI values that are forwarded to child processes",
-      "date": "2026-04-18",
-      "affected": [
-        "phpunit/phpunit",
-        "phpunit/phpunit"
-      ],
-      "references": [
-        "https://github.com/sebastianbergmann/phpunit/security/advisories/GHSA-qrr6-mg7r-m243",
-        "https://github.com/sebastianbergmann/phpunit/pull/6592",
-        "https://github.com/advisories/GHSA-qrr6-mg7r-m243"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "phpunit/phpunit",
-          "phpunit/phpunit"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h39g-6x3c-7fq9",
-      "name": "Zio has SubFileSystem Path Confinement Bypass via Unresolved `..` Segment",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-h39g-6x3c-7fq9",
-      "description": "Zio has SubFileSystem Path Confinement Bypass via Unresolved `..` Segment",
-      "date": "2026-04-18",
-      "affected": [
-        "Zio"
-      ],
-      "references": [
-        "https://github.com/xoofx/zio/security/advisories/GHSA-h39g-6x3c-7fq9",
-        "https://github.com/xoofx/zio/commit/c8c2f5328e50c1e7ab8c5c405fe70e0bd35f4782",
-        "https://github.com/xoofx/zio/releases/tag/0.22.2",
-        "https://github.com/advisories/GHSA-h39g-6x3c-7fq9"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-v38x-c887-992f",
-      "name": "Flowise: Airtable_Agent Code Injection Remote Code Execution Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-v38x-c887-992f",
-      "description": "Flowise: Airtable_Agent Code Injection Remote Code Execution Vulnerability",
-      "date": "2026-04-18",
-      "affected": [
-        "flowise-components",
-        "flowise"
-      ],
-      "references": [
-        "https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-v38x-c887-992f",
-        "https://github.com/advisories/GHSA-v38x-c887-992f"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "flowise-components",
-            "flowise"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xr93-pcq3-pxf8",
-      "name": "Zebra: addr/addrv2 Deserialization Resource Exhaustion",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-xr93-pcq3-pxf8",
-      "description": "Zebra: addr/addrv2 Deserialization Resource Exhaustion",
-      "date": "2026-04-18",
-      "affected": [
-        "zebra-network",
-        "zebrad"
-      ],
-      "references": [
-        "https://github.com/ZcashFoundation/zebra/security/advisories/GHSA-xr93-pcq3-pxf8",
-        "https://github.com/advisories/GHSA-xr93-pcq3-pxf8"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xvj8-ph7x-65gf",
-      "name": "Zebra: Cached Mempool Verification Bypasses Consensus Rules for Ahead-of-Tip Blocks",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-xvj8-ph7x-65gf",
-      "description": "Zebra: Cached Mempool Verification Bypasses Consensus Rules for Ahead-of-Tip Blocks",
-      "date": "2026-04-18",
-      "affected": [
-        "zebrad",
-        "zebra-consensus"
-      ],
-      "references": [
-        "https://github.com/ZcashFoundation/zebra/security/advisories/GHSA-xvj8-ph7x-65gf",
-        "https://github.com/advisories/GHSA-xvj8-ph7x-65gf"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8q4h-8crm-5cvc",
-      "name": "elFinder: Command injection in resize background color parameter when using ImageMagick CLI",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-8q4h-8crm-5cvc",
-      "description": "elFinder: Command injection in resize background color parameter when using ImageMagick CLI",
-      "date": "2026-04-17",
-      "affected": [
-        "studio-42/elfinder"
-      ],
-      "references": [
-        "https://github.com/Studio-42/elFinder/security/advisories/GHSA-8q4h-8crm-5cvc",
-        "https://github.com/advisories/GHSA-8q4h-8crm-5cvc"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "studio-42/elfinder"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f934-5rqf-xx47",
-      "name": "OpenClaw: QMD memory_get restricts reads to canonical or indexed memory paths",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-f934-5rqf-xx47",
-      "description": "OpenClaw: QMD memory_get restricts reads to canonical or indexed memory paths",
-      "date": "2026-04-17",
-      "affected": [
-        "openclaw"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-f934-5rqf-xx47",
-        "https://github.com/openclaw/openclaw/pull/66026",
-        "https://github.com/openclaw/openclaw/commit/37d5971db36491d5050efd42c333cbe0b98ed292",
-        "https://github.com/advisories/GHSA-f934-5rqf-xx47"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "openclaw"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/tektoncd/pipeline": "Tekton Pipeline: Git Resolver Unsanitized Revision Parameter Enables git Argument Injection Leading ",
     "github.com/free5gc/udr": "free5GC UDR: Fail-open handling in PolicyDataSubsToNotifyPost allows unintended subscription creatio",
     "openmage/magento-lts": "OpenMage LTS: Customer File Upload Extension Blocklist Bypass \u2192 Remote Code Execution",
-    "github.com/tektoncd/pipeline": "Tekton Pipelines: Git resolver API mode leaks system-configured API token to user-controlled serverU",
     "@anthropic-ai/claude-code": "Claude Code: Sandbox Escape via Symlink Following Allows Arbitrary File Write Outside Workspace",
     "github.com/openbao/openbao": "OpenBao's Token Store Allows Cross-Namespace Renewal, Revocation",
     "github.com/m1k1o/neko/server": "Neko has a Self-service Privilege Escalation for Authenticated Users",
@@ -1249,10 +1258,7 @@
     "github.com/charmbracelet/wish": "Wish has SCP Path Traversal that allows arbitrary file read/write",
     "charm.land/wish/v2": "Wish has SCP Path Traversal that allows arbitrary file read/write",
     "github.com/kubernetes-sigs/aws-efs-csi-driver": "Amazon EFS CSI Driver has mount option injection via unsanitized volumeHandle and mounttargetip fiel",
-    "yeswiki/yeswiki": "YesWiki vulnerable to authenticated SQL Injection via id_fiche in EntryManager::formatDataBeforeSave",
-    "github.com/nhost/nhost": "Nhost Vulnerable to Account Takeover via OAuth Email Verification Bypass",
-    "phpunit/phpunit": "PHPUnit has Argument injection via newline in PHP INI values that are forwarded to child processes",
-    "studio-42/elfinder": "elFinder: Command injection in resize background color parameter when using ImageMagick CLI"
+    "yeswiki/yeswiki": "YesWiki vulnerable to authenticated SQL Injection via id_fiche in EntryManager::formatDataBeforeSave"
   },
   "malicious_packages": {
     "npm": {},
