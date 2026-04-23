@@ -1,8 +1,160 @@
 {
   "version": "2026.04.23",
-  "last_updated": "2026-04-23T13:26:58.073967+00:00",
+  "last_updated": "2026-04-23T19:06:42.314290+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-9mv3-2cwr-p262",
+      "name": "Microsoft Security Advisory CVE-2026-40372 \u2013 ASP.NET Core Elevation of Privilege",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9mv3-2cwr-p262",
+      "description": "Microsoft Security Advisory CVE-2026-40372 \u2013 ASP.NET Core Elevation of Privilege",
+      "date": "2026-04-23",
+      "affected": [
+        "Microsoft.AspNetCore.DataProtection"
+      ],
+      "references": [
+        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-9mv3-2cwr-p262",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-40372",
+        "https://github.com/dotnet/announcements/issues/395",
+        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-40372",
+        "https://github.com/advisories/GHSA-9mv3-2cwr-p262"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-c57f-mm3j-27q9",
+      "name": "Astro: Cache Poisoning due to incorrect error handling when if-match header is malformed ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-c57f-mm3j-27q9",
+      "description": "Astro: Cache Poisoning due to incorrect error handling when if-match header is malformed ",
+      "date": "2026-04-23",
+      "affected": [
+        "@astrojs/node"
+      ],
+      "references": [
+        "https://github.com/withastro/astro/security/advisories/GHSA-c57f-mm3j-27q9",
+        "https://github.com/advisories/GHSA-c57f-mm3j-27q9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@astrojs/node"
+          ]
+        },
+        "compromised_actions": [
+          "@astrojs/node"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-pfm2-2mhg-8wpx",
+      "name": "n8n-MCP Logs Sensitive Request Data on Unauthorized /mcp Requests",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-pfm2-2mhg-8wpx",
+      "description": "n8n-MCP Logs Sensitive Request Data on Unauthorized /mcp Requests",
+      "date": "2026-04-23",
+      "affected": [
+        "n8n-mcp"
+      ],
+      "references": [
+        "https://github.com/czlonkowski/n8n-mcp/security/advisories/GHSA-pfm2-2mhg-8wpx",
+        "https://github.com/advisories/GHSA-pfm2-2mhg-8wpx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "n8n-mcp"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rhf7-wvw3-vjvm",
+      "name": "goshs has Cross-Origin Arbitrary File Write via Missing CSRF on PUT and Wildcard CORS",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-rhf7-wvw3-vjvm",
+      "description": "goshs has Cross-Origin Arbitrary File Write via Missing CSRF on PUT and Wildcard CORS",
+      "date": "2026-04-23",
+      "affected": [
+        "github.com/patrickhener/goshs",
+        "github.com/patrickhener/goshs/v2"
+      ],
+      "references": [
+        "https://github.com/patrickhener/goshs/security/advisories/GHSA-rhf7-wvw3-vjvm",
+        "https://github.com/advisories/GHSA-rhf7-wvw3-vjvm"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/patrickhener/goshs",
+            "github.com/patrickhener/goshs/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/patrickhener/goshs",
+          "github.com/patrickhener/goshs/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2wvh-87g2-89hr",
+      "name": "OpenC3 COSMOS: Permissions Bypass Provides User Access to Unassigned Administrative Actions via Scri",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-2wvh-87g2-89hr",
+      "description": "OpenC3 COSMOS: Permissions Bypass Provides User Access to Unassigned Administrative Actions via Script Runner Tool",
+      "date": "2026-04-23",
+      "affected": [
+        "openc3"
+      ],
+      "references": [
+        "https://github.com/OpenC3/cosmos/security/advisories/GHSA-2wvh-87g2-89hr",
+        "https://github.com/advisories/GHSA-2wvh-87g2-89hr"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "openc3"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v529-vhwc-wfc5",
+      "name": "OpenC3 COSMOS has SQL Injection in QuestDB Time-Series Database",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-v529-vhwc-wfc5",
+      "description": "OpenC3 COSMOS has SQL Injection in QuestDB Time-Series Database",
+      "date": "2026-04-23",
+      "affected": [
+        "openc3"
+      ],
+      "references": [
+        "https://github.com/OpenC3/cosmos/security/advisories/GHSA-v529-vhwc-wfc5",
+        "https://github.com/OpenC3/cosmos/commit/9ba60c09c8836a37a2e4ea67ab35fe403e041415",
+        "https://github.com/OpenC3/cosmos/releases/tag/v7.0.0-rc3",
+        "https://github.com/advisories/GHSA-v529-vhwc-wfc5"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "openc3"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-ffq5-qpvf-xq7x",
       "name": "OpenC3 COSMOS is Vulnerable to Self-XSS Through the Command Sender",
@@ -1165,172 +1317,13 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-x2xq-qhjf-5mvg",
-      "name": "DDEV has ZipSlip path traversal in tar and zip archive extraction",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-x2xq-qhjf-5mvg",
-      "description": "DDEV has ZipSlip path traversal in tar and zip archive extraction",
-      "date": "2026-04-22",
-      "affected": [
-        "github.com/ddev/ddev"
-      ],
-      "references": [
-        "https://github.com/ddev/ddev/security/advisories/GHSA-x2xq-qhjf-5mvg",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-32885",
-        "https://github.com/ddev/ddev/pull/8213",
-        "https://github.com/ddev/ddev/commit/05cbe299770a590b89bfc8dddab33e61b4302e43",
-        "https://github.com/ddev/ddev/releases/tag/v1.25.2",
-        "https://github.com/advisories/GHSA-x2xq-qhjf-5mvg"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/ddev/ddev"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/ddev/ddev"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-34r5-6j7w-235f",
-      "name": "Inspektor Gadget uses unsanitized ANSI Escape Sequences In `columns` Output Mode",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-34r5-6j7w-235f",
-      "description": "Inspektor Gadget uses unsanitized ANSI Escape Sequences In `columns` Output Mode",
-      "date": "2026-04-22",
-      "affected": [
-        "github.com/inspektor-gadget/inspektor-gadget"
-      ],
-      "references": [
-        "https://github.com/inspektor-gadget/inspektor-gadget/security/advisories/GHSA-34r5-6j7w-235f",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-25996",
-        "https://github.com/inspektor-gadget/inspektor-gadget/commit/d59cf72971f9b7110d9c179dc8ae8b7a11dbd6d2",
-        "https://github.com/inspektor-gadget/inspektor-gadget/releases/tag/v0.49.1",
-        "https://github.com/advisories/GHSA-34r5-6j7w-235f"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/inspektor-gadget/inspektor-gadget"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/inspektor-gadget/inspektor-gadget"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-79qw-g77v-2vfh",
-      "name": "Inspektor Gadget: Command Injection via malicious buildOptions manipulation",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-79qw-g77v-2vfh",
-      "description": "Inspektor Gadget: Command Injection via malicious buildOptions manipulation",
-      "date": "2026-04-22",
-      "affected": [
-        "github.com/inspektor-gadget/inspektor-gadget"
-      ],
-      "references": [
-        "https://github.com/inspektor-gadget/inspektor-gadget/security/advisories/GHSA-79qw-g77v-2vfh",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-24905",
-        "https://github.com/inspektor-gadget/inspektor-gadget/commit/7c83ad84ff7a68565655253e2cf1c5d2da695c1a",
-        "https://github.com/advisories/GHSA-79qw-g77v-2vfh"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/inspektor-gadget/inspektor-gadget"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/inspektor-gadget/inspektor-gadget"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8847-338w-5hcj",
-      "name": "i18next-fs-backend: Path traversal via unsanitised lng/ns allows arbitrary file read/overwrite",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-8847-338w-5hcj",
-      "description": "i18next-fs-backend: Path traversal via unsanitised lng/ns allows arbitrary file read/overwrite",
-      "date": "2026-04-22",
-      "affected": [
-        "i18next-fs-backend"
-      ],
-      "references": [
-        "https://github.com/i18next/i18next-fs-backend/security/advisories/GHSA-8847-338w-5hcj",
-        "https://github.com/advisories/GHSA-8847-338w-5hcj"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "i18next-fs-backend"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6457-mxpq-4fqq",
-      "name": "i18nextify has DOM XSS via javascript:/data: URL schemes in translated href/src attributes",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-6457-mxpq-4fqq",
-      "description": "i18nextify has DOM XSS via javascript:/data: URL schemes in translated href/src attributes",
-      "date": "2026-04-22",
-      "affected": [
-        "i18nextify"
-      ],
-      "references": [
-        "https://github.com/i18next/i18nextify/security/advisories/GHSA-6457-mxpq-4fqq",
-        "https://github.com/advisories/GHSA-6457-mxpq-4fqq"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "i18nextify"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-q89c-q3h5-w34g",
-      "name": " i18next-http-backend has Path Traversal & URL Injection via Unsanitised lng/ns",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-q89c-q3h5-w34g",
-      "description": " i18next-http-backend has Path Traversal & URL Injection via Unsanitised lng/ns",
-      "date": "2026-04-22",
-      "affected": [
-        "i18next-http-backend"
-      ],
-      "references": [
-        "https://github.com/i18next/i18next-http-backend/security/advisories/GHSA-q89c-q3h5-w34g",
-        "https://github.com/advisories/GHSA-q89c-q3h5-w34g"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "i18next-http-backend"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@astrojs/node": "Astro: Cache Poisoning due to incorrect error handling when if-match header is malformed ",
+    "github.com/patrickhener/goshs": "goshs has Cross-Origin Arbitrary File Write via Missing CSRF on PUT and Wildcard CORS",
+    "github.com/patrickhener/goshs/v2": "goshs has Cross-Origin Arbitrary File Write via Missing CSRF on PUT and Wildcard CORS",
     "@evomap/evolver": "Evolver: Path Traversal via `--out` flag in `fetch` command allows Arbitrary File Write",
     "github.com/orneryd/nornicdb": "NornicDB has Improper Network Binding in its Bolt Server, allowing unauthorized remote access",
     "github.com/siyuan-note/siyuan/kernel": "SiYuan: Path Traversal via Double URL Encoding in `/export/` Endpoint (Incomplete Fix Bypass for CVE",
@@ -1348,9 +1341,7 @@
     "@marko/runtime-tags": "Marko: XSS via case-insensitive script/style closing tag bypass in runtime HTML escaping",
     "github.com/free5gc/amf": "free5GC AMF: Missing default case in Content-Type switch in HTTPUEContextTransfer",
     "github.com/free5gc/pcf": "free5GC PCF: Memory Leak via CORS Middleware Registration in HTTP Handler Leads to Denial of Service",
-    "github.com/openfga/openfga": "OpenFGA has Improper Policy Enforcement",
-    "github.com/ddev/ddev": "DDEV has ZipSlip path traversal in tar and zip archive extraction",
-    "github.com/inspektor-gadget/inspektor-gadget": "Inspektor Gadget uses unsanitized ANSI Escape Sequences In `columns` Output Mode"
+    "github.com/openfga/openfga": "OpenFGA has Improper Policy Enforcement"
   },
   "malicious_packages": {
     "npm": {},
