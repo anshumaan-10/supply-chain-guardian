@@ -1,8 +1,47 @@
 {
   "version": "2026.04.29",
-  "last_updated": "2026-04-29T13:54:15.238605+00:00",
+  "last_updated": "2026-04-29T19:23:56.700569+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-vc24-j8c5-2vw4",
+      "name": "OpenTelemetry.Resources.Azure has an unbounded HTTP response body read",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vc24-j8c5-2vw4",
+      "description": "OpenTelemetry.Resources.Azure has an unbounded HTTP response body read",
+      "date": "2026-04-29",
+      "affected": [
+        "OpenTelemetry.Resources.Azure"
+      ],
+      "references": [
+        "https://github.com/open-telemetry/opentelemetry-dotnet-contrib/security/advisories/GHSA-vc24-j8c5-2vw4",
+        "https://github.com/open-telemetry/opentelemetry-dotnet-contrib/pull/4121",
+        "https://github.com/open-telemetry/opentelemetry-dotnet-contrib/commit/9d8a364af919f62c088edd641c554cb720198964",
+        "https://github.com/advisories/GHSA-vc24-j8c5-2vw4"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3gxm-wfjx-m847",
+      "name": "beets has a Cross-site Scripting vulnerability",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3gxm-wfjx-m847",
+      "description": "beets has a Cross-site Scripting vulnerability",
+      "date": "2026-04-29",
+      "affected": [
+        "beets"
+      ],
+      "references": [
+        "https://github.com/beetbox/beets/security/advisories/GHSA-3gxm-wfjx-m847",
+        "https://github.com/beetbox/beets/releases/tag/v2.10.0",
+        "https://github.com/advisories/GHSA-3gxm-wfjx-m847"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-88hf-wf7h-7w4m",
       "name": "OpenTelemetry's Zipkin remote endpoint cache could grow without bounds and increase memory pressure",
@@ -1313,73 +1352,6 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6384-m2mw-rf54",
-      "name": "Traefik's ForwardAuth trustForwardHeader=false allows spoofed X-Forwarded-Prefix to bypass authentic",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-6384-m2mw-rf54",
-      "description": "Traefik's ForwardAuth trustForwardHeader=false allows spoofed X-Forwarded-Prefix to bypass authentication",
-      "date": "2026-04-24",
-      "affected": [
-        "github.com/traefik/traefik",
-        "github.com/traefik/traefik/v2",
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v3"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-6384-m2mw-rf54",
-        "https://github.com/traefik/traefik/releases/tag/v2.11.43",
-        "https://github.com/traefik/traefik/releases/tag/v3.6.14",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.0-rc.2",
-        "https://github.com/advisories/GHSA-6384-m2mw-rf54"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik",
-            "github.com/traefik/traefik/v2",
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v3"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik",
-          "github.com/traefik/traefik/v2",
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v3"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xhj4-g6w8-2xjw",
-      "name": "go-zserio has Unbounded Memory Allocation for All Platforms",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-xhj4-g6w8-2xjw",
-      "description": "go-zserio has Unbounded Memory Allocation for All Platforms",
-      "date": "2026-04-24",
-      "affected": [
-        "github.com/woven-planet/go-zserio"
-      ],
-      "references": [
-        "https://github.com/woven-by-toyota/go-zserio/security/advisories/GHSA-xhj4-g6w8-2xjw",
-        "https://github.com/woven-by-toyota/go-zserio/commit/39ef1decde7e9766207794d396018776b33c6e45",
-        "https://github.com/advisories/GHSA-xhj4-g6w8-2xjw"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/woven-planet/go-zserio"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/woven-planet/go-zserio"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
@@ -1405,8 +1377,7 @@
     "@google/gemini-cli": "Gemini CLI: Remote Code Execution via workspace trust and tool allowlisting bypasses",
     "typo3/cms-backend": "TYPO3 CMS Stores Cleartext Password in User Settings Module",
     "github.com/k8sgpt-ai/k8sgpt": "k8sGPT has Prompt Injection through its k8sGPT-Operator",
-    "@anthropic-ai/claude-code": "Claude Code: Trust Dialog Bypass via Git Worktree Spoofing Allows Arbitrary Code Execution",
-    "github.com/woven-planet/go-zserio": "go-zserio has Unbounded Memory Allocation for All Platforms"
+    "@anthropic-ai/claude-code": "Claude Code: Trust Dialog Bypass via Git Worktree Spoofing Allows Arbitrary Code Execution"
   },
   "malicious_packages": {
     "npm": {},
