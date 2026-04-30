@@ -1,8 +1,341 @@
 {
   "version": "2026.04.30",
-  "last_updated": "2026-04-30T13:52:09.500059+00:00",
+  "last_updated": "2026-04-30T19:19:35.343172+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-4625-4j76-fww9",
+      "name": "OpenTelemetry's disk retry default temp path enables local blob injection via OTLP Exporter",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-4625-4j76-fww9",
+      "description": "OpenTelemetry's disk retry default temp path enables local blob injection via OTLP Exporter",
+      "date": "2026-04-30",
+      "affected": [
+        "OpenTelemetry.Exporter.OpenTelemetryProtocol"
+      ],
+      "references": [
+        "https://github.com/open-telemetry/opentelemetry-dotnet/security/advisories/GHSA-4625-4j76-fww9",
+        "https://github.com/open-telemetry/opentelemetry-dotnet/pull/7106",
+        "https://github.com/open-telemetry/opentelemetry-dotnet/commit/78dffdc5ebdf3dc090fdb94e3f1a32d3d1e26dfd",
+        "https://github.com/advisories/GHSA-4625-4j76-fww9"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-28xx-pppm-vqff",
+      "name": "ydb-go-sdk's transactions are not committed using the `options.WithCommit()` option on last call `ta",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-28xx-pppm-vqff",
+      "description": "ydb-go-sdk's transactions are not committed using the `options.WithCommit()` option on last call `table.Transaction.Execute` in transaction",
+      "date": "2026-04-30",
+      "affected": [
+        "github.com/ydb-platform/ydb-go-sdk/v3"
+      ],
+      "references": [
+        "https://github.com/ydb-platform/ydb-go-sdk/security/advisories/GHSA-28xx-pppm-vqff",
+        "https://github.com/ydb-platform/ydb-go-sdk/pull/2091",
+        "https://github.com/ydb-platform/ydb-go-sdk/commit/251128a64763555d9a79ee7a131dd154c9000eb9",
+        "https://github.com/ydb-platform/ydb-go-sdk/commit/25dcff4c41153f1f9413512ba12999b40bf7154d",
+        "https://github.com/ydb-platform/ydb-go-sdk/releases/tag/v3.104.6",
+        "https://github.com/ydb-platform/ydb-go-sdk/releases/tag/v3.134.1",
+        "https://github.com/ydb-platform/ydb-go-sdk/releases/tag/v3.134.2",
+        "https://github.com/advisories/GHSA-28xx-pppm-vqff"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/ydb-platform/ydb-go-sdk/v3"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/ydb-platform/ydb-go-sdk/v3"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-w24r-5266-9c3c",
+      "name": "Clerk has an authorization bypass when combining organization, billing, or reverification checks",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-w24r-5266-9c3c",
+      "description": "Clerk has an authorization bypass when combining organization, billing, or reverification checks",
+      "date": "2026-04-30",
+      "affected": [
+        "@clerk/hono",
+        "@clerk/express",
+        "@clerk/express",
+        "@clerk/fastify",
+        "@clerk/fastify",
+        "@clerk/chrome-extension",
+        "@clerk/chrome-extension",
+        "@clerk/tanstack-react-start",
+        "@clerk/tanstack-react-start",
+        "@clerk/react-router"
+      ],
+      "references": [
+        "https://github.com/clerk/javascript/security/advisories/GHSA-w24r-5266-9c3c",
+        "https://github.com/advisories/GHSA-w24r-5266-9c3c"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@clerk/hono",
+            "@clerk/express",
+            "@clerk/express",
+            "@clerk/fastify",
+            "@clerk/fastify",
+            "@clerk/chrome-extension",
+            "@clerk/chrome-extension",
+            "@clerk/tanstack-react-start",
+            "@clerk/tanstack-react-start",
+            "@clerk/react-router"
+          ]
+        },
+        "compromised_actions": [
+          "@clerk/hono",
+          "@clerk/express",
+          "@clerk/express",
+          "@clerk/fastify",
+          "@clerk/fastify",
+          "@clerk/chrome-extension",
+          "@clerk/chrome-extension",
+          "@clerk/tanstack-react-start",
+          "@clerk/tanstack-react-start",
+          "@clerk/react-router"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-56c3-vfp2-5qqj",
+      "name": "n8n-mcp's IPv4-mapped IPv6 addresses bypass SSRF protection in validateUrlSync(), enabling full SSRF",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-56c3-vfp2-5qqj",
+      "description": "n8n-mcp's IPv4-mapped IPv6 addresses bypass SSRF protection in validateUrlSync(), enabling full SSRF for SDK embedders",
+      "date": "2026-04-30",
+      "affected": [
+        "n8n-mcp"
+      ],
+      "references": [
+        "https://github.com/czlonkowski/n8n-mcp/security/advisories/GHSA-56c3-vfp2-5qqj",
+        "https://github.com/czlonkowski/n8n-mcp/commit/9639f757853149f0cb16663cc8b6b6468f27a25f",
+        "https://github.com/advisories/GHSA-56c3-vfp2-5qqj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "n8n-mcp"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-83hf-93m4-rgwq",
+      "name": "Hickory DNS's Record Cache Accepts AUTHORITY-Section NS from Sibling Zone via Parent-Pool Zone-Conte",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-83hf-93m4-rgwq",
+      "description": "Hickory DNS's Record Cache Accepts AUTHORITY-Section NS from Sibling Zone via Parent-Pool Zone-Context Elevation",
+      "date": "2026-04-30",
+      "affected": [
+        "hickory-recursor",
+        "hickory-recursor"
+      ],
+      "references": [
+        "https://github.com/hickory-dns/hickory-dns/security/advisories/GHSA-83hf-93m4-rgwq",
+        "https://github.com/advisories/GHSA-83hf-93m4-rgwq"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cg4x-64p3-x59h",
+      "name": "CKAN has Unauthenticated Authorization Bypass in `datastore_search_sql`",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-cg4x-64p3-x59h",
+      "description": "CKAN has Unauthenticated Authorization Bypass in `datastore_search_sql`",
+      "date": "2026-04-30",
+      "affected": [
+        "ckan",
+        "ckan"
+      ],
+      "references": [
+        "https://github.com/ckan/ckan/security/advisories/GHSA-cg4x-64p3-x59h",
+        "https://docs.ckan.org/en/2.10/changelog.html#v-2-10-10-2026-04-29",
+        "https://docs.ckan.org/en/2.11/changelog.html#v-2-11-5-2026-04-29",
+        "https://docs.ckan.org/en/2.11/extensions/plugin-interfaces.html#ckan.plugins.interfaces.IAuthFunctions",
+        "https://docs.ckan.org/en/2.11/maintaining/configuration.html#ckan-datastore-sqlsearch-enabled",
+        "https://github.com/advisories/GHSA-cg4x-64p3-x59h"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cwcx-382v-8m9g",
+      "name": "Weblate Vulnerable to Authenticated SSRF via Project Backup Import bypassing validate_repo_url",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-cwcx-382v-8m9g",
+      "description": "Weblate Vulnerable to Authenticated SSRF via Project Backup Import bypassing validate_repo_url",
+      "date": "2026-04-30",
+      "affected": [
+        "weblate"
+      ],
+      "references": [
+        "https://github.com/WeblateOrg/weblate/security/advisories/GHSA-cwcx-382v-8m9g",
+        "https://github.com/WeblateOrg/weblate/pull/19061",
+        "https://github.com/WeblateOrg/weblate/pull/19062",
+        "https://github.com/WeblateOrg/weblate/commit/e1eff1f517c1ee315d69581910baaabb724e5ef0",
+        "https://github.com/WeblateOrg/weblate/commit/e4b67a76d95d5165ecb9937f7485fd79223b7f14",
+        "https://github.com/advisories/GHSA-cwcx-382v-8m9g"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6j8j-4qp3-36p2",
+      "name": "Weblate Doesn't Invalidate API Token on Password Change",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-6j8j-4qp3-36p2",
+      "description": "Weblate Doesn't Invalidate API Token on Password Change",
+      "date": "2026-04-30",
+      "affected": [
+        "weblate"
+      ],
+      "references": [
+        "https://github.com/WeblateOrg/weblate/security/advisories/GHSA-6j8j-4qp3-36p2",
+        "https://github.com/WeblateOrg/weblate/pull/19057",
+        "https://github.com/WeblateOrg/weblate/commit/649a2da81700542f95c0807b3c625fc3bb0eaf95",
+        "https://github.com/advisories/GHSA-6j8j-4qp3-36p2"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-q7r4-hc83-hf2q",
+      "name": "Gotenberg has ExifTool stdin argument injection via metadata value newlines (bypass of key sanitizat",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-q7r4-hc83-hf2q",
+      "description": "Gotenberg has ExifTool stdin argument injection via metadata value newlines (bypass of key sanitization fix)",
+      "date": "2026-04-30",
+      "affected": [
+        "github.com/gotenberg/gotenberg/v8"
+      ],
+      "references": [
+        "https://github.com/gotenberg/gotenberg/security/advisories/GHSA-q7r4-hc83-hf2q",
+        "https://github.com/gotenberg/gotenberg/releases/tag/v8.31.0",
+        "https://github.com/advisories/GHSA-q7r4-hc83-hf2q"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/gotenberg/gotenberg/v8"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/gotenberg/gotenberg/v8"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rch3-82jr-f9w9",
+      "name": "Jupyter Notebook Vulnerable to Authentication Token Theft via CommandLinker XSS",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-rch3-82jr-f9w9",
+      "description": "Jupyter Notebook Vulnerable to Authentication Token Theft via CommandLinker XSS",
+      "date": "2026-04-30",
+      "affected": [
+        "@jupyterlab/help-extension",
+        "jupyterlab",
+        "notebook",
+        "@jupyter-notebook/help-extension"
+      ],
+      "references": [
+        "https://github.com/jupyter/notebook/security/advisories/GHSA-rch3-82jr-f9w9",
+        "https://jupyterlab.readthedocs.io/en/latest/user/commands.html#commands-in-markdown-output-and-files",
+        "https://github.com/advisories/GHSA-rch3-82jr-f9w9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@jupyterlab/help-extension",
+            "@jupyter-notebook/help-extension"
+          ]
+        },
+        "compromised_actions": [
+          "@jupyterlab/help-extension",
+          "@jupyter-notebook/help-extension"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5vh4-rgv7-p9g4",
+      "name": "Gotenberg Vulnerable to Unauthenticated SSRF via Unfiltered Webhook URL",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-5vh4-rgv7-p9g4",
+      "description": "Gotenberg Vulnerable to Unauthenticated SSRF via Unfiltered Webhook URL",
+      "date": "2026-04-30",
+      "affected": [
+        "github.com/gotenberg/gotenberg/v8"
+      ],
+      "references": [
+        "https://github.com/gotenberg/gotenberg/security/advisories/GHSA-5vh4-rgv7-p9g4",
+        "https://github.com/gotenberg/gotenberg/releases/tag/v8.31.0",
+        "https://github.com/advisories/GHSA-5vh4-rgv7-p9g4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/gotenberg/gotenberg/v8"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/gotenberg/gotenberg/v8"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5q7p-7jgv-ww56",
+      "name": "Gotenberg has case-insensitive URL scheme that bypasses webhook and downloadFrom deny-list SSRF prot",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-5q7p-7jgv-ww56",
+      "description": "Gotenberg has case-insensitive URL scheme that bypasses webhook and downloadFrom deny-list SSRF protection",
+      "date": "2026-04-30",
+      "affected": [
+        "github.com/gotenberg/gotenberg/v8"
+      ],
+      "references": [
+        "https://github.com/gotenberg/gotenberg/security/advisories/GHSA-5q7p-7jgv-ww56",
+        "https://github.com/gotenberg/gotenberg/releases/tag/v8.31.0",
+        "https://github.com/advisories/GHSA-5q7p-7jgv-ww56"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/gotenberg/gotenberg/v8"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/gotenberg/gotenberg/v8"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-h7j7-3rx6-xvcg",
       "name": "CKAN has Unauthenticated SQL Injection and Authorization Bypass in `datastore_search_sql`",
@@ -946,307 +1279,26 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8rxh-r2p6-7f2q",
-      "name": "GoBGP has Remote Denial of Service (Panic) in UpdatePathAttrs4ByteAs via Malformed BGP UPDATE",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-8rxh-r2p6-7f2q",
-      "description": "GoBGP has Remote Denial of Service (Panic) in UpdatePathAttrs4ByteAs via Malformed BGP UPDATE",
-      "date": "2026-04-29",
-      "affected": [
-        "github.com/osrg/gobgp/v4"
-      ],
-      "references": [
-        "https://github.com/osrg/gobgp/security/advisories/GHSA-8rxh-r2p6-7f2q",
-        "https://github.com/advisories/GHSA-8rxh-r2p6-7f2q"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/osrg/gobgp/v4"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/osrg/gobgp/v4"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7235-89m6-f4px",
-      "name": "GoBGP has Remote Denial of Service (Panic) via Malformed Well-known Path Attribute",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7235-89m6-f4px",
-      "description": "GoBGP has Remote Denial of Service (Panic) via Malformed Well-known Path Attribute",
-      "date": "2026-04-29",
-      "affected": [
-        "github.com/osrg/gobgp/v4"
-      ],
-      "references": [
-        "https://github.com/osrg/gobgp/security/advisories/GHSA-7235-89m6-f4px",
-        "https://github.com/advisories/GHSA-7235-89m6-f4px"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/osrg/gobgp/v4"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/osrg/gobgp/v4"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fw49-9xq4-gmx6",
-      "name": "CI4MS has Unrestricted PHP File Upload via Theme Installation that Leads to Authenticated Remote Cod",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-fw49-9xq4-gmx6",
-      "description": "CI4MS has Unrestricted PHP File Upload via Theme Installation that Leads to Authenticated Remote Code Execution",
-      "date": "2026-04-29",
-      "affected": [
-        "ci4-cms-erp/ci4ms"
-      ],
-      "references": [
-        "https://github.com/ci4-cms-erp/ci4ms/security/advisories/GHSA-fw49-9xq4-gmx6",
-        "https://github.com/ci4-cms-erp/ci4ms/commit/b969465e71eacd9eb57014ad1fce1fc34fa7bca0",
-        "https://github.com/advisories/GHSA-fw49-9xq4-gmx6"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "ci4-cms-erp/ci4ms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-prf8-cf2x-rhx7",
-      "name": "fabric-sdk-java has ObjectInputStream.readObject() without ObjectInputFilter, which allows Java dese",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-prf8-cf2x-rhx7",
-      "description": "fabric-sdk-java has ObjectInputStream.readObject() without ObjectInputFilter, which allows Java deserialization RCE",
-      "date": "2026-04-29",
-      "affected": [
-        "org.hyperledger.fabric-sdk-java:fabric-sdk-java"
-      ],
-      "references": [
-        "https://github.com/hyperledger/fabric/security/advisories/GHSA-prf8-cf2x-rhx7",
-        "https://hyperledger.github.io/fabric-gateway",
-        "https://github.com/advisories/GHSA-prf8-cf2x-rhx7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mcvf-jxcw-vj73",
-      "name": "CKAN has CSRF exemption primed by anonymous requests",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-mcvf-jxcw-vj73",
-      "description": "CKAN has CSRF exemption primed by anonymous requests",
-      "date": "2026-04-29",
-      "affected": [
-        "ckan",
-        "ckan"
-      ],
-      "references": [
-        "https://github.com/ckan/ckan/security/advisories/GHSA-mcvf-jxcw-vj73",
-        "https://docs.ckan.org/en/2.10/changelog.html#v-2-10-10-2026-04-29",
-        "https://docs.ckan.org/en/2.11/changelog.html#v-2-11-5-2026-04-29",
-        "https://github.com/advisories/GHSA-mcvf-jxcw-vj73"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mpfm-fpgx-647q",
-      "name": "CKAN has no certificate validation on STMP connection",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-mpfm-fpgx-647q",
-      "description": "CKAN has no certificate validation on STMP connection",
-      "date": "2026-04-29",
-      "affected": [
-        "ckan",
-        "ckan"
-      ],
-      "references": [
-        "https://github.com/ckan/ckan/security/advisories/GHSA-mpfm-fpgx-647q",
-        "https://docs.ckan.org/en/2.10/changelog.html#v-2-10-10-2026-04-29",
-        "https://docs.ckan.org/en/2.11/changelog.html#v-2-11-5-2026-04-29",
-        "https://github.com/advisories/GHSA-mpfm-fpgx-647q"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7c6m-4442-2x6m",
-      "name": "PhpSpreadsheet has CPU Denial of Service via Unbounded Row Number in XLSX Row Dimensions",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7c6m-4442-2x6m",
-      "description": "PhpSpreadsheet has CPU Denial of Service via Unbounded Row Number in XLSX Row Dimensions",
-      "date": "2026-04-29",
-      "affected": [
-        "phpoffice/phpspreadsheet",
-        "phpoffice/phpspreadsheet",
-        "phpoffice/phpspreadsheet",
-        "phpoffice/phpspreadsheet",
-        "phpoffice/phpspreadsheet"
-      ],
-      "references": [
-        "https://github.com/PHPOffice/PhpSpreadsheet/security/advisories/GHSA-7c6m-4442-2x6m",
-        "https://github.com/advisories/GHSA-7c6m-4442-2x6m"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "phpoffice/phpspreadsheet",
-          "phpoffice/phpspreadsheet",
-          "phpoffice/phpspreadsheet",
-          "phpoffice/phpspreadsheet",
-          "phpoffice/phpspreadsheet"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-84wq-86v6-x5j6",
-      "name": "PhpSpreadsheet has CPU Denial of Service via Unbounded Row Index in SpreadsheetML XML Reader",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-84wq-86v6-x5j6",
-      "description": "PhpSpreadsheet has CPU Denial of Service via Unbounded Row Index in SpreadsheetML XML Reader",
-      "date": "2026-04-29",
-      "affected": [
-        "phpoffice/phpspreadsheet",
-        "phpoffice/phpspreadsheet",
-        "phpoffice/phpspreadsheet",
-        "phpoffice/phpspreadsheet",
-        "phpoffice/phpspreadsheet"
-      ],
-      "references": [
-        "https://github.com/PHPOffice/PhpSpreadsheet/security/advisories/GHSA-84wq-86v6-x5j6",
-        "https://github.com/advisories/GHSA-84wq-86v6-x5j6"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "phpoffice/phpspreadsheet",
-          "phpoffice/phpspreadsheet",
-          "phpoffice/phpspreadsheet",
-          "phpoffice/phpspreadsheet",
-          "phpoffice/phpspreadsheet"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-q4q6-r8wh-5cgh",
-      "name": "PhpSpreadsheet has SSRF/RCE in IOFactory::load when $filename is user controlled",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-q4q6-r8wh-5cgh",
-      "description": "PhpSpreadsheet has SSRF/RCE in IOFactory::load when $filename is user controlled",
-      "date": "2026-04-29",
-      "affected": [
-        "phpoffice/phpspreadsheet",
-        "phpoffice/phpspreadsheet",
-        "phpoffice/phpspreadsheet",
-        "phpoffice/phpspreadsheet",
-        "phpoffice/phpspreadsheet"
-      ],
-      "references": [
-        "https://github.com/PHPOffice/PhpSpreadsheet/security/advisories/GHSA-q4q6-r8wh-5cgh",
-        "https://www.php.net/manual/en/wrappers.php",
-        "https://github.com/advisories/GHSA-q4q6-r8wh-5cgh"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "phpoffice/phpspreadsheet",
-          "phpoffice/phpspreadsheet",
-          "phpoffice/phpspreadsheet",
-          "phpoffice/phpspreadsheet",
-          "phpoffice/phpspreadsheet"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-55m9-299j-53c7",
-      "name": "OneCollector exporter reads unbounded HTTP response bodies",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-55m9-299j-53c7",
-      "description": "OneCollector exporter reads unbounded HTTP response bodies",
-      "date": "2026-04-29",
-      "affected": [
-        "OpenTelemetry.Exporter.OneCollector"
-      ],
-      "references": [
-        "https://github.com/open-telemetry/opentelemetry-dotnet-contrib/security/advisories/GHSA-55m9-299j-53c7",
-        "https://github.com/open-telemetry/opentelemetry-dotnet-contrib/pull/4117",
-        "https://github.com/open-telemetry/opentelemetry-dotnet-contrib/commit/77dc5d14fcdf6c6b3aeba5f8bba5dfded90495c9",
-        "https://github.com/advisories/GHSA-55m9-299j-53c7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vc24-j8c5-2vw4",
-      "name": "OpenTelemetry.Resources.Azure has an unbounded HTTP response body read",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-vc24-j8c5-2vw4",
-      "description": "OpenTelemetry.Resources.Azure has an unbounded HTTP response body read",
-      "date": "2026-04-29",
-      "affected": [
-        "OpenTelemetry.Resources.Azure"
-      ],
-      "references": [
-        "https://github.com/open-telemetry/opentelemetry-dotnet-contrib/security/advisories/GHSA-vc24-j8c5-2vw4",
-        "https://github.com/open-telemetry/opentelemetry-dotnet-contrib/pull/4121",
-        "https://github.com/open-telemetry/opentelemetry-dotnet-contrib/commit/9d8a364af919f62c088edd641c554cb720198964",
-        "https://github.com/advisories/GHSA-vc24-j8c5-2vw4"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3gxm-wfjx-m847",
-      "name": "beets has a Cross-site Scripting vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-3gxm-wfjx-m847",
-      "description": "beets has a Cross-site Scripting vulnerability",
-      "date": "2026-04-29",
-      "affected": [
-        "beets"
-      ],
-      "references": [
-        "https://github.com/beetbox/beets/security/advisories/GHSA-3gxm-wfjx-m847",
-        "https://github.com/beetbox/beets/releases/tag/v2.10.0",
-        "https://github.com/advisories/GHSA-3gxm-wfjx-m847"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/ydb-platform/ydb-go-sdk/v3": "ydb-go-sdk's transactions are not committed using the `options.WithCommit()` option on last call `ta",
+    "@clerk/hono": "Clerk has an authorization bypass when combining organization, billing, or reverification checks",
+    "@clerk/express": "Clerk has an authorization bypass when combining organization, billing, or reverification checks",
+    "@clerk/fastify": "Clerk has an authorization bypass when combining organization, billing, or reverification checks",
+    "@clerk/chrome-extension": "Clerk has an authorization bypass when combining organization, billing, or reverification checks",
+    "@clerk/tanstack-react-start": "Clerk has an authorization bypass when combining organization, billing, or reverification checks",
+    "@clerk/react-router": "Clerk has an authorization bypass when combining organization, billing, or reverification checks",
+    "github.com/gotenberg/gotenberg/v8": "Gotenberg has ExifTool stdin argument injection via metadata value newlines (bypass of key sanitizat",
+    "@jupyterlab/help-extension": "Jupyter Notebook Vulnerable to Authentication Token Theft via CommandLinker XSS",
+    "@jupyter-notebook/help-extension": "Jupyter Notebook Vulnerable to Authentication Token Theft via CommandLinker XSS",
     "@anthropic-ai/sdk": "Claude SDK for TypeScript has Insecure Default File Permissions in Local Filesystem Memory Tool",
     "github.com/tinfoil-factory/netfoil": "netfoil's optional seccomp sandboxing was not applied",
     "admidio/admidio": "Admidio: OIDC Token Introspection Endpoint Returns Active for All Tokens Without Validation",
     "ipl/web": "ipl/web is vulnerable to reflected XSS by malformed search requests",
     "github.com/0xJacky/Nginx-UI": "Nginx-UI has Server-Side Request Forgery (SSRF) via Cluster Proxy Middleware that Allows Access to I",
-    "roadiz/openid": "OpenID Connect nonce generated but never validated \u2014 ID token replay attack",
-    "github.com/osrg/gobgp/v4": "GoBGP has Remote Denial of Service (Panic) in UpdatePathAttrs4ByteAs via Malformed BGP UPDATE",
-    "ci4-cms-erp/ci4ms": "CI4MS has Unrestricted PHP File Upload via Theme Installation that Leads to Authenticated Remote Cod",
-    "phpoffice/phpspreadsheet": "PhpSpreadsheet has CPU Denial of Service via Unbounded Row Number in XLSX Row Dimensions"
+    "roadiz/openid": "OpenID Connect nonce generated but never validated \u2014 ID token replay attack"
   },
   "malicious_packages": {
     "npm": {},
