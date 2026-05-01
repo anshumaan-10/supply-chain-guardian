@@ -1,8 +1,169 @@
 {
-  "version": "2026.04.30",
-  "last_updated": "2026-04-30T19:19:35.343172+00:00",
+  "version": "2026.05.01",
+  "last_updated": "2026-05-01T02:55:49.522094+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-85x2-r8xv-ww8c",
+      "name": "Kirby CMS's `pages.access/list` and `files.access/list` permissions are not consistently checked in ",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-85x2-r8xv-ww8c",
+      "description": "Kirby CMS's `pages.access/list` and `files.access/list` permissions are not consistently checked in the Panel and REST API",
+      "date": "2026-04-30",
+      "affected": [
+        "getkirby/cms",
+        "getkirby/cms"
+      ],
+      "references": [
+        "https://github.com/getkirby/kirby/security/advisories/GHSA-85x2-r8xv-ww8c",
+        "https://github.com/getkirby/kirby/releases/tag/4.9.0",
+        "https://github.com/getkirby/kirby/releases/tag/5.4.0",
+        "https://github.com/advisories/GHSA-85x2-r8xv-ww8c"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getkirby/cms",
+          "getkirby/cms"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-mqq7-wxx5-mp8h",
+      "name": "ps_checkout allows unauthorized method invocation through unvalidated parameter",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-mqq7-wxx5-mp8h",
+      "description": "ps_checkout allows unauthorized method invocation through unvalidated parameter",
+      "date": "2026-04-30",
+      "affected": [
+        "prestashop/ps_checkout"
+      ],
+      "references": [
+        "https://github.com/PrestaShopCorp/ps_checkout/security/advisories/GHSA-mqq7-wxx5-mp8h",
+        "https://github.com/PrestaShopCorp/ps_checkout/releases/tag/v5.3.0",
+        "https://github.com/advisories/GHSA-mqq7-wxx5-mp8h"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "prestashop/ps_checkout"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rh99-wc69-c255",
+      "name": "Contras Affected by CopyFile Policy Subversion via Symlinks",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-rh99-wc69-c255",
+      "description": "Contras Affected by CopyFile Policy Subversion via Symlinks",
+      "date": "2026-04-30",
+      "affected": [
+        "github.com/edgelesssys/contrast"
+      ],
+      "references": [
+        "https://github.com/edgelesssys/contrast/security/advisories/GHSA-rh99-wc69-c255",
+        "https://github.com/kata-containers/kata-containers/security/advisories/GHSA-q49m-57vm-c8cc",
+        "https://gist.github.com/burgerdev/304dd0ab0fff1665b7c27e18a30cf96e",
+        "https://github.com/edgelesssys/contrast/releases/tag/v1.19.1",
+        "https://github.com/advisories/GHSA-rh99-wc69-c255"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/edgelesssys/contrast"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/edgelesssys/contrast"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cxx3-hr75-4q96",
+      "name": "Arcane Vulnerable to Unauthenticated Disclosure of Custom Compose Template Content (incl. `.env` sec",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-cxx3-hr75-4q96",
+      "description": "Arcane Vulnerable to Unauthenticated Disclosure of Custom Compose Template Content (incl. `.env` secrets) ",
+      "date": "2026-04-30",
+      "affected": [
+        "github.com/getarcaneapp/arcane/backend"
+      ],
+      "references": [
+        "https://github.com/getarcaneapp/arcane/security/advisories/GHSA-cxx3-hr75-4q96",
+        "https://github.com/getarcaneapp/arcane/releases/tag/v1.18.0",
+        "https://github.com/advisories/GHSA-cxx3-hr75-4q96"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getarcaneapp/arcane/backend"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getarcaneapp/arcane/backend"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f6qq-3m3h-4g42",
+      "name": "auth: Patreon provider assigns the same local user ID to every authenticated Patreon account, enabli",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-f6qq-3m3h-4g42",
+      "description": "auth: Patreon provider assigns the same local user ID to every authenticated Patreon account, enabling cross\u2011user impersonation",
+      "date": "2026-04-30",
+      "affected": [
+        "github.com/go-pkgz/auth/v2",
+        "github.com/go-pkgz/auth"
+      ],
+      "references": [
+        "https://github.com/go-pkgz/auth/security/advisories/GHSA-f6qq-3m3h-4g42",
+        "https://github.com/go-pkgz/auth/commit/c0b15ee72a8401da83c01781c16636c521f42698",
+        "https://github.com/go-pkgz/auth/releases/tag/v1.25.2",
+        "https://github.com/go-pkgz/auth/releases/tag/v2.1.2",
+        "https://github.com/advisories/GHSA-f6qq-3m3h-4g42"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/go-pkgz/auth/v2",
+            "github.com/go-pkgz/auth"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/go-pkgz/auth/v2",
+          "github.com/go-pkgz/auth"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rcmw-7mc7-3rj7",
+      "name": "Sentry's improper authentication on SAML SSO process allows user identity linking",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-rcmw-7mc7-3rj7",
+      "description": "Sentry's improper authentication on SAML SSO process allows user identity linking",
+      "date": "2026-04-30",
+      "affected": [
+        "sentry"
+      ],
+      "references": [
+        "https://github.com/getsentry/sentry/security/advisories/GHSA-rcmw-7mc7-3rj7",
+        "https://github.com/getsentry/sentry/pull/113720",
+        "https://github.com/getsentry/sentry/commit/0c67558ae7fe08738912d4c5233b53ead048da3b",
+        "https://github.com/getsentry/sentry/releases/tag/26.4.1",
+        "https://github.com/advisories/GHSA-rcmw-7mc7-3rj7"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-4625-4j76-fww9",
       "name": "OpenTelemetry's disk retry default temp path enables local blob injection via OTLP Exporter",
@@ -1124,165 +1285,16 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r6jc-mpqw-m755",
-      "name": "n8n has SQL Injection in Oracle Database Node via Limit Field",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-r6jc-mpqw-m755",
-      "description": "n8n has SQL Injection in Oracle Database Node via Limit Field",
-      "date": "2026-04-29",
-      "affected": [
-        "n8n",
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-r6jc-mpqw-m755",
-        "https://github.com/advisories/GHSA-r6jc-mpqw-m755"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hp3c-vfpm-q4f7",
-      "name": "n8n has SQL Injection in Snowflake and MySQL Nodes",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hp3c-vfpm-q4f7",
-      "description": "n8n has SQL Injection in Snowflake and MySQL Nodes",
-      "date": "2026-04-29",
-      "affected": [
-        "n8n",
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-f3f2-mcxc-pwjx",
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-hp3c-vfpm-q4f7",
-        "https://github.com/advisories/GHSA-hp3c-vfpm-q4f7"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-55wf-5m3q-6jjf",
-      "name": "ipl/web is vulnerable to reflected XSS by malformed search requests",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-55wf-5m3q-6jjf",
-      "description": "ipl/web is vulnerable to reflected XSS by malformed search requests",
-      "date": "2026-04-29",
-      "affected": [
-        "ipl/web"
-      ],
-      "references": [
-        "https://github.com/Icinga/ipl-web/security/advisories/GHSA-55wf-5m3q-6jjf",
-        "https://github.com/Icinga/ipl-web/commit/f387e92504d7a03bb857d1aee9b7410e06dd065d",
-        "https://github.com/Icinga/ipl-web/releases/tag/v0.13.1",
-        "https://github.com/advisories/GHSA-55wf-5m3q-6jjf"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "ipl/web"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h8cj-hpmg-636v",
-      "name": "appsmith has SQL Injection in FilterDataService via Unsafe DROP TABLE Execution",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-h8cj-hpmg-636v",
-      "description": "appsmith has SQL Injection in FilterDataService via Unsafe DROP TABLE Execution",
-      "date": "2026-04-29",
-      "affected": [
-        "com.appsmith:interfaces"
-      ],
-      "references": [
-        "https://github.com/appsmithorg/appsmith/security/advisories/GHSA-h8cj-hpmg-636v",
-        "https://github.com/appsmithorg/appsmith/commit/c8023ba4b3b54204ff3309c9e5c33664ad15ba32",
-        "https://github.com/advisories/GHSA-h8cj-hpmg-636v"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wr32-99hh-6f35",
-      "name": "Nginx-UI has Server-Side Request Forgery (SSRF) via Cluster Proxy Middleware that Allows Access to I",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-wr32-99hh-6f35",
-      "description": "Nginx-UI has Server-Side Request Forgery (SSRF) via Cluster Proxy Middleware that Allows Access to Internal Services",
-      "date": "2026-04-29",
-      "affected": [
-        "github.com/0xJacky/Nginx-UI"
-      ],
-      "references": [
-        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-wr32-99hh-6f35",
-        "https://github.com/advisories/GHSA-wr32-99hh-6f35"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/0xJacky/Nginx-UI"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/0xJacky/Nginx-UI"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3gx8-q682-38mx",
-      "name": "OpenID Connect nonce generated but never validated \u2014 ID token replay attack",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-3gx8-q682-38mx",
-      "description": "OpenID Connect nonce generated but never validated \u2014 ID token replay attack",
-      "date": "2026-04-29",
-      "affected": [
-        "roadiz/openid",
-        "roadiz/openid",
-        "roadiz/openid",
-        "roadiz/openid"
-      ],
-      "references": [
-        "https://github.com/roadiz/core-bundle-dev-app/security/advisories/GHSA-3gx8-q682-38mx",
-        "https://github.com/advisories/GHSA-3gx8-q682-38mx"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "roadiz/openid",
-          "roadiz/openid",
-          "roadiz/openid",
-          "roadiz/openid"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "getkirby/cms": "Kirby CMS's `pages.access/list` and `files.access/list` permissions are not consistently checked in ",
+    "prestashop/ps_checkout": "ps_checkout allows unauthorized method invocation through unvalidated parameter",
+    "github.com/edgelesssys/contrast": "Contras Affected by CopyFile Policy Subversion via Symlinks",
+    "github.com/getarcaneapp/arcane/backend": "Arcane Vulnerable to Unauthenticated Disclosure of Custom Compose Template Content (incl. `.env` sec",
+    "github.com/go-pkgz/auth/v2": "auth: Patreon provider assigns the same local user ID to every authenticated Patreon account, enabli",
+    "github.com/go-pkgz/auth": "auth: Patreon provider assigns the same local user ID to every authenticated Patreon account, enabli",
     "github.com/ydb-platform/ydb-go-sdk/v3": "ydb-go-sdk's transactions are not committed using the `options.WithCommit()` option on last call `ta",
     "@clerk/hono": "Clerk has an authorization bypass when combining organization, billing, or reverification checks",
     "@clerk/express": "Clerk has an authorization bypass when combining organization, billing, or reverification checks",
@@ -1295,10 +1307,7 @@
     "@jupyter-notebook/help-extension": "Jupyter Notebook Vulnerable to Authentication Token Theft via CommandLinker XSS",
     "@anthropic-ai/sdk": "Claude SDK for TypeScript has Insecure Default File Permissions in Local Filesystem Memory Tool",
     "github.com/tinfoil-factory/netfoil": "netfoil's optional seccomp sandboxing was not applied",
-    "admidio/admidio": "Admidio: OIDC Token Introspection Endpoint Returns Active for All Tokens Without Validation",
-    "ipl/web": "ipl/web is vulnerable to reflected XSS by malformed search requests",
-    "github.com/0xJacky/Nginx-UI": "Nginx-UI has Server-Side Request Forgery (SSRF) via Cluster Proxy Middleware that Allows Access to I",
-    "roadiz/openid": "OpenID Connect nonce generated but never validated \u2014 ID token replay attack"
+    "admidio/admidio": "Admidio: OIDC Token Introspection Endpoint Returns Active for All Tokens Without Validation"
   },
   "malicious_packages": {
     "npm": {},
