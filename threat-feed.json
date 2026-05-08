@@ -1,8 +1,526 @@
 {
-  "version": "2026.05.07",
-  "last_updated": "2026-05-07T19:42:06.809124+00:00",
+  "version": "2026.05.08",
+  "last_updated": "2026-05-08T02:50:03.455117+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-xv59-967r-8726",
+      "name": "rust-openssl vulnerable to heap buffer overflow when encrypting with AES key-wrap-with-padding",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-xv59-967r-8726",
+      "description": "rust-openssl vulnerable to heap buffer overflow when encrypting with AES key-wrap-with-padding",
+      "date": "2026-05-07",
+      "affected": [
+        "openssl"
+      ],
+      "references": [
+        "https://github.com/rust-openssl/rust-openssl/security/advisories/GHSA-xv59-967r-8726",
+        "https://github.com/advisories/GHSA-xv59-967r-8726"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-39j6-4867-gg4w",
+      "name": "utcp-http vulnerable to SSRF via attacker-controlled OpenAPI servers[0].url in HTTP communication pr",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-39j6-4867-gg4w",
+      "description": "utcp-http vulnerable to SSRF via attacker-controlled OpenAPI servers[0].url in HTTP communication protocol",
+      "date": "2026-05-07",
+      "affected": [
+        "utcp-http"
+      ],
+      "references": [
+        "https://github.com/universal-tool-calling-protocol/python-utcp/security/advisories/GHSA-39j6-4867-gg4w",
+        "https://github.com/advisories/GHSA-39j6-4867-gg4w"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v7qw-hx66-4w9x",
+      "name": "netbox-data-flows has stored XSS in ObjectAlias names rendered inside DataFlow tables",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-v7qw-hx66-4w9x",
+      "description": "netbox-data-flows has stored XSS in ObjectAlias names rendered inside DataFlow tables",
+      "date": "2026-05-07",
+      "affected": [
+        "netbox-data-flows"
+      ],
+      "references": [
+        "https://github.com/Alef-Burzmali/netbox-data-flows/security/advisories/GHSA-v7qw-hx66-4w9x",
+        "https://github.com/advisories/GHSA-v7qw-hx66-4w9x"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-j7h9-2jh7-g967",
+      "name": "mcp-ssh-tool has file transfer path policy bypass and bearer token comparison hardening",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-j7h9-2jh7-g967",
+      "description": "mcp-ssh-tool has file transfer path policy bypass and bearer token comparison hardening",
+      "date": "2026-05-07",
+      "affected": [
+        "mcp-ssh-tool"
+      ],
+      "references": [
+        "https://github.com/oaslananka/mcp-ssh-tool/security/advisories/GHSA-j7h9-2jh7-g967",
+        "https://github.com/advisories/GHSA-j7h9-2jh7-g967"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "mcp-ssh-tool"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xhrw-5qxx-jpwr",
+      "name": "Microsoft APM CLI's plugin.json component paths escape plugin root and copy arbitrary host files dur",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-xhrw-5qxx-jpwr",
+      "description": "Microsoft APM CLI's plugin.json component paths escape plugin root and copy arbitrary host files during install",
+      "date": "2026-05-07",
+      "affected": [
+        "apm-cli"
+      ],
+      "references": [
+        "https://github.com/microsoft/apm/security/advisories/GHSA-xhrw-5qxx-jpwr",
+        "https://github.com/advisories/GHSA-xhrw-5qxx-jpwr"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fpw6-hrg5-q5x5",
+      "name": "ech0's acess tokens with expiry=never cannot be revoked: logout panics, delete does not blacklist JT",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-fpw6-hrg5-q5x5",
+      "description": "ech0's acess tokens with expiry=never cannot be revoked: logout panics, delete does not blacklist JTI",
+      "date": "2026-05-07",
+      "affected": [
+        "github.com/lin-snow/Ech0"
+      ],
+      "references": [
+        "https://github.com/lin-snow/Ech0/security/advisories/GHSA-fpw6-hrg5-q5x5",
+        "https://github.com/lin-snow/Ech0/commit/eab62379c795c3f4850a9ca938ae3f27d7171541",
+        "https://github.com/advisories/GHSA-fpw6-hrg5-q5x5"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/lin-snow/Ech0"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/lin-snow/Ech0"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-p64j-f4x9-wq66",
+      "name": "Ech0's OAuth redirect URI validation ignores path component, enables exchange-code theft",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-p64j-f4x9-wq66",
+      "description": "Ech0's OAuth redirect URI validation ignores path component, enables exchange-code theft",
+      "date": "2026-05-07",
+      "affected": [
+        "github.com/lin-snow/Ech0"
+      ],
+      "references": [
+        "https://github.com/lin-snow/Ech0/security/advisories/GHSA-p64j-f4x9-wq66",
+        "https://github.com/lin-snow/Ech0/commit/a7e8b8e84bd1e3db090dfb720f2c6c433356b442",
+        "https://github.com/advisories/GHSA-p64j-f4x9-wq66"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/lin-snow/Ech0"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/lin-snow/Ech0"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8mc6-xjpr-h98x",
+      "name": "Ech0 has Server-Side Request Forgery (SSRF) via Connect Handler fetchPeerConnectInfo",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-8mc6-xjpr-h98x",
+      "description": "Ech0 has Server-Side Request Forgery (SSRF) via Connect Handler fetchPeerConnectInfo",
+      "date": "2026-05-07",
+      "affected": [
+        "github.com/lin-snow/ech0"
+      ],
+      "references": [
+        "https://github.com/lin-snow/Ech0/security/advisories/GHSA-8mc6-xjpr-h98x",
+        "https://github.com/lin-snow/Ech0/commit/091d26d2d942df6df9f520328d2f9cf2592bbefc",
+        "https://github.com/advisories/GHSA-8mc6-xjpr-h98x"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/lin-snow/ech0"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/lin-snow/ech0"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-pj6q-4vq4-r8cg",
+      "name": "Ech0 allows PUT /api/echo/like/:id unauthenticated: anonymous callers to modify any echo's fav_count",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-pj6q-4vq4-r8cg",
+      "description": "Ech0 allows PUT /api/echo/like/:id unauthenticated: anonymous callers to modify any echo's fav_count",
+      "date": "2026-05-07",
+      "affected": [
+        "github.com/lin-snow/Ech0"
+      ],
+      "references": [
+        "https://github.com/lin-snow/Ech0/security/advisories/GHSA-pj6q-4vq4-r8cg",
+        "https://github.com/lin-snow/Ech0/commit/cecc2c19b590df85d79ea98457faa143130cd620",
+        "https://github.com/advisories/GHSA-pj6q-4vq4-r8cg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/lin-snow/Ech0"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/lin-snow/Ech0"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rgj7-vg8v-j4wr",
+      "name": "Ech0's Unauthenticated Like Endpoint Enables Arbitrary Engagement Metric Inflation",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-rgj7-vg8v-j4wr",
+      "description": "Ech0's Unauthenticated Like Endpoint Enables Arbitrary Engagement Metric Inflation",
+      "date": "2026-05-07",
+      "affected": [
+        "github.com/lin-snow/ech0"
+      ],
+      "references": [
+        "https://github.com/lin-snow/Ech0/security/advisories/GHSA-rgj7-vg8v-j4wr",
+        "https://github.com/lin-snow/Ech0/commit/a7e8b8e84bd1e3db090dfb720f2c6c433356b442",
+        "https://github.com/advisories/GHSA-rgj7-vg8v-j4wr"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/lin-snow/ech0"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/lin-snow/ech0"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3v85-fqvh-7rxf",
+      "name": "Ech0's RSS feed renders unescaped tag names and raw-HTML markdown, stored XSS against subscribers",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3v85-fqvh-7rxf",
+      "description": "Ech0's RSS feed renders unescaped tag names and raw-HTML markdown, stored XSS against subscribers",
+      "date": "2026-05-07",
+      "affected": [
+        "github.com/lin-snow/Ech0"
+      ],
+      "references": [
+        "https://github.com/lin-snow/Ech0/security/advisories/GHSA-3v85-fqvh-7rxf",
+        "https://github.com/lin-snow/Ech0/commit/fd320fe3e9021c8d8d284fb274775c018690520e",
+        "https://github.com/advisories/GHSA-3v85-fqvh-7rxf"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/lin-snow/Ech0"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/lin-snow/Ech0"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rj4g-rqgh-rx9h",
+      "name": "Ech0 comment model's Email field returned on public /api/comments endpoints",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-rj4g-rqgh-rx9h",
+      "description": "Ech0 comment model's Email field returned on public /api/comments endpoints",
+      "date": "2026-05-07",
+      "affected": [
+        "github.com/lin-snow/Ech0"
+      ],
+      "references": [
+        "https://github.com/lin-snow/Ech0/security/advisories/GHSA-rj4g-rqgh-rx9h",
+        "https://github.com/lin-snow/Ech0/commit/cb8d7a997dd8f573ef0e22e4e6b23b2b8ee92ebd",
+        "https://github.com/advisories/GHSA-rj4g-rqgh-rx9h"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/lin-snow/Ech0"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/lin-snow/Ech0"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-q6mh-rqwh-g786",
+      "name": "Note Mark has a JWT Secret Weakness that allows Full Account Takeover via Token Forgery",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-q6mh-rqwh-g786",
+      "description": "Note Mark has a JWT Secret Weakness that allows Full Account Takeover via Token Forgery",
+      "date": "2026-05-07",
+      "affected": [
+        "github.com/enchant97/note-mark/backend"
+      ],
+      "references": [
+        "https://github.com/enchant97/note-mark/security/advisories/GHSA-q6mh-rqwh-g786",
+        "https://github.com/enchant97/note-mark/commit/18b58775866776ed400c403dd0ccad68c1fa4802",
+        "https://github.com/enchant97/note-mark/releases/tag/v0.19.4",
+        "https://github.com/advisories/GHSA-q6mh-rqwh-g786"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/enchant97/note-mark/backend"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/enchant97/note-mark/backend"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g49p-4qxj-88v3",
+      "name": "Note Mark: Arbitrary File Write via Path Traversal in Asset Names Leads to Remote Code Execution",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-g49p-4qxj-88v3",
+      "description": "Note Mark: Arbitrary File Write via Path Traversal in Asset Names Leads to Remote Code Execution",
+      "date": "2026-05-07",
+      "affected": [
+        "github.com/enchant97/note-mark/backend"
+      ],
+      "references": [
+        "https://github.com/enchant97/note-mark/security/advisories/GHSA-g49p-4qxj-88v3",
+        "https://github.com/enchant97/note-mark/releases/tag/v0.19.4",
+        "https://github.com/advisories/GHSA-g49p-4qxj-88v3"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/enchant97/note-mark/backend"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/enchant97/note-mark/backend"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h4fw-6r7f-w494",
+      "name": "Webauthn has a User Verification Downgrade via Default-Open ClientOverridePolicy",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-h4fw-6r7f-w494",
+      "description": "Webauthn has a User Verification Downgrade via Default-Open ClientOverridePolicy",
+      "date": "2026-05-07",
+      "affected": [
+        "web-auth/webauthn-framework"
+      ],
+      "references": [
+        "https://github.com/web-auth/webauthn-framework/security/advisories/GHSA-h4fw-6r7f-w494",
+        "https://github.com/advisories/GHSA-h4fw-6r7f-w494"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "web-auth/webauthn-framework"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cwfq-rfcr-8hmp",
+      "name": "Zebra's Transparent SIGHASH_SINGLE Handling Diverges from zcashd for Corresponding Outputs",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-cwfq-rfcr-8hmp",
+      "description": "Zebra's Transparent SIGHASH_SINGLE Handling Diverges from zcashd for Corresponding Outputs",
+      "date": "2026-05-07",
+      "affected": [
+        "zebrad"
+      ],
+      "references": [
+        "https://github.com/ZcashFoundation/zebra/security/advisories/GHSA-cwfq-rfcr-8hmp",
+        "https://github.com/ZcashFoundation/zebra/releases/tag/v4.4.0",
+        "https://github.com/advisories/GHSA-cwfq-rfcr-8hmp"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-gq4h-3grw-2rhv",
+      "name": "Zebra has Consensus Divergence in Transparent Sighash Hash-Type Handling due to Stale Buffer",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-gq4h-3grw-2rhv",
+      "description": "Zebra has Consensus Divergence in Transparent Sighash Hash-Type Handling due to Stale Buffer",
+      "date": "2026-05-07",
+      "affected": [
+        "zebrad",
+        "zebra-script"
+      ],
+      "references": [
+        "https://github.com/ZcashFoundation/zebra/security/advisories/GHSA-gq4h-3grw-2rhv",
+        "https://github.com/ZcashFoundation/zebra/releases/tag/v4.4.0",
+        "https://github.com/advisories/GHSA-gq4h-3grw-2rhv"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-438q-jx8f-cccv",
+      "name": "Zebra Vulnerable to Allocation Amplification in Inbound Network Deserializers",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-438q-jx8f-cccv",
+      "description": "Zebra Vulnerable to Allocation Amplification in Inbound Network Deserializers",
+      "date": "2026-05-07",
+      "affected": [
+        "zebra-chain",
+        "zebrad",
+        "zebra-network"
+      ],
+      "references": [
+        "https://github.com/ZcashFoundation/zebra/security/advisories/GHSA-438q-jx8f-cccv",
+        "https://github.com/ZcashFoundation/zebra/releases/tag/v4.4.0",
+        "https://github.com/advisories/GHSA-438q-jx8f-cccv"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jv4h-j224-23cc",
+      "name": "Zebra's Block Validator Undercounts Coinbase and P2SH Sigops",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-jv4h-j224-23cc",
+      "description": "Zebra's Block Validator Undercounts Coinbase and P2SH Sigops",
+      "date": "2026-05-07",
+      "affected": [
+        "zebrad"
+      ],
+      "references": [
+        "https://github.com/ZcashFoundation/zebra/security/advisories/GHSA-jv4h-j224-23cc",
+        "https://github.com/ZcashFoundation/zebra/releases/tag/v4.4.0",
+        "https://github.com/advisories/GHSA-jv4h-j224-23cc"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-c2rm-g55x-8hr5",
+      "name": "nuxt-og-image SSRF \u2014 bypass of GHSA-pqhr-mp3f-hrpp / v6.2.5 fix (IPv6 + redirect)",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-c2rm-g55x-8hr5",
+      "description": "nuxt-og-image SSRF \u2014 bypass of GHSA-pqhr-mp3f-hrpp / v6.2.5 fix (IPv6 + redirect)",
+      "date": "2026-05-07",
+      "affected": [
+        "nuxt-og-image"
+      ],
+      "references": [
+        "https://github.com/nuxt-modules/og-image/security/advisories/GHSA-c2rm-g55x-8hr5",
+        "https://github.com/advisories/GHSA-c2rm-g55x-8hr5"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "nuxt-og-image"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vf3q-frmr-vrr9",
+      "name": "FacturaScripts Vulnerable to Authenticated Remote Code Execution (RCE) via GIF Image Upload in Produ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vf3q-frmr-vrr9",
+      "description": "FacturaScripts Vulnerable to Authenticated Remote Code Execution (RCE) via GIF Image Upload in Product Images",
+      "date": "2026-05-07",
+      "affected": [
+        "facturascripts/facturascripts"
+      ],
+      "references": [
+        "https://github.com/NeoRazorX/facturascripts/security/advisories/GHSA-vf3q-frmr-vrr9",
+        "https://github.com/advisories/GHSA-vf3q-frmr-vrr9"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "facturascripts/facturascripts"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vrxf-vrc4-22p7",
+      "name": "FacturaScripts Vulnerable to Unauthenticated phpinfo() Disclosure via Installer Endpoint",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vrxf-vrc4-22p7",
+      "description": "FacturaScripts Vulnerable to Unauthenticated phpinfo() Disclosure via Installer Endpoint",
+      "date": "2026-05-07",
+      "affected": [
+        "facturascripts/facturascripts"
+      ],
+      "references": [
+        "https://github.com/NeoRazorX/facturascripts/security/advisories/GHSA-vrxf-vrc4-22p7",
+        "https://github.com/advisories/GHSA-vrxf-vrc4-22p7"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "facturascripts/facturascripts"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-r736-2678-fcrx",
       "name": "FacturaScripts vulnerable to stored XSS via product reference in sales/purchases",
@@ -668,589 +1186,18 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fwj3-42wh-8673",
-      "name": "FileBrowser Public Share DELETE API Path Traversal Allows Unauthenticated Arbitrary File Deletion",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-fwj3-42wh-8673",
-      "description": "FileBrowser Public Share DELETE API Path Traversal Allows Unauthenticated Arbitrary File Deletion",
-      "date": "2026-05-07",
-      "affected": [
-        "github.com/gtsteffaniak/filebrowser"
-      ],
-      "references": [
-        "https://github.com/gtsteffaniak/filebrowser/security/advisories/GHSA-fwj3-42wh-8673",
-        "https://github.com/gtsteffaniak/filebrowser/commit/112740bdd41de7d5eb01e13ba49d406bfc463f69",
-        "https://github.com/advisories/GHSA-fwj3-42wh-8673"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/gtsteffaniak/filebrowser"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/gtsteffaniak/filebrowser"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-x35m-3gp4-4fh5",
-      "name": "etcd RBAC bypass allows unauthorized data access via PrevKv/lease attachment in nested transaction P",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-x35m-3gp4-4fh5",
-      "description": "etcd RBAC bypass allows unauthorized data access via PrevKv/lease attachment in nested transaction Put requests",
-      "date": "2026-05-07",
-      "affected": [
-        "go.etcd.io/etcd",
-        "go.etcd.io/etcd/v3",
-        "go.etcd.io/etcd/v3"
-      ],
-      "references": [
-        "https://github.com/etcd-io/etcd/security/advisories/GHSA-x35m-3gp4-4fh5",
-        "https://github.com/advisories/GHSA-x35m-3gp4-4fh5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "go.etcd.io/etcd",
-            "go.etcd.io/etcd/v3",
-            "go.etcd.io/etcd/v3"
-          ]
-        },
-        "compromised_actions": [
-          "go.etcd.io/etcd",
-          "go.etcd.io/etcd/v3",
-          "go.etcd.io/etcd/v3"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fqph-j6v6-jvgx",
-      "name": "docling-graph has SSRF via Missing Internal IP Validation in URLInputHandler",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-fqph-j6v6-jvgx",
-      "description": "docling-graph has SSRF via Missing Internal IP Validation in URLInputHandler",
-      "date": "2026-05-07",
-      "affected": [
-        "docling-graph"
-      ],
-      "references": [
-        "https://github.com/docling-project/docling-graph/security/advisories/GHSA-fqph-j6v6-jvgx",
-        "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
-        "https://github.com/advisories/GHSA-fqph-j6v6-jvgx"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-w5p8-4jcx-2j6r",
-      "name": "imageproc: integer overflow in kernel size check leads to out-of-bounds read",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-w5p8-4jcx-2j6r",
-      "description": "imageproc: integer overflow in kernel size check leads to out-of-bounds read",
-      "date": "2026-05-07",
-      "affected": [
-        "imageproc",
-        "imageproc",
-        "imageproc",
-        "imageproc"
-      ],
-      "references": [
-        "https://rustsec.org/advisories/RUSTSEC-2026-0116.html",
-        "https://github.com/advisories/GHSA-w5p8-4jcx-2j6r"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qg8r-f7x3-25f7",
-      "name": "imageproc: Out-of-bounds read via NaN coordinates in bilinear/bicubic sampling",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-qg8r-f7x3-25f7",
-      "description": "imageproc: Out-of-bounds read via NaN coordinates in bilinear/bicubic sampling",
-      "date": "2026-05-07",
-      "affected": [
-        "imageproc",
-        "imageproc",
-        "imageproc",
-        "imageproc"
-      ],
-      "references": [
-        "https://rustsec.org/advisories/RUSTSEC-2026-0117.html",
-        "https://github.com/advisories/GHSA-qg8r-f7x3-25f7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5qv7-j6w5-fr4m",
-      "name": "imageproc has fragile bounds check when sampling from image",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-5qv7-j6w5-fr4m",
-      "description": "imageproc has fragile bounds check when sampling from image",
-      "date": "2026-05-07",
-      "affected": [
-        "imageproc",
-        "imageproc",
-        "imageproc"
-      ],
-      "references": [
-        "https://rustsec.org/advisories/RUSTSEC-2026-0115.html",
-        "https://github.com/advisories/GHSA-5qv7-j6w5-fr4m"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vwx9-7qcf-gg7f",
-      "name": "ShellHub has cross-tenant IDOR in `GET /api/namespaces/:tenant` via API Key bypasses  membership che",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-vwx9-7qcf-gg7f",
-      "description": "ShellHub has cross-tenant IDOR in `GET /api/namespaces/:tenant` via API Key bypasses  membership check",
-      "date": "2026-05-07",
-      "affected": [
-        "github.com/shellhub-io/shellhub"
-      ],
-      "references": [
-        "https://github.com/shellhub-io/shellhub/security/advisories/GHSA-vwx9-7qcf-gg7f",
-        "https://github.com/advisories/GHSA-vwx9-7qcf-gg7f"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/shellhub-io/shellhub"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/shellhub-io/shellhub"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-q2qq-hmj6-3wpp",
-      "name": "hickory-proto vulnerable to CPU exhaustion during message encoding due to O(n\u00b2) name compression",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-q2qq-hmj6-3wpp",
-      "description": "hickory-proto vulnerable to CPU exhaustion during message encoding due to O(n\u00b2) name compression",
-      "date": "2026-05-07",
-      "affected": [
-        "hickory-proto"
-      ],
-      "references": [
-        "https://github.com/hickory-dns/hickory-dns/security/advisories/GHSA-q2qq-hmj6-3wpp",
-        "https://rustsec.org/advisories/RUSTSEC-2026-0119.html",
-        "https://github.com/advisories/GHSA-q2qq-hmj6-3wpp"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3v94-mw7p-v465",
-      "name": "hickory-proto: NSEC3 closest-encloser proof validation enters unbounded loop on cross-zone responses",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-3v94-mw7p-v465",
-      "description": "hickory-proto: NSEC3 closest-encloser proof validation enters unbounded loop on cross-zone responses",
-      "date": "2026-05-07",
-      "affected": [
-        "hickory-net",
-        "hickory-proto"
-      ],
-      "references": [
-        "https://github.com/hickory-dns/hickory-dns/security/advisories/GHSA-3v94-mw7p-v465",
-        "https://rustsec.org/advisories/RUSTSEC-2026-0118.html",
-        "https://rustsec.org/advisories/RUSTSEC-2026-0120.html",
-        "https://github.com/advisories/GHSA-3v94-mw7p-v465"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-258c-965c-p3hc",
-      "name": "Daptin's Session Management Vulnerability Leads to Insufficient Session Expiration After Password Ch",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-258c-965c-p3hc",
-      "description": "Daptin's Session Management Vulnerability Leads to Insufficient Session Expiration After Password Change",
-      "date": "2026-05-07",
-      "affected": [
-        "github.com/daptin/daptin"
-      ],
-      "references": [
-        "https://github.com/daptin/daptin/security/advisories/GHSA-258c-965c-p3hc",
-        "https://github.com/advisories/GHSA-258c-965c-p3hc"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/daptin/daptin"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/daptin/daptin"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-m38g-vww2-mvgx",
-      "name": "Talos Linux has a local privilege escalation from untrusted workloads",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-m38g-vww2-mvgx",
-      "description": "Talos Linux has a local privilege escalation from untrusted workloads",
-      "date": "2026-05-07",
-      "affected": [
-        "github.com/siderolabs/talos"
-      ],
-      "references": [
-        "https://github.com/siderolabs/talos/security/advisories/GHSA-m38g-vww2-mvgx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-31431",
-        "https://github.com/Percivalll/Copy-Fail-CVE-2026-31431-Kubernetes-PoC",
-        "https://github.com/theori-io/copy-fail-CVE-2026-31431",
-        "https://xint.io/blog/copy-fail-linux-distributions",
-        "https://github.com/advisories/GHSA-m38g-vww2-mvgx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/siderolabs/talos"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/siderolabs/talos"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-v8j7-hp7c-738f",
-      "name": "Kubetail has a Cross-Site WebSocket Hijacking issue that allows attacker to read Kubernetes logs fro",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-v8j7-hp7c-738f",
-      "description": "Kubetail has a Cross-Site WebSocket Hijacking issue that allows attacker to read Kubernetes logs from authenticated users",
-      "date": "2026-05-07",
-      "affected": [
-        "github.com/kubetail-org/kubetail/modules/cli",
-        "github.com/kubetail-org/kubetail/modules/dashboard"
-      ],
-      "references": [
-        "https://github.com/kubetail-org/kubetail/security/advisories/GHSA-v8j7-hp7c-738f",
-        "https://github.com/advisories/GHSA-v8j7-hp7c-738f"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/kubetail-org/kubetail/modules/cli",
-            "github.com/kubetail-org/kubetail/modules/dashboard"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/kubetail-org/kubetail/modules/cli",
-          "github.com/kubetail-org/kubetail/modules/dashboard"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-j7w6-vpvq-j3gm",
-      "name": "Duplicate Advisory: Diffusers has a `trust_remote_code` bypass via `custom_pipeline` and local custo",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-j7w6-vpvq-j3gm",
-      "description": "Duplicate Advisory: Diffusers has a `trust_remote_code` bypass via `custom_pipeline` and local custom components",
-      "date": "2026-05-07",
-      "affected": [
-        "diffusers"
-      ],
-      "references": [
-        "https://github.com/huggingface/diffusers/security/advisories/GHSA-j7w6-vpvq-j3gm",
-        "https://github.com/huggingface/diffusers/pull/13448",
-        "https://github.com/huggingface/diffusers/commit/a37f6f8394ac2a7ee8360c3abea811efe54512b1",
-        "https://github.com/huggingface/diffusers/releases/tag/v0.38.0",
-        "https://github.com/advisories/GHSA-j7w6-vpvq-j3gm"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4cx3-3c38-j9vv",
-      "name": "katalyst-koi: Session cookies can be replayed after user logout",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-4cx3-3c38-j9vv",
-      "description": "katalyst-koi: Session cookies can be replayed after user logout",
-      "date": "2026-05-07",
-      "affected": [
-        "katalyst-koi",
-        "katalyst-koi"
-      ],
-      "references": [
-        "https://github.com/katalyst/koi/security/advisories/GHSA-4cx3-3c38-j9vv",
-        "https://guides.rubyonrails.org/v5.2.0/security.html#replay-attacks-for-cookiestore-sessions",
-        "https://github.com/advisories/GHSA-4cx3-3c38-j9vv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "katalyst-koi",
-            "katalyst-koi"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-585v-hcgf-jhfr",
-      "name": "Free5GC UDM has Improper Input Validation and Generation of Error Messages Containing Sensitive Info",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-585v-hcgf-jhfr",
-      "description": "Free5GC UDM has Improper Input Validation and Generation of Error Messages Containing Sensitive Information",
-      "date": "2026-05-07",
-      "affected": [
-        "github.com/free5gc/udm"
-      ],
-      "references": [
-        "https://github.com/free5gc/free5gc/security/advisories/GHSA-585v-hcgf-jhfr",
-        "https://github.com/free5gc/free5gc/security/advisories/GHSA-h4wg-rp7m-8xx4",
-        "https://github.com/free5gc/udm/blob/v1.4.3/internal/sbi/api_subscriberdatamanagement.go",
-        "https://github.com/advisories/GHSA-585v-hcgf-jhfr"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/free5gc/udm"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/free5gc/udm"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-w239-58x2-q8p5",
-      "name": "go-ipld-prime's DAG-CBOR and DAG-JSON decoders have unbounded recursion depth",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-w239-58x2-q8p5",
-      "description": "go-ipld-prime's DAG-CBOR and DAG-JSON decoders have unbounded recursion depth",
-      "date": "2026-05-07",
-      "affected": [
-        "github.com/ipld/go-ipld-prime"
-      ],
-      "references": [
-        "https://github.com/ipld/go-ipld-prime/security/advisories/GHSA-w239-58x2-q8p5",
-        "https://github.com/advisories/GHSA-w239-58x2-q8p5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/ipld/go-ipld-prime"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/ipld/go-ipld-prime"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-ff6c-w6qf-7xqc",
-      "name": "CSS Parser: Improper Certificate Validation allows MITM injection of remote CSS content",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-ff6c-w6qf-7xqc",
-      "description": "CSS Parser: Improper Certificate Validation allows MITM injection of remote CSS content",
-      "date": "2026-05-07",
-      "affected": [
-        "css_parser"
-      ],
-      "references": [
-        "https://github.com/premailer/css_parser/security/advisories/GHSA-ff6c-w6qf-7xqc",
-        "https://github.com/premailer/css_parser/issues/185",
-        "https://github.com/advisories/GHSA-ff6c-w6qf-7xqc"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "css_parser"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6rgm-gr97-x3j5",
-      "name": "Free5GC PCF: Missing authentication middleware in Npcf_SMPolicyControl allows access to SM policy ha",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-6rgm-gr97-x3j5",
-      "description": "Free5GC PCF: Missing authentication middleware in Npcf_SMPolicyControl allows access to SM policy handlers and disclosure of subscriber SUPI",
-      "date": "2026-05-07",
-      "affected": [
-        "github.com/free5gc/pcf"
-      ],
-      "references": [
-        "https://github.com/free5gc/free5gc/security/advisories/GHSA-6rgm-gr97-x3j5",
-        "https://github.com/free5gc/free5gc/issues/844",
-        "https://github.com/free5gc/pcf/pull/63",
-        "https://github.com/free5gc/pcf/commit/8c4d457cdf58bb239ee30e88c56b370b22073964",
-        "https://github.com/advisories/GHSA-6rgm-gr97-x3j5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/free5gc/pcf"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/free5gc/pcf"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3v3m-wc6v-x4x3",
-      "name": "ArgoCD ServerSideDiff is vulnerable to Kubernetes Secret Extraction",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-3v3m-wc6v-x4x3",
-      "description": "ArgoCD ServerSideDiff is vulnerable to Kubernetes Secret Extraction",
-      "date": "2026-05-07",
-      "affected": [
-        "github.com/argoproj/argo-cd/v3",
-        "github.com/argoproj/argo-cd/v3"
-      ],
-      "references": [
-        "https://github.com/argoproj/argo-cd/security/advisories/GHSA-3v3m-wc6v-x4x3",
-        "https://github.com/advisories/GHSA-3v3m-wc6v-x4x3"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/argoproj/argo-cd/v3",
-            "github.com/argoproj/argo-cd/v3"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/argoproj/argo-cd/v3",
-          "github.com/argoproj/argo-cd/v3"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vrrx-58h3-prmh",
-      "name": "Free5GC AMF has Missing Concurrent NAS SMC Validation During NGAP Handover ",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-vrrx-58h3-prmh",
-      "description": "Free5GC AMF has Missing Concurrent NAS SMC Validation During NGAP Handover ",
-      "date": "2026-05-07",
-      "affected": [
-        "github.com/free5gc/amf"
-      ],
-      "references": [
-        "https://github.com/free5gc/free5gc/security/advisories/GHSA-vrrx-58h3-prmh",
-        "https://github.com/free5gc/amf/blame/v1.4.3/internal/gmm/sm.go",
-        "https://github.com/free5gc/amf/blame/v1.4.3/internal/ngap/handler.go",
-        "https://github.com/advisories/GHSA-vrrx-58h3-prmh"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/free5gc/amf"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/free5gc/amf"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fpf5-4jw8-67x8",
-      "name": "rust-zserio has Unbounded Memory Allocation",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-fpf5-4jw8-67x8",
-      "description": "rust-zserio has Unbounded Memory Allocation",
-      "date": "2026-05-07",
-      "affected": [
-        "rust-zserio"
-      ],
-      "references": [
-        "https://github.com/Danaozhong/rust-zserio/security/advisories/GHSA-fpf5-4jw8-67x8",
-        "https://github.com/ndsev/zserio/security/advisories/GHSA-cwq5-8pvq-j65j",
-        "https://github.com/Danaozhong/rust-zserio/commit/57f5fb4a2a8611d58dbcc1a9221349206dd99c3c",
-        "https://github.com/advisories/GHSA-fpf5-4jw8-67x8"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-77x9-rf64-92gv",
-      "name": "Free5GC AMF Bypasses UE Security Capabilities on NGAP PathSwitchRequest",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-77x9-rf64-92gv",
-      "description": "Free5GC AMF Bypasses UE Security Capabilities on NGAP PathSwitchRequest",
-      "date": "2026-05-07",
-      "affected": [
-        "github.com/free5gc/amf"
-      ],
-      "references": [
-        "https://github.com/free5gc/free5gc/security/advisories/GHSA-77x9-rf64-92gv",
-        "https://github.com/free5gc/amf/blame/v1.4.3/internal/ngap/handler.go",
-        "https://github.com/advisories/GHSA-77x9-rf64-92gv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/free5gc/amf"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/free5gc/amf"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
-    "facturascripts/facturascripts": "FacturaScripts vulnerable to stored XSS via product reference in sales/purchases",
+    "github.com/lin-snow/Ech0": "ech0's acess tokens with expiry=never cannot be revoked: logout panics, delete does not blacklist JT",
+    "github.com/lin-snow/ech0": "Ech0 has Server-Side Request Forgery (SSRF) via Connect Handler fetchPeerConnectInfo",
+    "github.com/enchant97/note-mark/backend": "Note Mark has a JWT Secret Weakness that allows Full Account Takeover via Token Forgery",
+    "web-auth/webauthn-framework": "Webauthn has a User Verification Downgrade via Default-Open ClientOverridePolicy",
+    "facturascripts/facturascripts": "FacturaScripts Vulnerable to Authenticated Remote Code Execution (RCE) via GIF Image Upload in Produ",
     "intercom/intercom-php": "Compromised tag of intercom-php published via GitHub",
     "github.com/gittuf/gittuf": "gittuf's policy can be rolled back to prior valid versions",
-    "github.com/gtsteffaniak/filebrowser": "FileBrowser Vulnerable to Stored XSS via SVG File in Public Share (Missing CSP Header)",
-    "go.etcd.io/etcd": "etcd RBAC bypass allows unauthorized data access via PrevKv/lease attachment in nested transaction P",
-    "go.etcd.io/etcd/v3": "etcd RBAC bypass allows unauthorized data access via PrevKv/lease attachment in nested transaction P",
-    "github.com/shellhub-io/shellhub": "ShellHub has cross-tenant IDOR in `GET /api/namespaces/:tenant` via API Key bypasses  membership che",
-    "github.com/daptin/daptin": "Daptin's Session Management Vulnerability Leads to Insufficient Session Expiration After Password Ch",
-    "github.com/siderolabs/talos": "Talos Linux has a local privilege escalation from untrusted workloads",
-    "github.com/kubetail-org/kubetail/modules/cli": "Kubetail has a Cross-Site WebSocket Hijacking issue that allows attacker to read Kubernetes logs fro",
-    "github.com/kubetail-org/kubetail/modules/dashboard": "Kubetail has a Cross-Site WebSocket Hijacking issue that allows attacker to read Kubernetes logs fro",
-    "github.com/free5gc/udm": "Free5GC UDM has Improper Input Validation and Generation of Error Messages Containing Sensitive Info",
-    "github.com/ipld/go-ipld-prime": "go-ipld-prime's DAG-CBOR and DAG-JSON decoders have unbounded recursion depth",
-    "github.com/free5gc/pcf": "Free5GC PCF: Missing authentication middleware in Npcf_SMPolicyControl allows access to SM policy ha",
-    "github.com/argoproj/argo-cd/v3": "ArgoCD ServerSideDiff is vulnerable to Kubernetes Secret Extraction",
-    "github.com/free5gc/amf": "Free5GC AMF has Missing Concurrent NAS SMC Validation During NGAP Handover "
+    "github.com/gtsteffaniak/filebrowser": "FileBrowser Vulnerable to Stored XSS via SVG File in Public Share (Missing CSP Header)"
   },
   "malicious_packages": {
     "npm": {},
