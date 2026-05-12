@@ -1,8 +1,480 @@
 {
   "version": "2026.05.12",
-  "last_updated": "2026-05-12T14:23:32.977578+00:00",
+  "last_updated": "2026-05-12T19:49:54.987648+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-m77w-p5jj-xmhg",
+      "name": "OpenClaude Sandbox Bypass via Model-Controlled `dangerouslyDisableSandbox` Input",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-m77w-p5jj-xmhg",
+      "description": "OpenClaude Sandbox Bypass via Model-Controlled `dangerouslyDisableSandbox` Input",
+      "date": "2026-05-12",
+      "affected": [
+        "openclaude"
+      ],
+      "references": [
+        "https://github.com/Gitlawb/openclaude/security/advisories/GHSA-m77w-p5jj-xmhg",
+        "https://github.com/Gitlawb/openclaude/pull/778",
+        "https://github.com/Gitlawb/openclaude/commit/aab489055c53dd64369414116fe93226d2656273",
+        "https://github.com/advisories/GHSA-m77w-p5jj-xmhg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "openclaude"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-c73c-x77g-854r",
+      "name": "OpenClaude MCP OAuth Callback: State Check Bypass via error Param Leads to DoS",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-c73c-x77g-854r",
+      "description": "OpenClaude MCP OAuth Callback: State Check Bypass via error Param Leads to DoS",
+      "date": "2026-05-12",
+      "affected": [
+        "@gitlawb/openclaude"
+      ],
+      "references": [
+        "https://github.com/Gitlawb/openclaude/security/advisories/GHSA-c73c-x77g-854r",
+        "https://github.com/Gitlawb/openclaude/commit/739b8d1f40fde0e401a5cbd2b9a55d88bd5124ad",
+        "https://github.com/Gitlawb/openclaude/releases/tag/v0.5.1",
+        "https://github.com/advisories/GHSA-c73c-x77g-854r"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@gitlawb/openclaude"
+          ]
+        },
+        "compromised_actions": [
+          "@gitlawb/openclaude"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rhv4-8758-jx7v",
+      "name": "Decimal: Unbounded exponent in `Decimal.new` enables unauthenticated DoS",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-rhv4-8758-jx7v",
+      "description": "Decimal: Unbounded exponent in `Decimal.new` enables unauthenticated DoS",
+      "date": "2026-05-12",
+      "affected": [
+        "decimal"
+      ],
+      "references": [
+        "https://github.com/ericmj/decimal/security/advisories/GHSA-rhv4-8758-jx7v",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-32686",
+        "https://github.com/ericmj/decimal/commit/6a523f3a73b8c9974540e21c7aa88f1258bb35ae",
+        "https://cna.erlef.org/cves/CVE-2026-32686.html",
+        "https://github.com/ericmj/decimal/releases/tag/v3.0.0",
+        "https://osv.dev/vulnerability/EEF-CVE-2026-32686",
+        "https://github.com/advisories/GHSA-rhv4-8758-jx7v"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-x3r2-fj3r-g5mv",
+      "name": "sealed-env: TOTP secret embedded in unseal token payload (enterprise mode)",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-x3r2-fj3r-g5mv",
+      "description": "sealed-env: TOTP secret embedded in unseal token payload (enterprise mode)",
+      "date": "2026-05-12",
+      "affected": [
+        "io.github.davidalmeidac:sealed-env-core",
+        "sealed-env"
+      ],
+      "references": [
+        "https://github.com/davidalmeidac/sealed-env/security/advisories/GHSA-x3r2-fj3r-g5mv",
+        "https://github.com/advisories/GHSA-x3r2-fj3r-g5mv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "sealed-env"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2g4x-fq3j-cgq4",
+      "name": "Dalfox has an Unauthenticated Remote DoS via Closed-Channel Write in `ParameterAnalysis` (server mod",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2g4x-fq3j-cgq4",
+      "description": "Dalfox has an Unauthenticated Remote DoS via Closed-Channel Write in `ParameterAnalysis` (server mode)",
+      "date": "2026-05-12",
+      "affected": [
+        "github.com/hahwul/dalfox/v2"
+      ],
+      "references": [
+        "https://github.com/hahwul/dalfox/security/advisories/GHSA-2g4x-fq3j-cgq4",
+        "https://github.com/hahwul/dalfox/releases/tag/v2.13.0",
+        "https://github.com/advisories/GHSA-2g4x-fq3j-cgq4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/hahwul/dalfox/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/hahwul/dalfox/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8hf9-3q64-q2qf",
+      "name": "Dalfox Server Mode has an Unauthenticated Arbitrary File Create/Append via `output` Option",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-8hf9-3q64-q2qf",
+      "description": "Dalfox Server Mode has an Unauthenticated Arbitrary File Create/Append via `output` Option",
+      "date": "2026-05-12",
+      "affected": [
+        "github.com/hahwul/dalfox/v2"
+      ],
+      "references": [
+        "https://github.com/hahwul/dalfox/security/advisories/GHSA-8hf9-3q64-q2qf",
+        "https://github.com/hahwul/dalfox/releases/tag/v2.13.0",
+        "https://github.com/advisories/GHSA-8hf9-3q64-q2qf"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/hahwul/dalfox/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/hahwul/dalfox/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-35wr-x7v6-9fv2",
+      "name": "Dalfox Server Mode has an Unauthenticated Arbitrary File Read with Out-of-Band Exfiltration via `cus",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-35wr-x7v6-9fv2",
+      "description": "Dalfox Server Mode has an Unauthenticated Arbitrary File Read with Out-of-Band Exfiltration via `custom-payload-file`",
+      "date": "2026-05-12",
+      "affected": [
+        "github.com/hahwul/dalfox/v2"
+      ],
+      "references": [
+        "https://github.com/hahwul/dalfox/security/advisories/GHSA-35wr-x7v6-9fv2",
+        "https://github.com/hahwul/dalfox/releases/tag/v2.13.0",
+        "https://github.com/advisories/GHSA-35wr-x7v6-9fv2"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/hahwul/dalfox/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/hahwul/dalfox/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v25v-m36w-jp4h",
+      "name": "Dalfox Server Mode Vulnerable to Unauthenticated Remote Code Execution via `found-action`",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-v25v-m36w-jp4h",
+      "description": "Dalfox Server Mode Vulnerable to Unauthenticated Remote Code Execution via `found-action`",
+      "date": "2026-05-12",
+      "affected": [
+        "github.com/hahwul/dalfox/v2"
+      ],
+      "references": [
+        "https://github.com/hahwul/dalfox/security/advisories/GHSA-v25v-m36w-jp4h",
+        "https://github.com/hahwul/dalfox/releases/tag/v2.13.0",
+        "https://github.com/advisories/GHSA-v25v-m36w-jp4h"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/hahwul/dalfox/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/hahwul/dalfox/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6r35-46g8-jcw9",
+      "name": "protobuf.js: Code injection in pbjs static output from crafted schema names",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-6r35-46g8-jcw9",
+      "description": "protobuf.js: Code injection in pbjs static output from crafted schema names",
+      "date": "2026-05-12",
+      "affected": [
+        "protobufjs-cli",
+        "protobufjs-cli"
+      ],
+      "references": [
+        "https://github.com/protobufjs/protobuf.js/security/advisories/GHSA-6r35-46g8-jcw9",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-cli-v1.2.1",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-cli-v2.0.2",
+        "https://github.com/advisories/GHSA-6r35-46g8-jcw9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "protobufjs-cli",
+            "protobufjs-cli"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2pr8-phx7-x9h3",
+      "name": "protobuf.js: Denial of service from crafted field names in generated code",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-2pr8-phx7-x9h3",
+      "description": "protobuf.js: Denial of service from crafted field names in generated code",
+      "date": "2026-05-12",
+      "affected": [
+        "protobufjs",
+        "protobufjs"
+      ],
+      "references": [
+        "https://github.com/protobufjs/protobuf.js/security/advisories/GHSA-2pr8-phx7-x9h3",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v7.5.6",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v8.0.2",
+        "https://github.com/advisories/GHSA-2pr8-phx7-x9h3"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "protobufjs",
+            "protobufjs"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-66ff-xgx4-vchm",
+      "name": "protobuf.js: Code injection through bytes field defaults in generated toObject code",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-66ff-xgx4-vchm",
+      "description": "protobuf.js: Code injection through bytes field defaults in generated toObject code",
+      "date": "2026-05-12",
+      "affected": [
+        "protobufjs",
+        "protobufjs"
+      ],
+      "references": [
+        "https://github.com/protobufjs/protobuf.js/security/advisories/GHSA-66ff-xgx4-vchm",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v7.5.6",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v8.0.2",
+        "https://github.com/advisories/GHSA-66ff-xgx4-vchm"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "protobufjs",
+            "protobufjs"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fx83-v9x8-x52w",
+      "name": "protobuf.js: Prototype injection in generated message constructors",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-fx83-v9x8-x52w",
+      "description": "protobuf.js: Prototype injection in generated message constructors",
+      "date": "2026-05-12",
+      "affected": [
+        "protobufjs",
+        "protobufjs"
+      ],
+      "references": [
+        "https://github.com/protobufjs/protobuf.js/security/advisories/GHSA-fx83-v9x8-x52w",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v7.5.6",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v8.0.2",
+        "https://github.com/advisories/GHSA-fx83-v9x8-x52w"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "protobufjs",
+            "protobufjs"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-75px-5xx7-5xc7",
+      "name": "protobuf.js: Code generation gadget after prototype pollution",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-75px-5xx7-5xc7",
+      "description": "protobuf.js: Code generation gadget after prototype pollution",
+      "date": "2026-05-12",
+      "affected": [
+        "protobufjs",
+        "protobufjs"
+      ],
+      "references": [
+        "https://github.com/protobufjs/protobuf.js/security/advisories/GHSA-75px-5xx7-5xc7",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v7.5.6",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v8.0.2",
+        "https://github.com/advisories/GHSA-75px-5xx7-5xc7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "protobufjs",
+            "protobufjs"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jvwf-75h9-cwgg",
+      "name": "protobuf.js: Process-wide denial of service through unsafe option paths",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-jvwf-75h9-cwgg",
+      "description": "protobuf.js: Process-wide denial of service through unsafe option paths",
+      "date": "2026-05-12",
+      "affected": [
+        "protobufjs",
+        "protobufjs"
+      ],
+      "references": [
+        "https://github.com/protobufjs/protobuf.js/security/advisories/GHSA-jvwf-75h9-cwgg",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v7.5.6",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v8.0.2",
+        "https://github.com/advisories/GHSA-jvwf-75h9-cwgg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "protobufjs",
+            "protobufjs"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-685m-2w69-288q",
+      "name": "protobuf.js: Denial of service through unbounded protobuf recursion",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-685m-2w69-288q",
+      "description": "protobuf.js: Denial of service through unbounded protobuf recursion",
+      "date": "2026-05-12",
+      "affected": [
+        "protobufjs",
+        "protobufjs"
+      ],
+      "references": [
+        "https://github.com/protobufjs/protobuf.js/security/advisories/GHSA-685m-2w69-288q",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v7.5.6",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v8.0.2",
+        "https://github.com/advisories/GHSA-685m-2w69-288q"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "protobufjs",
+            "protobufjs"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-q6x5-8v7m-xcrf",
+      "name": "protobufjs has overlong UTF-8 decoding",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-q6x5-8v7m-xcrf",
+      "description": "protobufjs has overlong UTF-8 decoding",
+      "date": "2026-05-12",
+      "affected": [
+        "@protobufjs/utf8",
+        "protobufjs",
+        "protobufjs"
+      ],
+      "references": [
+        "https://github.com/protobufjs/protobuf.js/security/advisories/GHSA-q6x5-8v7m-xcrf",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v7.5.6",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-v8.0.2",
+        "https://github.com/advisories/GHSA-q6x5-8v7m-xcrf"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@protobufjs/utf8",
+            "protobufjs",
+            "protobufjs"
+          ]
+        },
+        "compromised_actions": [
+          "@protobufjs/utf8"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f84p-cvgm-xgjj",
+      "name": "protobuf.js is Vulnerable to OS Command Injection in the CLI",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-f84p-cvgm-xgjj",
+      "description": "protobuf.js is Vulnerable to OS Command Injection in the CLI",
+      "date": "2026-05-12",
+      "affected": [
+        "protobufjs-cli",
+        "protobufjs-cli"
+      ],
+      "references": [
+        "https://github.com/protobufjs/protobuf.js/security/advisories/GHSA-f84p-cvgm-xgjj",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-cli-v1.2.1",
+        "https://github.com/protobufjs/protobuf.js/releases/tag/protobufjs-cli-v2.0.2",
+        "https://github.com/advisories/GHSA-f84p-cvgm-xgjj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "protobufjs-cli",
+            "protobufjs-cli"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-g7cv-rxg3-hmpx",
       "name": "Malware in @tanstack/* packages exfiltrates cloud credentials, GitHub tokens, and SSH keys",
@@ -873,472 +1345,13 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-39qr-rc93-vhqm",
-      "name": "Bird-lg-go has a Fatal Out-of-Memory (OOM) Denial of Service via Unbounded JSON Decoding",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-39qr-rc93-vhqm",
-      "description": "Bird-lg-go has a Fatal Out-of-Memory (OOM) Denial of Service via Unbounded JSON Decoding",
-      "date": "2026-05-11",
-      "affected": [
-        "github.com/xddxdd/bird-lg-go"
-      ],
-      "references": [
-        "https://github.com/xddxdd/bird-lg-go/security/advisories/GHSA-39qr-rc93-vhqm",
-        "https://github.com/xddxdd/bird-lg-go/commit/0ff87024cb9ed01fc5f5fdc6f4603fce4c123922",
-        "https://github.com/xddxdd/bird-lg-go/releases/tag/v1.4.5",
-        "https://github.com/advisories/GHSA-39qr-rc93-vhqm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/xddxdd/bird-lg-go"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/xddxdd/bird-lg-go"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wxxx-gvqv-xp7p",
-      "name": "LiteLLM has a sandbox escape in custom-code guardrail",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-wxxx-gvqv-xp7p",
-      "description": "LiteLLM has a sandbox escape in custom-code guardrail",
-      "date": "2026-05-11",
-      "affected": [
-        "litellm"
-      ],
-      "references": [
-        "https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-40217",
-        "https://github.com/BerriAI/litellm/releases/tag/v1.83.10-stable",
-        "https://www.x41-dsec.de/lab/advisories/x41-2026-001-litellm",
-        "https://github.com/advisories/GHSA-wxxx-gvqv-xp7p"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9ccr-r5hg-74gf",
-      "name": "GitHub Copilot CLI: Nested Bare Repository Can Execute Arbitrary Commands via core.fsmonitor",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-9ccr-r5hg-74gf",
-      "description": "GitHub Copilot CLI: Nested Bare Repository Can Execute Arbitrary Commands via core.fsmonitor",
-      "date": "2026-05-11",
-      "affected": [
-        "@github/copilot"
-      ],
-      "references": [
-        "https://github.com/github/copilot-cli/security/advisories/GHSA-9ccr-r5hg-74gf",
-        "https://github.com/advisories/GHSA-9ccr-r5hg-74gf"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@github/copilot"
-          ]
-        },
-        "compromised_actions": [
-          "@github/copilot"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7fxv-8wr2-mfc4",
-      "name": "Local Path Provisioner Vulnerable to HelperPod Template Injection",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7fxv-8wr2-mfc4",
-      "description": "Local Path Provisioner Vulnerable to HelperPod Template Injection",
-      "date": "2026-05-11",
-      "affected": [
-        "github.com/rancher/local-path-provisioner"
-      ],
-      "references": [
-        "https://github.com/rancher/local-path-provisioner/security/advisories/GHSA-7fxv-8wr2-mfc4",
-        "https://github.com/advisories/GHSA-7fxv-8wr2-mfc4"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/rancher/local-path-provisioner"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/rancher/local-path-provisioner"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3g8h-86w9-wvmq",
-      "name": "Next.js's Middleware / Proxy redirects can be cache-poisoned",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-3g8h-86w9-wvmq",
-      "description": "Next.js's Middleware / Proxy redirects can be cache-poisoned",
-      "date": "2026-05-11",
-      "affected": [
-        "next",
-        "next"
-      ],
-      "references": [
-        "https://github.com/vercel/next.js/security/advisories/GHSA-3g8h-86w9-wvmq",
-        "https://github.com/vercel/next.js/releases/tag/v15.5.16",
-        "https://github.com/vercel/next.js/releases/tag/v16.2.5",
-        "https://github.com/advisories/GHSA-3g8h-86w9-wvmq"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "next",
-            "next"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c3gj-q88f-7hqj",
-      "name": "elFinder MySQL has a SQL Injection in its Volume Driver (elFinderVolumeMySQL)",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-c3gj-q88f-7hqj",
-      "description": "elFinder MySQL has a SQL Injection in its Volume Driver (elFinderVolumeMySQL)",
-      "date": "2026-05-11",
-      "affected": [
-        "studio-42/elfinder"
-      ],
-      "references": [
-        "https://github.com/Studio-42/elFinder/security/advisories/GHSA-c3gj-q88f-7hqj",
-        "https://github.com/advisories/GHSA-c3gj-q88f-7hqj"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "studio-42/elfinder"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3jh5-rr2q-xfv7",
-      "name": "Valtimo has sensitive data exposure through HTTP request/response logging in LoggingRestClientCustom",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-3jh5-rr2q-xfv7",
-      "description": "Valtimo has sensitive data exposure through HTTP request/response logging in LoggingRestClientCustomizer",
-      "date": "2026-05-11",
-      "affected": [
-        "com.ritense.valtimo:web",
-        "com.ritense.valtimo:web"
-      ],
-      "references": [
-        "https://github.com/valtimo-platform/valtimo/security/advisories/GHSA-3jh5-rr2q-xfv7",
-        "https://github.com/valtimo-platform/valtimo/pull/599",
-        "https://github.com/valtimo-platform/valtimo/pull/600",
-        "https://github.com/advisories/GHSA-3jh5-rr2q-xfv7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mhwj-73qx-jqxm",
-      "name": "@theecryptochad/merge-guard has Prototype Pollution in its deepMerge() function",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-mhwj-73qx-jqxm",
-      "description": "@theecryptochad/merge-guard has Prototype Pollution in its deepMerge() function",
-      "date": "2026-05-11",
-      "affected": [
-        "@theecryptochad/merge-guard"
-      ],
-      "references": [
-        "https://github.com/TheeCryptoChad/merge-guard/security/advisories/GHSA-mhwj-73qx-jqxm",
-        "https://github.com/TheeCryptoChad/merge-guard/commit/25e4b4f2618578a656ef3cb4946a1b475f736736",
-        "https://github.com/advisories/GHSA-mhwj-73qx-jqxm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@theecryptochad/merge-guard"
-          ]
-        },
-        "compromised_actions": [
-          "@theecryptochad/merge-guard"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c567-44rc-m5hq",
-      "name": "@rvf/set-get has a prototype pollution issue that's reachable via @rvf/core preprocessFormData (HTTP",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-c567-44rc-m5hq",
-      "description": "@rvf/set-get has a prototype pollution issue that's reachable via @rvf/core preprocessFormData (HTTP form data)",
-      "date": "2026-05-11",
-      "affected": [
-        "@rvf/set-get",
-        "@rvf/set-get"
-      ],
-      "references": [
-        "https://github.com/airjp73/rvf/security/advisories/GHSA-c567-44rc-m5hq",
-        "https://github.com/advisories/GHSA-c567-44rc-m5hq"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@rvf/set-get",
-            "@rvf/set-get"
-          ]
-        },
-        "compromised_actions": [
-          "@rvf/set-get",
-          "@rvf/set-get"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-423p-g724-fr39",
-      "name": "CloudNativePG's metrics exporter allows privilege escalation to PostgreSQL superuser and OS RCE",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-423p-g724-fr39",
-      "description": "CloudNativePG's metrics exporter allows privilege escalation to PostgreSQL superuser and OS RCE",
-      "date": "2026-05-11",
-      "affected": [
-        "github.com/cloudnative-pg/cloudnative-pg",
-        "github.com/cloudnative-pg/cloudnative-pg"
-      ],
-      "references": [
-        "https://github.com/cloudnative-pg/cloudnative-pg/security/advisories/GHSA-423p-g724-fr39",
-        "https://github.com/cloudnative-pg/cloudnative-pg/pull/10576",
-        "https://github.com/cloudnative-pg/cloudnative-pg/releases/tag/v1.28.3",
-        "https://github.com/cloudnative-pg/cloudnative-pg/releases/tag/v1.29.1",
-        "https://github.com/advisories/GHSA-423p-g724-fr39"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/cloudnative-pg/cloudnative-pg",
-            "github.com/cloudnative-pg/cloudnative-pg"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/cloudnative-pg/cloudnative-pg",
-          "github.com/cloudnative-pg/cloudnative-pg"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-ffhc-5mcf-pf4q",
-      "name": "Next.js vulnerable to cross-site scripting in App Router applications using CSP nonces",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-ffhc-5mcf-pf4q",
-      "description": "Next.js vulnerable to cross-site scripting in App Router applications using CSP nonces",
-      "date": "2026-05-11",
-      "affected": [
-        "next",
-        "next"
-      ],
-      "references": [
-        "https://github.com/vercel/next.js/security/advisories/GHSA-ffhc-5mcf-pf4q",
-        "https://github.com/vercel/next.js/releases/tag/v15.5.16",
-        "https://github.com/vercel/next.js/releases/tag/v16.2.5",
-        "https://github.com/advisories/GHSA-ffhc-5mcf-pf4q"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "next",
-            "next"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vfv6-92ff-j949",
-      "name": "Next.js vulnerable to cache poisoning via collisions in React Server Component cache-busting",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-vfv6-92ff-j949",
-      "description": "Next.js vulnerable to cache poisoning via collisions in React Server Component cache-busting",
-      "date": "2026-05-11",
-      "affected": [
-        "next",
-        "next"
-      ],
-      "references": [
-        "https://github.com/vercel/next.js/security/advisories/GHSA-vfv6-92ff-j949",
-        "https://github.com/vercel/next.js/releases/tag/v15.5.16",
-        "https://github.com/vercel/next.js/releases/tag/v16.2.5",
-        "https://github.com/advisories/GHSA-vfv6-92ff-j949"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "next",
-            "next"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gx5p-jg67-6x7h",
-      "name": "Next.js has cross-site scripting in beforeInteractive scripts with untrusted input",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-gx5p-jg67-6x7h",
-      "description": "Next.js has cross-site scripting in beforeInteractive scripts with untrusted input",
-      "date": "2026-05-11",
-      "affected": [
-        "next",
-        "next"
-      ],
-      "references": [
-        "https://github.com/vercel/next.js/security/advisories/GHSA-gx5p-jg67-6x7h",
-        "https://github.com/vercel/next.js/releases/tag/v15.5.16",
-        "https://github.com/vercel/next.js/releases/tag/v16.2.5",
-        "https://github.com/advisories/GHSA-gx5p-jg67-6x7h"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "next",
-            "next"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mg66-mrh9-m8jx",
-      "name": "Next.js vulnerable to Denial of Service via connection exhaustion in applications using Cache Compon",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-mg66-mrh9-m8jx",
-      "description": "Next.js vulnerable to Denial of Service via connection exhaustion in applications using Cache Components",
-      "date": "2026-05-11",
-      "affected": [
-        "next",
-        "next"
-      ],
-      "references": [
-        "https://github.com/vercel/next.js/security/advisories/GHSA-mg66-mrh9-m8jx",
-        "https://github.com/vercel/next.js/releases/tag/v15.5.16",
-        "https://github.com/vercel/next.js/releases/tag/v16.2.5",
-        "https://github.com/advisories/GHSA-mg66-mrh9-m8jx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "next",
-            "next"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h64f-5h5j-jqjh",
-      "name": "Next.js has a Denial of Service in the Image Optimization API",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-h64f-5h5j-jqjh",
-      "description": "Next.js has a Denial of Service in the Image Optimization API",
-      "date": "2026-05-11",
-      "affected": [
-        "next",
-        "next"
-      ],
-      "references": [
-        "https://github.com/vercel/next.js/security/advisories/GHSA-h64f-5h5j-jqjh",
-        "https://github.com/vercel/next.js/releases/tag/v15.5.16",
-        "https://github.com/vercel/next.js/releases/tag/v16.2.5",
-        "https://github.com/advisories/GHSA-h64f-5h5j-jqjh"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "next",
-            "next"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c4j6-fc7j-m34r",
-      "name": "Next.js vulnerable to server-side request forgery in applications using WebSocket upgrades",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-c4j6-fc7j-m34r",
-      "description": "Next.js vulnerable to server-side request forgery in applications using WebSocket upgrades",
-      "date": "2026-05-11",
-      "affected": [
-        "next",
-        "next"
-      ],
-      "references": [
-        "https://github.com/vercel/next.js/security/advisories/GHSA-c4j6-fc7j-m34r",
-        "https://github.com/vercel/next.js/releases/tag/v15.5.16",
-        "https://github.com/vercel/next.js/releases/tag/v16.2.5",
-        "https://github.com/advisories/GHSA-c4j6-fc7j-m34r"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "next",
-            "next"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wfc6-r584-vfw7",
-      "name": "Next.js vulnerable to cache poisoning in React Server Component responses",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-wfc6-r584-vfw7",
-      "description": "Next.js vulnerable to cache poisoning in React Server Component responses",
-      "date": "2026-05-11",
-      "affected": [
-        "next",
-        "next"
-      ],
-      "references": [
-        "https://github.com/vercel/next.js/security/advisories/GHSA-wfc6-r584-vfw7",
-        "https://github.com/vercel/next.js/releases/tag/v15.5.16",
-        "https://github.com/vercel/next.js/releases/tag/v16.2.5",
-        "https://github.com/advisories/GHSA-wfc6-r584-vfw7"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "next",
-            "next"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@gitlawb/openclaude": "OpenClaude MCP OAuth Callback: State Check Bypass via error Param Leads to DoS",
+    "github.com/hahwul/dalfox/v2": "Dalfox has an Unauthenticated Remote DoS via Closed-Channel Write in `ParameterAnalysis` (server mod",
+    "@protobufjs/utf8": "protobufjs has overlong UTF-8 decoding",
     "@tanstack/zod-adapter": "Malware in @tanstack/* packages exfiltrates cloud credentials, GitHub tokens, and SSH keys",
     "@tanstack/vue-start-server": "Malware in @tanstack/* packages exfiltrates cloud credentials, GitHub tokens, and SSH keys",
     "@tanstack/vue-start-client": "Malware in @tanstack/* packages exfiltrates cloud credentials, GitHub tokens, and SSH keys",
@@ -1354,14 +1367,7 @@
     "@nyariv/sandboxjs": "SandboxJS has a sandbox escape via Function.caller leakage of internal call op",
     "yiisoft/yii2": "Yii 2: Local file inclusion via view parameter name collision",
     "@wdio/browserstack-service": "WebdriverIO BrowserStack Service has a Command Injection issue",
-    "torrentpier/torrentpier": "torrentpier has PHP Serialize Injections",
-    "github.com/xddxdd/bird-lg-go": "Bird-lg-go has a Fatal Out-of-Memory (OOM) Denial of Service via Unbounded JSON Decoding",
-    "@github/copilot": "GitHub Copilot CLI: Nested Bare Repository Can Execute Arbitrary Commands via core.fsmonitor",
-    "github.com/rancher/local-path-provisioner": "Local Path Provisioner Vulnerable to HelperPod Template Injection",
-    "studio-42/elfinder": "elFinder MySQL has a SQL Injection in its Volume Driver (elFinderVolumeMySQL)",
-    "@theecryptochad/merge-guard": "@theecryptochad/merge-guard has Prototype Pollution in its deepMerge() function",
-    "@rvf/set-get": "@rvf/set-get has a prototype pollution issue that's reachable via @rvf/core preprocessFormData (HTTP",
-    "github.com/cloudnative-pg/cloudnative-pg": "CloudNativePG's metrics exporter allows privilege escalation to PostgreSQL superuser and OS RCE"
+    "torrentpier/torrentpier": "torrentpier has PHP Serialize Injections"
   },
   "malicious_packages": {
     "npm": {},
