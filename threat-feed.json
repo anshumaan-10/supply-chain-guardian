@@ -1,8 +1,388 @@
 {
   "version": "2026.05.18",
-  "last_updated": "2026-05-18T10:01:12.765112+00:00",
+  "last_updated": "2026-05-18T15:29:48.074310+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-5rv5-xj5j-3484",
+      "name": "Faraday has a possible incomplete fix for GHSA-33mh-2634-fwr2: protocol-relative URI objects still b",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-5rv5-xj5j-3484",
+      "description": "Faraday has a possible incomplete fix for GHSA-33mh-2634-fwr2: protocol-relative URI objects still bypass host scoping",
+      "date": "2026-05-18",
+      "affected": [
+        "faraday"
+      ],
+      "references": [
+        "https://github.com/lostisland/faraday/security/advisories/GHSA-5rv5-xj5j-3484",
+        "https://github.com/advisories/GHSA-33mh-2634-fwr2",
+        "https://github.com/advisories/GHSA-5rv5-xj5j-3484"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "faraday"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5cvp-p7p4-mcx9",
+      "name": "Neotoma: Unauthenticated Inspector/API access via reverse-proxy loopback auth bypass",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-5cvp-p7p4-mcx9",
+      "description": "Neotoma: Unauthenticated Inspector/API access via reverse-proxy loopback auth bypass",
+      "date": "2026-05-18",
+      "affected": [
+        "neotoma"
+      ],
+      "references": [
+        "https://github.com/markmhendrickson/neotoma/security/advisories/GHSA-5cvp-p7p4-mcx9",
+        "https://github.com/markmhendrickson/neotoma/releases/tag/v0.11.1",
+        "https://github.com/advisories/GHSA-5cvp-p7p4-mcx9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "neotoma"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-q2pj-8v84-9mh5",
+      "name": "Arcane Backend: Unauthenticated reflected XSS via SVG color parameter enables admin account takeover",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-q2pj-8v84-9mh5",
+      "description": "Arcane Backend: Unauthenticated reflected XSS via SVG color parameter enables admin account takeover",
+      "date": "2026-05-18",
+      "affected": [
+        "github.com/getarcaneapp/arcane/backend"
+      ],
+      "references": [
+        "https://github.com/getarcaneapp/arcane/security/advisories/GHSA-q2pj-8v84-9mh5",
+        "https://github.com/advisories/GHSA-q2pj-8v84-9mh5"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getarcaneapp/arcane/backend"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getarcaneapp/arcane/backend"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9mvm-4gwg-v8mp",
+      "name": "Arcane Backend: OS Command Injection in Volume Browser ListDirectory via path query parameter",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-9mvm-4gwg-v8mp",
+      "description": "Arcane Backend: OS Command Injection in Volume Browser ListDirectory via path query parameter",
+      "date": "2026-05-18",
+      "affected": [
+        "github.com/getarcaneapp/arcane/backend"
+      ],
+      "references": [
+        "https://github.com/getarcaneapp/arcane/security/advisories/GHSA-9mvm-4gwg-v8mp",
+        "https://github.com/advisories/GHSA-9mvm-4gwg-v8mp"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getarcaneapp/arcane/backend"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getarcaneapp/arcane/backend"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7h26-hg47-p9hx",
+      "name": "Arcane Backend: Missing admin authorization on git repository endpoints allows non-admin users to ex",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-7h26-hg47-p9hx",
+      "description": "Arcane Backend: Missing admin authorization on git repository endpoints allows non-admin users to exfiltrate stored Git credentials and tamper with GitOps configs",
+      "date": "2026-05-18",
+      "affected": [
+        "github.com/getarcaneapp/arcane/backend"
+      ],
+      "references": [
+        "https://github.com/getarcaneapp/arcane/security/advisories/GHSA-7h26-hg47-p9hx",
+        "https://github.com/advisories/GHSA-7h26-hg47-p9hx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getarcaneapp/arcane/backend"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getarcaneapp/arcane/backend"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-97r8-rf7q-wmjw",
+      "name": "Sveltia CMS: Stored XSS in entry summary rendering via entity-decoded HTML",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-97r8-rf7q-wmjw",
+      "description": "Sveltia CMS: Stored XSS in entry summary rendering via entity-decoded HTML",
+      "date": "2026-05-18",
+      "affected": [
+        "@sveltia/cms"
+      ],
+      "references": [
+        "https://github.com/sveltia/sveltia-cms/security/advisories/GHSA-97r8-rf7q-wmjw",
+        "https://github.com/sveltia/sveltia-cms/commit/43a6ac5d0182a503400d8ce1ac156e08f537b1b2",
+        "https://github.com/sveltia/sveltia-cms/releases/tag/v0.160.1",
+        "https://github.com/advisories/GHSA-97r8-rf7q-wmjw"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@sveltia/cms"
+          ]
+        },
+        "compromised_actions": [
+          "@sveltia/cms"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-m675-2p33-xv9g",
+      "name": "Caddy: Unsafe Unicode Handling in FastCGI splitPos Allows Execution of Non-PHP Files",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-m675-2p33-xv9g",
+      "description": "Caddy: Unsafe Unicode Handling in FastCGI splitPos Allows Execution of Non-PHP Files",
+      "date": "2026-05-18",
+      "affected": [
+        "github.com/caddyserver/caddy/v2"
+      ],
+      "references": [
+        "https://github.com/caddyserver/caddy/security/advisories/GHSA-m675-2p33-xv9g",
+        "https://github.com/php/frankenphp/security/advisories/GHSA-3g8v-8r37-cgjm",
+        "https://github.com/php/frankenphp/security/advisories/GHSA-g966-83w7-6w38",
+        "https://github.com/advisories/GHSA-m675-2p33-xv9g"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/caddyserver/caddy/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/caddyserver/caddy/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-79cf-xcqc-c78w",
+      "name": "webpack-dev-server vulnerable to cross-origin source code exposure on non-HTTPS origins",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-79cf-xcqc-c78w",
+      "description": "webpack-dev-server vulnerable to cross-origin source code exposure on non-HTTPS origins",
+      "date": "2026-05-18",
+      "affected": [
+        "webpack-dev-server"
+      ],
+      "references": [
+        "https://github.com/webpack/webpack-dev-server/security/advisories/GHSA-4v9v-hfq4-rm2v",
+        "https://github.com/webpack/webpack-dev-server/security/advisories/GHSA-79cf-xcqc-c78w",
+        "https://github.com/webpack/webpack-dev-server/security/advisories/GHSA-9jgg-88mc-972h",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-6402",
+        "https://cna.openjsf.org/security-advisories.html",
+        "https://github.com/advisories/GHSA-79cf-xcqc-c78w"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "webpack-dev-server"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vpfx-pxqw-2w79",
+      "name": "AVideo CVE-2026-43881 incomplete fix - `objects/mention.json.php:17` is an unauthenticated user enum",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vpfx-pxqw-2w79",
+      "description": "AVideo CVE-2026-43881 incomplete fix - `objects/mention.json.php:17` is an unauthenticated user enumeration sibling that survives `d9cdc7024`",
+      "date": "2026-05-18",
+      "affected": [
+        "WWBN/AVideo"
+      ],
+      "references": [
+        "https://github.com/WWBN/AVideo/security/advisories/GHSA-vpfx-pxqw-2w79",
+        "https://github.com/advisories/GHSA-6rvw-7p8v-mjfq",
+        "https://github.com/advisories/GHSA-vpfx-pxqw-2w79"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "WWBN/AVideo"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qjp4-4jvr-xqg3",
+      "name": "Spring AI MCP Security: Unvalidated URL Fetching (SSRF)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-qjp4-4jvr-xqg3",
+      "description": "Spring AI MCP Security: Unvalidated URL Fetching (SSRF)",
+      "date": "2026-05-18",
+      "affected": [
+        "org.springaicommunity:mcp-client-security"
+      ],
+      "references": [
+        "https://github.com/spring-ai-community/mcp-security/security/advisories/GHSA-qjp4-4jvr-xqg3",
+        "https://github.com/spring-ai-community/mcp-security/pull/68",
+        "https://github.com/spring-ai-community/mcp-security/commit/e6b67d8a67cd7acbee6e4c0741c385d62e3ed576",
+        "https://github.com/spring-ai-community/mcp-security/releases/tag/v0.1.9",
+        "https://github.com/advisories/GHSA-qjp4-4jvr-xqg3"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-m2hg-wjq3-28wq",
+      "name": "form-data-objectizer: Prototype pollution in form-data-objectizer via bracket-notation form keys",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-m2hg-wjq3-28wq",
+      "description": "form-data-objectizer: Prototype pollution in form-data-objectizer via bracket-notation form keys",
+      "date": "2026-05-18",
+      "affected": [
+        "form-data-objectizer"
+      ],
+      "references": [
+        "https://github.com/kaspernj/form-data-objectizer/security/advisories/GHSA-m2hg-wjq3-28wq",
+        "https://github.com/kaspernj/form-data-objectizer/commit/7c54b99408e6e9cd6533b7245bf197dadc2a2dbc",
+        "https://github.com/advisories/GHSA-m2hg-wjq3-28wq"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "form-data-objectizer"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qw48-84f6-28gv",
+      "name": "Graphite Has a Pickle Deserialization Vulnerability",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-qw48-84f6-28gv",
+      "description": "Graphite Has a Pickle Deserialization Vulnerability",
+      "date": "2026-05-18",
+      "affected": [
+        "graphitedb"
+      ],
+      "references": [
+        "https://github.com/mkh-user/graphite/security/advisories/GHSA-qw48-84f6-28gv",
+        "https://github.com/mkh-user/graphite/releases/tag/v0.2",
+        "https://github.com/advisories/GHSA-qw48-84f6-28gv"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f3rg-xqjj-cj9w",
+      "name": "n8n-MCP: Workflow telemetry sanitizer could retain partial values from URL-shaped node parameters",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-f3rg-xqjj-cj9w",
+      "description": "n8n-MCP: Workflow telemetry sanitizer could retain partial values from URL-shaped node parameters",
+      "date": "2026-05-18",
+      "affected": [
+        "n8n-mcp"
+      ],
+      "references": [
+        "https://github.com/czlonkowski/n8n-mcp/security/advisories/GHSA-f3rg-xqjj-cj9w",
+        "https://github.com/czlonkowski/n8n-mcp/pull/782",
+        "https://github.com/czlonkowski/n8n-mcp/commit/6cf6fef653fcd6d598f2f356aac4754931c7329f",
+        "https://github.com/czlonkowski/n8n-mcp/releases/tag/v2.51.3",
+        "https://github.com/advisories/GHSA-f3rg-xqjj-cj9w"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "n8n-mcp"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-q5pp-gvjg-h7v4",
+      "name": "Microsoft APM: Symlinks under `.apm/prompts/` and `.apm/agents/` are dereferenced during `apm instal",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-q5pp-gvjg-h7v4",
+      "description": "Microsoft APM: Symlinks under `.apm/prompts/` and `.apm/agents/` are dereferenced during `apm install`, copying host-local file contents into the project tree",
+      "date": "2026-05-18",
+      "affected": [
+        "apm"
+      ],
+      "references": [
+        "https://github.com/microsoft/apm/security/advisories/GHSA-q5pp-gvjg-h7v4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-45539",
+        "https://github.com/microsoft/apm/commit/f85b9f54ad303159f9c448268eb7005c319fe02a",
+        "https://github.com/microsoft/apm/releases/tag/v0.13.0",
+        "https://github.com/advisories/GHSA-q5pp-gvjg-h7v4"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-mx64-mj3q-7prj",
+      "name": "iskorotkov/avro: Denial-of-Service Vulnerability in Decoder",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-mx64-mj3q-7prj",
+      "description": "iskorotkov/avro: Denial-of-Service Vulnerability in Decoder",
+      "date": "2026-05-18",
+      "affected": [
+        "github.com/iskorotkov/avro/v2"
+      ],
+      "references": [
+        "https://github.com/iskorotkov/avro/security/advisories/GHSA-mx64-mj3q-7prj",
+        "https://github.com/advisories/GHSA-mx64-mj3q-7prj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/iskorotkov/avro/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/iskorotkov/avro/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-c3ch-22rq-xfwr",
       "name": "AVideo CVE-2026-43884 incomplete fix - six (or more) `isSSRFSafeURL()` call sites still discard the ",
@@ -857,345 +1237,15 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7p5m-v798-f8vv",
-      "name": "Electerm Local code through electerm's single-instance socket",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-7p5m-v798-f8vv",
-      "description": "Electerm Local code through electerm's single-instance socket",
-      "date": "2026-05-14",
-      "affected": [
-        "electerm"
-      ],
-      "references": [
-        "https://github.com/electerm/electerm/security/advisories/GHSA-7p5m-v798-f8vv",
-        "https://github.com/advisories/GHSA-7p5m-v798-f8vv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "electerm"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-72w5-pf8h-xfp4",
-      "name": "DeepSeek TUI: task_create Insecure Defaults Enable RCE via Prompt Injection in Project Files",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-72w5-pf8h-xfp4",
-      "description": "DeepSeek TUI: task_create Insecure Defaults Enable RCE via Prompt Injection in Project Files",
-      "date": "2026-05-14",
-      "affected": [
-        "deepseek-tui"
-      ],
-      "references": [
-        "https://github.com/Hmbown/DeepSeek-TUI/security/advisories/GHSA-72w5-pf8h-xfp4",
-        "https://github.com/Hmbown/DeepSeek-TUI/releases/tag/v0.8.26",
-        "https://github.com/advisories/GHSA-72w5-pf8h-xfp4"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-88gh-2526-gfrr",
-      "name": "DeepSeek TUI has SSRF\u200c IPV6 bypass",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-88gh-2526-gfrr",
-      "description": "DeepSeek TUI has SSRF\u200c IPV6 bypass",
-      "date": "2026-05-14",
-      "affected": [
-        "deepseek-tui"
-      ],
-      "references": [
-        "https://github.com/Hmbown/DeepSeek-TUI/security/advisories/GHSA-88gh-2526-gfrr",
-        "https://github.com/Hmbown/DeepSeek-TUI/releases/tag/v0.8.26",
-        "https://github.com/advisories/GHSA-88gh-2526-gfrr"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wx44-2q6h-j6p8",
-      "name": "DeepSeek TUI: run_tests Tool Enables RCE via Malicious Repository Without Approval",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-wx44-2q6h-j6p8",
-      "description": "DeepSeek TUI: run_tests Tool Enables RCE via Malicious Repository Without Approval",
-      "date": "2026-05-14",
-      "affected": [
-        "deepseek-tui",
-        "deepseek-tui-cli",
-        "deepseek-tui"
-      ],
-      "references": [
-        "https://github.com/Hmbown/DeepSeek-TUI/security/advisories/GHSA-wx44-2q6h-j6p8",
-        "https://github.com/Hmbown/DeepSeek-TUI/releases/tag/v0.8.23",
-        "https://github.com/advisories/GHSA-wx44-2q6h-j6p8"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "deepseek-tui"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-96ff-gc8g-wpvg",
-      "name": "DeepSeek TUI has SSRF via HTTP Redirect Bypass in fetch_url Tool",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-96ff-gc8g-wpvg",
-      "description": "DeepSeek TUI has SSRF via HTTP Redirect Bypass in fetch_url Tool",
-      "date": "2026-05-14",
-      "affected": [
-        "deepseek-tui",
-        "deepseek-tui-cli",
-        "deepseek-tui"
-      ],
-      "references": [
-        "https://github.com/Hmbown/DeepSeek-TUI/security/advisories/GHSA-96ff-gc8g-wpvg",
-        "https://github.com/Hmbown/DeepSeek-TUI/releases/tag/v0.8.22",
-        "https://github.com/advisories/GHSA-96ff-gc8g-wpvg"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "deepseek-tui"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rcqx-6q8c-2c42",
-      "name": "Svelte Vulnerable to XSS via DOM Clobbering of Internal Framework State",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-rcqx-6q8c-2c42",
-      "description": "Svelte Vulnerable to XSS via DOM Clobbering of Internal Framework State",
-      "date": "2026-05-14",
-      "affected": [
-        "svelte"
-      ],
-      "references": [
-        "https://github.com/sveltejs/svelte/security/advisories/GHSA-rcqx-6q8c-2c42",
-        "https://github.com/sveltejs/svelte/releases/tag/svelte%405.55.7",
-        "https://github.com/advisories/GHSA-rcqx-6q8c-2c42"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "svelte"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9rmh-mm8f-r9h6",
-      "name": "Svelte: ReDoS in `<svelte:element>` Tag Validation",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-9rmh-mm8f-r9h6",
-      "description": "Svelte: ReDoS in `<svelte:element>` Tag Validation",
-      "date": "2026-05-14",
-      "affected": [
-        "svelte"
-      ],
-      "references": [
-        "https://github.com/sveltejs/svelte/security/advisories/GHSA-9rmh-mm8f-r9h6",
-        "https://github.com/sveltejs/svelte/releases/tag/svelte%405.55.7",
-        "https://github.com/advisories/GHSA-9rmh-mm8f-r9h6"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "svelte"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h3ww-q6xx-w7x3",
-      "name": "Open WebUI: LDAP and OAuth First-User Race Condition Allows Multiple Admin Accounts",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-h3ww-q6xx-w7x3",
-      "description": "Open WebUI: LDAP and OAuth First-User Race Condition Allows Multiple Admin Accounts",
-      "date": "2026-05-14",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-h3ww-q6xx-w7x3",
-        "https://github.com/open-webui/open-webui/pull/23626",
-        "https://github.com/open-webui/open-webui/commit/96a0b3239b1aadb23fc359bf10849c9ba12fd6ec",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.9.0",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-45675",
-        "https://github.com/advisories/GHSA-h3ww-q6xx-w7x3"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-482j-2pq6-q5w4",
-      "name": "Open WebUI: Jupyter code execution works despite `ENABLE_CODE_EXECUTION=false` \u2014 feature gate bypass",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-482j-2pq6-q5w4",
-      "description": "Open WebUI: Jupyter code execution works despite `ENABLE_CODE_EXECUTION=false` \u2014 feature gate bypassed",
-      "date": "2026-05-14",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-482j-2pq6-q5w4",
-        "https://github.com/open-webui/open-webui/commit/6d736d3c598dbe49488675ed42845e00b62dfcba",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.8.12",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-45672",
-        "https://github.com/advisories/GHSA-482j-2pq6-q5w4"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-26g9-27vm-x3q8",
-      "name": "Open WebUI: shared-chat branch ignores access_type, allowing unauthorized file deletion",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-26g9-27vm-x3q8",
-      "description": "Open WebUI: shared-chat branch ignores access_type, allowing unauthorized file deletion",
-      "date": "2026-05-14",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-26g9-27vm-x3q8",
-        "https://github.com/open-webui/open-webui/commit/2e52ad8ff2f8d9ed9f38f76e9bc19c8f92d91fc3",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.9.0",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-45671",
-        "https://github.com/advisories/GHSA-26g9-27vm-x3q8"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-m69w-p7m4-585j",
-      "name": "Open WebUI: Unauthenticated endpoint can trigger embedding generation (cost/DoS)",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-m69w-p7m4-585j",
-      "description": "Open WebUI: Unauthenticated endpoint can trigger embedding generation (cost/DoS)",
-      "date": "2026-05-14",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-m69w-p7m4-585j",
-        "https://github.com/open-webui/open-webui/commit/e5035ea31e179977e805a7032c979ff59a71860a",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.8.0",
-        "https://github.com/advisories/GHSA-m69w-p7m4-585j"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-x3qm-p8hr-3c3h",
-      "name": "Open WebUI has an Indirect Object Reference (IDOR) in user notes",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-x3qm-p8hr-3c3h",
-      "description": "Open WebUI has an Indirect Object Reference (IDOR) in user notes",
-      "date": "2026-05-14",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-x3qm-p8hr-3c3h",
-        "https://github.com/open-webui/open-webui/commit/de3317e26bb67a2a7ea015a183bbd1d369880ebd",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.8.11",
-        "https://github.com/advisories/GHSA-x3qm-p8hr-3c3h"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-cqp4-qqvg-3787",
-      "name": "Open WebUI has Stored XSS in Banner Component via Improper Sanitization Order",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-cqp4-qqvg-3787",
-      "description": "Open WebUI has Stored XSS in Banner Component via Improper Sanitization Order",
-      "date": "2026-05-14",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-cqp4-qqvg-3787",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.8.0",
-        "https://github.com/advisories/GHSA-cqp4-qqvg-3787"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "open-webui"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r472-mw7m-967f",
-      "name": "Open WebUI: Cross-User File Access via Unchecked file_id in Folder Knowledge and Knowledge-Base Atta",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-r472-mw7m-967f",
-      "description": "Open WebUI: Cross-User File Access via Unchecked file_id in Folder Knowledge and Knowledge-Base Attach Endpoints",
-      "date": "2026-05-14",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-r472-mw7m-967f",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.9.5",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-45402",
-        "https://github.com/advisories/GHSA-r472-mw7m-967f"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3wgj-c2hg-vm6q",
-      "name": "Open WebUI vulnerable to stored XSS via OAuth picture claim stored as SVG data URI in profile_image_",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-3wgj-c2hg-vm6q",
-      "description": "Open WebUI vulnerable to stored XSS via OAuth picture claim stored as SVG data URI in profile_image_url",
-      "date": "2026-05-14",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-3wgj-c2hg-vm6q",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.9.5",
-        "https://github.com/advisories/GHSA-3wgj-c2hg-vm6q"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
-    "WWBN/AVideo": "AVideo CVE-2026-43884 incomplete fix - six (or more) `isSSRFSafeURL()` call sites still discard the ",
+    "github.com/getarcaneapp/arcane/backend": "Arcane Backend: Unauthenticated reflected XSS via SVG color parameter enables admin account takeover",
+    "@sveltia/cms": "Sveltia CMS: Stored XSS in entry summary rendering via entity-decoded HTML",
+    "github.com/caddyserver/caddy/v2": "Caddy: Unsafe Unicode Handling in FastCGI splitPos Allows Execution of Non-PHP Files",
+    "WWBN/AVideo": "AVideo CVE-2026-43881 incomplete fix - `objects/mention.json.php:17` is an unauthenticated user enum",
+    "github.com/iskorotkov/avro/v2": "iskorotkov/avro: Denial-of-Service Vulnerability in Decoder",
     "github.com/arnika-project/arnika": "arnika is affected by medium-severity issues in UDP rotation, PQC handling, and KMS TLS",
     "simplesamlphp/simplesamlphp-module-casserver": "SimpleSAMLphp casserver FileSystemTicketStore path traversal allows out-of-ticket-directory read/uns",
     "code16/sharp": "Authenticated Sharp users can download unrelated Laravel Storage objects through the generic downloa",
