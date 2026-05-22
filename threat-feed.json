@@ -1,8 +1,119 @@
 {
   "version": "2026.05.22",
-  "last_updated": "2026-05-22T14:36:10.873671+00:00",
+  "last_updated": "2026-05-22T19:42:47.394530+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-97r5-pg8x-p63p",
+      "name": "Flask-Security-Too OAuth reauthentication freshness bypass via cross-   user OAuth identity acceptan",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-97r5-pg8x-p63p",
+      "description": "Flask-Security-Too OAuth reauthentication freshness bypass via cross-   user OAuth identity acceptance",
+      "date": "2026-05-22",
+      "affected": [
+        "Flask-Security-Too"
+      ],
+      "references": [
+        "https://github.com/pallets-eco/flask-security/security/advisories/GHSA-97r5-pg8x-p63p",
+        "https://github.com/advisories/GHSA-97r5-pg8x-p63p"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7m8f-hgjq-8gc9",
+      "name": "aiosend: Deserialization of request body before signature verification (Pre-auth DoS) in webhook han",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-7m8f-hgjq-8gc9",
+      "description": "aiosend: Deserialization of request body before signature verification (Pre-auth DoS) in webhook handler",
+      "date": "2026-05-22",
+      "affected": [
+        "aiosend"
+      ],
+      "references": [
+        "https://github.com/vovchic17/aiosend/security/advisories/GHSA-7m8f-hgjq-8gc9",
+        "https://github.com/advisories/GHSA-7m8f-hgjq-8gc9"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-q8mj-m7cp-5q26",
+      "name": "qs has a remotely triggerable DoS: qs.stringify crashes with TypeError on null/undefined entries in ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-q8mj-m7cp-5q26",
+      "description": "qs has a remotely triggerable DoS: qs.stringify crashes with TypeError on null/undefined entries in comma-format arrays when encodeValuesOnly is set",
+      "date": "2026-05-22",
+      "affected": [
+        "qs"
+      ],
+      "references": [
+        "https://github.com/ljharb/qs/security/advisories/GHSA-q8mj-m7cp-5q26",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-8723",
+        "https://github.com/ljharb/qs/commit/21f80b33e5c8b3f7eba1034fff0da4a4a37a1d41",
+        "https://github.com/advisories/GHSA-q8mj-m7cp-5q26"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "qs"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qqqm-5547-774x",
+      "name": "FileBrowser Quantum: Path traversal in public share PATCH allows file ops outside shared directory",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-qqqm-5547-774x",
+      "description": "FileBrowser Quantum: Path traversal in public share PATCH allows file ops outside shared directory",
+      "date": "2026-05-22",
+      "affected": [
+        "github.com/gtsteffaniak/filebrowser/backend"
+      ],
+      "references": [
+        "https://github.com/gtsteffaniak/filebrowser/security/advisories/GHSA-qqqm-5547-774x",
+        "https://github.com/advisories/GHSA-qqqm-5547-774x"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/gtsteffaniak/filebrowser/backend"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/gtsteffaniak/filebrowser/backend"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jwvv-qr7q-cv8j",
+      "name": "YesWiki: Unauthenticated SQL Injection",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-jwvv-qr7q-cv8j",
+      "description": "YesWiki: Unauthenticated SQL Injection",
+      "date": "2026-05-22",
+      "affected": [
+        "yeswiki/yeswiki"
+      ],
+      "references": [
+        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-jwvv-qr7q-cv8j",
+        "https://github.com/advisories/GHSA-jwvv-qr7q-cv8j"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "yeswiki/yeswiki"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-6gxq-f64p-5w6f",
       "name": "ImageMagick: Heap Buffer Over-Read in distributed pixel cache server ",
@@ -1145,131 +1256,12 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vj64-rjf3-w3v7",
-      "name": "Plonky3 MultiField32Challenger: transcript malleability and challenge entropy loss",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-vj64-rjf3-w3v7",
-      "description": "Plonky3 MultiField32Challenger: transcript malleability and challenge entropy loss",
-      "date": "2026-05-21",
-      "affected": [
-        "p3-challenger",
-        "p3-challenger"
-      ],
-      "references": [
-        "https://github.com/Plonky3/Plonky3/security/advisories/GHSA-vj64-rjf3-w3v7",
-        "https://github.com/advisories/GHSA-vj64-rjf3-w3v7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vpr4-p6fq-85jc",
-      "name": "Snappy: Binary path is never shell-escaped due to an inverted is_executable check",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-vpr4-p6fq-85jc",
-      "description": "Snappy: Binary path is never shell-escaped due to an inverted is_executable check",
-      "date": "2026-05-21",
-      "affected": [
-        "KnpLabs/knp-snappy"
-      ],
-      "references": [
-        "https://github.com/KnpLabs/snappy/security/advisories/GHSA-vpr4-p6fq-85jc",
-        "https://github.com/advisories/GHSA-vpr4-p6fq-85jc"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "KnpLabs/knp-snappy"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c5fp-p67m-gq56",
-      "name": "Snappy : SSRF and local file read via the xsl-style-sheet option",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-c5fp-p67m-gq56",
-      "description": "Snappy : SSRF and local file read via the xsl-style-sheet option",
-      "date": "2026-05-21",
-      "affected": [
-        "knplabs/knp-snappy"
-      ],
-      "references": [
-        "https://github.com/KnpLabs/snappy/security/advisories/GHSA-c5fp-p67m-gq56",
-        "https://github.com/advisories/GHSA-c5fp-p67m-gq56"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "knplabs/knp-snappy"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7pjr-qpvh-m339",
-      "name": "Fission builder accepts arbitrary buildcmd strings from Environment.spec.builder.command, allowing t",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-7pjr-qpvh-m339",
-      "description": "Fission builder accepts arbitrary buildcmd strings from Environment.spec.builder.command, allowing the builder pod to invoke arbitrary executables",
-      "date": "2026-05-21",
-      "affected": [
-        "github.com/fission/fission"
-      ],
-      "references": [
-        "https://github.com/fission/fission/security/advisories/GHSA-7pjr-qpvh-m339",
-        "https://github.com/fission/fission/pull/3364",
-        "https://github.com/fission/fission/releases/tag/v1.23.0",
-        "https://github.com/advisories/GHSA-7pjr-qpvh-m339"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/fission/fission"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/fission/fission"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-85g2-pmrx-r49q",
-      "name": "Fission runtime pods automount the fission-fetcher service-account token into the user function   co",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-85g2-pmrx-r49q",
-      "description": "Fission runtime pods automount the fission-fetcher service-account token into the user function   container, granting function code namespace-wide secret / configmap read",
-      "date": "2026-05-21",
-      "affected": [
-        "github.com/fission/fission"
-      ],
-      "references": [
-        "https://github.com/fission/fission/security/advisories/GHSA-85g2-pmrx-r49q",
-        "https://github.com/fission/fission/pull/3366",
-        "https://github.com/fission/fission/releases/tag/v1.23.0",
-        "https://github.com/advisories/GHSA-85g2-pmrx-r49q"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/fission/fission"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/fission/fission"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/gtsteffaniak/filebrowser/backend": "FileBrowser Quantum: Path traversal in public share PATCH allows file ops outside shared directory",
+    "yeswiki/yeswiki": "YesWiki: Unauthenticated SQL Injection",
     "github.com/boxlite-ai/boxlite/sdks/go": "Boxlite: Path Traversal Vulnerability Leads to Arbitrary File Write on the Host",
     "@boxlite-ai/boxlite": "Boxlite: Path Traversal Vulnerability Leads to Arbitrary File Write on the Host",
     "@nevware21/ts-utils": "@nevware21/ts-utils: Prototype Pollution in objDeepCopy/objCopyProps via for...in without hasOwnProp",
@@ -1283,10 +1275,7 @@
     "@hulumi/policies": "@hulumi/policies: Stack-wide evidence bypassed Cloudflare and deployment-governance guardrails",
     "@hulumi/drift": "@hulumi/drift: Orphan reconciler accepted externally supplied execute plans",
     "@hulumi/baseline": "@hulumi/baseline: CloudTrail selector tampering events were not fully detected",
-    "github.com/authzed/spicedb": "SpiceDB: Caveat structures with nested lists can result in improper cache reuse",
-    "KnpLabs/knp-snappy": "Snappy: Binary path is never shell-escaped due to an inverted is_executable check",
-    "knplabs/knp-snappy": "Snappy : SSRF and local file read via the xsl-style-sheet option",
-    "github.com/fission/fission": "Fission builder accepts arbitrary buildcmd strings from Environment.spec.builder.command, allowing t"
+    "github.com/authzed/spicedb": "SpiceDB: Caveat structures with nested lists can result in improper cache reuse"
   },
   "malicious_packages": {
     "npm": {},
