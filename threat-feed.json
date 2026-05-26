@@ -1,8 +1,209 @@
 {
   "version": "2026.05.26",
-  "last_updated": "2026-05-26T15:23:22.291255+00:00",
+  "last_updated": "2026-05-26T20:07:37.019642+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-vgwr-23fq-pr7g",
+      "name": "XWiki Platform vulnerable to potential arbitrary file writing using path traversal from (subwiki) ad",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vgwr-23fq-pr7g",
+      "description": "XWiki Platform vulnerable to potential arbitrary file writing using path traversal from (subwiki) admin",
+      "date": "2026-05-26",
+      "affected": [
+        "org.xwiki.platform:xwiki-platform-webjars-api",
+        "org.xwiki.platform:xwiki-platform-webjars-api",
+        "org.xwiki.platform:xwiki-platform-webjars-api"
+      ],
+      "references": [
+        "https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-vgwr-23fq-pr7g",
+        "https://github.com/xwiki/xwiki-platform/commit/9f747fcd3200259a1de51957d3f5f6acc8e3816c",
+        "https://jira.xwiki.org/browse/XWIKI-23902",
+        "https://github.com/advisories/GHSA-vgwr-23fq-pr7g"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fgmm-w5cx-vrfw",
+      "name": "Pterodactyl has a database resource limit bypass via race condition in Client API",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-fgmm-w5cx-vrfw",
+      "description": "Pterodactyl has a database resource limit bypass via race condition in Client API",
+      "date": "2026-05-26",
+      "affected": [
+        "pterodactyl/panel"
+      ],
+      "references": [
+        "https://github.com/pterodactyl/panel/security/advisories/GHSA-fgmm-w5cx-vrfw",
+        "https://github.com/advisories/GHSA-fgmm-w5cx-vrfw"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "pterodactyl/panel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g2g4-47gv-p72v",
+      "name": "CryptPad has a Sanitizer Bypass in Diffmarked.js that Allows Arbitrary HTML Injection and Potential ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-g2g4-47gv-p72v",
+      "description": "CryptPad has a Sanitizer Bypass in Diffmarked.js that Allows Arbitrary HTML Injection and Potential XSS",
+      "date": "2026-05-26",
+      "affected": [
+        "cryptpad"
+      ],
+      "references": [
+        "https://github.com/cryptpad/cryptpad/security/advisories/GHSA-g2g4-47gv-p72v",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-26028",
+        "https://github.com/cryptpad/cryptpad/releases/tag/2026.2.0",
+        "https://github.com/advisories/GHSA-g2g4-47gv-p72v"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "cryptpad"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qrvh-r3f2-9h4r",
+      "name": "XWiki Platform has an Unauthenticated XAR Import via REST /wikis/{wikiName}",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-qrvh-r3f2-9h4r",
+      "description": "XWiki Platform has an Unauthenticated XAR Import via REST /wikis/{wikiName}",
+      "date": "2026-05-26",
+      "affected": [
+        "org.xwiki.platform:xwiki-platform-rest-server",
+        "org.xwiki.platform:xwiki-platform-rest-server",
+        "org.xwiki.platform:xwiki-platform-rest-server",
+        "org.xwiki.platform:xwiki-platform-rest-server"
+      ],
+      "references": [
+        "https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-qrvh-r3f2-9h4r",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-33137",
+        "https://github.com/xwiki/xwiki-platform/commit/4b7b95b79256374d487e9ece1dc48f527966990f",
+        "https://jira.xwiki.org/browse/XWIKI-23953",
+        "https://github.com/advisories/GHSA-qrvh-r3f2-9h4r"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hqmv-v56g-4m47",
+      "name": "Typebot.io has stored XSS via `javascript`: URI in text bubble links \u2014 bot author executes JS on vis",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-hqmv-v56g-4m47",
+      "description": "Typebot.io has stored XSS via `javascript`: URI in text bubble links \u2014 bot author executes JS on visitors' browsers",
+      "date": "2026-05-26",
+      "affected": [
+        "@typebot.io/js"
+      ],
+      "references": [
+        "https://github.com/baptisteArno/typebot.io/security/advisories/GHSA-hqmv-v56g-4m47",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-39964",
+        "https://github.com/baptisteArno/typebot.io/commit/2c3fc7267a5e1529ba4b1a2ab4f1edb3e3b8990b",
+        "https://github.com/baptisteArno/typebot.io/releases/tag/v3.16.0",
+        "https://github.com/advisories/GHSA-hqmv-v56g-4m47"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@typebot.io/js"
+          ]
+        },
+        "compromised_actions": [
+          "@typebot.io/js"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6m7c-xfhp-p9fh",
+      "name": "Typebot has Stored XSS via Rating Block Custom Icon that Bypasses isUnsafe Sandbox in Builder Previe",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-6m7c-xfhp-p9fh",
+      "description": "Typebot has Stored XSS via Rating Block Custom Icon that Bypasses isUnsafe Sandbox in Builder Preview",
+      "date": "2026-05-26",
+      "affected": [
+        "@typebot.io/js"
+      ],
+      "references": [
+        "https://github.com/baptisteArno/typebot.io/security/advisories/GHSA-6m7c-xfhp-p9fh",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-28445",
+        "https://github.com/baptisteArno/typebot.io/commit/474ecbf46bc47a75265bada2599f12b2179de375",
+        "https://github.com/baptisteArno/typebot.io/blob/v3.16.0/packages/embeds/js/package.json",
+        "https://github.com/baptisteArno/typebot.io/releases/tag/v3.16.0",
+        "https://github.com/advisories/GHSA-6m7c-xfhp-p9fh"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@typebot.io/js"
+          ]
+        },
+        "compromised_actions": [
+          "@typebot.io/js"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xq3r-2qv5-vqqm",
+      "name": "XWiki Platform has path traversal via resources parameter in ssx and jsx endpoints when using leadin",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-xq3r-2qv5-vqqm",
+      "description": "XWiki Platform has path traversal via resources parameter in ssx and jsx endpoints when using leading slash",
+      "date": "2026-05-26",
+      "affected": [
+        "org.xwiki.commons:xwiki-commons-classloader-api",
+        "org.xwiki.commons:xwiki-commons-classloader-api",
+        "org.xwiki.commons:xwiki-commons-classloader-api",
+        "org.xwiki.commons:xwiki-commons-classloader-api"
+      ],
+      "references": [
+        "https://github.com/xwiki/xwiki-commons/security/advisories/GHSA-xq3r-2qv5-vqqm",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-23734",
+        "https://github.com/xwiki/xwiki-commons/commit/a979cafd89f6a9c9c0b9ab19744d672df64429bf",
+        "https://jira.xwiki.org/browse/XCOMMONS-3547",
+        "https://github.com/advisories/GHSA-xq3r-2qv5-vqqm"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hfpv-mc5v-p9mm",
+      "name": "Weblate has a Server-Side Request Forgery issue",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-hfpv-mc5v-p9mm",
+      "description": "Weblate has a Server-Side Request Forgery issue",
+      "date": "2026-05-26",
+      "affected": [
+        "Weblate"
+      ],
+      "references": [
+        "https://github.com/WeblateOrg/weblate/security/advisories/GHSA-hfpv-mc5v-p9mm",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-66407",
+        "https://github.com/WeblateOrg/weblate/pull/17102",
+        "https://github.com/WeblateOrg/weblate/pull/17103",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/weblate/PYSEC-2025-231.yaml",
+        "https://github.com/advisories/GHSA-hfpv-mc5v-p9mm"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-hvv7-hfrh-7gxj",
       "name": "Nezha Monitoring: Nezha WebSocket server stream discloses cross-tenant server telemetry to authentic",
@@ -1068,202 +1269,12 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4xrh-5m3m-328w",
-      "name": "@hulumi/policies: CIS 1.16 admin policy bypass for inline and attached IAM policies",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-4xrh-5m3m-328w",
-      "description": "@hulumi/policies: CIS 1.16 admin policy bypass for inline and attached IAM policies",
-      "date": "2026-05-21",
-      "affected": [
-        "@hulumi/policies"
-      ],
-      "references": [
-        "https://github.com/kerberosmansour/hulumi/security/advisories/GHSA-4xrh-5m3m-328w",
-        "https://github.com/advisories/GHSA-4xrh-5m3m-328w"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@hulumi/policies"
-          ]
-        },
-        "compromised_actions": [
-          "@hulumi/policies"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-g43v-9x7q-83pq",
-      "name": "@hulumi/policies: HULUMI-H1 SecureBucket parent spoof bypass",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-g43v-9x7q-83pq",
-      "description": "@hulumi/policies: HULUMI-H1 SecureBucket parent spoof bypass",
-      "date": "2026-05-21",
-      "affected": [
-        "@hulumi/policies"
-      ],
-      "references": [
-        "https://github.com/kerberosmansour/hulumi/security/advisories/GHSA-g43v-9x7q-83pq",
-        "https://github.com/advisories/GHSA-g43v-9x7q-83pq"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@hulumi/policies"
-          ]
-        },
-        "compromised_actions": [
-          "@hulumi/policies"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2ffm-hxrq-qqmm",
-      "name": "@hulumi/drift: Orphan reconciler accepted externally supplied execute plans",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-2ffm-hxrq-qqmm",
-      "description": "@hulumi/drift: Orphan reconciler accepted externally supplied execute plans",
-      "date": "2026-05-21",
-      "affected": [
-        "@hulumi/drift"
-      ],
-      "references": [
-        "https://github.com/kerberosmansour/hulumi/security/advisories/GHSA-2ffm-hxrq-qqmm",
-        "https://github.com/advisories/GHSA-2ffm-hxrq-qqmm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@hulumi/drift"
-          ]
-        },
-        "compromised_actions": [
-          "@hulumi/drift"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gfp8-mp24-5vxg",
-      "name": "@hulumi/baseline: CloudTrail selector tampering events were not fully detected",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-gfp8-mp24-5vxg",
-      "description": "@hulumi/baseline: CloudTrail selector tampering events were not fully detected",
-      "date": "2026-05-21",
-      "affected": [
-        "@hulumi/baseline"
-      ],
-      "references": [
-        "https://github.com/kerberosmansour/hulumi/security/advisories/GHSA-gfp8-mp24-5vxg",
-        "https://github.com/advisories/GHSA-gfp8-mp24-5vxg"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@hulumi/baseline"
-          ]
-        },
-        "compromised_actions": [
-          "@hulumi/baseline"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vr9v-27gg-qgx4",
-      "name": "Umbraco.Cms: XSS/HTML Injection in Umbraco Backoffice confirmation dialog",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-vr9v-27gg-qgx4",
-      "description": "Umbraco.Cms: XSS/HTML Injection in Umbraco Backoffice confirmation dialog",
-      "date": "2026-05-21",
-      "affected": [
-        "Umbraco.Cms"
-      ],
-      "references": [
-        "https://github.com/umbraco/Umbraco-CMS/security/advisories/GHSA-vr9v-27gg-qgx4",
-        "https://github.com/advisories/GHSA-vr9v-27gg-qgx4"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xq32-9g7q-7297",
-      "name": "FlaskBB: SSRF in get_image_info() via unrestricted avatar URL",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-xq32-9g7q-7297",
-      "description": "FlaskBB: SSRF in get_image_info() via unrestricted avatar URL",
-      "date": "2026-05-21",
-      "affected": [
-        "flaskbb"
-      ],
-      "references": [
-        "https://github.com/flaskbb/flaskbb/security/advisories/GHSA-xq32-9g7q-7297",
-        "https://github.com/advisories/GHSA-xq32-9g7q-7297"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f76x-f9vj-92jv",
-      "name": "NocoDB: Stale Auth Cache After API Token Deletion",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-f76x-f9vj-92jv",
-      "description": "NocoDB: Stale Auth Cache After API Token Deletion",
-      "date": "2026-05-21",
-      "affected": [
-        "nocodb"
-      ],
-      "references": [
-        "https://github.com/nocodb/nocodb/security/advisories/GHSA-f76x-f9vj-92jv",
-        "https://github.com/advisories/GHSA-f76x-f9vj-92jv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "nocodb"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8rwr-f68v-cvw6",
-      "name": "NocoDB: Attachment Size Limit Bypass via Upload-by-URL",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-8rwr-f68v-cvw6",
-      "description": "NocoDB: Attachment Size Limit Bypass via Upload-by-URL",
-      "date": "2026-05-21",
-      "affected": [
-        "nocodb"
-      ],
-      "references": [
-        "https://github.com/nocodb/nocodb/security/advisories/GHSA-8rwr-f68v-cvw6",
-        "https://github.com/advisories/GHSA-8rwr-f68v-cvw6"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "nocodb"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "pterodactyl/panel": "Pterodactyl has a database resource limit bypass via race condition in Client API",
+    "@typebot.io/js": "Typebot.io has stored XSS via `javascript`: URI in text bubble links \u2014 bot author executes JS on vis",
     "github.com/nezhahq/nezha": "Nezha Monitoring: Nezha WebSocket server stream discloses cross-tenant server telemetry to authentic",
     "github.com/getarcaneapp/arcane/backend": "Arcane: Missing admin authorization on global variables endpoint",
     "github.com/gtsteffaniak/filebrowser/backend": "FileBrowser Quantum: Path traversal in public share PATCH allows file ops outside shared directory",
@@ -1278,9 +1289,7 @@
     "twig/cssinliner-extra": "Twig: HTML-output filters in twig/* extras incorrectly declared `is_safe => ['all']`",
     "twig/markdown-extra": "Twig: HTML-output filters in twig/* extras incorrectly declared `is_safe => ['all']`",
     "twig/intl-extra": "twig/intl-extra: Unbounded formatter memoisation in keyed on template-controlled arguments",
-    "@hulumi/policies": "@hulumi/policies: Stack-wide evidence bypassed Cloudflare and deployment-governance guardrails",
-    "@hulumi/drift": "@hulumi/drift: Orphan reconciler accepted externally supplied execute plans",
-    "@hulumi/baseline": "@hulumi/baseline: CloudTrail selector tampering events were not fully detected"
+    "@hulumi/policies": "@hulumi/policies: Stack-wide evidence bypassed Cloudflare and deployment-governance guardrails"
   },
   "malicious_packages": {
     "npm": {},
