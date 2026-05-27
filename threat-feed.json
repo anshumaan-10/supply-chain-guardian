@@ -1,8 +1,425 @@
 {
   "version": "2026.05.27",
-  "last_updated": "2026-05-27T15:38:38.029616+00:00",
+  "last_updated": "2026-05-27T20:13:27.451071+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-qc95-4862-92fh",
+      "name": "Symfony has an HtmlSanitizer allowLinkHosts() / allowMediaHosts() Bypass via URL-Parser Differential",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-qc95-4862-92fh",
+      "description": "Symfony has an HtmlSanitizer allowLinkHosts() / allowMediaHosts() Bypass via URL-Parser Differentials and <area> Misclassification",
+      "date": "2026-05-27",
+      "affected": [
+        "symfony/symfony",
+        "symfony/symfony",
+        "symfony/symfony",
+        "symfony/html-sanitizer",
+        "symfony/html-sanitizer",
+        "symfony/html-sanitizer"
+      ],
+      "references": [
+        "https://github.com/symfony/symfony/security/advisories/GHSA-qc95-4862-92fh",
+        "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/html-sanitizer/CVE-2026-45066.yaml",
+        "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/symfony/CVE-2026-45066.yaml",
+        "https://symfony.com/cve-2026-45066",
+        "https://github.com/advisories/GHSA-qc95-4862-92fh"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "symfony/symfony",
+          "symfony/symfony",
+          "symfony/symfony",
+          "symfony/html-sanitizer",
+          "symfony/html-sanitizer",
+          "symfony/html-sanitizer"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h5vq-qfcg-4m6p",
+      "name": "Symfony's HtmlSanitizer URL Attributes Pass Through BiDi Override Characters \u2192 Visual href Spoofing",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-h5vq-qfcg-4m6p",
+      "description": "Symfony's HtmlSanitizer URL Attributes Pass Through BiDi Override Characters \u2192 Visual href Spoofing",
+      "date": "2026-05-27",
+      "affected": [
+        "symfony/symfony",
+        "symfony/symfony",
+        "symfony/symfony",
+        "symfony/html-sanitizer",
+        "symfony/html-sanitizer",
+        "symfony/html-sanitizer"
+      ],
+      "references": [
+        "https://github.com/symfony/symfony/security/advisories/GHSA-h5vq-qfcg-4m6p",
+        "https://github.com/symfony/symfony/commit/743a435e948b897ef2b5564ac438d4beb95d2526",
+        "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/html-sanitizer/CVE-2026-45064.yaml",
+        "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/symfony/CVE-2026-45064.yaml",
+        "https://symfony.com/cve-2026-45064",
+        "https://github.com/advisories/GHSA-h5vq-qfcg-4m6p"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "symfony/symfony",
+          "symfony/symfony",
+          "symfony/symfony",
+          "symfony/html-sanitizer",
+          "symfony/html-sanitizer",
+          "symfony/html-sanitizer"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rw47-hm26-6wr7",
+      "name": "CrowdSec AppSec silently drops request body for chunked / HTTP-2 requests",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-rw47-hm26-6wr7",
+      "description": "CrowdSec AppSec silently drops request body for chunked / HTTP-2 requests",
+      "date": "2026-05-27",
+      "affected": [
+        "github.com/crowdsecurity/crowdsec"
+      ],
+      "references": [
+        "https://github.com/crowdsecurity/crowdsec/security/advisories/GHSA-rw47-hm26-6wr7",
+        "https://github.com/advisories/GHSA-rw47-hm26-6wr7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/crowdsecurity/crowdsec"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/crowdsecurity/crowdsec"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-273h-gvwr-c3qj",
+      "name": "CrowdSec LAPI: Denial of Service via Unbounded Gzip Decompression",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-273h-gvwr-c3qj",
+      "description": "CrowdSec LAPI: Denial of Service via Unbounded Gzip Decompression",
+      "date": "2026-05-27",
+      "affected": [
+        "github.com/crowdsecurity/crowdsec"
+      ],
+      "references": [
+        "https://github.com/crowdsecurity/crowdsec/security/advisories/GHSA-273h-gvwr-c3qj",
+        "https://github.com/advisories/GHSA-273h-gvwr-c3qj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/crowdsecurity/crowdsec"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/crowdsecurity/crowdsec"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-chqv-56wv-7564",
+      "name": "Deno's TLS retry copies stale upgrade hook, risking plaintext traffic",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-chqv-56wv-7564",
+      "description": "Deno's TLS retry copies stale upgrade hook, risking plaintext traffic",
+      "date": "2026-05-27",
+      "affected": [
+        "deno"
+      ],
+      "references": [
+        "https://github.com/denoland/deno/security/advisories/GHSA-chqv-56wv-7564",
+        "https://github.com/advisories/GHSA-chqv-56wv-7564"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-mxfr-6hcw-j9rq",
+      "name": "Langroid has Prompt to SQL Injection, Leading to RCE",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-mxfr-6hcw-j9rq",
+      "description": "Langroid has Prompt to SQL Injection, Leading to RCE",
+      "date": "2026-05-27",
+      "affected": [
+        "langroid"
+      ],
+      "references": [
+        "https://github.com/langroid/langroid/security/advisories/GHSA-mxfr-6hcw-j9rq",
+        "https://github.com/advisories/GHSA-mxfr-6hcw-j9rq"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-gf2q-c269-pqgc",
+      "name": "LiquidJS is Vulnerable to Remote Code Execution",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-gf2q-c269-pqgc",
+      "description": "LiquidJS is Vulnerable to Remote Code Execution",
+      "date": "2026-05-27",
+      "affected": [
+        "liquidjs"
+      ],
+      "references": [
+        "https://github.com/harttle/liquidjs/security/advisories/GHSA-gf2q-c269-pqgc",
+        "https://github.com/harttle/liquidjs/releases/tag/v10.26.0",
+        "https://github.com/advisories/GHSA-gf2q-c269-pqgc"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "liquidjs"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-r7g9-xpmj-5fcq",
+      "name": "LiquidJS Vulnerable to ReDoS via Quadratic Backtracking in `strip_html` Filter Regex",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-r7g9-xpmj-5fcq",
+      "description": "LiquidJS Vulnerable to ReDoS via Quadratic Backtracking in `strip_html` Filter Regex",
+      "date": "2026-05-27",
+      "affected": [
+        "liquidjs"
+      ],
+      "references": [
+        "https://github.com/harttle/liquidjs/security/advisories/GHSA-r7g9-xpmj-5fcq",
+        "https://github.com/harttle/liquidjs/releases/tag/v10.26.0",
+        "https://github.com/advisories/GHSA-r7g9-xpmj-5fcq"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "liquidjs"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qvjf-922g-pj44",
+      "name": "Kirby CMS vulnerable to cross-site scripting (XSS) from links in KirbyTags and image blocks in the s",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-qvjf-922g-pj44",
+      "description": "Kirby CMS vulnerable to cross-site scripting (XSS) from links in KirbyTags and image blocks in the site frontend",
+      "date": "2026-05-27",
+      "affected": [
+        "getkirby/cms",
+        "getkirby/cms"
+      ],
+      "references": [
+        "https://github.com/getkirby/kirby/security/advisories/GHSA-qvjf-922g-pj44",
+        "https://github.com/getkirby/kirby/releases/tag/4.9.1",
+        "https://github.com/getkirby/kirby/releases/tag/5.4.1",
+        "https://github.com/advisories/GHSA-qvjf-922g-pj44"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getkirby/cms",
+          "getkirby/cms"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hh27-hf48-9f5q",
+      "name": "LiquidJS has a memory and render limit bypass via unbounded width padding in `date` filter (strftime",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-hh27-hf48-9f5q",
+      "description": "LiquidJS has a memory and render limit bypass via unbounded width padding in `date` filter (strftime)",
+      "date": "2026-05-27",
+      "affected": [
+        "liquidjs"
+      ],
+      "references": [
+        "https://github.com/harttle/liquidjs/security/advisories/GHSA-hh27-hf48-9f5q",
+        "https://github.com/advisories/GHSA-hh27-hf48-9f5q"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "liquidjs"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-39vq-49qm-r2mc",
+      "name": "Kirby CMS's content locks disclose IDs and emails of inaccessible users from `users.access/list` per",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-39vq-49qm-r2mc",
+      "description": "Kirby CMS's content locks disclose IDs and emails of inaccessible users from `users.access/list` permissions",
+      "date": "2026-05-27",
+      "affected": [
+        "getkirby/cms",
+        "getkirby/cms"
+      ],
+      "references": [
+        "https://github.com/getkirby/kirby/security/advisories/GHSA-39vq-49qm-r2mc",
+        "https://github.com/getkirby/kirby/releases/tag/4.9.1",
+        "https://github.com/getkirby/kirby/releases/tag/5.4.1",
+        "https://github.com/advisories/GHSA-39vq-49qm-r2mc"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getkirby/cms",
+          "getkirby/cms"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wc7j-g8wx-m2qx",
+      "name": "Pimcore: Missing Authorization in WebDAV MOVE via unchecked asset move handling",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-wc7j-g8wx-m2qx",
+      "description": "Pimcore: Missing Authorization in WebDAV MOVE via unchecked asset move handling",
+      "date": "2026-05-27",
+      "affected": [
+        "pimcore/pimcore"
+      ],
+      "references": [
+        "https://github.com/pimcore/pimcore/security/advisories/GHSA-wc7j-g8wx-m2qx",
+        "https://github.com/pimcore/pimcore/pull/19120",
+        "https://github.com/pimcore/pimcore/commit/9d7c77fd9b19fa011ce470de95d4438e65007d99",
+        "https://github.com/pimcore/pimcore/releases/tag/v12.3.7",
+        "https://github.com/advisories/GHSA-wc7j-g8wx-m2qx"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "pimcore/pimcore"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-36fc-7wjg-mfvj",
+      "name": "Pimcore has Unsafe PHP Deserialization in Multiple Locations Without allowed_classes Restriction",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-36fc-7wjg-mfvj",
+      "description": "Pimcore has Unsafe PHP Deserialization in Multiple Locations Without allowed_classes Restriction",
+      "date": "2026-05-27",
+      "affected": [
+        "pimcore/pimcore"
+      ],
+      "references": [
+        "https://github.com/pimcore/pimcore/security/advisories/GHSA-36fc-7wjg-mfvj",
+        "https://github.com/pimcore/pimcore/pull/19119",
+        "https://github.com/pimcore/pimcore/commit/4788bf3a3a7f2f760a8fe61e522565941e154e1e",
+        "https://github.com/pimcore/pimcore/releases/tag/v12.3.7",
+        "https://github.com/advisories/GHSA-36fc-7wjg-mfvj"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "pimcore/pimcore"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-72xp-p242-47p9",
+      "name": "Symfony has a UrlGenerator Route-Requirement Bypass via Unanchored Regex Alternation \u2192 Off-Site //ho",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-72xp-p242-47p9",
+      "description": "Symfony has a UrlGenerator Route-Requirement Bypass via Unanchored Regex Alternation \u2192 Off-Site //host URL Injection",
+      "date": "2026-05-27",
+      "affected": [
+        "symfony/symfony",
+        "symfony/symfony",
+        "symfony/symfony",
+        "symfony/symfony",
+        "symfony/routing",
+        "symfony/routing",
+        "symfony/routing",
+        "symfony/routing"
+      ],
+      "references": [
+        "https://github.com/symfony/symfony/security/advisories/GHSA-72xp-p242-47p9",
+        "https://github.com/symfony/symfony/commit/bcf487c22f3240ba994124e0e0fe8616f3cfc47a",
+        "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/routing/CVE-2026-45065.yaml",
+        "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/symfony/CVE-2026-45065.yaml",
+        "https://symfony.com/cve-2026-45065",
+        "https://github.com/advisories/GHSA-72xp-p242-47p9"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "symfony/symfony",
+          "symfony/symfony",
+          "symfony/symfony",
+          "symfony/symfony",
+          "symfony/routing",
+          "symfony/routing",
+          "symfony/routing",
+          "symfony/routing"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-ph86-p8f6-f9r2",
+      "name": "Symfony Vulnerable to Identity Spoofing via Unanchored DN Regex in X509Authenticator",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-ph86-p8f6-f9r2",
+      "description": "Symfony Vulnerable to Identity Spoofing via Unanchored DN Regex in X509Authenticator",
+      "date": "2026-05-27",
+      "affected": [
+        "symfony/symfony",
+        "symfony/symfony",
+        "symfony/symfony",
+        "symfony/symfony",
+        "symfony/security-http",
+        "symfony/security-http",
+        "symfony/security-http",
+        "symfony/security-http"
+      ],
+      "references": [
+        "https://github.com/symfony/symfony/security/advisories/GHSA-ph86-p8f6-f9r2",
+        "https://github.com/symfony/symfony/commit/ccb3f724c7ff55670a6fe3521c7bf1514cceb478",
+        "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/security-http/CVE-2026-45063.yaml",
+        "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/symfony/CVE-2026-45063.yaml",
+        "https://symfony.com/cve-2026-45063",
+        "https://github.com/advisories/GHSA-ph86-p8f6-f9r2"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "symfony/symfony",
+          "symfony/symfony",
+          "symfony/symfony",
+          "symfony/symfony",
+          "symfony/security-http",
+          "symfony/security-http",
+          "symfony/security-http",
+          "symfony/security-http"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-vhjm-w67q-g75c",
       "name": "@hapi/wreck leaks sensitive `Proxy-Authorization` header across cross-hostname redirects",
@@ -865,389 +1282,26 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jpjh-jm2p-39hh",
-      "name": "Arcane: Missing admin authorization on global variables endpoint",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-jpjh-jm2p-39hh",
-      "description": "Arcane: Missing admin authorization on global variables endpoint",
-      "date": "2026-05-23",
-      "affected": [
-        "github.com/getarcaneapp/arcane/backend"
-      ],
-      "references": [
-        "https://github.com/getarcaneapp/arcane/security/advisories/GHSA-jpjh-jm2p-39hh",
-        "https://github.com/advisories/GHSA-jpjh-jm2p-39hh"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/getarcaneapp/arcane/backend"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/getarcaneapp/arcane/backend"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-ggxf-37hm-9wqf",
-      "name": "instagrapi: Unsafe signup challenge path handling in instagrapi",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-ggxf-37hm-9wqf",
-      "description": "instagrapi: Unsafe signup challenge path handling in instagrapi",
-      "date": "2026-05-23",
-      "affected": [
-        "instagrapi"
-      ],
-      "references": [
-        "https://github.com/subzeroid/instagrapi/security/advisories/GHSA-ggxf-37hm-9wqf",
-        "https://github.com/advisories/GHSA-ggxf-37hm-9wqf"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jh37-x3fv-4x72",
-      "name": "aiograpi: Unsafe signup challenge path handling",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-jh37-x3fv-4x72",
-      "description": "aiograpi: Unsafe signup challenge path handling",
-      "date": "2026-05-23",
-      "affected": [
-        "aiograpi"
-      ],
-      "references": [
-        "https://github.com/subzeroid/aiograpi/security/advisories/GHSA-jh37-x3fv-4x72",
-        "https://github.com/advisories/GHSA-jh37-x3fv-4x72"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-38m6-82c8-4xfm",
-      "name": "Parse Server: Pre-authentication denial of service via client version header regex backtracking",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-38m6-82c8-4xfm",
-      "description": "Parse Server: Pre-authentication denial of service via client version header regex backtracking",
-      "date": "2026-05-23",
-      "affected": [
-        "parse-server",
-        "parse-server"
-      ],
-      "references": [
-        "https://github.com/parse-community/parse-server/security/advisories/GHSA-38m6-82c8-4xfm",
-        "https://github.com/parse-community/parse-server/pull/10463",
-        "https://github.com/parse-community/parse-server/pull/10464",
-        "https://github.com/advisories/GHSA-38m6-82c8-4xfm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "parse-server",
-            "parse-server"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rxf6-wjh4-jfj6",
-      "name": "Nezha Monitoring: RoleMember can fire other users' cron tasks via AlertRule.FailTriggerTasks (no own",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-rxf6-wjh4-jfj6",
-      "description": "Nezha Monitoring: RoleMember can fire other users' cron tasks via AlertRule.FailTriggerTasks (no ownership check)",
-      "date": "2026-05-23",
-      "affected": [
-        "github.com/nezhahq/nezha"
-      ],
-      "references": [
-        "https://github.com/nezhahq/nezha/security/advisories/GHSA-rxf6-wjh4-jfj6",
-        "https://github.com/advisories/GHSA-rxf6-wjh4-jfj6"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/nezhahq/nezha"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/nezhahq/nezha"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-w4g9-mxgg-j532",
-      "name": "Nezha Monitoring: RoleMember-reachable SSRF with full response-body reflection via POST /api/v1/noti",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-w4g9-mxgg-j532",
-      "description": "Nezha Monitoring: RoleMember-reachable SSRF with full response-body reflection via POST /api/v1/notification",
-      "date": "2026-05-23",
-      "affected": [
-        "github.com/nezhahq/nezha"
-      ],
-      "references": [
-        "https://github.com/nezhahq/nezha/security/advisories/GHSA-w4g9-mxgg-j532",
-        "https://github.com/nezhahq/nezha/commit/d06d539d34c143d842b91e2a64326e8c8f9bc405",
-        "https://github.com/advisories/GHSA-w4g9-mxgg-j532"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/nezhahq/nezha"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/nezhahq/nezha"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-97r5-pg8x-p63p",
-      "name": "Flask-Security-Too OAuth reauthentication freshness bypass via cross-   user OAuth identity acceptan",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-97r5-pg8x-p63p",
-      "description": "Flask-Security-Too OAuth reauthentication freshness bypass via cross-   user OAuth identity acceptance",
-      "date": "2026-05-22",
-      "affected": [
-        "Flask-Security-Too"
-      ],
-      "references": [
-        "https://github.com/pallets-eco/flask-security/security/advisories/GHSA-97r5-pg8x-p63p",
-        "https://github.com/advisories/GHSA-97r5-pg8x-p63p"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7m8f-hgjq-8gc9",
-      "name": "aiosend: Deserialization of request body before signature verification (Pre-auth DoS) in webhook han",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7m8f-hgjq-8gc9",
-      "description": "aiosend: Deserialization of request body before signature verification (Pre-auth DoS) in webhook handler",
-      "date": "2026-05-22",
-      "affected": [
-        "aiosend"
-      ],
-      "references": [
-        "https://github.com/vovchic17/aiosend/security/advisories/GHSA-7m8f-hgjq-8gc9",
-        "https://github.com/advisories/GHSA-7m8f-hgjq-8gc9"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-q8mj-m7cp-5q26",
-      "name": "qs has a remotely triggerable DoS: qs.stringify crashes with TypeError on null/undefined entries in ",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-q8mj-m7cp-5q26",
-      "description": "qs has a remotely triggerable DoS: qs.stringify crashes with TypeError on null/undefined entries in comma-format arrays when encodeValuesOnly is set",
-      "date": "2026-05-22",
-      "affected": [
-        "qs"
-      ],
-      "references": [
-        "https://github.com/ljharb/qs/security/advisories/GHSA-q8mj-m7cp-5q26",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-8723",
-        "https://github.com/ljharb/qs/commit/21f80b33e5c8b3f7eba1034fff0da4a4a37a1d41",
-        "https://github.com/advisories/GHSA-q8mj-m7cp-5q26"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "qs"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qqqm-5547-774x",
-      "name": "FileBrowser Quantum: Path traversal in public share PATCH allows file ops outside shared directory",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-qqqm-5547-774x",
-      "description": "FileBrowser Quantum: Path traversal in public share PATCH allows file ops outside shared directory",
-      "date": "2026-05-22",
-      "affected": [
-        "github.com/gtsteffaniak/filebrowser/backend"
-      ],
-      "references": [
-        "https://github.com/gtsteffaniak/filebrowser/security/advisories/GHSA-qqqm-5547-774x",
-        "https://github.com/advisories/GHSA-qqqm-5547-774x"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/gtsteffaniak/filebrowser/backend"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/gtsteffaniak/filebrowser/backend"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jwvv-qr7q-cv8j",
-      "name": "YesWiki: Unauthenticated SQL Injection",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-jwvv-qr7q-cv8j",
-      "description": "YesWiki: Unauthenticated SQL Injection",
-      "date": "2026-05-22",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-jwvv-qr7q-cv8j",
-        "https://github.com/advisories/GHSA-jwvv-qr7q-cv8j"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6gxq-f64p-5w6f",
-      "name": "ImageMagick: Heap Buffer Over-Read in distributed pixel cache server ",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-6gxq-f64p-5w6f",
-      "description": "ImageMagick: Heap Buffer Over-Read in distributed pixel cache server ",
-      "date": "2026-05-22",
-      "affected": [
-        "Magick.NET-Q8-x86",
-        "Magick.NET-Q8-x64",
-        "Magick.NET-Q8-arm64",
-        "Magick.NET-Q8-OpenMP-x64",
-        "Magick.NET-Q8-OpenMP-arm64",
-        "Magick.NET-Q8-AnyCPU",
-        "Magick.NET-Q16-x86",
-        "Magick.NET-Q16-x64",
-        "Magick.NET-Q16-arm64",
-        "Magick.NET-Q16-OpenMP-x64"
-      ],
-      "references": [
-        "https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-6gxq-f64p-5w6f",
-        "https://github.com/advisories/GHSA-6gxq-f64p-5w6f"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2rgj-gx5x-f62w",
-      "name": "ImageMagick: Information Disclosure in distributed pixel cache server because it is not using a chal",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-2rgj-gx5x-f62w",
-      "description": "ImageMagick: Information Disclosure in distributed pixel cache server because it is not using a challenge\u2013response authentication model",
-      "date": "2026-05-22",
-      "affected": [
-        "Magick.NET-Q8-x86",
-        "Magick.NET-Q8-x64",
-        "Magick.NET-Q8-arm64",
-        "Magick.NET-Q8-OpenMP-x64",
-        "Magick.NET-Q8-OpenMP-arm64",
-        "Magick.NET-Q8-AnyCPU",
-        "Magick.NET-Q16-x86",
-        "Magick.NET-Q16-x64",
-        "Magick.NET-Q16-arm64",
-        "Magick.NET-Q16-OpenMP-x64"
-      ],
-      "references": [
-        "https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-2rgj-gx5x-f62w",
-        "https://github.com/advisories/GHSA-2rgj-gx5x-f62w"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4g75-9r48-jf92",
-      "name": "ImageMagick: Race Condition in distributed pixel cache server can result in file descriptor hijackin",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-4g75-9r48-jf92",
-      "description": "ImageMagick: Race Condition in distributed pixel cache server can result in file descriptor hijacking",
-      "date": "2026-05-22",
-      "affected": [
-        "Magick.NET-Q8-x86",
-        "Magick.NET-Q8-x64",
-        "Magick.NET-Q8-arm64",
-        "Magick.NET-Q8-OpenMP-x64",
-        "Magick.NET-Q8-OpenMP-arm64",
-        "Magick.NET-Q8-AnyCPU",
-        "Magick.NET-Q16-x86",
-        "Magick.NET-Q16-x64",
-        "Magick.NET-Q16-arm64",
-        "Magick.NET-Q16-OpenMP-x64"
-      ],
-      "references": [
-        "https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-4g75-9r48-jf92",
-        "https://github.com/advisories/GHSA-4g75-9r48-jf92"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-p93h-f2jc-477j",
-      "name": "ImageMagick: Heap Buffer Over-Write in distributed pixel cache server",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-p93h-f2jc-477j",
-      "description": "ImageMagick: Heap Buffer Over-Write in distributed pixel cache server",
-      "date": "2026-05-22",
-      "affected": [
-        "Magick.NET-Q8-x86",
-        "Magick.NET-Q8-x64",
-        "Magick.NET-Q8-arm64",
-        "Magick.NET-Q8-OpenMP-x64",
-        "Magick.NET-Q8-OpenMP-arm64",
-        "Magick.NET-Q8-AnyCPU",
-        "Magick.NET-Q16-x86",
-        "Magick.NET-Q16-x64",
-        "Magick.NET-Q16-arm64",
-        "Magick.NET-Q16-OpenMP-x64"
-      ],
-      "references": [
-        "https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-p93h-f2jc-477j",
-        "https://github.com/advisories/GHSA-p93h-f2jc-477j"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "symfony/symfony": "Symfony has an HtmlSanitizer allowLinkHosts() / allowMediaHosts() Bypass via URL-Parser Differential",
+    "symfony/html-sanitizer": "Symfony has an HtmlSanitizer allowLinkHosts() / allowMediaHosts() Bypass via URL-Parser Differential",
+    "github.com/crowdsecurity/crowdsec": "CrowdSec AppSec silently drops request body for chunked / HTTP-2 requests",
+    "getkirby/cms": "Kirby CMS vulnerable to cross-site scripting (XSS) from links in KirbyTags and image blocks in the s",
+    "pimcore/pimcore": "Pimcore: Missing Authorization in WebDAV MOVE via unchecked asset move handling",
+    "symfony/routing": "Symfony has a UrlGenerator Route-Requirement Bypass via Unanchored Regex Alternation \u2192 Off-Site //ho",
+    "symfony/security-http": "Symfony Vulnerable to Identity Spoofing via Unanchored DN Regex in X509Authenticator",
     "@hapi/wreck": "@hapi/wreck leaks sensitive `Proxy-Authorization` header across cross-hostname redirects",
     "@hapi/content": "@hapi/content header parser has a parameter smuggling issue that allows upload-filter bypass via dup",
     "pimcore/admin-ui-classic-bundle": "Pimcore Admin Classic Bundle Vulnerable to SQL Injection in Translation Grid Date Filter via Unsanit",
-    "pimcore/pimcore": "Pimcore Vulnerable to SQL Injection in Custom Reports Column Configuration",
     "github.com/kata-containers/kata-containers": "Kata Containers have VM Escape via virtiofsd Argument Injection through Default-Enabled Pod Annotati",
-    "getkirby/cms": "Kirby CMS has pre-authentication path traversal and PHP file inclusion during user lookup",
     "@frangoteam/fuxa": "FUXA Vulnerable to Pre-auth RCE via Path Manipulation & Configuration Injection",
     "@fedify/fedify": "Fedify has an LD-Signature Bypass via JSON-LD Named-Graph Restructuring",
     "pterodactyl/panel": "Pterodactyl has a database resource limit bypass via race condition in Client API",
     "@typebot.io/js": "Typebot.io has stored XSS via `javascript`: URI in text bubble links \u2014 bot author executes JS on vis",
-    "github.com/nezhahq/nezha": "Nezha Monitoring: Nezha WebSocket server stream discloses cross-tenant server telemetry to authentic",
-    "github.com/getarcaneapp/arcane/backend": "Arcane: Missing admin authorization on global variables endpoint",
-    "github.com/gtsteffaniak/filebrowser/backend": "FileBrowser Quantum: Path traversal in public share PATCH allows file ops outside shared directory",
-    "yeswiki/yeswiki": "YesWiki: Unauthenticated SQL Injection"
+    "github.com/nezhahq/nezha": "Nezha Monitoring: Nezha WebSocket server stream discloses cross-tenant server telemetry to authentic"
   },
   "malicious_packages": {
     "npm": {},
