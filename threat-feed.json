@@ -1,8 +1,35 @@
 {
   "version": "2026.05.29",
-  "last_updated": "2026-05-29T09:52:30.340543+00:00",
+  "last_updated": "2026-05-29T15:26:38.107680+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-g2g8-95qg-v35h",
+      "name": "HaxCMS has a stored Cross-Site Scripting (XSS) bypass in its saveNode endpoint",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-g2g8-95qg-v35h",
+      "description": "HaxCMS has a stored Cross-Site Scripting (XSS) bypass in its saveNode endpoint",
+      "date": "2026-05-29",
+      "affected": [
+        "@haxtheweb/haxcms-nodejs"
+      ],
+      "references": [
+        "https://github.com/haxtheweb/issues/security/advisories/GHSA-g2g8-95qg-v35h",
+        "https://github.com/advisories/GHSA-g2g8-95qg-v35h"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@haxtheweb/haxcms-nodejs"
+          ]
+        },
+        "compromised_actions": [
+          "@haxtheweb/haxcms-nodejs"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-qp9x-wp8f-qgjj",
       "name": "tuf has platform-dependent delegation path matching",
@@ -1428,46 +1455,11 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h5vq-qfcg-4m6p",
-      "name": "Symfony's HtmlSanitizer URL Attributes Pass Through BiDi Override Characters \u2192 Visual href Spoofing",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-h5vq-qfcg-4m6p",
-      "description": "Symfony's HtmlSanitizer URL Attributes Pass Through BiDi Override Characters \u2192 Visual href Spoofing",
-      "date": "2026-05-27",
-      "affected": [
-        "symfony/symfony",
-        "symfony/symfony",
-        "symfony/symfony",
-        "symfony/html-sanitizer",
-        "symfony/html-sanitizer",
-        "symfony/html-sanitizer"
-      ],
-      "references": [
-        "https://github.com/symfony/symfony/security/advisories/GHSA-h5vq-qfcg-4m6p",
-        "https://github.com/symfony/symfony/commit/743a435e948b897ef2b5564ac438d4beb95d2526",
-        "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/html-sanitizer/CVE-2026-45064.yaml",
-        "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/symfony/CVE-2026-45064.yaml",
-        "https://symfony.com/cve-2026-45064",
-        "https://github.com/advisories/GHSA-h5vq-qfcg-4m6p"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "symfony/symfony",
-          "symfony/symfony",
-          "symfony/symfony",
-          "symfony/html-sanitizer",
-          "symfony/html-sanitizer",
-          "symfony/html-sanitizer"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@haxtheweb/haxcms-nodejs": "HaxCMS has a stored Cross-Site Scripting (XSS) bypass in its saveNode endpoint",
     "github.com/getarcaneapp/arcane/backend": "Arcane Has an Authenticated Arbitrary Host File Read via Docker Compose Include Directives",
     "pimcore/pimcore": "Pimcore Platform - SQL Injection in DataObject composite index handling during class definition impo",
     "symfony/polyfill-intl-idn": "symfony/polyfill-intl-idn: xn-- labels with ASCII-only Punycode payloads are treated as equivalent t",
