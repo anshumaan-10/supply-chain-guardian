@@ -1,8 +1,145 @@
 {
-  "version": "2026.05.28",
-  "last_updated": "2026-05-28T20:21:10.743118+00:00",
+  "version": "2026.05.29",
+  "last_updated": "2026-05-29T03:30:07.653200+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-qp9x-wp8f-qgjj",
+      "name": "tuf has platform-dependent delegation path matching",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-qp9x-wp8f-qgjj",
+      "description": "tuf has platform-dependent delegation path matching",
+      "date": "2026-05-28",
+      "affected": [
+        "tuf"
+      ],
+      "references": [
+        "https://github.com/theupdateframework/python-tuf/security/advisories/GHSA-qp9x-wp8f-qgjj",
+        "https://github.com/theupdateframework/python-tuf/releases/tag/v7.0.0",
+        "https://github.com/advisories/GHSA-qp9x-wp8f-qgjj"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-c3px-h233-h6fq",
+      "name": "Arcane Has an Authenticated Arbitrary Host File Read via Docker Compose Include Directives",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-c3px-h233-h6fq",
+      "description": "Arcane Has an Authenticated Arbitrary Host File Read via Docker Compose Include Directives",
+      "date": "2026-05-28",
+      "affected": [
+        "github.com/getarcaneapp/arcane/backend"
+      ],
+      "references": [
+        "https://github.com/getarcaneapp/arcane/security/advisories/GHSA-c3px-h233-h6fq",
+        "https://github.com/getarcaneapp/arcane/commit/b6cbffabf61dbc3f12a28d3b5830e3c6b7e67daf",
+        "https://github.com/advisories/GHSA-c3px-h233-h6fq"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getarcaneapp/arcane/backend"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getarcaneapp/arcane/backend"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9277-mp7x-85jf",
+      "name": "Dulwich Vulnerable to Command Injection via Merge Driver Path",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9277-mp7x-85jf",
+      "description": "Dulwich Vulnerable to Command Injection via Merge Driver Path",
+      "date": "2026-05-28",
+      "affected": [
+        "dulwich"
+      ],
+      "references": [
+        "https://github.com/jelmer/dulwich/security/advisories/GHSA-9277-mp7x-85jf",
+        "https://github.com/jelmer/dulwich/releases/tag/dulwich-1.2.5",
+        "https://github.com/advisories/GHSA-9277-mp7x-85jf"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-897w-fcg9-f6xj",
+      "name": "Dulwich has an arbitrary file write via NTFS-hostile tree entries on Windows",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-897w-fcg9-f6xj",
+      "description": "Dulwich has an arbitrary file write via NTFS-hostile tree entries on Windows",
+      "date": "2026-05-28",
+      "affected": [
+        "dulwich"
+      ],
+      "references": [
+        "https://github.com/jelmer/dulwich/security/advisories/GHSA-897w-fcg9-f6xj",
+        "https://github.com/jelmer/dulwich/releases/tag/dulwich-1.2.5",
+        "https://github.com/advisories/GHSA-897w-fcg9-f6xj"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-r2f4-ff2p-xc64",
+      "name": "Pimcore Platform - SQL Injection in DataObject composite index handling during class definition impo",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-r2f4-ff2p-xc64",
+      "description": "Pimcore Platform - SQL Injection in DataObject composite index handling during class definition import/save",
+      "date": "2026-05-28",
+      "affected": [
+        "pimcore/pimcore"
+      ],
+      "references": [
+        "https://github.com/pimcore/pimcore/security/advisories/GHSA-r2f4-ff2p-xc64",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-5394",
+        "https://github.com/pimcore/pimcore/pull/19108",
+        "https://github.com/pimcore/pimcore/commit/6df625ff74015dc11f4bbe76170ce45bbd5dd61d",
+        "https://fluidattacks.com/es/advisories/dragons",
+        "https://github.com/pimcore/pimcore/releases/tag/v12.3.7",
+        "https://github.com/advisories/GHSA-r2f4-ff2p-xc64"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "pimcore/pimcore"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-r9g5-7q8j-958c",
+      "name": "FUXA provides guest and invalid-token access to protected read APIs in secure mode",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-r9g5-7q8j-958c",
+      "description": "FUXA provides guest and invalid-token access to protected read APIs in secure mode",
+      "date": "2026-05-28",
+      "affected": [
+        "fuxa-server"
+      ],
+      "references": [
+        "https://github.com/frangoteam/FUXA/security/advisories/GHSA-r9g5-7q8j-958c",
+        "https://github.com/frangoteam/FUXA/releases/tag/v1.3.1",
+        "https://github.com/advisories/GHSA-r9g5-7q8j-958c"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "fuxa-server"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-x6p3-76f2-xxvh",
       "name": "Shamefile has an arbitrary file read via shamefile.yaml in shame next",
@@ -1327,150 +1464,12 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rw47-hm26-6wr7",
-      "name": "CrowdSec AppSec silently drops request body for chunked / HTTP-2 requests",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-rw47-hm26-6wr7",
-      "description": "CrowdSec AppSec silently drops request body for chunked / HTTP-2 requests",
-      "date": "2026-05-27",
-      "affected": [
-        "github.com/crowdsecurity/crowdsec"
-      ],
-      "references": [
-        "https://github.com/crowdsecurity/crowdsec/security/advisories/GHSA-rw47-hm26-6wr7",
-        "https://github.com/advisories/GHSA-rw47-hm26-6wr7"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/crowdsecurity/crowdsec"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/crowdsecurity/crowdsec"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-273h-gvwr-c3qj",
-      "name": "CrowdSec LAPI: Denial of Service via Unbounded Gzip Decompression",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-273h-gvwr-c3qj",
-      "description": "CrowdSec LAPI: Denial of Service via Unbounded Gzip Decompression",
-      "date": "2026-05-27",
-      "affected": [
-        "github.com/crowdsecurity/crowdsec"
-      ],
-      "references": [
-        "https://github.com/crowdsecurity/crowdsec/security/advisories/GHSA-273h-gvwr-c3qj",
-        "https://github.com/advisories/GHSA-273h-gvwr-c3qj"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/crowdsecurity/crowdsec"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/crowdsecurity/crowdsec"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-chqv-56wv-7564",
-      "name": "Deno's TLS retry copies stale upgrade hook, risking plaintext traffic",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-chqv-56wv-7564",
-      "description": "Deno's TLS retry copies stale upgrade hook, risking plaintext traffic",
-      "date": "2026-05-27",
-      "affected": [
-        "deno"
-      ],
-      "references": [
-        "https://github.com/denoland/deno/security/advisories/GHSA-chqv-56wv-7564",
-        "https://github.com/advisories/GHSA-chqv-56wv-7564"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mxfr-6hcw-j9rq",
-      "name": "Langroid has Prompt to SQL Injection, Leading to RCE",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-mxfr-6hcw-j9rq",
-      "description": "Langroid has Prompt to SQL Injection, Leading to RCE",
-      "date": "2026-05-27",
-      "affected": [
-        "langroid"
-      ],
-      "references": [
-        "https://github.com/langroid/langroid/security/advisories/GHSA-mxfr-6hcw-j9rq",
-        "https://github.com/advisories/GHSA-mxfr-6hcw-j9rq"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gf2q-c269-pqgc",
-      "name": "LiquidJS is Vulnerable to Remote Code Execution",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-gf2q-c269-pqgc",
-      "description": "LiquidJS is Vulnerable to Remote Code Execution",
-      "date": "2026-05-27",
-      "affected": [
-        "liquidjs"
-      ],
-      "references": [
-        "https://github.com/harttle/liquidjs/security/advisories/GHSA-gf2q-c269-pqgc",
-        "https://github.com/harttle/liquidjs/releases/tag/v10.26.0",
-        "https://github.com/advisories/GHSA-gf2q-c269-pqgc"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "liquidjs"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r7g9-xpmj-5fcq",
-      "name": "LiquidJS Vulnerable to ReDoS via Quadratic Backtracking in `strip_html` Filter Regex",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-r7g9-xpmj-5fcq",
-      "description": "LiquidJS Vulnerable to ReDoS via Quadratic Backtracking in `strip_html` Filter Regex",
-      "date": "2026-05-27",
-      "affected": [
-        "liquidjs"
-      ],
-      "references": [
-        "https://github.com/harttle/liquidjs/security/advisories/GHSA-r7g9-xpmj-5fcq",
-        "https://github.com/harttle/liquidjs/releases/tag/v10.26.0",
-        "https://github.com/advisories/GHSA-r7g9-xpmj-5fcq"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "liquidjs"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/getarcaneapp/arcane/backend": "Arcane Has an Authenticated Arbitrary Host File Read via Docker Compose Include Directives",
+    "pimcore/pimcore": "Pimcore Platform - SQL Injection in DataObject composite index handling during class definition impo",
     "symfony/polyfill-intl-idn": "symfony/polyfill-intl-idn: xn-- labels with ASCII-only Punycode payloads are treated as equivalent t",
     "symfony/polyfill": "symfony/polyfill-intl-idn: xn-- labels with ASCII-only Punycode payloads are treated as equivalent t",
     "github.com/openbao/openbao": "OpenBao's Kerberos Auth Method Accumulates Unaccessible Tokens",
@@ -1486,7 +1485,6 @@
     "github.com/projectcapsule/capsule": "Capsule TenantResource RawItems Cluster-Scoped Resource Creation Vulnerability",
     "symfony/html-sanitizer": "Symfony's HtmlSanitizer UrlAttributeSanitizer Omits action/formaction/poster/cite \u2014 `javascript`: UR",
     "github.com/kata-containers/kata-containers": "Kata guest escape: runtime-rs guest-root to host-root escape via virtiofs",
-    "pimcore/pimcore": "Pimcore has a CustomReports Share Bypass",
     "symfony/yaml": "Symfony's YAML Parser has a ReDoS via Catastrophic Backtracking in Parser::cleanup() Regex",
     "automad/automad": "Automad has Broken Access Control: Unauthenticated exposure of administrator bcrypt password hashes ",
     "symfony/monolog-bridge": "Symfony has Unauthenticated PHP Object Deserialization in MonologBridge server:log Listener",
@@ -1497,8 +1495,7 @@
     "symfony/twig-bridge": "Symfony Vulnerable to stored XSS in WebProfiler CodeExtension::fileExcerpt() \u2014 Unescaped Non-PHP Fil",
     "symfony/dom-crawler": "Symfony has XXE (Local File Disclosure) in DomCrawler::addXmlContent() via validateOnParse = true",
     "symfony/mime": "Symfony has Email Header Injection via Non-Token Characters in Mime Parameter Names",
-    "symfony/mailer": "Symfony has an Argument Injection in SendmailTransport via Dash-Prefixed Recipient Address",
-    "github.com/crowdsecurity/crowdsec": "CrowdSec AppSec silently drops request body for chunked / HTTP-2 requests"
+    "symfony/mailer": "Symfony has an Argument Injection in SendmailTransport via Dash-Prefixed Recipient Address"
   },
   "malicious_packages": {
     "npm": {},
