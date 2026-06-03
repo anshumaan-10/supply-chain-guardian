@@ -1,8 +1,134 @@
 {
   "version": "2026.06.03",
-  "last_updated": "2026-06-03T16:46:14.625092+00:00",
+  "last_updated": "2026-06-03T20:53:48.880902+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-8646-j5j9-6r62",
+      "name": "React Router vulnerable to XSS in unstable RSC redirect handling via javascript: redirect targets",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-8646-j5j9-6r62",
+      "description": "React Router vulnerable to XSS in unstable RSC redirect handling via javascript: redirect targets",
+      "date": "2026-06-03",
+      "affected": [
+        "react-router"
+      ],
+      "references": [
+        "https://github.com/remix-run/react-router/security/advisories/GHSA-8646-j5j9-6r62",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-33245",
+        "https://github.com/advisories/GHSA-8646-j5j9-6r62"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "react-router"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f22v-gfqf-p8f3",
+      "name": "React Router has stored XSS via unescaped Location header in prerendered redirect HTML",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-f22v-gfqf-p8f3",
+      "description": "React Router has stored XSS via unescaped Location header in prerendered redirect HTML",
+      "date": "2026-06-03",
+      "affected": [
+        "react-router"
+      ],
+      "references": [
+        "https://github.com/remix-run/react-router/security/advisories/GHSA-f22v-gfqf-p8f3",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-33244",
+        "https://github.com/advisories/GHSA-f22v-gfqf-p8f3"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "react-router"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-m8xx-3x29-84h8",
+      "name": "backpack/crud is vulnerable to Cross-Site Scripting (XSS)",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-m8xx-3x29-84h8",
+      "description": "backpack/crud is vulnerable to Cross-Site Scripting (XSS)",
+      "date": "2026-06-03",
+      "affected": [
+        "backpack/crud",
+        "backpack/crud",
+        "backpack/crud"
+      ],
+      "references": [
+        "https://github.com/Laravel-Backpack/CRUD/security/advisories/GHSA-m8xx-3x29-84h8",
+        "https://nvd.nist.gov/vuln/detail/CVE-2022-31114",
+        "https://backpackforlaravel.com/articles/news/we-recommend-you-fix-this-vulnerability",
+        "https://github.com/advisories/GHSA-m8xx-3x29-84h8"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "backpack/crud",
+          "backpack/crud",
+          "backpack/crud"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cjqg-rq2h-2fvj",
+      "name": "Docling: Unsafe Zip Extraction in EasyOCR Model Download",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-cjqg-rq2h-2fvj",
+      "description": "Docling: Unsafe Zip Extraction in EasyOCR Model Download",
+      "date": "2026-06-03",
+      "affected": [
+        "docling"
+      ],
+      "references": [
+        "https://github.com/docling-project/docling/security/advisories/GHSA-cjqg-rq2h-2fvj",
+        "https://github.com/docling-project/docling/releases/tag/v2.91.0",
+        "https://github.com/advisories/GHSA-cjqg-rq2h-2fvj"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-c27g-q93r-2cwf",
+      "name": "launch-editor vulnerable to command injection via the crafted request on Windows",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-c27g-q93r-2cwf",
+      "description": "launch-editor vulnerable to command injection via the crafted request on Windows",
+      "date": "2026-06-03",
+      "affected": [
+        "vite",
+        "launch-editor"
+      ],
+      "references": [
+        "https://github.com/vitejs/launch-editor/security/advisories/GHSA-c27g-q93r-2cwf",
+        "https://github.com/yyx990803/launch-editor/security/advisories/GHSA-c27g-q93r-2cwf",
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-52011",
+        "https://github.com/vitejs/launch-editor/commit/971291e8a6a91226e1616c5c0ec85423d2d50a5e",
+        "https://github.com/advisories/GHSA-c27g-q93r-2cwf"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "vite",
+            "launch-editor"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-qjwp-hrq6-r26r",
       "name": "kas checks out SHA-like git branches as valid commits",
@@ -930,117 +1056,11 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xg76-5qj2-2hhv",
-      "name": "Admidio: CSRF in SSO client `enable` action toggles SAML/OIDC clients without token validation",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-xg76-5qj2-2hhv",
-      "description": "Admidio: CSRF in SSO client `enable` action toggles SAML/OIDC clients without token validation",
-      "date": "2026-05-29",
-      "affected": [
-        "admidio/admidio"
-      ],
-      "references": [
-        "https://github.com/Admidio/admidio/security/advisories/GHSA-xg76-5qj2-2hhv",
-        "https://github.com/advisories/GHSA-xg76-5qj2-2hhv"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "admidio/admidio"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mx25-j3rc-6w2w",
-      "name": "Admidio's CSRF in registration `send_login` mode resets arbitrary user passwords",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-mx25-j3rc-6w2w",
-      "description": "Admidio's CSRF in registration `send_login` mode resets arbitrary user passwords",
-      "date": "2026-05-29",
-      "affected": [
-        "admidio/admidio"
-      ],
-      "references": [
-        "https://github.com/Admidio/admidio/security/advisories/GHSA-mx25-j3rc-6w2w",
-        "https://github.com/advisories/GHSA-mx25-j3rc-6w2w"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "admidio/admidio"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rwjr-qjj3-mq2f",
-      "name": "Admidio module-administrator can delete or reorder categories owned by other modules via dead author",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-rwjr-qjj3-mq2f",
-      "description": "Admidio module-administrator can delete or reorder categories owned by other modules via dead authorization check in `modules/categories.php`",
-      "date": "2026-05-29",
-      "affected": [
-        "admidio/admidio"
-      ],
-      "references": [
-        "https://github.com/Admidio/admidio/security/advisories/GHSA-rwjr-qjj3-mq2f",
-        "https://github.com/advisories/GHSA-rwjr-qjj3-mq2f"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "admidio/admidio"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qc4c-hrmc-4f78",
-      "name": "Admidio: Authorization bypass in file_delete enables cross-folder file removal by authenticated user",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-qc4c-hrmc-4f78",
-      "description": "Admidio: Authorization bypass in file_delete enables cross-folder file removal by authenticated users without delete privileges",
-      "date": "2026-05-29",
-      "affected": [
-        "admidio/admidio"
-      ],
-      "references": [
-        "https://github.com/Admidio/admidio/security/advisories/GHSA-qc4c-hrmc-4f78",
-        "https://github.com/Admidio/admidio/security/advisories/GHSA-rmpj-3x5m-9m5f",
-        "https://github.com/advisories/GHSA-qc4c-hrmc-4f78"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "admidio/admidio"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xjhv-pp2r-6f82",
-      "name": "BoxLite has a Timeout Bypass Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-xjhv-pp2r-6f82",
-      "description": "BoxLite has a Timeout Bypass Vulnerability",
-      "date": "2026-05-29",
-      "affected": [
-        "boxlite"
-      ],
-      "references": [
-        "https://github.com/boxlite-ai/boxlite/security/advisories/GHSA-xjhv-pp2r-6f82",
-        "https://github.com/advisories/GHSA-xjhv-pp2r-6f82"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "backpack/crud": "backpack/crud is vulnerable to Cross-Site Scripting (XSS)",
     "@vitest/browser": "Vitest browser mode serves unsanitized otelCarrier query parameter as inline script",
     "github.com/nezhahq/nezha": "Nezha's authenticated agents can forge service-monitor results for other users' services",
     "@agenticmail/mcp": "@agenticmail/mcp Missing Authentication for Critical Function",
