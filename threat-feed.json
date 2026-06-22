@@ -1,8 +1,507 @@
 {
   "version": "2026.06.22",
-  "last_updated": "2026-06-22T16:54:05.373268+00:00",
+  "last_updated": "2026-06-22T20:46:34.656208+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-c8q4-9h32-2ww8",
+      "name": "Spinnaker has uon-safe yaml deserialization, allowing RCE when using specific types",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-c8q4-9h32-2ww8",
+      "description": "Spinnaker has uon-safe yaml deserialization, allowing RCE when using specific types",
+      "date": "2026-06-22",
+      "affected": [
+        "io.spinnaker.orca:orca-core",
+        "io.spinnaker.orca:orca-core",
+        "io.spinnaker.rosco:rosco-core",
+        "io.spinnaker.rosco:rosco-core",
+        "io.spinnaker.orca:orca-core",
+        "io.spinnaker.rosco:rosco-core"
+      ],
+      "references": [
+        "https://github.com/spinnaker/spinnaker/security/advisories/GHSA-c8q4-9h32-2ww8",
+        "https://github.com/advisories/GHSA-c8q4-9h32-2ww8"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fhrq-3gmx-p879",
+      "name": "OpenAM SAML2 Cluster Cookie-Hash-Redirect Path has Pre-authentication Reflected XSS via `FSUtils.pos",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-fhrq-3gmx-p879",
+      "description": "OpenAM SAML2 Cluster Cookie-Hash-Redirect Path has Pre-authentication Reflected XSS via `FSUtils.postToTarget`",
+      "date": "2026-06-22",
+      "affected": [
+        "org.openidentityplatform.openam:openam-federation-library"
+      ],
+      "references": [
+        "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-fhrq-3gmx-p879",
+        "https://github.com/OpenIdentityPlatform/OpenAM/releases/tag/16.1.1",
+        "https://github.com/advisories/GHSA-fhrq-3gmx-p879"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7cfq-5mhv-jrp9",
+      "name": "Inspektor Gadget: Unprivileged container can crash USDT note parser via crafted ELF (no shipped gadg",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-7cfq-5mhv-jrp9",
+      "description": "Inspektor Gadget: Unprivileged container can crash USDT note parser via crafted ELF (no shipped gadget affected)",
+      "date": "2026-06-22",
+      "affected": [
+        "github.com/inspektor-gadget/inspektor-gadget"
+      ],
+      "references": [
+        "https://github.com/inspektor-gadget/inspektor-gadget/security/advisories/GHSA-7cfq-5mhv-jrp9",
+        "https://github.com/inspektor-gadget/inspektor-gadget/pull/5547",
+        "https://github.com/inspektor-gadget/inspektor-gadget/commit/ec69da2e00c39bc43f389f943899e5ff9c7b011a",
+        "https://github.com/inspektor-gadget/inspektor-gadget/releases/tag/v0.53.1",
+        "https://github.com/advisories/GHSA-7cfq-5mhv-jrp9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/inspektor-gadget/inspektor-gadget"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/inspektor-gadget/inspektor-gadget"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-x93q-x9pc-w5hw",
+      "name": "Paymenter has broken object level authorization via service reference manipulation on ticket creatio",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-x93q-x9pc-w5hw",
+      "description": "Paymenter has broken object level authorization via service reference manipulation on ticket creation",
+      "date": "2026-06-22",
+      "affected": [
+        "paymenter/paymenter"
+      ],
+      "references": [
+        "https://github.com/Paymenter/Paymenter/security/advisories/GHSA-x93q-x9pc-w5hw",
+        "https://github.com/advisories/GHSA-x93q-x9pc-w5hw"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "paymenter/paymenter"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rv89-wch8-c574",
+      "name": "Paymenter doesn't reset email verification status after email change",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-rv89-wch8-c574",
+      "description": "Paymenter doesn't reset email verification status after email change",
+      "date": "2026-06-22",
+      "affected": [
+        "paymenter/paymenter"
+      ],
+      "references": [
+        "https://github.com/Paymenter/Paymenter/security/advisories/GHSA-rv89-wch8-c574",
+        "https://github.com/advisories/GHSA-rv89-wch8-c574"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "paymenter/paymenter"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7wwh-xcc3-9fcg",
+      "name": "Paymenter has Blind Unauthenticated SSRF on the Paypal gateway module",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-7wwh-xcc3-9fcg",
+      "description": "Paymenter has Blind Unauthenticated SSRF on the Paypal gateway module",
+      "date": "2026-06-22",
+      "affected": [
+        "paymenter/paymenter"
+      ],
+      "references": [
+        "https://github.com/Paymenter/Paymenter/security/advisories/GHSA-7wwh-xcc3-9fcg",
+        "https://github.com/advisories/GHSA-7wwh-xcc3-9fcg"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "paymenter/paymenter"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-49p4-px3h-rq49",
+      "name": "Build breakout using malicious Containerfile and Git Smart HTTP server or GitHub release tar archive",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-49p4-px3h-rq49",
+      "description": "Build breakout using malicious Containerfile and Git Smart HTTP server or GitHub release tar archive",
+      "date": "2026-06-22",
+      "affected": [
+        "github.com/containers/buildah"
+      ],
+      "references": [
+        "https://github.com/containers/buildah/security/advisories/GHSA-49p4-px3h-rq49",
+        "https://github.com/podman-container-tools/buildah/security/advisories/GHSA-49p4-px3h-rq49",
+        "https://github.com/advisories/GHSA-49p4-px3h-rq49"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/containers/buildah"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/containers/buildah"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fq9h-c788-fx73",
+      "name": "OpenAM has pre-auth Reflected XSS in OAuth2 / OIDC response_mode=form_post via state parameter (Form",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-fq9h-c788-fx73",
+      "description": "OpenAM has pre-auth Reflected XSS in OAuth2 / OIDC response_mode=form_post via state parameter (FormPostResponse.ftl)",
+      "date": "2026-06-22",
+      "affected": [
+        "org.openidentityplatform.openam:openam-oauth2"
+      ],
+      "references": [
+        "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-fq9h-c788-fx73",
+        "https://github.com/OpenIdentityPlatform/OpenAM/releases/tag/16.1.1",
+        "https://github.com/advisories/GHSA-fq9h-c788-fx73"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-c556-q2mh-477v",
+      "name": "OpenAM Authenticated Server-Side Request Forgery (SSRF) via `/sessionservice`",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-c556-q2mh-477v",
+      "description": "OpenAM Authenticated Server-Side Request Forgery (SSRF) via `/sessionservice`",
+      "date": "2026-06-22",
+      "affected": [
+        "org.openidentityplatform.openam:openam-core"
+      ],
+      "references": [
+        "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-c556-q2mh-477v",
+        "https://github.com/OpenIdentityPlatform/OpenAM/releases/tag/16.1.1",
+        "https://github.com/advisories/GHSA-c556-q2mh-477v"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-w56x-9778-rppx",
+      "name": "xwiki-pro-macros has remote code execution from page title and content via excerpt-include macro",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-w56x-9778-rppx",
+      "description": "xwiki-pro-macros has remote code execution from page title and content via excerpt-include macro",
+      "date": "2026-06-22",
+      "affected": [
+        "com.xwiki.pro:xwiki-pro-macros"
+      ],
+      "references": [
+        "https://github.com/xwikisas/xwiki-pro-macros/security/advisories/GHSA-w56x-9778-rppx",
+        "https://github.com/advisories/GHSA-w56x-9778-rppx"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xjvp-4fhw-gc47",
+      "name": "runc: Malicious image with /dev symlink can trigger limited host filesystem integrity violations ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-xjvp-4fhw-gc47",
+      "description": "runc: Malicious image with /dev symlink can trigger limited host filesystem integrity violations ",
+      "date": "2026-06-22",
+      "affected": [
+        "github.com/opencontainers/runc",
+        "github.com/opencontainers/runc",
+        "github.com/opencontainers/runc"
+      ],
+      "references": [
+        "https://github.com/opencontainers/runc/security/advisories/GHSA-xjvp-4fhw-gc47",
+        "https://github.com/advisories/GHSA-xjvp-4fhw-gc47"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/opencontainers/runc",
+            "github.com/opencontainers/runc",
+            "github.com/opencontainers/runc"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/opencontainers/runc",
+          "github.com/opencontainers/runc",
+          "github.com/opencontainers/runc"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2vg8-q4c2-5cw3",
+      "name": "OpenAM has LDAP Injection via `_queryId` Parameter",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2vg8-q4c2-5cw3",
+      "description": "OpenAM has LDAP Injection via `_queryId` Parameter",
+      "date": "2026-06-22",
+      "affected": [
+        "org.openidentityplatform.openam:openam-core-rest"
+      ],
+      "references": [
+        "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-2vg8-q4c2-5cw3",
+        "https://github.com/OpenIdentityPlatform/OpenAM/releases/tag/16.1.1",
+        "https://github.com/advisories/GHSA-8984-9gww-h52x",
+        "https://github.com/advisories/GHSA-2vg8-q4c2-5cw3"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-95jh-7r58-xmxw",
+      "name": "AVideo has an Authorize.Net Webhook Signature Bypass that Enables Wallet Balance Inflation via Forge",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-95jh-7r58-xmxw",
+      "description": "AVideo has an Authorize.Net Webhook Signature Bypass that Enables Wallet Balance Inflation via Forged Payment Data",
+      "date": "2026-06-22",
+      "affected": [
+        "wwbn/avideo"
+      ],
+      "references": [
+        "https://github.com/WWBN/AVideo/security/advisories/GHSA-95jh-7r58-xmxw",
+        "https://github.com/WWBN/AVideo/commit/033e83ae904cacb99495dbea7cbcfb3738cf42e4",
+        "https://github.com/advisories/GHSA-95jh-7r58-xmxw"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "wwbn/avideo"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-95pq-hr8p-f5g7",
+      "name": "ComfyUI-Manager has an Unprotected Alternate Channel (CWE-420)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-95pq-hr8p-f5g7",
+      "description": "ComfyUI-Manager has an Unprotected Alternate Channel (CWE-420)",
+      "date": "2026-06-22",
+      "affected": [
+        "comfyui-manager"
+      ],
+      "references": [
+        "https://github.com/Comfy-Org/ComfyUI-Manager/security/advisories/GHSA-95pq-hr8p-f5g7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-67303",
+        "https://github.com/Comfy-Org/ComfyUI-Manager/pull/2338/commits/e44c5cef58fb4973670b86433b9d24d077b44a26",
+        "https://github.com/Comfy-Org/ComfyUI-Manager/blob/main/docs/en/v3.38-userdata-security-migration.md",
+        "https://github.com/advisories/GHSA-95pq-hr8p-f5g7"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wf69-r4mx-43rr",
+      "name": "AVideo Vulnerable to Unauthenticated .env File Exposure via Official Docker Compose Configuration",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-wf69-r4mx-43rr",
+      "description": "AVideo Vulnerable to Unauthenticated .env File Exposure via Official Docker Compose Configuration",
+      "date": "2026-06-22",
+      "affected": [
+        "wwbn/avideo"
+      ],
+      "references": [
+        "https://github.com/WWBN/AVideo/security/advisories/GHSA-wf69-r4mx-43rr",
+        "https://github.com/WWBN/AVideo/commit/7f418de1a95ab87bb8c8c3eb3702d71c351e098d",
+        "https://github.com/advisories/GHSA-wf69-r4mx-43rr"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "wwbn/avideo"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8j8m-p79x-g4jm",
+      "name": "AVideo's Privilege Escalation via Unguarded Permission Parameters in signUp API Allows Self-Granting",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-8j8m-p79x-g4jm",
+      "description": "AVideo's Privilege Escalation via Unguarded Permission Parameters in signUp API Allows Self-Granting Upload/Stream/Meet Permissions",
+      "date": "2026-06-22",
+      "affected": [
+        "wwbn/avideo"
+      ],
+      "references": [
+        "https://github.com/WWBN/AVideo/security/advisories/GHSA-8j8m-p79x-g4jm",
+        "https://github.com/WWBN/AVideo/commit/061f242cba0e068cc1b461705fe839274b5038ff",
+        "https://github.com/advisories/GHSA-8j8m-p79x-g4jm"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "wwbn/avideo"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fjj5-v948-whjj",
+      "name": "Mise Vulnerable to Arbitrary Code Execution via Tera Templates in .tool-versions Files (Trust Bypass",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-fjj5-v948-whjj",
+      "description": "Mise Vulnerable to Arbitrary Code Execution via Tera Templates in .tool-versions Files (Trust Bypass)",
+      "date": "2026-06-22",
+      "affected": [
+        "mise"
+      ],
+      "references": [
+        "https://github.com/jdx/mise/security/advisories/GHSA-fjj5-v948-whjj",
+        "https://github.com/advisories/GHSA-fjj5-v948-whjj"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rhgp-6wq6-9j67",
+      "name": "motionEye's World-Readable Configuration File Exposes Admin Password Hash",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-rhgp-6wq6-9j67",
+      "description": "motionEye's World-Readable Configuration File Exposes Admin Password Hash",
+      "date": "2026-06-22",
+      "affected": [
+        "motioneye"
+      ],
+      "references": [
+        "https://github.com/motioneye-project/motioneye/security/advisories/GHSA-rhgp-6wq6-9j67",
+        "https://github.com/advisories/GHSA-rhgp-6wq6-9j67"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g9fx-5r4h-pcw3",
+      "name": "motionEye has an Arbitrary File Read via Path Traversal in Picture/Movie Preview Endpoint",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-g9fx-5r4h-pcw3",
+      "description": "motionEye has an Arbitrary File Read via Path Traversal in Picture/Movie Preview Endpoint",
+      "date": "2026-06-22",
+      "affected": [
+        "motioneye"
+      ],
+      "references": [
+        "https://github.com/motioneye-project/motioneye/security/advisories/GHSA-g9fx-5r4h-pcw3",
+        "https://github.com/advisories/GHSA-g9fx-5r4h-pcw3"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-w6j9-vw59-27wv",
+      "name": "Gogs has an Authentication Bypass via Unvalidated Reverse Proxy Headers",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-w6j9-vw59-27wv",
+      "description": "Gogs has an Authentication Bypass via Unvalidated Reverse Proxy Headers",
+      "date": "2026-06-22",
+      "affected": [
+        "gogs.io/gogs"
+      ],
+      "references": [
+        "https://github.com/gogs/gogs/security/advisories/GHSA-w6j9-vw59-27wv",
+        "https://github.com/gogs/gogs/pull/8264",
+        "https://github.com/gogs/gogs/commit/0089c4c8e5b8d99eb6e5c8727f8f40d765f1f58a",
+        "https://github.com/gogs/gogs/releases/tag/v0.14.3",
+        "https://github.com/advisories/GHSA-w6j9-vw59-27wv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "gogs.io/gogs"
+          ]
+        },
+        "compromised_actions": [
+          "gogs.io/gogs"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-ffm6-vvph-g5f5",
+      "name": "OpenCTI has Semi-Blind SSRF via Unvalidated External URL in Data Ingestion Feature",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-ffm6-vvph-g5f5",
+      "description": "OpenCTI has Semi-Blind SSRF via Unvalidated External URL in Data Ingestion Feature",
+      "date": "2026-06-22",
+      "affected": [
+        "pycti"
+      ],
+      "references": [
+        "https://github.com/OpenCTI-Platform/opencti/security/advisories/GHSA-ffm6-vvph-g5f5",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-21887",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/pycti/PYSEC-2026-118.yaml",
+        "https://github.com/advisories/GHSA-ffm6-vvph-g5f5"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3qq3-668m-v9mj",
+      "name": "Gogs has a Denial of Service in repository/wiki file listing web pages",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3qq3-668m-v9mj",
+      "description": "Gogs has a Denial of Service in repository/wiki file listing web pages",
+      "date": "2026-06-22",
+      "affected": [
+        "gogs.io/gogs"
+      ],
+      "references": [
+        "https://github.com/gogs/gogs/security/advisories/GHSA-3qq3-668m-v9mj",
+        "https://github.com/gogs/gogs/pull/8116",
+        "https://github.com/gogs/gogs/commit/ae41bab5f28e4880edcef01c91d2cbb8839ec9e4",
+        "https://github.com/gogs/gogs/releases/tag/v0.14.3",
+        "https://github.com/advisories/GHSA-3qq3-668m-v9mj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "gogs.io/gogs"
+          ]
+        },
+        "compromised_actions": [
+          "gogs.io/gogs"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-5pm9-r2m8-rcmj",
       "name": "Paymenter vulnerable to Remote Code Execution via public file uploads",
@@ -595,591 +1094,20 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xcqx-9jf5-w339",
-      "name": " SearXNG MCP Server: Unbounded Response Body Read Bypasses URL Size Limit in `web_url_read`",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-xcqx-9jf5-w339",
-      "description": " SearXNG MCP Server: Unbounded Response Body Read Bypasses URL Size Limit in `web_url_read`",
-      "date": "2026-06-19",
-      "affected": [
-        "mcp-searxng"
-      ],
-      "references": [
-        "https://github.com/ihor-sokoliuk/mcp-searxng/security/advisories/GHSA-xcqx-9jf5-w339",
-        "https://github.com/advisories/GHSA-xcqx-9jf5-w339"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "mcp-searxng"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-48x2-6pr9-2jjf",
-      "name": "Network-AI: EnvironmentManager.restore() backup ID path traversal copies arbitrary directories into ",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-48x2-6pr9-2jjf",
-      "description": "Network-AI: EnvironmentManager.restore() backup ID path traversal copies arbitrary directories into environment data",
-      "date": "2026-06-19",
-      "affected": [
-        "network-ai"
-      ],
-      "references": [
-        "https://github.com/Jovancoding/Network-AI/security/advisories/GHSA-48x2-6pr9-2jjf",
-        "https://github.com/Jovancoding/Network-AI/commit/a59c13a1f0ce0e8a0779a90343eef92fac5ab4c3",
-        "https://github.com/Jovancoding/Network-AI/releases/tag/v5.12.2",
-        "https://github.com/advisories/GHSA-48x2-6pr9-2jjf"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "network-ai"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6x2m-p4xp-wg22",
-      "name": "Network-AI: EnvironmentManager.backup() follows symlinked directories and copies files outside the e",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-6x2m-p4xp-wg22",
-      "description": "Network-AI: EnvironmentManager.backup() follows symlinked directories and copies files outside the environment root into backups",
-      "date": "2026-06-19",
-      "affected": [
-        "network-ai"
-      ],
-      "references": [
-        "https://github.com/Jovancoding/Network-AI/security/advisories/GHSA-6x2m-p4xp-wg22",
-        "https://github.com/Jovancoding/Network-AI/commit/a59c13a1f0ce0e8a0779a90343eef92fac5ab4c3",
-        "https://github.com/Jovancoding/Network-AI/releases/tag/v5.12.2",
-        "https://github.com/advisories/GHSA-6x2m-p4xp-wg22"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "network-ai"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mxjx-28vx-xjjj",
-      "name": "Network-AI: ApprovalInbox HTTP server has no authentication \u2014 anyone can approve pending agent actio",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-mxjx-28vx-xjjj",
-      "description": "Network-AI: ApprovalInbox HTTP server has no authentication \u2014 anyone can approve pending agent actions ",
-      "date": "2026-06-19",
-      "affected": [
-        "network-ai"
-      ],
-      "references": [
-        "https://github.com/Jovancoding/Network-AI/security/advisories/GHSA-mxjx-28vx-xjjj",
-        "https://github.com/Jovancoding/Network-AI/commit/a59c13a1f0ce0e8a0779a90343eef92fac5ab4c3",
-        "https://github.com/Jovancoding/Network-AI/releases/tag/v5.12.2",
-        "https://github.com/advisories/GHSA-mxjx-28vx-xjjj"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "network-ai"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jvcm-f35g-w78p",
-      "name": "Network-AI: AgentRuntime sandbox path-prefix checks allow file access outside the configured base di",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-jvcm-f35g-w78p",
-      "description": "Network-AI: AgentRuntime sandbox path-prefix checks allow file access outside the configured base directory",
-      "date": "2026-06-19",
-      "affected": [
-        "network-ai"
-      ],
-      "references": [
-        "https://github.com/Jovancoding/Network-AI/security/advisories/GHSA-jvcm-f35g-w78p",
-        "https://github.com/Jovancoding/Network-AI/commit/a59c13a1f0ce0e8a0779a90343eef92fac5ab4c3",
-        "https://github.com/Jovancoding/Network-AI/releases/tag/v5.12.2",
-        "https://github.com/advisories/GHSA-jvcm-f35g-w78p"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "network-ai"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2fmp-9rvw-hc96",
-      "name": "Network-AI: Poisoned environment backup manifest allows arbitrary recursive deletion during backup p",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-2fmp-9rvw-hc96",
-      "description": "Network-AI: Poisoned environment backup manifest allows arbitrary recursive deletion during backup pruning",
-      "date": "2026-06-19",
-      "affected": [
-        "network-ai"
-      ],
-      "references": [
-        "https://github.com/Jovancoding/Network-AI/security/advisories/GHSA-2fmp-9rvw-hc96",
-        "https://github.com/Jovancoding/Network-AI/commit/a59c13a1f0ce0e8a0779a90343eef92fac5ab4c3",
-        "https://github.com/Jovancoding/Network-AI/releases/tag/v5.12.2",
-        "https://github.com/advisories/GHSA-2fmp-9rvw-hc96"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "network-ai"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9c83-rr99-vfwj",
-      "name": "MCPVault: PathFilter restricted directories (.git/.obsidian/node_modules) only denied at vault root,",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-9c83-rr99-vfwj",
-      "description": "MCPVault: PathFilter restricted directories (.git/.obsidian/node_modules) only denied at vault root, not nested",
-      "date": "2026-06-19",
-      "affected": [
-        "@bitbonsai/mcpvault"
-      ],
-      "references": [
-        "https://github.com/bitbonsai/mcpvault/security/advisories/GHSA-9c83-rr99-vfwj",
-        "https://github.com/advisories/GHSA-9c83-rr99-vfwj"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@bitbonsai/mcpvault"
-          ]
-        },
-        "compromised_actions": [
-          "@bitbonsai/mcpvault"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h5jc-78hr-3pc9",
-      "name": "Sveltia CMS: Stored XSS in Markdown/RichText preview via unsandboxed same-origin iframe",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-h5jc-78hr-3pc9",
-      "description": "Sveltia CMS: Stored XSS in Markdown/RichText preview via unsandboxed same-origin iframe",
-      "date": "2026-06-19",
-      "affected": [
-        "@sveltia/cms"
-      ],
-      "references": [
-        "https://github.com/sveltia/sveltia-cms/security/advisories/GHSA-h5jc-78hr-3pc9",
-        "https://github.com/sveltia/sveltia-cms/commit/8c46294eadf52a8ac48740ccb5054b99d65cff1b",
-        "https://github.com/sveltia/sveltia-cms/releases/tag/v0.167.3",
-        "https://github.com/advisories/GHSA-h5jc-78hr-3pc9"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@sveltia/cms"
-          ]
-        },
-        "compromised_actions": [
-          "@sveltia/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-p9xj-fpr2-jf2q",
-      "name": "symfony/ux-toolkit: Path Traversal Allows Arbitrary File Write and Read via Crafted Recipe Manifest",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-p9xj-fpr2-jf2q",
-      "description": "symfony/ux-toolkit: Path Traversal Allows Arbitrary File Write and Read via Crafted Recipe Manifest",
-      "date": "2026-06-19",
-      "affected": [
-        "symfony/ux-toolkit",
-        "symfony/ux-toolkit"
-      ],
-      "references": [
-        "https://github.com/symfony/ux/security/advisories/GHSA-p9xj-fpr2-jf2q",
-        "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/ux-toolkit/CVE-2026-55878.yaml",
-        "https://github.com/advisories/GHSA-p9xj-fpr2-jf2q"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "symfony/ux-toolkit",
-          "symfony/ux-toolkit"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6v8j-33hc-mv84",
-      "name": "symfony/ux-icons: XSS via unsanitized SVG content in local files and Iconify on-demand responses",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-6v8j-33hc-mv84",
-      "description": "symfony/ux-icons: XSS via unsanitized SVG content in local files and Iconify on-demand responses",
-      "date": "2026-06-19",
-      "affected": [
-        "symfony/ux-icons",
-        "symfony/ux-icons"
-      ],
-      "references": [
-        "https://github.com/symfony/ux/security/advisories/GHSA-6v8j-33hc-mv84",
-        "https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/ux-icons/CVE-2026-55877.yaml",
-        "https://github.com/advisories/GHSA-6v8j-33hc-mv84"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "symfony/ux-icons",
-          "symfony/ux-icons"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4vrg-r928-h5vv",
-      "name": "SpiceDB: Checks involving relations with caveats can result in unconditional permission when conditi",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-4vrg-r928-h5vv",
-      "description": "SpiceDB: Checks involving relations with caveats can result in unconditional permission when conditional permission is expected",
-      "date": "2026-06-19",
-      "affected": [
-        "github.com/authzed/spicedb"
-      ],
-      "references": [
-        "https://github.com/authzed/spicedb/security/advisories/GHSA-4vrg-r928-h5vv",
-        "https://github.com/advisories/GHSA-4vrg-r928-h5vv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/authzed/spicedb"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/authzed/spicedb"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8w8f-r2xv-4q4j",
-      "name": "OpenBao: Transit secrets engine crashes on key creation with `derived: true` for asymmetric key type",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-8w8f-r2xv-4q4j",
-      "description": "OpenBao: Transit secrets engine crashes on key creation with `derived: true` for asymmetric key types",
-      "date": "2026-06-19",
-      "affected": [
-        "github.com/openbao/openbao",
-        "github.com/openbao/openbao"
-      ],
-      "references": [
-        "https://github.com/openbao/openbao/security/advisories/GHSA-8w8f-r2xv-4q4j",
-        "https://github.com/openbao/openbao/pull/3309",
-        "https://github.com/openbao/openbao/commit/db57c62602b25da12951f3f0edb888e7c4da61e5",
-        "https://github.com/openbao/openbao/releases/tag/v2.5.5",
-        "https://github.com/advisories/GHSA-8w8f-r2xv-4q4j"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/openbao/openbao",
-            "github.com/openbao/openbao"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/openbao/openbao",
-          "github.com/openbao/openbao"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mwr2-wmgp-crj6",
-      "name": "OpenBao's System Backend allows Unauthorized Management of the containing Namespace",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-mwr2-wmgp-crj6",
-      "description": "OpenBao's System Backend allows Unauthorized Management of the containing Namespace",
-      "date": "2026-06-19",
-      "affected": [
-        "github.com/openbao/openbao",
-        "github.com/openbao/openbao"
-      ],
-      "references": [
-        "https://github.com/openbao/openbao/security/advisories/GHSA-mwr2-wmgp-crj6",
-        "https://github.com/openbao/openbao/commit/d3c1cc64b1ae7f9868b5c3e80b8b11671f0d97ae",
-        "https://github.com/openbao/openbao/releases/tag/v2.5.5",
-        "https://github.com/advisories/GHSA-mwr2-wmgp-crj6"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/openbao/openbao",
-            "github.com/openbao/openbao"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/openbao/openbao",
-          "github.com/openbao/openbao"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c36x-h252-g9x2",
-      "name": "OpenBao: Cross-namespace lease revocation/renewal via canonical sys/leases/{revoke,renew} \u2014 incomple",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-c36x-h252-g9x2",
-      "description": "OpenBao: Cross-namespace lease revocation/renewal via canonical sys/leases/{revoke,renew} \u2014 incomplete fix of CVE-2026-45808",
-      "date": "2026-06-19",
-      "affected": [
-        "github.com/openbao/openbao",
-        "github.com/openbao/openbao"
-      ],
-      "references": [
-        "https://github.com/openbao/openbao/security/advisories/GHSA-c36x-h252-g9x2",
-        "https://github.com/openbao/openbao/pull/3307",
-        "https://github.com/openbao/openbao/commit/b20b999dd4044d7b419a5472d8fe08407828be37",
-        "https://github.com/openbao/openbao/releases/tag/v2.5.5",
-        "https://github.com/advisories/GHSA-c36x-h252-g9x2"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/openbao/openbao",
-            "github.com/openbao/openbao"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/openbao/openbao",
-          "github.com/openbao/openbao"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6mwx-4547-5vc9",
-      "name": "OpenBao: LDAPi ldaputil (wrong escape func)",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-6mwx-4547-5vc9",
-      "description": "OpenBao: LDAPi ldaputil (wrong escape func)",
-      "date": "2026-06-19",
-      "affected": [
-        "github.com/openbao/openbao",
-        "github.com/openbao/openbao"
-      ],
-      "references": [
-        "https://github.com/openbao/openbao/security/advisories/GHSA-6mwx-4547-5vc9",
-        "https://github.com/openbao/openbao/pull/3306",
-        "https://github.com/openbao/openbao/commit/10b7825c714c1ef25b6c3c1c2cd6ecd8747c0659",
-        "https://github.com/openbao/openbao/releases/tag/v2.5.5",
-        "https://github.com/advisories/GHSA-6mwx-4547-5vc9"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/openbao/openbao",
-            "github.com/openbao/openbao"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/openbao/openbao",
-          "github.com/openbao/openbao"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5c7p-g73q-rpg5",
-      "name": "StarCitizenWiki Extension Embed Video: Stored XSS via malformed src url with $wgEmbedVideoRequireCon",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-5c7p-g73q-rpg5",
-      "description": "StarCitizenWiki Extension Embed Video: Stored XSS via malformed src url with $wgEmbedVideoRequireConsent enabled",
-      "date": "2026-06-19",
-      "affected": [
-        "starcitizenwiki/embedvideo"
-      ],
-      "references": [
-        "https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo/security/advisories/GHSA-5c7p-g73q-rpg5",
-        "https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo/commit/370156335b325bb81d14d89edf0a1f2643d50a84",
-        "https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo/releases/tag/v4.1.0",
-        "https://github.com/advisories/GHSA-5c7p-g73q-rpg5"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "starcitizenwiki/embedvideo"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wwf9-7jrc-rv4q",
-      "name": "Outerbase Studio: Stored XSS in Text Widget Leads to Authentication Token Exposure",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-wwf9-7jrc-rv4q",
-      "description": "Outerbase Studio: Stored XSS in Text Widget Leads to Authentication Token Exposure",
-      "date": "2026-06-19",
-      "affected": [
-        "@outerbase/studio"
-      ],
-      "references": [
-        "https://github.com/outerbase/studio/security/advisories/GHSA-wwf9-7jrc-rv4q",
-        "https://github.com/outerbase/studio/commit/b06fb85e5967440278d5a815721b360920566ab9",
-        "https://github.com/advisories/GHSA-wwf9-7jrc-rv4q"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@outerbase/studio"
-          ]
-        },
-        "compromised_actions": [
-          "@outerbase/studio"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-ccv6-r384-xp75",
-      "name": "Langflow: BaseFileComponent-based nodes arbitrary file read with RCE exploit",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-ccv6-r384-xp75",
-      "description": "Langflow: BaseFileComponent-based nodes arbitrary file read with RCE exploit",
-      "date": "2026-06-19",
-      "affected": [
-        "langflow"
-      ],
-      "references": [
-        "https://github.com/langflow-ai/langflow/security/advisories/GHSA-ccv6-r384-xp75",
-        "https://github.com/langflow-ai/langflow/pull/12945",
-        "https://github.com/advisories/GHSA-ccv6-r384-xp75"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qwqc-p3q8-wcg9",
-      "name": "Langflow: Unauthenticated DoS through multipart form boundary file upload",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-qwqc-p3q8-wcg9",
-      "description": "Langflow: Unauthenticated DoS through multipart form boundary file upload",
-      "date": "2026-06-19",
-      "affected": [
-        "langflow"
-      ],
-      "references": [
-        "https://github.com/langflow-ai/langflow/security/advisories/GHSA-qwqc-p3q8-wcg9",
-        "https://github.com/langflow-ai/langflow/pull/3923",
-        "https://github.com/langflow-ai/langflow/blob/v1.0.18/src/backend/base/langflow/api/v1/files.py#L40",
-        "https://github.com/advisories/GHSA-qwqc-p3q8-wcg9"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7hw8-6q6r-4276",
-      "name": "Langflow: Logout button does not clear session",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-7hw8-6q6r-4276",
-      "description": "Langflow: Logout button does not clear session",
-      "date": "2026-06-19",
-      "affected": [
-        "langflow"
-      ],
-      "references": [
-        "https://github.com/langflow-ai/langflow/security/advisories/GHSA-7hw8-6q6r-4276",
-        "https://github.com/langflow-ai/langflow/pull/10527",
-        "https://github.com/langflow-ai/langflow/pull/10528",
-        "https://github.com/advisories/GHSA-7hw8-6q6r-4276"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qrpv-q767-xqq2",
-      "name": "Langflow: IDOR Vulnerability in `/api/v1/responses` Endpoint Allows Authenticated Attackers to Acces",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-qrpv-q767-xqq2",
-      "description": "Langflow: IDOR Vulnerability in `/api/v1/responses` Endpoint Allows Authenticated Attackers to Access Another User's Flow",
-      "date": "2026-06-19",
-      "affected": [
-        "langflow"
-      ],
-      "references": [
-        "https://github.com/langflow-ai/langflow/security/advisories/GHSA-qrpv-q767-xqq2",
-        "https://github.com/langflow-ai/langflow/pull/12832",
-        "https://github.com/advisories/GHSA-qrpv-q767-xqq2"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h4gh-22qq-72r7",
-      "name": "py7zr: O(n^2) algorithmic complexity DoS in PackInfo._read()",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-h4gh-22qq-72r7",
-      "description": "py7zr: O(n^2) algorithmic complexity DoS in PackInfo._read()",
-      "date": "2026-06-19",
-      "affected": [
-        "py7zr"
-      ],
-      "references": [
-        "https://github.com/miurahr/py7zr/security/advisories/GHSA-h4gh-22qq-72r7",
-        "https://github.com/miurahr/py7zr/releases/tag/v1.1.3",
-        "https://github.com/advisories/GHSA-h4gh-22qq-72r7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
-    "paymenter/paymenter": "Paymenter vulnerable to Remote Code Execution via public file uploads",
+    "github.com/inspektor-gadget/inspektor-gadget": "Inspektor Gadget: Unprivileged container can crash USDT note parser via crafted ELF (no shipped gadg",
+    "paymenter/paymenter": "Paymenter has broken object level authorization via service reference manipulation on ticket creatio",
+    "github.com/containers/buildah": "Build breakout using malicious Containerfile and Git Smart HTTP server or GitHub release tar archive",
+    "github.com/opencontainers/runc": "runc: Malicious image with /dev symlink can trigger limited host filesystem integrity violations ",
+    "wwbn/avideo": "AVideo has an Authorize.Net Webhook Signature Bypass that Enables Wallet Balance Inflation via Forge",
+    "gogs.io/gogs": "Gogs has an Authentication Bypass via Unvalidated Reverse Proxy Headers",
     "@merill/lokka": "Lokka: Azure Resource Manager URL path validation issue",
     "@jhb.software/payload-cloudinary-plugin": "@jhb.software/payload-cloudinary-plugin: Arbitrary Cloudinary API Parameter Signing",
     "gouef/githubtoplanguages": "githubtoplanguages: Command Injection via Issue Title in Discord Notification Workflow",
-    "@zenalexa/unicli": "Uni-CLI: Legacy HTTP MCP transport accepted browser-originated localhost requests",
-    "gogs.io/gogs": "Gogs: XSS in .ipynb files renderer due to outdated notebookjs",
-    "@bitbonsai/mcpvault": "MCPVault: PathFilter restricted directories (.git/.obsidian/node_modules) only denied at vault root,",
-    "@sveltia/cms": "Sveltia CMS: Stored XSS in Markdown/RichText preview via unsandboxed same-origin iframe",
-    "symfony/ux-toolkit": "symfony/ux-toolkit: Path Traversal Allows Arbitrary File Write and Read via Crafted Recipe Manifest",
-    "symfony/ux-icons": "symfony/ux-icons: XSS via unsanitized SVG content in local files and Iconify on-demand responses",
-    "github.com/authzed/spicedb": "SpiceDB: Checks involving relations with caveats can result in unconditional permission when conditi",
-    "github.com/openbao/openbao": "OpenBao: Transit secrets engine crashes on key creation with `derived: true` for asymmetric key type",
-    "starcitizenwiki/embedvideo": "StarCitizenWiki Extension Embed Video: Stored XSS via malformed src url with $wgEmbedVideoRequireCon",
-    "@outerbase/studio": "Outerbase Studio: Stored XSS in Text Widget Leads to Authentication Token Exposure"
+    "@zenalexa/unicli": "Uni-CLI: Legacy HTTP MCP transport accepted browser-originated localhost requests"
   },
   "malicious_packages": {
     "npm": {},
