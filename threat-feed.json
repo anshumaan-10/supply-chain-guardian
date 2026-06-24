@@ -1,8 +1,132 @@
 {
   "version": "2026.06.24",
-  "last_updated": "2026-06-24T12:48:50.309261+00:00",
+  "last_updated": "2026-06-24T18:38:35.477032+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-prj9-97mp-mwh2",
+      "name": "OliveTin has Unvalidated `ot_`-prefixed Arguments that Bypass Input Filtering",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-prj9-97mp-mwh2",
+      "description": "OliveTin has Unvalidated `ot_`-prefixed Arguments that Bypass Input Filtering",
+      "date": "2026-06-24",
+      "affected": [
+        "github.com/OliveTin/OliveTin"
+      ],
+      "references": [
+        "https://github.com/OliveTin/OliveTin/security/advisories/GHSA-prj9-97mp-mwh2",
+        "https://github.com/OliveTin/OliveTin/commit/ebffd9f040f791208aee1db2e5a8aecd1e3e603d",
+        "https://github.com/advisories/GHSA-prj9-97mp-mwh2"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/OliveTin/OliveTin"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/OliveTin/OliveTin"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f637-w7p2-m7fx",
+      "name": "OliveTin: ValidateArgumentType API Endpoint's Missing Authentication Allows Action and Argument Enum",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-f637-w7p2-m7fx",
+      "description": "OliveTin: ValidateArgumentType API Endpoint's Missing Authentication Allows Action and Argument Enumeration",
+      "date": "2026-06-24",
+      "affected": [
+        "github.com/OliveTin/OliveTin"
+      ],
+      "references": [
+        "https://github.com/OliveTin/OliveTin/security/advisories/GHSA-f637-w7p2-m7fx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-48709",
+        "https://github.com/OliveTin/OliveTin/commit/a3865704c854061452a4ab5f6d95de3312698ccd",
+        "https://github.com/OliveTin/OliveTin/releases/tag/3000.13.0",
+        "https://github.com/advisories/GHSA-f637-w7p2-m7fx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/OliveTin/OliveTin"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/OliveTin/OliveTin"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7fq5-7wr8-rjwj",
+      "name": "OliveTin has a Concurrent Template Parsing Race Condition which Leads to Cross-Request Command Conta",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-7fq5-7wr8-rjwj",
+      "description": "OliveTin has a Concurrent Template Parsing Race Condition which Leads to Cross-Request Command Contamination",
+      "date": "2026-06-24",
+      "affected": [
+        "github.com/OliveTin/OliveTin"
+      ],
+      "references": [
+        "https://github.com/OliveTin/OliveTin/security/advisories/GHSA-7fq5-7wr8-rjwj",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-48708",
+        "https://github.com/OliveTin/OliveTin/commit/d74da9314005954dd49fa20dabf272247bc76519",
+        "https://github.com/OliveTin/OliveTin/releases/tag/3000.13.0",
+        "https://github.com/advisories/GHSA-7fq5-7wr8-rjwj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/OliveTin/OliveTin"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/OliveTin/OliveTin"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-p462-xxwx-pqf4",
+      "name": "OpenAM Pre-auth User Profile Tampering via Anonymous SOAP Authn in Liberty IDPP/Discovery Endpoints",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-p462-xxwx-pqf4",
+      "description": "OpenAM Pre-auth User Profile Tampering via Anonymous SOAP Authn in Liberty IDPP/Discovery Endpoints",
+      "date": "2026-06-24",
+      "affected": [
+        "org.openidentityplatform.openam:openam-federation-library"
+      ],
+      "references": [
+        "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-p462-xxwx-pqf4",
+        "https://github.com/advisories/GHSA-p462-xxwx-pqf4"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6c99-87fr-6q7r",
+      "name": "OpenAM: Pre-auth RCE via Java Deserialization in WebAuthn Authenticator Storage",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-6c99-87fr-6q7r",
+      "description": "OpenAM: Pre-auth RCE via Java Deserialization in WebAuthn Authenticator Storage",
+      "date": "2026-06-24",
+      "affected": [
+        "org.openidentityplatform.openam:openam-auth-webauthn"
+      ],
+      "references": [
+        "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-6c99-87fr-6q7r",
+        "https://github.com/advisories/GHSA-6c99-87fr-6q7r"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-pwpj-p52h-q484",
       "name": "Snipe-IT API Vulnerable to Cross-Tenant Accessory Injection",
@@ -1028,149 +1152,11 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-p6qx-ghxm-389h",
-      "name": "OctoPrint has XSS in its Suppressed Command Notifications",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-p6qx-ghxm-389h",
-      "description": "OctoPrint has XSS in its Suppressed Command Notifications",
-      "date": "2026-06-23",
-      "affected": [
-        "OctoPrint",
-        "OctoPrint"
-      ],
-      "references": [
-        "https://github.com/OctoPrint/OctoPrint/security/advisories/GHSA-p6qx-ghxm-389h",
-        "https://github.com/advisories/GHSA-p6qx-ghxm-389h"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-744x-3838-5r56",
-      "name": "Gogs Vulnerable to Unauthenticated Organization Teams Information Disclosure via API",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-744x-3838-5r56",
-      "description": "Gogs Vulnerable to Unauthenticated Organization Teams Information Disclosure via API",
-      "date": "2026-06-23",
-      "affected": [
-        "gogs.io/gogs"
-      ],
-      "references": [
-        "https://github.com/gogs/gogs/security/advisories/GHSA-744x-3838-5r56",
-        "https://github.com/gogs/gogs/pull/8336",
-        "https://github.com/gogs/gogs/commit/2ebc0e27069deade992219e10a89fbc44bec8bb9",
-        "https://github.com/gogs/gogs/releases/tag/v0.14.3",
-        "https://github.com/advisories/GHSA-744x-3838-5r56"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "gogs.io/gogs"
-          ]
-        },
-        "compromised_actions": [
-          "gogs.io/gogs"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xp79-5mx3-jx52",
-      "name": "Gogs has Unauthenticated Asymmetric Denial of Service (DoS) via SSH Handshake Stall (File Descriptor",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-xp79-5mx3-jx52",
-      "description": "Gogs has Unauthenticated Asymmetric Denial of Service (DoS) via SSH Handshake Stall (File Descriptor Exhaustion)",
-      "date": "2026-06-23",
-      "affected": [
-        "gogs.io/gogs"
-      ],
-      "references": [
-        "https://github.com/gogs/gogs/security/advisories/GHSA-xp79-5mx3-jx52",
-        "https://github.com/gogs/gogs/pull/8335",
-        "https://github.com/gogs/gogs/commit/7da9cda314054501e1a7938a9c4d7896f331b884",
-        "https://github.com/gogs/gogs/releases/tag/v0.14.3",
-        "https://github.com/advisories/GHSA-xp79-5mx3-jx52"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "gogs.io/gogs"
-          ]
-        },
-        "compromised_actions": [
-          "gogs.io/gogs"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c39w-43gm-34h5",
-      "name": "Gogs has Path Traversal in organization name that results in RCE through Git hooks",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-c39w-43gm-34h5",
-      "description": "Gogs has Path Traversal in organization name that results in RCE through Git hooks",
-      "date": "2026-06-23",
-      "affected": [
-        "gogs.io/gogs"
-      ],
-      "references": [
-        "https://github.com/gogs/gogs/security/advisories/GHSA-c39w-43gm-34h5",
-        "https://github.com/gogs/gogs/pull/8334",
-        "https://github.com/gogs/gogs/commit/f6acd467305943aae8403cbac81f0118dd1235d7",
-        "https://github.com/gogs/gogs/releases/tag/v0.14.3",
-        "https://github.com/advisories/GHSA-c39w-43gm-34h5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "gogs.io/gogs"
-          ]
-        },
-        "compromised_actions": [
-          "gogs.io/gogs"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6p9m-q3jp-47h4",
-      "name": "Gogs: LFS dedupe path leaks private repo content across tenants",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-6p9m-q3jp-47h4",
-      "description": "Gogs: LFS dedupe path leaks private repo content across tenants",
-      "date": "2026-06-23",
-      "affected": [
-        "gogs.io/gogs"
-      ],
-      "references": [
-        "https://github.com/gogs/gogs/security/advisories/GHSA-6p9m-q3jp-47h4",
-        "https://github.com/gogs/gogs/pull/8333",
-        "https://github.com/gogs/gogs/commit/f35a767af74e05342bafc6fdda02c791816426f8",
-        "https://github.com/gogs/gogs/releases/tag/v0.14.3",
-        "https://github.com/advisories/GHSA-6p9m-q3jp-47h4"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "gogs.io/gogs"
-          ]
-        },
-        "compromised_actions": [
-          "gogs.io/gogs"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/OliveTin/OliveTin": "OliveTin has Unvalidated `ot_`-prefixed Arguments that Bypass Input Filtering",
     "snipe/snipe-it": "Snipe-IT API Vulnerable to Cross-Tenant Accessory Injection",
     "phpmyfaq/phpmyfaq": "phpMyFAQ: Missing userHasPermission() in 4 API write endpoints (CVE-2026-24421 Incomplete Fix)",
     "thorsten/phpmyfaq": "phpMyFAQ: Missing userHasPermission() in 4 API write endpoints (CVE-2026-24421 Incomplete Fix)",
