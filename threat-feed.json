@@ -1,8 +1,37 @@
 {
-  "version": "2026.06.29",
-  "last_updated": "2026-06-29T18:44:17.587939+00:00",
+  "version": "2026.06.30",
+  "last_updated": "2026-06-30T00:50:30.399243+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-q2m9-6jp9-c6mc",
+      "name": "Dgraph Vulnerable to DQL Injection via checkUserPassword GraphQL Query",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-q2m9-6jp9-c6mc",
+      "description": "Dgraph Vulnerable to DQL Injection via checkUserPassword GraphQL Query",
+      "date": "2026-06-29",
+      "affected": [
+        "github.com/dgraph-io/dgraph/v25"
+      ],
+      "references": [
+        "https://github.com/dgraph-io/dgraph/security/advisories/GHSA-q2m9-6jp9-c6mc",
+        "https://github.com/dgraph-io/dgraph/commit/cee702c93f141eeb0c96a81f70830ec9e459efac",
+        "https://github.com/dgraph-io/dgraph/releases/tag/v25.3.4",
+        "https://github.com/advisories/GHSA-q2m9-6jp9-c6mc"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/dgraph-io/dgraph/v25"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/dgraph-io/dgraph/v25"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-4v2w-2wqp-mc85",
       "name": "OpenAM OAuth Authorization Bypass via PKCE Challenge",
@@ -1281,32 +1310,11 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f9vr-g2g2-x9fg",
-      "name": "Hackney has CRLF / header injection in WebSocket upgrade request",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-f9vr-g2g2-x9fg",
-      "description": "Hackney has CRLF / header injection in WebSocket upgrade request",
-      "date": "2026-06-26",
-      "affected": [
-        "hackney"
-      ],
-      "references": [
-        "https://github.com/benoitc/hackney/security/advisories/GHSA-f9vr-g2g2-x9fg",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-47072",
-        "https://github.com/benoitc/hackney/commit/52310ca807e7b48441ba0e9129171f535313fdd1",
-        "https://cna.erlef.org/cves/CVE-2026-47072.html",
-        "https://osv.dev/vulnerability/EEF-CVE-2026-47072",
-        "https://github.com/advisories/GHSA-f9vr-g2g2-x9fg"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/dgraph-io/dgraph/v25": "Dgraph Vulnerable to DQL Injection via checkUserPassword GraphQL Query",
     "github.com/nezhahq/nezha": "Nezha Dashboard: DDNS and Notification credential exposure via unredacted list API",
     "go.senan.xyz/gonic": "Subsonic API: any authenticated user can delete or read any other user's playlist (IDOR)",
     "statamic/cms": "Statamic CMS's incorrect authorization lets view-only users submit Live Preview content reserved for",
