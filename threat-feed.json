@@ -1,8 +1,65 @@
 {
   "version": "2026.07.02",
-  "last_updated": "2026-07-02T08:53:44.979056+00:00",
+  "last_updated": "2026-07-02T13:57:03.776063+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-gcfq-8gqf-4876",
+      "name": "GoFiber Vulnerable to X-Real-IP Spoofing via Header.Add() in BalancerForward",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-gcfq-8gqf-4876",
+      "description": "GoFiber Vulnerable to X-Real-IP Spoofing via Header.Add() in BalancerForward",
+      "date": "2026-07-02",
+      "affected": [
+        "github.com/gofiber/fiber/v2",
+        "github.com/gofiber/fiber/v3"
+      ],
+      "references": [
+        "https://github.com/gofiber/fiber/security/advisories/GHSA-gcfq-8gqf-4876",
+        "https://github.com/advisories/GHSA-gcfq-8gqf-4876"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/gofiber/fiber/v2",
+            "github.com/gofiber/fiber/v3"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/gofiber/fiber/v2",
+          "github.com/gofiber/fiber/v3"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g5vh-55hw-rxm8",
+      "name": "GoFiber Vulnerable to Username Enumeration via Timing Oracle in BasicAuth Default Authorizer",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-g5vh-55hw-rxm8",
+      "description": "GoFiber Vulnerable to Username Enumeration via Timing Oracle in BasicAuth Default Authorizer",
+      "date": "2026-07-02",
+      "affected": [
+        "github.com/gofiber/fiber/v3"
+      ],
+      "references": [
+        "https://github.com/gofiber/fiber/security/advisories/GHSA-g5vh-55hw-rxm8",
+        "https://github.com/advisories/GHSA-g5vh-55hw-rxm8"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/gofiber/fiber/v3"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/gofiber/fiber/v3"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-9c3v-684m-579c",
       "name": "OpenClaw MCP SSE redirects could forward Authorization headers",
@@ -1197,57 +1254,12 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-m492-gv72-xvxj",
-      "name": "Kimai Password Reset Link Remains Valid After Password Change",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-m492-gv72-xvxj",
-      "description": "Kimai Password Reset Link Remains Valid After Password Change",
-      "date": "2026-07-01",
-      "affected": [
-        "kimai/kimai"
-      ],
-      "references": [
-        "https://github.com/kimai/kimai/security/advisories/GHSA-m492-gv72-xvxj",
-        "https://www.kimai.org/en/security/ghsa-m492-gv72-xvxj",
-        "https://github.com/advisories/GHSA-m492-gv72-xvxj"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "kimai/kimai"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hwpp-h97w-2h3j",
-      "name": "repomix: attach_packed_output can bypass file-read secret scanning for supported local files",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hwpp-h97w-2h3j",
-      "description": "repomix: attach_packed_output can bypass file-read secret scanning for supported local files",
-      "date": "2026-07-01",
-      "affected": [
-        "repomix"
-      ],
-      "references": [
-        "https://github.com/yamadashy/repomix/security/advisories/GHSA-hwpp-h97w-2h3j",
-        "https://github.com/advisories/GHSA-hwpp-h97w-2h3j"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "repomix"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/gofiber/fiber/v2": "GoFiber Vulnerable to X-Real-IP Spoofing via Header.Add() in BalancerForward",
+    "github.com/gofiber/fiber/v3": "GoFiber Vulnerable to X-Real-IP Spoofing via Header.Add() in BalancerForward",
     "@apify/actors-mcp-server": "Apify Model Context Protocol (MCP) server: Actor MCP path authority injection leaks Apify token",
     "goshs.de/goshs/v2": "goshs: Share-link ?token=\u2026 redemption races past download limit",
     "oras.land/oras-go/v2": "ORAS Go forwards registry credentials across registry redirects",
@@ -1261,8 +1273,7 @@
     "github.com/centrifugal/centrifugo/v4": "Centrifugo's dynamic JWKS key cache keyed only by `kid` allows cross-issuer JWT authentication bypas",
     "github.com/centrifugal/centrifugo/v5": "Centrifugo's dynamic JWKS key cache keyed only by `kid` allows cross-issuer JWT authentication bypas",
     "github.com/centrifugal/centrifugo/v6": "Centrifugo's dynamic JWKS key cache keyed only by `kid` allows cross-issuer JWT authentication bypas",
-    "@sigstore/verify": "sigstore-js has Insufficient Verification of Data Authenticity",
-    "kimai/kimai": "Kimai Password Reset Link Remains Valid After Password Change"
+    "@sigstore/verify": "sigstore-js has Insufficient Verification of Data Authenticity"
   },
   "malicious_packages": {
     "npm": {},
