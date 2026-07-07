@@ -1,8 +1,159 @@
 {
   "version": "2026.07.07",
-  "last_updated": "2026-07-07T14:30:05.869443+00:00",
+  "last_updated": "2026-07-07T19:52:43.857307+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-fqf6-gxhh-2xhw",
+      "name": "uutils coreutils: cp/install/mv/ln --suffix alone does not enable backup mode (silent data loss vs G",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-fqf6-gxhh-2xhw",
+      "description": "uutils coreutils: cp/install/mv/ln --suffix alone does not enable backup mode (silent data loss vs GNU)",
+      "date": "2026-07-07",
+      "affected": [
+        "uucore"
+      ],
+      "references": [
+        "https://github.com/uutils/coreutils/security/advisories/GHSA-fqf6-gxhh-2xhw",
+        "https://github.com/uutils/coreutils/pull/9741",
+        "https://github.com/advisories/GHSA-fqf6-gxhh-2xhw"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g84h-j7jj-x32p",
+      "name": "@aborruso/ckan-mcp-server: SSRF via base_url allows access to internal networks (Potential fix bypas",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-g84h-j7jj-x32p",
+      "description": "@aborruso/ckan-mcp-server: SSRF via base_url allows access to internal networks (Potential fix bypass of CVE-2026-33060)",
+      "date": "2026-07-07",
+      "affected": [
+        "@aborruso/ckan-mcp-server"
+      ],
+      "references": [
+        "https://github.com/ondata/ckan-mcp-server/security/advisories/GHSA-g84h-j7jj-x32p",
+        "https://github.com/advisories/GHSA-3xm7-qw7j-qc8v",
+        "https://github.com/ondata/ckan-mcp-server/releases/tag/v0.4.106",
+        "https://github.com/advisories/GHSA-g84h-j7jj-x32p"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@aborruso/ckan-mcp-server"
+          ]
+        },
+        "compromised_actions": [
+          "@aborruso/ckan-mcp-server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jgx9-jr5x-mvpv",
+      "name": "Open WebUI has Blind Server Side Request Forgery in its Image Edit Functionality",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-jgx9-jr5x-mvpv",
+      "description": "Open WebUI has Blind Server Side Request Forgery in its Image Edit Functionality",
+      "date": "2026-07-07",
+      "affected": [
+        "open-webui"
+      ],
+      "references": [
+        "https://github.com/open-webui/open-webui/security/advisories/GHSA-jgx9-jr5x-mvpv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-34225",
+        "https://github.com/advisories/GHSA-jgx9-jr5x-mvpv"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vjm7-m4xh-7wrc",
+      "name": "Open WebUI vulnerable to Stored XSS via iFrame embeds in response messages",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-vjm7-m4xh-7wrc",
+      "description": "Open WebUI vulnerable to Stored XSS via iFrame embeds in response messages",
+      "date": "2026-07-07",
+      "affected": [
+        "open-webui"
+      ],
+      "references": [
+        "https://github.com/open-webui/open-webui/security/advisories/GHSA-vjm7-m4xh-7wrc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-26193",
+        "https://github.com/open-webui/open-webui/blob/6f1486ffd0cb288d0e21f41845361924e0d742b3/src/lib/components/chat/Messages/ResponseMessage.svelte#L689-L703",
+        "https://github.com/advisories/GHSA-vjm7-m4xh-7wrc"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xc8p-9rr6-97r2",
+      "name": "Open WebUI vulnerable to Stored XSS via iFrame in citations model",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-xc8p-9rr6-97r2",
+      "description": "Open WebUI vulnerable to Stored XSS via iFrame in citations model",
+      "date": "2026-07-07",
+      "affected": [
+        "open-webui"
+      ],
+      "references": [
+        "https://github.com/open-webui/open-webui/security/advisories/GHSA-xc8p-9rr6-97r2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-26192",
+        "https://github.com/open-webui/open-webui/blob/6f1486ffd0cb288d0e21f41845361924e0d742b3/src/lib/components/chat/Messages/Citations/CitationModal.svelte#L163-L170",
+        "https://github.com/advisories/GHSA-xc8p-9rr6-97r2"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9f4f-jv96-8766",
+      "name": "Open WebUI vulnerable to stored XSS via unescaped markdown token in MarkdownTokens.svelte leading to",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9f4f-jv96-8766",
+      "description": "Open WebUI vulnerable to stored XSS via unescaped markdown token in MarkdownTokens.svelte leading to full account takeover and RCE via functions",
+      "date": "2026-07-07",
+      "affected": [
+        "open-webui"
+      ],
+      "references": [
+        "https://github.com/open-webui/open-webui/security/advisories/GHSA-9f4f-jv96-8766",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-46719",
+        "https://github.com/open-webui/open-webui/commit/6fd082d55ffaf6eb226efdeebc7155e3693d2d01",
+        "https://github.com/open-webui/open-webui/blob/main/src/lib/components/chat/Messages/Markdown/MarkdownTokens.svelte#L269-L279",
+        "https://github.com/open-webui/open-webui/releases/tag/v0.6.6",
+        "https://github.com/advisories/GHSA-9f4f-jv96-8766"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8gh5-qqh8-hq3x",
+      "name": "Open WebUI  allows limited stored XSS vila uploaded html file",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-8gh5-qqh8-hq3x",
+      "description": "Open WebUI  allows limited stored XSS vila uploaded html file",
+      "date": "2026-07-07",
+      "affected": [
+        "open-webui"
+      ],
+      "references": [
+        "https://github.com/open-webui/open-webui/security/advisories/GHSA-8gh5-qqh8-hq3x",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-46571",
+        "https://github.com/open-webui/open-webui/commit/ef2aeb7c0eb976bac759e59ac359c94a5b8dc7e0",
+        "https://github.com/open-webui/open-webui/blob/main/backend/open_webui/routers/files.py#L434-L438",
+        "https://github.com/open-webui/open-webui/releases/tag/v0.6.6",
+        "https://github.com/advisories/GHSA-8gh5-qqh8-hq3x"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-c8m7-r2jv-rw63",
       "name": "EGroupware Vulnerable to Local File Inclusion via file:// URI in Mail Compose",
@@ -1218,188 +1369,15 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-q6h5-q3q6-f87x",
-      "name": "CiliumLocalRedirectPolicy addressMatcher allows cross-namespace service traffic hijacking and can br",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-q6h5-q3q6-f87x",
-      "description": "CiliumLocalRedirectPolicy addressMatcher allows cross-namespace service traffic hijacking and can break service translation",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/cilium/cilium",
-        "github.com/cilium/cilium",
-        "github.com/cilium/cilium"
-      ],
-      "references": [
-        "https://github.com/cilium/cilium/security/advisories/GHSA-q6h5-q3q6-f87x",
-        "https://github.com/cilium/cilium/pull/44512",
-        "https://github.com/cilium/cilium/pull/44584",
-        "https://github.com/cilium/cilium/pull/44585",
-        "https://github.com/advisories/GHSA-q6h5-q3q6-f87x"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/cilium/cilium",
-            "github.com/cilium/cilium",
-            "github.com/cilium/cilium"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/cilium/cilium",
-          "github.com/cilium/cilium",
-          "github.com/cilium/cilium"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gv83-gqw6-9j2c",
-      "name": "GoFiber never set HSTS header in helmet middleware due to incorrect protocol check",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-gv83-gqw6-9j2c",
-      "description": "GoFiber never set HSTS header in helmet middleware due to incorrect protocol check",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/gofiber/fiber"
-      ],
-      "references": [
-        "https://github.com/gofiber/fiber/security/advisories/GHSA-gv83-gqw6-9j2c",
-        "https://github.com/advisories/GHSA-gv83-gqw6-9j2c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/gofiber/fiber"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/gofiber/fiber"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gjgq-w2m6-wr5q",
-      "name": "Langroid: handle_message() executes user-supplied tool JSON without sender verification ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-gjgq-w2m6-wr5q",
-      "description": "Langroid: handle_message() executes user-supplied tool JSON without sender verification ",
-      "date": "2026-07-06",
-      "affected": [
-        "langroid"
-      ],
-      "references": [
-        "https://github.com/langroid/langroid/security/advisories/GHSA-gjgq-w2m6-wr5q",
-        "https://github.com/advisories/GHSA-gjgq-w2m6-wr5q"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-q9p7-wqxg-mrhc",
-      "name": "Langroid: Sandbox Escape to Remote Code Execution via Incomplete `eval()` Mitigation in TableChatAge",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-q9p7-wqxg-mrhc",
-      "description": "Langroid: Sandbox Escape to Remote Code Execution via Incomplete `eval()` Mitigation in TableChatAgent",
-      "date": "2026-07-06",
-      "affected": [
-        "langroid"
-      ],
-      "references": [
-        "https://github.com/langroid/langroid/security/advisories/GHSA-q9p7-wqxg-mrhc",
-        "https://github.com/advisories/GHSA-q9p7-wqxg-mrhc"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6xc5-4r68-67fc",
-      "name": "Langroid: SQLChatAgent dangerous-function blocklist can be bypassed with quoted or schema-qualified ",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-6xc5-4r68-67fc",
-      "description": "Langroid: SQLChatAgent dangerous-function blocklist can be bypassed with quoted or schema-qualified pg_read_file calls",
-      "date": "2026-07-06",
-      "affected": [
-        "langroid"
-      ],
-      "references": [
-        "https://github.com/langroid/langroid/security/advisories/GHSA-6xc5-4r68-67fc",
-        "https://github.com/advisories/GHSA-6xc5-4r68-67fc"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-chwm-m7g7-685g",
-      "name": "Dragonfly scheduler v1 and v2 gRPC unauthenticated SSRF via attacker-controlled PeerHost in Download",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-chwm-m7g7-685g",
-      "description": "Dragonfly scheduler v1 and v2 gRPC unauthenticated SSRF via attacker-controlled PeerHost in DownloadTinyFile",
-      "date": "2026-07-06",
-      "affected": [
-        "d7y.io/dragonfly/v2"
-      ],
-      "references": [
-        "https://github.com/dragonflyoss/dragonfly/security/advisories/GHSA-chwm-m7g7-685g",
-        "https://github.com/dragonflyoss/dragonfly/blob/0822e3aecc3369017d6b25c9441ff6f318129b31/internal/job/image.go#L211",
-        "https://github.com/dragonflyoss/dragonfly/blob/0822e3aecc3369017d6b25c9441ff6f318129b31/pkg/net/http/http.go#L50-L80",
-        "https://github.com/dragonflyoss/dragonfly/blob/0822e3aecc3369017d6b25c9441ff6f318129b31/pkg/rpc/scheduler/server/server.go#L71-L90",
-        "https://github.com/dragonflyoss/dragonfly/blob/0822e3aecc3369017d6b25c9441ff6f318129b31/scheduler/resource/standard/peer.go#L435-L478",
-        "https://github.com/dragonflyoss/dragonfly/blob/0822e3aecc3369017d6b25c9441ff6f318129b31/scheduler/scheduler.go#L235-L246",
-        "https://github.com/dragonflyoss/dragonfly/blob/0822e3aecc3369017d6b25c9441ff6f318129b31/scheduler/service/service_v1.go#L1176-L1202",
-        "https://github.com/dragonflyoss/dragonfly/blob/0822e3aecc3369017d6b25c9441ff6f318129b31/scheduler/service/service_v1.go#L816-L845",
-        "https://github.com/dragonflyoss/dragonfly/security/advisories/GHSA-fhf9-m53m-863g",
-        "https://github.com/dragonflyoss/Dragonfly2/blob/main/scheduler/resource/standard/peer.go#L457-L459",
-        "https://github.com/advisories/GHSA-chwm-m7g7-685g"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "d7y.io/dragonfly/v2"
-          ]
-        },
-        "compromised_actions": [
-          "d7y.io/dragonfly/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r35r-fpx2-jgr4",
-      "name": "Linuxfabrik Monitoring Plugins allow insecure creation of SQLite databases",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-r35r-fpx2-jgr4",
-      "description": "Linuxfabrik Monitoring Plugins allow insecure creation of SQLite databases",
-      "date": "2026-07-06",
-      "affected": [
-        "linuxfabrik-lib"
-      ],
-      "references": [
-        "https://github.com/Linuxfabrik/monitoring-plugins/security/advisories/GHSA-r35r-fpx2-jgr4",
-        "https://github.com/advisories/GHSA-r35r-fpx2-jgr4"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@aborruso/ckan-mcp-server": "@aborruso/ckan-mcp-server: SSRF via base_url allows access to internal networks (Potential fix bypas",
     "egroupware/egroupware": "EGroupware Vulnerable to Local File Inclusion via file:// URI in Mail Compose",
     "github.com/QuantumNous/new-api": "New API is vulnerable to CSRF through user email binding",
     "github.com/coder/coder/v2": "Coder's workspace agent API insecure redirect handling allowed cross-agent file read and write",
-    "craftcms/cms": "Craft CMS: Potential authenticated Remote Code Execution via referrer redirect",
-    "github.com/cilium/cilium": "CiliumLocalRedirectPolicy addressMatcher allows cross-namespace service traffic hijacking and can br",
-    "github.com/gofiber/fiber": "GoFiber never set HSTS header in helmet middleware due to incorrect protocol check",
-    "d7y.io/dragonfly/v2": "Dragonfly scheduler v1 and v2 gRPC unauthenticated SSRF via attacker-controlled PeerHost in Download"
+    "craftcms/cms": "Craft CMS: Potential authenticated Remote Code Execution via referrer redirect"
   },
   "malicious_packages": {
     "npm": {},
