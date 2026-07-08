@@ -1,8 +1,684 @@
 {
-  "version": "2026.07.07",
-  "last_updated": "2026-07-07T19:52:43.857307+00:00",
+  "version": "2026.07.08",
+  "last_updated": "2026-07-08T02:33:36.269226+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-vmfc-9982-2m45",
+      "name": "Weblate SSRF: outbound URL guard misses some private ranges",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vmfc-9982-2m45",
+      "description": "Weblate SSRF: outbound URL guard misses some private ranges",
+      "date": "2026-07-07",
+      "affected": [
+        "weblate"
+      ],
+      "references": [
+        "https://github.com/WeblateOrg/weblate/security/advisories/GHSA-vmfc-9982-2m45",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-50127",
+        "https://github.com/WeblateOrg/weblate/pull/19768",
+        "https://github.com/WeblateOrg/weblate/releases/tag/weblate-2026.6",
+        "https://github.com/advisories/GHSA-vmfc-9982-2m45"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2jcc-mxv7-p3f9",
+      "name": "oasdiff does not enforce --allow-external-refs=false on the git-revision load path (SSRF / local fil",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-2jcc-mxv7-p3f9",
+      "description": "oasdiff does not enforce --allow-external-refs=false on the git-revision load path (SSRF / local file read)",
+      "date": "2026-07-07",
+      "affected": [
+        "github.com/oasdiff/oasdiff"
+      ],
+      "references": [
+        "https://github.com/oasdiff/oasdiff/security/advisories/GHSA-2jcc-mxv7-p3f9",
+        "https://github.com/oasdiff/oasdiff/pull/832",
+        "https://github.com/oasdiff/oasdiff/pull/974",
+        "https://github.com/oasdiff/oasdiff/pull/975",
+        "https://github.com/advisories/GHSA-2jcc-mxv7-p3f9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/oasdiff/oasdiff"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/oasdiff/oasdiff"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6w3m-4hhp-775q",
+      "name": "KEDA has PostgreSQL connection string parameter injection via incomplete whitespace escaping",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-6w3m-4hhp-775q",
+      "description": "KEDA has PostgreSQL connection string parameter injection via incomplete whitespace escaping",
+      "date": "2026-07-07",
+      "affected": [
+        "github.com/kedacore/keda/v2"
+      ],
+      "references": [
+        "https://github.com/kedacore/keda/security/advisories/GHSA-6w3m-4hhp-775q",
+        "https://github.com/advisories/GHSA-6w3m-4hhp-775q"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/kedacore/keda/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/kedacore/keda/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f66q-9rf6-8795",
+      "name": "Flask-Security-Too: WebAuthn reauthentication freshness bypass via cross-user assertion",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-f66q-9rf6-8795",
+      "description": "Flask-Security-Too: WebAuthn reauthentication freshness bypass via cross-user assertion",
+      "date": "2026-07-07",
+      "affected": [
+        "Flask-Security-Too"
+      ],
+      "references": [
+        "https://github.com/pallets-eco/flask-security/security/advisories/GHSA-f66q-9rf6-8795",
+        "https://github.com/advisories/GHSA-f66q-9rf6-8795"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4g5x-hcwm-82jw",
+      "name": "Goploy: Arbitrary File Read via Path Traversal in /deploy/fileDiff allows Remote Server Compromise",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-4g5x-hcwm-82jw",
+      "description": "Goploy: Arbitrary File Read via Path Traversal in /deploy/fileDiff allows Remote Server Compromise",
+      "date": "2026-07-07",
+      "affected": [
+        "github.com/zhenorzz/goploy"
+      ],
+      "references": [
+        "https://github.com/zhenorzz/goploy/security/advisories/GHSA-4g5x-hcwm-82jw",
+        "https://github.com/advisories/GHSA-4g5x-hcwm-82jw"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/zhenorzz/goploy"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/zhenorzz/goploy"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-26rh-24rg-j3vv",
+      "name": "Goploy: Cross-namespace IDOR and RCE via body-supplied row id in project and project_file handlers",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-26rh-24rg-j3vv",
+      "description": "Goploy: Cross-namespace IDOR and RCE via body-supplied row id in project and project_file handlers",
+      "date": "2026-07-07",
+      "affected": [
+        "github.com/zhenorzz/goploy"
+      ],
+      "references": [
+        "https://github.com/zhenorzz/goploy/security/advisories/GHSA-26rh-24rg-j3vv",
+        "https://github.com/advisories/GHSA-26rh-24rg-j3vv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/zhenorzz/goploy"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/zhenorzz/goploy"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-q855-8rh5-jfgq",
+      "name": "ha-mcp: Add-on settings and policy routes are reachable without authentication at the bare root path",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-q855-8rh5-jfgq",
+      "description": "ha-mcp: Add-on settings and policy routes are reachable without authentication at the bare root path",
+      "date": "2026-07-07",
+      "affected": [
+        "ha-mcp"
+      ],
+      "references": [
+        "https://github.com/homeassistant-ai/ha-mcp/security/advisories/GHSA-q855-8rh5-jfgq",
+        "https://github.com/homeassistant-ai/ha-mcp/pull/1508",
+        "https://github.com/homeassistant-ai/ha-mcp/commit/9f5b085ad4a7b38b067c9da0dc5b45462c4d796e",
+        "https://github.com/advisories/GHSA-q855-8rh5-jfgq"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cwv4-h3j5-w3cf",
+      "name": "rama has Stored XSS in ServeDir HTML directory listing via unescaped file names and URI path",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-cwv4-h3j5-w3cf",
+      "description": "rama has Stored XSS in ServeDir HTML directory listing via unescaped file names and URI path",
+      "date": "2026-07-07",
+      "affected": [
+        "rama"
+      ],
+      "references": [
+        "https://github.com/plabayo/rama/security/advisories/GHSA-cwv4-h3j5-w3cf",
+        "https://github.com/plabayo/rama/commit/89ddff578fd78bbebec99482d7030f28c07757a3",
+        "https://github.com/advisories/GHSA-cwv4-h3j5-w3cf"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v3q9-hj7j-63hq",
+      "name": "aiosmtplib vulnerable to SMTP command injection via CR/LF in sender/recipient address",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-v3q9-hj7j-63hq",
+      "description": "aiosmtplib vulnerable to SMTP command injection via CR/LF in sender/recipient address",
+      "date": "2026-07-07",
+      "affected": [
+        "aiosmtplib"
+      ],
+      "references": [
+        "https://github.com/cole/aiosmtplib/security/advisories/GHSA-v3q9-hj7j-63hq",
+        "https://github.com/advisories/GHSA-v3q9-hj7j-63hq"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-gvhc-wv3v-7pf8",
+      "name": "Kite has an authenticated cluster RBAC bypass in /api/v1/overview",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-gvhc-wv3v-7pf8",
+      "description": "Kite has an authenticated cluster RBAC bypass in /api/v1/overview",
+      "date": "2026-07-07",
+      "affected": [
+        "github.com/zxh326/kite"
+      ],
+      "references": [
+        "https://github.com/kite-org/kite/security/advisories/GHSA-gvhc-wv3v-7pf8",
+        "https://github.com/advisories/GHSA-gvhc-wv3v-7pf8"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/zxh326/kite"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/zxh326/kite"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-gq4g-fpc9-vjfq",
+      "name": "Webauthn: SimpleFakeCredentialGenerator with an empty secret produces predictable fake credentials, ",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-gq4g-fpc9-vjfq",
+      "description": "Webauthn: SimpleFakeCredentialGenerator with an empty secret produces predictable fake credentials, weakening username enumeration protection",
+      "date": "2026-07-07",
+      "affected": [
+        "web-auth/webauthn-lib"
+      ],
+      "references": [
+        "https://github.com/web-auth/webauthn-framework/security/advisories/GHSA-gq4g-fpc9-vjfq",
+        "https://github.com/advisories/GHSA-gq4g-fpc9-vjfq"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "web-auth/webauthn-lib"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4w5h-hx6r-28q7",
+      "name": "ratex-parser has unbounded parser recursion that leads to stack overflow (process abort)",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-4w5h-hx6r-28q7",
+      "description": "ratex-parser has unbounded parser recursion that leads to stack overflow (process abort)",
+      "date": "2026-07-07",
+      "affected": [
+        "ratex-parser"
+      ],
+      "references": [
+        "https://github.com/erweixin/RaTeX/security/advisories/GHSA-4w5h-hx6r-28q7",
+        "https://github.com/advisories/GHSA-4w5h-hx6r-28q7"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4hgp-59h5-gvrj",
+      "name": "ratex-parser panics on `\\verb` with a multibyte delimiter (UTF-8 byte-boundary slice)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-4hgp-59h5-gvrj",
+      "description": "ratex-parser panics on `\\verb` with a multibyte delimiter (UTF-8 byte-boundary slice)",
+      "date": "2026-07-07",
+      "affected": [
+        "ratex-parser"
+      ],
+      "references": [
+        "https://github.com/erweixin/RaTeX/security/advisories/GHSA-4hgp-59h5-gvrj",
+        "https://github.com/advisories/GHSA-4hgp-59h5-gvrj"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-j8v8-g9cx-5qf4",
+      "name": "@better-auth/scim: Account/provider takeover via missing owner binding on non-org SCIM providers",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-j8v8-g9cx-5qf4",
+      "description": "@better-auth/scim: Account/provider takeover via missing owner binding on non-org SCIM providers",
+      "date": "2026-07-07",
+      "affected": [
+        "@better-auth/scim"
+      ],
+      "references": [
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-j8v8-g9cx-5qf4",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.7.0-beta.4",
+        "https://github.com/advisories/GHSA-j8v8-g9cx-5qf4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@better-auth/scim"
+          ]
+        },
+        "compromised_actions": [
+          "@better-auth/scim"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2vg6-77g8-24mp",
+      "name": "Better Auth: Stale sessions persist after user deletion across admin, anonymous, and SCIM flows",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-2vg6-77g8-24mp",
+      "description": "Better Auth: Stale sessions persist after user deletion across admin, anonymous, and SCIM flows",
+      "date": "2026-07-07",
+      "affected": [
+        "@better-auth/scim",
+        "better-auth"
+      ],
+      "references": [
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-2vg6-77g8-24mp",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.6.11",
+        "https://github.com/advisories/GHSA-2vg6-77g8-24mp"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@better-auth/scim",
+            "better-auth"
+          ]
+        },
+        "compromised_actions": [
+          "@better-auth/scim"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7w99-5wm4-3g79",
+      "name": "@better-auth/oauth-provider's OAuth authorization-code grant allows concurrent redemption when two t",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-7w99-5wm4-3g79",
+      "description": "@better-auth/oauth-provider's OAuth authorization-code grant allows concurrent redemption when two token requests race the find-then-delete primitive",
+      "date": "2026-07-07",
+      "affected": [
+        "better-auth",
+        "@better-auth/oauth-provider"
+      ],
+      "references": [
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-7w99-5wm4-3g79",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.6.11",
+        "https://github.com/advisories/GHSA-7w99-5wm4-3g79"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "better-auth",
+            "@better-auth/oauth-provider"
+          ]
+        },
+        "compromised_actions": [
+          "@better-auth/oauth-provider"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5rr4-8452-hf4v",
+      "name": "@better-auth/sso provider registration has server-side request forgery via unvalidated OIDC endpoint",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-5rr4-8452-hf4v",
+      "description": "@better-auth/sso provider registration has server-side request forgery via unvalidated OIDC endpoints",
+      "date": "2026-07-07",
+      "affected": [
+        "@better-auth/sso"
+      ],
+      "references": [
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-5rr4-8452-hf4v",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.6.11",
+        "https://github.com/advisories/GHSA-5rr4-8452-hf4v"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@better-auth/sso"
+          ]
+        },
+        "compromised_actions": [
+          "@better-auth/sso"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-392p-2q2v-4372",
+      "name": "Better Auth: OAuth refresh-token rotation forks the token family on concurrent redemption",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-392p-2q2v-4372",
+      "description": "Better Auth: OAuth refresh-token rotation forks the token family on concurrent redemption",
+      "date": "2026-07-07",
+      "affected": [
+        "better-auth",
+        "@better-auth/oauth-provider"
+      ],
+      "references": [
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-392p-2q2v-4372",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.6.0",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.6.11",
+        "https://github.com/advisories/GHSA-392p-2q2v-4372"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "better-auth",
+            "@better-auth/oauth-provider"
+          ]
+        },
+        "compromised_actions": [
+          "@better-auth/oauth-provider"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9h47-pqcx-hjr4",
+      "name": "Better Auth has insecure cryptographic defaults in oidcProvider: alg=none advertised and plain PKCE ",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9h47-pqcx-hjr4",
+      "description": "Better Auth has insecure cryptographic defaults in oidcProvider: alg=none advertised and plain PKCE accepted by default",
+      "date": "2026-07-07",
+      "affected": [
+        "better-auth"
+      ],
+      "references": [
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-9h47-pqcx-hjr4",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.6.11",
+        "https://github.com/advisories/GHSA-9h47-pqcx-hjr4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "better-auth"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-86j7-9j95-vpqj",
+      "name": "Better Auth has stored XSS in the auth-server origin via javascript: redirect_uri in oidc-provider a",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-86j7-9j95-vpqj",
+      "description": "Better Auth has stored XSS in the auth-server origin via javascript: redirect_uri in oidc-provider and mcp",
+      "date": "2026-07-07",
+      "affected": [
+        "better-auth",
+        "better-auth"
+      ],
+      "references": [
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-86j7-9j95-vpqj",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.6.13",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.7.0-beta.4",
+        "https://github.com/advisories/GHSA-86j7-9j95-vpqj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "better-auth",
+            "better-auth"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g38m-r43w-p2q7",
+      "name": "Better Auth has an account takeover issue via OAuth auto-link to unverified pre-registered email",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-g38m-r43w-p2q7",
+      "description": "Better Auth has an account takeover issue via OAuth auto-link to unverified pre-registered email",
+      "date": "2026-07-07",
+      "affected": [
+        "better-auth"
+      ],
+      "references": [
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-g38m-r43w-p2q7",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.6.11",
+        "https://github.com/advisories/GHSA-g38m-r43w-p2q7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "better-auth"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fmh4-wcc4-5jm3",
+      "name": "Better Auth vulnerable to unauthorized invitation acceptance via unverified email match in organizat",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-fmh4-wcc4-5jm3",
+      "description": "Better Auth vulnerable to unauthorized invitation acceptance via unverified email match in organization plugin",
+      "date": "2026-07-07",
+      "affected": [
+        "better-auth"
+      ],
+      "references": [
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-fmh4-wcc4-5jm3",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.6.11",
+        "https://github.com/advisories/GHSA-fmh4-wcc4-5jm3"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "better-auth"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-p2fr-6hmx-4528",
+      "name": "@better-auth/oauth-provider may provide access tokens for unauthorized audiences via unbound resourc",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-p2fr-6hmx-4528",
+      "description": "@better-auth/oauth-provider may provide access tokens for unauthorized audiences via unbound resource indicators",
+      "date": "2026-07-07",
+      "affected": [
+        "@better-auth/oauth-provider"
+      ],
+      "references": [
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-p2fr-6hmx-4528",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.7.0-beta.4",
+        "https://github.com/advisories/GHSA-p2fr-6hmx-4528"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@better-auth/oauth-provider"
+          ]
+        },
+        "compromised_actions": [
+          "@better-auth/oauth-provider"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-pw9m-5jxm-xr6h",
+      "name": "Better Auth: OAuth refresh-token replay via missing client authentication on oidc-provider and mcp p",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-pw9m-5jxm-xr6h",
+      "description": "Better Auth: OAuth refresh-token replay via missing client authentication on oidc-provider and mcp plugins",
+      "date": "2026-07-07",
+      "affected": [
+        "better-auth"
+      ],
+      "references": [
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-pw9m-5jxm-xr6h",
+        "https://github.com/better-auth/better-auth/releases/tag/v1.6.11",
+        "https://github.com/advisories/GHSA-pw9m-5jxm-xr6h"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "better-auth"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7856-g3gv-9wq8",
+      "name": "netfoil: Attacker controlled data written to logs",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-7856-g3gv-9wq8",
+      "description": "netfoil: Attacker controlled data written to logs",
+      "date": "2026-07-07",
+      "affected": [
+        "github.com/tinfoil-factory/netfoil"
+      ],
+      "references": [
+        "https://github.com/tinfoil-factory/netfoil/security/advisories/GHSA-7856-g3gv-9wq8",
+        "https://github.com/advisories/GHSA-7856-g3gv-9wq8"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/tinfoil-factory/netfoil"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/tinfoil-factory/netfoil"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3g4q-2f67-2gvh",
+      "name": "netfoil has a resource leak in LRU cache",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-3g4q-2f67-2gvh",
+      "description": "netfoil has a resource leak in LRU cache",
+      "date": "2026-07-07",
+      "affected": [
+        "github.com/tinfoil-factory/netfoil"
+      ],
+      "references": [
+        "https://github.com/tinfoil-factory/netfoil/security/advisories/GHSA-3g4q-2f67-2gvh",
+        "https://github.com/advisories/GHSA-3g4q-2f67-2gvh"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/tinfoil-factory/netfoil"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/tinfoil-factory/netfoil"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-59qp-cfj3-rp64",
+      "name": "netfoil has a domain name filter bypass via multiple questions",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-59qp-cfj3-rp64",
+      "description": "netfoil has a domain name filter bypass via multiple questions",
+      "date": "2026-07-07",
+      "affected": [
+        "github.com/tinfoil-factory/netfoil"
+      ],
+      "references": [
+        "https://github.com/tinfoil-factory/netfoil/security/advisories/GHSA-59qp-cfj3-rp64",
+        "https://github.com/advisories/GHSA-59qp-cfj3-rp64"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/tinfoil-factory/netfoil"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/tinfoil-factory/netfoil"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-fqf6-gxhh-2xhw",
       "name": "uutils coreutils: cp/install/mv/ln --suffix alone does not enable backup mode (silent data loss vs G",
@@ -536,843 +1212,19 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xrqc-p465-2xvg",
-      "name": "Craft CMS: Stored XSS via Structure entry title in table view",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-xrqc-p465-2xvg",
-      "description": "Craft CMS: Stored XSS via Structure entry title in table view",
-      "date": "2026-07-06",
-      "affected": [
-        "craftcms/cms"
-      ],
-      "references": [
-        "https://github.com/craftcms/cms/security/advisories/GHSA-xrqc-p465-2xvg",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-55793",
-        "https://github.com/craftcms/cms/commit/162321e899cc97517fb6f5a02b5528f549d0c6cc",
-        "https://github.com/advisories/GHSA-xrqc-p465-2xvg"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "craftcms/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-287w-mxq6-x2cp",
-      "name": "Craft CMS: Sensitive File Disclosure / Server-Side File Read",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-287w-mxq6-x2cp",
-      "description": "Craft CMS: Sensitive File Disclosure / Server-Side File Read",
-      "date": "2026-07-06",
-      "affected": [
-        "craftcms/cms",
-        "craftcms/cms"
-      ],
-      "references": [
-        "https://github.com/craftcms/cms/security/advisories/GHSA-287w-mxq6-x2cp",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-55792",
-        "https://github.com/craftcms/cms/pull/18559",
-        "https://github.com/advisories/GHSA-287w-mxq6-x2cp"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "craftcms/cms",
-          "craftcms/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-24x4-j6x9-rfw5",
-      "name": "Craft CMS: DOM XSS via GitHub issue title in CraftSupport widget",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-24x4-j6x9-rfw5",
-      "description": "Craft CMS: DOM XSS via GitHub issue title in CraftSupport widget",
-      "date": "2026-07-06",
-      "affected": [
-        "craftcms/cms",
-        "craftcms/cms"
-      ],
-      "references": [
-        "https://github.com/craftcms/cms/security/advisories/GHSA-24x4-j6x9-rfw5",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-55790",
-        "https://github.com/craftcms/cms/commit/6bbb66038a268552180ca5c8eed9f46ea25a4417",
-        "https://github.com/advisories/GHSA-24x4-j6x9-rfw5"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "craftcms/cms",
-          "craftcms/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hmj5-jm8h-h9fh",
-      "name": "Kiwi TCMS has an Open Redirect via unvalidated next parameter in account confirmation endpoint",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hmj5-jm8h-h9fh",
-      "description": "Kiwi TCMS has an Open Redirect via unvalidated next parameter in account confirmation endpoint",
-      "date": "2026-07-06",
-      "affected": [
-        "kiwitcms"
-      ],
-      "references": [
-        "https://github.com/kiwitcms/Kiwi/security/advisories/GHSA-hmj5-jm8h-h9fh",
-        "https://github.com/kiwitcms/Kiwi/releases/tag/v16.1",
-        "https://kiwitcms.org/blog/kiwi-tcms-team/2026/06/24/kiwi-tcms-161",
-        "https://github.com/advisories/GHSA-hmj5-jm8h-h9fh"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-ww9q-8r59-xv46",
-      "name": "Zebra: Missing copy constraint in halo2_gadgets variable-base scalar multiplication allows under-con",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-ww9q-8r59-xv46",
-      "description": "Zebra: Missing copy constraint in halo2_gadgets variable-base scalar multiplication allows under-constrained base, breaking Orchard Action circuit soundness",
-      "date": "2026-07-06",
-      "affected": [
-        "zcash_primitives",
-        "orchard",
-        "halo2_gadgets",
-        "zebrad"
-      ],
-      "references": [
-        "https://github.com/ZcashFoundation/zebra/security/advisories/GHSA-ww9q-8r59-xv46",
-        "https://github.com/advisories/GHSA-ww9q-8r59-xv46"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2pq5-3q89-j7cc",
-      "name": "Langroid: Neo4jChatAgent executes LLM-generated Cypher without validation (prompt-to-Cypher injectio",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-2pq5-3q89-j7cc",
-      "description": "Langroid: Neo4jChatAgent executes LLM-generated Cypher without validation (prompt-to-Cypher injection; config-conditional RCE), mirroring the SQLChatAgent bug fixed in CVE-2026-25879",
-      "date": "2026-07-06",
-      "affected": [
-        "langroid"
-      ],
-      "references": [
-        "https://github.com/langroid/langroid/security/advisories/GHSA-2pq5-3q89-j7cc",
-        "https://github.com/advisories/GHSA-2pq5-3q89-j7cc"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vjc7-jrh9-9j86",
-      "name": "9router has unauthenticated CRUD on /api/providers and Full API Key Leak via /api/usage/stats",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-vjc7-jrh9-9j86",
-      "description": "9router has unauthenticated CRUD on /api/providers and Full API Key Leak via /api/usage/stats",
-      "date": "2026-07-06",
-      "affected": [
-        "9router"
-      ],
-      "references": [
-        "https://github.com/decolua/9router/security/advisories/GHSA-vjc7-jrh9-9j86",
-        "https://github.com/advisories/GHSA-vjc7-jrh9-9j86"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "9router"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5wg6-jmq2-53pw",
-      "name": "Coder's workspace app CORS origin check can be bypassed via UUID-based subdomain spoofing",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-5wg6-jmq2-53pw",
-      "description": "Coder's workspace app CORS origin check can be bypassed via UUID-based subdomain spoofing",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-5wg6-jmq2-53pw",
-        "https://github.com/coder/coder/pull/26085",
-        "https://github.com/coder/coder/pull/26086",
-        "https://github.com/advisories/GHSA-5wg6-jmq2-53pw"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-798h-hpph-m24j",
-      "name": "Linuxfabrik Monitoring Plugins have local privilege escalation using embedded command",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-798h-hpph-m24j",
-      "description": "Linuxfabrik Monitoring Plugins have local privilege escalation using embedded command",
-      "date": "2026-07-06",
-      "affected": [
-        "linuxfabrik-lib"
-      ],
-      "references": [
-        "https://github.com/Linuxfabrik/monitoring-plugins/security/advisories/GHSA-798h-hpph-m24j",
-        "https://github.com/advisories/GHSA-798h-hpph-m24j"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7qw2-f75v-62f7",
-      "name": "Coder vulnerable to stored HTML injection via workspace agent logs in AgentLogLine component",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-7qw2-f75v-62f7",
-      "description": "Coder vulnerable to stored HTML injection via workspace agent logs in AgentLogLine component",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-7qw2-f75v-62f7",
-        "https://github.com/coder/coder/pull/25808",
-        "https://github.com/advisories/GHSA-7qw2-f75v-62f7"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-84rm-42xw-mx52",
-      "name": "Coder's AI Bridge Proxy skips TLS certificate verification in default configuration",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-84rm-42xw-mx52",
-      "description": "Coder's AI Bridge Proxy skips TLS certificate verification in default configuration",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-84rm-42xw-mx52",
-        "https://github.com/coder/coder/pull/26131",
-        "https://github.com/advisories/GHSA-84rm-42xw-mx52"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wqxv-w64v-5wh6",
-      "name": "Suspended Coder users retain access to AI Bridge LLM proxy endpoints",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-wqxv-w64v-5wh6",
-      "description": "Suspended Coder users retain access to AI Bridge LLM proxy endpoints",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-wqxv-w64v-5wh6",
-        "https://github.com/coder/coder/pull/26164",
-        "https://github.com/advisories/GHSA-wqxv-w64v-5wh6"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f5vp-w269-392g",
-      "name": "Coder vulnerable to denial of service via unbounded request body in AI Bridge provider endpoints",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-f5vp-w269-392g",
-      "description": "Coder vulnerable to denial of service via unbounded request body in AI Bridge provider endpoints",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-f5vp-w269-392g",
-        "https://github.com/coder/coder/pull/26164",
-        "https://github.com/advisories/GHSA-f5vp-w269-392g"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jqj2-x4c5-jfxm",
-      "name": "Coder: Devcontainer recreate endpoint missing write authorization allows read-only roles to destroy ",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-jqj2-x4c5-jfxm",
-      "description": "Coder: Devcontainer recreate endpoint missing write authorization allows read-only roles to destroy containers",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-jqj2-x4c5-jfxm",
-        "https://github.com/coder/coder/pull/25812",
-        "https://github.com/advisories/GHSA-jqj2-x4c5-jfxm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-x9qq-2qh5-8rxf",
-      "name": "Coder's sub-agent app registration bypasses template port-sharing policy enforcement",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-x9qq-2qh5-8rxf",
-      "description": "Coder's sub-agent app registration bypasses template port-sharing policy enforcement",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-x9qq-2qh5-8rxf",
-        "https://github.com/coder/coder/pull/26061",
-        "https://github.com/advisories/GHSA-x9qq-2qh5-8rxf"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-v54h-cp2w-9x4g",
-      "name": "Coder's session token leaked to arbitrary hosts via `coder open app` for external workspace apps",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-v54h-cp2w-9x4g",
-      "description": "Coder's session token leaked to arbitrary hosts via `coder open app` for external workspace apps",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-v54h-cp2w-9x4g",
-        "https://github.com/coder/coder/pull/26146",
-        "https://github.com/advisories/GHSA-v54h-cp2w-9x4g"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2mg2-p7r7-g27f",
-      "name": "Coder: Zip upload decompression lacks aggregate size limit, enabling denial of service",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-2mg2-p7r7-g27f",
-      "description": "Coder: Zip upload decompression lacks aggregate size limit, enabling denial of service",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-2mg2-p7r7-g27f",
-        "https://github.com/coder/coder/pull/25877",
-        "https://github.com/advisories/GHSA-2mg2-p7r7-g27f"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5g4w-3vw9-478w",
-      "name": "Coder's subdomain workspace app routing trusts unauthenticated X-Forwarded-Host header, enabling cro",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-5g4w-3vw9-478w",
-      "description": "Coder's subdomain workspace app routing trusts unauthenticated X-Forwarded-Host header, enabling cross-app data access",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-5g4w-3vw9-478w",
-        "https://github.com/coder/coder/pull/26204",
-        "https://github.com/advisories/GHSA-5g4w-3vw9-478w"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wrq8-fcv5-8hvp",
-      "name": "Coder: Route hijacking through lack of validation of agent-supplied AllowedIPs in tailnet coordinato",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-wrq8-fcv5-8hvp",
-      "description": "Coder: Route hijacking through lack of validation of agent-supplied AllowedIPs in tailnet coordinator",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-wrq8-fcv5-8hvp",
-        "https://github.com/coder/coder/pull/26144",
-        "https://github.com/advisories/GHSA-wrq8-fcv5-8hvp"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9rjw-3gwp-f59v",
-      "name": "Coder's workspace app upsert allows cross-workspace agent rebinding via user-controlled app ID",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-9rjw-3gwp-f59v",
-      "description": "Coder's workspace app upsert allows cross-workspace agent rebinding via user-controlled app ID",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-9rjw-3gwp-f59v",
-        "https://github.com/coder/coder/pull/26103",
-        "https://github.com/advisories/GHSA-9rjw-3gwp-f59v"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f962-qm93-mj4c",
-      "name": "Coder's unbounded memory allocation in provisioner file upload allows authenticated denial of servic",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-f962-qm93-mj4c",
-      "description": "Coder's unbounded memory allocation in provisioner file upload allows authenticated denial of service",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-f962-qm93-mj4c",
-        "https://github.com/coder/coder/pull/25710",
-        "https://github.com/advisories/GHSA-f962-qm93-mj4c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mcqq-fqgf-rxwm",
-      "name": "Coder vulnerable to SSH config injection via unsanitized server-supplied values in `coder config-ssh",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-mcqq-fqgf-rxwm",
-      "description": "Coder vulnerable to SSH config injection via unsanitized server-supplied values in `coder config-ssh`",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-mcqq-fqgf-rxwm",
-        "https://github.com/coder/coder/pull/26154",
-        "https://github.com/advisories/GHSA-mcqq-fqgf-rxwm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-29xf-69gq-m9jx",
-      "name": "Coder: User-admin role can reset owner account password",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-29xf-69gq-m9jx",
-      "description": "Coder: User-admin role can reset owner account password",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-29xf-69gq-m9jx",
-        "https://github.com/coder/coder/pull/25709",
-        "https://github.com/advisories/GHSA-29xf-69gq-m9jx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9r87-mvcw-x35f",
-      "name": "Coder vulnerable to OIDC account takeover via email-based user matching and email_verified bypass",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-9r87-mvcw-x35f",
-      "description": "Coder vulnerable to OIDC account takeover via email-based user matching and email_verified bypass",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-9r87-mvcw-x35f",
-        "https://github.com/coder/coder/pull/25712",
-        "https://github.com/coder/coder/pull/25713",
-        "https://github.com/advisories/GHSA-9r87-mvcw-x35f"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-75vm-6w67-gwvp",
-      "name": "Coder's OIDC email_verified type coercion bypass enables account takeover via unverified email linki",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-75vm-6w67-gwvp",
-      "description": "Coder's OIDC email_verified type coercion bypass enables account takeover via unverified email linking",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-75vm-6w67-gwvp",
-        "https://github.com/advisories/GHSA-75vm-6w67-gwvp"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7v6w-c3f4-9wpq",
-      "name": "OpenRemote has an incomplete fix for CVE-2026-40882: XXE in KNXProtocol.startAssetImport() allows ar",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7v6w-c3f4-9wpq",
-      "description": "OpenRemote has an incomplete fix for CVE-2026-40882: XXE in KNXProtocol.startAssetImport() allows arbitrary file read via unprotected XMLInputFactory",
-      "date": "2026-07-06",
-      "affected": [
-        "io.openremote:openremote-agent"
-      ],
-      "references": [
-        "https://github.com/openremote/openremote/security/advisories/GHSA-7v6w-c3f4-9wpq",
-        "https://github.com/openremote/openremote/commit/c28d3c60ebc2da68d9b6c4a6d7a5ad875a255ee9",
-        "https://github.com/advisories/GHSA-7v6w-c3f4-9wpq"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xqr9-4wvv-gvch",
-      "name": "OpenRemote has Cross-Realm User Information Disclosure in UserResourceImpl",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-xqr9-4wvv-gvch",
-      "description": "OpenRemote has Cross-Realm User Information Disclosure in UserResourceImpl",
-      "date": "2026-07-06",
-      "affected": [
-        "io.openremote:openremote-manager"
-      ],
-      "references": [
-        "https://github.com/openremote/openremote/security/advisories/GHSA-xqr9-4wvv-gvch",
-        "https://github.com/openremote/openremote/commit/de89b8d3af272d717bf297934c2cbc97243f08b7",
-        "https://github.com/advisories/GHSA-xqr9-4wvv-gvch"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/oasdiff/oasdiff": "oasdiff does not enforce --allow-external-refs=false on the git-revision load path (SSRF / local fil",
+    "github.com/kedacore/keda/v2": "KEDA has PostgreSQL connection string parameter injection via incomplete whitespace escaping",
+    "github.com/zhenorzz/goploy": "Goploy: Arbitrary File Read via Path Traversal in /deploy/fileDiff allows Remote Server Compromise",
+    "github.com/zxh326/kite": "Kite has an authenticated cluster RBAC bypass in /api/v1/overview",
+    "web-auth/webauthn-lib": "Webauthn: SimpleFakeCredentialGenerator with an empty secret produces predictable fake credentials, ",
+    "@better-auth/scim": "@better-auth/scim: Account/provider takeover via missing owner binding on non-org SCIM providers",
+    "@better-auth/oauth-provider": "@better-auth/oauth-provider's OAuth authorization-code grant allows concurrent redemption when two t",
+    "@better-auth/sso": "@better-auth/sso provider registration has server-side request forgery via unvalidated OIDC endpoint",
+    "github.com/tinfoil-factory/netfoil": "netfoil: Attacker controlled data written to logs",
     "@aborruso/ckan-mcp-server": "@aborruso/ckan-mcp-server: SSRF via base_url allows access to internal networks (Potential fix bypas",
     "egroupware/egroupware": "EGroupware Vulnerable to Local File Inclusion via file:// URI in Mail Compose",
     "github.com/QuantumNous/new-api": "New API is vulnerable to CSRF through user email binding",
