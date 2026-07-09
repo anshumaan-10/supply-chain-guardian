@@ -1,8 +1,385 @@
 {
-  "version": "2026.07.08",
-  "last_updated": "2026-07-08T19:22:33.333408+00:00",
+  "version": "2026.07.09",
+  "last_updated": "2026-07-09T02:51:54.994141+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-37h2-6p4f-mp3q",
+      "name": "Serena: Unauthenticated Flask dashboard on fixed port enables DNS rebinding \u2192 memory poisoning \u2192 RCE",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-37h2-6p4f-mp3q",
+      "description": "Serena: Unauthenticated Flask dashboard on fixed port enables DNS rebinding \u2192 memory poisoning \u2192 RCE",
+      "date": "2026-07-08",
+      "affected": [
+        "serena-agent"
+      ],
+      "references": [
+        "https://github.com/oraios/serena/security/advisories/GHSA-37h2-6p4f-mp3q",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-49471",
+        "https://github.com/oraios/serena/commit/016ccbe1c095a3eed7967737ac1d4df2754f5d96",
+        "https://github.com/oraios/serena/releases/tag/v1.5.2",
+        "https://github.com/advisories/GHSA-37h2-6p4f-mp3q"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6h3c-r723-7fx3",
+      "name": "NL Portal: IDOR allows any authenticated user to complete and tamper with another user's taak",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-6h3c-r723-7fx3",
+      "description": "NL Portal: IDOR allows any authenticated user to complete and tamper with another user's taak",
+      "date": "2026-07-08",
+      "affected": [
+        "nl.nl-portal:taak"
+      ],
+      "references": [
+        "https://github.com/nl-portal/nl-portal-backend-libraries/security/advisories/GHSA-6h3c-r723-7fx3",
+        "https://github.com/advisories/GHSA-6h3c-r723-7fx3"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qpm9-h556-mwxm",
+      "name": "NL Portal: Missing per-user authorization on document and decision GraphQL queries in nl-portal-back",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-qpm9-h556-mwxm",
+      "description": "NL Portal: Missing per-user authorization on document and decision GraphQL queries in nl-portal-backend-libraries",
+      "date": "2026-07-08",
+      "affected": [
+        "nl.nl-portal:besluiten",
+        "nl.nl-portal:documenten-api"
+      ],
+      "references": [
+        "https://github.com/nl-portal/nl-portal-backend-libraries/security/advisories/GHSA-qpm9-h556-mwxm",
+        "https://github.com/advisories/GHSA-qpm9-h556-mwxm"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-43fc-v873-qw85",
+      "name": "Waku has an Open Redirect via `unstable_redirect` Helper",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-43fc-v873-qw85",
+      "description": "Waku has an Open Redirect via `unstable_redirect` Helper",
+      "date": "2026-07-08",
+      "affected": [
+        "waku"
+      ],
+      "references": [
+        "https://github.com/wakujs/waku/security/advisories/GHSA-43fc-v873-qw85",
+        "https://github.com/wakujs/waku/releases/tag/v1.0.0-beta.1",
+        "https://github.com/advisories/GHSA-43fc-v873-qw85"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "waku"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-75w3-gmqx-993q",
+      "name": "Waku: Cross-Origin CSRF on RSC Server Action Dispatch",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-75w3-gmqx-993q",
+      "description": "Waku: Cross-Origin CSRF on RSC Server Action Dispatch",
+      "date": "2026-07-08",
+      "affected": [
+        "waku"
+      ],
+      "references": [
+        "https://github.com/wakujs/waku/security/advisories/GHSA-75w3-gmqx-993q",
+        "https://github.com/advisories/GHSA-75w3-gmqx-993q"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "waku"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xqhv-chqm-fhcc",
+      "name": "Joro: Unauthenticated Cross-Origin Plugin Upload Leads to RCE",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-xqhv-chqm-fhcc",
+      "description": "Joro: Unauthenticated Cross-Origin Plugin Upload Leads to RCE",
+      "date": "2026-07-08",
+      "affected": [
+        "github.com/BishopFox/joro"
+      ],
+      "references": [
+        "https://github.com/BishopFox/joro/security/advisories/GHSA-xqhv-chqm-fhcc",
+        "https://github.com/advisories/GHSA-xqhv-chqm-fhcc"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/BishopFox/joro"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/BishopFox/joro"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-q95x-7g78-rccv",
+      "name": "OneRingBuf has a Use After Free Vulnerability",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-q95x-7g78-rccv",
+      "description": "OneRingBuf has a Use After Free Vulnerability",
+      "date": "2026-07-08",
+      "affected": [
+        "oneringbuf"
+      ],
+      "references": [
+        "https://github.com/skilvingr/rust-oneringbuf/commit/643a24b30914068416dff9021a069c12c865a316",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0152.html",
+        "https://github.com/advisories/GHSA-q95x-7g78-rccv"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9qm4-rh6w-pq5x",
+      "name": "DSpace: Path Traversal is possible through LDN message generation",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-9qm4-rh6w-pq5x",
+      "description": "DSpace: Path Traversal is possible through LDN message generation",
+      "date": "2026-07-08",
+      "affected": [
+        "org.dspace:dspace-api",
+        "org.dspace:dspace-api",
+        "org.dspace:dspace-api"
+      ],
+      "references": [
+        "https://github.com/DSpace/DSpace/security/advisories/GHSA-9qm4-rh6w-pq5x",
+        "https://github.com/DSpace/DSpace/pull/12540",
+        "https://github.com/advisories/GHSA-9qm4-rh6w-pq5x"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-c827-pw3m-67w7",
+      "name": "DSpace: ORE resource URI does not validate scheme for non-web resources",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-c827-pw3m-67w7",
+      "description": "DSpace: ORE resource URI does not validate scheme for non-web resources",
+      "date": "2026-07-08",
+      "affected": [
+        "org.dspace:dspace-api",
+        "org.dspace:dspace-api",
+        "org.dspace:dspace-api",
+        "org.dspace:dspace-api"
+      ],
+      "references": [
+        "https://github.com/DSpace/DSpace/security/advisories/GHSA-c827-pw3m-67w7",
+        "https://github.com/DSpace/DSpace/pull/12541",
+        "https://github.com/DSpace/DSpace/pull/12542",
+        "https://github.com/DSpace/DSpace/pull/12543",
+        "https://github.com/advisories/GHSA-c827-pw3m-67w7"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v66x-68f2-pxf5",
+      "name": "DSpace has a possible Path Traversal Vulnerability in its Curation Task Reporter output path",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-v66x-68f2-pxf5",
+      "description": "DSpace has a possible Path Traversal Vulnerability in its Curation Task Reporter output path",
+      "date": "2026-07-08",
+      "affected": [
+        "org.dspace:dspace-api",
+        "org.dspace:dspace-api",
+        "org.dspace:dspace-api",
+        "org.dspace:dspace-api"
+      ],
+      "references": [
+        "https://github.com/DSpace/DSpace/security/advisories/GHSA-v66x-68f2-pxf5",
+        "https://github.com/advisories/GHSA-v66x-68f2-pxf5"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9x82-rm84-c6x7",
+      "name": "DSpace has possible Remote Code Execution (RCE)  through Velocity Templates used by LDN",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9x82-rm84-c6x7",
+      "description": "DSpace has possible Remote Code Execution (RCE)  through Velocity Templates used by LDN",
+      "date": "2026-07-08",
+      "affected": [
+        "org.dspace:dspace-api",
+        "org.dspace:dspace-api",
+        "org.dspace:dspace-api"
+      ],
+      "references": [
+        "https://github.com/DSpace/DSpace/security/advisories/GHSA-9x82-rm84-c6x7",
+        "https://github.com/DSpace/DSpace/pull/12548",
+        "https://github.com/DSpace/DSpace/pull/12549",
+        "https://github.com/advisories/GHSA-9x82-rm84-c6x7"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-mxwc-wh95-pw4g",
+      "name": "Trapster Community: Unauthenticated malformed DNS compression pointers crash per-packet honeypot han",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-mxwc-wh95-pw4g",
+      "description": "Trapster Community: Unauthenticated malformed DNS compression pointers crash per-packet honeypot handler",
+      "date": "2026-07-08",
+      "affected": [
+        "trapster"
+      ],
+      "references": [
+        "https://github.com/0xBallpoint/trapster-community/security/advisories/GHSA-mxwc-wh95-pw4g",
+        "https://github.com/advisories/GHSA-mxwc-wh95-pw4g"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vmwx-m75v-qvch",
+      "name": "Sharp Missing Authorization Check in Quick Creation Command Endpoints",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vmwx-m75v-qvch",
+      "description": "Sharp Missing Authorization Check in Quick Creation Command Endpoints",
+      "date": "2026-07-08",
+      "affected": [
+        "code16/sharp"
+      ],
+      "references": [
+        "https://github.com/code16/sharp/security/advisories/GHSA-vmwx-m75v-qvch",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-53634",
+        "https://github.com/code16/sharp/pull/729",
+        "https://github.com/code16/sharp/commit/aa18a85fd8fef830988a336cad2278986729d21a",
+        "https://github.com/code16/sharp/releases/tag/v9.22.3",
+        "https://github.com/advisories/GHSA-vmwx-m75v-qvch"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "code16/sharp"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v5px-423j-pf7p",
+      "name": "Nuclio: Unsanitized cron trigger event headers/body injected into CronJob shell command leads to per",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-v5px-423j-pf7p",
+      "description": "Nuclio: Unsanitized cron trigger event headers/body injected into CronJob shell command leads to persistent RCE",
+      "date": "2026-07-08",
+      "affected": [
+        "github.com/nuclio/nuclio"
+      ],
+      "references": [
+        "https://github.com/nuclio/nuclio/security/advisories/GHSA-v5px-423j-pf7p",
+        "https://github.com/nuclio/nuclio/commit/3356b86a8bfab3f960aa420310ebff765df9dede",
+        "https://github.com/nuclio/nuclio/releases/tag/1.16.4",
+        "https://github.com/advisories/GHSA-v5px-423j-pf7p"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/nuclio/nuclio"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/nuclio/nuclio"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-35rm-7j9c-2f7m",
+      "name": "async-tar PAX extension-header desync enables tar entry/content smuggling",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-35rm-7j9c-2f7m",
+      "description": "async-tar PAX extension-header desync enables tar entry/content smuggling",
+      "date": "2026-07-08",
+      "affected": [
+        "async-tar"
+      ],
+      "references": [
+        "https://github.com/dignifiedquire/async-tar/security/advisories/GHSA-35rm-7j9c-2f7m",
+        "https://github.com/advisories/GHSA-35rm-7j9c-2f7m"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-659f-rgp5-w4wf",
+      "name": "Skipper: opaAuthorizeRequestWithBody filter bypasses OPA policy on Transfer-Encoding \u2014 chunked / HTT",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-659f-rgp5-w4wf",
+      "description": "Skipper: opaAuthorizeRequestWithBody filter bypasses OPA policy on Transfer-Encoding \u2014 chunked / HTTP/2 requests",
+      "date": "2026-07-08",
+      "affected": [
+        "github.com/zalando/skipper"
+      ],
+      "references": [
+        "https://github.com/zalando/skipper/security/advisories/GHSA-659f-rgp5-w4wf",
+        "https://github.com/advisories/GHSA-659f-rgp5-w4wf"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/zalando/skipper"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/zalando/skipper"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4jhm-jv67-739f",
+      "name": "`lxml_html_clean.Cleaner` does not strip `javascript:` URLs from namespaced URL attributes",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-4jhm-jv67-739f",
+      "description": "`lxml_html_clean.Cleaner` does not strip `javascript:` URLs from namespaced URL attributes",
+      "date": "2026-07-08",
+      "affected": [
+        "lxml_html_clean"
+      ],
+      "references": [
+        "https://github.com/fedora-python/lxml_html_clean/security/advisories/GHSA-4jhm-jv67-739f",
+        "https://github.com/advisories/GHSA-4jhm-jv67-739f"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-vmfc-9982-2m45",
       "name": "Weblate SSRF: outbound URL guard misses some private ranges",
@@ -807,415 +1184,14 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8gh5-qqh8-hq3x",
-      "name": "Open WebUI  allows limited stored XSS vila uploaded html file",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-8gh5-qqh8-hq3x",
-      "description": "Open WebUI  allows limited stored XSS vila uploaded html file",
-      "date": "2026-07-07",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-8gh5-qqh8-hq3x",
-        "https://nvd.nist.gov/vuln/detail/CVE-2025-46571",
-        "https://github.com/open-webui/open-webui/commit/ef2aeb7c0eb976bac759e59ac359c94a5b8dc7e0",
-        "https://github.com/open-webui/open-webui/blob/main/backend/open_webui/routers/files.py#L434-L438",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.6.6",
-        "https://github.com/advisories/GHSA-8gh5-qqh8-hq3x"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c8m7-r2jv-rw63",
-      "name": "EGroupware Vulnerable to Local File Inclusion via file:// URI in Mail Compose",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-c8m7-r2jv-rw63",
-      "description": "EGroupware Vulnerable to Local File Inclusion via file:// URI in Mail Compose",
-      "date": "2026-07-07",
-      "affected": [
-        "egroupware/egroupware",
-        "egroupware/egroupware"
-      ],
-      "references": [
-        "https://github.com/EGroupware/egroupware/security/advisories/GHSA-c8m7-r2jv-rw63",
-        "https://github.com/advisories/GHSA-c8m7-r2jv-rw63"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "egroupware/egroupware",
-          "egroupware/egroupware"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hwpq-hmq9-wj77",
-      "name": "ONNX has Null Pointer Dereference in Upsample Version Converter Adapter (Zero Inputs)",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hwpq-hmq9-wj77",
-      "description": "ONNX has Null Pointer Dereference in Upsample Version Converter Adapter (Zero Inputs)",
-      "date": "2026-07-07",
-      "affected": [
-        "onnx"
-      ],
-      "references": [
-        "https://github.com/onnx/onnx/security/advisories/GHSA-hwpq-hmq9-wj77",
-        "https://github.com/onnx/onnx/pull/7916",
-        "https://github.com/onnx/onnx/releases/tag/v1.22.0",
-        "https://github.com/advisories/GHSA-hwpq-hmq9-wj77"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-26v7-h57m-gh9m",
-      "name": "New API is vulnerable to CSRF through user email binding",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-26v7-h57m-gh9m",
-      "description": "New API is vulnerable to CSRF through user email binding",
-      "date": "2026-07-07",
-      "affected": [
-        "github.com/QuantumNous/new-api"
-      ],
-      "references": [
-        "https://github.com/QuantumNous/new-api/security/advisories/GHSA-26v7-h57m-gh9m",
-        "https://github.com/QuantumNous/new-api/commit/e099117c61391abdf888fb75e382a582e550bd0e",
-        "https://github.com/advisories/GHSA-26v7-h57m-gh9m"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/QuantumNous/new-api"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/QuantumNous/new-api"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8737-2x9g-xjj7",
-      "name": "EGroupware has Authenticated RCE via Malicious eTemplate Upload",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-8737-2x9g-xjj7",
-      "description": "EGroupware has Authenticated RCE via Malicious eTemplate Upload",
-      "date": "2026-07-07",
-      "affected": [
-        "egroupware/egroupware",
-        "egroupware/egroupware"
-      ],
-      "references": [
-        "https://github.com/EGroupware/egroupware/security/advisories/GHSA-8737-2x9g-xjj7",
-        "https://github.com/advisories/GHSA-8737-2x9g-xjj7"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "egroupware/egroupware",
-          "egroupware/egroupware"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qj4x-9g63-25g6",
-      "name": "XWiki Platform Old Core: Resource path traversal via /skin/ action endpoint in Jetty 12+",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-qj4x-9g63-25g6",
-      "description": "XWiki Platform Old Core: Resource path traversal via /skin/ action endpoint in Jetty 12+",
-      "date": "2026-07-07",
-      "affected": [
-        "org.xwiki.platform:xwiki-platform-oldcore",
-        "org.xwiki.platform:xwiki-platform-oldcore"
-      ],
-      "references": [
-        "https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-qj4x-9g63-25g6",
-        "https://github.com/xwiki/xwiki-commons/pull/1675",
-        "https://jira.xwiki.org/browse/XCOMMONS-3594",
-        "https://jira.xwiki.org/browse/XWIKI-24075",
-        "https://github.com/advisories/GHSA-qj4x-9g63-25g6"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6qcr-qxgr-m7fv",
-      "name": "New API: SSRF Protection Bypass via Unresolved Hostname in Notification URLs",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-6qcr-qxgr-m7fv",
-      "description": "New API: SSRF Protection Bypass via Unresolved Hostname in Notification URLs",
-      "date": "2026-07-07",
-      "affected": [
-        "github.com/QuantumNous/new-api"
-      ],
-      "references": [
-        "https://github.com/QuantumNous/new-api/security/advisories/GHSA-6qcr-qxgr-m7fv",
-        "https://github.com/QuantumNous/new-api/commit/20399d3c8fcb4e3649d53163eb11940fd6763743",
-        "https://github.com/advisories/GHSA-6qcr-qxgr-m7fv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/QuantumNous/new-api"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/QuantumNous/new-api"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h9qx-v5xp-ph8p",
-      "name": "EGroupware has a Remote Code Execution Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-h9qx-v5xp-ph8p",
-      "description": "EGroupware has a Remote Code Execution Vulnerability",
-      "date": "2026-07-07",
-      "affected": [
-        "egroupware/egroupware",
-        "egroupware/egroupware"
-      ],
-      "references": [
-        "https://github.com/EGroupware/egroupware/security/advisories/GHSA-h9qx-v5xp-ph8p",
-        "https://github.com/advisories/GHSA-h9qx-v5xp-ph8p"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "egroupware/egroupware",
-          "egroupware/egroupware"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-pmfc-4wjj-gmhx",
-      "name": "cut: -s ignored in -z -d '' newline-delimiter mode",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-pmfc-4wjj-gmhx",
-      "description": "cut: -s ignored in -z -d '' newline-delimiter mode",
-      "date": "2026-07-06",
-      "affected": [
-        "uu_cut"
-      ],
-      "references": [
-        "https://github.com/uutils/coreutils/security/advisories/GHSA-pmfc-4wjj-gmhx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-35381",
-        "https://github.com/uutils/coreutils/pull/11394",
-        "https://github.com/uutils/coreutils/commit/483f13e91830c468262aa1e010e753d6ae99c898",
-        "https://github.com/uutils/coreutils/releases/tag/0.8.0",
-        "https://github.com/advisories/GHSA-pmfc-4wjj-gmhx"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r9hw-mj3w-phcq",
-      "name": "mknod: Device nodes created mislabeled on SELinux, with broken cleanup (remove_dir on a node)",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-r9hw-mj3w-phcq",
-      "description": "mknod: Device nodes created mislabeled on SELinux, with broken cleanup (remove_dir on a node)",
-      "date": "2026-07-06",
-      "affected": [
-        "uu_mknod"
-      ],
-      "references": [
-        "https://github.com/uutils/coreutils/security/advisories/GHSA-r9hw-mj3w-phcq",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-35361",
-        "https://github.com/uutils/coreutils/pull/10582",
-        "https://github.com/uutils/coreutils/commit/42b2ad83cdcf6e959ecb378c5040c60d9c64becf",
-        "https://github.com/uutils/coreutils/releases/tag/0.6.0",
-        "https://github.com/advisories/GHSA-r9hw-mj3w-phcq"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-pmf6-rcx4-v53v",
-      "name": "mkfifo: permissions of an existing file are changed after FIFO creation fails",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-pmf6-rcx4-v53v",
-      "description": "mkfifo: permissions of an existing file are changed after FIFO creation fails",
-      "date": "2026-07-06",
-      "affected": [
-        "uu_mkfifo"
-      ],
-      "references": [
-        "https://github.com/uutils/coreutils/security/advisories/GHSA-pmf6-rcx4-v53v",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-35341",
-        "https://github.com/uutils/coreutils/issues/10020",
-        "https://github.com/uutils/coreutils/pull/10376",
-        "https://github.com/advisories/GHSA-pmf6-rcx4-v53v"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qrwj-vh9x-gw5v",
-      "name": "Coder's workspace agent API insecure redirect handling allowed cross-agent file read and write",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-qrwj-vh9x-gw5v",
-      "description": "Coder's workspace agent API insecure redirect handling allowed cross-agent file read and write",
-      "date": "2026-07-06",
-      "affected": [
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2",
-        "github.com/coder/coder/v2"
-      ],
-      "references": [
-        "https://github.com/coder/coder/security/advisories/GHSA-qrwj-vh9x-gw5v",
-        "https://github.com/coder/coder/pull/26600",
-        "https://github.com/advisories/GHSA-qrwj-vh9x-gw5v"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2",
-            "github.com/coder/coder/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2",
-          "github.com/coder/coder/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-cgfv-jrfp-2r7v",
-      "name": "OpenRemote has Authenticated SQL Injection via Datapoint Crosstab Export",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-cgfv-jrfp-2r7v",
-      "description": "OpenRemote has Authenticated SQL Injection via Datapoint Crosstab Export",
-      "date": "2026-07-06",
-      "affected": [
-        "io.openremote:openremote-manager"
-      ],
-      "references": [
-        "https://github.com/openremote/openremote/security/advisories/GHSA-cgfv-jrfp-2r7v",
-        "https://github.com/openremote/openremote/commit/02ac83074b81617add814b2a72d459abdf374147",
-        "https://github.com/advisories/GHSA-cgfv-jrfp-2r7v"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-473p-56xx-vg67",
-      "name": "Kiwi TCMS vulnerable to stored XSS via JavaScript: URI in extra_link field (TestPlan & TestCase)",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-473p-56xx-vg67",
-      "description": "Kiwi TCMS vulnerable to stored XSS via JavaScript: URI in extra_link field (TestPlan & TestCase)",
-      "date": "2026-07-06",
-      "affected": [
-        "kiwitcms"
-      ],
-      "references": [
-        "https://github.com/kiwitcms/Kiwi/security/advisories/GHSA-473p-56xx-vg67",
-        "https://github.com/kiwitcms/Kiwi/releases/tag/v16.1",
-        "https://kiwitcms.org/blog/kiwi-tcms-team/2026/06/24/kiwi-tcms-161",
-        "https://github.com/advisories/GHSA-473p-56xx-vg67"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7cfm-pqrj-xgq7",
-      "name": "9router: Login brute-force protection bypass via spoofed X-Forwarded-For header",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7cfm-pqrj-xgq7",
-      "description": "9router: Login brute-force protection bypass via spoofed X-Forwarded-For header",
-      "date": "2026-07-06",
-      "affected": [
-        "9router"
-      ],
-      "references": [
-        "https://github.com/decolua/9router/security/advisories/GHSA-7cfm-pqrj-xgq7",
-        "https://github.com/advisories/GHSA-7cfm-pqrj-xgq7"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "9router"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qvfm-67h2-2qfx",
-      "name": "9routers has Exposure of Sensitive Information and Unprotected Database Import/Export, Allowing Comp",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-qvfm-67h2-2qfx",
-      "description": "9routers has Exposure of Sensitive Information and Unprotected Database Import/Export, Allowing Complete Credential Theft and Database Takeover",
-      "date": "2026-07-06",
-      "affected": [
-        "9router"
-      ],
-      "references": [
-        "https://github.com/decolua/9router/security/advisories/GHSA-qvfm-67h2-2qfx",
-        "https://github.com/advisories/GHSA-qvfm-67h2-2qfx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "9router"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f74w-488g-8x5r",
-      "name": "Craft CMS: Potential authenticated Remote Code Execution via referrer redirect",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-f74w-488g-8x5r",
-      "description": "Craft CMS: Potential authenticated Remote Code Execution via referrer redirect",
-      "date": "2026-07-06",
-      "affected": [
-        "craftcms/cms"
-      ],
-      "references": [
-        "https://github.com/craftcms/cms/security/advisories/GHSA-f74w-488g-8x5r",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-55794",
-        "https://github.com/craftcms/cms/pull/18680",
-        "https://github.com/advisories/GHSA-f74w-488g-8x5r"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "craftcms/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/BishopFox/joro": "Joro: Unauthenticated Cross-Origin Plugin Upload Leads to RCE",
+    "code16/sharp": "Sharp Missing Authorization Check in Quick Creation Command Endpoints",
+    "github.com/nuclio/nuclio": "Nuclio: Unsanitized cron trigger event headers/body injected into CronJob shell command leads to per",
+    "github.com/zalando/skipper": "Skipper: opaAuthorizeRequestWithBody filter bypasses OPA policy on Transfer-Encoding \u2014 chunked / HTT",
     "github.com/oasdiff/oasdiff": "oasdiff does not enforce --allow-external-refs=false on the git-revision load path (SSRF / local fil",
     "github.com/kedacore/keda/v2": "KEDA has PostgreSQL connection string parameter injection via incomplete whitespace escaping",
     "github.com/zhenorzz/goploy": "Goploy: Arbitrary File Read via Path Traversal in /deploy/fileDiff allows Remote Server Compromise",
@@ -1225,11 +1201,7 @@
     "@better-auth/oauth-provider": "@better-auth/oauth-provider's OAuth authorization-code grant allows concurrent redemption when two t",
     "@better-auth/sso": "@better-auth/sso provider registration has server-side request forgery via unvalidated OIDC endpoint",
     "github.com/tinfoil-factory/netfoil": "netfoil: Attacker controlled data written to logs",
-    "@aborruso/ckan-mcp-server": "@aborruso/ckan-mcp-server: SSRF via base_url allows access to internal networks (Potential fix bypas",
-    "egroupware/egroupware": "EGroupware Vulnerable to Local File Inclusion via file:// URI in Mail Compose",
-    "github.com/QuantumNous/new-api": "New API is vulnerable to CSRF through user email binding",
-    "github.com/coder/coder/v2": "Coder's workspace agent API insecure redirect handling allowed cross-agent file read and write",
-    "craftcms/cms": "Craft CMS: Potential authenticated Remote Code Execution via referrer redirect"
+    "@aborruso/ckan-mcp-server": "@aborruso/ckan-mcp-server: SSRF via base_url allows access to internal networks (Potential fix bypas"
   },
   "malicious_packages": {
     "npm": {},
