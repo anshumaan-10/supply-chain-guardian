@@ -1,8 +1,168 @@
 {
   "version": "2026.07.10",
-  "last_updated": "2026-07-10T14:22:45.142683+00:00",
+  "last_updated": "2026-07-10T19:25:00.199622+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-489g-7rxv-6c8q",
+      "name": "MCP Atlassian: DNS-rebinding TOCTOU bypass of the SSRF fix (CVE-2026-27826)",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-489g-7rxv-6c8q",
+      "description": "MCP Atlassian: DNS-rebinding TOCTOU bypass of the SSRF fix (CVE-2026-27826)",
+      "date": "2026-07-10",
+      "affected": [
+        "mcp-atlassian"
+      ],
+      "references": [
+        "https://github.com/sooperset/mcp-atlassian/security/advisories/GHSA-489g-7rxv-6c8q",
+        "https://github.com/advisories/GHSA-489g-7rxv-6c8q"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jxj7-g6gm-49j7",
+      "name": "tarteaucitron: data-cookie attribute can be used to delete arbitrary cookies",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-jxj7-g6gm-49j7",
+      "description": "tarteaucitron: data-cookie attribute can be used to delete arbitrary cookies",
+      "date": "2026-07-10",
+      "affected": [
+        "tarteaucitronjs"
+      ],
+      "references": [
+        "https://github.com/AmauriC/tarteaucitron.js/security/advisories/GHSA-jxj7-g6gm-49j7",
+        "https://github.com/advisories/GHSA-jxj7-g6gm-49j7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "tarteaucitronjs"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cwc9-cp4j-mcvv",
+      "name": "libp2p: CPU DoS via oversized IHAVE and IWANT control message arrays",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-cwc9-cp4j-mcvv",
+      "description": "libp2p: CPU DoS via oversized IHAVE and IWANT control message arrays",
+      "date": "2026-07-10",
+      "affected": [
+        "@libp2p/gossipsub"
+      ],
+      "references": [
+        "https://github.com/libp2p/js-libp2p/security/advisories/GHSA-cwc9-cp4j-mcvv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-49866",
+        "https://github.com/libp2p/js-libp2p/pull/3520",
+        "https://github.com/libp2p/js-libp2p/commit/773dd80ded24dbd6b19e675c89fd2f3b45f2d899",
+        "https://github.com/libp2p/js-libp2p/releases/tag/gossipsub-v16.0.0",
+        "https://github.com/advisories/GHSA-cwc9-cp4j-mcvv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@libp2p/gossipsub"
+          ]
+        },
+        "compromised_actions": [
+          "@libp2p/gossipsub"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-pj8j-p4g4-4vw8",
+      "name": "Kimai has Server-Side Request Forgery in Invoice PDF Rendering via Markdown Image URLs",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-pj8j-p4g4-4vw8",
+      "description": "Kimai has Server-Side Request Forgery in Invoice PDF Rendering via Markdown Image URLs",
+      "date": "2026-07-10",
+      "affected": [
+        "kimai/kimai"
+      ],
+      "references": [
+        "https://github.com/kimai/kimai/security/advisories/GHSA-pj8j-p4g4-4vw8",
+        "https://github.com/advisories/GHSA-pj8j-p4g4-4vw8"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "kimai/kimai"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4vj7-5mj6-jm8m",
+      "name": "morgan vulnerable to Log Forging via unneutralized control characters in :remote-user",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-4vj7-5mj6-jm8m",
+      "description": "morgan vulnerable to Log Forging via unneutralized control characters in :remote-user",
+      "date": "2026-07-10",
+      "affected": [
+        "morgan"
+      ],
+      "references": [
+        "https://github.com/expressjs/morgan/security/advisories/GHSA-4vj7-5mj6-jm8m",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-5078",
+        "https://cna.openjsf.org/security-advisories.html",
+        "https://github.com/advisories/GHSA-4vj7-5mj6-jm8m"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "morgan"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-pjhx-3c3w-9v23",
+      "name": "API Platform Core vulnerable to cross-user attribute leak in JSON:API and HAL item normalizers due t",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-pjhx-3c3w-9v23",
+      "description": "API Platform Core vulnerable to cross-user attribute leak in JSON:API and HAL item normalizers due to missing isCacheKeySafe gate",
+      "date": "2026-07-10",
+      "affected": [
+        "api-platform/hal",
+        "api-platform/hal",
+        "api-platform/hal",
+        "api-platform/json-api",
+        "api-platform/json-api",
+        "api-platform/json-api",
+        "api-platform/core",
+        "api-platform/core",
+        "api-platform/core"
+      ],
+      "references": [
+        "https://github.com/api-platform/core/security/advisories/GHSA-pjhx-3c3w-9v23",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-49858",
+        "https://github.com/advisories/GHSA-pjhx-3c3w-9v23"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "api-platform/hal",
+          "api-platform/hal",
+          "api-platform/hal",
+          "api-platform/json-api",
+          "api-platform/json-api",
+          "api-platform/json-api",
+          "api-platform/core",
+          "api-platform/core",
+          "api-platform/core"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-28jh-g32x-v9v4",
       "name": "Tesla vulnerable to multipart part smuggling via unescaped `content-disposition` values",
@@ -1043,138 +1203,15 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-588f-fvcv-xhvf",
-      "name": "Note Mark: Unauthenticated disclosure of soft-deleted note metadata via deleted=true on public books",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-588f-fvcv-xhvf",
-      "description": "Note Mark: Unauthenticated disclosure of soft-deleted note metadata via deleted=true on public books",
-      "date": "2026-07-09",
-      "affected": [
-        "github.com/enchant97/note-mark/backend"
-      ],
-      "references": [
-        "https://github.com/enchant97/note-mark/security/advisories/GHSA-588f-fvcv-xhvf",
-        "https://github.com/enchant97/note-mark/commit/9c9b72740f22a06131a8f64b53bb08e3b05b81a6",
-        "https://github.com/advisories/GHSA-588f-fvcv-xhvf"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/enchant97/note-mark/backend"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/enchant97/note-mark/backend"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-836r-79rf-4m37",
-      "name": "Soup Sieve: Regular Expression Denial of Service (ReDoS) via Selector Parser",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-836r-79rf-4m37",
-      "description": "Soup Sieve: Regular Expression Denial of Service (ReDoS) via Selector Parser",
-      "date": "2026-07-09",
-      "affected": [
-        "soupsieve"
-      ],
-      "references": [
-        "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-836r-79rf-4m37",
-        "https://github.com/advisories/GHSA-836r-79rf-4m37"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2wc2-fm75-p42x",
-      "name": "Soup Sieve has Memory Exhaustion via Large Comma-Separated Selector Lists",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-2wc2-fm75-p42x",
-      "description": "Soup Sieve has Memory Exhaustion via Large Comma-Separated Selector Lists",
-      "date": "2026-07-09",
-      "affected": [
-        "soupsieve"
-      ],
-      "references": [
-        "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-2wc2-fm75-p42x",
-        "https://github.com/advisories/GHSA-2wc2-fm75-p42x"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-52vm-mxx8-f227",
-      "name": "Phantom: Arbitrary file write and decode-bomb DoS via unconfined MCP tool paths",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-52vm-mxx8-f227",
-      "description": "Phantom: Arbitrary file write and decode-bomb DoS via unconfined MCP tool paths",
-      "date": "2026-07-09",
-      "affected": [
-        "phantom-audio"
-      ],
-      "references": [
-        "https://github.com/fadelabs/phantom/security/advisories/GHSA-52vm-mxx8-f227",
-        "https://github.com/advisories/GHSA-52vm-mxx8-f227"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-q6gh-6v2r-hjv3",
-      "name": "Micronaut: DefaultHttpClient follows redirects, forwarding Authorization, Cookie, and Proxy-Authoriz",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-q6gh-6v2r-hjv3",
-      "description": "Micronaut: DefaultHttpClient follows redirects, forwarding Authorization, Cookie, and Proxy-Authorization headers",
-      "date": "2026-07-09",
-      "affected": [
-        "io.micronaut:micronaut-http-client",
-        "io.micronaut:micronaut-http-client",
-        "io.micronaut:micronaut-http-client"
-      ],
-      "references": [
-        "https://github.com/micronaut-projects/micronaut-core/security/advisories/GHSA-q6gh-6v2r-hjv3",
-        "https://github.com/micronaut-projects/micronaut-core/commit/64e539736b8168f201d868b02ace50fe14f57418",
-        "https://github.com/micronaut-projects/micronaut-core/commit/70cab4b44fbf985faba2846091f2356b5bd70719",
-        "https://github.com/micronaut-projects/micronaut-core/commit/9770328999f490bdfbb9e25addd45bf73d4a173a",
-        "https://github.com/advisories/GHSA-q6gh-6v2r-hjv3"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-387m-935m-c4vw",
-      "name": "Micronaut doesn't set a maximum redirect count for its HTTP Client, enabling infinite loop DoS",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-387m-935m-c4vw",
-      "description": "Micronaut doesn't set a maximum redirect count for its HTTP Client, enabling infinite loop DoS",
-      "date": "2026-07-09",
-      "affected": [
-        "io.micronaut:micronaut-http-client",
-        "io.micronaut:micronaut-http-client",
-        "io.micronaut:micronaut-http-client"
-      ],
-      "references": [
-        "https://github.com/micronaut-projects/micronaut-core/security/advisories/GHSA-387m-935m-c4vw",
-        "https://github.com/micronaut-projects/micronaut-core/commit/6e88a972718d6e1521c5b3bb7766451798dba4e3",
-        "https://github.com/micronaut-projects/micronaut-core/commit/c06a2715ca7f78321bc3ca05f41cca78cd351320",
-        "https://github.com/micronaut-projects/micronaut-core/commit/f1dffffec8fb5e3b7e94ae907ce0be3831e499d4",
-        "https://github.com/advisories/GHSA-387m-935m-c4vw"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@libp2p/gossipsub": "libp2p: CPU DoS via oversized IHAVE and IWANT control message arrays",
+    "kimai/kimai": "Kimai has Server-Side Request Forgery in Invoice PDF Rendering via Markdown Image URLs",
+    "api-platform/hal": "API Platform Core vulnerable to cross-user attribute leak in JSON:API and HAL item normalizers due t",
+    "api-platform/json-api": "API Platform Core vulnerable to cross-user attribute leak in JSON:API and HAL item normalizers due t",
+    "api-platform/core": "API Platform Core vulnerable to cross-user attribute leak in JSON:API and HAL item normalizers due t",
     "github.com/osrg/gobgp/v4": "GoBGP confederation validation panics on empty AS_PATH attribute",
     "github.com/sigstore/sigstore-go": "sigstore-go has a multi-log threshold bypass via single compromised log",
     "github.com/openrundev/openrun": "OpenRun: Redirect URL validation bypass using \u00a0//host\u00a0 paths leads to Open Redirect",
