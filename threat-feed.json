@@ -1,8 +1,622 @@
 {
-  "version": "2026.07.10",
-  "last_updated": "2026-07-10T19:25:00.199622+00:00",
+  "version": "2026.07.11",
+  "last_updated": "2026-07-11T02:31:36.069854+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-g936-7jqj-mwv8",
+      "name": "TSDProxy: Internal proxy auth token forwarded to backend services enables management API escalation",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-g936-7jqj-mwv8",
+      "description": "TSDProxy: Internal proxy auth token forwarded to backend services enables management API escalation",
+      "date": "2026-07-10",
+      "affected": [
+        "github.com/almeidapaulopt/tsdproxy"
+      ],
+      "references": [
+        "https://github.com/almeidapaulopt/tsdproxy/security/advisories/GHSA-g936-7jqj-mwv8",
+        "https://github.com/advisories/GHSA-g936-7jqj-mwv8"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/almeidapaulopt/tsdproxy"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/almeidapaulopt/tsdproxy"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fpg8-7664-jc5q",
+      "name": "melange: Incomplete package integrity verification allows data section substitution",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-fpg8-7664-jc5q",
+      "description": "melange: Incomplete package integrity verification allows data section substitution",
+      "date": "2026-07-10",
+      "affected": [
+        "chainguard.dev/melange",
+        "chainguard.dev/apko"
+      ],
+      "references": [
+        "https://github.com/chainguard-dev/melange/security/advisories/GHSA-fpg8-7664-jc5q",
+        "https://github.com/advisories/GHSA-fpg8-7664-jc5q"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "chainguard.dev/melange",
+            "chainguard.dev/apko"
+          ]
+        },
+        "compromised_actions": [
+          "chainguard.dev/melange",
+          "chainguard.dev/apko"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-48rx-c7pg-q66r",
+      "name": "Excon does not redact additional sensitive/risky headers when following redirects",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-48rx-c7pg-q66r",
+      "description": "Excon does not redact additional sensitive/risky headers when following redirects",
+      "date": "2026-07-10",
+      "affected": [
+        "excon"
+      ],
+      "references": [
+        "https://github.com/excon/excon/security/advisories/GHSA-48rx-c7pg-q66r",
+        "https://github.com/excon/excon/commit/ea89a35308a12f4b791b6c50f2cbd33f94889fa3",
+        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/excon/CVE-2026-54171.yml",
+        "https://www.cve.org/CVERecord?id=CVE-2026-54171",
+        "https://github.com/advisories/GHSA-48rx-c7pg-q66r"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "excon"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h4g2-xfmw-q2c9",
+      "name": "Clauster: Non-loopback deployments can serve the dashboard unauthenticated when auth.enabled is unse",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-h4g2-xfmw-q2c9",
+      "description": "Clauster: Non-loopback deployments can serve the dashboard unauthenticated when auth.enabled is unset",
+      "date": "2026-07-10",
+      "affected": [
+        "clauster"
+      ],
+      "references": [
+        "https://github.com/schubydoo/clauster/security/advisories/GHSA-h4g2-xfmw-q2c9",
+        "https://github.com/advisories/GHSA-h4g2-xfmw-q2c9"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rqq5-2gf9-4w4q",
+      "name": "Secure Headers: CSP directive injection via sandbox, plugin_types, and report_to when given untruste",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-rqq5-2gf9-4w4q",
+      "description": "Secure Headers: CSP directive injection via sandbox, plugin_types, and report_to when given untrusted input",
+      "date": "2026-07-10",
+      "affected": [
+        "secure_headers"
+      ],
+      "references": [
+        "https://github.com/github/secure_headers/security/advisories/GHSA-rqq5-2gf9-4w4q",
+        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/secure_headers/CVE-2026-54163.yml",
+        "https://www.cve.org/CVERecord/SearchResults?query=CVE-2026-54163",
+        "https://github.com/advisories/GHSA-rqq5-2gf9-4w4q"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "secure_headers"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-56mp-4f3v-fgj2",
+      "name": "SiYuan: Stored XSS to RCE via Unsanitized Attribute View Asset Cell Content",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-56mp-4f3v-fgj2",
+      "description": "SiYuan: Stored XSS to RCE via Unsanitized Attribute View Asset Cell Content",
+      "date": "2026-07-10",
+      "affected": [
+        "github.com/siyuan-note/siyuan/kernel"
+      ],
+      "references": [
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-56mp-4f3v-fgj2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-50551",
+        "https://github.com/advisories/GHSA-56mp-4f3v-fgj2"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/siyuan-note/siyuan/kernel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/siyuan-note/siyuan/kernel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-m5f5-28qr-9g9r",
+      "name": "prestashop/ps_facetedsearch: PHP Object Injection in faceted search cache allows unauthenticated RCE",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-m5f5-28qr-9g9r",
+      "description": "prestashop/ps_facetedsearch: PHP Object Injection in faceted search cache allows unauthenticated RCE",
+      "date": "2026-07-10",
+      "affected": [
+        "prestashop/ps_facetedsearch"
+      ],
+      "references": [
+        "https://github.com/PrestaShop/ps_facetedsearch/security/advisories/GHSA-m5f5-28qr-9g9r",
+        "https://github.com/advisories/GHSA-m5f5-28qr-9g9r"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "prestashop/ps_facetedsearch"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5xfx-xj4h-5p7r",
+      "name": "SiYuan: Stored XSS to RCE via attribute-view cell rendering in genAVValueHTML()",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-5xfx-xj4h-5p7r",
+      "description": "SiYuan: Stored XSS to RCE via attribute-view cell rendering in genAVValueHTML()",
+      "date": "2026-07-10",
+      "affected": [
+        "github.com/siyuan-note/siyuan/kernel"
+      ],
+      "references": [
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-5xfx-xj4h-5p7r",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54158",
+        "https://github.com/advisories/GHSA-5xfx-xj4h-5p7r"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/siyuan-note/siyuan/kernel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/siyuan-note/siyuan/kernel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g5r6-gv6m-f5jv",
+      "name": "mcp-atlassian: Arbitrary file read via missing path validation in confluence_upload_attachment",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-g5r6-gv6m-f5jv",
+      "description": "mcp-atlassian: Arbitrary file read via missing path validation in confluence_upload_attachment",
+      "date": "2026-07-10",
+      "affected": [
+        "mcp-atlassian"
+      ],
+      "references": [
+        "https://github.com/sooperset/mcp-atlassian/security/advisories/GHSA-g5r6-gv6m-f5jv",
+        "https://github.com/advisories/GHSA-g5r6-gv6m-f5jv"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wm45-qh3g-v83f",
+      "name": "mcp-atlassian: Arbitrary server-side file read via attachment upload",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-wm45-qh3g-v83f",
+      "description": "mcp-atlassian: Arbitrary server-side file read via attachment upload",
+      "date": "2026-07-10",
+      "affected": [
+        "mcp-atlassian"
+      ],
+      "references": [
+        "https://github.com/sooperset/mcp-atlassian/security/advisories/GHSA-wm45-qh3g-v83f",
+        "https://github.com/advisories/GHSA-wm45-qh3g-v83f"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xrmc-c5cg-rv7x",
+      "name": "SafeInstall agent guard shell parsing can miss raw package execution",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-xrmc-c5cg-rv7x",
+      "description": "SafeInstall agent guard shell parsing can miss raw package execution",
+      "date": "2026-07-10",
+      "affected": [
+        "safeinstall-cli"
+      ],
+      "references": [
+        "https://github.com/Mickdownunder/SafeInstall/security/advisories/GHSA-xrmc-c5cg-rv7x",
+        "https://github.com/advisories/GHSA-xrmc-c5cg-rv7x"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "safeinstall-cli"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qv4m-m73m-8hj7",
+      "name": "NotrinosERP: Authenticated arbitrary file upload leads to remote code execution via HRM employee \"Do",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-qv4m-m73m-8hj7",
+      "description": "NotrinosERP: Authenticated arbitrary file upload leads to remote code execution via HRM employee \"Documents\" (doc_file)",
+      "date": "2026-07-10",
+      "affected": [
+        "notrinos/notrinos-erp"
+      ],
+      "references": [
+        "https://github.com/notrinos/NotrinosERP/security/advisories/GHSA-qv4m-m73m-8hj7",
+        "https://github.com/advisories/GHSA-qv4m-m73m-8hj7"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "notrinos/notrinos-erp"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-m8gf-v64p-gfmg",
+      "name": "BabelDOC: Arbitrary Code Execution via CMap Pickle Deserialization in babeldoc/pdfminer/cmapdb.py",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-m8gf-v64p-gfmg",
+      "description": "BabelDOC: Arbitrary Code Execution via CMap Pickle Deserialization in babeldoc/pdfminer/cmapdb.py",
+      "date": "2026-07-10",
+      "affected": [
+        "BabelDOC"
+      ],
+      "references": [
+        "https://github.com/funstory-ai/BabelDOC/security/advisories/GHSA-m8gf-v64p-gfmg",
+        "https://github.com/advisories/GHSA-m8gf-v64p-gfmg"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-m93h-4hw7-5qcm",
+      "name": "File Browser: Command Injection via Authentication Hook Shell Substitution (Pre-Authentication RCE)",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-m93h-4hw7-5qcm",
+      "description": "File Browser: Command Injection via Authentication Hook Shell Substitution (Pre-Authentication RCE)",
+      "date": "2026-07-10",
+      "affected": [
+        "github.com/filebrowser/filebrowser/v2"
+      ],
+      "references": [
+        "https://github.com/filebrowser/filebrowser/security/advisories/GHSA-m93h-4hw7-5qcm",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54088",
+        "https://github.com/advisories/GHSA-m93h-4hw7-5qcm"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/filebrowser/filebrowser/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/filebrowser/filebrowser/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-99j7-fhr2-xfj4",
+      "name": "`exploration` was removed from crates.io for malicious code",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-99j7-fhr2-xfj4",
+      "description": "`exploration` was removed from crates.io for malicious code",
+      "date": "2026-07-10",
+      "affected": [
+        "exploration"
+      ],
+      "references": [
+        "https://rustsec.org/advisories/RUSTSEC-2026-0155.html",
+        "https://github.com/advisories/GHSA-99j7-fhr2-xfj4"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2ppx-66jv-wpw5",
+      "name": "Windmill: Resource-scoped API tokens can read script contents outside their allowed path via scripts",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-2ppx-66jv-wpw5",
+      "description": "Windmill: Resource-scoped API tokens can read script contents outside their allowed path via scripts/list_search",
+      "date": "2026-07-10",
+      "affected": [
+        "windmill-api"
+      ],
+      "references": [
+        "https://github.com/windmill-labs/windmill/security/advisories/GHSA-2ppx-66jv-wpw5",
+        "https://github.com/advisories/GHSA-2ppx-66jv-wpw5"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-w7cg-whh7-xp28",
+      "name": "SiYuan: Stored XSS in Bazaar marketplace via package README event handlers",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-w7cg-whh7-xp28",
+      "description": "SiYuan: Stored XSS in Bazaar marketplace via package README event handlers",
+      "date": "2026-07-10",
+      "affected": [
+        "github.com/siyuan-note/siyuan/kernel"
+      ],
+      "references": [
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-w7cg-whh7-xp28",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54070",
+        "https://github.com/advisories/GHSA-w7cg-whh7-xp28"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/siyuan-note/siyuan/kernel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/siyuan-note/siyuan/kernel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xqp3-jq6g-x3qm",
+      "name": "File Browser: Authentication Bypass via Proxy Auth Header Forgery",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-xqp3-jq6g-x3qm",
+      "description": "File Browser: Authentication Bypass via Proxy Auth Header Forgery",
+      "date": "2026-07-10",
+      "affected": [
+        "github.com/filebrowser/filebrowser/v2"
+      ],
+      "references": [
+        "https://github.com/filebrowser/filebrowser/security/advisories/GHSA-xqp3-jq6g-x3qm",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54089",
+        "https://github.com/filebrowser/filebrowser/blob/main/auth/proxy.go",
+        "https://github.com/filebrowser/filebrowser/blob/main/http/auth.go#L121-L137",
+        "https://github.com/advisories/GHSA-xqp3-jq6g-x3qm"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/filebrowser/filebrowser/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/filebrowser/filebrowser/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hvr9-72v2-fff3",
+      "name": "SiYuan: Unauthenticated Admin API Access via Blanket chrome-extension:// Origin Allowlist",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-hvr9-72v2-fff3",
+      "description": "SiYuan: Unauthenticated Admin API Access via Blanket chrome-extension:// Origin Allowlist",
+      "date": "2026-07-10",
+      "affected": [
+        "github.com/siyuan-note/siyuan/kernel"
+      ],
+      "references": [
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-hvr9-72v2-fff3",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54069",
+        "https://github.com/advisories/GHSA-hvr9-72v2-fff3"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/siyuan-note/siyuan/kernel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/siyuan-note/siyuan/kernel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-gcm7-57gf-953c",
+      "name": "SiYuan: Unauthenticated SQLite Data Exfiltration via Template Injection in /api/icon/getDynamicIcon",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-gcm7-57gf-953c",
+      "description": "SiYuan: Unauthenticated SQLite Data Exfiltration via Template Injection in /api/icon/getDynamicIcon",
+      "date": "2026-07-10",
+      "affected": [
+        "github.com/siyuan-note/siyuan/kernel"
+      ],
+      "references": [
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-gcm7-57gf-953c",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54068",
+        "https://github.com/advisories/GHSA-gcm7-57gf-953c"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/siyuan-note/siyuan/kernel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/siyuan-note/siyuan/kernel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9mqm-qcwf-5qhg",
+      "name": "CredSweeper: Recursive archive size-limit bypass in deep scanner allows crafted compressed inputs to",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-9mqm-qcwf-5qhg",
+      "description": "CredSweeper: Recursive archive size-limit bypass in deep scanner allows crafted compressed inputs to exhaust resources",
+      "date": "2026-07-10",
+      "affected": [
+        "credsweeper"
+      ],
+      "references": [
+        "https://github.com/Samsung/CredSweeper/security/advisories/GHSA-9mqm-qcwf-5qhg",
+        "https://github.com/advisories/GHSA-9mqm-qcwf-5qhg"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h69g-9hx6-f3v4",
+      "name": "Excelize: Unbounded Row Index Allocation in Worksheet Parser (checkSheet OOM/Panic DoS)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-h69g-9hx6-f3v4",
+      "description": "Excelize: Unbounded Row Index Allocation in Worksheet Parser (checkSheet OOM/Panic DoS)",
+      "date": "2026-07-10",
+      "affected": [
+        "github.com/xuri/excelize/v2"
+      ],
+      "references": [
+        "https://github.com/qax-os/excelize/security/advisories/GHSA-h69g-9hx6-f3v4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54063",
+        "https://github.com/qax-os/excelize/releases/tag/v2.11.0",
+        "https://github.com/advisories/GHSA-h69g-9hx6-f3v4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/xuri/excelize/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/xuri/excelize/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h29v-hj44-q8cv",
+      "name": "Authorizer: Unvalidated redirect_uri in /authorize leaks OAuth2 tokens to attacker-controlled URL",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-h29v-hj44-q8cv",
+      "description": "Authorizer: Unvalidated redirect_uri in /authorize leaks OAuth2 tokens to attacker-controlled URL",
+      "date": "2026-07-10",
+      "affected": [
+        "github.com/authorizerdev/authorizer"
+      ],
+      "references": [
+        "https://github.com/authorizerdev/authorizer/security/advisories/GHSA-h29v-hj44-q8cv",
+        "https://github.com/advisories/GHSA-h29v-hj44-q8cv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/authorizerdev/authorizer"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/authorizerdev/authorizer"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-mvjr-vv3c-w4qv",
+      "name": "SiYuan: Stored XSS to RCE via CSS-snippet <style> breakout in renderSnippet()",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-mvjr-vv3c-w4qv",
+      "description": "SiYuan: Stored XSS to RCE via CSS-snippet <style> breakout in renderSnippet()",
+      "date": "2026-07-10",
+      "affected": [
+        "github.com/siyuan-note/siyuan/kernel"
+      ],
+      "references": [
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-mvjr-vv3c-w4qv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54067",
+        "https://github.com/advisories/GHSA-mvjr-vv3c-w4qv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/siyuan-note/siyuan/kernel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/siyuan-note/siyuan/kernel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-p4m3-mgmm-c664",
+      "name": "SiYuan: Path Traversal via Double URL Encoding in /assets/*path (publish mode arbitrary   file\u2500read)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-p4m3-mgmm-c664",
+      "description": "SiYuan: Path Traversal via Double URL Encoding in /assets/*path (publish mode arbitrary   file\u2500read), Incomplete fix of CVE-2026-41894 ",
+      "date": "2026-07-10",
+      "affected": [
+        "github.com/siyuan-note/siyuan/kernel"
+      ],
+      "references": [
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-p4m3-mgmm-c664",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54066",
+        "https://github.com/advisories/GHSA-p4m3-mgmm-c664"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/siyuan-note/siyuan/kernel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/siyuan-note/siyuan/kernel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-489g-7rxv-6c8q",
       "name": "MCP Atlassian: DNS-rebinding TOCTOU bypass of the SSRF fix (CVE-2026-27826)",
@@ -604,609 +1218,19 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5597-7rmh-97q5",
-      "name": "Sylius: Cart FormComponent allows modification or deletion of an already-completed order",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-5597-7rmh-97q5",
-      "description": "Sylius: Cart FormComponent allows modification or deletion of an already-completed order",
-      "date": "2026-07-09",
-      "affected": [
-        "sylius/sylius",
-        "sylius/sylius",
-        "sylius/sylius"
-      ],
-      "references": [
-        "https://github.com/Sylius/Sylius/security/advisories/GHSA-5597-7rmh-97q5",
-        "https://github.com/advisories/GHSA-5597-7rmh-97q5"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "sylius/sylius",
-          "sylius/sylius",
-          "sylius/sylius"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-px5m-h76g-p7p8",
-      "name": "YesWiki has Unsafe eval() in its Formula Calculato, Leading to Remote Code Execution & Denial of Ser",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-px5m-h76g-p7p8",
-      "description": "YesWiki has Unsafe eval() in its Formula Calculato, Leading to Remote Code Execution & Denial of Service",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-px5m-h76g-p7p8",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-52778",
-        "https://github.com/YesWiki/yeswiki/commit/dd2bd8fb099de0d21504bda8a810693b3fcb8e52",
-        "https://github.com/YesWiki/yeswiki/releases/tag/v4.6.6",
-        "https://github.com/advisories/GHSA-px5m-h76g-p7p8"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9369-69wj-7m2f",
-      "name": "YesWiki Vulnerable to Authenticated PHP Object Injection in BazarImportAction via unserialize",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-9369-69wj-7m2f",
-      "description": "YesWiki Vulnerable to Authenticated PHP Object Injection in BazarImportAction via unserialize",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-9369-69wj-7m2f",
-        "https://github.com/YesWiki/yeswiki/commit/8f70a8d6b8befa0e644d03c785701dbbc55b8fd0",
-        "https://github.com/advisories/GHSA-9369-69wj-7m2f"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4pf7-cc4r-g63h",
-      "name": "YesWiki has Authenticated SQL Injection via ReactionManager ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-4pf7-cc4r-g63h",
-      "description": "YesWiki has Authenticated SQL Injection via ReactionManager ",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-4pf7-cc4r-g63h",
-        "https://github.com/YesWiki/yeswiki/commit/90ca54fb518e1c43a1ead6e4f5bf9f0389789841",
-        "https://github.com/advisories/GHSA-4pf7-cc4r-g63h"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r5xw-gcgw-hwp5",
-      "name": "YesWiki Vulnerable to Reflected XSS via Unescaped `id` Parameter in Bazar Widget HTML Attributes",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-r5xw-gcgw-hwp5",
-      "description": "YesWiki Vulnerable to Reflected XSS via Unescaped `id` Parameter in Bazar Widget HTML Attributes",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-r5xw-gcgw-hwp5",
-        "https://github.com/YesWiki/yeswiki/commit/1aa2710c7505630b858f2142a65f9441bfaba2b2",
-        "https://github.com/advisories/GHSA-r5xw-gcgw-hwp5"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-35f3-pg38-486f",
-      "name": "YesWiki Vulnerable to Reflected XSS via Unescaped Archived-Revision `time` Parameter in `handlers/pa",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-35f3-pg38-486f",
-      "description": "YesWiki Vulnerable to Reflected XSS via Unescaped Archived-Revision `time` Parameter in `handlers/page/show.php`",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-35f3-pg38-486f",
-        "https://github.com/YesWiki/yeswiki/commit/35ad9c2bb6cd338198b37c1f745e24bc302a3560",
-        "https://github.com/advisories/GHSA-35f3-pg38-486f"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xc7j-3g8q-9vh4",
-      "name": "YesWiki has stored XSS in Bazar form-field templates via unescaped field.label / field.hint (|raw('h",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-xc7j-3g8q-9vh4",
-      "description": "YesWiki has stored XSS in Bazar form-field templates via unescaped field.label / field.hint (|raw('html'))",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-xc7j-3g8q-9vh4",
-        "https://github.com/YesWiki/yeswiki/commit/5d1a4d07fecb0706f33e5dfbbe6ff5ef1892b2a7",
-        "https://github.com/advisories/GHSA-xc7j-3g8q-9vh4"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8f2v-2qhj-gfwg",
-      "name": "YesWiki: Second-Order SQL Injection in Page Delete API via Unescaped Page Tag (`ApiController::delet",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-8f2v-2qhj-gfwg",
-      "description": "YesWiki: Second-Order SQL Injection in Page Delete API via Unescaped Page Tag (`ApiController::deletePage`)",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-8f2v-2qhj-gfwg",
-        "https://github.com/YesWiki/yeswiki/commit/23d3cc124613b9428ab963b31807c08879a9c631",
-        "https://github.com/advisories/GHSA-8f2v-2qhj-gfwg"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qg78-vmvc-fhjw",
-      "name": "YesWiki: SQL Injection possible through public Bazar entry-listing APIs via numeric `query`/`queries",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-qg78-vmvc-fhjw",
-      "description": "YesWiki: SQL Injection possible through public Bazar entry-listing APIs via numeric `query`/`queries` filters",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-qg78-vmvc-fhjw",
-        "https://github.com/YesWiki/yeswiki/commit/f3b0dd093a7ace47dc29a515faeb02635baceae2",
-        "https://github.com/advisories/GHSA-qg78-vmvc-fhjw"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vw42-752g-5mrp",
-      "name": "YesWiki has Unauthenticated Server-Side Request Forgery via ActivityPub `Signature.keyId`",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-vw42-752g-5mrp",
-      "description": "YesWiki has Unauthenticated Server-Side Request Forgery via ActivityPub `Signature.keyId`",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-vw42-752g-5mrp",
-        "http://github.com/YesWiki/yeswiki/commit/87e627f33e79879827a3669fee2aa1244612c487",
-        "https://github.com/advisories/GHSA-vw42-752g-5mrp"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mv28-wj57-f57g",
-      "name": "YesWiki Vulnerable to Unauthenticated ActivityPub Signature-Verification Bypass via `!openssl_verify",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-mv28-wj57-f57g",
-      "description": "YesWiki Vulnerable to Unauthenticated ActivityPub Signature-Verification Bypass via `!openssl_verify(...)` accepting `int(-1)`",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-mv28-wj57-f57g",
-        "https://github.com/YesWiki/yeswiki/commit/d1795e0301e1a1078f17b4b98f56fff70de2029e",
-        "https://github.com/advisories/GHSA-mv28-wj57-f57g"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6x7x-gcmf-7r8x",
-      "name": "YesWiki vulnerable to unauthenticated arbitrary page deletion via `{{erasespamedcomments}}` action",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-6x7x-gcmf-7r8x",
-      "description": "YesWiki vulnerable to unauthenticated arbitrary page deletion via `{{erasespamedcomments}}` action",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-6x7x-gcmf-7r8x",
-        "https://github.com/YesWiki/yeswiki/commit/ed5b548a705c8091ba0282aaaba73ddda976abef",
-        "https://github.com/advisories/GHSA-6x7x-gcmf-7r8x"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-89v6-j5x6-cmj3",
-      "name": "YesWiki: SQL injection via the `recentchanges` action `period` argument leads to arbitrary DB read",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-89v6-j5x6-cmj3",
-      "description": "YesWiki: SQL injection via the `recentchanges` action `period` argument leads to arbitrary DB read",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-89v6-j5x6-cmj3",
-        "https://github.com/YesWiki/yeswiki/commit/5da27474c3ee62270c8a6b9d7055d494cdbd38e5",
-        "https://github.com/advisories/GHSA-89v6-j5x6-cmj3"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-65p8-9433-jpcp",
-      "name": "YesWiki: Authenticated (Admin) Server-Side Template Injection to Remote Code Execution via Bazar Sem",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-65p8-9433-jpcp",
-      "description": "YesWiki: Authenticated (Admin) Server-Side Template Injection to Remote Code Execution via Bazar Semantic Templates",
-      "date": "2026-07-09",
-      "affected": [
-        "yeswiki/yeswiki"
-      ],
-      "references": [
-        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-65p8-9433-jpcp",
-        "https://github.com/YesWiki/yeswiki/commit/89462f1577a8a1fe7fcff75e77b5058a74d8047b",
-        "https://github.com/advisories/GHSA-65p8-9433-jpcp"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yeswiki/yeswiki"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-pqpw-cvm4-8mv9",
-      "name": "Avo: Direct attachment upload endpoint lacks upload authorization and bypasses field-level upload po",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-pqpw-cvm4-8mv9",
-      "description": "Avo: Direct attachment upload endpoint lacks upload authorization and bypasses field-level upload policy",
-      "date": "2026-07-09",
-      "affected": [
-        "avo"
-      ],
-      "references": [
-        "https://github.com/avo-hq/avo/security/advisories/GHSA-pqpw-cvm4-8mv9",
-        "https://github.com/avo-hq/avo/releases/tag/v3.32.0",
-        "https://github.com/advisories/GHSA-pqpw-cvm4-8mv9"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "avo"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-w9mx-xmg4-gc4r",
-      "name": "laravel-backup-restore has an OS Command Injection during database restore",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-w9mx-xmg4-gc4r",
-      "description": "laravel-backup-restore has an OS Command Injection during database restore",
-      "date": "2026-07-09",
-      "affected": [
-        "wnx/laravel-backup-restore"
-      ],
-      "references": [
-        "https://github.com/stefanzweifel/laravel-backup-restore/security/advisories/GHSA-w9mx-xmg4-gc4r",
-        "https://github.com/advisories/GHSA-w9mx-xmg4-gc4r"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "wnx/laravel-backup-restore"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-339v-266x-79xr",
-      "name": "nebula-mesh: Host revocation is not durable - blocked/offboarded hosts can regain a valid certificat",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-339v-266x-79xr",
-      "description": "nebula-mesh: Host revocation is not durable - blocked/offboarded hosts can regain a valid certificate",
-      "date": "2026-07-09",
-      "affected": [
-        "github.com/forgekeep/nebula-mesh"
-      ],
-      "references": [
-        "https://github.com/forgekeep/nebula-mesh/security/advisories/GHSA-339v-266x-79xr",
-        "https://github.com/forgekeep/nebula-mesh/issues/178",
-        "https://github.com/advisories/GHSA-339v-266x-79xr"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/forgekeep/nebula-mesh"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/forgekeep/nebula-mesh"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-382c-vx95-w3p5",
-      "name": "Gittensory: Missing contributor-scoped access control on profile endpoint and MCP tool leaks miner f",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-382c-vx95-w3p5",
-      "description": "Gittensory: Missing contributor-scoped access control on profile endpoint and MCP tool leaks miner financial data",
-      "date": "2026-07-09",
-      "affected": [
-        "@jsonbored/gittensory-mcp"
-      ],
-      "references": [
-        "https://github.com/JSONbored/gittensory/security/advisories/GHSA-382c-vx95-w3p5",
-        "https://github.com/JSONbored/gittensory/commit/811ef5fb9d748170011f8854d88c64627ad666a0",
-        "https://github.com/advisories/GHSA-382c-vx95-w3p5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@jsonbored/gittensory-mcp"
-          ]
-        },
-        "compromised_actions": [
-          "@jsonbored/gittensory-mcp"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hm42-q32m-vj4f",
-      "name": "Admidio: CSRF on Plugin Install, Uninstall, and Update via Unprotected GET Requests",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hm42-q32m-vj4f",
-      "description": "Admidio: CSRF on Plugin Install, Uninstall, and Update via Unprotected GET Requests",
-      "date": "2026-07-09",
-      "affected": [
-        "admidio/admidio"
-      ],
-      "references": [
-        "https://github.com/Admidio/admidio/security/advisories/GHSA-hm42-q32m-vj4f",
-        "https://github.com/advisories/GHSA-hm42-q32m-vj4f"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "admidio/admidio"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-86vw-x4ww-x467",
-      "name": "Craft CMS: RCE via missing cleanseConfig in FieldsController::actionRenderCardPreview",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-86vw-x4ww-x467",
-      "description": "Craft CMS: RCE via missing cleanseConfig in FieldsController::actionRenderCardPreview",
-      "date": "2026-07-09",
-      "affected": [
-        "craftcms/cms"
-      ],
-      "references": [
-        "https://github.com/craftcms/cms/security/advisories/GHSA-86vw-x4ww-x467",
-        "https://github.com/advisories/GHSA-86vw-x4ww-x467"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "craftcms/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c43v-4cr8-6mvp",
-      "name": "Craft CMS has authenticated path traversal in `assets/icon`, allowing local `.svg` file read",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-c43v-4cr8-6mvp",
-      "description": "Craft CMS has authenticated path traversal in `assets/icon`, allowing local `.svg` file read",
-      "date": "2026-07-09",
-      "affected": [
-        "craftcms/cms",
-        "craftcms/cms"
-      ],
-      "references": [
-        "https://github.com/craftcms/cms/security/advisories/GHSA-c43v-4cr8-6mvp",
-        "https://github.com/craftcms/cms/commit/30f5f1a8d6edf0f3a00be72c42c78d9dc7d72d5c",
-        "https://github.com/advisories/GHSA-c43v-4cr8-6mvp"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "craftcms/cms",
-          "craftcms/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9pmc-p236-855h",
-      "name": "Ruby CSS Parser: SSRF and Local File Disclosure in `CssParser::Parser#read_remote_file`",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-9pmc-p236-855h",
-      "description": "Ruby CSS Parser: SSRF and Local File Disclosure in `CssParser::Parser#read_remote_file`",
-      "date": "2026-07-09",
-      "affected": [
-        "css_parser"
-      ],
-      "references": [
-        "https://github.com/premailer/css_parser/security/advisories/GHSA-9pmc-p236-855h",
-        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/css_parser/CVE-2026-53727.yml",
-        "https://www.cve.org/CVERecord/SearchResults?query=CVE-2026-53727",
-        "https://github.com/advisories/GHSA-9pmc-p236-855h"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "css_parser"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7cmj-v6x8-frvv",
-      "name": "org.hl7.fhir.core: ReDoS via FHIRPath matches()/replaceMatches() in FHIR Validator HTTP Endpoint",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7cmj-v6x8-frvv",
-      "description": "org.hl7.fhir.core: ReDoS via FHIRPath matches()/replaceMatches() in FHIR Validator HTTP Endpoint",
-      "date": "2026-07-09",
-      "affected": [
-        "ca.uhn.hapi.fhir:org.hl7.fhir.validation.cli",
-        "ca.uhn.hapi.fhir:org.hl7.fhir.validation",
-        "ca.uhn.hapi.fhir:org.hl7.fhir.r5",
-        "ca.uhn.hapi.fhir:org.hl7.fhir.r4b",
-        "ca.uhn.hapi.fhir:org.hl7.fhir.r4",
-        "ca.uhn.hapi.fhir:org.hl7.fhir.dstu3",
-        "ca.uhn.hapi.fhir:org.hl7.fhir.dstu2016may",
-        "ca.uhn.hapi.fhir:org.hl7.fhir.dstu2",
-        "ca.uhn.hapi.fhir:org.hl7.fhir.validation.cli",
-        "ca.uhn.hapi.fhir:org.hl7.fhir.validation"
-      ],
-      "references": [
-        "https://github.com/hapifhir/org.hl7.fhir.core/security/advisories/GHSA-7cmj-v6x8-frvv",
-        "https://github.com/advisories/GHSA-7cmj-v6x8-frvv"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8f95-v3jq-cj86",
-      "name": "pymonocypher: Potential heap buffer overflow on nb_blocks in argon2i_32 when provided buffer is too ",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-8f95-v3jq-cj86",
-      "description": "pymonocypher: Potential heap buffer overflow on nb_blocks in argon2i_32 when provided buffer is too small",
-      "date": "2026-07-09",
-      "affected": [
-        "pymonocypher"
-      ],
-      "references": [
-        "https://github.com/jetperch/pymonocypher/security/advisories/GHSA-8f95-v3jq-cj86",
-        "https://github.com/jetperch/pymonocypher/commit/90ff5b13b13b5673c372e188f482d8c172e6ab86",
-        "https://github.com/advisories/GHSA-8f95-v3jq-cj86"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rqrh-8wpv-x7hh",
-      "name": "Note Mark: Path traversal via unsanitized book/note slug in migrate export (sibling of GHSA-g49p)",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-rqrh-8wpv-x7hh",
-      "description": "Note Mark: Path traversal via unsanitized book/note slug in migrate export (sibling of GHSA-g49p)",
-      "date": "2026-07-09",
-      "affected": [
-        "github.com/enchant97/note-mark/backend"
-      ],
-      "references": [
-        "https://github.com/enchant97/note-mark/security/advisories/GHSA-rqrh-8wpv-x7hh",
-        "https://github.com/enchant97/note-mark/commit/67b7de04308a858ef27ceff87b514067b6d667e5",
-        "https://github.com/advisories/GHSA-rqrh-8wpv-x7hh"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/enchant97/note-mark/backend"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/enchant97/note-mark/backend"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/almeidapaulopt/tsdproxy": "TSDProxy: Internal proxy auth token forwarded to backend services enables management API escalation",
+    "chainguard.dev/melange": "melange: Incomplete package integrity verification allows data section substitution",
+    "chainguard.dev/apko": "melange: Incomplete package integrity verification allows data section substitution",
+    "github.com/siyuan-note/siyuan/kernel": "SiYuan: Stored XSS to RCE via Unsanitized Attribute View Asset Cell Content",
+    "prestashop/ps_facetedsearch": "prestashop/ps_facetedsearch: PHP Object Injection in faceted search cache allows unauthenticated RCE",
+    "notrinos/notrinos-erp": "NotrinosERP: Authenticated arbitrary file upload leads to remote code execution via HRM employee \"Do",
+    "github.com/filebrowser/filebrowser/v2": "File Browser: Command Injection via Authentication Hook Shell Substitution (Pre-Authentication RCE)",
+    "github.com/xuri/excelize/v2": "Excelize: Unbounded Row Index Allocation in Worksheet Parser (checkSheet OOM/Panic DoS)",
+    "github.com/authorizerdev/authorizer": "Authorizer: Unvalidated redirect_uri in /authorize leaks OAuth2 tokens to attacker-controlled URL",
     "@libp2p/gossipsub": "libp2p: CPU DoS via oversized IHAVE and IWANT control message arrays",
     "kimai/kimai": "Kimai has Server-Side Request Forgery in Invoice PDF Rendering via Markdown Image URLs",
     "api-platform/hal": "API Platform Core vulnerable to cross-user attribute leak in JSON:API and HAL item normalizers due t",
@@ -1215,14 +1239,7 @@
     "github.com/osrg/gobgp/v4": "GoBGP confederation validation panics on empty AS_PATH attribute",
     "github.com/sigstore/sigstore-go": "sigstore-go has a multi-log threshold bypass via single compromised log",
     "github.com/openrundev/openrun": "OpenRun: Redirect URL validation bypass using \u00a0//host\u00a0 paths leads to Open Redirect",
-    "sylius/sylius": "Sylius: IDOR on Shop Payment Request API endpoints",
-    "yeswiki/yeswiki": "YesWiki has Unsafe eval() in its Formula Calculato, Leading to Remote Code Execution & Denial of Ser",
-    "wnx/laravel-backup-restore": "laravel-backup-restore has an OS Command Injection during database restore",
-    "github.com/forgekeep/nebula-mesh": "nebula-mesh: Host revocation is not durable - blocked/offboarded hosts can regain a valid certificat",
-    "@jsonbored/gittensory-mcp": "Gittensory: Missing contributor-scoped access control on profile endpoint and MCP tool leaks miner f",
-    "admidio/admidio": "Admidio: CSRF on Plugin Install, Uninstall, and Update via Unprotected GET Requests",
-    "craftcms/cms": "Craft CMS: RCE via missing cleanseConfig in FieldsController::actionRenderCardPreview",
-    "github.com/enchant97/note-mark/backend": "Note Mark: Path traversal via unsanitized book/note slug in migrate export (sibling of GHSA-g49p)"
+    "sylius/sylius": "Sylius: IDOR on Shop Payment Request API endpoints"
   },
   "malicious_packages": {
     "npm": {},
