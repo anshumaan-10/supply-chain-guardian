@@ -1,8 +1,399 @@
 {
   "version": "2026.07.14",
-  "last_updated": "2026-07-14T13:39:34.707250+00:00",
+  "last_updated": "2026-07-14T19:16:54.718896+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-j6r7-6fhx-77wx",
+      "name": "n8n-MCP: Cross-tenant access to workflow version backups in multi-tenant HTTP deployments",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-j6r7-6fhx-77wx",
+      "description": "n8n-MCP: Cross-tenant access to workflow version backups in multi-tenant HTTP deployments",
+      "date": "2026-07-14",
+      "affected": [
+        "n8n-mcp"
+      ],
+      "references": [
+        "https://github.com/czlonkowski/n8n-mcp/security/advisories/GHSA-j6r7-6fhx-77wx",
+        "https://github.com/czlonkowski/n8n-mcp/releases/tag/v2.56.1",
+        "https://github.com/advisories/GHSA-j6r7-6fhx-77wx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "n8n-mcp"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g7mm-9vx7-jm7h",
+      "name": "Woodpecker gRPC agent_id metadata can be spoofed- cross-tenant agent impersonation",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-g7mm-9vx7-jm7h",
+      "description": "Woodpecker gRPC agent_id metadata can be spoofed- cross-tenant agent impersonation",
+      "date": "2026-07-14",
+      "affected": [
+        "go.woodpecker-ci.org/woodpecker/v3"
+      ],
+      "references": [
+        "https://github.com/woodpecker-ci/woodpecker/security/advisories/GHSA-g7mm-9vx7-jm7h",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-50141",
+        "https://github.com/woodpecker-ci/woodpecker-security/issues/21",
+        "https://github.com/woodpecker-ci/woodpecker/issues/6541",
+        "https://github.com/woodpecker-ci/woodpecker/pull/6567",
+        "https://github.com/woodpecker-ci/woodpecker/pull/6569",
+        "https://github.com/advisories/GHSA-g7mm-9vx7-jm7h"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "go.woodpecker-ci.org/woodpecker/v3"
+          ]
+        },
+        "compromised_actions": [
+          "go.woodpecker-ci.org/woodpecker/v3"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xrcf-6jh3-ggvx",
+      "name": "Anyquery: Arbitrary File Write (AFW) which could lead to Remote Code Execution (RCE) via Unrestricte",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-xrcf-6jh3-ggvx",
+      "description": "Anyquery: Arbitrary File Write (AFW) which could lead to Remote Code Execution (RCE) via Unrestricted ATTACH DATABASE in Server Mode",
+      "date": "2026-07-14",
+      "affected": [
+        "github.com/julien040/anyquery"
+      ],
+      "references": [
+        "https://github.com/julien040/anyquery/security/advisories/GHSA-xrcf-6jh3-ggvx",
+        "https://github.com/julien040/anyquery/releases/tag/0.4.5",
+        "https://github.com/advisories/GHSA-xrcf-6jh3-ggvx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/julien040/anyquery"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/julien040/anyquery"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xw9q-2mv6-9fr8",
+      "name": "Fedify has an incomplete SSRF mitigation after GHSA-p9cg-vqcc-grcx: validatePublicUrl allows special",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-xw9q-2mv6-9fr8",
+      "description": "Fedify has an incomplete SSRF mitigation after GHSA-p9cg-vqcc-grcx: validatePublicUrl allows special-use IPv4 ranges",
+      "date": "2026-07-14",
+      "affected": [
+        "@fedify/vocab-runtime",
+        "@fedify/vocab-runtime",
+        "@fedify/vocab-runtime",
+        "@fedify/fedify",
+        "@fedify/fedify",
+        "@fedify/fedify",
+        "@fedify/fedify",
+        "@fedify/fedify"
+      ],
+      "references": [
+        "https://github.com/fedify-dev/fedify/security/advisories/GHSA-xw9q-2mv6-9fr8",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-50131",
+        "https://github.com/advisories/GHSA-xw9q-2mv6-9fr8"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@fedify/vocab-runtime",
+            "@fedify/vocab-runtime",
+            "@fedify/vocab-runtime",
+            "@fedify/fedify",
+            "@fedify/fedify",
+            "@fedify/fedify",
+            "@fedify/fedify",
+            "@fedify/fedify"
+          ]
+        },
+        "compromised_actions": [
+          "@fedify/vocab-runtime",
+          "@fedify/vocab-runtime",
+          "@fedify/vocab-runtime",
+          "@fedify/fedify",
+          "@fedify/fedify",
+          "@fedify/fedify",
+          "@fedify/fedify",
+          "@fedify/fedify"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qw5r-ppcg-f8rj",
+      "name": "MKP: Unbounded Pod Log Read via Attacker-Controlled `limitBytes`/`tailLines` Causes Memory Exhaustio",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-qw5r-ppcg-f8rj",
+      "description": "MKP: Unbounded Pod Log Read via Attacker-Controlled `limitBytes`/`tailLines` Causes Memory Exhaustion",
+      "date": "2026-07-14",
+      "affected": [
+        "github.com/StacklokLabs/mkp"
+      ],
+      "references": [
+        "https://github.com/StacklokLabs/mkp/security/advisories/GHSA-qw5r-ppcg-f8rj",
+        "https://github.com/advisories/GHSA-qw5r-ppcg-f8rj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/StacklokLabs/mkp"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/StacklokLabs/mkp"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-42j2-w334-qxw7",
+      "name": "Hoverfly: Denial of Service via Goroutine Leak in Remote Post-Serve Actions",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-42j2-w334-qxw7",
+      "description": "Hoverfly: Denial of Service via Goroutine Leak in Remote Post-Serve Actions",
+      "date": "2026-07-14",
+      "affected": [
+        "github.com/SpectoLabs/hoverfly"
+      ],
+      "references": [
+        "https://github.com/SpectoLabs/hoverfly/security/advisories/GHSA-42j2-w334-qxw7",
+        "https://github.com/SpectoLabs/hoverfly/pull/1228",
+        "https://github.com/SpectoLabs/hoverfly/releases/tag/v1.12.8",
+        "https://github.com/advisories/GHSA-42j2-w334-qxw7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/SpectoLabs/hoverfly"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/SpectoLabs/hoverfly"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qrh4-p6v4-mrfg",
+      "name": "Hoverfly: Process Crash via Concurrent Map Write Race Condition in Diff Mode",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-qrh4-p6v4-mrfg",
+      "description": "Hoverfly: Process Crash via Concurrent Map Write Race Condition in Diff Mode",
+      "date": "2026-07-14",
+      "affected": [
+        "github.com/SpectoLabs/hoverfly"
+      ],
+      "references": [
+        "https://github.com/SpectoLabs/hoverfly/security/advisories/GHSA-qrh4-p6v4-mrfg",
+        "https://github.com/SpectoLabs/hoverfly/pull/1227",
+        "https://github.com/SpectoLabs/hoverfly/releases/tag/v1.12.8",
+        "https://github.com/advisories/GHSA-qrh4-p6v4-mrfg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/SpectoLabs/hoverfly"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/SpectoLabs/hoverfly"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jxr7-mqhw-9p98",
+      "name": "K3s: ZIP Archive Path Traversal Vulnerability in etcd Snapshot Decompression",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-jxr7-mqhw-9p98",
+      "description": "K3s: ZIP Archive Path Traversal Vulnerability in etcd Snapshot Decompression",
+      "date": "2026-07-14",
+      "affected": [
+        "github.com/k3s-io/k3s",
+        "github.com/k3s-io/k3s",
+        "github.com/k3s-io/k3s"
+      ],
+      "references": [
+        "https://github.com/k3s-io/k3s/security/advisories/GHSA-jxr7-mqhw-9p98",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54250",
+        "https://github.com/advisories/GHSA-jxr7-mqhw-9p98"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/k3s-io/k3s",
+            "github.com/k3s-io/k3s",
+            "github.com/k3s-io/k3s"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/k3s-io/k3s",
+          "github.com/k3s-io/k3s",
+          "github.com/k3s-io/k3s"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vvp9-h8p2-xwfc",
+      "name": "Wasmtime: Memory leak in C API with `externref` and `anyref` types",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-vvp9-h8p2-xwfc",
+      "description": "Wasmtime: Memory leak in C API with `externref` and `anyref` types",
+      "date": "2026-07-14",
+      "affected": [
+        "wasmtime-bin",
+        "wasmtime-c-api-impl"
+      ],
+      "references": [
+        "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-vvp9-h8p2-xwfc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-61670",
+        "https://github.com/bytecodealliance/wasmtime/commit/adff9d9d0f09569203709d5687e5a7dc8e1ad0a3",
+        "https://github.com/bytecodealliance/wasmtime/releases/tag/v37.0.2",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/wasmtime-bin/PYSEC-2025-268.yaml",
+        "https://github.com/advisories/GHSA-vvp9-h8p2-xwfc"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3x7p-v8hj-xh5m",
+      "name": "FacturaScripts: Stored XSS in WidgetVariante and WidgetSubcuenta modal lists via HTML-attribute deco",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-3x7p-v8hj-xh5m",
+      "description": "FacturaScripts: Stored XSS in WidgetVariante and WidgetSubcuenta modal lists via HTML-attribute decoding of `Tools::noHtml`-escaped quotes inside `onclick=`",
+      "date": "2026-07-14",
+      "affected": [
+        "facturascripts/facturascripts"
+      ],
+      "references": [
+        "https://github.com/NeoRazorX/facturascripts/security/advisories/GHSA-3x7p-v8hj-xh5m",
+        "https://github.com/advisories/GHSA-3x7p-v8hj-xh5m"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "facturascripts/facturascripts"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2p5x-4jr6-x5jg",
+      "name": "FacturaScripts: CSV formula injection in CSVExport allows authenticated low-priv users to plant payl",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2p5x-4jr6-x5jg",
+      "description": "FacturaScripts: CSV formula injection in CSVExport allows authenticated low-priv users to plant payloads that execute when an admin opens the export",
+      "date": "2026-07-14",
+      "affected": [
+        "facturascripts/facturascripts"
+      ],
+      "references": [
+        "https://github.com/NeoRazorX/facturascripts/security/advisories/GHSA-2p5x-4jr6-x5jg",
+        "https://github.com/advisories/GHSA-2p5x-4jr6-x5jg"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "facturascripts/facturascripts"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cv65-7cg8-r623",
+      "name": "FacturaScripts: Unauthenticated Path Traversal in Static File Controllers Reads Private MyFiles Docu",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-cv65-7cg8-r623",
+      "description": "FacturaScripts: Unauthenticated Path Traversal in Static File Controllers Reads Private MyFiles Documents",
+      "date": "2026-07-14",
+      "affected": [
+        "facturascripts/facturascripts"
+      ],
+      "references": [
+        "https://github.com/NeoRazorX/facturascripts/security/advisories/GHSA-cv65-7cg8-r623",
+        "https://github.com/advisories/GHSA-cv65-7cg8-r623"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "facturascripts/facturascripts"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5qmh-x653-g8qj",
+      "name": "FacturaScripts: Authenticated SQL injection in the FacturaScripts REST API filter parameter via pare",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-5qmh-x653-g8qj",
+      "description": "FacturaScripts: Authenticated SQL injection in the FacturaScripts REST API filter parameter via parenthesis bypass in `Where::sqlColumn`",
+      "date": "2026-07-14",
+      "affected": [
+        "facturascripts/facturascripts"
+      ],
+      "references": [
+        "https://github.com/NeoRazorX/facturascripts/security/advisories/GHSA-5qmh-x653-g8qj",
+        "https://github.com/advisories/GHSA-5qmh-x653-g8qj"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "facturascripts/facturascripts"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wmj8-9953-vff5",
+      "name": "OpenCost ServiceKey Endpoint Unauthorized Credential Overwrite/Injection",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-wmj8-9953-vff5",
+      "description": "OpenCost ServiceKey Endpoint Unauthorized Credential Overwrite/Injection",
+      "date": "2026-07-14",
+      "affected": [
+        "github.com/opencost/opencost"
+      ],
+      "references": [
+        "https://github.com/opencost/opencost/security/advisories/GHSA-wmj8-9953-vff5",
+        "https://github.com/advisories/GHSA-wmj8-9953-vff5"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/opencost/opencost"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/opencost/opencost"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-rw46-qg69-vg6h",
       "name": "Kimai: ExportTemplate CRUD Missing Authorization Check Allows Unauthorized TEAMLEAD Access",
@@ -847,354 +1238,21 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-g936-7jqj-mwv8",
-      "name": "TSDProxy: Internal proxy auth token forwarded to backend services enables management API escalation",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-g936-7jqj-mwv8",
-      "description": "TSDProxy: Internal proxy auth token forwarded to backend services enables management API escalation",
-      "date": "2026-07-10",
-      "affected": [
-        "github.com/almeidapaulopt/tsdproxy"
-      ],
-      "references": [
-        "https://github.com/almeidapaulopt/tsdproxy/security/advisories/GHSA-g936-7jqj-mwv8",
-        "https://github.com/advisories/GHSA-g936-7jqj-mwv8"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/almeidapaulopt/tsdproxy"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/almeidapaulopt/tsdproxy"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fpg8-7664-jc5q",
-      "name": "melange: Incomplete package integrity verification allows data section substitution",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-fpg8-7664-jc5q",
-      "description": "melange: Incomplete package integrity verification allows data section substitution",
-      "date": "2026-07-10",
-      "affected": [
-        "chainguard.dev/melange",
-        "chainguard.dev/apko"
-      ],
-      "references": [
-        "https://github.com/chainguard-dev/melange/security/advisories/GHSA-fpg8-7664-jc5q",
-        "https://github.com/advisories/GHSA-fpg8-7664-jc5q"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "chainguard.dev/melange",
-            "chainguard.dev/apko"
-          ]
-        },
-        "compromised_actions": [
-          "chainguard.dev/melange",
-          "chainguard.dev/apko"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-48rx-c7pg-q66r",
-      "name": "Excon does not redact additional sensitive/risky headers when following redirects",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-48rx-c7pg-q66r",
-      "description": "Excon does not redact additional sensitive/risky headers when following redirects",
-      "date": "2026-07-10",
-      "affected": [
-        "excon"
-      ],
-      "references": [
-        "https://github.com/excon/excon/security/advisories/GHSA-48rx-c7pg-q66r",
-        "https://github.com/excon/excon/commit/ea89a35308a12f4b791b6c50f2cbd33f94889fa3",
-        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/excon/CVE-2026-54171.yml",
-        "https://www.cve.org/CVERecord?id=CVE-2026-54171",
-        "https://github.com/advisories/GHSA-48rx-c7pg-q66r"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "excon"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h4g2-xfmw-q2c9",
-      "name": "Clauster: Non-loopback deployments can serve the dashboard unauthenticated when auth.enabled is unse",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-h4g2-xfmw-q2c9",
-      "description": "Clauster: Non-loopback deployments can serve the dashboard unauthenticated when auth.enabled is unset",
-      "date": "2026-07-10",
-      "affected": [
-        "clauster"
-      ],
-      "references": [
-        "https://github.com/schubydoo/clauster/security/advisories/GHSA-h4g2-xfmw-q2c9",
-        "https://github.com/advisories/GHSA-h4g2-xfmw-q2c9"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rqq5-2gf9-4w4q",
-      "name": "Secure Headers: CSP directive injection via sandbox, plugin_types, and report_to when given untruste",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-rqq5-2gf9-4w4q",
-      "description": "Secure Headers: CSP directive injection via sandbox, plugin_types, and report_to when given untrusted input",
-      "date": "2026-07-10",
-      "affected": [
-        "secure_headers"
-      ],
-      "references": [
-        "https://github.com/github/secure_headers/security/advisories/GHSA-rqq5-2gf9-4w4q",
-        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/secure_headers/CVE-2026-54163.yml",
-        "https://www.cve.org/CVERecord/SearchResults?query=CVE-2026-54163",
-        "https://github.com/advisories/GHSA-rqq5-2gf9-4w4q"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "secure_headers"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-56mp-4f3v-fgj2",
-      "name": "SiYuan: Stored XSS to RCE via Unsanitized Attribute View Asset Cell Content",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-56mp-4f3v-fgj2",
-      "description": "SiYuan: Stored XSS to RCE via Unsanitized Attribute View Asset Cell Content",
-      "date": "2026-07-10",
-      "affected": [
-        "github.com/siyuan-note/siyuan/kernel"
-      ],
-      "references": [
-        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-56mp-4f3v-fgj2",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-50551",
-        "https://github.com/advisories/GHSA-56mp-4f3v-fgj2"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/siyuan-note/siyuan/kernel"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/siyuan-note/siyuan/kernel"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-m5f5-28qr-9g9r",
-      "name": "prestashop/ps_facetedsearch: PHP Object Injection in faceted search cache allows unauthenticated RCE",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-m5f5-28qr-9g9r",
-      "description": "prestashop/ps_facetedsearch: PHP Object Injection in faceted search cache allows unauthenticated RCE",
-      "date": "2026-07-10",
-      "affected": [
-        "prestashop/ps_facetedsearch"
-      ],
-      "references": [
-        "https://github.com/PrestaShop/ps_facetedsearch/security/advisories/GHSA-m5f5-28qr-9g9r",
-        "https://github.com/advisories/GHSA-m5f5-28qr-9g9r"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "prestashop/ps_facetedsearch"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5xfx-xj4h-5p7r",
-      "name": "SiYuan: Stored XSS to RCE via attribute-view cell rendering in genAVValueHTML()",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-5xfx-xj4h-5p7r",
-      "description": "SiYuan: Stored XSS to RCE via attribute-view cell rendering in genAVValueHTML()",
-      "date": "2026-07-10",
-      "affected": [
-        "github.com/siyuan-note/siyuan/kernel"
-      ],
-      "references": [
-        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-5xfx-xj4h-5p7r",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-54158",
-        "https://github.com/advisories/GHSA-5xfx-xj4h-5p7r"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/siyuan-note/siyuan/kernel"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/siyuan-note/siyuan/kernel"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-g5r6-gv6m-f5jv",
-      "name": "mcp-atlassian: Arbitrary file read via missing path validation in confluence_upload_attachment",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-g5r6-gv6m-f5jv",
-      "description": "mcp-atlassian: Arbitrary file read via missing path validation in confluence_upload_attachment",
-      "date": "2026-07-10",
-      "affected": [
-        "mcp-atlassian"
-      ],
-      "references": [
-        "https://github.com/sooperset/mcp-atlassian/security/advisories/GHSA-g5r6-gv6m-f5jv",
-        "https://github.com/advisories/GHSA-g5r6-gv6m-f5jv"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wm45-qh3g-v83f",
-      "name": "mcp-atlassian: Arbitrary server-side file read via attachment upload",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-wm45-qh3g-v83f",
-      "description": "mcp-atlassian: Arbitrary server-side file read via attachment upload",
-      "date": "2026-07-10",
-      "affected": [
-        "mcp-atlassian"
-      ],
-      "references": [
-        "https://github.com/sooperset/mcp-atlassian/security/advisories/GHSA-wm45-qh3g-v83f",
-        "https://github.com/advisories/GHSA-wm45-qh3g-v83f"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xrmc-c5cg-rv7x",
-      "name": "SafeInstall agent guard shell parsing can miss raw package execution",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-xrmc-c5cg-rv7x",
-      "description": "SafeInstall agent guard shell parsing can miss raw package execution",
-      "date": "2026-07-10",
-      "affected": [
-        "safeinstall-cli"
-      ],
-      "references": [
-        "https://github.com/Mickdownunder/SafeInstall/security/advisories/GHSA-xrmc-c5cg-rv7x",
-        "https://github.com/advisories/GHSA-xrmc-c5cg-rv7x"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "safeinstall-cli"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qv4m-m73m-8hj7",
-      "name": "NotrinosERP: Authenticated arbitrary file upload leads to remote code execution via HRM employee \"Do",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-qv4m-m73m-8hj7",
-      "description": "NotrinosERP: Authenticated arbitrary file upload leads to remote code execution via HRM employee \"Documents\" (doc_file)",
-      "date": "2026-07-10",
-      "affected": [
-        "notrinos/notrinos-erp"
-      ],
-      "references": [
-        "https://github.com/notrinos/NotrinosERP/security/advisories/GHSA-qv4m-m73m-8hj7",
-        "https://github.com/advisories/GHSA-qv4m-m73m-8hj7"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "notrinos/notrinos-erp"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-m8gf-v64p-gfmg",
-      "name": "BabelDOC: Arbitrary Code Execution via CMap Pickle Deserialization in babeldoc/pdfminer/cmapdb.py",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-m8gf-v64p-gfmg",
-      "description": "BabelDOC: Arbitrary Code Execution via CMap Pickle Deserialization in babeldoc/pdfminer/cmapdb.py",
-      "date": "2026-07-10",
-      "affected": [
-        "BabelDOC"
-      ],
-      "references": [
-        "https://github.com/funstory-ai/BabelDOC/security/advisories/GHSA-m8gf-v64p-gfmg",
-        "https://github.com/advisories/GHSA-m8gf-v64p-gfmg"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-m93h-4hw7-5qcm",
-      "name": "File Browser: Command Injection via Authentication Hook Shell Substitution (Pre-Authentication RCE)",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-m93h-4hw7-5qcm",
-      "description": "File Browser: Command Injection via Authentication Hook Shell Substitution (Pre-Authentication RCE)",
-      "date": "2026-07-10",
-      "affected": [
-        "github.com/filebrowser/filebrowser/v2"
-      ],
-      "references": [
-        "https://github.com/filebrowser/filebrowser/security/advisories/GHSA-m93h-4hw7-5qcm",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-54088",
-        "https://github.com/advisories/GHSA-m93h-4hw7-5qcm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/filebrowser/filebrowser/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/filebrowser/filebrowser/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "go.woodpecker-ci.org/woodpecker/v3": "Woodpecker gRPC agent_id metadata can be spoofed- cross-tenant agent impersonation",
+    "github.com/julien040/anyquery": "Anyquery: Arbitrary File Write (AFW) which could lead to Remote Code Execution (RCE) via Unrestricte",
+    "@fedify/vocab-runtime": "Fedify has an incomplete SSRF mitigation after GHSA-p9cg-vqcc-grcx: validatePublicUrl allows special",
+    "@fedify/fedify": "Fedify has an incomplete SSRF mitigation after GHSA-p9cg-vqcc-grcx: validatePublicUrl allows special",
+    "github.com/StacklokLabs/mkp": "MKP: Unbounded Pod Log Read via Attacker-Controlled `limitBytes`/`tailLines` Causes Memory Exhaustio",
+    "github.com/SpectoLabs/hoverfly": "Hoverfly: Denial of Service via Goroutine Leak in Remote Post-Serve Actions",
+    "github.com/k3s-io/k3s": "K3s: ZIP Archive Path Traversal Vulnerability in etcd Snapshot Decompression",
+    "facturascripts/facturascripts": "FacturaScripts: Stored XSS in WidgetVariante and WidgetSubcuenta modal lists via HTML-attribute deco",
+    "github.com/opencost/opencost": "OpenCost ServiceKey Endpoint Unauthorized Credential Overwrite/Injection",
     "kimai/kimai": "Kimai: ExportTemplate CRUD Missing Authorization Check Allows Unauthorized TEAMLEAD Access",
-    "facturascripts/facturascripts": "FacturaScripts: Account takeover of any 2FA-enabled user",
-    "nukeviet/nukeviet": "NukeViet: Pre-authentication SSRF via X-Forwarded-Host",
-    "github.com/almeidapaulopt/tsdproxy": "TSDProxy: Internal proxy auth token forwarded to backend services enables management API escalation",
-    "chainguard.dev/melange": "melange: Incomplete package integrity verification allows data section substitution",
-    "chainguard.dev/apko": "melange: Incomplete package integrity verification allows data section substitution",
-    "github.com/siyuan-note/siyuan/kernel": "SiYuan: Stored XSS to RCE via Unsanitized Attribute View Asset Cell Content",
-    "prestashop/ps_facetedsearch": "prestashop/ps_facetedsearch: PHP Object Injection in faceted search cache allows unauthenticated RCE",
-    "notrinos/notrinos-erp": "NotrinosERP: Authenticated arbitrary file upload leads to remote code execution via HRM employee \"Do",
-    "github.com/filebrowser/filebrowser/v2": "File Browser: Command Injection via Authentication Hook Shell Substitution (Pre-Authentication RCE)"
+    "nukeviet/nukeviet": "NukeViet: Pre-authentication SSRF via X-Forwarded-Host"
   },
   "malicious_packages": {
     "npm": {},
