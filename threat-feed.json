@@ -1,8 +1,331 @@
 {
   "version": "2026.07.17",
-  "last_updated": "2026-07-17T13:24:07.219625+00:00",
+  "last_updated": "2026-07-17T19:05:04.491795+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-8qw8-rq86-9pc2",
+      "name": "Gitea has insufficient permission checks for Composer package source links",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-8qw8-rq86-9pc2",
+      "description": "Gitea has insufficient permission checks for Composer package source links",
+      "date": "2026-07-17",
+      "affected": [
+        "code.gitea.io/gitea"
+      ],
+      "references": [
+        "https://github.com/go-gitea/gitea/security/advisories/GHSA-8qw8-rq86-9pc2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-27771",
+        "https://github.com/go-gitea/gitea/pull/37610",
+        "https://blog.gitea.com/release-of-1.26.2",
+        "https://github.com/go-gitea/gitea/releases/tag/v1.26.2",
+        "https://github.com/advisories/GHSA-8qw8-rq86-9pc2"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "code.gitea.io/gitea"
+          ]
+        },
+        "compromised_actions": [
+          "code.gitea.io/gitea"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vqrw-qphh-p34v",
+      "name": "TAK-PS-Stats Web UI: Authenticated full-read SSRF in CloudTAK basemap import (PUT /api/basemap) \u2014 no",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vqrw-qphh-p34v",
+      "description": "TAK-PS-Stats Web UI: Authenticated full-read SSRF in CloudTAK basemap import (PUT /api/basemap) \u2014 no IP-classification guard",
+      "date": "2026-07-17",
+      "affected": [
+        "@tak-ps/cloudtak"
+      ],
+      "references": [
+        "https://github.com/dfpc-coe/CloudTAK/security/advisories/GHSA-vqrw-qphh-p34v",
+        "https://github.com/advisories/GHSA-vqrw-qphh-p34v"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@tak-ps/cloudtak"
+          ]
+        },
+        "compromised_actions": [
+          "@tak-ps/cloudtak"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rjwr-m7qx-3fjr",
+      "name": "oapi-codegen: OpenAPI Server Description Escapes Generated Go Comment and Injects Executable Code",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-rjwr-m7qx-3fjr",
+      "description": "oapi-codegen: OpenAPI Server Description Escapes Generated Go Comment and Injects Executable Code",
+      "date": "2026-07-17",
+      "affected": [
+        "github.com/oapi-codegen/oapi-codegen/v2"
+      ],
+      "references": [
+        "https://github.com/oapi-codegen/oapi-codegen/security/advisories/GHSA-rjwr-m7qx-3fjr",
+        "https://github.com/oapi-codegen/oapi-codegen/commit/19c6282e9a6fb84b51aa92b12fad1f0b7e5f5ef6",
+        "https://github.com/oapi-codegen/oapi-codegen/releases/tag/v2.7.1",
+        "https://github.com/advisories/GHSA-rjwr-m7qx-3fjr"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/oapi-codegen/oapi-codegen/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/oapi-codegen/oapi-codegen/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2v2f-mvfg-ph56",
+      "name": "meta-ads-mcp: X-Pipeboard-Token Header Auth Bypass Reuses Operator Meta Token",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2v2f-mvfg-ph56",
+      "description": "meta-ads-mcp: X-Pipeboard-Token Header Auth Bypass Reuses Operator Meta Token",
+      "date": "2026-07-17",
+      "affected": [
+        "meta-ads-mcp"
+      ],
+      "references": [
+        "https://github.com/pipeboard-co/meta-ads-mcp/security/advisories/GHSA-2v2f-mvfg-ph56",
+        "https://github.com/pipeboard-co/meta-ads-mcp/releases/tag/1.0.115",
+        "https://github.com/advisories/GHSA-2v2f-mvfg-ph56"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-45gf-fjxp-cjpq",
+      "name": "meta-ads-mcp: Server-Side Request Forgery (SSRF) in `upload_ad_image` via Unrestricted `image_url` F",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-45gf-fjxp-cjpq",
+      "description": "meta-ads-mcp: Server-Side Request Forgery (SSRF) in `upload_ad_image` via Unrestricted `image_url` Fetch",
+      "date": "2026-07-17",
+      "affected": [
+        "meta-ads-mcp"
+      ],
+      "references": [
+        "https://github.com/pipeboard-co/meta-ads-mcp/security/advisories/GHSA-45gf-fjxp-cjpq",
+        "https://github.com/pipeboard-co/meta-ads-mcp/commit/7d9926336bbdac6285a988d043c4ccfe126c94c5",
+        "https://github.com/pipeboard-co/meta-ads-mcp/releases/tag/1.0.115",
+        "https://github.com/advisories/GHSA-45gf-fjxp-cjpq"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-q38v-wp89-2w55",
+      "name": "sh _uid does not drop supplementary groups (incomplete privilege drop)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-q38v-wp89-2w55",
+      "description": "sh _uid does not drop supplementary groups (incomplete privilege drop)",
+      "date": "2026-07-17",
+      "affected": [
+        "sh"
+      ],
+      "references": [
+        "https://github.com/amoffat/sh/security/advisories/GHSA-q38v-wp89-2w55",
+        "https://github.com/amoffat/sh/releases/tag/2.2.4",
+        "https://github.com/advisories/GHSA-q38v-wp89-2w55"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-mhww-p97m-3368",
+      "name": "AWS-JDBC Wrapper: Privilege Escalation in Aurora PostgreSQL instance",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-mhww-p97m-3368",
+      "description": "AWS-JDBC Wrapper: Privilege Escalation in Aurora PostgreSQL instance",
+      "date": "2026-07-17",
+      "affected": [
+        "software.amazon.jdbc:aws-advanced-jdbc-wrapper"
+      ],
+      "references": [
+        "https://github.com/aws/aws-advanced-jdbc-wrapper/security/advisories/GHSA-mhww-p97m-3368",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-11400",
+        "https://aws.amazon.com/security/security-bulletins/2026-039-aws",
+        "https://github.com/aws/aws-advanced-jdbc-wrapper/releases/tag/4.0.1",
+        "https://www.cve.org/cverecord?id=CVE-2026-11400",
+        "https://github.com/advisories/GHSA-mhww-p97m-3368"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8rqh-vxpr-x77p",
+      "name": "plone.restapi: Stored XSS by spoofing mime type",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-8rqh-vxpr-x77p",
+      "description": "plone.restapi: Stored XSS by spoofing mime type",
+      "date": "2026-07-17",
+      "affected": [
+        "plone.restapi",
+        "plone.restapi"
+      ],
+      "references": [
+        "https://github.com/plone/plone.app.textfield/security/advisories/GHSA-4r4f-gg25-rmg5",
+        "https://github.com/plone/plone.restapi/security/advisories/GHSA-8rqh-vxpr-x77p",
+        "https://github.com/advisories/GHSA-8rqh-vxpr-x77p"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4r4f-gg25-rmg5",
+      "name": "plone.app.textfield: Stored XSS by spoofing mime type ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-4r4f-gg25-rmg5",
+      "description": "plone.app.textfield: Stored XSS by spoofing mime type ",
+      "date": "2026-07-17",
+      "affected": [
+        "plone.app.textfield",
+        "plone.app.textfield",
+        "plone.app.textfield"
+      ],
+      "references": [
+        "https://github.com/plone/plone.app.textfield/security/advisories/GHSA-4r4f-gg25-rmg5",
+        "https://github.com/advisories/GHSA-4r4f-gg25-rmg5"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cwxq-rc9x-2jvv",
+      "name": "Skipper: Unbounded Request Body Read in Admission Webhook Causes Memory Exhaustion DoS",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-cwxq-rc9x-2jvv",
+      "description": "Skipper: Unbounded Request Body Read in Admission Webhook Causes Memory Exhaustion DoS",
+      "date": "2026-07-17",
+      "affected": [
+        "github.com/zalando/skipper"
+      ],
+      "references": [
+        "https://github.com/zalando/skipper/security/advisories/GHSA-cwxq-rc9x-2jvv",
+        "https://github.com/zalando/skipper/releases/tag/v0.26.22",
+        "https://github.com/advisories/GHSA-cwxq-rc9x-2jvv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/zalando/skipper"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/zalando/skipper"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v82g-2437-67m2",
+      "name": "vLLM: Speech-to-text upload size limit is enforced after full UploadFile read",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-v82g-2437-67m2",
+      "description": "vLLM: Speech-to-text upload size limit is enforced after full UploadFile read",
+      "date": "2026-07-17",
+      "affected": [
+        "vllm"
+      ],
+      "references": [
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-v82g-2437-67m2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-55646",
+        "https://github.com/vllm-project/vllm/pull/45510",
+        "https://github.com/vllm-project/vllm/commit/b997071ec493765abbed990c65843ed05e4708a8",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/vllm/PYSEC-2026-2305.yaml",
+        "https://github.com/advisories/GHSA-v82g-2437-67m2"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rwxx-mrjm-wc2m",
+      "name": "vLLM: ReDoS via structured_outputs.regex compiled without timeout in xgrammar and outlines backends",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-rwxx-mrjm-wc2m",
+      "description": "vLLM: ReDoS via structured_outputs.regex compiled without timeout in xgrammar and outlines backends",
+      "date": "2026-07-17",
+      "affected": [
+        "vllm"
+      ],
+      "references": [
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-rwxx-mrjm-wc2m",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-55574",
+        "https://github.com/vllm-project/vllm/pull/45118",
+        "https://github.com/vllm-project/vllm/commit/2b3006076c5e9bc4cda9e03e3641388de3c5c286",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/vllm/PYSEC-2026-2304.yaml",
+        "https://github.com/advisories/GHSA-rwxx-mrjm-wc2m"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8wr5-jm2h-8r4f",
+      "name": "vLLM has Remote DoS via Invalid Recovered Token Reinjection",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-8wr5-jm2h-8r4f",
+      "description": "vLLM has Remote DoS via Invalid Recovered Token Reinjection",
+      "date": "2026-07-17",
+      "affected": [
+        "vllm"
+      ],
+      "references": [
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-8wr5-jm2h-8r4f",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54234",
+        "https://github.com/vllm-project/vllm/pull/44744",
+        "https://github.com/vllm-project/vllm/commit/8a5cf1ccd65e8ac7635c402c1ec0b08988bc26ca",
+        "https://github.com/advisories/GHSA-8wr5-jm2h-8r4f"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6c4r-fmh3-7rh8",
+      "name": "vLLM: Processing differential in multi-channel audio downmixing enables hidden-input/moderation bypa",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-6c4r-fmh3-7rh8",
+      "description": "vLLM: Processing differential in multi-channel audio downmixing enables hidden-input/moderation bypass for audio models",
+      "date": "2026-07-17",
+      "affected": [
+        "vllm"
+      ],
+      "references": [
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-6c4r-fmh3-7rh8",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-34760",
+        "https://github.com/vllm-project/vllm/pull/37058",
+        "https://github.com/vllm-project/vllm/commit/c7f98b4d0a63b32ed939e2b6dfaa8a626e9b46c4",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/vllm/PYSEC-2026-2299.yaml",
+        "https://github.com/vllm-project/vllm/releases/tag/v0.18.0",
+        "https://github.com/advisories/GHSA-6c4r-fmh3-7rh8"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-x8mg-6r4p-87pf",
       "name": "ArcadeDB has cross-database IDOR: /ts/*, /batch/*, Prometheus and Grafana handlers bypass authorizat",
@@ -928,353 +1251,14 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-74xj-wh4w-vqxc",
-      "name": "dd-trace-java: Improper parsing of W3C baggage headers may lead to DoS",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-74xj-wh4w-vqxc",
-      "description": "dd-trace-java: Improper parsing of W3C baggage headers may lead to DoS",
-      "date": "2026-07-15",
-      "affected": [
-        "com.datadoghq:dd-java-agent"
-      ],
-      "references": [
-        "https://github.com/DataDog/dd-trace-java/security/advisories/GHSA-74xj-wh4w-vqxc",
-        "https://github.com/advisories/GHSA-74xj-wh4w-vqxc"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9h85-g7w3-rh49",
-      "name": "ViewComponent: Reused Component Instances Retain Stale Render Context",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-9h85-g7w3-rh49",
-      "description": "ViewComponent: Reused Component Instances Retain Stale Render Context",
-      "date": "2026-07-15",
-      "affected": [
-        "view_component"
-      ],
-      "references": [
-        "https://github.com/ViewComponent/view_component/security/advisories/GHSA-9h85-g7w3-rh49",
-        "https://github.com/ViewComponent/view_component/commit/7b05073be28037f7d5ff141e9dd42f3cf47956a4",
-        "https://github.com/ViewComponent/view_component/releases/tag/v4.12.0",
-        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/view_component/CVE-2026-54497.yml",
-        "https://www.cve.org/CVERecord/SearchResults?query=CVE-2026-54497",
-        "https://github.com/advisories/GHSA-9h85-g7w3-rh49"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "view_component"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-97jw-64cj-jc58",
-      "name": "ViewComponent: around_render HTML-Safety Bypass",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-97jw-64cj-jc58",
-      "description": "ViewComponent: around_render HTML-Safety Bypass",
-      "date": "2026-07-15",
-      "affected": [
-        "view_component"
-      ],
-      "references": [
-        "https://github.com/ViewComponent/view_component/security/advisories/GHSA-97jw-64cj-jc58",
-        "https://github.com/ViewComponent/view_component/commit/48e5fd2d602344c7d33019fbc5c8b087e315bb78",
-        "https://github.com/ViewComponent/view_component/releases/tag/v4.12.0",
-        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/view_component/CVE-2026-54498.yml",
-        "https://www.cve.org/CVERecord/SearchResults?query=CVE-2026-54498",
-        "https://github.com/advisories/GHSA-97jw-64cj-jc58"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "view_component"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-398h-7f66-3h4p",
-      "name": "open-feature-operator: Cross-namespace FeatureFlagSource and InProcessConfiguration resolution expos",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-398h-7f66-3h4p",
-      "description": "open-feature-operator: Cross-namespace FeatureFlagSource and InProcessConfiguration resolution exposes spec contents on multi-tenant clusters",
-      "date": "2026-07-15",
-      "affected": [
-        "github.com/open-feature/open-feature-operator"
-      ],
-      "references": [
-        "https://github.com/open-feature/open-feature-operator/security/advisories/GHSA-398h-7f66-3h4p",
-        "https://github.com/open-feature/open-feature-operator/issues/847",
-        "https://github.com/advisories/GHSA-398h-7f66-3h4p"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/open-feature/open-feature-operator"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/open-feature/open-feature-operator"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r3hx-x5rh-p9vv",
-      "name": "django-haystack: Remote Code Execution via `eval()` in Elasticsearch Result Deserialization",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-r3hx-x5rh-p9vv",
-      "description": "django-haystack: Remote Code Execution via `eval()` in Elasticsearch Result Deserialization",
-      "date": "2026-07-15",
-      "affected": [
-        "django-haystack"
-      ],
-      "references": [
-        "https://github.com/django-haystack/django-haystack/security/advisories/GHSA-r3hx-x5rh-p9vv",
-        "https://github.com/django-haystack/django-haystack/commit/eb05f193c9771a68dcc8cfac6674a0d48a52ee9d",
-        "https://github.com/django-haystack/django-haystack/releases/tag/v3.4.0",
-        "https://github.com/advisories/GHSA-r3hx-x5rh-p9vv"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7gcf-g7xr-8hxj",
-      "name": "serde_with: KeyValueMap serialization panics on empty sequence or map entries",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-7gcf-g7xr-8hxj",
-      "description": "serde_with: KeyValueMap serialization panics on empty sequence or map entries",
-      "date": "2026-07-15",
-      "affected": [
-        "serde_with"
-      ],
-      "references": [
-        "https://github.com/jonasbb/serde_with/security/advisories/GHSA-7gcf-g7xr-8hxj",
-        "https://github.com/jonasbb/serde_with/pull/966",
-        "https://github.com/jonasbb/serde_with/commit/c8a1d820ea25df01692b367058d587343e199389",
-        "https://github.com/jonasbb/serde_with/releases/tag/v3.21.0",
-        "https://github.com/advisories/GHSA-7gcf-g7xr-8hxj"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mp7j-qc5w-4988",
-      "name": "websocket-driver: Resource limit bypass via message compression",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-mp7j-qc5w-4988",
-      "description": "websocket-driver: Resource limit bypass via message compression",
-      "date": "2026-07-15",
-      "affected": [
-        "websocket-driver"
-      ],
-      "references": [
-        "https://github.com/faye/websocket-driver-node/security/advisories/GHSA-mp7j-qc5w-4988",
-        "https://github.com/faye/websocket-driver-node/releases/tag/0.7.5",
-        "https://github.com/advisories/GHSA-mp7j-qc5w-4988"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "websocket-driver"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xv26-6w52-cph6",
-      "name": "websocket-driver: Message corruption via abuse of protocol length headers",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-xv26-6w52-cph6",
-      "description": "websocket-driver: Message corruption via abuse of protocol length headers",
-      "date": "2026-07-15",
-      "affected": [
-        "websocket-driver"
-      ],
-      "references": [
-        "https://github.com/faye/websocket-driver-node/security/advisories/GHSA-xv26-6w52-cph6",
-        "https://github.com/faye/websocket-driver-node/releases/tag/0.7.5",
-        "https://github.com/advisories/GHSA-xv26-6w52-cph6"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "websocket-driver"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8j3g-f24p-4mpw",
-      "name": "websocket-driver: Memory exhaustion in HTTP header parser",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-8j3g-f24p-4mpw",
-      "description": "websocket-driver: Memory exhaustion in HTTP header parser",
-      "date": "2026-07-15",
-      "affected": [
-        "websocket-driver"
-      ],
-      "references": [
-        "https://github.com/faye/websocket-driver-ruby/security/advisories/GHSA-8j3g-f24p-4mpw",
-        "https://github.com/faye/websocket-driver-ruby/releases/tag/0.8.1",
-        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/websocket-driver/CVE-2026-54465.yml",
-        "https://www.cve.org/CVERecord/SearchResults?query=CVE-2026-54465",
-        "https://github.com/advisories/GHSA-8j3g-f24p-4mpw"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "websocket-driver"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-33ph-fccm-39pj",
-      "name": "websocket-driver: Resource limit bypass via message compression",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-33ph-fccm-39pj",
-      "description": "websocket-driver: Resource limit bypass via message compression",
-      "date": "2026-07-15",
-      "affected": [
-        "websocket-driver"
-      ],
-      "references": [
-        "https://github.com/faye/websocket-driver-ruby/security/advisories/GHSA-33ph-fccm-39pj",
-        "https://github.com/faye/websocket-driver-ruby/releases/tag/0.8.1",
-        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/websocket-driver/CVE-2026-54464.yml",
-        "https://www.cve.org/CVERecord/SearchResults?query=CVE-2026-54464",
-        "https://github.com/advisories/GHSA-33ph-fccm-39pj"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "websocket-driver"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-ghhp-3qvg-889p",
-      "name": "websocket-driver: Memory exhaustion via abuse of protocol length headers",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-ghhp-3qvg-889p",
-      "description": "websocket-driver: Memory exhaustion via abuse of protocol length headers",
-      "date": "2026-07-15",
-      "affected": [
-        "websocket-driver"
-      ],
-      "references": [
-        "https://github.com/faye/websocket-driver-ruby/security/advisories/GHSA-ghhp-3qvg-889p",
-        "https://github.com/faye/websocket-driver-ruby/releases/tag/0.8.1",
-        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/websocket-driver/CVE-2026-54463.yml",
-        "https://www.cve.org/CVERecord/SearchResults?query=CVE-2026-54463",
-        "https://github.com/advisories/GHSA-ghhp-3qvg-889p"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "websocket-driver"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f5pf-q7c7-m3vv",
-      "name": "Pixeldrain API key shared with unverified thirdparty sites",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-f5pf-q7c7-m3vv",
-      "description": "Pixeldrain API key shared with unverified thirdparty sites",
-      "date": "2026-07-15",
-      "affected": [
-        "cyberdrop-dl-patched"
-      ],
-      "references": [
-        "https://github.com/Cyberdrop-DL/cyberdrop-dl/security/advisories/GHSA-f5pf-q7c7-m3vv",
-        "https://github.com/Cyberdrop-DL/cyberdrop-dl/commit/4479555ae3f9d56d7657d6179a5bac3123eb4e2b",
-        "https://docs.pixeldrain.com/questions_and_answers/#alternative-domain-names",
-        "https://github.com/Cyberdrop-DL/cyberdrop-dl/releases/tag/9.14.0",
-        "https://github.com/advisories/GHSA-f5pf-q7c7-m3vv"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-824w-x939-6cmc",
-      "name": "TensorZero Gateway: Arbitrary file read and SSRF in internal object storage endpoint",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-824w-x939-6cmc",
-      "description": "TensorZero Gateway: Arbitrary file read and SSRF in internal object storage endpoint",
-      "date": "2026-07-15",
-      "affected": [
-        "tensorzero"
-      ],
-      "references": [
-        "https://github.com/tensorzero/tensorzero/security/advisories/GHSA-824w-x939-6cmc",
-        "https://github.com/tensorzero/tensorzero/commit/0abbc838bae3394fe7491dad7009670d4e3b6cf8",
-        "https://github.com/tensorzero/tensorzero/releases/tag/2026.6.0",
-        "https://github.com/advisories/GHSA-824w-x939-6cmc"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xgch-x3mx-cm3c",
-      "name": "safeurl is Missing IPv6 CIDR Ranges in Blocklist",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-xgch-x3mx-cm3c",
-      "description": "safeurl is Missing IPv6 CIDR Ranges in Blocklist",
-      "date": "2026-07-15",
-      "affected": [
-        "github.com/doyensec/safeurl"
-      ],
-      "references": [
-        "https://github.com/doyensec/safeurl/security/advisories/GHSA-xgch-x3mx-cm3c",
-        "https://github.com/doyensec/safeurl/releases/tag/v0.2.4",
-        "https://github.com/advisories/GHSA-xgch-x3mx-cm3c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/doyensec/safeurl"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/doyensec/safeurl"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "code.gitea.io/gitea": "Gitea has insufficient permission checks for Composer package source links",
+    "@tak-ps/cloudtak": "TAK-PS-Stats Web UI: Authenticated full-read SSRF in CloudTAK basemap import (PUT /api/basemap) \u2014 no",
+    "github.com/oapi-codegen/oapi-codegen/v2": "oapi-codegen: OpenAPI Server Description Escapes Generated Go Comment and Injects Executable Code",
+    "github.com/zalando/skipper": "Skipper: Unbounded Request Body Read in Admission Webhook Causes Memory Exhaustion DoS",
     "pheditor/pheditor": "Pheditor: Hardcoded default password 'admin' with no forced change enables full application compromi",
     "github.com/kumahq/kuma": "kuma-dp connects to control plane without verifying TLS certificate when no CA is configured",
     "github.com/kumahq/kuma/v2": "kuma-dp connects to control plane without verifying TLS certificate when no CA is configured",
@@ -1285,9 +1269,7 @@
     "@andrea9293/mcp-documentation-server": "@andrea9293/mcp-documentation-server: Web UI API binds to all interfaces without authentication by d",
     "github.com/pomerium/pomerium": "Pomerium Pre-Auth Memory Exhaustion via Unbounded zstd Decompression in HPKE Callback",
     "github.com/DataDog/dd-trace-go/v2": "dd-trace-go: Improper parsing of W3C baggage headers may lead to DoS",
-    "github.com/DataDog/dd-trace-go": "dd-trace-go: Improper parsing of W3C baggage headers may lead to DoS",
-    "github.com/open-feature/open-feature-operator": "open-feature-operator: Cross-namespace FeatureFlagSource and InProcessConfiguration resolution expos",
-    "github.com/doyensec/safeurl": "safeurl is Missing IPv6 CIDR Ranges in Blocklist"
+    "github.com/DataDog/dd-trace-go": "dd-trace-go: Improper parsing of W3C baggage headers may lead to DoS"
   },
   "malicious_packages": {
     "npm": {},
