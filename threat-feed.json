@@ -1,8 +1,227 @@
 {
-  "version": "2026.07.23",
-  "last_updated": "2026-07-23T19:13:52.592561+00:00",
+  "version": "2026.07.24",
+  "last_updated": "2026-07-24T02:32:58.521623+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-x2f5-4prf-w687",
+      "name": "Ruby json: JSON generator heap buffer overflow when streaming to an IO",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-x2f5-4prf-w687",
+      "description": "Ruby json: JSON generator heap buffer overflow when streaming to an IO",
+      "date": "2026-07-23",
+      "affected": [
+        "json"
+      ],
+      "references": [
+        "https://github.com/ruby/json/security/advisories/GHSA-x2f5-4prf-w687",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54696",
+        "https://github.com/ruby/json/commit/996bac686d64e4e3aaeae03b14a7f9ee9695ebdb",
+        "https://github.com/ruby/json/releases/tag/v2.19.9",
+        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/json/CVE-2026-54696.yml",
+        "https://github.com/advisories/GHSA-x2f5-4prf-w687"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "json"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-w6w4-rjh9-9r58",
+      "name": "c3p0 can, in combination with other libraries, compose to a \"sink\" for deserialization gadgets",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-w6w4-rjh9-9r58",
+      "description": "c3p0 can, in combination with other libraries, compose to a \"sink\" for deserialization gadgets",
+      "date": "2026-07-23",
+      "affected": [
+        "com.mchange:c3p0"
+      ],
+      "references": [
+        "https://github.com/swaldman/c3p0/security/advisories/GHSA-w6w4-rjh9-9r58",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-55223",
+        "https://github.com/swaldman/c3p0/commit/7b022c4b6694dabc6204254dc917af9c38f2cb27",
+        "https://github.com/swaldman/c3p0/releases/tag/v0.14.0",
+        "https://github.com/advisories/GHSA-w6w4-rjh9-9r58"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wrjc-x8rr-h8h6",
+      "name": "React Router: Open redirect via backslash in <Link> and useNavigate (CVE-2025-68470 bypass)",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-wrjc-x8rr-h8h6",
+      "description": "React Router: Open redirect via backslash in <Link> and useNavigate (CVE-2025-68470 bypass)",
+      "date": "2026-07-23",
+      "affected": [
+        "react-router"
+      ],
+      "references": [
+        "https://github.com/remix-run/react-router/security/advisories/GHSA-wrjc-x8rr-h8h6",
+        "https://github.com/remix-run/react-router/pull/15176",
+        "https://github.com/remix-run/react-router/blob/main/CHANGELOG.md#v7180",
+        "https://github.com/remix-run/react-router/releases/tag/react-router@7.18.0",
+        "http://github.com/remix-run/react-router/pull/15176",
+        "https://github.com/advisories/GHSA-wrjc-x8rr-h8h6"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "react-router"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jjmj-jmhj-qwj2",
+      "name": "React Router: Open redirect leading to XSS",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-jjmj-jmhj-qwj2",
+      "description": "React Router: Open redirect leading to XSS",
+      "date": "2026-07-23",
+      "affected": [
+        "react-router",
+        "react-router-dom"
+      ],
+      "references": [
+        "https://github.com/remix-run/react-router/security/advisories/GHSA-jjmj-jmhj-qwj2",
+        "https://github.com/remix-run/react-router/pull/14718",
+        "https://github.com/remix-run/react-router/commit/3a5b5ad0e5cf9918c646509563f5c41a89226ff3",
+        "https://github.com/remix-run/react-router/blob/main/CHANGELOG.md#v7180",
+        "https://github.com/remix-run/react-router/releases/tag/react-router@7.18.0",
+        "https://github.com/advisories/GHSA-jjmj-jmhj-qwj2"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "react-router",
+            "react-router-dom"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h8fp-f39c-q6mh",
+      "name": "React Router: RSCErrorHandler Missing Protocol Validation (XSS)",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-h8fp-f39c-q6mh",
+      "description": "React Router: RSCErrorHandler Missing Protocol Validation (XSS)",
+      "date": "2026-07-23",
+      "affected": [
+        "react-router"
+      ],
+      "references": [
+        "https://github.com/remix-run/react-router/security/advisories/GHSA-h8fp-f39c-q6mh",
+        "https://github.com/remix-run/react-router/pull/15177",
+        "https://github.com/remix-run/react-router/commit/ce596e823f0d7b883a433af1d5a839a8b9fe0242",
+        "https://github.com/remix-run/react-router/blob/main/CHANGELOG.md#v7180",
+        "https://github.com/remix-run/react-router/releases/tag/react-router@7.18.0",
+        "https://github.com/advisories/GHSA-h8fp-f39c-q6mh"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "react-router"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-337j-9hxr-rhxg",
+      "name": "React Router: Arbitrary Constructor Injection via deserializeErrors() in React Router SSR Hydration",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-337j-9hxr-rhxg",
+      "description": "React Router: Arbitrary Constructor Injection via deserializeErrors() in React Router SSR Hydration",
+      "date": "2026-07-23",
+      "affected": [
+        "react-router"
+      ],
+      "references": [
+        "https://github.com/remix-run/react-router/security/advisories/GHSA-337j-9hxr-rhxg",
+        "https://github.com/remix-run/react-router/pull/15175",
+        "https://github.com/remix-run/react-router/commit/9d22943fd46c8ae4b08236425fa3549e10e9ad1a",
+        "https://github.com/remix-run/react-router/blob/main/CHANGELOG.md#v7180",
+        "https://github.com/remix-run/react-router/releases/tag/react-router@7.18.0",
+        "https://github.com/advisories/GHSA-337j-9hxr-rhxg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "react-router"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8g53-9m3c-69xg",
+      "name": "ImageMagick: Information Disclosure in MNG decoder because allocated memory is left unchanged",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-8g53-9m3c-69xg",
+      "description": "ImageMagick: Information Disclosure in MNG decoder because allocated memory is left unchanged",
+      "date": "2026-07-23",
+      "affected": [
+        "Magick.NET-Q16-HDRI-arm64",
+        "Magick.NET-Q8-x86",
+        "Magick.NET-Q8-x64",
+        "Magick.NET-Q8-arm64",
+        "Magick.NET-Q8-OpenMP-x64",
+        "Magick.NET-Q8-OpenMP-arm64",
+        "Magick.NET-Q8-AnyCPU",
+        "Magick.NET-Q16-x86",
+        "Magick.NET-Q16-x64",
+        "Magick.NET-Q16-arm64"
+      ],
+      "references": [
+        "https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-8g53-9m3c-69xg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-53467",
+        "https://github.com/dlemstra/Magick.NET/releases/tag/14.15.0",
+        "https://github.com/advisories/GHSA-8g53-9m3c-69xg"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-c96f-x56v-gq3h",
+      "name": "find-my-way: DDoS with HTTP2",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-c96f-x56v-gq3h",
+      "description": "find-my-way: DDoS with HTTP2",
+      "date": "2026-07-23",
+      "affected": [
+        "find-my-way"
+      ],
+      "references": [
+        "https://github.com/delvedor/find-my-way/security/advisories/GHSA-c96f-x56v-gq3h",
+        "https://github.com/delvedor/find-my-way/pull/434",
+        "https://github.com/delvedor/find-my-way/commit/cfe3fd6168b5ac1594c0820fb83fce251a533fc1",
+        "https://github.com/delvedor/find-my-way/releases/tag/v9.7.0",
+        "https://github.com/advisories/GHSA-c96f-x56v-gq3h"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "find-my-way"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-g867-7843-wf8q",
       "name": "pypdf: Possible infinite loop for not terminated inline images (ASCII85 and ASCIIHex filter)",
@@ -1188,247 +1407,6 @@
         "https://github.com/advisories/GHSA-5jmr-gcrj-2c9q"
       ],
       "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-33q9-f52j-gc75",
-      "name": "n8n: Unauthenticated Endpoint Allows Cancellation of Any User's Active Test Webhook",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-33q9-f52j-gc75",
-      "description": "n8n: Unauthenticated Endpoint Allows Cancellation of Any User's Active Test Webhook",
-      "date": "2026-07-22",
-      "affected": [
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-33q9-f52j-gc75",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-65014",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.27.4",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.28.0",
-        "https://www.vulncheck.com/advisories/n8n-before-authentication-bypass-via-test-webhook",
-        "https://github.com/advisories/GHSA-33q9-f52j-gc75"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gq66-9cw5-j5jm",
-      "name": "n8n: GraphQL Node Bypasses \"Allowed HTTP Request Domains\" Restriction",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-gq66-9cw5-j5jm",
-      "description": "n8n: GraphQL Node Bypasses \"Allowed HTTP Request Domains\" Restriction",
-      "date": "2026-07-22",
-      "affected": [
-        "n8n",
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-gq66-9cw5-j5jm",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-65596",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.64",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.29.8",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.30.1",
-        "https://www.vulncheck.com/advisories/n8n-before-credential-exfiltration-via-graphql-node",
-        "https://github.com/advisories/GHSA-gq66-9cw5-j5jm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-q5xf-xhwf-cwqf",
-      "name": "n8n: Member-Level Users Can Execute Other Users' MCP Server Trigger Workflows via Missing OAuth Auth",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-q5xf-xhwf-cwqf",
-      "description": "n8n: Member-Level Users Can Execute Other Users' MCP Server Trigger Workflows via Missing OAuth Authorization Check",
-      "date": "2026-07-22",
-      "affected": [
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-q5xf-xhwf-cwqf",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-65594",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.29.8",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.30.1",
-        "https://www.vulncheck.com/advisories/n8n-before-missing-oauth-authorization-check",
-        "https://github.com/advisories/GHSA-q5xf-xhwf-cwqf"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fpg6-x68q-5793",
-      "name": "n8n: computer-use Shell Sandbox Not Enforced on Linux and Windows",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-fpg6-x68q-5793",
-      "description": "n8n: computer-use Shell Sandbox Not Enforced on Linux and Windows",
-      "date": "2026-07-22",
-      "affected": [
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-fpg6-x68q-5793",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-65590",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.29.8",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.30.1",
-        "https://www.vulncheck.com/advisories/n8n-before-shell-sandbox-bypass-on-linux-windows",
-        "https://github.com/advisories/GHSA-fpg6-x68q-5793"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-w867-jm58-p9pv",
-      "name": "n8n: Authenticated Users Can Exhaust Temporary Disk Storage via Data-Table File Uploads",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-w867-jm58-p9pv",
-      "description": "n8n: Authenticated Users Can Exhaust Temporary Disk Storage via Data-Table File Uploads",
-      "date": "2026-07-22",
-      "affected": [
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-w867-jm58-p9pv",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-58661",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.58",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.28.0",
-        "https://www.vulncheck.com/advisories/n8n-disk-space-exhaustion-via-data-table-file-upload-endpoint",
-        "https://github.com/advisories/GHSA-w867-jm58-p9pv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2xgm-wc4g-5jvg",
-      "name": "n8n: Improper Authorization Allows Authenticated Users to Assign Workflows to Folders in Other Proje",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-2xgm-wc4g-5jvg",
-      "description": "n8n: Improper Authorization Allows Authenticated Users to Assign Workflows to Folders in Other Projects",
-      "date": "2026-07-22",
-      "affected": [
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-2xgm-wc4g-5jvg",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-59253",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.28.0",
-        "https://www.vulncheck.com/advisories/n8n-improper-authorization-in-workflow-assignment-to-folders",
-        "https://github.com/advisories/GHSA-2xgm-wc4g-5jvg"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2434-3x6q-8r99",
-      "name": "n8n: External Secrets Accessible via Workflow Expressions Outside Credentials",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-2434-3x6q-8r99",
-      "description": "n8n: External Secrets Accessible via Workflow Expressions Outside Credentials",
-      "date": "2026-07-22",
-      "affected": [
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-2434-3x6q-8r99",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-59254",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n%402.27.4",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n%402.28.1",
-        "https://www.vulncheck.com/advisories/n8n-external-secrets-disclosure-via-workflow-node-expressions",
-        "https://github.com/advisories/GHSA-2434-3x6q-8r99"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hwmj-qg4v-cvg9",
-      "name": "n8n: MySQL v1 Node executeQuery Operation Allows SQL Injection via Unparameterized Expression Interp",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hwmj-qg4v-cvg9",
-      "description": "n8n: MySQL v1 Node executeQuery Operation Allows SQL Injection via Unparameterized Expression Interpolation",
-      "date": "2026-07-22",
-      "affected": [
-        "n8n",
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-hwmj-qg4v-cvg9",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-59257",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.61",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.27.4",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.28.1",
-        "https://www.vulncheck.com/advisories/n8n-sql-injection-in-mysql-v1-executequery-operation-via-expression-interpolation",
-        "https://github.com/advisories/GHSA-hwmj-qg4v-cvg9"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
       "remediation": "Update affected packages per advisory guidance."
     }
   ],
