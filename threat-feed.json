@@ -1,8 +1,27 @@
 {
   "version": "2026.07.27",
-  "last_updated": "2026-07-27T14:29:42.550795+00:00",
+  "last_updated": "2026-07-27T19:24:38.325704+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-4j38-rw27-97gx",
+      "name": "org.xwiki.contrib:discussions-server has Cross-Site Request Forgery (CSRF) issue that makes it possi",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-4j38-rw27-97gx",
+      "description": "org.xwiki.contrib:discussions-server has Cross-Site Request Forgery (CSRF) issue that makes it possible to delete messages",
+      "date": "2026-07-27",
+      "affected": [
+        "org.xwiki.contrib:discussions-server"
+      ],
+      "references": [
+        "https://github.com/xwiki-contrib/application-discussions/security/advisories/GHSA-4j38-rw27-97gx",
+        "https://jira.xwiki.org/browse/DISCUSSION-22",
+        "https://github.com/advisories/GHSA-4j38-rw27-97gx"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-6vch-q96h-7gc3",
       "name": "etcd: `tlsListener.acceptLoop` spawns unbounded handshake goroutines with no deadline",
@@ -1341,36 +1360,6 @@
         "https://github.com/Budibase/budibase/commit/bca426de7dc36d680285295655dc640dea2aab21",
         "https://github.com/Budibase/budibase/releases/tag/3.39.25",
         "https://github.com/advisories/GHSA-gh4h-34gr-87r7"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@budibase/server"
-          ]
-        },
-        "compromised_actions": [
-          "@budibase/server"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hr66-5mqr-8mpx",
-      "name": " Budibase: Unauthenticated user information disclosure via public tenant user lookup endpoint",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-hr66-5mqr-8mpx",
-      "description": " Budibase: Unauthenticated user information disclosure via public tenant user lookup endpoint",
-      "date": "2026-07-24",
-      "affected": [
-        "@budibase/server"
-      ],
-      "references": [
-        "https://github.com/Budibase/budibase/security/advisories/GHSA-hr66-5mqr-8mpx",
-        "https://github.com/Budibase/budibase/pull/19221",
-        "https://github.com/Budibase/budibase/commit/e6bf245fbfdaa35804ef7ee901103282edf0c381",
-        "https://github.com/Budibase/budibase/releases/tag/3.39.32",
-        "https://github.com/advisories/GHSA-hr66-5mqr-8mpx"
       ],
       "detection_signatures": {
         "malicious_packages": {
