@@ -1,8 +1,716 @@
 {
-  "version": "2026.08.05",
-  "last_updated": "2026-08-05T19:26:38.738154+00:00",
+  "version": "2026.08.06",
+  "last_updated": "2026-08-06T02:26:07.803307+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-42cj-m3vj-89wv",
+      "name": "Traefik CRD IngressRouteTCP ServersTransport Cross-Provider Namespace Bypass",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-42cj-m3vj-89wv",
+      "description": "Traefik CRD IngressRouteTCP ServersTransport Cross-Provider Namespace Bypass",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/traefik/traefik/v3",
+        "github.com/traefik/traefik/v3"
+      ],
+      "references": [
+        "https://github.com/traefik/traefik/security/advisories/GHSA-42cj-m3vj-89wv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-65602",
+        "https://github.com/traefik/traefik/pull/13458",
+        "https://github.com/traefik/traefik/commit/67501cbe7bc7774e26ecbd1c29af97f098e14b0b",
+        "https://github.com/traefik/traefik/releases/tag/v3.6.23",
+        "https://github.com/traefik/traefik/releases/tag/v3.7.7",
+        "https://www.vulncheck.com/advisories/traefik-before-ingressroutetcp-serverstransport-namespace-bypass",
+        "https://github.com/advisories/GHSA-42cj-m3vj-89wv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/traefik/traefik/v3",
+            "github.com/traefik/traefik/v3"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/traefik/traefik/v3",
+          "github.com/traefik/traefik/v3"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qq9q-x9w4-chhj",
+      "name": "Traefik Gateway API HTTPRoute BackendRef ExtensionRef Namespace Confusion",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-qq9q-x9w4-chhj",
+      "description": "Traefik Gateway API HTTPRoute BackendRef ExtensionRef Namespace Confusion",
+      "date": "2026-08-05",
+      "affected": [
+        "Traefik"
+      ],
+      "references": [
+        "https://github.com/traefik/traefik/security/advisories/GHSA-qq9q-x9w4-chhj",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-65601",
+        "https://github.com/traefik/traefik/pull/13462",
+        "https://github.com/traefik/traefik/commit/655d6324ab4a1475892a958d4bae389720a67ea9",
+        "https://www.vulncheck.com/advisories/traefik-before-namespace-confusion-via-httproute-extensionref",
+        "https://github.com/advisories/GHSA-qq9q-x9w4-chhj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "Traefik"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9pgf-384g-p7mv",
+      "name": "Nuxt: Unauthenticated CPU exhaustion parsing and hashing the Nuxt island endpoint body before hash v",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9pgf-384g-p7mv",
+      "description": "Nuxt: Unauthenticated CPU exhaustion parsing and hashing the Nuxt island endpoint body before hash validation",
+      "date": "2026-08-05",
+      "affected": [
+        "nuxt",
+        "nuxt"
+      ],
+      "references": [
+        "https://github.com/nuxt/nuxt/security/advisories/GHSA-9pgf-384g-p7mv",
+        "https://github.com/nuxt/nuxt/commit/4e35ae9babd94be53246e31200232d48438bb34e",
+        "https://github.com/nuxt/nuxt/commit/668cdfdfda41849ed11c1ee5e2067a11fc103b22",
+        "https://github.com/nuxt/nuxt/releases/tag/v3.21.10",
+        "https://github.com/nuxt/nuxt/releases/tag/v4.5.1",
+        "https://github.com/advisories/GHSA-9pgf-384g-p7mv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "nuxt",
+            "nuxt"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9473-5f9j-94wq",
+      "name": "Nuxt: Server-Side Remote Code Execution via Runtime Template Injection in Nuxt Server Island Props",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9473-5f9j-94wq",
+      "description": "Nuxt: Server-Side Remote Code Execution via Runtime Template Injection in Nuxt Server Island Props",
+      "date": "2026-08-05",
+      "affected": [
+        "nuxt",
+        "nuxt"
+      ],
+      "references": [
+        "https://github.com/nuxt/nuxt/security/advisories/GHSA-9473-5f9j-94wq",
+        "https://github.com/nuxt/nuxt/commit/5b60017f7f1d5e9384cadf1d6c580b99d583c418",
+        "https://github.com/nuxt/nuxt/commit/ee6c846338f4eb75801815dda86df1f494725859",
+        "https://github.com/nuxt/nuxt/releases/tag/v3.21.10",
+        "https://github.com/nuxt/nuxt/releases/tag/v4.5.1",
+        "https://github.com/advisories/GHSA-9473-5f9j-94wq"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "nuxt",
+            "nuxt"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-279x-mwfv-vcqv",
+      "name": "Unauthenticated Nuxt DevTools RPC allows arbitrary command execution on the developer's host",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-279x-mwfv-vcqv",
+      "description": "Unauthenticated Nuxt DevTools RPC allows arbitrary command execution on the developer's host",
+      "date": "2026-08-05",
+      "affected": [
+        "@nuxt/devtools"
+      ],
+      "references": [
+        "https://github.com/nuxt/nuxt/security/advisories/GHSA-279x-mwfv-vcqv",
+        "https://github.com/advisories/GHSA-279x-mwfv-vcqv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@nuxt/devtools"
+          ]
+        },
+        "compromised_actions": [
+          "@nuxt/devtools"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-48hr-524c-v5w3",
+      "name": "Nuxt: Unauthorized Component Instantiation via Server Island Props",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-48hr-524c-v5w3",
+      "description": "Nuxt: Unauthorized Component Instantiation via Server Island Props",
+      "date": "2026-08-05",
+      "affected": [
+        "nuxt",
+        "nuxt"
+      ],
+      "references": [
+        "https://github.com/nuxt/nuxt/security/advisories/GHSA-48hr-524c-v5w3",
+        "https://github.com/nuxt/nuxt/releases/tag/v3.21.10",
+        "https://github.com/nuxt/nuxt/releases/tag/v4.5.1",
+        "https://github.com/advisories/GHSA-48hr-524c-v5w3"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "nuxt",
+            "nuxt"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wm8w-6qjm-cv43",
+      "name": "Nuxt runtime payload cache discloses another user's SSR data across users and to unauthenticated cli",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-wm8w-6qjm-cv43",
+      "description": "Nuxt runtime payload cache discloses another user's SSR data across users and to unauthenticated clients",
+      "date": "2026-08-05",
+      "affected": [
+        "nuxt"
+      ],
+      "references": [
+        "https://github.com/nuxt/nuxt/security/advisories/GHSA-wm8w-6qjm-cv43",
+        "https://github.com/nuxt/nuxt/commit/ac9b41a36b62296a117862254ee7d2b21a2a5203",
+        "https://github.com/nuxt/nuxt/releases/tag/v4.5.1",
+        "https://github.com/advisories/GHSA-wm8w-6qjm-cv43"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "nuxt"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hxvh-4h3w-prp9",
+      "name": "Nuxt route rules silently dropped for mixed-case paths, bypassing appMiddleware auth gates (incomple",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-hxvh-4h3w-prp9",
+      "description": "Nuxt route rules silently dropped for mixed-case paths, bypassing appMiddleware auth gates (incomplete fix for CVE-2026-53721)",
+      "date": "2026-08-05",
+      "affected": [
+        "nuxt",
+        "nuxt"
+      ],
+      "references": [
+        "https://github.com/nuxt/nuxt/security/advisories/GHSA-hxvh-4h3w-prp9",
+        "https://github.com/nuxt/nuxt/commit/619963309e082190bac4a26b05f2dd155b039b81",
+        "https://github.com/nuxt/nuxt/commit/ad624a75ad2d215f43633f6b40be346a7194d34d",
+        "https://github.com/nuxt/nuxt/releases/tag/v3.21.10",
+        "https://github.com/nuxt/nuxt/releases/tag/v4.5.1",
+        "https://github.com/advisories/GHSA-hxvh-4h3w-prp9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "nuxt",
+            "nuxt"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hxcr-hm88-mpq6",
+      "name": "Nuxt: Unauthenticated out-of-memory crash via unbounded v-for expansion in island rendering",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-hxcr-hm88-mpq6",
+      "description": "Nuxt: Unauthenticated out-of-memory crash via unbounded v-for expansion in island rendering",
+      "date": "2026-08-05",
+      "affected": [
+        "nuxt",
+        "nuxt"
+      ],
+      "references": [
+        "https://github.com/nuxt/nuxt/security/advisories/GHSA-hxcr-hm88-mpq6",
+        "https://github.com/nuxt/nuxt/commit/4e35ae9babd94be53246e31200232d48438bb34e",
+        "https://github.com/nuxt/nuxt/commit/668cdfdfda41849ed11c1ee5e2067a11fc103b22",
+        "https://github.com/nuxt/nuxt/releases/tag/v3.21.10",
+        "https://github.com/nuxt/nuxt/releases/tag/v4.5.1",
+        "https://github.com/advisories/GHSA-hxcr-hm88-mpq6"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "nuxt",
+            "nuxt"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7p4m-qxvv-g567",
+      "name": "rclone: Local Encoding Path Traversal",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-7p4m-qxvv-g567",
+      "description": "rclone: Local Encoding Path Traversal",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-7p4m-qxvv-g567",
+        "https://github.com/rclone/rclone/commit/6a69713864b1d8f6edbc03d8af735f9624576d6e",
+        "https://github.com/rclone/rclone/releases/tag/v1.75.0",
+        "https://github.com/advisories/GHSA-7p4m-qxvv-g567"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4vr5-p2gc-h23p",
+      "name": "rclone archive extract allows S3 destination prefix escape via crafted archive paths",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-4vr5-p2gc-h23p",
+      "description": "rclone archive extract allows S3 destination prefix escape via crafted archive paths",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-4vr5-p2gc-h23p",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59732",
+        "https://github.com/rclone/rclone/commit/1a746732441e8158f32fab35924b23701e719a8c",
+        "https://github.com/rclone/rclone/commit/d11efe0d58fe6a2d6d90675bb9d8ee5840c51e1d",
+        "https://github.com/rclone/rclone/releases/tag/v1.74.4",
+        "https://github.com/advisories/GHSA-4vr5-p2gc-h23p"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-gx4c-2hqx-cw2r",
+      "name": "rclone: S3 backend does not strip X-Amz-Security-Token on a same-host HTTPS->HTTP redirect",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-gx4c-2hqx-cw2r",
+      "description": "rclone: S3 backend does not strip X-Amz-Security-Token on a same-host HTTPS->HTTP redirect",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-gx4c-2hqx-cw2r",
+        "https://github.com/rclone/rclone/commit/1a28451ea6fc8ac1806b0e9923dcb5b3f543f7fa",
+        "https://github.com/rclone/rclone/releases/tag/v1.74.4",
+        "https://github.com/advisories/GHSA-gx4c-2hqx-cw2r"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fqj9-69pf-6pjg",
+      "name": "rclone `serve restic --private-repos` authorization bypass: `..` in the URL path lets an authenticat",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-fqj9-69pf-6pjg",
+      "description": "rclone `serve restic --private-repos` authorization bypass: `..` in the URL path lets an authenticated user read, overwrite and delete other users' repositories",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-fqj9-69pf-6pjg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59733",
+        "https://github.com/rclone/rclone/commit/015fd0eba1cb138eef081517795fed47a2873f2d",
+        "https://github.com/rclone/rclone/commit/dade21c1616035b044df0eef7ee6a85aeb06a139",
+        "https://github.com/rclone/rclone/releases/tag/v1.74.4",
+        "https://github.com/advisories/GHSA-fqj9-69pf-6pjg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2m8m-jhrm-w6j2",
+      "name": "rclone: PowerShell Smart-Quote Filename Injection Enables SFTP Server-Side Command Execution",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2m8m-jhrm-w6j2",
+      "description": "rclone: PowerShell Smart-Quote Filename Injection Enables SFTP Server-Side Command Execution",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-2m8m-jhrm-w6j2",
+        "https://github.com/rclone/rclone/commit/e122fba1a57641b63a580aa26c026903a84e2e88",
+        "https://github.com/rclone/rclone/releases/tag/v1.75.0",
+        "https://github.com/advisories/GHSA-2m8m-jhrm-w6j2"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h4mf-4v27-hggj",
+      "name": "rclone: WebDAV Credentials Survive a Same-Host HTTPS-to-HTTP Redirect",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-h4mf-4v27-hggj",
+      "description": "rclone: WebDAV Credentials Survive a Same-Host HTTPS-to-HTTP Redirect",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-h4mf-4v27-hggj",
+        "https://github.com/rclone/rclone/commit/59b513b0e74fd2943ccbb8891d5ce00f860e6d26",
+        "https://github.com/rclone/rclone/releases/tag/v1.75.0",
+        "https://github.com/advisories/GHSA-h4mf-4v27-hggj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8c48-q9wj-3w37",
+      "name": "rclone: FTP Command Arguments Permit CRLF Injection When Custom Encoding Preserves Newlines",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-8c48-q9wj-3w37",
+      "description": "rclone: FTP Command Arguments Permit CRLF Injection When Custom Encoding Preserves Newlines",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-8c48-q9wj-3w37",
+        "https://github.com/rclone/rclone/commit/1df2b70753286c1dfe8366078cbedfdf7f96472c",
+        "https://github.com/rclone/rclone/releases/tag/v1.75.0",
+        "https://github.com/advisories/GHSA-8c48-q9wj-3w37"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8mxv-9xhp-86h4",
+      "name": "rclone: S3 Redirect Sanitization Omits IBM IAM Bearer Tokens and SSE-C Keys",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-8mxv-9xhp-86h4",
+      "description": "rclone: S3 Redirect Sanitization Omits IBM IAM Bearer Tokens and SSE-C Keys",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-8mxv-9xhp-86h4",
+        "https://github.com/rclone/rclone/commit/7543a7a87884aca957590b20b0714078d51af87b",
+        "https://github.com/rclone/rclone/commit/9328763d1b73db71e97c0332b19e3747abeb9191",
+        "https://github.com/rclone/rclone/releases/tag/v1.75.0",
+        "https://github.com/advisories/GHSA-8mxv-9xhp-86h4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8v25-v8p6-qf7v",
+      "name": " rclone: Path traversal in serve s3 allows reading and overwriting root-level files",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-8v25-v8p6-qf7v",
+      "description": " rclone: Path traversal in serve s3 allows reading and overwriting root-level files",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-8v25-v8p6-qf7v",
+        "https://github.com/rclone/rclone/commit/83d1e62aa9e0dbd10a5d7eb34c117ae997268cdf",
+        "https://github.com/rclone/rclone/commit/c89b766cf417fddbe7eace40d31262ecb85bfa93",
+        "https://github.com/rclone/rclone/releases/tag/v1.74.4",
+        "https://github.com/advisories/GHSA-8v25-v8p6-qf7v"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3x6r-wxxg-53vv",
+      "name": "rclone: Infinite Scale TUS Creation Transport Error Causes a Nil-Response Panic",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3x6r-wxxg-53vv",
+      "description": "rclone: Infinite Scale TUS Creation Transport Error Causes a Nil-Response Panic",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-3x6r-wxxg-53vv",
+        "https://github.com/rclone/rclone/commit/5871d98c368751a6d992ed64f8cd22cb78c44cee",
+        "https://github.com/rclone/rclone/releases/tag/v1.75.0",
+        "https://github.com/advisories/GHSA-3x6r-wxxg-53vv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xhf4-832v-7xcr",
+      "name": "rclone: Unbounded HTTP CONNECT Response Headers Can Exhaust rclone Memory",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-xhf4-832v-7xcr",
+      "description": "rclone: Unbounded HTTP CONNECT Response Headers Can Exhaust rclone Memory",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-xhf4-832v-7xcr",
+        "https://github.com/rclone/rclone/commit/21d8cd3b92cd81d987f485051d454ea675d91a2b",
+        "https://github.com/rclone/rclone/releases/tag/v1.75.0",
+        "https://github.com/advisories/GHSA-xhf4-832v-7xcr"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cf44-9pgv-m4xc",
+      "name": "rclone: Unvalidated symlink target in local `--links` \u2014 arbitrary file write from an untrusted remot",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-cf44-9pgv-m4xc",
+      "description": "rclone: Unvalidated symlink target in local `--links` \u2014 arbitrary file write from an untrusted remote",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-cf44-9pgv-m4xc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54572",
+        "https://github.com/rclone/rclone/commit/1154afebee986180b489084d38e2a0c578751498",
+        "https://github.com/rclone/rclone/commit/874a804f5289517defdd7de68b2a374837080265",
+        "https://github.com/rclone/rclone/releases/tag/v1.74.4",
+        "https://github.com/advisories/GHSA-cf44-9pgv-m4xc"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-45pq-889g-fcgh",
+      "name": "rclone: Incomplete path validation allows backend root escape in serve restic",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-45pq-889g-fcgh",
+      "description": "rclone: Incomplete path validation allows backend root escape in serve restic",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-45pq-889g-fcgh",
+        "https://github.com/rclone/rclone/commit/cc5a189f00efe68ed0ddb32d3237b42549a9f264",
+        "https://github.com/rclone/rclone/releases/tag/v1.75.0",
+        "https://github.com/advisories/GHSA-45pq-889g-fcgh"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-945v-v9p3-v5xw",
+      "name": "rclone local `--metadata` applies attacker-controlled mode/uid - setuid binary planted from an untru",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-945v-v9p3-v5xw",
+      "description": "rclone local `--metadata` applies attacker-controlled mode/uid - setuid binary planted from an untrusted remote",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-945v-v9p3-v5xw",
+        "https://github.com/rclone/rclone/commit/e58f09739a35774ca82b5211d2377ac0f2051500",
+        "https://github.com/rclone/rclone/releases/tag/v1.74.4",
+        "https://github.com/advisories/GHSA-945v-v9p3-v5xw"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-gwfq-86j8-7qhv",
+      "name": "rclone: Verbose Stack Trace Disclosure in RC API Error Responses",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-gwfq-86j8-7qhv",
+      "description": "rclone: Verbose Stack Trace Disclosure in RC API Error Responses",
+      "date": "2026-08-05",
+      "affected": [
+        "github.com/rclone/rclone"
+      ],
+      "references": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-gwfq-86j8-7qhv",
+        "https://github.com/rclone/rclone/commit/ff43a1e3ae17627c80e523a0ca7445f96516d199",
+        "https://github.com/rclone/rclone/releases/tag/v1.75.0",
+        "https://github.com/advisories/GHSA-gwfq-86j8-7qhv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/rclone/rclone"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/rclone/rclone"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-p2rr-rvmm-c5fp",
       "name": "Electron: Sandboxed iframes can launch external protocol handlers",
@@ -818,550 +1526,13 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jm22-3w23-5q7w",
-      "name": "Ghost: Blind Password Hash Disclosure in Ghost Admin API",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-jm22-3w23-5q7w",
-      "description": "Ghost: Blind Password Hash Disclosure in Ghost Admin API",
-      "date": "2026-08-04",
-      "affected": [
-        "ghost"
-      ],
-      "references": [
-        "https://github.com/TryGhost/Ghost/security/advisories/GHSA-jm22-3w23-5q7w",
-        "https://github.com/TryGhost/Ghost/pull/29628",
-        "https://github.com/TryGhost/Ghost/commit/63c31fad7e473caa62d8fbb4651a04a2a62b5d00",
-        "https://github.com/TryGhost/Ghost/releases/tag/v6.54.1",
-        "https://github.com/advisories/GHSA-jm22-3w23-5q7w"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "ghost"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-g366-23fw-ggp6",
-      "name": "Ghost: Mobiledoc image-size fetch SSRF",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-g366-23fw-ggp6",
-      "description": "Ghost: Mobiledoc image-size fetch SSRF",
-      "date": "2026-08-04",
-      "affected": [
-        "ghost"
-      ],
-      "references": [
-        "https://github.com/TryGhost/Ghost/security/advisories/GHSA-g366-23fw-ggp6",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-53946",
-        "https://github.com/TryGhost/Ghost/pull/26753",
-        "https://github.com/TryGhost/Ghost/commit/ba692df7f27162d0440d57487f16c530416a8eb2",
-        "https://github.com/TryGhost/Ghost/releases/tag/v6.21.1",
-        "https://github.com/advisories/GHSA-g366-23fw-ggp6"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "ghost"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-ch52-px8q-f22j",
-      "name": "Ghost: Server-side request forgery via DNS rebinding in external request handling",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-ch52-px8q-f22j",
-      "description": "Ghost: Server-side request forgery via DNS rebinding in external request handling",
-      "date": "2026-08-04",
-      "affected": [
-        "ghost"
-      ],
-      "references": [
-        "https://github.com/TryGhost/Ghost/security/advisories/GHSA-ch52-px8q-f22j",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-53945",
-        "https://github.com/TryGhost/Ghost/pull/26754",
-        "https://github.com/TryGhost/Ghost/commit/07d604100eb3df5c9b382fce6232928c96329448",
-        "https://github.com/TryGhost/Ghost/releases/tag/v6.21.1",
-        "https://github.com/advisories/GHSA-ch52-px8q-f22j"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "ghost"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wvp2-4qqp-4h3r",
-      "name": "Ghost: Private IP filtering bypass to make server-side requests to internal services",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-wvp2-4qqp-4h3r",
-      "description": "Ghost: Private IP filtering bypass to make server-side requests to internal services",
-      "date": "2026-08-04",
-      "affected": [
-        "ghost"
-      ],
-      "references": [
-        "https://github.com/TryGhost/Ghost/security/advisories/GHSA-wvp2-4qqp-4h3r",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-53944",
-        "https://github.com/TryGhost/Ghost/pull/26749",
-        "https://github.com/TryGhost/Ghost/commit/9b7f2212970fade08ecbec543b405190471e38d4",
-        "https://github.com/TryGhost/Ghost/releases/tag/v6.21.1",
-        "https://github.com/advisories/GHSA-wvp2-4qqp-4h3r"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "ghost"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4wx2-7gvj-qfq3",
-      "name": "Ghost: Archived Offers can be Redeemed",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-4wx2-7gvj-qfq3",
-      "description": "Ghost: Archived Offers can be Redeemed",
-      "date": "2026-08-04",
-      "affected": [
-        "ghost"
-      ],
-      "references": [
-        "https://github.com/TryGhost/Ghost/security/advisories/GHSA-4wx2-7gvj-qfq3",
-        "https://github.com/TryGhost/Ghost/commit/d91c0fc52dfc987d71a9803dbcbe6447d21b92fb",
-        "https://github.com/advisories/GHSA-4wx2-7gvj-qfq3"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "ghost"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-944x-pm95-3jpr",
-      "name": "Ghost: File Upload Content-Type Spoofing",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-944x-pm95-3jpr",
-      "description": "Ghost: File Upload Content-Type Spoofing",
-      "date": "2026-08-04",
-      "affected": [
-        "ghost"
-      ],
-      "references": [
-        "https://github.com/TryGhost/Ghost/security/advisories/GHSA-944x-pm95-3jpr",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-53948",
-        "https://github.com/TryGhost/Ghost/pull/26751",
-        "https://github.com/TryGhost/Ghost/commit/d659e752d6636144d75b9aa94062cdbc88a16b21",
-        "https://github.com/TryGhost/Ghost/releases/tag/v6.21.1",
-        "https://github.com/advisories/GHSA-944x-pm95-3jpr"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "ghost"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2gx6-7gx2-wwcf",
-      "name": "Ghost: Cross-Site Scripting in Universal Import",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-2gx6-7gx2-wwcf",
-      "description": "Ghost: Cross-Site Scripting in Universal Import",
-      "date": "2026-08-04",
-      "affected": [
-        "ghost"
-      ],
-      "references": [
-        "https://github.com/TryGhost/Ghost/security/advisories/GHSA-2gx6-7gx2-wwcf",
-        "https://github.com/TryGhost/Ghost/pull/29635",
-        "https://github.com/TryGhost/Ghost/commit/a8bea3a4ceec4c852b880f4885119453c3d8588e",
-        "https://github.com/TryGhost/Ghost/releases/tag/v6.54.1",
-        "https://github.com/advisories/GHSA-2gx6-7gx2-wwcf"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "ghost"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3cg5-48j3-v4gv",
-      "name": "Open WebUI: A folder write-collaborator can permanently delete the owner's chats by deleting a share",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-3cg5-48j3-v4gv",
-      "description": "Open WebUI: A folder write-collaborator can permanently delete the owner's chats by deleting a shared subfolder",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-3cg5-48j3-v4gv",
-        "https://github.com/open-webui/open-webui/pull/27003",
-        "https://github.com/open-webui/open-webui/commit/915ef7d0798d3175819cedbb2f62d7bf0db78c98",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-3cg5-48j3-v4gv"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2f54-p244-32q6",
-      "name": "Open WebUI: Any authenticated user can stall a worker via a knowledge-search pattern that backtracks",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-2f54-p244-32q6",
-      "description": "Open WebUI: Any authenticated user can stall a worker via a knowledge-search pattern that backtracks catastrophically",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-2f54-p244-32q6",
-        "https://github.com/open-webui/open-webui/pull/27471",
-        "https://github.com/open-webui/open-webui/commit/3ab2026262ef6f09810e4d235c5f9a9cb903e595",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-2f54-p244-32q6"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-pwxh-7358-jq2x",
-      "name": "Open WebUI: Stored XSS via unescaped KaTeX render-error fallback in rendered messages",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-pwxh-7358-jq2x",
-      "description": "Open WebUI: Stored XSS via unescaped KaTeX render-error fallback in rendered messages",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-pwxh-7358-jq2x",
-        "https://github.com/open-webui/open-webui/pull/26718",
-        "https://github.com/open-webui/open-webui/commit/bc600d3f085802c45aa8f38c30e6e8c986bde6cc",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-pwxh-7358-jq2x"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3r7g-q6cg-q2vx",
-      "name": "Open WebUI: Tool source code disclosed to read-only users via the tool list and get endpoints",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-3r7g-q6cg-q2vx",
-      "description": "Open WebUI: Tool source code disclosed to read-only users via the tool list and get endpoints",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-3r7g-q6cg-q2vx",
-        "https://github.com/open-webui/open-webui/pull/27005",
-        "https://github.com/open-webui/open-webui/commit/c05de13b4fca1ac8a17153782b46b3d0aacf491c",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-3r7g-q6cg-q2vx"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5gpj-vj23-vhhv",
-      "name": "Open WebUI: Unapproved accounts can open terminal sessions via a WebSocket auth path missing the rol",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-5gpj-vj23-vhhv",
-      "description": "Open WebUI: Unapproved accounts can open terminal sessions via a WebSocket auth path missing the role check",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-5gpj-vj23-vhhv",
-        "https://github.com/advisories/GHSA-5gpj-vj23-vhhv"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-73cq-mcgh-379c",
-      "name": "Open WebUI: Instance-wide stall via automation recurrence rules that force multi-second parsing",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-73cq-mcgh-379c",
-      "description": "Open WebUI: Instance-wide stall via automation recurrence rules that force multi-second parsing",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-73cq-mcgh-379c",
-        "https://github.com/open-webui/open-webui/commit/c4ae8c86786fed521960466f6d8eef8af22c2946",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-73cq-mcgh-379c"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h6x2-583h-x99r",
-      "name": "Open WebUI: DNS Rebinding SSRF Bypass",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-h6x2-583h-x99r",
-      "description": "Open WebUI: DNS Rebinding SSRF Bypass",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-h6x2-583h-x99r",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-h6x2-583h-x99r"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6xhv-rxhv-pwm4",
-      "name": "Open WebUI: Cross-user file content disclosure via request-scoped direct model knowledge metadata",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-6xhv-rxhv-pwm4",
-      "description": "Open WebUI: Cross-user file content disclosure via request-scoped direct model knowledge metadata",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-6xhv-rxhv-pwm4",
-        "https://github.com/open-webui/open-webui/commit/305880f2e2aeb2dda2f4b2a18a20bdcd558f7134",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-6xhv-rxhv-pwm4"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jxc9-xmc4-gr23",
-      "name": "Open WebUI: Deletion of directories and file embeddings in other knowledge bases via sync cleanup",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-jxc9-xmc4-gr23",
-      "description": "Open WebUI: Deletion of directories and file embeddings in other knowledge bases via sync cleanup",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-jxc9-xmc4-gr23",
-        "https://github.com/open-webui/open-webui/pull/26722",
-        "https://github.com/open-webui/open-webui/commit/707efeaed7992dd9896d5928559458f228b9a539",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-jxc9-xmc4-gr23"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3xpf-xq7r-v8c5",
-      "name": "Open WebUI: Same-origin XSS to account takeover via terminal file-preview iframe hardcoding allow-sa",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-3xpf-xq7r-v8c5",
-      "description": "Open WebUI: Same-origin XSS to account takeover via terminal file-preview iframe hardcoding allow-same-origin",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-3xpf-xq7r-v8c5",
-        "https://github.com/open-webui/open-webui/pull/26907",
-        "https://github.com/open-webui/open-webui/commit/65a5fad7b97db99d490d81f4e0860282c3a4543c",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-3xpf-xq7r-v8c5"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8x5v-cpv7-8jjp",
-      "name": "Open WebUI: Any authenticated user can reach internal services and cloud metadata via NAT64-encoded ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-8x5v-cpv7-8jjp",
-      "description": "Open WebUI: Any authenticated user can reach internal services and cloud metadata via NAT64-encoded URLs",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-8x5v-cpv7-8jjp",
-        "https://github.com/open-webui/open-webui/commit/1717b493d83c86afa82aa8bc50139250852dd2f3",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-8x5v-cpv7-8jjp"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-g423-grf7-98rv",
-      "name": "Open WebUI: Users denied the image-generation permission can still generate images via chat completi",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-g423-grf7-98rv",
-      "description": "Open WebUI: Users denied the image-generation permission can still generate images via chat completions",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-g423-grf7-98rv",
-        "https://github.com/open-webui/open-webui/pull/26703",
-        "https://github.com/open-webui/open-webui/commit/897d69a35c65f8ab54583bb9ca8dc74eab7bcd29",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-g423-grf7-98rv"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rffm-9q57-q649",
-      "name": "Open WebUI: Client-side SSRF via unrestricted external resource loading in Vega/Vega-Lite chart rend",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-rffm-9q57-q649",
-      "description": "Open WebUI: Client-side SSRF via unrestricted external resource loading in Vega/Vega-Lite chart rendering",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-rffm-9q57-q649",
-        "https://github.com/open-webui/open-webui/pull/26806",
-        "https://github.com/open-webui/open-webui/commit/5278eb906ebecefc6538a19bc86df09d997e43e6",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-rffm-9q57-q649"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3vf6-64vr-3g56",
-      "name": "Open WebUI: Any authenticated user can cancel another user's chat generation via the chat delete end",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-3vf6-64vr-3g56",
-      "description": "Open WebUI: Any authenticated user can cancel another user's chat generation via the chat delete endpoint",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-3vf6-64vr-3g56",
-        "https://github.com/open-webui/open-webui/pull/27006",
-        "https://github.com/open-webui/open-webui/commit/4f93c3e36c1734342a32c312bdb0516c66d8e93c",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-3vf6-64vr-3g56"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rq84-p6rr-vf89",
-      "name": "Open WebUI: Account takeover via OAuth token exchange accepting tokens issued to any client",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-rq84-p6rr-vf89",
-      "description": "Open WebUI: Account takeover via OAuth token exchange accepting tokens issued to any client",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-rq84-p6rr-vf89",
-        "https://github.com/open-webui/open-webui/commit/b190dcf3caa00dc8b7b9c7312828298d9143f60d",
-        "https://github.com/open-webui/open-webui/commit/c4332be71e6e9c314e8a13b9d2819a6932561630",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-rq84-p6rr-vf89"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mj5r-jf49-m3w7",
-      "name": "Open WebUI: Any member with write access to a standard channel can edit or delete other members' mes",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-mj5r-jf49-m3w7",
-      "description": "Open WebUI: Any member with write access to a standard channel can edit or delete other members' messages",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-mj5r-jf49-m3w7",
-        "https://github.com/open-webui/open-webui/pull/27197",
-        "https://github.com/open-webui/open-webui/commit/c609ec41154fa092fa0af80d9d365de06b666286",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-mj5r-jf49-m3w7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-w2rx-84hp-gg95",
-      "name": "Open WebUI: SSRF into internal services via unvalidated sub-resource requests in the Playwright web ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-w2rx-84hp-gg95",
-      "description": "Open WebUI: SSRF into internal services via unvalidated sub-resource requests in the Playwright web loader",
-      "date": "2026-08-04",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-w2rx-84hp-gg95",
-        "https://github.com/open-webui/open-webui/pull/27526",
-        "https://github.com/open-webui/open-webui/commit/bef63a2ae915571d50d2722a635e8bfa753d7877",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.0",
-        "https://github.com/advisories/GHSA-w2rx-84hp-gg95"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/traefik/traefik/v3": "Traefik CRD IngressRouteTCP ServersTransport Cross-Provider Namespace Bypass",
+    "@nuxt/devtools": "Unauthenticated Nuxt DevTools RPC allows arbitrary command execution on the developer's host",
+    "github.com/rclone/rclone": "rclone: Local Encoding Path Traversal",
     "@tryghost/activitypub": "XSS in Ghost's ActivityPub client"
   },
   "malicious_packages": {
