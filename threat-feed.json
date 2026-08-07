@@ -1,8 +1,696 @@
 {
   "version": "2026.08.07",
-  "last_updated": "2026-08-07T12:58:45.848888+00:00",
+  "last_updated": "2026-08-07T18:53:28.704843+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-rg76-677x-56q9",
+      "name": "crypto-js: Insufficient Entropy in Cryptographic Secret Generation via Vulnerable CryptoJS Dependenc",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-rg76-677x-56q9",
+      "description": "crypto-js: Insufficient Entropy in Cryptographic Secret Generation via Vulnerable CryptoJS Dependency Chain",
+      "date": "2026-08-07",
+      "affected": [
+        "crypto-js"
+      ],
+      "references": [
+        "https://github.com/brix/crypto-js/security/advisories/GHSA-rg76-677x-56q9",
+        "https://github.com/brix/crypto-js/commit/b405ff597fb3ac76a7bdfbc72dca10ba1079b1d5",
+        "https://www.coinspect.com/blog/ill-bloom-investigation",
+        "https://github.com/advisories/GHSA-rg76-677x-56q9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "crypto-js"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f23p-vx2j-j53r",
+      "name": "Hono: `memo()` retains SSR output across requests, leading to cross-user data disclosure",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-f23p-vx2j-j53r",
+      "description": "Hono: `memo()` retains SSR output across requests, leading to cross-user data disclosure",
+      "date": "2026-08-07",
+      "affected": [
+        "hono"
+      ],
+      "references": [
+        "https://github.com/honojs/hono/security/advisories/GHSA-f23p-vx2j-j53r",
+        "https://github.com/honojs/hono/commit/0c45036d6b0ddf42ab2fa44639dc8710825d5c0f",
+        "https://github.com/honojs/hono/releases/tag/v4.12.34",
+        "https://github.com/advisories/GHSA-f23p-vx2j-j53r"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "hono"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-79qm-7rj5-m7r9",
+      "name": "Hono: Proxy Helper does not remove response headers listed in the `Connection` header",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-79qm-7rj5-m7r9",
+      "description": "Hono: Proxy Helper does not remove response headers listed in the `Connection` header",
+      "date": "2026-08-07",
+      "affected": [
+        "hono"
+      ],
+      "references": [
+        "https://github.com/honojs/hono/security/advisories/GHSA-79qm-7rj5-m7r9",
+        "https://github.com/honojs/hono/commit/720b566290793d4358bf39843adcb7cf4da4548f",
+        "https://github.com/honojs/hono/releases/tag/v4.12.34",
+        "https://github.com/advisories/GHSA-79qm-7rj5-m7r9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "hono"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-54fx-42gc-7vw4",
+      "name": "Hono: Algorithmic Complexity DoS in Language Middleware",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-54fx-42gc-7vw4",
+      "description": "Hono: Algorithmic Complexity DoS in Language Middleware",
+      "date": "2026-08-07",
+      "affected": [
+        "hono"
+      ],
+      "references": [
+        "https://github.com/honojs/hono/security/advisories/GHSA-54fx-42gc-7vw4",
+        "https://github.com/honojs/hono/commit/f70e2c31684387b3231cc38512a31df6ca76a1c7",
+        "https://github.com/honojs/hono/releases/tag/v4.12.34",
+        "https://github.com/advisories/GHSA-54fx-42gc-7vw4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "hono"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9hj4-r449-hfvc",
+      "name": "Ruby JSON: JSON::ResumableParser#partial_value dereferences a freed input buffer and crashes on trun",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-9hj4-r449-hfvc",
+      "description": "Ruby JSON: JSON::ResumableParser#partial_value dereferences a freed input buffer and crashes on truncated duplicate-key streams",
+      "date": "2026-08-07",
+      "affected": [
+        "json"
+      ],
+      "references": [
+        "https://github.com/ruby/json/security/advisories/GHSA-9hj4-r449-hfvc",
+        "https://github.com/advisories/GHSA-9hj4-r449-hfvc"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "json"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-gm37-52c6-37mw",
+      "name": "pymdown-extensions: exponential-backtracking ReDoS in caret, tilde, betterem, and magiclink inline p",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-gm37-52c6-37mw",
+      "description": "pymdown-extensions: exponential-backtracking ReDoS in caret, tilde, betterem, and magiclink inline processors",
+      "date": "2026-08-07",
+      "affected": [
+        "pymdown-extensions"
+      ],
+      "references": [
+        "https://github.com/facelessuser/pymdown-extensions/security/advisories/GHSA-gm37-52c6-37mw",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-67422",
+        "https://github.com/facelessuser/pymdown-extensions/commit/c68498598d7b13011bb4571350b6e3612a4ce44b",
+        "https://github.com/advisories/GHSA-gm37-52c6-37mw"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-mmj4-63m4-r6h5",
+      "name": "CodeIgniter: Uploaded file extension validation bypass in `is_image` and `mime_in` rules",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-mmj4-63m4-r6h5",
+      "description": "CodeIgniter: Uploaded file extension validation bypass in `is_image` and `mime_in` rules",
+      "date": "2026-08-07",
+      "affected": [
+        "codeigniter4/framework"
+      ],
+      "references": [
+        "https://github.com/codeigniter4/CodeIgniter4/security/advisories/GHSA-mmj4-63m4-r6h5",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63223",
+        "https://github.com/codeigniter4/CodeIgniter4/commit/b6e9a4fa1dca2df3d3f261bdf61532df8c6420aa",
+        "https://github.com/codeigniter4/CodeIgniter4/releases/tag/v4.7.4",
+        "https://github.com/advisories/GHSA-mmj4-63m4-r6h5"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "codeigniter4/framework"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hhmc-q9hp-r662",
+      "name": "CodeIgniter: Path traversal in UploadedFile::move() when using client-provided filenames",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-hhmc-q9hp-r662",
+      "description": "CodeIgniter: Path traversal in UploadedFile::move() when using client-provided filenames",
+      "date": "2026-08-07",
+      "affected": [
+        "codeigniter4/framework"
+      ],
+      "references": [
+        "https://github.com/codeigniter4/CodeIgniter4/security/advisories/GHSA-hhmc-q9hp-r662",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63222",
+        "https://github.com/codeigniter4/CodeIgniter4/commit/20ebcf4694d96d3c97fbc3938e360730e4f54618",
+        "https://github.com/codeigniter4/CodeIgniter4/releases/tag/v4.7.4",
+        "https://github.com/advisories/GHSA-hhmc-q9hp-r662"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "codeigniter4/framework"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-c9w5-rwh3-7pm9",
+      "name": "CodeIgniter: SQL injection in Query Builder deleteBatch() when used with where() conditions",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-c9w5-rwh3-7pm9",
+      "description": "CodeIgniter: SQL injection in Query Builder deleteBatch() when used with where() conditions",
+      "date": "2026-08-07",
+      "affected": [
+        "codeigniter4/framework"
+      ],
+      "references": [
+        "https://github.com/codeigniter4/CodeIgniter4/security/advisories/GHSA-c9w5-rwh3-7pm9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63221",
+        "https://github.com/codeigniter4/CodeIgniter4/commit/f5e463b9a3e986389ce285963e51a7f1fab6559f",
+        "https://github.com/codeigniter4/CodeIgniter4/releases/tag/v4.7.4",
+        "https://github.com/advisories/GHSA-c9w5-rwh3-7pm9"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "codeigniter4/framework"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7wmf-pw8j-mc78",
+      "name": "CodeIgniter: Spoofable forwarded HTTPS headers in IncomingRequest::isSecure()",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-7wmf-pw8j-mc78",
+      "description": "CodeIgniter: Spoofable forwarded HTTPS headers in IncomingRequest::isSecure()",
+      "date": "2026-08-07",
+      "affected": [
+        "codeigniter4/framework"
+      ],
+      "references": [
+        "https://github.com/codeigniter4/CodeIgniter4/security/advisories/GHSA-7wmf-pw8j-mc78",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63220",
+        "https://github.com/codeigniter4/CodeIgniter4/commit/ecbf044666bed41d23f07518096d9843fe6c08b0",
+        "https://github.com/codeigniter4/CodeIgniter4/releases/tag/v4.7.4",
+        "https://github.com/advisories/GHSA-7wmf-pw8j-mc78"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "codeigniter4/framework"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wcx4-wpfv-mc5c",
+      "name": "jsii-diff: Command Injection via npm: package argument",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-wcx4-wpfv-mc5c",
+      "description": "jsii-diff: Command Injection via npm: package argument",
+      "date": "2026-08-07",
+      "affected": [
+        "jsii-diff"
+      ],
+      "references": [
+        "https://github.com/aws/jsii/security/advisories/GHSA-wcx4-wpfv-mc5c",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-15895",
+        "https://aws.amazon.com/security/security-bulletins/2026-057-aws",
+        "https://github.com/aws/jsii/releases/tag/v1.131.0",
+        "https://github.com/advisories/GHSA-wcx4-wpfv-mc5c"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "jsii-diff"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-p9jm-q85p-7mcp",
+      "name": "Netty: RedisArrayAggregator max-elements failure leaves retained partial aggregate state",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-p9jm-q85p-7mcp",
+      "description": "Netty: RedisArrayAggregator max-elements failure leaves retained partial aggregate state",
+      "date": "2026-08-07",
+      "affected": [
+        "io.netty:netty-codec-redis",
+        "io.netty:netty-codec-redis"
+      ],
+      "references": [
+        "https://github.com/netty/netty/security/advisories/GHSA-p9jm-q85p-7mcp",
+        "https://github.com/netty/netty/pull/17065",
+        "https://github.com/netty/netty/commit/5b68c61f37aa4a3045cba624cbea239655c9003b",
+        "https://github.com/netty/netty/commit/bb2ff68a1fb71cb4b0eb9a9e17b66c52aff680c6",
+        "https://github.com/advisories/GHSA-p9jm-q85p-7mcp"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9rjg-x2p2-h68h",
+      "name": "API Platform Core: Relation IRIs are not type-checked: a related resource can be denormalised as the",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-9rjg-x2p2-h68h",
+      "description": "API Platform Core: Relation IRIs are not type-checked: a related resource can be denormalised as the wrong resource type (type confusion)",
+      "date": "2026-08-07",
+      "affected": [
+        "api-platform/core",
+        "api-platform/core",
+        "api-platform/core"
+      ],
+      "references": [
+        "https://github.com/api-platform/core/security/advisories/GHSA-9rjg-x2p2-h68h",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54164",
+        "https://github.com/api-platform/core/commit/6bcbeb2dbee53db5bb9b4b8e343bffdf7732de1e",
+        "https://github.com/api-platform/core/releases/tag/v4.1.30",
+        "https://github.com/api-platform/core/releases/tag/v4.2.26",
+        "https://github.com/api-platform/core/releases/tag/v4.3.12",
+        "https://github.com/advisories/GHSA-9rjg-x2p2-h68h"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "api-platform/core",
+          "api-platform/core",
+          "api-platform/core"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-29g2-3rmr-qm68",
+      "name": "SvelteKit: ReDoS (O(n^2)) in content negotiation \u2014 unauthenticated DoS via the Accept header",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-29g2-3rmr-qm68",
+      "description": "SvelteKit: ReDoS (O(n^2)) in content negotiation \u2014 unauthenticated DoS via the Accept header",
+      "date": "2026-08-07",
+      "affected": [
+        "@sveltejs/kit"
+      ],
+      "references": [
+        "https://github.com/sveltejs/kit/security/advisories/GHSA-29g2-3rmr-qm68",
+        "https://github.com/sveltejs/kit/commit/82712fc02c24b1dcf5b25d7a52129cd8455f04f5",
+        "https://github.com/sveltejs/kit/releases/tag/@sveltejs/kit@2.70.2",
+        "https://github.com/advisories/GHSA-29g2-3rmr-qm68"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@sveltejs/kit"
+          ]
+        },
+        "compromised_actions": [
+          "@sveltejs/kit"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7c4v-fwgw-9rf7",
+      "name": "Nuxt dev server discloses project root and workspace UUID via the Chrome DevTools workspace endpoint",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-7c4v-fwgw-9rf7",
+      "description": "Nuxt dev server discloses project root and workspace UUID via the Chrome DevTools workspace endpoint",
+      "date": "2026-08-07",
+      "affected": [
+        "nuxt",
+        "nuxt"
+      ],
+      "references": [
+        "https://github.com/nuxt/nuxt/security/advisories/GHSA-7c4v-fwgw-9rf7",
+        "https://github.com/nuxt/nuxt/commit/00f71bb6517abff67257c8ea1fcdc777b938b68d",
+        "https://github.com/nuxt/nuxt/commit/e30c611ea03240f341fe784ab1711aa6424da2fa",
+        "https://github.com/nuxt/nuxt/releases/tag/v3.21.10",
+        "https://github.com/nuxt/nuxt/releases/tag/v4.5.1",
+        "https://github.com/advisories/GHSA-7c4v-fwgw-9rf7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "nuxt",
+            "nuxt"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qgq7-7hm3-q39j",
+      "name": "go-git: Malicious reference names may modify files outside the reference storage",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-qgq7-7hm3-q39j",
+      "description": "go-git: Malicious reference names may modify files outside the reference storage",
+      "date": "2026-08-07",
+      "affected": [
+        "github.com/go-git/go-git/v6",
+        "github.com/go-git/go-git/v5"
+      ],
+      "references": [
+        "https://github.com/go-git/go-git/security/advisories/GHSA-qgq7-7hm3-q39j",
+        "https://github.com/go-git/go-git/pull/2247",
+        "https://github.com/go-git/go-git/pull/2254",
+        "https://github.com/go-git/go-git/commit/4a0e66d555de5f9a30c31e2df64f445f42bd01e7",
+        "https://github.com/go-git/go-git/commit/da9f7d8a0e98b475600177348d6ece384a370f36",
+        "https://github.com/go-git/go-git/releases/tag/v5.19.2",
+        "https://github.com/go-git/go-git/releases/tag/v6.0.0-alpha.5",
+        "https://github.com/advisories/GHSA-qgq7-7hm3-q39j"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/go-git/go-git/v6",
+            "github.com/go-git/go-git/v5"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/go-git/go-git/v6",
+          "github.com/go-git/go-git/v5"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hc8v-wwc9-vgxm",
+      "name": "go-git: Worktree operations may follow symlinks",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-hc8v-wwc9-vgxm",
+      "description": "go-git: Worktree operations may follow symlinks",
+      "date": "2026-08-07",
+      "affected": [
+        "github.com/go-git/go-git/v6",
+        "github.com/go-git/go-git/v5"
+      ],
+      "references": [
+        "https://github.com/go-git/go-git/security/advisories/GHSA-hc8v-wwc9-vgxm",
+        "https://github.com/go-git/go-git/commit/008a78f2dd86f52544ddff8b8e8ddeecdf3f7aab",
+        "https://github.com/go-git/go-git/commit/661d1c7f101d34e002a3cfcf8dbea5b7421d07ac",
+        "https://github.com/go-git/go-git/releases/tag/v5.19.2",
+        "https://github.com/go-git/go-git/releases/tag/v6.0.0-alpha.5",
+        "https://github.com/advisories/GHSA-hc8v-wwc9-vgxm"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/go-git/go-git/v6",
+            "github.com/go-git/go-git/v5"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/go-git/go-git/v6",
+          "github.com/go-git/go-git/v5"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wvpp-8hx9-p66j",
+      "name": "GitPython: Unsafe git option guard bypass via split_single_char_options=False short-option token smu",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-wvpp-8hx9-p66j",
+      "description": "GitPython: Unsafe git option guard bypass via split_single_char_options=False short-option token smuggling enables command execution",
+      "date": "2026-08-07",
+      "affected": [
+        "GitPython"
+      ],
+      "references": [
+        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-wvpp-8hx9-p66j",
+        "https://github.com/gitpython-developers/GitPython/pull/2204",
+        "https://github.com/gitpython-developers/GitPython/commit/96a888f4d782cb2f80452148e48e60ce4af6d541",
+        "https://github.com/gitpython-developers/GitPython/releases/tag/3.1.58",
+        "https://github.com/advisories/GHSA-wvpp-8hx9-p66j"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jm78-9fvv-mhgr",
+      "name": "GitPython: git-config OPTION-name injection via =/#/whitespace bypasses name validator, enabling for",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-jm78-9fvv-mhgr",
+      "description": "GitPython: git-config OPTION-name injection via =/#/whitespace bypasses name validator, enabling forged core.sshCommand/hooksPath (RCE)",
+      "date": "2026-08-07",
+      "affected": [
+        "GitPython"
+      ],
+      "references": [
+        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-jm78-9fvv-mhgr",
+        "https://github.com/gitpython-developers/GitPython/pull/2204",
+        "https://github.com/gitpython-developers/GitPython/commit/a495ccd3b547ccd60b2187215823b72a9c0188bf",
+        "https://github.com/gitpython-developers/GitPython/releases/tag/3.1.58",
+        "https://github.com/advisories/GHSA-jm78-9fvv-mhgr"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hmq2-w58f-27jc",
+      "name": "GitPython: Arbitrary Git Repository Creation Outside the Working Tree via Unvalidated .gitmodules Su",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-hmq2-w58f-27jc",
+      "description": "GitPython: Arbitrary Git Repository Creation Outside the Working Tree via Unvalidated .gitmodules Submodule Name in GitPython",
+      "date": "2026-08-07",
+      "affected": [
+        "GitPython"
+      ],
+      "references": [
+        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hmq2-w58f-27jc",
+        "https://github.com/gitpython-developers/GitPython/pull/2202",
+        "https://github.com/gitpython-developers/GitPython/commit/4299c990e1ca21896f9485277caf7bb0ae5b404c",
+        "https://github.com/gitpython-developers/GitPython/commit/e4b8e7d026ca6abb4cf604f8e77093432ce23c06",
+        "https://github.com/gitpython-developers/GitPython/releases/tag/3.1.58",
+        "https://github.com/advisories/GHSA-hmq2-w58f-27jc"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hh9p-6wh2-4mfc",
+      "name": "GitPython: Arbitrary file read via --pathspec-from-file in IndexFile.remove() and Head.checkout()",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-hh9p-6wh2-4mfc",
+      "description": "GitPython: Arbitrary file read via --pathspec-from-file in IndexFile.remove() and Head.checkout()",
+      "date": "2026-08-07",
+      "affected": [
+        "GitPython"
+      ],
+      "references": [
+        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hh9p-6wh2-4mfc",
+        "https://github.com/gitpython-developers/GitPython/pull/2204",
+        "https://github.com/gitpython-developers/GitPython/commit/f2550b65bf60ca087190981e2c7b6865e201f40c",
+        "https://github.com/gitpython-developers/GitPython/releases/tag/3.1.58",
+        "https://github.com/advisories/GHSA-hh9p-6wh2-4mfc"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9rj7-rf2p-w77r",
+      "name": "GitPython: Unguarded git option forwarding in Repo.init enables arbitrary command execution via --te",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9rj7-rf2p-w77r",
+      "description": "GitPython: Unguarded git option forwarding in Repo.init enables arbitrary command execution via --template clone hooks",
+      "date": "2026-08-07",
+      "affected": [
+        "GitPython"
+      ],
+      "references": [
+        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-9rj7-rf2p-w77r",
+        "https://github.com/gitpython-developers/GitPython/pull/2204",
+        "https://github.com/gitpython-developers/GitPython/commit/d9ddb55bdc66",
+        "https://github.com/gitpython-developers/GitPython/releases/tag/3.1.58",
+        "https://github.com/advisories/GHSA-9rj7-rf2p-w77r"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4gmw-gg2m-w46p",
+      "name": "GitPython: Unguarded git read-tree option forwarding in IndexFile.from_tree/reset/merge_tree enables",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-4gmw-gg2m-w46p",
+      "description": "GitPython: Unguarded git read-tree option forwarding in IndexFile.from_tree/reset/merge_tree enables arbitrary file overwrite",
+      "date": "2026-08-07",
+      "affected": [
+        "GitPython"
+      ],
+      "references": [
+        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-4gmw-gg2m-w46p",
+        "https://github.com/gitpython-developers/GitPython/pull/2204",
+        "https://github.com/gitpython-developers/GitPython/commit/9b5dcaf85da5946dbf69dcd53f9edba08f760b32",
+        "https://github.com/gitpython-developers/GitPython/releases/tag/3.1.58",
+        "https://github.com/advisories/GHSA-4gmw-gg2m-w46p"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-55q2-fjhq-7xh7",
+      "name": "DOMPurify: IN_PLACE hook removal leaves a detached subtree executable, causing XSS",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-55q2-fjhq-7xh7",
+      "description": "DOMPurify: IN_PLACE hook removal leaves a detached subtree executable, causing XSS",
+      "date": "2026-08-07",
+      "affected": [
+        "dompurify"
+      ],
+      "references": [
+        "https://github.com/cure53/DOMPurify/security/advisories/GHSA-55q2-fjhq-7xh7",
+        "https://github.com/cure53/DOMPurify/pull/1557",
+        "https://github.com/cure53/DOMPurify/commit/3067f7746769",
+        "https://github.com/cure53/DOMPurify/releases/tag/3.4.13",
+        "https://github.com/advisories/GHSA-55q2-fjhq-7xh7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "dompurify"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rjhh-76wf-8xmw",
+      "name": "Smarty Security stream restriction bypass through stream: resource",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-rjhh-76wf-8xmw",
+      "description": "Smarty Security stream restriction bypass through stream: resource",
+      "date": "2026-08-07",
+      "affected": [
+        "smarty/smarty"
+      ],
+      "references": [
+        "https://github.com/smarty-php/smarty/security/advisories/GHSA-rjhh-76wf-8xmw",
+        "https://github.com/smarty-php/smarty/pull/1195",
+        "https://github.com/smarty-php/smarty/commit/3c9f77a2e06ce319ae0092496af32cc8f3adc52e",
+        "https://github.com/smarty-php/smarty/releases/tag/v5.8.4",
+        "https://github.com/advisories/GHSA-rjhh-76wf-8xmw"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "smarty/smarty"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f6wf-28g6-769x",
+      "name": "Smarty: Symlink path traversal out of trusted directories",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-f6wf-28g6-769x",
+      "description": "Smarty: Symlink path traversal out of trusted directories",
+      "date": "2026-08-07",
+      "affected": [
+        "smarty/smarty",
+        "smarty/smarty"
+      ],
+      "references": [
+        "https://github.com/smarty-php/smarty/security/advisories/GHSA-f6wf-28g6-769x",
+        "https://github.com/smarty-php/smarty/commit/99c048ce7a590c519b79fbd38ad0143a08183a1f",
+        "https://github.com/smarty-php/smarty/commit/a1ccdb0518021a559b4066c37b76a42c86bbce90",
+        "https://github.com/smarty-php/smarty/releases/tag/v4.5.7",
+        "https://github.com/smarty-php/smarty/releases/tag/v5.8.2",
+        "https://github.com/advisories/GHSA-f6wf-28g6-769x"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "smarty/smarty",
+          "smarty/smarty"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wg23-69c2-gjc8",
+      "name": "Craft CMS: Passkey login accepts replayed WebAuthn assertions",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-wg23-69c2-gjc8",
+      "description": "Craft CMS: Passkey login accepts replayed WebAuthn assertions",
+      "date": "2026-08-07",
+      "affected": [
+        "craftcms/cms"
+      ],
+      "references": [
+        "https://github.com/craftcms/cms/security/advisories/GHSA-wg23-69c2-gjc8",
+        "https://github.com/craftcms/cms/commit/d71a66d69cf8852bcfca4484ca718750b5a316d6",
+        "https://github.com/craftcms/cms/releases/tag/5.10.5",
+        "https://github.com/advisories/GHSA-wg23-69c2-gjc8"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "craftcms/cms"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-957r-qf9p-67xw",
       "name": "Craft CMS: Arbitrary file read via SplFileObject in non-sandboxed template contexts",
@@ -71,6 +759,31 @@
       "detection_signatures": {
         "compromised_actions": [
           "craftcms/cms",
+          "craftcms/cms"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xxpx-f366-4xpq",
+      "name": "Craft CMS:Authorization bypass: view-only Categories user can modify category structure via structur",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-xxpx-f366-4xpq",
+      "description": "Craft CMS:Authorization bypass: view-only Categories user can modify category structure via structures/move-element",
+      "date": "2026-08-06",
+      "affected": [
+        "craftcms/cms"
+      ],
+      "references": [
+        "https://github.com/craftcms/cms/security/advisories/GHSA-xxpx-f366-4xpq",
+        "https://github.com/craftcms/cms/commit/eb63721b8476ef53f21d7de53d156eef531cb57d",
+        "https://github.com/craftcms/cms/releases/tag/4.18.2",
+        "https://github.com/craftcms/cms/releases/tag/5.10.6",
+        "https://github.com/advisories/GHSA-xxpx-f366-4xpq"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
           "craftcms/cms"
         ]
       },
@@ -559,928 +1272,19 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5p4m-2wfm-xmqj",
-      "name": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) \u2014 CVE-2026-59870 fix not backp",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-5p4m-2wfm-xmqj",
-      "description": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) \u2014 CVE-2026-59870 fix not backported",
-      "date": "2026-08-06",
-      "affected": [
-        "js-yaml",
-        "js-yaml"
-      ],
-      "references": [
-        "https://github.com/nodeca/js-yaml/security/advisories/GHSA-5p4m-2wfm-xmqj",
-        "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "js-yaml",
-            "js-yaml"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-w3cp-g2pf-65wh",
-      "name": "Silverstripe: XSS in breadcrumbs in page list view",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-w3cp-g2pf-65wh",
-      "description": "Silverstripe: XSS in breadcrumbs in page list view",
-      "date": "2026-08-06",
-      "affected": [
-        "silverstripe/cms"
-      ],
-      "references": [
-        "https://github.com/silverstripe/silverstripe-cms/security/advisories/GHSA-w3cp-g2pf-65wh",
-        "https://github.com/silverstripe/silverstripe-cms/pull/3175",
-        "https://github.com/silverstripe/silverstripe-cms/commit/62f9912baa18c80304f3fa8b6eca71bb5dc2d21e",
-        "https://github.com/FriendsOfPHP/security-advisories/blob/master/silverstripe/cms/CVE-2026-54717.yaml",
-        "https://github.com/silverstripe/silverstripe-cms/releases/tag/6.2.1",
-        "https://www.silverstripe.org/download/security-releases/cve-2026-54717",
-        "https://github.com/advisories/GHSA-w3cp-g2pf-65wh"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "silverstripe/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hqvf-45jj-mccq",
-      "name": "AWS CLI: Disabled SSH host key verification in Amazon AWS CLI EMR helper commands",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hqvf-45jj-mccq",
-      "description": "AWS CLI: Disabled SSH host key verification in Amazon AWS CLI EMR helper commands",
-      "date": "2026-08-06",
-      "affected": [
-        "awscli"
-      ],
-      "references": [
-        "https://github.com/aws/aws-cli/security/advisories/GHSA-hqvf-45jj-mccq",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-18654",
-        "https://aws.amazon.com/security/security-bulletins/2026-071-aws",
-        "https://github.com/aws/aws-cli/blob/develop/CHANGELOG.rst",
-        "https://github.com/aws/aws-cli/blob/v2/CHANGELOG.rst",
-        "https://github.com/advisories/GHSA-hqvf-45jj-mccq"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vp3h-ghgh-jr7g",
-      "name": "Nx: Zip-Slip in the self-hosted remote cache",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-vp3h-ghgh-jr7g",
-      "description": "Nx: Zip-Slip in the self-hosted remote cache",
-      "date": "2026-08-06",
-      "affected": [
-        "nx",
-        "@nx/powerpack-shared-fs-cache",
-        "@nx/powerpack-azure-cache",
-        "@nx/powerpack-gcs-cache",
-        "@nx/powerpack-s3-cache",
-        "@nx/shared-fs-cache",
-        "@nx/azure-cache",
-        "@nx/gcs-cache",
-        "@nx/s3-cache",
-        "nx"
-      ],
-      "references": [
-        "https://github.com/nrwl/nx/security/advisories/GHSA-vp3h-ghgh-jr7g",
-        "https://github.com/nrwl/nx/pull/36116",
-        "https://github.com/nrwl/nx/commit/2b20c2da39d263c32ae05767577589481a309fee",
-        "https://github.com/nrwl/nx/commit/a82807621e4176e37909d2c1afede661b45cc30",
-        "https://github.com/nrwl/nx/commit/ad296578fe980a4aad66f8af0add21f6ddf907d9",
-        "https://github.com/advisories/GHSA-vp3h-ghgh-jr7g"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "nx",
-            "@nx/powerpack-shared-fs-cache",
-            "@nx/powerpack-azure-cache",
-            "@nx/powerpack-gcs-cache",
-            "@nx/powerpack-s3-cache",
-            "@nx/shared-fs-cache",
-            "@nx/azure-cache",
-            "@nx/gcs-cache",
-            "@nx/s3-cache",
-            "nx"
-          ]
-        },
-        "compromised_actions": [
-          "@nx/powerpack-shared-fs-cache",
-          "@nx/powerpack-azure-cache",
-          "@nx/powerpack-gcs-cache",
-          "@nx/powerpack-s3-cache",
-          "@nx/shared-fs-cache",
-          "@nx/azure-cache",
-          "@nx/gcs-cache",
-          "@nx/s3-cache"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rhh3-jpg6-66xh",
-      "name": "Mermaid radar diagrams are vulnerable to DoS",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-rhh3-jpg6-66xh",
-      "description": "Mermaid radar diagrams are vulnerable to DoS",
-      "date": "2026-08-06",
-      "affected": [
-        "mermaid"
-      ],
-      "references": [
-        "https://github.com/mermaid-js/mermaid/security/advisories/GHSA-rhh3-jpg6-66xh",
-        "https://github.com/mermaid-js/mermaid/pull/8022",
-        "https://github.com/mermaid-js/mermaid/commit/59b22fad2b3bb04f87a476c84a8a2b24679e607e",
-        "https://github.com/mermaid-js/mermaid/releases/tag/mermaid%4011.16.1",
-        "https://github.com/advisories/GHSA-rhh3-jpg6-66xh"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "mermaid"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c4c3-pg64-4m4v",
-      "name": "Mermaid configuration APIs allow prototype pollution",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-c4c3-pg64-4m4v",
-      "description": "Mermaid configuration APIs allow prototype pollution",
-      "date": "2026-08-06",
-      "affected": [
-        "mermaid",
-        "mermaid"
-      ],
-      "references": [
-        "https://github.com/mermaid-js/mermaid/security/advisories/GHSA-c4c3-pg64-4m4v",
-        "https://github.com/mermaid-js/mermaid/pull/8022",
-        "https://github.com/mermaid-js/mermaid/commit/2cd6dcf735533b323507e3e889ffdea870540b43",
-        "https://github.com/mermaid-js/mermaid/commit/c34b07a0815842327e70794d69b0c8c5a1e2a956",
-        "https://github.com/mermaid-js/mermaid/releases/tag/mermaid%4011.16.1",
-        "https://github.com/mermaid-js/mermaid/releases/tag/v10.9.8",
-        "https://github.com/advisories/GHSA-c4c3-pg64-4m4v"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "mermaid",
-            "mermaid"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6x64-9x62-f2gx",
-      "name": "Mermaid allows CSS injection applying to sibling elements of the diagram",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-6x64-9x62-f2gx",
-      "description": "Mermaid allows CSS injection applying to sibling elements of the diagram",
-      "date": "2026-08-06",
-      "affected": [
-        "mermaid",
-        "mermaid"
-      ],
-      "references": [
-        "https://github.com/mermaid-js/mermaid/security/advisories/GHSA-6x64-9x62-f2gx",
-        "https://github.com/mermaid-js/mermaid/pull/8022",
-        "https://github.com/mermaid-js/mermaid/commit/12d472c9ed43f94814b110da8d7a9ae6dd5266ed",
-        "https://github.com/mermaid-js/mermaid/commit/7e83f1533318b307764d961906a73377266f4c5e",
-        "https://github.com/mermaid-js/mermaid/releases/tag/mermaid@11.16.1",
-        "https://github.com/mermaid-js/mermaid/releases/tag/v10.9.8",
-        "https://github.com/advisories/GHSA-6x64-9x62-f2gx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "mermaid",
-            "mermaid"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3rrr-jr9j-h3q3",
-      "name": "Mermaid Architecture diagrams are vulnerable to prototype pollution",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-3rrr-jr9j-h3q3",
-      "description": "Mermaid Architecture diagrams are vulnerable to prototype pollution",
-      "date": "2026-08-06",
-      "affected": [
-        "mermaid"
-      ],
-      "references": [
-        "https://github.com/mermaid-js/mermaid/security/advisories/GHSA-3rrr-jr9j-h3q3",
-        "https://github.com/mermaid-js/mermaid/pull/8022",
-        "https://github.com/mermaid-js/mermaid/commit/99af3fc35ef0a9a9c8c6314521344d67523ddccf",
-        "https://github.com/mermaid-js/mermaid/releases/tag/mermaid@11.16.1",
-        "https://github.com/advisories/GHSA-3rrr-jr9j-h3q3"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "mermaid"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-grm4-wm43-9jh5",
-      "name": "Contao: Possible path traversal in job download URIs",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-grm4-wm43-9jh5",
-      "description": "Contao: Possible path traversal in job download URIs",
-      "date": "2026-08-06",
-      "affected": [
-        "contao/core-bundle",
-        "contao/contao"
-      ],
-      "references": [
-        "https://github.com/contao/contao/security/advisories/GHSA-grm4-wm43-9jh5",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-55825",
-        "https://contao.org/en/security-advisories/path-traversal-in-the-jobs-module",
-        "https://github.com/FriendsOfPHP/security-advisories/blob/master/contao/contao/CVE-2026-55825.yaml",
-        "https://github.com/FriendsOfPHP/security-advisories/blob/master/contao/core-bundle/CVE-2026-55825.yaml",
-        "https://github.com/advisories/GHSA-grm4-wm43-9jh5"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "contao/core-bundle",
-          "contao/contao"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2v8p-3f2j-5mp7",
-      "name": "Mermaid XY Charts are vulnerable to an infinite loop DoS",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-2v8p-3f2j-5mp7",
-      "description": "Mermaid XY Charts are vulnerable to an infinite loop DoS",
-      "date": "2026-08-06",
-      "affected": [
-        "mermaid",
-        "mermaid"
-      ],
-      "references": [
-        "https://github.com/mermaid-js/mermaid/security/advisories/GHSA-2v8p-3f2j-5mp7",
-        "https://github.com/mermaid-js/mermaid/pull/8022",
-        "https://github.com/mermaid-js/mermaid/commit/630aa7e5dd417e1f56bff2a1ce8df2c5ad08d289",
-        "https://github.com/mermaid-js/mermaid/commit/ef60adc837d9d5107af21285f01e83dea309bd0a",
-        "https://github.com/mermaid-js/mermaid/releases/tag/mermaid@11.16.1",
-        "https://github.com/mermaid-js/mermaid/releases/tag/v10.9.8",
-        "https://github.com/advisories/GHSA-2v8p-3f2j-5mp7"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "mermaid",
-            "mermaid"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3mr9-p497-58f6",
-      "name": "Contao crawler leaks auth credentials to external hosts",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-3mr9-p497-58f6",
-      "description": "Contao crawler leaks auth credentials to external hosts",
-      "date": "2026-08-06",
-      "affected": [
-        "contao/core-bundle",
-        "contao/core-bundle",
-        "contao/contao",
-        "contao/contao"
-      ],
-      "references": [
-        "https://github.com/contao/contao/security/advisories/GHSA-3mr9-p497-58f6",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-55824",
-        "https://github.com/contao/contao/commit/5bc6e3f900c439313df57aa561d0865792aafa05",
-        "https://github.com/contao/contao/commit/80425d28cdf66280a209bd3f5bc31b1a76901a04",
-        "https://contao.org/en/security-advisories/credentials-disclosure-in-the-crawler",
-        "https://github.com/FriendsOfPHP/security-advisories/blob/master/contao/contao/CVE-2026-55824.yaml",
-        "https://github.com/FriendsOfPHP/security-advisories/blob/master/contao/core-bundle/CVE-2026-55824.yaml",
-        "https://github.com/advisories/GHSA-3mr9-p497-58f6"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "contao/core-bundle",
-          "contao/core-bundle",
-          "contao/contao",
-          "contao/contao"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vx89-p3j7-8xqc",
-      "name": "Statamic: Stored Cross-Site Scripting in Automagic Form Notification Email Template",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-vx89-p3j7-8xqc",
-      "description": "Statamic: Stored Cross-Site Scripting in Automagic Form Notification Email Template",
-      "date": "2026-08-06",
-      "affected": [
-        "statamic/cms",
-        "statamic/cms"
-      ],
-      "references": [
-        "https://github.com/statamic/cms/security/advisories/GHSA-vx89-p3j7-8xqc",
-        "https://github.com/statamic/cms/pull/14959",
-        "https://github.com/statamic/cms/commit/4ad1335e818a67249d0617f0f167a1198fb96a2c",
-        "https://github.com/statamic/cms/releases/tag/v5.74.3",
-        "https://github.com/statamic/cms/releases/tag/v6.24.2",
-        "https://github.com/advisories/GHSA-vx89-p3j7-8xqc"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "statamic/cms",
-          "statamic/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qhr7-v3xp-vw9m",
-      "name": "Statamic: Missing file upload validation on frontend forms allows uploading disallowed file types",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-qhr7-v3xp-vw9m",
-      "description": "Statamic: Missing file upload validation on frontend forms allows uploading disallowed file types",
-      "date": "2026-08-06",
-      "affected": [
-        "statamic/cms",
-        "statamic/cms"
-      ],
-      "references": [
-        "https://github.com/statamic/cms/security/advisories/GHSA-qhr7-v3xp-vw9m",
-        "https://github.com/statamic/cms/pull/14958",
-        "https://github.com/statamic/cms/commit/8be7b6c961536d3173ec4e0965d17b1cf820b7ae",
-        "https://github.com/statamic/cms/releases/tag/v5.74.3",
-        "https://github.com/statamic/cms/releases/tag/v6.24.2",
-        "https://github.com/advisories/GHSA-qhr7-v3xp-vw9m"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "statamic/cms",
-          "statamic/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qh8c-7588-qfrv",
-      "name": "Statamic: Missing authorization on navigation endpoint allows disclosure of restricted entries",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-qh8c-7588-qfrv",
-      "description": "Statamic: Missing authorization on navigation endpoint allows disclosure of restricted entries",
-      "date": "2026-08-06",
-      "affected": [
-        "statamic/cms",
-        "statamic/cms"
-      ],
-      "references": [
-        "https://github.com/statamic/cms/security/advisories/GHSA-qh8c-7588-qfrv",
-        "https://github.com/statamic/cms/pull/14906",
-        "https://github.com/statamic/cms/commit/6557f1d8a0d61c0e7ad9c9a8f42cb3288607495d",
-        "https://github.com/statamic/cms/releases/tag/v5.74.1",
-        "https://github.com/statamic/cms/releases/tag/v6.24.0",
-        "https://github.com/advisories/GHSA-qh8c-7588-qfrv"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "statamic/cms",
-          "statamic/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-j2vp-f2pv-5rj4",
-      "name": "Statamic: Unsafe method invocation via Antlers template resolution allows data destruction",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-j2vp-f2pv-5rj4",
-      "description": "Statamic: Unsafe method invocation via Antlers template resolution allows data destruction",
-      "date": "2026-08-06",
-      "affected": [
-        "statamic/cms",
-        "statamic/cms"
-      ],
-      "references": [
-        "https://github.com/statamic/cms/security/advisories/GHSA-j2vp-f2pv-5rj4",
-        "https://github.com/advisories/GHSA-j2vp-f2pv-5rj4"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "statamic/cms",
-          "statamic/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-93qh-5269-9wcf",
-      "name": "Statamic: Account takeover via OAuth email matching without email-verification check",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-93qh-5269-9wcf",
-      "description": "Statamic: Account takeover via OAuth email matching without email-verification check",
-      "date": "2026-08-06",
-      "affected": [
-        "statamic/cms",
-        "statamic/cms"
-      ],
-      "references": [
-        "https://github.com/statamic/cms/security/advisories/GHSA-93qh-5269-9wcf",
-        "https://github.com/statamic/cms/pull/14887",
-        "https://github.com/statamic/cms/commit/e59dd342c83bc45de26573cfb0536a0bca98255a",
-        "https://github.com/statamic/cms/releases/tag/v5.74.1",
-        "https://github.com/statamic/cms/releases/tag/v6.24.0",
-        "https://github.com/advisories/GHSA-93qh-5269-9wcf"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "statamic/cms",
-          "statamic/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-225x-3jhx-wh4q",
-      "name": "Statamic: Missing authorization on Control Panel endpoint allows disclosure of user existence",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-225x-3jhx-wh4q",
-      "description": "Statamic: Missing authorization on Control Panel endpoint allows disclosure of user existence",
-      "date": "2026-08-06",
-      "affected": [
-        "statamic/cms",
-        "statamic/cms"
-      ],
-      "references": [
-        "https://github.com/statamic/cms/security/advisories/GHSA-225x-3jhx-wh4q",
-        "https://github.com/statamic/cms/pull/14905",
-        "https://github.com/statamic/cms/commit/aea68053cedab5c79d10102820b57345a7d7102e",
-        "https://github.com/statamic/cms/releases/tag/v5.74.1",
-        "https://github.com/statamic/cms/releases/tag/v6.24.0",
-        "https://github.com/advisories/GHSA-225x-3jhx-wh4q"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "statamic/cms",
-          "statamic/cms"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-47pj-3jcm-6whg",
-      "name": "LangGraph: Namespace prefix matching crosses segment boundaries in Postgres and SQLite stores",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-47pj-3jcm-6whg",
-      "description": "LangGraph: Namespace prefix matching crosses segment boundaries in Postgres and SQLite stores",
-      "date": "2026-08-06",
-      "affected": [
-        "langgraph-checkpoint-sqlite",
-        "langgraph-checkpoint-postgres"
-      ],
-      "references": [
-        "https://github.com/langchain-ai/langgraph/security/advisories/GHSA-47pj-3jcm-6whg",
-        "https://github.com/langchain-ai/langgraph/pull/8478",
-        "https://github.com/langchain-ai/langgraph/commit/66ebe1a0da921e73f0f9f879ba105d314c079f7c",
-        "https://github.com/langchain-ai/langgraph/releases/tag/checkpointpostgres%3D%3D3.1.1",
-        "https://github.com/langchain-ai/langgraph/releases/tag/checkpointsqlite%3D%3D3.1.1",
-        "https://github.com/advisories/GHSA-47pj-3jcm-6whg"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-x677-9fxg-v5c5",
-      "name": "Traefik: Incomplete fix for CVE-2026-33433 + CVE-2026-39858 cross-cohort: headerField underscore-var",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-x677-9fxg-v5c5",
-      "description": "Traefik: Incomplete fix for CVE-2026-33433 + CVE-2026-39858 cross-cohort: headerField underscore-variant identity spoofing in BasicAuth / DigestAuth / ForwardAuth",
-      "date": "2026-08-06",
-      "affected": [
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v2"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-x677-9fxg-v5c5",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-54763",
-        "https://github.com/traefik/traefik/pull/13262",
-        "https://github.com/traefik/traefik/commit/108a5264473a2cbc8f12d6d691a3c6553cdf2c1b",
-        "https://github.com/traefik/traefik/releases/tag/v2.11.51",
-        "https://github.com/traefik/traefik/releases/tag/v3.6.22",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.6",
-        "https://github.com/advisories/GHSA-x677-9fxg-v5c5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-cxjq-mrr5-89rv",
-      "name": "Traefik: Authentication Bypass via Path Traversal in ReplacePathRegex Middleware",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-cxjq-mrr5-89rv",
-      "description": "Traefik: Authentication Bypass via Path Traversal in ReplacePathRegex Middleware",
-      "date": "2026-08-06",
-      "affected": [
-        "github.com/traefik/traefik",
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v2"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-cxjq-mrr5-89rv",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-65600",
-        "https://github.com/traefik/traefik/commit/3f10dd442479530560f010167cac2947676d9b29",
-        "https://github.com/traefik/traefik/releases/tag/v2.11.52",
-        "https://github.com/traefik/traefik/releases/tag/v3.6.23",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.7",
-        "https://www.vulncheck.com/advisories/traefik-before-authentication-bypass-via-replacepathregex",
-        "https://github.com/advisories/GHSA-cxjq-mrr5-89rv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik",
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik",
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8rxv-jg7p-wvg3",
-      "name": "Traefik: Kubernetes Ingress NGINX RewriteTarget Path Traversal Allows Route-Level Authentication Byp",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-8rxv-jg7p-wvg3",
-      "description": "Traefik: Kubernetes Ingress NGINX RewriteTarget Path Traversal Allows Route-Level Authentication Bypass",
-      "date": "2026-08-06",
-      "affected": [
-        "github.com/traefik/traefik/v3"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-8rxv-jg7p-wvg3",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-67309",
-        "https://github.com/traefik/traefik/commit/759515bec1b9f628b21ea8968ef63da853be5e29",
-        "https://www.vulncheck.com/advisories/traefik-path-traversal-via-rewritetarget-authentication-bypass",
-        "https://github.com/advisories/GHSA-8rxv-jg7p-wvg3"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik/v3"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik/v3"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6p8f-p8j2-rqmv",
-      "name": "Traefik: Gateway HTTPRoute backendRef filters can leak backend context across routes sharing a Servi",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-6p8f-p8j2-rqmv",
-      "description": "Traefik: Gateway HTTPRoute backendRef filters can leak backend context across routes sharing a Service:port",
-      "date": "2026-08-06",
-      "affected": [
-        "github.com/traefik/traefik/v3"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-6p8f-p8j2-rqmv",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-54765",
-        "https://github.com/traefik/traefik/pull/13367",
-        "https://github.com/traefik/traefik/commit/8aada7a7d52e4588a75386d8b86d270f6fe8d549",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.6",
-        "https://github.com/advisories/GHSA-6p8f-p8j2-rqmv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik/v3"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik/v3"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-62fc-8686-hfmq",
-      "name": "Traefik: `allowCrossNamespace=false` bypass via `@kubernetescrd` TraefikService backendRef",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-62fc-8686-hfmq",
-      "description": "Traefik: `allowCrossNamespace=false` bypass via `@kubernetescrd` TraefikService backendRef",
-      "date": "2026-08-06",
-      "affected": [
-        "github.com/traefik/traefik",
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v2"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-62fc-8686-hfmq",
-        "https://github.com/traefik/traefik/commit/65ebf4b47fbdc33e3856803a5844a404e094d52d",
-        "https://github.com/traefik/traefik/releases/tag/v2.11.54",
-        "https://github.com/traefik/traefik/releases/tag/v3.6.25",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.10",
-        "https://github.com/advisories/GHSA-62fc-8686-hfmq"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik",
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik",
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3q9r-p662-5j8m",
-      "name": "Traefik: ForwardAuth middleware leaks X-Forwarded-Port spoofing via untrusted X-Forwarded-Proto when",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-3q9r-p662-5j8m",
-      "description": "Traefik: ForwardAuth middleware leaks X-Forwarded-Port spoofing via untrusted X-Forwarded-Proto when trustForwardHeader=false",
-      "date": "2026-08-06",
-      "affected": [
-        "github.com/traefik/traefik",
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v2"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-3q9r-p662-5j8m",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-54764",
-        "https://github.com/traefik/traefik/pull/13344",
-        "https://github.com/traefik/traefik/commit/7ae92d8c2c10ac04ef5a03df0ed5019ce0f44b2d",
-        "https://github.com/traefik/traefik/releases/tag/v2.11.51",
-        "https://github.com/traefik/traefik/releases/tag/v3.6.22",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.6",
-        "https://github.com/advisories/GHSA-3q9r-p662-5j8m"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik",
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik",
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fgjj-px3w-67xx",
-      "name": "Traefik: Gateway API route identity collision allows cross-namespace backend hijacking",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-fgjj-px3w-67xx",
-      "description": "Traefik: Gateway API route identity collision allows cross-namespace backend hijacking",
-      "date": "2026-08-06",
-      "affected": [
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v3"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-fgjj-px3w-67xx",
-        "https://github.com/traefik/traefik/pull/13580",
-        "https://github.com/traefik/traefik/commit/a764166656f0cd337f917ac76315c381cca844f9",
-        "https://github.com/traefik/traefik/releases/tag/v3.6.25",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.10",
-        "https://github.com/advisories/GHSA-fgjj-px3w-67xx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v3"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v3"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6765-c87h-8mrf",
-      "name": "Traefik: BasicAuth singleflight key collision allows authenticated identity spoofing",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-6765-c87h-8mrf",
-      "description": "Traefik: BasicAuth singleflight key collision allows authenticated identity spoofing",
-      "date": "2026-08-06",
-      "affected": [
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v3"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-6765-c87h-8mrf",
-        "https://github.com/traefik/traefik/pull/13572",
-        "https://github.com/traefik/traefik/commit/b5ace8eb5d6779980567f5e75efd2d9e08b7e350",
-        "https://github.com/traefik/traefik/releases/tag/v3.6.25",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.10",
-        "https://github.com/advisories/GHSA-6765-c87h-8mrf"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v3"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v3"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3ccp-42pg-hgv6",
-      "name": "Traefik: Cross-user response poisoning via proxied CONNECT on Traefik's shared backend keep-alive po",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-3ccp-42pg-hgv6",
-      "description": "Traefik: Cross-user response poisoning via proxied CONNECT on Traefik's shared backend keep-alive pool",
-      "date": "2026-08-06",
-      "affected": [
-        "github.com/traefik/traefik",
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v2"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-3ccp-42pg-hgv6",
-        "https://github.com/traefik/traefik/pull/13542",
-        "https://github.com/traefik/traefik/pull/13543",
-        "https://github.com/traefik/traefik/pull/13556",
-        "https://github.com/traefik/traefik/commit/04d36f28e4eae7535e96a6351dd9f7bfb48a30e7",
-        "https://github.com/traefik/traefik/commit/0807b6d5dd1da8b2f7f4076ea2392b5437bf2ab0",
-        "https://github.com/traefik/traefik/commit/94a7508817d180f0ab2f1eae93df48d4ab19ecce",
-        "https://github.com/traefik/traefik/releases/tag/v2.11.53",
-        "https://github.com/traefik/traefik/releases/tag/v3.6.24",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.9",
-        "https://github.com/advisories/GHSA-3ccp-42pg-hgv6"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik",
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik",
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-42cj-m3vj-89wv",
-      "name": "Traefik CRD IngressRouteTCP ServersTransport Cross-Provider Namespace Bypass",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-42cj-m3vj-89wv",
-      "description": "Traefik CRD IngressRouteTCP ServersTransport Cross-Provider Namespace Bypass",
-      "date": "2026-08-05",
-      "affected": [
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v3"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-42cj-m3vj-89wv",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-65602",
-        "https://github.com/traefik/traefik/pull/13458",
-        "https://github.com/traefik/traefik/commit/67501cbe7bc7774e26ecbd1c29af97f098e14b0b",
-        "https://github.com/traefik/traefik/releases/tag/v3.6.23",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.7",
-        "https://www.vulncheck.com/advisories/traefik-before-ingressroutetcp-serverstransport-namespace-bypass",
-        "https://github.com/advisories/GHSA-42cj-m3vj-89wv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v3"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v3"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
-    "craftcms/cms": "Craft CMS: Arbitrary file read via SplFileObject in non-sandboxed template contexts",
+    "codeigniter4/framework": "CodeIgniter: Uploaded file extension validation bypass in `is_image` and `mime_in` rules",
+    "api-platform/core": "API Platform Core: Relation IRIs are not type-checked: a related resource can be denormalised as the",
+    "@sveltejs/kit": "SvelteKit: ReDoS (O(n^2)) in content negotiation \u2014 unauthenticated DoS via the Accept header",
+    "github.com/go-git/go-git/v6": "go-git: Malicious reference names may modify files outside the reference storage",
+    "github.com/go-git/go-git/v5": "go-git: Malicious reference names may modify files outside the reference storage",
+    "smarty/smarty": "Smarty Security stream restriction bypass through stream: resource",
+    "craftcms/cms": "Craft CMS: Passkey login accepts replayed WebAuthn assertions",
     "squizlabs/php_codesniffer": "PHP_CodeSniffer gitblame report command injection via crafted filename",
-    "league/commonmark": "league/commonmark: Denial of service via deeply nested XML output",
-    "silverstripe/cms": "Silverstripe: XSS in breadcrumbs in page list view",
-    "@nx/powerpack-shared-fs-cache": "Nx: Zip-Slip in the self-hosted remote cache",
-    "@nx/powerpack-azure-cache": "Nx: Zip-Slip in the self-hosted remote cache",
-    "@nx/powerpack-gcs-cache": "Nx: Zip-Slip in the self-hosted remote cache",
-    "@nx/powerpack-s3-cache": "Nx: Zip-Slip in the self-hosted remote cache",
-    "@nx/shared-fs-cache": "Nx: Zip-Slip in the self-hosted remote cache",
-    "@nx/azure-cache": "Nx: Zip-Slip in the self-hosted remote cache",
-    "@nx/gcs-cache": "Nx: Zip-Slip in the self-hosted remote cache",
-    "@nx/s3-cache": "Nx: Zip-Slip in the self-hosted remote cache",
-    "contao/core-bundle": "Contao: Possible path traversal in job download URIs",
-    "contao/contao": "Contao: Possible path traversal in job download URIs",
-    "statamic/cms": "Statamic: Stored Cross-Site Scripting in Automagic Form Notification Email Template",
-    "github.com/traefik/traefik/v3": "Traefik: Incomplete fix for CVE-2026-33433 + CVE-2026-39858 cross-cohort: headerField underscore-var",
-    "github.com/traefik/traefik/v2": "Traefik: Incomplete fix for CVE-2026-33433 + CVE-2026-39858 cross-cohort: headerField underscore-var",
-    "github.com/traefik/traefik": "Traefik: Authentication Bypass via Path Traversal in ReplacePathRegex Middleware"
+    "league/commonmark": "league/commonmark: Denial of service via deeply nested XML output"
   },
   "malicious_packages": {
     "npm": {},
