@@ -1,8 +1,240 @@
 {
   "version": "2026.08.13",
-  "last_updated": "2026-08-13T13:05:31.951322+00:00",
+  "last_updated": "2026-08-13T18:59:44.152960+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-87x5-vmc3-756j",
+      "name": "vLLM: Completion prompt lists fan out into unbounded engine requests",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-87x5-vmc3-756j",
+      "description": "vLLM: Completion prompt lists fan out into unbounded engine requests",
+      "date": "2026-08-13",
+      "affected": [
+        "vllm"
+      ],
+      "references": [
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-87x5-vmc3-756j",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-73559",
+        "https://github.com/vllm-project/vllm/pull/47845",
+        "https://github.com/vllm-project/vllm/commit/675f4295cdfe0d870471c2b51bfeca3a68a9569e",
+        "https://github.com/vllm-project/vllm/releases/tag/v0.26.0",
+        "https://github.com/advisories/GHSA-87x5-vmc3-756j"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rm43-82j9-r4mj",
+      "name": "atomic-agents-stack: Dashboard HTTP server path traversal allows arbitrary file read",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-rm43-82j9-r4mj",
+      "description": "atomic-agents-stack: Dashboard HTTP server path traversal allows arbitrary file read",
+      "date": "2026-08-13",
+      "affected": [
+        "atomic-agents-stack"
+      ],
+      "references": [
+        "https://github.com/dep0we/atomic-agents-stack/security/advisories/GHSA-rm43-82j9-r4mj",
+        "https://github.com/dep0we/atomic-agents-stack/commit/ec474f458122c5c0ca718d0df3078c8080338b2c",
+        "https://github.com/advisories/GHSA-rm43-82j9-r4mj"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h7p7-w5gc-xj3w",
+      "name": "Pydantic AI: Unvalidated UploadedFile references in UI adapters allow server-side file access using ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-h7p7-w5gc-xj3w",
+      "description": "Pydantic AI: Unvalidated UploadedFile references in UI adapters allow server-side file access using the application's credentials",
+      "date": "2026-08-13",
+      "affected": [
+        "pydantic-ai",
+        "pydantic-ai",
+        "pydantic-ai-slim",
+        "pydantic-ai-slim"
+      ],
+      "references": [
+        "https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-h7p7-w5gc-xj3w",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54249",
+        "https://github.com/pydantic/pydantic-ai/releases/tag/v1.106.0",
+        "https://github.com/pydantic/pydantic-ai/releases/tag/v2.0.0b6",
+        "https://github.com/advisories/GHSA-h7p7-w5gc-xj3w"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-48p8-g2fx-3wwm",
+      "name": "Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomp",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-48p8-g2fx-3wwm",
+      "description": "Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomplete fix for CVE-2026-31892)",
+      "date": "2026-08-13",
+      "affected": [
+        "github.com/argoproj/argo-workflows",
+        "github.com/argoproj/argo-workflows/v3",
+        "github.com/argoproj/argo-workflows/v4"
+      ],
+      "references": [
+        "https://github.com/argoproj/argo-workflows/security/advisories/GHSA-48p8-g2fx-3wwm",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54526",
+        "https://github.com/argoproj/argo-workflows/commit/277e9cef0ad16d7eaaab253573d0695951a65dbd",
+        "https://github.com/argoproj/argo-workflows/commit/358cc3968c8f06f1be0967e41df191088db0b662",
+        "https://github.com/argoproj/argo-workflows/releases/tag/v3.7.15",
+        "https://github.com/argoproj/argo-workflows/releases/tag/v4.0.6",
+        "https://github.com/advisories/GHSA-48p8-g2fx-3wwm"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/argoproj/argo-workflows",
+            "github.com/argoproj/argo-workflows/v3",
+            "github.com/argoproj/argo-workflows/v4"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/argoproj/argo-workflows",
+          "github.com/argoproj/argo-workflows/v3",
+          "github.com/argoproj/argo-workflows/v4"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5pq8-3ffp-7w5m",
+      "name": "hashi-vault-js: Vault token and secret values exposed in thrown errors",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-5pq8-3ffp-7w5m",
+      "description": "hashi-vault-js: Vault token and secret values exposed in thrown errors",
+      "date": "2026-08-13",
+      "affected": [
+        "hashi-vault-js"
+      ],
+      "references": [
+        "https://github.com/kyndryl-open-source/hashi-vault-js/security/advisories/GHSA-5pq8-3ffp-7w5m",
+        "https://github.com/advisories/GHSA-5pq8-3ffp-7w5m"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "hashi-vault-js"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vqfp-p66c-xrp9",
+      "name": "ep_etherpad-lite: Device-to-device author-token transfer endpoint is replayable, never expires, and ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vqfp-p66c-xrp9",
+      "description": "ep_etherpad-lite: Device-to-device author-token transfer endpoint is replayable, never expires, and exposes the cleartext author token",
+      "date": "2026-08-13",
+      "affected": [
+        "ep_etherpad-lite"
+      ],
+      "references": [
+        "https://github.com/ether/etherpad/security/advisories/GHSA-vqfp-p66c-xrp9",
+        "https://github.com/ether/etherpad/pull/7784",
+        "https://github.com/advisories/GHSA-vqfp-p66c-xrp9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "ep_etherpad-lite"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2jwf-f4xq-f24h",
+      "name": "ep_etherpad-lite: Import/export uses Math.random() for temp file paths; predictable paths on shared ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-2jwf-f4xq-f24h",
+      "description": "ep_etherpad-lite: Import/export uses Math.random() for temp file paths; predictable paths on shared /tmp enable symlink-based file overwrite",
+      "date": "2026-08-13",
+      "affected": [
+        "ep_etherpad-lite"
+      ],
+      "references": [
+        "https://github.com/ether/etherpad/security/advisories/GHSA-2jwf-f4xq-f24h",
+        "https://github.com/ether/etherpad/pull/7784",
+        "https://github.com/ether/etherpad/commit/8c6104c5d5daf41f0d454acc04d42dffa0e0d996",
+        "https://github.com/advisories/GHSA-2jwf-f4xq-f24h"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "ep_etherpad-lite"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fjgc-3mj7-8rg8",
+      "name": "ep_etherpad-lite: Cache-poisoning Cross-site Scripting and Open Redirect via\u00a0x-proxy-path Header",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-fjgc-3mj7-8rg8",
+      "description": "ep_etherpad-lite: Cache-poisoning Cross-site Scripting and Open Redirect via\u00a0x-proxy-path Header",
+      "date": "2026-08-13",
+      "affected": [
+        "ep_etherpad-lite"
+      ],
+      "references": [
+        "https://github.com/ether/etherpad/security/advisories/GHSA-fjgc-3mj7-8rg8",
+        "https://github.com/ether/etherpad/pull/6399",
+        "https://github.com/ether/etherpad/pull/7710",
+        "https://github.com/ether/etherpad/pull/7784",
+        "https://github.com/ether/etherpad/commit/451bd9c3ebb0dded99dd0ff21811ee00e0940c29",
+        "https://github.com/ether/etherpad/commit/63e9b2d4eb303cd341022591bdf9484584db36e3",
+        "https://github.com/advisories/GHSA-fjgc-3mj7-8rg8"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "ep_etherpad-lite"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2mhj-fhvg-v428",
+      "name": "Pimcore: ClassDefinition UID regex missing end anchor allows SQL injection via Block.php unquoted ta",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2mhj-fhvg-v428",
+      "description": "Pimcore: ClassDefinition UID regex missing end anchor allows SQL injection via Block.php unquoted table name",
+      "date": "2026-08-13",
+      "affected": [
+        "pimcore/pimcore",
+        "pimcore/pimcore"
+      ],
+      "references": [
+        "https://github.com/pimcore/pimcore/security/advisories/GHSA-2mhj-fhvg-v428",
+        "https://github.com/pimcore/pimcore/commit/33a0e1887e1e31b4283b016ac5440c35ea5697b4",
+        "https://github.com/advisories/GHSA-2mhj-fhvg-v428"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "pimcore/pimcore",
+          "pimcore/pimcore"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-cxgv-hp74-jj7r",
       "name": "Ansible FreeBSD Jail Connection Plugin: Jail escape via symlink following in put_file (host-side roo",
@@ -671,6 +903,32 @@
       "remediation": "Update affected packages per advisory guidance."
     },
     {
+      "id": "FEED-GHSA-4jjw-pwvw-q6w3",
+      "name": "Duplicate Advisory: Nuxt dev server discloses project root and workspace UUID via the Chrome DevTool",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-4jjw-pwvw-q6w3",
+      "description": "Duplicate Advisory: Nuxt dev server discloses project root and workspace UUID via the Chrome DevTools workspace endpoint",
+      "date": "2026-08-11",
+      "affected": [
+        "nuxt"
+      ],
+      "references": [
+        "https://github.com/nuxt/nuxt/security/advisories/GHSA-7c4v-fwgw-9rf7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-72744",
+        "https://www.vulncheck.com/advisories/nuxt-before-information-disclosure-via-chrome-devtools",
+        "https://github.com/advisories/GHSA-4jjw-pwvw-q6w3"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "nuxt"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
       "id": "FEED-GHSA-fp3f-mc75-235c",
       "name": "pypdf: Possible large memory usage for large /ToUnicode streams",
       "category": "ghsa_advisory",
@@ -986,288 +1244,21 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-p9jm-q85p-7mcp",
-      "name": "Netty: RedisArrayAggregator max-elements failure leaves retained partial aggregate state",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-p9jm-q85p-7mcp",
-      "description": "Netty: RedisArrayAggregator max-elements failure leaves retained partial aggregate state",
-      "date": "2026-08-07",
-      "affected": [
-        "io.netty:netty-codec-redis",
-        "io.netty:netty-codec-redis"
-      ],
-      "references": [
-        "https://github.com/netty/netty/security/advisories/GHSA-p9jm-q85p-7mcp",
-        "https://github.com/netty/netty/pull/17065",
-        "https://github.com/netty/netty/commit/5b68c61f37aa4a3045cba624cbea239655c9003b",
-        "https://github.com/netty/netty/commit/bb2ff68a1fb71cb4b0eb9a9e17b66c52aff680c6",
-        "https://github.com/advisories/GHSA-p9jm-q85p-7mcp"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9rjg-x2p2-h68h",
-      "name": "API Platform Core: Relation IRIs are not type-checked: a related resource can be denormalised as the",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-9rjg-x2p2-h68h",
-      "description": "API Platform Core: Relation IRIs are not type-checked: a related resource can be denormalised as the wrong resource type (type confusion)",
-      "date": "2026-08-07",
-      "affected": [
-        "api-platform/core",
-        "api-platform/core",
-        "api-platform/core"
-      ],
-      "references": [
-        "https://github.com/api-platform/core/security/advisories/GHSA-9rjg-x2p2-h68h",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-54164",
-        "https://github.com/api-platform/core/commit/6bcbeb2dbee53db5bb9b4b8e343bffdf7732de1e",
-        "https://github.com/api-platform/core/releases/tag/v4.1.30",
-        "https://github.com/api-platform/core/releases/tag/v4.2.26",
-        "https://github.com/api-platform/core/releases/tag/v4.3.12",
-        "https://github.com/advisories/GHSA-9rjg-x2p2-h68h"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "api-platform/core",
-          "api-platform/core",
-          "api-platform/core"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-29g2-3rmr-qm68",
-      "name": "SvelteKit: ReDoS (O(n^2)) in content negotiation \u2014 unauthenticated DoS via the Accept header",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-29g2-3rmr-qm68",
-      "description": "SvelteKit: ReDoS (O(n^2)) in content negotiation \u2014 unauthenticated DoS via the Accept header",
-      "date": "2026-08-07",
-      "affected": [
-        "@sveltejs/kit"
-      ],
-      "references": [
-        "https://github.com/sveltejs/kit/security/advisories/GHSA-29g2-3rmr-qm68",
-        "https://github.com/sveltejs/kit/commit/82712fc02c24b1dcf5b25d7a52129cd8455f04f5",
-        "https://github.com/sveltejs/kit/releases/tag/@sveltejs/kit@2.70.2",
-        "https://github.com/advisories/GHSA-29g2-3rmr-qm68"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@sveltejs/kit"
-          ]
-        },
-        "compromised_actions": [
-          "@sveltejs/kit"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7c4v-fwgw-9rf7",
-      "name": "Nuxt dev server discloses project root and workspace UUID via the Chrome DevTools workspace endpoint",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-7c4v-fwgw-9rf7",
-      "description": "Nuxt dev server discloses project root and workspace UUID via the Chrome DevTools workspace endpoint",
-      "date": "2026-08-07",
-      "affected": [
-        "nuxt",
-        "nuxt"
-      ],
-      "references": [
-        "https://github.com/nuxt/nuxt/security/advisories/GHSA-7c4v-fwgw-9rf7",
-        "https://github.com/nuxt/nuxt/commit/00f71bb6517abff67257c8ea1fcdc777b938b68d",
-        "https://github.com/nuxt/nuxt/commit/e30c611ea03240f341fe784ab1711aa6424da2fa",
-        "https://github.com/nuxt/nuxt/releases/tag/v3.21.10",
-        "https://github.com/nuxt/nuxt/releases/tag/v4.5.1",
-        "https://github.com/advisories/GHSA-7c4v-fwgw-9rf7"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "nuxt",
-            "nuxt"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qgq7-7hm3-q39j",
-      "name": "go-git: Malicious reference names may modify files outside the reference storage",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-qgq7-7hm3-q39j",
-      "description": "go-git: Malicious reference names may modify files outside the reference storage",
-      "date": "2026-08-07",
-      "affected": [
-        "github.com/go-git/go-git/v6",
-        "github.com/go-git/go-git/v5"
-      ],
-      "references": [
-        "https://github.com/go-git/go-git/security/advisories/GHSA-qgq7-7hm3-q39j",
-        "https://github.com/go-git/go-git/pull/2247",
-        "https://github.com/go-git/go-git/pull/2254",
-        "https://github.com/go-git/go-git/commit/4a0e66d555de5f9a30c31e2df64f445f42bd01e7",
-        "https://github.com/go-git/go-git/commit/da9f7d8a0e98b475600177348d6ece384a370f36",
-        "https://github.com/go-git/go-git/releases/tag/v5.19.2",
-        "https://github.com/go-git/go-git/releases/tag/v6.0.0-alpha.5",
-        "https://github.com/advisories/GHSA-qgq7-7hm3-q39j"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/go-git/go-git/v6",
-            "github.com/go-git/go-git/v5"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/go-git/go-git/v6",
-          "github.com/go-git/go-git/v5"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hc8v-wwc9-vgxm",
-      "name": "go-git: Worktree operations may follow symlinks",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-hc8v-wwc9-vgxm",
-      "description": "go-git: Worktree operations may follow symlinks",
-      "date": "2026-08-07",
-      "affected": [
-        "github.com/go-git/go-git/v6",
-        "github.com/go-git/go-git/v5"
-      ],
-      "references": [
-        "https://github.com/go-git/go-git/security/advisories/GHSA-hc8v-wwc9-vgxm",
-        "https://github.com/go-git/go-git/commit/008a78f2dd86f52544ddff8b8e8ddeecdf3f7aab",
-        "https://github.com/go-git/go-git/commit/661d1c7f101d34e002a3cfcf8dbea5b7421d07ac",
-        "https://github.com/go-git/go-git/releases/tag/v5.19.2",
-        "https://github.com/go-git/go-git/releases/tag/v6.0.0-alpha.5",
-        "https://github.com/advisories/GHSA-hc8v-wwc9-vgxm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/go-git/go-git/v6",
-            "github.com/go-git/go-git/v5"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/go-git/go-git/v6",
-          "github.com/go-git/go-git/v5"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wvpp-8hx9-p66j",
-      "name": "GitPython: Unsafe git option guard bypass via split_single_char_options=False short-option token smu",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-wvpp-8hx9-p66j",
-      "description": "GitPython: Unsafe git option guard bypass via split_single_char_options=False short-option token smuggling enables command execution",
-      "date": "2026-08-07",
-      "affected": [
-        "GitPython"
-      ],
-      "references": [
-        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-wvpp-8hx9-p66j",
-        "https://github.com/gitpython-developers/GitPython/pull/2204",
-        "https://github.com/gitpython-developers/GitPython/commit/96a888f4d782cb2f80452148e48e60ce4af6d541",
-        "https://github.com/gitpython-developers/GitPython/releases/tag/3.1.58",
-        "https://github.com/advisories/GHSA-wvpp-8hx9-p66j"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jm78-9fvv-mhgr",
-      "name": "GitPython: git-config OPTION-name injection via =/#/whitespace bypasses name validator, enabling for",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-jm78-9fvv-mhgr",
-      "description": "GitPython: git-config OPTION-name injection via =/#/whitespace bypasses name validator, enabling forged core.sshCommand/hooksPath (RCE)",
-      "date": "2026-08-07",
-      "affected": [
-        "GitPython"
-      ],
-      "references": [
-        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-jm78-9fvv-mhgr",
-        "https://github.com/gitpython-developers/GitPython/pull/2204",
-        "https://github.com/gitpython-developers/GitPython/commit/a495ccd3b547ccd60b2187215823b72a9c0188bf",
-        "https://github.com/gitpython-developers/GitPython/releases/tag/3.1.58",
-        "https://github.com/advisories/GHSA-jm78-9fvv-mhgr"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hmq2-w58f-27jc",
-      "name": "GitPython: Arbitrary Git Repository Creation Outside the Working Tree via Unvalidated .gitmodules Su",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-hmq2-w58f-27jc",
-      "description": "GitPython: Arbitrary Git Repository Creation Outside the Working Tree via Unvalidated .gitmodules Submodule Name in GitPython",
-      "date": "2026-08-07",
-      "affected": [
-        "GitPython"
-      ],
-      "references": [
-        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hmq2-w58f-27jc",
-        "https://github.com/gitpython-developers/GitPython/pull/2202",
-        "https://github.com/gitpython-developers/GitPython/commit/4299c990e1ca21896f9485277caf7bb0ae5b404c",
-        "https://github.com/gitpython-developers/GitPython/commit/e4b8e7d026ca6abb4cf604f8e77093432ce23c06",
-        "https://github.com/gitpython-developers/GitPython/releases/tag/3.1.58",
-        "https://github.com/advisories/GHSA-hmq2-w58f-27jc"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hh9p-6wh2-4mfc",
-      "name": "GitPython: Arbitrary file read via --pathspec-from-file in IndexFile.remove() and Head.checkout()",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hh9p-6wh2-4mfc",
-      "description": "GitPython: Arbitrary file read via --pathspec-from-file in IndexFile.remove() and Head.checkout()",
-      "date": "2026-08-07",
-      "affected": [
-        "GitPython"
-      ],
-      "references": [
-        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hh9p-6wh2-4mfc",
-        "https://github.com/gitpython-developers/GitPython/pull/2204",
-        "https://github.com/gitpython-developers/GitPython/commit/f2550b65bf60ca087190981e2c7b6865e201f40c",
-        "https://github.com/gitpython-developers/GitPython/releases/tag/3.1.58",
-        "https://github.com/advisories/GHSA-hh9p-6wh2-4mfc"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/argoproj/argo-workflows": "Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomp",
+    "github.com/argoproj/argo-workflows/v3": "Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomp",
+    "github.com/argoproj/argo-workflows/v4": "Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomp",
+    "pimcore/pimcore": "Pimcore: ClassDefinition UID regex missing end anchor allows SQL injection via Block.php unquoted ta",
     "github.com/seaweedfs/seaweedfs": "SeaweedFS: Path traversal in the S3 and Iceberg REST gateways allows cross-bucket access",
     "github.com/fleetdm/fleet/v4": "Fleet: Observer-class users can view team enroll secrets and credential-bearing configuration via ta",
     "thorsten/phpmyfaq": "phpMyFAQ: SQL LIKE Wildcard Injection in Chat User Search Allows Authenticated User Enumeration",
     "librenms/librenms": "LibreNMS: Reflected XSS via Proxmox instance/vmid GET parameters injected into document.title JavaSc",
     "winter/wn-backend-module": "Winter: Authenticated backend users can bypass Users controller permission checks",
     "winter/wn-cms-module": "Winter: Broken access control in `Cms\\Controllers\\Index` allows cross-template actions and unauthori",
-    "codeigniter4/framework": "CodeIgniter: Uploaded file extension validation bypass in `is_image` and `mime_in` rules",
-    "api-platform/core": "API Platform Core: Relation IRIs are not type-checked: a related resource can be denormalised as the",
-    "@sveltejs/kit": "SvelteKit: ReDoS (O(n^2)) in content negotiation \u2014 unauthenticated DoS via the Accept header",
-    "github.com/go-git/go-git/v6": "go-git: Malicious reference names may modify files outside the reference storage",
-    "github.com/go-git/go-git/v5": "go-git: Malicious reference names may modify files outside the reference storage"
+    "codeigniter4/framework": "CodeIgniter: Uploaded file extension validation bypass in `is_image` and `mime_in` rules"
   },
   "malicious_packages": {
     "npm": {},
