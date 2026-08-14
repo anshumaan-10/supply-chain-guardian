@@ -1,8 +1,63 @@
 {
-  "version": "2026.08.13",
-  "last_updated": "2026-08-13T18:59:44.152960+00:00",
+  "version": "2026.08.14",
+  "last_updated": "2026-08-14T01:47:59.727596+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-p28v-f755-9qrg",
+      "name": "Trigger.dev: Prototype pollution via run metadata operations \u2192 process-wide cross-tenant DoS",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-p28v-f755-9qrg",
+      "description": "Trigger.dev: Prototype pollution via run metadata operations \u2192 process-wide cross-tenant DoS",
+      "date": "2026-08-13",
+      "affected": [
+        "@trigger.dev/core"
+      ],
+      "references": [
+        "https://github.com/triggerdotdev/trigger.dev/security/advisories/GHSA-p28v-f755-9qrg",
+        "https://github.com/triggerdotdev/trigger.dev/pull/4316",
+        "https://github.com/triggerdotdev/trigger.dev/commit/6997aeb05e27d2db47f9eda01fdc8a17c81a1ae0",
+        "https://github.com/triggerdotdev/trigger.dev/releases/tag/v4.5.6",
+        "https://github.com/advisories/GHSA-p28v-f755-9qrg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@trigger.dev/core"
+          ]
+        },
+        "compromised_actions": [
+          "@trigger.dev/core"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-m42h-3232-vpv3",
+      "name": "nltk: Arbitrary File Read via Path Traversal in nltk.data.load() through Percent-Encoded Sequences",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-m42h-3232-vpv3",
+      "description": "nltk: Arbitrary File Read via Path Traversal in nltk.data.load() through Percent-Encoded Sequences",
+      "date": "2026-08-13",
+      "affected": [
+        "nltk"
+      ],
+      "references": [
+        "https://github.com/nltk/nltk/security/advisories/GHSA-m42h-3232-vpv3",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-12243",
+        "https://github.com/nltk/nltk/issues/3504",
+        "https://github.com/nltk/nltk/pull/3522",
+        "https://github.com/nltk/nltk/commit/aec4fce1b84ad725b8975f7365b23a4f626572a9",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/nltk/PYSEC-2026-597.yaml",
+        "https://huntr.com/bounties/39aa9354-54ca-4e77-96da-580eb1fe6ed1",
+        "https://securityinfinity.com/research/path-traversal-in-nltks-nltk-data-load-via-percent-encoded-sequences",
+        "https://github.com/advisories/GHSA-m42h-3232-vpv3"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-87x5-vmc3-756j",
       "name": "vLLM: Completion prompt lists fan out into unbounded engine requests",
@@ -1192,62 +1247,11 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7wmf-pw8j-mc78",
-      "name": "CodeIgniter: Spoofable forwarded HTTPS headers in IncomingRequest::isSecure()",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-7wmf-pw8j-mc78",
-      "description": "CodeIgniter: Spoofable forwarded HTTPS headers in IncomingRequest::isSecure()",
-      "date": "2026-08-07",
-      "affected": [
-        "codeigniter4/framework"
-      ],
-      "references": [
-        "https://github.com/codeigniter4/CodeIgniter4/security/advisories/GHSA-7wmf-pw8j-mc78",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63220",
-        "https://github.com/codeigniter4/CodeIgniter4/commit/ecbf044666bed41d23f07518096d9843fe6c08b0",
-        "https://github.com/codeigniter4/CodeIgniter4/releases/tag/v4.7.4",
-        "https://github.com/advisories/GHSA-7wmf-pw8j-mc78"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "codeigniter4/framework"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wcx4-wpfv-mc5c",
-      "name": "jsii-diff: Command Injection via npm: package argument",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-wcx4-wpfv-mc5c",
-      "description": "jsii-diff: Command Injection via npm: package argument",
-      "date": "2026-08-07",
-      "affected": [
-        "jsii-diff"
-      ],
-      "references": [
-        "https://github.com/aws/jsii/security/advisories/GHSA-wcx4-wpfv-mc5c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-15895",
-        "https://aws.amazon.com/security/security-bulletins/2026-057-aws",
-        "https://github.com/aws/jsii/releases/tag/v1.131.0",
-        "https://github.com/advisories/GHSA-wcx4-wpfv-mc5c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "jsii-diff"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@trigger.dev/core": "Trigger.dev: Prototype pollution via run metadata operations \u2192 process-wide cross-tenant DoS",
     "github.com/argoproj/argo-workflows": "Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomp",
     "github.com/argoproj/argo-workflows/v3": "Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomp",
     "github.com/argoproj/argo-workflows/v4": "Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomp",
