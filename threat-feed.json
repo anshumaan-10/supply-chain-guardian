@@ -1,8 +1,37 @@
 {
   "version": "2026.08.14",
-  "last_updated": "2026-08-14T13:01:50.487401+00:00",
+  "last_updated": "2026-08-14T18:50:59.837658+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-29rf-f4vv-pvq6",
+      "name": "Authorizer: Zero-click account takeover via OAuth identity linking to unverified email accounts",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-29rf-f4vv-pvq6",
+      "description": "Authorizer: Zero-click account takeover via OAuth identity linking to unverified email accounts",
+      "date": "2026-08-14",
+      "affected": [
+        "github.com/authorizerdev/authorizer"
+      ],
+      "references": [
+        "https://github.com/authorizerdev/authorizer/security/advisories/GHSA-29rf-f4vv-pvq6",
+        "https://github.com/authorizerdev/authorizer/commit/66fe488fd2a4e7acf1e517334344d5e8f3ddd296",
+        "https://github.com/authorizerdev/authorizer/releases/tag/2.4.0-rc.16",
+        "https://github.com/advisories/GHSA-29rf-f4vv-pvq6"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/authorizerdev/authorizer"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/authorizerdev/authorizer"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-p28v-f755-9qrg",
       "name": "Trigger.dev: Prototype pollution via run metadata operations \u2192 process-wide cross-tenant DoS",
@@ -1222,35 +1251,11 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c9w5-rwh3-7pm9",
-      "name": "CodeIgniter: SQL injection in Query Builder deleteBatch() when used with where() conditions",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-c9w5-rwh3-7pm9",
-      "description": "CodeIgniter: SQL injection in Query Builder deleteBatch() when used with where() conditions",
-      "date": "2026-08-07",
-      "affected": [
-        "codeigniter4/framework"
-      ],
-      "references": [
-        "https://github.com/codeigniter4/CodeIgniter4/security/advisories/GHSA-c9w5-rwh3-7pm9",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63221",
-        "https://github.com/codeigniter4/CodeIgniter4/commit/f5e463b9a3e986389ce285963e51a7f1fab6559f",
-        "https://github.com/codeigniter4/CodeIgniter4/releases/tag/v4.7.4",
-        "https://github.com/advisories/GHSA-c9w5-rwh3-7pm9"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "codeigniter4/framework"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/authorizerdev/authorizer": "Authorizer: Zero-click account takeover via OAuth identity linking to unverified email accounts",
     "@trigger.dev/core": "Trigger.dev: Prototype pollution via run metadata operations \u2192 process-wide cross-tenant DoS",
     "github.com/argoproj/argo-workflows": "Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomp",
     "github.com/argoproj/argo-workflows/v3": "Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomp",
