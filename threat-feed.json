@@ -1,8 +1,279 @@
 {
-  "version": "2026.08.14",
-  "last_updated": "2026-08-14T18:50:59.837658+00:00",
+  "version": "2026.08.15",
+  "last_updated": "2026-08-15T01:07:27.760612+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-9q54-f358-3fqf",
+      "name": "s2n-quic has excessive memory allocation",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-9q54-f358-3fqf",
+      "description": "s2n-quic has excessive memory allocation",
+      "date": "2026-08-14",
+      "affected": [
+        "s2n-quic"
+      ],
+      "references": [
+        "https://github.com/aws/s2n-quic/security/advisories/GHSA-9q54-f358-3fqf",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-10740",
+        "https://aws.amazon.com/security/security-bulletins/2026-042-aws",
+        "https://github.com/aws/s2n-quic/releases/tag/v1.82.0",
+        "https://github.com/advisories/GHSA-9q54-f358-3fqf"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-76pc-mqxp-3rq5",
+      "name": "Token Optimizer MCP: Unauthenticated Path Traversal in Dashboard Session Log API Endpoints",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-76pc-mqxp-3rq5",
+      "description": "Token Optimizer MCP: Unauthenticated Path Traversal in Dashboard Session Log API Endpoints",
+      "date": "2026-08-14",
+      "affected": [
+        "@ooples/token-optimizer-mcp"
+      ],
+      "references": [
+        "https://github.com/ooples/token-optimizer-mcp/security/advisories/GHSA-76pc-mqxp-3rq5",
+        "https://github.com/ooples/token-optimizer-mcp/commit/b4ee96dac799cbfba0a9f9c17844ce9d613cbcc7",
+        "https://github.com/ooples/token-optimizer-mcp/releases/tag/v5.1.0",
+        "https://github.com/advisories/GHSA-76pc-mqxp-3rq5"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@ooples/token-optimizer-mcp"
+          ]
+        },
+        "compromised_actions": [
+          "@ooples/token-optimizer-mcp"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-49mq-fc6q-3h46",
+      "name": "Token Optimizer MCP: OS command injection in smart_user via username in get-user-info",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-49mq-fc6q-3h46",
+      "description": "Token Optimizer MCP: OS command injection in smart_user via username in get-user-info",
+      "date": "2026-08-14",
+      "affected": [
+        "@ooples/token-optimizer-mcp"
+      ],
+      "references": [
+        "https://github.com/ooples/token-optimizer-mcp/security/advisories/GHSA-49mq-fc6q-3h46",
+        "https://github.com/ooples/token-optimizer-mcp/commit/b4ee96dac799cbfba0a9f9c17844ce9d613cbcc7",
+        "https://github.com/ooples/token-optimizer-mcp/releases/tag/v5.1.0",
+        "https://github.com/advisories/GHSA-49mq-fc6q-3h46"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@ooples/token-optimizer-mcp"
+          ]
+        },
+        "compromised_actions": [
+          "@ooples/token-optimizer-mcp"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9hgc-g3w5-67cm",
+      "name": "ContextForge: DNS TOCTOU race condition causes SSRF protection bypass (`/admin/gateways/test`)",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-9hgc-g3w5-67cm",
+      "description": "ContextForge: DNS TOCTOU race condition causes SSRF protection bypass (`/admin/gateways/test`)",
+      "date": "2026-08-14",
+      "affected": [
+        "mcp-contextforge-gateway"
+      ],
+      "references": [
+        "https://github.com/IBM/mcp-context-forge/security/advisories/GHSA-9hgc-g3w5-67cm",
+        "https://github.com/IBM/mcp-context-forge/releases/tag/v1.0.3",
+        "https://github.com/advisories/GHSA-9hgc-g3w5-67cm"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8rw6-p7m8-63jp",
+      "name": "SurrealDB: Array element-level (field.*) SELECT permissions leak denied elements to record users",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-8rw6-p7m8-63jp",
+      "description": "SurrealDB: Array element-level (field.*) SELECT permissions leak denied elements to record users",
+      "date": "2026-08-14",
+      "affected": [
+        "surrealdb"
+      ],
+      "references": [
+        "https://github.com/surrealdb/surrealdb/security/advisories/GHSA-8rw6-p7m8-63jp",
+        "https://github.com/surrealdb/surrealdb/commit/8f89b260bb9692e5b0d58930793d482a8207eedc",
+        "https://github.com/advisories/GHSA-8rw6-p7m8-63jp"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h84g-69h7-mw6v",
+      "name": "mchange-commons-java contains elements susceptible to abuse via JNDI injection and \"deserialization ",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-h84g-69h7-mw6v",
+      "description": "mchange-commons-java contains elements susceptible to abuse via JNDI injection and \"deserialization gadgets\"",
+      "date": "2026-08-14",
+      "affected": [
+        "com.mchange:mchange-commons-java"
+      ],
+      "references": [
+        "https://github.com/swaldman/mchange-commons-java/security/advisories/GHSA-h84g-69h7-mw6v",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-55153",
+        "https://github.com/advisories/GHSA-h84g-69h7-mw6v"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fpmh-vx4h-xc33",
+      "name": "OpenAM Insecure SSO Cookie Initialization",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-fpmh-vx4h-xc33",
+      "description": "OpenAM Insecure SSO Cookie Initialization",
+      "date": "2026-08-14",
+      "affected": [
+        "org.openidentityplatform.openam:openam-core"
+      ],
+      "references": [
+        "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-fpmh-vx4h-xc33",
+        "https://github.com/OpenIdentityPlatform/OpenAM/releases/tag/16.1.1",
+        "https://github.com/advisories/GHSA-fpmh-vx4h-xc33"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xghw-p77p-3r7x",
+      "name": "Fabric CA Developer's Guide: LDAP Injection via Unescaped Username in GetUser Filter",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-xghw-p77p-3r7x",
+      "description": "Fabric CA Developer's Guide: LDAP Injection via Unescaped Username in GetUser Filter",
+      "date": "2026-08-14",
+      "affected": [
+        "github.com/hyperledger/fabric-ca"
+      ],
+      "references": [
+        "https://github.com/hyperledger/fabric-ca/security/advisories/GHSA-xghw-p77p-3r7x",
+        "https://github.com/hyperledger/fabric-ca/commit/d379df823534d56dec0166a6da8f0415e3beee24",
+        "https://github.com/advisories/GHSA-xghw-p77p-3r7x"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/hyperledger/fabric-ca"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/hyperledger/fabric-ca"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2j9v-p4xj-cjw2",
+      "name": "Lima: An arbitrary user in a QEMU VM could gain the root privilege in the VM via the guest agent soc",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2j9v-p4xj-cjw2",
+      "description": "Lima: An arbitrary user in a QEMU VM could gain the root privilege in the VM via the guest agent socket",
+      "date": "2026-08-14",
+      "affected": [
+        "github.com/lima-vm/lima/v2"
+      ],
+      "references": [
+        "https://github.com/lima-vm/lima/security/advisories/GHSA-2j9v-p4xj-cjw2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-53657",
+        "https://github.com/lima-vm/lima/commit/8a45892378d22f40505c31a38f786a07701b6d50",
+        "https://github.com/lima-vm/lima/commit/b08cae8a670cf916d5da11c48a6de76dabd89678",
+        "https://github.com/lima-vm/lima/releases/tag/v2.1.3",
+        "https://github.com/advisories/GHSA-2j9v-p4xj-cjw2"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/lima-vm/lima/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/lima-vm/lima/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4x9g-vw65-vvf9",
+      "name": "Grav: Unauthenticated denial of service via unbounded image derivative dimensions",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-4x9g-vw65-vvf9",
+      "description": "Grav: Unauthenticated denial of service via unbounded image derivative dimensions",
+      "date": "2026-08-14",
+      "affected": [
+        "getgrav/grav",
+        "getgrav/grav"
+      ],
+      "references": [
+        "https://github.com/getgrav/grav/security/advisories/GHSA-4x9g-vw65-vvf9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-53653",
+        "https://github.com/getgrav/grav/commit/d9f9f0369a07ae5c96cde700c7949e1237b29cf6",
+        "https://github.com/getgrav/grav/commit/f4c0f42eea755cedad6f626b342c88d4cba72174",
+        "https://github.com/getgrav/grav/releases/tag/1.7.53",
+        "https://github.com/getgrav/grav/releases/tag/2.0.0-rc.8",
+        "https://github.com/advisories/GHSA-4x9g-vw65-vvf9"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav",
+          "getgrav/grav"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5fpj-28rv-84r7",
+      "name": "Budibase: SSRF in Automation Steps - Webhook, Zapier, N8N, Slack, Discord Bypass IP Blacklist",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-5fpj-28rv-84r7",
+      "description": "Budibase: SSRF in Automation Steps - Webhook, Zapier, N8N, Slack, Discord Bypass IP Blacklist",
+      "date": "2026-08-14",
+      "affected": [
+        "@budibase/server"
+      ],
+      "references": [
+        "https://github.com/Budibase/budibase/security/advisories/GHSA-5fpj-28rv-84r7",
+        "https://github.com/Budibase/budibase/releases/tag/3.41.3",
+        "https://github.com/advisories/GHSA-5fpj-28rv-84r7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@budibase/server"
+          ]
+        },
+        "compromised_actions": [
+          "@budibase/server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-29rf-f4vv-pvq6",
       "name": "Authorizer: Zero-click account takeover via OAuth identity linking to unverified email accounts",
@@ -985,276 +1256,15 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4jjw-pwvw-q6w3",
-      "name": "Duplicate Advisory: Nuxt dev server discloses project root and workspace UUID via the Chrome DevTool",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-4jjw-pwvw-q6w3",
-      "description": "Duplicate Advisory: Nuxt dev server discloses project root and workspace UUID via the Chrome DevTools workspace endpoint",
-      "date": "2026-08-11",
-      "affected": [
-        "nuxt"
-      ],
-      "references": [
-        "https://github.com/nuxt/nuxt/security/advisories/GHSA-7c4v-fwgw-9rf7",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-72744",
-        "https://www.vulncheck.com/advisories/nuxt-before-information-disclosure-via-chrome-devtools",
-        "https://github.com/advisories/GHSA-4jjw-pwvw-q6w3"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "nuxt"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fp3f-mc75-235c",
-      "name": "pypdf: Possible large memory usage for large /ToUnicode streams",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-fp3f-mc75-235c",
-      "description": "pypdf: Possible large memory usage for large /ToUnicode streams",
-      "date": "2026-08-07",
-      "affected": [
-        "pypdf"
-      ],
-      "references": [
-        "https://github.com/py-pdf/pypdf/security/advisories/GHSA-fp3f-mc75-235c",
-        "https://github.com/py-pdf/pypdf/pull/3944",
-        "https://github.com/py-pdf/pypdf/commit/afba8080e19d29a3c256a742b340995e695b35aa",
-        "https://github.com/py-pdf/pypdf/releases/tag/6.15.0",
-        "https://github.com/advisories/GHSA-fp3f-mc75-235c"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fwg2-594c-jp42",
-      "name": "pypdf: Possible long runtimes/large memory usage for large CID font width ranges",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-fwg2-594c-jp42",
-      "description": "pypdf: Possible long runtimes/large memory usage for large CID font width ranges",
-      "date": "2026-08-07",
-      "affected": [
-        "pypdf"
-      ],
-      "references": [
-        "https://github.com/py-pdf/pypdf/security/advisories/GHSA-fwg2-594c-jp42",
-        "https://github.com/py-pdf/pypdf/pull/3946",
-        "https://github.com/py-pdf/pypdf/commit/51cb6acf9e8a35b77e90b4d87d28fe3e1416d7d7",
-        "https://github.com/py-pdf/pypdf/releases/tag/6.15.0",
-        "https://github.com/advisories/GHSA-fwg2-594c-jp42"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rg76-677x-56q9",
-      "name": "crypto-js: Insufficient Entropy in Cryptographic Secret Generation via Vulnerable CryptoJS Dependenc",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-rg76-677x-56q9",
-      "description": "crypto-js: Insufficient Entropy in Cryptographic Secret Generation via Vulnerable CryptoJS Dependency Chain",
-      "date": "2026-08-07",
-      "affected": [
-        "crypto-js"
-      ],
-      "references": [
-        "https://github.com/brix/crypto-js/security/advisories/GHSA-rg76-677x-56q9",
-        "https://github.com/brix/crypto-js/commit/b405ff597fb3ac76a7bdfbc72dca10ba1079b1d5",
-        "https://www.coinspect.com/blog/ill-bloom-investigation",
-        "https://github.com/advisories/GHSA-rg76-677x-56q9"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "crypto-js"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f23p-vx2j-j53r",
-      "name": "Hono: `memo()` retains SSR output across requests, leading to cross-user data disclosure",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-f23p-vx2j-j53r",
-      "description": "Hono: `memo()` retains SSR output across requests, leading to cross-user data disclosure",
-      "date": "2026-08-07",
-      "affected": [
-        "hono"
-      ],
-      "references": [
-        "https://github.com/honojs/hono/security/advisories/GHSA-f23p-vx2j-j53r",
-        "https://github.com/honojs/hono/commit/0c45036d6b0ddf42ab2fa44639dc8710825d5c0f",
-        "https://github.com/honojs/hono/releases/tag/v4.12.34",
-        "https://github.com/advisories/GHSA-f23p-vx2j-j53r"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "hono"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-79qm-7rj5-m7r9",
-      "name": "Hono: Proxy Helper does not remove response headers listed in the `Connection` header",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-79qm-7rj5-m7r9",
-      "description": "Hono: Proxy Helper does not remove response headers listed in the `Connection` header",
-      "date": "2026-08-07",
-      "affected": [
-        "hono"
-      ],
-      "references": [
-        "https://github.com/honojs/hono/security/advisories/GHSA-79qm-7rj5-m7r9",
-        "https://github.com/honojs/hono/commit/720b566290793d4358bf39843adcb7cf4da4548f",
-        "https://github.com/honojs/hono/releases/tag/v4.12.34",
-        "https://github.com/advisories/GHSA-79qm-7rj5-m7r9"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "hono"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-54fx-42gc-7vw4",
-      "name": "Hono: Algorithmic Complexity DoS in Language Middleware",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-54fx-42gc-7vw4",
-      "description": "Hono: Algorithmic Complexity DoS in Language Middleware",
-      "date": "2026-08-07",
-      "affected": [
-        "hono"
-      ],
-      "references": [
-        "https://github.com/honojs/hono/security/advisories/GHSA-54fx-42gc-7vw4",
-        "https://github.com/honojs/hono/commit/f70e2c31684387b3231cc38512a31df6ca76a1c7",
-        "https://github.com/honojs/hono/releases/tag/v4.12.34",
-        "https://github.com/advisories/GHSA-54fx-42gc-7vw4"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "hono"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9hj4-r449-hfvc",
-      "name": "Ruby JSON: JSON::ResumableParser#partial_value dereferences a freed input buffer and crashes on trun",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-9hj4-r449-hfvc",
-      "description": "Ruby JSON: JSON::ResumableParser#partial_value dereferences a freed input buffer and crashes on truncated duplicate-key streams",
-      "date": "2026-08-07",
-      "affected": [
-        "json"
-      ],
-      "references": [
-        "https://github.com/ruby/json/security/advisories/GHSA-9hj4-r449-hfvc",
-        "https://github.com/advisories/GHSA-9hj4-r449-hfvc"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "json"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gm37-52c6-37mw",
-      "name": "pymdown-extensions: exponential-backtracking ReDoS in caret, tilde, betterem, and magiclink inline p",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-gm37-52c6-37mw",
-      "description": "pymdown-extensions: exponential-backtracking ReDoS in caret, tilde, betterem, and magiclink inline processors",
-      "date": "2026-08-07",
-      "affected": [
-        "pymdown-extensions"
-      ],
-      "references": [
-        "https://github.com/facelessuser/pymdown-extensions/security/advisories/GHSA-gm37-52c6-37mw",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-67422",
-        "https://github.com/facelessuser/pymdown-extensions/commit/c68498598d7b13011bb4571350b6e3612a4ce44b",
-        "https://github.com/advisories/GHSA-gm37-52c6-37mw"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mmj4-63m4-r6h5",
-      "name": "CodeIgniter: Uploaded file extension validation bypass in `is_image` and `mime_in` rules",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-mmj4-63m4-r6h5",
-      "description": "CodeIgniter: Uploaded file extension validation bypass in `is_image` and `mime_in` rules",
-      "date": "2026-08-07",
-      "affected": [
-        "codeigniter4/framework"
-      ],
-      "references": [
-        "https://github.com/codeigniter4/CodeIgniter4/security/advisories/GHSA-mmj4-63m4-r6h5",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63223",
-        "https://github.com/codeigniter4/CodeIgniter4/commit/b6e9a4fa1dca2df3d3f261bdf61532df8c6420aa",
-        "https://github.com/codeigniter4/CodeIgniter4/releases/tag/v4.7.4",
-        "https://github.com/advisories/GHSA-mmj4-63m4-r6h5"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "codeigniter4/framework"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hhmc-q9hp-r662",
-      "name": "CodeIgniter: Path traversal in UploadedFile::move() when using client-provided filenames",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-hhmc-q9hp-r662",
-      "description": "CodeIgniter: Path traversal in UploadedFile::move() when using client-provided filenames",
-      "date": "2026-08-07",
-      "affected": [
-        "codeigniter4/framework"
-      ],
-      "references": [
-        "https://github.com/codeigniter4/CodeIgniter4/security/advisories/GHSA-hhmc-q9hp-r662",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63222",
-        "https://github.com/codeigniter4/CodeIgniter4/commit/20ebcf4694d96d3c97fbc3938e360730e4f54618",
-        "https://github.com/codeigniter4/CodeIgniter4/releases/tag/v4.7.4",
-        "https://github.com/advisories/GHSA-hhmc-q9hp-r662"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "codeigniter4/framework"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@ooples/token-optimizer-mcp": "Token Optimizer MCP: Unauthenticated Path Traversal in Dashboard Session Log API Endpoints",
+    "github.com/hyperledger/fabric-ca": "Fabric CA Developer's Guide: LDAP Injection via Unescaped Username in GetUser Filter",
+    "github.com/lima-vm/lima/v2": "Lima: An arbitrary user in a QEMU VM could gain the root privilege in the VM via the guest agent soc",
+    "getgrav/grav": "Grav: Unauthenticated denial of service via unbounded image derivative dimensions",
+    "@budibase/server": "Budibase: SSRF in Automation Steps - Webhook, Zapier, N8N, Slack, Discord Bypass IP Blacklist",
     "github.com/authorizerdev/authorizer": "Authorizer: Zero-click account takeover via OAuth identity linking to unverified email accounts",
     "@trigger.dev/core": "Trigger.dev: Prototype pollution via run metadata operations \u2192 process-wide cross-tenant DoS",
     "github.com/argoproj/argo-workflows": "Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomp",
@@ -1266,8 +1276,7 @@
     "thorsten/phpmyfaq": "phpMyFAQ: SQL LIKE Wildcard Injection in Chat User Search Allows Authenticated User Enumeration",
     "librenms/librenms": "LibreNMS: Reflected XSS via Proxmox instance/vmid GET parameters injected into document.title JavaSc",
     "winter/wn-backend-module": "Winter: Authenticated backend users can bypass Users controller permission checks",
-    "winter/wn-cms-module": "Winter: Broken access control in `Cms\\Controllers\\Index` allows cross-template actions and unauthori",
-    "codeigniter4/framework": "CodeIgniter: Uploaded file extension validation bypass in `is_image` and `mime_in` rules"
+    "winter/wn-cms-module": "Winter: Broken access control in `Cms\\Controllers\\Index` allows cross-template actions and unauthori"
   },
   "malicious_packages": {
     "npm": {},
