@@ -1,8 +1,325 @@
 {
-  "version": "2026.08.24",
-  "last_updated": "2026-08-24T18:36:49.091992+00:00",
+  "version": "2026.08.25",
+  "last_updated": "2026-08-25T01:08:59.907508+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-fx4f-mhw4-qm7j",
+      "name": "vibeio-http has a DoS vulnerability in HTTP/1.x chunked encoding parser triggered by maliciously cra",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-fx4f-mhw4-qm7j",
+      "description": "vibeio-http has a DoS vulnerability in HTTP/1.x chunked encoding parser triggered by maliciously crafted chunk lengths",
+      "date": "2026-08-24",
+      "affected": [
+        "vibeio-http"
+      ],
+      "references": [
+        "https://github.com/ferronweb/vibeio-http/blob/main/CHANGELOG.md#vibeio-http-032",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0181.html",
+        "https://github.com/advisories/GHSA-fx4f-mhw4-qm7j"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-w8j7-39hp-8x59",
+      "name": "Cloudreve's remote download file paths can escape the selected destination directory",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-w8j7-39hp-8x59",
+      "description": "Cloudreve's remote download file paths can escape the selected destination directory",
+      "date": "2026-08-24",
+      "affected": [
+        "github.com/cloudreve/Cloudreve/v4"
+      ],
+      "references": [
+        "https://github.com/cloudreve/cloudreve/security/advisories/GHSA-w8j7-39hp-8x59",
+        "https://github.com/advisories/GHSA-w8j7-39hp-8x59"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/cloudreve/Cloudreve/v4"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/cloudreve/Cloudreve/v4"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vx2m-jpxr-xv7w",
+      "name": "Cloudreve has Broken Access Control - Revoked Share Access Still Allows Signed File URL Generation v",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vx2m-jpxr-xv7w",
+      "description": "Cloudreve has Broken Access Control - Revoked Share Access Still Allows Signed File URL Generation via Cached context_hint",
+      "date": "2026-08-24",
+      "affected": [
+        "github.com/cloudreve/Cloudreve/v4"
+      ],
+      "references": [
+        "https://github.com/cloudreve/cloudreve/security/advisories/GHSA-vx2m-jpxr-xv7w",
+        "https://github.com/advisories/GHSA-vx2m-jpxr-xv7w"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/cloudreve/Cloudreve/v4"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/cloudreve/Cloudreve/v4"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jm48-m3rr-9hgg",
+      "name": "3X-UI Vulnerable to Authenticated Arbitrary File Write via Database Import and Xray Log Path Manipul",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-jm48-m3rr-9hgg",
+      "description": "3X-UI Vulnerable to Authenticated Arbitrary File Write via Database Import and Xray Log Path Manipulation",
+      "date": "2026-08-24",
+      "affected": [
+        "github.com/mhsanaei/3x-ui/v2",
+        "github.com/mhsanaei/3x-ui/v3"
+      ],
+      "references": [
+        "https://github.com/MHSanaei/3x-ui/security/advisories/GHSA-jm48-m3rr-9hgg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-55477",
+        "https://github.com/MHSanaei/3x-ui/commit/80e168787ed608e83a065033ee94c8bfc3025ce7",
+        "https://github.com/MHSanaei/3x-ui/releases/tag/v3.3.1",
+        "https://github.com/advisories/GHSA-jm48-m3rr-9hgg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/mhsanaei/3x-ui/v2",
+            "github.com/mhsanaei/3x-ui/v3"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/mhsanaei/3x-ui/v2",
+          "github.com/mhsanaei/3x-ui/v3"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-w67g-5rqw-f597",
+      "name": "Gorilla WebSocket Uses Cryptographically Weak PRNG for WebSocket Mask Key",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-w67g-5rqw-f597",
+      "description": "Gorilla WebSocket Uses Cryptographically Weak PRNG for WebSocket Mask Key",
+      "date": "2026-08-24",
+      "affected": [
+        "github.com/gorilla/websocket"
+      ],
+      "references": [
+        "https://github.com/canolgun-commits/websocket/security/advisories/GHSA-w67g-5rqw-f597",
+        "https://github.com/gorilla/websocket/commit/d67f41855da42d7bccd9ef050c49f7e54e783b95",
+        "https://github.com/gorilla/websocket/releases/tag/v1.5.3",
+        "https://github.com/advisories/GHSA-w67g-5rqw-f597"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/gorilla/websocket"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/gorilla/websocket"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4ph6-mjv7-3fq6",
+      "name": "netfoil vulnerable to improper handling of untrusted DoH response data",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-4ph6-mjv7-3fq6",
+      "description": "netfoil vulnerable to improper handling of untrusted DoH response data",
+      "date": "2026-08-24",
+      "affected": [
+        "github.com/tinfoil-factory/netfoil"
+      ],
+      "references": [
+        "https://github.com/tinfoil-factory/netfoil/security/advisories/GHSA-4ph6-mjv7-3fq6",
+        "https://github.com/tinfoil-factory/netfoil/commit/58cfb0cb16b824e02bf53c2d67707e5e4bd9f59b",
+        "https://github.com/tinfoil-factory/netfoil/commit/817f664c61aa64cbe0dbfcdfc05c16602b422e5b",
+        "https://github.com/tinfoil-factory/netfoil/releases/tag/v0.5.0",
+        "https://github.com/advisories/GHSA-4ph6-mjv7-3fq6"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/tinfoil-factory/netfoil"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/tinfoil-factory/netfoil"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fwjf-m4qw-9f2x",
+      "name": "django CMS: Page cache ignores plugin-declared Vary headers (disclosure & poisoning)",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-fwjf-m4qw-9f2x",
+      "description": "django CMS: Page cache ignores plugin-declared Vary headers (disclosure & poisoning)",
+      "date": "2026-08-24",
+      "affected": [
+        "django-cms"
+      ],
+      "references": [
+        "https://github.com/django-cms/django-cms/security/advisories/GHSA-fwjf-m4qw-9f2x",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54625",
+        "https://github.com/django-cms/django-cms/pull/8646",
+        "https://github.com/django-cms/django-cms/pull/8647",
+        "https://github.com/django-cms/django-cms/commit/8758714b865ffa79c6bcd0e5c503958ea48885aa",
+        "https://github.com/django-cms/django-cms/commit/d5dc1efa18d157445491c4b12c2dd1efd56f439f",
+        "https://github.com/django-cms/django-cms/releases/tag/5.0.8",
+        "https://github.com/django-cms/django-cms/releases/tag/5.1.0",
+        "https://github.com/advisories/GHSA-fwjf-m4qw-9f2x"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8jj7-4v57-frf5",
+      "name": "django CMS: Plugin move endpoint allows cyclic reparenting (DoS)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-8jj7-4v57-frf5",
+      "description": "django CMS: Plugin move endpoint allows cyclic reparenting (DoS)",
+      "date": "2026-08-24",
+      "affected": [
+        "django-cms"
+      ],
+      "references": [
+        "https://github.com/django-cms/django-cms/security/advisories/GHSA-8jj7-4v57-frf5",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54623",
+        "https://github.com/django-cms/django-cms/pull/8645",
+        "https://github.com/django-cms/django-cms/commit/7642a98ab3170793c0b27b4125dd1f3d318b8a1c",
+        "https://github.com/django-cms/django-cms/releases/tag/5.0.8",
+        "https://github.com/advisories/GHSA-8jj7-4v57-frf5"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3gjw-f78c-vvpw",
+      "name": "tokio-postgres: Panic on a `DataRow` with fewer fields than columns allows denial of service",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3gjw-f78c-vvpw",
+      "description": "tokio-postgres: Panic on a `DataRow` with fewer fields than columns allows denial of service",
+      "date": "2026-08-24",
+      "affected": [
+        "tokio-postgres"
+      ],
+      "references": [
+        "https://github.com/rust-postgres/rust-postgres/commit/7a00ffa9ad4d951ec0a4564b52f1780fa9d353c1",
+        "https://github.com/rust-postgres/rust-postgres/releases/tag/tokio-postgres-v0.7.18",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0178.html",
+        "https://github.com/advisories/GHSA-3gjw-f78c-vvpw"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rgqc-3x5p-6gwg",
+      "name": "postgres-protocol: Panic decoding a malformed `hstore` value allows denial of service",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-rgqc-3x5p-6gwg",
+      "description": "postgres-protocol: Panic decoding a malformed `hstore` value allows denial of service",
+      "date": "2026-08-24",
+      "affected": [
+        "postgres-protocol"
+      ],
+      "references": [
+        "https://github.com/rust-postgres/rust-postgres/commit/a7cf84b5c46431cbca9d8ff50508c23f446efa7d",
+        "https://github.com/rust-postgres/rust-postgres/releases/tag/postgres-protocol-v0.6.12",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0180.html",
+        "https://github.com/advisories/GHSA-rgqc-3x5p-6gwg"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5x78-73v4-xg6w",
+      "name": "postgres-protocol: Unbounded SCRAM iteration count allows a malicious server to cause CPU-exhaustion",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-5x78-73v4-xg6w",
+      "description": "postgres-protocol: Unbounded SCRAM iteration count allows a malicious server to cause CPU-exhaustion denial of service",
+      "date": "2026-08-24",
+      "affected": [
+        "postgres-protocol"
+      ],
+      "references": [
+        "https://github.com/rust-postgres/rust-postgres/commit/d40097a36a85068ea50a3afbf0ce154ba439e7f0",
+        "https://github.com/rust-postgres/rust-postgres/releases/tag/postgres-protocol-v0.6.12",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0179.html",
+        "https://github.com/advisories/GHSA-5x78-73v4-xg6w"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9284-fjc3-fmmj",
+      "name": "Sakai Profile Image Deletion has an IDOR",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-9284-fjc3-fmmj",
+      "description": "Sakai Profile Image Deletion has an IDOR",
+      "date": "2026-08-24",
+      "affected": [
+        "org.sakaiproject.profile2:profile2-impl",
+        "org.sakaiproject.profile2:profile2-impl",
+        "org.sakaiproject.profile2:profile2-api",
+        "org.sakaiproject.profile2:profile2-api"
+      ],
+      "references": [
+        "https://github.com/sakaiproject/sakai/security/advisories/GHSA-9284-fjc3-fmmj",
+        "https://github.com/sakaiproject/sakai/commit/a092dbf3dc6bf343131f50007c207a9abd95e852",
+        "https://github.com/sakaiproject/sakai/releases/tag/23.5",
+        "https://github.com/advisories/GHSA-9284-fjc3-fmmj"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-w2x5-gv52-9ccv",
+      "name": "Sakai Conversations has a Stored XSS Issue",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-w2x5-gv52-9ccv",
+      "description": "Sakai Conversations has a Stored XSS Issue",
+      "date": "2026-08-24",
+      "affected": [
+        "org.sakaiproject.rubrics:rubrics-impl",
+        "org.sakaiproject.kernel:sakai-kernel-impl",
+        "org.sakaiproject.conversations:sakai-conversations-impl"
+      ],
+      "references": [
+        "https://github.com/sakaiproject/sakai/security/advisories/GHSA-w2x5-gv52-9ccv",
+        "https://github.com/sakaiproject/sakai/commit/2696b4b48cbef2e81512f52f84f7477adff78b27",
+        "https://github.com/sakaiproject/sakai/releases/tag/23.5",
+        "https://github.com/advisories/GHSA-w2x5-gv52-9ccv"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-66mm-25pp-rfff",
       "name": "JSONata vulnerable to Arbitrary Code Execution via crafted JSONata expressions",
@@ -967,293 +1284,15 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8cfx-wx3q-mh5q",
-      "name": "netty-incubator-codec-ohttp: Binary HTTP parser infinite loop on known-length field section boundary",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-8cfx-wx3q-mh5q",
-      "description": "netty-incubator-codec-ohttp: Binary HTTP parser infinite loop on known-length field section boundary",
-      "date": "2026-08-20",
-      "affected": [
-        "io.netty.incubator:netty-incubator-codec-bhttp"
-      ],
-      "references": [
-        "https://github.com/netty/netty-incubator-codec-ohttp/security/advisories/GHSA-8cfx-wx3q-mh5q",
-        "https://github.com/netty/netty-incubator-codec-ohttp/releases/tag/netty-incubator-codec-parent-ohttp-0.0.23.Final",
-        "https://github.com/advisories/GHSA-8cfx-wx3q-mh5q"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-pgrf-4654-3gq8",
-      "name": "netty-incubator-codec-ohttp: Binary HTTP parser unchecked varint length overflow causes decoder cras",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-pgrf-4654-3gq8",
-      "description": "netty-incubator-codec-ohttp: Binary HTTP parser unchecked varint length overflow causes decoder crash",
-      "date": "2026-08-20",
-      "affected": [
-        "io.netty.incubator:netty-incubator-codec-bhttp"
-      ],
-      "references": [
-        "https://github.com/netty/netty-incubator-codec-ohttp/security/advisories/GHSA-pgrf-4654-3gq8",
-        "https://github.com/netty/netty-incubator-codec-ohttp/releases/tag/netty-incubator-codec-parent-ohttp-0.0.23.Final",
-        "https://github.com/advisories/GHSA-pgrf-4654-3gq8"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2mc4-j865-9q4r",
-      "name": "netty-incubator-codec-ohttp: BoringSSL HPKE private key bytes exposed through toString() and excepti",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-2mc4-j865-9q4r",
-      "description": "netty-incubator-codec-ohttp: BoringSSL HPKE private key bytes exposed through toString() and exception messages",
-      "date": "2026-08-20",
-      "affected": [
-        "io.netty.incubator:netty-incubator-codec-ohttp-hpke-classes-boringssl"
-      ],
-      "references": [
-        "https://github.com/netty/netty-incubator-codec-ohttp/security/advisories/GHSA-2mc4-j865-9q4r",
-        "https://github.com/netty/netty-incubator-codec-ohttp/releases/tag/netty-incubator-codec-parent-ohttp-0.0.23.Final",
-        "https://github.com/advisories/GHSA-2mc4-j865-9q4r"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8qj2-c6q4-f399",
-      "name": "django CMS: Missing authorization in `render_object_structure` discloses non-PageContent placeholder",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-8qj2-c6q4-f399",
-      "description": "django CMS: Missing authorization in `render_object_structure` discloses non-PageContent placeholder structure to low-privileged staff",
-      "date": "2026-08-20",
-      "affected": [
-        "django-cms"
-      ],
-      "references": [
-        "https://github.com/django-cms/django-cms/security/advisories/GHSA-8qj2-c6q4-f399",
-        "https://github.com/django-cms/django-cms/pull/8703",
-        "https://github.com/django-cms/django-cms/commit/9c82abfeb25471583e23906ea1ebef9202527b04",
-        "https://github.com/django-cms/django-cms/releases/tag/5.0.9",
-        "https://github.com/advisories/GHSA-8qj2-c6q4-f399"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6x92-6vx4-5fwr",
-      "name": "django CMS: Broken access control in page *Duplicate* allows reading the content of any page (cross-",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-6x92-6vx4-5fwr",
-      "description": "django CMS: Broken access control in page *Duplicate* allows reading the content of any page (cross-site / restriction bypass)",
-      "date": "2026-08-20",
-      "affected": [
-        "django-cms"
-      ],
-      "references": [
-        "https://github.com/django-cms/django-cms/security/advisories/GHSA-6x92-6vx4-5fwr",
-        "https://github.com/django-cms/django-cms/pull/8713",
-        "https://github.com/django-cms/django-cms/commit/3e1ccf7573eb1a74ebbbfaaa812c1f5cadf14e6c",
-        "https://github.com/django-cms/django-cms/releases/tag/5.0.9",
-        "https://github.com/advisories/GHSA-6x92-6vx4-5fwr"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hvq6-2r72-p2x7",
-      "name": "django CMS: Stored XSS in edit-mode plugin exception rendering",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hvq6-2r72-p2x7",
-      "description": "django CMS: Stored XSS in edit-mode plugin exception rendering",
-      "date": "2026-08-20",
-      "affected": [
-        "django-cms"
-      ],
-      "references": [
-        "https://github.com/django-cms/django-cms/security/advisories/GHSA-hvq6-2r72-p2x7",
-        "https://github.com/django-cms/django-cms/pull/8711",
-        "https://github.com/django-cms/django-cms/commit/b56a568844ff3702495945f73a31d0868285bf88",
-        "https://github.com/django-cms/django-cms/releases/tag/5.0.9",
-        "https://github.com/advisories/GHSA-hvq6-2r72-p2x7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-42vx-43vc-x6pr",
-      "name": "Laravel Backpack CRUD: HasMany/MorphMany relation fields allow cross-tenant record re-parenting (IDO",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-42vx-43vc-x6pr",
-      "description": "Laravel Backpack CRUD: HasMany/MorphMany relation fields allow cross-tenant record re-parenting (IDOR) via attachManyRelation",
-      "date": "2026-08-20",
-      "affected": [
-        "backpack/crud",
-        "backpack/crud"
-      ],
-      "references": [
-        "https://github.com/Laravel-Backpack/CRUD/security/advisories/GHSA-42vx-43vc-x6pr",
-        "https://github.com/Laravel-Backpack/CRUD/releases/tag/6.8.15",
-        "https://github.com/Laravel-Backpack/CRUD/releases/tag/7.0.47",
-        "https://github.com/advisories/GHSA-42vx-43vc-x6pr"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "backpack/crud",
-          "backpack/crud"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3vrh-m9w7-v94f",
-      "name": "Wagtail: Improper restriction handling on Pages admin API",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-3vrh-m9w7-v94f",
-      "description": "Wagtail: Improper restriction handling on Pages admin API",
-      "date": "2026-08-20",
-      "affected": [
-        "wagtail",
-        "wagtail",
-        "wagtail",
-        "wagtail"
-      ],
-      "references": [
-        "https://github.com/wagtail/wagtail/security/advisories/GHSA-3vrh-m9w7-v94f",
-        "https://github.com/advisories/GHSA-3vrh-m9w7-v94f"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-ghvf-qf6h-g8x5",
-      "name": "NocoBase: Arbitrary File Write chained with Local file Inclusion leads to Remote code execution",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-ghvf-qf6h-g8x5",
-      "description": "NocoBase: Arbitrary File Write chained with Local file Inclusion leads to Remote code execution",
-      "date": "2026-08-20",
-      "affected": [
-        "@nocobase/server"
-      ],
-      "references": [
-        "https://github.com/nocobase/nocobase/security/advisories/GHSA-ghvf-qf6h-g8x5",
-        "https://github.com/nocobase/nocobase/pull/9628",
-        "https://github.com/nocobase/nocobase/pull/9701",
-        "https://github.com/nocobase/nocobase/commit/7c9ffe1427a529d62576b83c35222ba7ef9b8d11",
-        "https://github.com/nocobase/nocobase/commit/a89e5a999b608bcb4ec67a845e924af0fb58a7c7",
-        "https://github.com/advisories/GHSA-ghvf-qf6h-g8x5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@nocobase/server"
-          ]
-        },
-        "compromised_actions": [
-          "@nocobase/server"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vgxm-h9gx-h9w7",
-      "name": "django CMS: Structure endpoint bypasses page-view permission",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-vgxm-h9gx-h9w7",
-      "description": "django CMS: Structure endpoint bypasses page-view permission",
-      "date": "2026-08-20",
-      "affected": [
-        "django-cms"
-      ],
-      "references": [
-        "https://github.com/django-cms/django-cms/security/advisories/GHSA-vgxm-h9gx-h9w7",
-        "https://github.com/django-cms/django-cms/pull/8645",
-        "https://github.com/django-cms/django-cms/commit/7642a98ab3170793c0b27b4125dd1f3d318b8a1c",
-        "https://github.com/django-cms/django-cms/releases/tag/5.0.8",
-        "https://github.com/advisories/GHSA-vgxm-h9gx-h9w7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4xfr-4p46-gc6p",
-      "name": "django CMS: Clipboard copy IDOR discloses unauthorized plugin content",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-4xfr-4p46-gc6p",
-      "description": "django CMS: Clipboard copy IDOR discloses unauthorized plugin content",
-      "date": "2026-08-20",
-      "affected": [
-        "django-cms"
-      ],
-      "references": [
-        "https://github.com/django-cms/django-cms/security/advisories/GHSA-4xfr-4p46-gc6p",
-        "https://github.com/django-cms/django-cms/pull/8645",
-        "https://github.com/django-cms/django-cms/commit/7642a98ab3170793c0b27b4125dd1f3d318b8a1c",
-        "https://github.com/django-cms/django-cms/releases/tag/5.0.8",
-        "https://github.com/advisories/GHSA-4xfr-4p46-gc6p"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-23m2-mghx-vqmf",
-      "name": "Wagtail: Reflected XSS in dynamic image URL generator view",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-23m2-mghx-vqmf",
-      "description": "Wagtail: Reflected XSS in dynamic image URL generator view",
-      "date": "2026-08-20",
-      "affected": [
-        "wagtail",
-        "wagtail"
-      ],
-      "references": [
-        "https://github.com/wagtail/wagtail/security/advisories/GHSA-23m2-mghx-vqmf",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-54263",
-        "https://github.com/pypa/advisory-database/tree/main/vulns/wagtail/PYSEC-2026-616.yaml",
-        "https://github.com/advisories/GHSA-23m2-mghx-vqmf"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8634-mr4j-r72c",
-      "name": "Wagtail: Pages translations can be created without page permissions when using simple_translation",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-8634-mr4j-r72c",
-      "description": "Wagtail: Pages translations can be created without page permissions when using simple_translation",
-      "date": "2026-08-20",
-      "affected": [
-        "wagtail",
-        "wagtail",
-        "wagtail"
-      ],
-      "references": [
-        "https://github.com/wagtail/wagtail/security/advisories/GHSA-8634-mr4j-r72c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-54262",
-        "https://github.com/pypa/advisory-database/tree/main/vulns/wagtail/PYSEC-2026-615.yaml",
-        "https://github.com/advisories/GHSA-8634-mr4j-r72c"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/cloudreve/Cloudreve/v4": "Cloudreve's remote download file paths can escape the selected destination directory",
+    "github.com/mhsanaei/3x-ui/v2": "3X-UI Vulnerable to Authenticated Arbitrary File Write via Database Import and Xray Log Path Manipul",
+    "github.com/mhsanaei/3x-ui/v3": "3X-UI Vulnerable to Authenticated Arbitrary File Write via Database Import and Xray Log Path Manipul",
+    "github.com/gorilla/websocket": "Gorilla WebSocket Uses Cryptographically Weak PRNG for WebSocket Mask Key",
+    "github.com/tinfoil-factory/netfoil": "netfoil vulnerable to improper handling of untrusted DoH response data",
     "yourls/yourls": "YOURLS has stored XSS in referrer statistics chart via crafted Referer header",
     "github.com/getkin/kin-openapi": "kin-openapi has uncontrolled resource consumption in openapi3filter deepObject query parameter decod",
     "phalcon/cphalcon": "Phalcon Volt compiler `join` filter compile-time PHP code injection (SSTI leads to RCE)",
@@ -1263,9 +1302,7 @@
     "github.com/axllent/mailpit": "Mailpit: WebSocket origin check bypass via percent-encoded path (regression of CVE-2026-22689)",
     "winter/wn-backend-module": "Winter: Reflected XSS through the search query parameter in the backend Table widget",
     "github.com/fleetdm/fleet/v4": "Fleet: ORDER BY column injection on activity list endpoints",
-    "winter/wn-system-module": "Winter: Authenticated Twig sandbox escape in CMS SecurityPolicy (bypass of CVE-2024-54149)",
-    "backpack/crud": "Laravel Backpack CRUD: HasMany/MorphMany relation fields allow cross-tenant record re-parenting (IDO",
-    "@nocobase/server": "NocoBase: Arbitrary File Write chained with Local file Inclusion leads to Remote code execution"
+    "winter/wn-system-module": "Winter: Authenticated Twig sandbox escape in CMS SecurityPolicy (bypass of CVE-2024-54149)"
   },
   "malicious_packages": {
     "npm": {},
