@@ -1,8 +1,50 @@
 {
-  "version": "2026.08.27",
-  "last_updated": "2026-08-27T21:47:15.945182+00:00",
+  "version": "2026.08.28",
+  "last_updated": "2026-08-28T09:38:12.849925+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-vxj7-4xrp-5vr4",
+      "name": "aiosmtplib: STARTTLS response injection",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vxj7-4xrp-5vr4",
+      "description": "aiosmtplib: STARTTLS response injection",
+      "date": "2026-08-27",
+      "affected": [
+        "aiosmtplib"
+      ],
+      "references": [
+        "https://github.com/cole/aiosmtplib/security/advisories/GHSA-vxj7-4xrp-5vr4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-55558",
+        "https://github.com/cole/aiosmtplib/commit/9fab7ba1361dbf7622ede1315a24be805cff09c9",
+        "https://github.com/cole/aiosmtplib/releases/tag/v5.1.2",
+        "https://github.com/advisories/GHSA-vxj7-4xrp-5vr4"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6hx8-3wjj-gr8g",
+      "name": "WebOb: Open redirect in Location header normalization via leading C0 control / space characters",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-6hx8-3wjj-gr8g",
+      "description": "WebOb: Open redirect in Location header normalization via leading C0 control / space characters",
+      "date": "2026-08-27",
+      "affected": [
+        "webob"
+      ],
+      "references": [
+        "https://github.com/Pylons/webob/security/advisories/GHSA-6hx8-3wjj-gr8g",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54770",
+        "https://github.com/Pylons/webob/commit/ff89560643fb252751b4db8806a283b5377f1f07",
+        "https://github.com/Pylons/webob/tree/1.8.11",
+        "https://github.com/advisories/GHSA-6hx8-3wjj-gr8g"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-mf7q-r4rv-jv94",
       "name": "Crossplane's TOCTOU between cosign verification and image fetch in xpkg.CachedClient allows tag-base",
@@ -1258,57 +1300,6 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-pg62-f8g4-4wqh",
-      "name": "phpMyFAQ privilege escalation: GroupController::updatePermissions lets a GROUP_EDIT admin grant righ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-pg62-f8g4-4wqh",
-      "description": "phpMyFAQ privilege escalation: GroupController::updatePermissions lets a GROUP_EDIT admin grant rights they do not hold",
-      "date": "2026-08-25",
-      "affected": [
-        "thorsten/phpmyfaq",
-        "phpmyfaq/phpmyfaq"
-      ],
-      "references": [
-        "https://github.com/thorsten/phpMyFAQ/security/advisories/GHSA-pg62-f8g4-4wqh",
-        "https://github.com/thorsten/phpMyFAQ/commit/de5016607dd606ef161cccd10fa5deec303c834e",
-        "https://github.com/advisories/GHSA-pg62-f8g4-4wqh"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "thorsten/phpmyfaq",
-          "phpmyfaq/phpmyfaq"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mf8r-wm2w-f8c5",
-      "name": "phpMyFAQ public FAQ APIs expose inactive FAQ content",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-mf8r-wm2w-f8c5",
-      "description": "phpMyFAQ public FAQ APIs expose inactive FAQ content",
-      "date": "2026-08-25",
-      "affected": [
-        "phpmyfaq/phpmyfaq",
-        "thorsten/phpmyfaq"
-      ],
-      "references": [
-        "https://github.com/thorsten/phpMyFAQ/security/advisories/GHSA-mf8r-wm2w-f8c5",
-        "https://github.com/thorsten/phpMyFAQ/commit/4c7e3f841ba6cb25564c6802509a669b0e328321",
-        "https://github.com/thorsten/phpMyFAQ/tree/4.1.5",
-        "https://github.com/advisories/GHSA-mf8r-wm2w-f8c5"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "phpmyfaq/phpmyfaq",
-          "thorsten/phpmyfaq"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
@@ -1329,9 +1320,7 @@
     "@budibase/server": "Budibase authenticated arbitrary S3 signed upload URL issuance via `/api/attachments/:datasourceId/u",
     "@arikusi/deepseek-mcp-server": "@arikusi/deepseek-mcp-server: Missing Authentication on Self-Hosted HTTP MCP Endpoint",
     "github.com/geiserx/genieacs-mcp": "genieacs-mcp: DNS rebinding reaches local GenieACS MCP Streamable HTTP transport",
-    "github.com/aquasecurity/trivy": "Trivy has a path traversal via a crafted vulnerability database or other downloaded artifacts",
-    "thorsten/phpmyfaq": "phpMyFAQ privilege escalation: GroupController::updatePermissions lets a GROUP_EDIT admin grant righ",
-    "phpmyfaq/phpmyfaq": "phpMyFAQ privilege escalation: GroupController::updatePermissions lets a GROUP_EDIT admin grant righ"
+    "github.com/aquasecurity/trivy": "Trivy has a path traversal via a crafted vulnerability database or other downloaded artifacts"
   },
   "malicious_packages": {
     "npm": {},
