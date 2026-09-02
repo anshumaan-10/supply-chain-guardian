@@ -1,8 +1,290 @@
 {
-  "version": "2026.09.01",
-  "last_updated": "2026-09-01T20:34:38.837884+00:00",
+  "version": "2026.09.02",
+  "last_updated": "2026-09-02T02:58:01.212389+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-vp52-pcj8-j9qc",
+      "name": "gRPC-Go: Heap Memory Exhaustion (OOM) via HTTP/2 DATA Frame Fragmentation",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-vp52-pcj8-j9qc",
+      "description": "gRPC-Go: Heap Memory Exhaustion (OOM) via HTTP/2 DATA Frame Fragmentation",
+      "date": "2026-09-01",
+      "affected": [
+        "google.golang.org/grpc"
+      ],
+      "references": [
+        "https://github.com/grpc/grpc-go/security/advisories/GHSA-vp52-pcj8-j9qc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84304",
+        "https://github.com/grpc/grpc-go/pull/9331",
+        "https://github.com/grpc/grpc-go/pull/9333",
+        "https://github.com/grpc/grpc-go/commit/7354d9c8debb4bcf2225bf429857078de310c176",
+        "https://github.com/grpc/grpc-go/commit/8cfeca0e1ee5ea0980dcc320e20240fa1079ec77",
+        "https://github.com/grpc/grpc-go/releases/tag/v1.83.1",
+        "https://github.com/advisories/GHSA-vp52-pcj8-j9qc"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "google.golang.org/grpc"
+          ]
+        },
+        "compromised_actions": [
+          "google.golang.org/grpc"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-68jx-f42c-7599",
+      "name": "TYPO3 CMS - Broken Access Control in Backend and Install Tool",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-68jx-f42c-7599",
+      "description": "TYPO3 CMS - Broken Access Control in Backend and Install Tool",
+      "date": "2026-09-01",
+      "affected": [
+        "typo3/cms-core",
+        "typo3/cms-backend"
+      ],
+      "references": [
+        "https://github.com/TYPO3/typo3/security/advisories/GHSA-68jx-f42c-7599",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-19418",
+        "https://github.com/TYPO3/typo3/commit/4a75e862c589c85d795d7c65dcdc835f8f413efc",
+        "https://github.com/TYPO3/typo3/commit/a0e8ee06a40e959b9e7b06a4b1cb19d3a0d3dcf7",
+        "https://github.com/TYPO3/typo3/commit/ae0abd329d52285fe6e92804c3608820ad45e872",
+        "https://github.com/FriendsOfPHP/security-advisories/blob/master/typo3/cms-core/CVE-2026-19418.yaml",
+        "https://news.typo3.com/security/advisory/typo3-core-sa-2026-021",
+        "https://typo3.org/security/advisory/typo3-core-sa-2020-006",
+        "https://typo3.org/security/advisory/typo3-core-sa-2026-021",
+        "https://github.com/advisories/GHSA-68jx-f42c-7599"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "typo3/cms-core",
+          "typo3/cms-backend"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-r3j6-gpjw-qfjr",
+      "name": "Filament: Multi-factor authentication (app) codes can still be used after a newer code has been used",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-r3j6-gpjw-qfjr",
+      "description": "Filament: Multi-factor authentication (app) codes can still be used after a newer code has been used",
+      "date": "2026-09-01",
+      "affected": [
+        "filament/filament",
+        "filament/filament"
+      ],
+      "references": [
+        "https://github.com/filamentphp/filament/security/advisories/GHSA-r3j6-gpjw-qfjr",
+        "https://github.com/filamentphp/filament/pull/20335",
+        "https://github.com/filamentphp/filament/commit/b6bde8572bcac75d4f5b4ec892ba7b9e91e0ab4d",
+        "https://github.com/filamentphp/filament/releases/tag/v4.12.6",
+        "https://github.com/filamentphp/filament/releases/tag/v5.7.6",
+        "https://github.com/advisories/GHSA-r3j6-gpjw-qfjr"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "filament/filament",
+          "filament/filament"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xwpv-pqxp-5v36",
+      "name": "Filament: Password validity disclosure for accounts denied panel access on login page",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-xwpv-pqxp-5v36",
+      "description": "Filament: Password validity disclosure for accounts denied panel access on login page",
+      "date": "2026-09-01",
+      "affected": [
+        "filament/filament",
+        "filament/filament"
+      ],
+      "references": [
+        "https://github.com/filamentphp/filament/security/advisories/GHSA-xwpv-pqxp-5v36",
+        "https://github.com/filamentphp/filament/pull/20308",
+        "https://github.com/filamentphp/filament/commit/ad5aacbc6d089b3dd7243ec1c1f8ab19dff7c3a1",
+        "https://github.com/filamentphp/filament/releases/tag/v4.12.5",
+        "https://github.com/filamentphp/filament/releases/tag/v5.7.5",
+        "https://github.com/advisories/GHSA-xwpv-pqxp-5v36"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "filament/filament",
+          "filament/filament"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-52xp-w8hr-xv3c",
+      "name": "Filament: Multi-factor authentication (app) can be bypassed when recovery codes are enabled",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-52xp-w8hr-xv3c",
+      "description": "Filament: Multi-factor authentication (app) can be bypassed when recovery codes are enabled",
+      "date": "2026-09-01",
+      "affected": [
+        "filament/filament",
+        "filament/filament"
+      ],
+      "references": [
+        "https://github.com/filamentphp/filament/security/advisories/GHSA-52xp-w8hr-xv3c",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-77567",
+        "https://github.com/filamentphp/filament/commit/45534a6f87f50ac6df3b43680bb33f8da9ef207b",
+        "https://github.com/filamentphp/filament/releases/tag/v4.12.0",
+        "https://github.com/filamentphp/filament/releases/tag/v5.7.0",
+        "https://github.com/advisories/GHSA-52xp-w8hr-xv3c"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "filament/filament",
+          "filament/filament"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-23w6-3w8w-8484",
+      "name": "pypdf: Possible long runtimes/large memory usage when retrieving outlines",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-23w6-3w8w-8484",
+      "description": "pypdf: Possible long runtimes/large memory usage when retrieving outlines",
+      "date": "2026-09-01",
+      "affected": [
+        "pypdf"
+      ],
+      "references": [
+        "https://github.com/py-pdf/pypdf/security/advisories/GHSA-23w6-3w8w-8484",
+        "https://github.com/py-pdf/pypdf/pull/3966",
+        "https://github.com/py-pdf/pypdf/commit/d91ab705fd81ed1a9cec175c6958600dea1a4942",
+        "https://github.com/py-pdf/pypdf/releases/tag/6.16.1",
+        "https://github.com/advisories/GHSA-23w6-3w8w-8484"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-763m-79hh-57f2",
+      "name": "pypdf: Possible long runtimes/large memory usage when extracting XForm objects",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-763m-79hh-57f2",
+      "description": "pypdf: Possible long runtimes/large memory usage when extracting XForm objects",
+      "date": "2026-09-01",
+      "affected": [
+        "pypdf"
+      ],
+      "references": [
+        "https://github.com/py-pdf/pypdf/security/advisories/GHSA-763m-79hh-57f2",
+        "https://github.com/py-pdf/pypdf/pull/3966",
+        "https://github.com/py-pdf/pypdf/commit/d91ab705fd81ed1a9cec175c6958600dea1a4942",
+        "https://github.com/py-pdf/pypdf/releases/tag/6.16.1",
+        "https://github.com/advisories/GHSA-763m-79hh-57f2"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jp53-mhqp-8xcg",
+      "name": "pypdf: Possible infinite loop for TreeObject.insert_child",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-jp53-mhqp-8xcg",
+      "description": "pypdf: Possible infinite loop for TreeObject.insert_child",
+      "date": "2026-09-01",
+      "affected": [
+        "pypdf"
+      ],
+      "references": [
+        "https://github.com/py-pdf/pypdf/security/advisories/GHSA-jp53-mhqp-8xcg",
+        "https://github.com/py-pdf/pypdf/pull/3964",
+        "https://github.com/py-pdf/pypdf/commit/c9ba557d565d57c53a0b3a0be06c0a4c29b0559b",
+        "https://github.com/py-pdf/pypdf/releases/tag/6.16.0",
+        "https://github.com/advisories/GHSA-jp53-mhqp-8xcg"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cfqr-cjx5-5jcm",
+      "name": "sqlparse: Reindentation of tuple lists causes near-cap quadratic CPU consumption",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-cfqr-cjx5-5jcm",
+      "description": "sqlparse: Reindentation of tuple lists causes near-cap quadratic CPU consumption",
+      "date": "2026-09-01",
+      "affected": [
+        "sqlparse"
+      ],
+      "references": [
+        "https://github.com/andialbrecht/sqlparse/security/advisories/GHSA-cfqr-cjx5-5jcm",
+        "https://github.com/andialbrecht/sqlparse/commit/a51df6d9e2d31b44be9adb6bc8732517db6bf96b",
+        "https://github.com/andialbrecht/sqlparse/releases/tag/0.6.0",
+        "https://github.com/advisories/GHSA-cfqr-cjx5-5jcm"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g8qq-57p8-ggw5",
+      "name": "ApostropheCMS: Stored XSS via SVG SMIL URI-list scheme-policy bypass",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-g8qq-57p8-ggw5",
+      "description": "ApostropheCMS: Stored XSS via SVG SMIL URI-list scheme-policy bypass",
+      "date": "2026-09-01",
+      "affected": [
+        "sanitize-html"
+      ],
+      "references": [
+        "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-g8qq-57p8-ggw5",
+        "https://github.com/apostrophecms/apostrophe/pull/5552",
+        "https://github.com/apostrophecms/apostrophe/commit/1135516a1a4a8f9638641c460488a43d8af20081",
+        "https://github.com/apostrophecms/apostrophe/commit/38ff1106c8176b16c2da9872acd9b449adcbb949",
+        "https://github.com/apostrophecms/apostrophe/blob/main/packages/sanitize-html/CHANGELOG.md",
+        "https://github.com/advisories/GHSA-g8qq-57p8-ggw5"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "sanitize-html"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-m4rf-3fr8-xwx3",
+      "name": "NLTK: JVM argument injection bypass via per-call options in the NLTK Stanford wrappers (incomplete f",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-m4rf-3fr8-xwx3",
+      "description": "NLTK: JVM argument injection bypass via per-call options in the NLTK Stanford wrappers (incomplete fix of CVE-2026-12841)",
+      "date": "2026-09-01",
+      "affected": [
+        "nltk"
+      ],
+      "references": [
+        "https://github.com/nltk/nltk/security/advisories/GHSA-m4rf-3fr8-xwx3",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-79675",
+        "https://github.com/nltk/nltk/commit/8fa9650b6009aacfdebbc33d2a08d32c0858ea6c",
+        "https://github.com/nltk/nltk/releases/tag/v3.10.3",
+        "https://www.vulncheck.com/advisories/nltk-before-jvm-argument-injection-via-per-call-options",
+        "https://github.com/advisories/GHSA-m4rf-3fr8-xwx3"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-8rr7-cvq3-gmfh",
       "name": "league/commonmark: Denial of service via distinctly-named attributes in the Attributes extension",
@@ -1050,326 +1332,14 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hgpf-8634-g44c",
-      "name": "SeaweedFS: Improper authorization in the S3Tables / Iceberg REST management API lets a low-privilege",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hgpf-8634-g44c",
-      "description": "SeaweedFS: Improper authorization in the S3Tables / Iceberg REST management API lets a low-privileged S3 user enumerate administrator-owned table buckets",
-      "date": "2026-08-28",
-      "affected": [
-        "github.com/seaweedfs/seaweedfs"
-      ],
-      "references": [
-        "https://github.com/seaweedfs/seaweedfs/security/advisories/GHSA-hgpf-8634-g44c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-55873",
-        "https://github.com/seaweedfs/seaweedfs/pull/9961",
-        "https://github.com/seaweedfs/seaweedfs/commit/b13463880c1fa62e255c058a9228b63cc95b4b36",
-        "https://github.com/seaweedfs/seaweedfs/releases/tag/4.34",
-        "https://github.com/advisories/GHSA-hgpf-8634-g44c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/seaweedfs/seaweedfs"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/seaweedfs/seaweedfs"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-j769-9gv9-65gr",
-      "name": "Graylog token revocation endpoint allows authenticated users to delete other users\u2019 access tokens",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-j769-9gv9-65gr",
-      "description": "Graylog token revocation endpoint allows authenticated users to delete other users\u2019 access tokens",
-      "date": "2026-08-28",
-      "affected": [
-        "org.graylog2:graylog2-server",
-        "org.graylog2:graylog2-server",
-        "org.graylog2:graylog2-server"
-      ],
-      "references": [
-        "https://github.com/Graylog2/graylog2-server/security/advisories/GHSA-j769-9gv9-65gr",
-        "https://github.com/Graylog2/graylog2-server/pull/26049",
-        "https://github.com/Graylog2/graylog2-server/pull/26051",
-        "https://github.com/Graylog2/graylog2-server/pull/26053",
-        "https://github.com/Graylog2/graylog2-server/pull/26055",
-        "https://github.com/Graylog2/graylog2-server/commit/41d3745d0e52736d06c07d279ca0d72c1616df4c",
-        "https://github.com/Graylog2/graylog2-server/commit/4f280138b53dc3bbb5749213e8cb1c8e372f23a2",
-        "https://github.com/Graylog2/graylog2-server/commit/84b0ffa0bdf918f6edd2bb23a47254088634b1fc",
-        "https://github.com/Graylog2/graylog2-server/commit/e5accc5f4ce48bd61b84bb8e5a13d21f8eac3da5",
-        "https://github.com/advisories/GHSA-j769-9gv9-65gr"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gqr6-r77p-c2pj",
-      "name": "Fortigate syslog message parser can be exploited to modify or delete fields from the original messag",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-gqr6-r77p-c2pj",
-      "description": "Fortigate syslog message parser can be exploited to modify or delete fields from the original message",
-      "date": "2026-08-28",
-      "affected": [
-        "org.graylog2:graylog2-server",
-        "org.graylog2:graylog2-server",
-        "org.graylog2:graylog2-server"
-      ],
-      "references": [
-        "https://github.com/Graylog2/graylog2-server/security/advisories/GHSA-gqr6-r77p-c2pj",
-        "https://github.com/Graylog2/graylog2-server/pull/26050",
-        "https://github.com/Graylog2/graylog2-server/pull/26056",
-        "https://github.com/Graylog2/graylog2-server/pull/26057",
-        "https://github.com/Graylog2/graylog2-server/pull/26059",
-        "https://github.com/Graylog2/graylog2-server/commit/793df6e8202ea55c15a762e47a2a8a775961dd3f",
-        "https://github.com/Graylog2/graylog2-server/commit/85dc699d6319aea433583dc239077a3a799c8627",
-        "https://github.com/Graylog2/graylog2-server/commit/d5051e604c962ef3d4e5e8e434d0ff4907d2140d",
-        "https://github.com/Graylog2/graylog2-server/commit/dde76d7432c469887d9a95c208083c5f0f73c70d",
-        "https://github.com/advisories/GHSA-gqr6-r77p-c2pj"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mrpp-v6pg-p54x",
-      "name": "klever-go: SFT add-quantity `int64` overflow bypasses a finite per-nonce MaxSupply",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-mrpp-v6pg-p54x",
-      "description": "klever-go: SFT add-quantity `int64` overflow bypasses a finite per-nonce MaxSupply",
-      "date": "2026-08-28",
-      "affected": [
-        "github.com/klever-io/klever-go"
-      ],
-      "references": [
-        "https://github.com/klever-io/klever-go/security/advisories/GHSA-mrpp-v6pg-p54x",
-        "https://github.com/klever-io/klever-go/commit/8bcc600b0ac88070740c63c7ce1c8a968dd85251",
-        "https://github.com/klever-io/klever-go/releases/tag/v1.7.19",
-        "https://github.com/advisories/GHSA-mrpp-v6pg-p54x"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/klever-io/klever-go"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/klever-io/klever-go"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-42r5-vhpq-m858",
-      "name": "MariaDB has Cleartext Transmission of Sensitive Information and Insufficiently Protected Credentials",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-42r5-vhpq-m858",
-      "description": "MariaDB has Cleartext Transmission of Sensitive Information and Insufficiently Protected Credentials",
-      "date": "2026-08-28",
-      "affected": [
-        "mariadb",
-        "mariadb",
-        "mariadb",
-        "mariadb"
-      ],
-      "references": [
-        "https://github.com/mariadb-corporation/mariadb-connector-nodejs/security/advisories/GHSA-42r5-vhpq-m858",
-        "https://github.com/mariadb-corporation/mariadb-connector-nodejs/commit/29733403cfe6519cdfe9c36c93765a468fbe285d",
-        "https://github.com/mariadb-corporation/mariadb-connector-nodejs/commit/53b304264df84496d331dba2765c3634602f342e",
-        "https://github.com/mariadb-corporation/mariadb-connector-nodejs/commit/9781de636841d34afdd08d81dd07d43edb82f85c",
-        "https://github.com/mariadb-corporation/mariadb-connector-nodejs/commit/fbc159c2c8bd18c2db2d2e6587ab3020bbda64b6",
-        "https://github.com/mariadb-corporation/mariadb-connector-nodejs/releases/tag/3.2.4",
-        "https://github.com/mariadb-corporation/mariadb-connector-nodejs/releases/tag/3.3.3",
-        "https://github.com/mariadb-corporation/mariadb-connector-nodejs/releases/tag/3.4.6",
-        "https://github.com/mariadb-corporation/mariadb-connector-nodejs/releases/tag/3.5.3",
-        "https://jira.mariadb.org/browse/CONJS-353",
-        "https://github.com/advisories/GHSA-42r5-vhpq-m858"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "mariadb",
-            "mariadb",
-            "mariadb",
-            "mariadb"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-p378-jp5r-gpgw",
-      "name": "arc has unauthenticated cluster node admission when `cluster.shared_secret` is unset",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-p378-jp5r-gpgw",
-      "description": "arc has unauthenticated cluster node admission when `cluster.shared_secret` is unset",
-      "date": "2026-08-28",
-      "affected": [
-        "github.com/basekick-labs/arc"
-      ],
-      "references": [
-        "https://github.com/Basekick-Labs/arc/security/advisories/GHSA-p378-jp5r-gpgw",
-        "https://github.com/Basekick-Labs/arc/pull/505",
-        "https://github.com/Basekick-Labs/arc/commit/38402ad2ebddd32c15bf4a0fc9c22c920e5685df",
-        "https://github.com/Basekick-Labs/arc/releases/tag/v26.06.2",
-        "https://github.com/advisories/GHSA-p378-jp5r-gpgw"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/basekick-labs/arc"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/basekick-labs/arc"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-x626-fcwx-f5pc",
-      "name": "Portainer has Unauthenticated Restore Endpoint that Allows Admin Takeover on Uninitialized Instances",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-x626-fcwx-f5pc",
-      "description": "Portainer has Unauthenticated Restore Endpoint that Allows Admin Takeover on Uninitialized Instances",
-      "date": "2026-08-28",
-      "affected": [
-        "github.com/portainer/portainer",
-        "github.com/portainer/portainer"
-      ],
-      "references": [
-        "https://github.com/portainer/portainer/security/advisories/GHSA-x626-fcwx-f5pc",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-55761",
-        "https://github.com/portainer/portainer/issues/2770",
-        "https://github.com/portainer/portainer/commit/49f19107cf9a3540cbe406c9eb7f24390e1af02b",
-        "https://github.com/portainer/portainer/commit/d2b56efcb4e43c4168bb6688eee9f6bf22867312",
-        "https://github.com/portainer/portainer/releases/tag/2.39.4",
-        "https://github.com/portainer/portainer/releases/tag/2.43.0",
-        "https://github.com/advisories/GHSA-x626-fcwx-f5pc"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/portainer/portainer",
-            "github.com/portainer/portainer"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/portainer/portainer",
-          "github.com/portainer/portainer"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-v358-wf77-39xv",
-      "name": "klever-go: Percentage-transfer royalty skips the source debit at exactly-100% splits",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-v358-wf77-39xv",
-      "description": "klever-go: Percentage-transfer royalty skips the source debit at exactly-100% splits",
-      "date": "2026-08-28",
-      "affected": [
-        "github.com/klever-io/klever-go"
-      ],
-      "references": [
-        "https://github.com/klever-io/klever-go/security/advisories/GHSA-v358-wf77-39xv",
-        "https://github.com/klever-io/klever-go/commit/8bcc600b0ac88070740c63c7ce1c8a968dd85251",
-        "https://github.com/klever-io/klever-go/releases/tag/v1.7.19",
-        "https://github.com/advisories/GHSA-v358-wf77-39xv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/klever-io/klever-go"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/klever-io/klever-go"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xrjc-c68j-hp7w",
-      "name": "PrivateBin has reflected JSON injection in backend responses via unescaped REQUEST_URI",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-xrjc-c68j-hp7w",
-      "description": "PrivateBin has reflected JSON injection in backend responses via unescaped REQUEST_URI",
-      "date": "2026-08-28",
-      "affected": [
-        "privatebin/privatebin"
-      ],
-      "references": [
-        "https://github.com/PrivateBin/PrivateBin/security/advisories/GHSA-xrjc-c68j-hp7w",
-        "https://github.com/PrivateBin/PrivateBin/commit/75f056dcda955d94c17ec5a4f8c54a9b7bfcee07",
-        "https://github.com/PrivateBin/PrivateBin/releases/tag/2.0.5",
-        "https://github.com/advisories/GHSA-xrjc-c68j-hp7w"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "privatebin/privatebin"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f2xf-7x3g-4272",
-      "name": "PrivateBin has stored Cross-Side-Scripting (XSS) vulnerability in attachment download link via dange",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-f2xf-7x3g-4272",
-      "description": "PrivateBin has stored Cross-Side-Scripting (XSS) vulnerability in attachment download link via dangerous MIME types with required user-interaction",
-      "date": "2026-08-28",
-      "affected": [
-        "privatebin/privatebin"
-      ],
-      "references": [
-        "https://github.com/PrivateBin/PrivateBin/security/advisories/GHSA-f2xf-7x3g-4272",
-        "https://github.com/PrivateBin/PrivateBin/commit/e0dd4c025c19a182b6a4c6fb77a8bf81ceff6899",
-        "https://github.com/PrivateBin/PrivateBin/releases/tag/2.0.5",
-        "https://github.com/advisories/GHSA-f2xf-7x3g-4272"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "privatebin/privatebin"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-73p9-6hrp-8qhr",
-      "name": "AIIR verification and policy gates could report success without enforcing the control (fail-open)",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-73p9-6hrp-8qhr",
-      "description": "AIIR verification and policy gates could report success without enforcing the control (fail-open)",
-      "date": "2026-08-28",
-      "affected": [
-        "aiir"
-      ],
-      "references": [
-        "https://github.com/invariant-systems-ai/aiir/security/advisories/GHSA-73p9-6hrp-8qhr",
-        "https://github.com/advisories/GHSA-73p9-6hrp-8qhr"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "google.golang.org/grpc": "gRPC-Go: Heap Memory Exhaustion (OOM) via HTTP/2 DATA Frame Fragmentation",
+    "typo3/cms-core": "TYPO3 CMS - Broken Access Control in Backend and Install Tool",
+    "typo3/cms-backend": "TYPO3 CMS - Broken Access Control in Backend and Install Tool",
+    "filament/filament": "Filament: Multi-factor authentication (app) codes can still be used after a newer code has been used",
     "league/commonmark": "league/commonmark: Denial of service via distinctly-named attributes in the Attributes extension",
     "@appium/base-driver": "Appium: Reflected XSS / arbitrary JS in @appium/base-driver /test/guinea-pig* routes",
     "smarty/smarty": "Smarty: SSRF via redirect bypass of trusted_uri using {fetch}",
@@ -1380,11 +1350,7 @@
     "snipe/snipe-it": "Snipe-IT has an Improper Privilege Management issue",
     "github.com/free5gc/ausf": "free5GC AUSF uses non-constant-time authentication comparisons and logs XRES* in 5G-AKA",
     "silverstripe/versioned": "silverstripe/versioned has XSS in archive admin restore",
-    "github.com/seaweedfs/seaweedfs": "SeaweedFS: Path traversal in the S3 gateway X-Amz-Copy-Source header allows cross-bucket object read",
-    "github.com/klever-io/klever-go": "klever-go: SFT add-quantity `int64` overflow bypasses a finite per-nonce MaxSupply",
-    "github.com/basekick-labs/arc": "arc has unauthenticated cluster node admission when `cluster.shared_secret` is unset",
-    "github.com/portainer/portainer": "Portainer has Unauthenticated Restore Endpoint that Allows Admin Takeover on Uninitialized Instances",
-    "privatebin/privatebin": "PrivateBin has reflected JSON injection in backend responses via unescaped REQUEST_URI"
+    "github.com/seaweedfs/seaweedfs": "SeaweedFS: Path traversal in the S3 gateway X-Amz-Copy-Source header allows cross-bucket object read"
   },
   "malicious_packages": {
     "npm": {},
