@@ -1,8 +1,125 @@
 {
   "version": "2026.09.03",
-  "last_updated": "2026-09-03T10:41:40.917426+00:00",
+  "last_updated": "2026-09-03T15:48:19.376564+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-gw25-m53r-qh88",
+      "name": "SiYuan: path traversal via /export/temp/ short-circuit branch (incomplete fix for the export-disclos",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-gw25-m53r-qh88",
+      "description": "SiYuan: path traversal via /export/temp/ short-circuit branch (incomplete fix for the export-disclosure hardening, GHSA-6865-qjcf-286f)",
+      "date": "2026-09-03",
+      "affected": [
+        "github.com/siyuan-note/siyuan/kernel"
+      ],
+      "references": [
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-gw25-m53r-qh88",
+        "https://github.com/siyuan-note/siyuan/commit/b763d787d1f2b862c577049e4ee147c5857fe413",
+        "https://github.com/advisories/GHSA-gw25-m53r-qh88"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/siyuan-note/siyuan/kernel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/siyuan-note/siyuan/kernel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-99rq-75j6-5j9f",
+      "name": "SiYuan: Stored and reflected XSS in SiYuan through an SVG sanitizer bypass",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-99rq-75j6-5j9f",
+      "description": "SiYuan: Stored and reflected XSS in SiYuan through an SVG sanitizer bypass",
+      "date": "2026-09-03",
+      "affected": [
+        "github.com/siyuan-note/siyuan/kernel"
+      ],
+      "references": [
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-99rq-75j6-5j9f",
+        "https://github.com/siyuan-note/siyuan/commit/f08dee71ba8e087a395d74f121de11e6a997ef14",
+        "https://github.com/siyuan-note/siyuan/releases/tag/v3.7.3",
+        "https://github.com/advisories/GHSA-99rq-75j6-5j9f"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/siyuan-note/siyuan/kernel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/siyuan-note/siyuan/kernel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-78x9-fhhx-v2g6",
+      "name": "CKAN MCP Server: Cache-key canonicalization collision enables cache confusion / poisoning",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-78x9-fhhx-v2g6",
+      "description": "CKAN MCP Server: Cache-key canonicalization collision enables cache confusion / poisoning",
+      "date": "2026-09-03",
+      "affected": [
+        "@aborruso/ckan-mcp-server"
+      ],
+      "references": [
+        "https://github.com/ondata/ckan-mcp-server/security/advisories/GHSA-78x9-fhhx-v2g6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-73846",
+        "https://github.com/ondata/ckan-mcp-server/commit/8e1522f9bbfa1f3b21550f17887f60f133e24151",
+        "https://github.com/ondata/ckan-mcp-server/releases/tag/v0.4.112",
+        "https://github.com/advisories/GHSA-78x9-fhhx-v2g6"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@aborruso/ckan-mcp-server"
+          ]
+        },
+        "compromised_actions": [
+          "@aborruso/ckan-mcp-server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6f9w-9hf2-5rg3",
+      "name": "CKAN MCP Server: Information disclosure via verbose error reflection",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-6f9w-9hf2-5rg3",
+      "description": "CKAN MCP Server: Information disclosure via verbose error reflection",
+      "date": "2026-09-03",
+      "affected": [
+        "@aborruso/ckan-mcp-server"
+      ],
+      "references": [
+        "https://github.com/ondata/ckan-mcp-server/security/advisories/GHSA-6f9w-9hf2-5rg3",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-73844",
+        "https://github.com/ondata/ckan-mcp-server/commit/3b827af72b228d42aa7b0d7dac5347d16af3f4e5",
+        "https://github.com/ondata/ckan-mcp-server/releases/tag/v0.4.112",
+        "https://github.com/advisories/GHSA-6f9w-9hf2-5rg3"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@aborruso/ckan-mcp-server"
+          ]
+        },
+        "compromised_actions": [
+          "@aborruso/ckan-mcp-server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-2mw5-23gm-pccq",
       "name": "OpenChoreo: Authenticated OS command injection via OpenChoreo Workflow Plane templates enables code ",
@@ -1336,113 +1453,12 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-g2fm-8hr4-j82h",
-      "name": "EasyAdmin custom-action dispatcher bypasses access_control on other routes",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-g2fm-8hr4-j82h",
-      "description": "EasyAdmin custom-action dispatcher bypasses access_control on other routes",
-      "date": "2026-09-02",
-      "affected": [
-        "easycorp/easyadmin-bundle",
-        "easycorp/easyadmin-bundle"
-      ],
-      "references": [
-        "https://github.com/EasyCorp/EasyAdminBundle/security/advisories/GHSA-g2fm-8hr4-j82h",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-81892",
-        "https://github.com/EasyCorp/EasyAdminBundle/commit/03be45c6b7213c4c984a1d0542b7ec60359329f8",
-        "https://github.com/EasyCorp/EasyAdminBundle/commit/6228dfef598d81eeb0baa35625e50812f3c77699",
-        "https://github.com/EasyCorp/EasyAdminBundle/releases/tag/v4.29.16",
-        "https://github.com/EasyCorp/EasyAdminBundle/releases/tag/v5.5.1",
-        "https://github.com/FriendsOfPHP/security-advisories/blob/master/easycorp/easyadmin-bundle/CVE-2026-81892.yaml",
-        "https://github.com/advisories/GHSA-g2fm-8hr4-j82h"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "easycorp/easyadmin-bundle",
-          "easycorp/easyadmin-bundle"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-g3hc-697w-wm82",
-      "name": "Livewire DOM-based cross-site scripting during client-side state handling",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-g3hc-697w-wm82",
-      "description": "Livewire DOM-based cross-site scripting during client-side state handling",
-      "date": "2026-09-02",
-      "affected": [
-        "livewire/livewire",
-        "livewire/livewire"
-      ],
-      "references": [
-        "https://github.com/livewire/livewire/security/advisories/GHSA-g3hc-697w-wm82",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-81887",
-        "https://github.com/livewire/livewire/pull/10467",
-        "https://github.com/livewire/livewire/commit/11ebe646f7e81dde2d714815da8b3019d058561e",
-        "https://github.com/livewire/livewire/releases/tag/v3.8.3",
-        "https://github.com/livewire/livewire/releases/tag/v4.3.4",
-        "https://github.com/advisories/GHSA-g3hc-697w-wm82"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "livewire/livewire",
-          "livewire/livewire"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mpf4-983q-p7j4",
-      "name": " Tornado: Urlencoded body parsing omits max_num_fields, so one request can stall the event loop",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-mpf4-983q-p7j4",
-      "description": " Tornado: Urlencoded body parsing omits max_num_fields, so one request can stall the event loop",
-      "date": "2026-09-02",
-      "affected": [
-        "tornado"
-      ],
-      "references": [
-        "https://github.com/tornadoweb/tornado/security/advisories/GHSA-mpf4-983q-p7j4",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-82397",
-        "https://github.com/tornadoweb/tornado/pull/3704",
-        "https://github.com/tornadoweb/tornado/commit/8d6363ed7b69d5f0da806efe34d256627a2191de",
-        "https://github.com/tornadoweb/tornado/releases/tag/v6.5.8",
-        "https://github.com/advisories/GHSA-mpf4-983q-p7j4"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-x8wg-4xgc-vr54",
-      "name": "Banks: Path traversal in `DirectoryPromptRegistry.set()` allows arbitrary file write outside the reg",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-x8wg-4xgc-vr54",
-      "description": "Banks: Path traversal in `DirectoryPromptRegistry.set()` allows arbitrary file write outside the registry root",
-      "date": "2026-09-02",
-      "affected": [
-        "banks"
-      ],
-      "references": [
-        "https://github.com/masci/banks/security/advisories/GHSA-x8wg-4xgc-vr54",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-71492",
-        "https://github.com/masci/banks/pull/77",
-        "https://github.com/masci/banks/commit/a215f6d779966945c56e0af5abed1ae5916fd9d3",
-        "https://github.com/masci/banks/releases/tag/v2.4.5",
-        "https://github.com/advisories/GHSA-x8wg-4xgc-vr54"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/siyuan-note/siyuan/kernel": "SiYuan: path traversal via /export/temp/ short-circuit branch (incomplete fix for the export-disclos",
+    "@aborruso/ckan-mcp-server": "CKAN MCP Server: Cache-key canonicalization collision enables cache confusion / poisoning",
     "github.com/openchoreo/openchoreo": "OpenChoreo: Authenticated OS command injection via OpenChoreo Workflow Plane templates enables code ",
     "github.com/axllent/mailpit": "Mailpit: SMTP command parser buffers unbounded command lines before syntax rejection",
     "github.com/seaweedfs/seaweedfs": "SeaweedFS: Filer JWT allowed_prefixes literal prefix match allows cross-tenant access to sibling pat",
@@ -1454,10 +1470,7 @@
     "sulu/sulu": "Sulu: Stored XSS via media download inline-disposition override",
     "@apostrophecms/import-export": "ApostropheCMS: Arbitrary file read via import-export attachment-name path traversal",
     "getkirby/cms": "Kirby: Access to image files outside of the site root via path traversal in the media handling",
-    "@aborruso/ckan-mcp-server": "CKAN MCP Server: MQA server allowlist bypass via unanchored regex (`isValidMqaServer`)",
-    "@tiptap/core": "Tiptap: mergeAttributes() turns an own __proto__ key into inherited executable DOM attributes",
-    "easycorp/easyadmin-bundle": "EasyAdmin custom-action dispatcher bypasses access_control on other routes",
-    "livewire/livewire": "Livewire DOM-based cross-site scripting during client-side state handling"
+    "@tiptap/core": "Tiptap: mergeAttributes() turns an own __proto__ key into inherited executable DOM attributes"
   },
   "malicious_packages": {
     "npm": {},
