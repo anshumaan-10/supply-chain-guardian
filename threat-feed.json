@@ -1,8 +1,371 @@
 {
   "version": "2026.09.04",
-  "last_updated": "2026-09-04T15:46:50.574967+00:00",
+  "last_updated": "2026-09-04T20:17:30.068236+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-848m-r628-vrxw",
+      "name": "SurrealDB: Custom API route lets authenticated callers override namespace/database scope via URL pat",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-848m-r628-vrxw",
+      "description": "SurrealDB: Custom API route lets authenticated callers override namespace/database scope via URL path",
+      "date": "2026-09-04",
+      "affected": [
+        "surrealdb"
+      ],
+      "references": [
+        "https://github.com/surrealdb/surrealdb/security/advisories/GHSA-848m-r628-vrxw",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63735",
+        "https://github.com/surrealdb/surrealdb/commit/0938f88d196dc4eb11a82af343df3fffe9c195e2",
+        "https://github.com/surrealdb/surrealdb/commit/75b7154f84904d047619b5a47b08d256254dceca",
+        "https://www.vulncheck.com/advisories/surrealdb-before-authentication-bypass-via-custom-api",
+        "https://github.com/advisories/GHSA-848m-r628-vrxw"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-gx45-xrj5-g6c4",
+      "name": "CodeWhale: Project config `allow_shell` override enables arbitrary shell command execution via clone",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-gx45-xrj5-g6c4",
+      "description": "CodeWhale: Project config `allow_shell` override enables arbitrary shell command execution via cloned repository",
+      "date": "2026-09-04",
+      "affected": [
+        "codewhale",
+        "codewhale-tui",
+        "deepseek-tui",
+        "deepseek-tui"
+      ],
+      "references": [
+        "https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-gx45-xrj5-g6c4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75911",
+        "https://github.com/Hmbown/CodeWhale/commit/43563356b98c6b993085554da82e77370160a31c",
+        "https://www.vulncheck.com/advisories/codewhale-before-remote-code-execution-via-allow-shell",
+        "https://github.com/advisories/GHSA-gx45-xrj5-g6c4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "codewhale",
+            "deepseek-tui"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wrj3-vj8c-784f",
+      "name": "CodeWhale: rlm_eval auto-approves arbitrary Python execution, bypassing the user's approval policy (",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-wrj3-vj8c-784f",
+      "description": "CodeWhale: rlm_eval auto-approves arbitrary Python execution, bypassing the user's approval policy (RCE)",
+      "date": "2026-09-04",
+      "affected": [
+        "codewhale",
+        "codewhale-tui",
+        "deepseek-tui",
+        "deepseek-tui"
+      ],
+      "references": [
+        "https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-wrj3-vj8c-784f",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75858",
+        "https://github.com/Hmbown/CodeWhale/commit/57f3c89471e27ac4032d9791f6885e5d4408c381",
+        "https://www.vulncheck.com/advisories/codewhale-rlm-eval-before-remote-code-execution",
+        "https://github.com/advisories/GHSA-wrj3-vj8c-784f"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "codewhale",
+            "deepseek-tui"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-c6mw-8xh8-gpq6",
+      "name": "CodeWhale: Argument Injection in `git_blame` Tool Allows Arbitrary File Read Without Approval",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-c6mw-8xh8-gpq6",
+      "description": "CodeWhale: Argument Injection in `git_blame` Tool Allows Arbitrary File Read Without Approval",
+      "date": "2026-09-04",
+      "affected": [
+        "codewhale",
+        "codewhale-tui",
+        "deepseek-tui",
+        "deepseek-tui"
+      ],
+      "references": [
+        "https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-c6mw-8xh8-gpq6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75912",
+        "https://github.com/Hmbown/CodeWhale/commit/9a34b5034d29f05d1f28fa61b04719ca6a741020",
+        "https://www.vulncheck.com/advisories/codewhale-before-argument-injection-via-git-blame",
+        "https://github.com/advisories/GHSA-c6mw-8xh8-gpq6"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "codewhale",
+            "deepseek-tui"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6v2g-fpxh-pmmh",
+      "name": "CodeWhale: SSRF\u200c bypass - TOCTOU on DNS failure for DNS pinning",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-6v2g-fpxh-pmmh",
+      "description": "CodeWhale: SSRF\u200c bypass - TOCTOU on DNS failure for DNS pinning",
+      "date": "2026-09-04",
+      "affected": [
+        "codewhale",
+        "codewhale-tui",
+        "deepseek-tui",
+        "deepseek-tui"
+      ],
+      "references": [
+        "https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-6v2g-fpxh-pmmh",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75856",
+        "https://github.com/Hmbown/CodeWhale/commit/26de44a8bd5051f8f944ea60b2c37ae1d2b7d25e",
+        "https://www.vulncheck.com/advisories/codewhale-before-ssrf-bypass-via-dns-pinning-toctou",
+        "https://github.com/advisories/GHSA-6v2g-fpxh-pmmh"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "codewhale",
+            "deepseek-tui"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h539-c7r8-3xq4",
+      "name": "CodeWhale: js_execution leaks parent environment to model context via missing env scrub",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-h539-c7r8-3xq4",
+      "description": "CodeWhale: js_execution leaks parent environment to model context via missing env scrub",
+      "date": "2026-09-04",
+      "affected": [
+        "codewhale",
+        "codewhale-tui",
+        "deepseek-tui",
+        "deepseek-tui"
+      ],
+      "references": [
+        "https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-h539-c7r8-3xq4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75915",
+        "https://github.com/Hmbown/CodeWhale/commit/26de44a8bd5051f8f944ea60b2c37ae1d2b7d25e",
+        "https://www.vulncheck.com/advisories/codewhale-before-environment-variable-leak-via-js-execution",
+        "https://github.com/advisories/GHSA-h539-c7r8-3xq4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "codewhale",
+            "deepseek-tui"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7j5w-7r7x-9v27",
+      "name": "CodeWhale: Argument Injection in `git_show` Tool Allows Arbitrary File Write Without Approval",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-7j5w-7r7x-9v27",
+      "description": "CodeWhale: Argument Injection in `git_show` Tool Allows Arbitrary File Write Without Approval",
+      "date": "2026-09-04",
+      "affected": [
+        "codewhale",
+        "codewhale-tui",
+        "deepseek-tui",
+        "deepseek-tui"
+      ],
+      "references": [
+        "https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-7j5w-7r7x-9v27",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75913",
+        "https://github.com/Hmbown/CodeWhale/commit/9a34b5034d29f05d1f28fa61b04719ca6a741020",
+        "https://www.vulncheck.com/advisories/codewhale-before-argument-injection-via-git-show",
+        "https://github.com/advisories/GHSA-7j5w-7r7x-9v27"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "codewhale",
+            "deepseek-tui"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g29h-pfmp-qp9r",
+      "name": "CodeWhale: exec_shell_interact sends LLM-controlled input to a running shell without an approval pro",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-g29h-pfmp-qp9r",
+      "description": "CodeWhale: exec_shell_interact sends LLM-controlled input to a running shell without an approval prompt (privilege escalation)",
+      "date": "2026-09-04",
+      "affected": [
+        "codewhale",
+        "codewhale-tui",
+        "deepseek-tui",
+        "deepseek-tui"
+      ],
+      "references": [
+        "https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-g29h-pfmp-qp9r",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75857",
+        "https://github.com/Hmbown/CodeWhale/commit/57f3c89471e27ac4032d9791f6885e5d4408c381",
+        "https://www.vulncheck.com/advisories/codewhale-before-privilege-escalation-via-exec-shell-interact",
+        "https://github.com/advisories/GHSA-g29h-pfmp-qp9r"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "codewhale",
+            "deepseek-tui"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-62f5-cp2p-vq95",
+      "name": "CodeWhale: Project config `instructions` override enables arbitrary file read into AI system prompt ",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-62f5-cp2p-vq95",
+      "description": "CodeWhale: Project config `instructions` override enables arbitrary file read into AI system prompt via cloned repository",
+      "date": "2026-09-04",
+      "affected": [
+        "codewhale",
+        "codewhale-tui",
+        "deepseek-tui",
+        "deepseek-tui"
+      ],
+      "references": [
+        "https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-62f5-cp2p-vq95",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75859",
+        "https://github.com/Hmbown/CodeWhale/commit/43563356b98c6b993085554da82e77370160a31c",
+        "https://www.vulncheck.com/advisories/codewhale-before-arbitrary-file-read-via-instructions",
+        "https://github.com/advisories/GHSA-62f5-cp2p-vq95"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "codewhale",
+            "deepseek-tui"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-w7wx-5q49-r59w",
+      "name": "CodeWhale: image_analyze follows workspace symlinks, leaking external file bytes",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-w7wx-5q49-r59w",
+      "description": "CodeWhale: image_analyze follows workspace symlinks, leaking external file bytes",
+      "date": "2026-09-04",
+      "affected": [
+        "codewhale",
+        "codewhale-tui",
+        "deepseek-tui",
+        "deepseek-tui"
+      ],
+      "references": [
+        "https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-w7wx-5q49-r59w",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75914",
+        "https://github.com/Hmbown/CodeWhale/commit/26de44a8bd5051f8f944ea60b2c37ae1d2b7d25e",
+        "https://www.vulncheck.com/advisories/codewhale-before-path-traversal-via-image-analyze-symlink",
+        "https://github.com/advisories/GHSA-w7wx-5q49-r59w"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "codewhale",
+            "deepseek-tui"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6hxq-p678-4hr2",
+      "name": "SimpleWebAuthn: Registration verification does not sufficiently ensure that attestation certificates",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-6hxq-p678-4hr2",
+      "description": "SimpleWebAuthn: Registration verification does not sufficiently ensure that attestation certificates chain to a trust anchor",
+      "date": "2026-09-04",
+      "affected": [
+        "@simplewebauthn/server"
+      ],
+      "references": [
+        "https://github.com/MasterKale/SimpleWebAuthn/security/advisories/GHSA-6hxq-p678-4hr2",
+        "https://github.com/MasterKale/SimpleWebAuthn/commit/67a41fed3dfd96cab1dcf414f6d1792a72e06e35",
+        "https://github.com/MasterKale/SimpleWebAuthn/commit/8a53d70f42bcbb7c744ef1b90e6db35bc4b26d06",
+        "https://github.com/MasterKale/SimpleWebAuthn/commit/dd0d73c716a528e6645efafbd43a972b64df71f9",
+        "https://github.com/MasterKale/SimpleWebAuthn/releases/tag/v13.3.2",
+        "https://github.com/advisories/GHSA-6hxq-p678-4hr2"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@simplewebauthn/server"
+          ]
+        },
+        "compromised_actions": [
+          "@simplewebauthn/server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-m3c3-78fh-w3w7",
+      "name": "SurrealDB allows bypass of deny-net flags via DNS resolution",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-m3c3-78fh-w3w7",
+      "description": "SurrealDB allows bypass of deny-net flags via DNS resolution",
+      "date": "2026-09-04",
+      "affected": [
+        "SurrealDB",
+        "SurrealDB",
+        "SurrealDB",
+        "SurrealDB"
+      ],
+      "references": [
+        "https://github.com/surrealdb/surrealdb/security/advisories/GHSA-m3c3-78fh-w3w7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-71390",
+        "https://github.com/surrealdb/surrealdb/pull/6101",
+        "https://github.com/surrealdb/surrealdb/pull/6119",
+        "https://github.com/surrealdb/surrealdb/pull/6120",
+        "https://github.com/surrealdb/surrealdb/pull/6121",
+        "https://github.com/surrealdb/surrealdb/commit/4b317d850c7dabaee228144423741097232f7955",
+        "https://github.com/surrealdb/surrealdb/commit/7c574dfa90211923e2ff1b12510c8479f8805b3d",
+        "https://github.com/surrealdb/surrealdb/commit/b80d7d08b043c0e4bc0b7ff8ddb9be0907c0bf59",
+        "https://github.com/surrealdb/surrealdb/commit/d5dc46f1c255ed450b3af025a0bdc165b6ce54a3",
+        "https://www.vulncheck.com/advisories/surrealdb-before-deny-net-bypass-via-dns-resolution",
+        "https://github.com/advisories/GHSA-m3c3-78fh-w3w7"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-5fhr-f75j-8wr9",
       "name": "SiYuan: Missing publish-access filter on getAttributeViewKeysByID discloses database column schema, ",
@@ -1114,376 +1477,15 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2w86-xfrc-g85r",
-      "name": "Orval: RCE via schema property name -> computed-property-key injection in the MSW mock generator",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-2w86-xfrc-g85r",
-      "description": "Orval: RCE via schema property name -> computed-property-key injection in the MSW mock generator",
-      "date": "2026-09-03",
-      "affected": [
-        "orval"
-      ],
-      "references": [
-        "https://github.com/orval-labs/orval/security/advisories/GHSA-2w86-xfrc-g85r",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-71867",
-        "https://github.com/orval-labs/orval/pull/3692",
-        "https://github.com/orval-labs/orval/commit/8ef1bfdf3f9bcaf9dabfbe2e42887f1c0e159ab6",
-        "https://github.com/orval-labs/orval/releases/tag/v8.21.0",
-        "https://github.com/advisories/GHSA-2w86-xfrc-g85r"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "orval"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3575-w9fc-c2j6",
-      "name": "Orval: Import-time RCE via enum-typed default -> zod module-level template literal",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-3575-w9fc-c2j6",
-      "description": "Orval: Import-time RCE via enum-typed default -> zod module-level template literal",
-      "date": "2026-09-03",
-      "affected": [
-        "orval"
-      ],
-      "references": [
-        "https://github.com/orval-labs/orval/security/advisories/GHSA-3575-w9fc-c2j6",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-71868",
-        "https://github.com/orval-labs/orval/pull/3692",
-        "https://github.com/orval-labs/orval/commit/8ef1bfdf3f9bcaf9dabfbe2e42887f1c0e159ab6",
-        "https://github.com/orval-labs/orval/releases/tag/v8.21.0",
-        "https://github.com/advisories/GHSA-3575-w9fc-c2j6"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "orval"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-653q-5476-x79g",
-      "name": "Orval: Import-time RCE via query parameter name -> computed-property-key injection in the zod cli",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-653q-5476-x79g",
-      "description": "Orval: Import-time RCE via query parameter name -> computed-property-key injection in the zod cli",
-      "date": "2026-09-03",
-      "affected": [
-        "orval"
-      ],
-      "references": [
-        "https://github.com/orval-labs/orval/security/advisories/GHSA-653q-5476-x79g",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-71865",
-        "https://github.com/orval-labs/orval/pull/3692",
-        "https://github.com/orval-labs/orval/commit/8ef1bfdf3f9bcaf9dabfbe2e42887f1c0e159ab6",
-        "https://github.com/orval-labs/orval/releases/tag/v8.21.0",
-        "https://github.com/advisories/GHSA-653q-5476-x79g"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "orval"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6437-gxhq-pqv8",
-      "name": "Orval: Import-time RCE via header parameter name -> computed-property-key injection in the zod clien",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-6437-gxhq-pqv8",
-      "description": "Orval: Import-time RCE via header parameter name -> computed-property-key injection in the zod client",
-      "date": "2026-09-03",
-      "affected": [
-        "orval"
-      ],
-      "references": [
-        "https://github.com/orval-labs/orval/security/advisories/GHSA-6437-gxhq-pqv8",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-71864",
-        "https://github.com/orval-labs/orval/pull/3692",
-        "https://github.com/orval-labs/orval/commit/8ef1bfdf3f9bcaf9dabfbe2e42887f1c0e159ab6",
-        "https://github.com/orval-labs/orval/releases/tag/v8.21.0",
-        "https://github.com/advisories/GHSA-6437-gxhq-pqv8"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "orval"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jcvh-xf52-2cwm",
-      "name": "ffuf denial of service (OOM) via HTTP response decompression bomb",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-jcvh-xf52-2cwm",
-      "description": "ffuf denial of service (OOM) via HTTP response decompression bomb",
-      "date": "2026-09-03",
-      "affected": [
-        "github.com/ffuf/ffuf",
-        "github.com/ffuf/ffuf/v2"
-      ],
-      "references": [
-        "https://github.com/ffuf/ffuf/security/advisories/GHSA-jcvh-xf52-2cwm",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-73232",
-        "https://github.com/ffuf/ffuf/pull/897",
-        "https://github.com/ffuf/ffuf/commit/fb0da86c60443b0dddbc9a86e91e3a6487dff79b",
-        "https://github.com/ffuf/ffuf/releases/tag/v2.2.0",
-        "https://github.com/advisories/GHSA-jcvh-xf52-2cwm"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/ffuf/ffuf",
-            "github.com/ffuf/ffuf/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/ffuf/ffuf",
-          "github.com/ffuf/ffuf/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8q3c-rjr9-xxrp",
-      "name": "VictoriaMetrics vmrestore: Path traversal via crafted backup part names escapes restore root",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-8q3c-rjr9-xxrp",
-      "description": "VictoriaMetrics vmrestore: Path traversal via crafted backup part names escapes restore root",
-      "date": "2026-09-03",
-      "affected": [
-        "github.com/VictoriaMetrics/VictoriaMetrics",
-        "github.com/VictoriaMetrics/VictoriaMetrics",
-        "github.com/VictoriaMetrics/VictoriaMetrics"
-      ],
-      "references": [
-        "https://github.com/VictoriaMetrics/VictoriaMetrics/security/advisories/GHSA-8q3c-rjr9-xxrp",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-61625",
-        "https://github.com/VictoriaMetrics/VictoriaMetrics/commit/710c920d6083327042a309e449fae4383617d817",
-        "https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.122.25",
-        "https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.136.12",
-        "https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.146.0",
-        "https://github.com/advisories/GHSA-8q3c-rjr9-xxrp"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/VictoriaMetrics/VictoriaMetrics",
-            "github.com/VictoriaMetrics/VictoriaMetrics",
-            "github.com/VictoriaMetrics/VictoriaMetrics"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/VictoriaMetrics/VictoriaMetrics",
-          "github.com/VictoriaMetrics/VictoriaMetrics",
-          "github.com/VictoriaMetrics/VictoriaMetrics"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-m7fp-h3p4-hr49",
-      "name": "LiquidJS has an infinite loop vulnerability in its `strip_html` filter",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-m7fp-h3p4-hr49",
-      "description": "LiquidJS has an infinite loop vulnerability in its `strip_html` filter",
-      "date": "2026-09-03",
-      "affected": [
-        "liquidjs"
-      ],
-      "references": [
-        "https://github.com/harttle/liquidjs/security/advisories/GHSA-m7fp-h3p4-hr49",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-61556",
-        "https://github.com/harttle/liquidjs/pull/917",
-        "https://github.com/harttle/liquidjs/commit/5c3522f33928aae66f0fe85c36e1d9015c768fe2",
-        "https://github.com/harttle/liquidjs/releases/tag/v10.27.1",
-        "https://github.com/advisories/GHSA-m7fp-h3p4-hr49"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "liquidjs"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h6cj-26g5-67fv",
-      "name": "OpenList: Authenticated arbitrary file write via Content-Disposition path traversal in SimpleHttp of",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-h6cj-26g5-67fv",
-      "description": "OpenList: Authenticated arbitrary file write via Content-Disposition path traversal in SimpleHttp offline-download tool",
-      "date": "2026-09-03",
-      "affected": [
-        "github.com/OpenListTeam/OpenList"
-      ],
-      "references": [
-        "https://github.com/OpenListTeam/OpenList/security/advisories/GHSA-h6cj-26g5-67fv",
-        "https://github.com/OpenListTeam/OpenList/commit/9cc5dd969b9833c8cb4e14c338c3571dfdbe2108",
-        "https://github.com/OpenListTeam/OpenList/releases/tag/v4.2.3",
-        "https://github.com/advisories/GHSA-h6cj-26g5-67fv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/OpenListTeam/OpenList"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/OpenListTeam/OpenList"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-w8wf-3qvj-6xqf",
-      "name": "OpenClaw Feishu permission tools could ignore per-account disablement",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-w8wf-3qvj-6xqf",
-      "description": "OpenClaw Feishu permission tools could ignore per-account disablement",
-      "date": "2026-09-03",
-      "affected": [
-        "@openclaw/feishu"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-w8wf-3qvj-6xqf",
-        "https://github.com/openclaw/openclaw/pull/93363",
-        "https://github.com/openclaw/openclaw/commit/d4f11d3005a56abc709ebc8e715972593ebed96e",
-        "https://github.com/openclaw/openclaw/releases/tag/v2026.6.9-beta.1",
-        "https://github.com/advisories/GHSA-w8wf-3qvj-6xqf"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@openclaw/feishu"
-          ]
-        },
-        "compromised_actions": [
-          "@openclaw/feishu"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2q7j-2vhx-56g8",
-      "name": "OpenClaw Feishu tools could ignore per-account disablement",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-2q7j-2vhx-56g8",
-      "description": "OpenClaw Feishu tools could ignore per-account disablement",
-      "date": "2026-09-03",
-      "affected": [
-        "@openclaw/feishu"
-      ],
-      "references": [
-        "https://github.com/openclaw/openclaw/security/advisories/GHSA-2q7j-2vhx-56g8",
-        "https://github.com/openclaw/openclaw/pull/93363",
-        "https://github.com/openclaw/openclaw/commit/d4f11d3005a56abc709ebc8e715972593ebed96e",
-        "https://github.com/openclaw/openclaw/releases/tag/v2026.6.9-beta.1",
-        "https://github.com/advisories/GHSA-2q7j-2vhx-56g8"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@openclaw/feishu"
-          ]
-        },
-        "compromised_actions": [
-          "@openclaw/feishu"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fm8w-2m5w-9j7r",
-      "name": "Cilium may unexpectedly allow ingress traffic from the local namespace when a Kubernetes NetworkPoli",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-fm8w-2m5w-9j7r",
-      "description": "Cilium may unexpectedly allow ingress traffic from the local namespace when a Kubernetes NetworkPolicy is configured with an ipBlock match",
-      "date": "2026-09-03",
-      "affected": [
-        "github.com/cilium/cilium"
-      ],
-      "references": [
-        "https://github.com/cilium/cilium/security/advisories/GHSA-fm8w-2m5w-9j7r",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-56743",
-        "https://github.com/cilium/cilium/pull/46305",
-        "https://github.com/cilium/cilium/pull/46456",
-        "https://github.com/cilium/cilium/commit/1c84ae3b58a7cd54f7ee355e6c524c82f620eae8",
-        "https://github.com/cilium/cilium/commit/bacea640404c0805c23515353dc1681c5bf35171",
-        "https://github.com/cilium/cilium/releases/tag/v1.19.5",
-        "https://github.com/advisories/GHSA-fm8w-2m5w-9j7r"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/cilium/cilium"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/cilium/cilium"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4mvj-m6j5-pmf7",
-      "name": "unstructured: Server-Side Request Forgery in the URL-based partitioning",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-4mvj-m6j5-pmf7",
-      "description": "unstructured: Server-Side Request Forgery in the URL-based partitioning",
-      "date": "2026-09-03",
-      "affected": [
-        "unstructured"
-      ],
-      "references": [
-        "https://github.com/Unstructured-IO/unstructured/security/advisories/GHSA-4mvj-m6j5-pmf7",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-71428",
-        "https://github.com/Unstructured-IO/unstructured/pull/4388",
-        "https://github.com/Unstructured-IO/unstructured/commit/445c95735c4045057f51f399bc04c657751923bd",
-        "https://github.com/Unstructured-IO/unstructured/releases/tag/0.24.0",
-        "https://github.com/advisories/GHSA-4mvj-m6j5-pmf7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@simplewebauthn/server": "SimpleWebAuthn: Registration verification does not sufficiently ensure that attestation certificates",
     "github.com/siyuan-note/siyuan/kernel": "SiYuan: Missing publish-access filter on getAttributeViewKeysByID discloses database column schema, ",
     "github.com/rabbitmq/amqp091-go": "amqp091-go has a Potential Memory Exhaustion/Protocol Violation via Broker-Controlled Oversized Payl",
     "@toon-format/toon": "TOON: Prototype pollution when decoding untrusted TOON input",
-    "github.com/semaphoreui/semaphore": "Semaphore UI: Manager-to-owner privilege escalation via custom-role slug collision",
-    "github.com/ffuf/ffuf": "ffuf denial of service (OOM) via HTTP response decompression bomb",
-    "github.com/ffuf/ffuf/v2": "ffuf denial of service (OOM) via HTTP response decompression bomb",
-    "github.com/VictoriaMetrics/VictoriaMetrics": "VictoriaMetrics vmrestore: Path traversal via crafted backup part names escapes restore root",
-    "github.com/OpenListTeam/OpenList": "OpenList: Authenticated arbitrary file write via Content-Disposition path traversal in SimpleHttp of",
-    "@openclaw/feishu": "OpenClaw Feishu permission tools could ignore per-account disablement",
-    "github.com/cilium/cilium": "Cilium may unexpectedly allow ingress traffic from the local namespace when a Kubernetes NetworkPoli"
+    "github.com/semaphoreui/semaphore": "Semaphore UI: Manager-to-owner privilege escalation via custom-role slug collision"
   },
   "malicious_packages": {
     "npm": {},
