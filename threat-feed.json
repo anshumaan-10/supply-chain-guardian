@@ -1,8 +1,453 @@
 {
-  "version": "2026.09.11",
-  "last_updated": "2026-09-11T20:28:09.494366+00:00",
+  "version": "2026.09.12",
+  "last_updated": "2026-09-12T03:12:26.618429+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-992q-9gwp-7r79",
+      "name": " ZITADEL: Auto-linking by email: IdP-side email verification is not checked",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-992q-9gwp-7r79",
+      "description": " ZITADEL: Auto-linking by email: IdP-side email verification is not checked",
+      "date": "2026-09-11",
+      "affected": [
+        "github.com/zitadel/zitadel"
+      ],
+      "references": [
+        "https://github.com/zitadel/zitadel/security/advisories/GHSA-992q-9gwp-7r79",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-56666",
+        "https://github.com/zitadel/zitadel/commit/c97012f0c5dc2fe960ae6e940cbea23229f0557f",
+        "https://github.com/zitadel/zitadel/releases/tag/v4.15.3",
+        "https://github.com/advisories/GHSA-992q-9gwp-7r79"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/zitadel/zitadel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/zitadel/zitadel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-325j-mg25-8q58",
+      "name": "yayson: Prototype pollution in Store/LegacyStore deserialization",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-325j-mg25-8q58",
+      "description": "yayson: Prototype pollution in Store/LegacyStore deserialization",
+      "date": "2026-09-11",
+      "affected": [
+        "yayson"
+      ],
+      "references": [
+        "https://github.com/confetti/yayson/security/advisories/GHSA-325j-mg25-8q58",
+        "https://github.com/advisories/GHSA-325j-mg25-8q58"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "yayson"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rqx4-3f6q-3x2v",
+      "name": "@Mockoon/commons-server: Unauthenticated admin API + wildcard CORS allows mock-state hijack and secr",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-rqx4-3f6q-3x2v",
+      "description": "@Mockoon/commons-server: Unauthenticated admin API + wildcard CORS allows mock-state hijack and secret theft",
+      "date": "2026-09-11",
+      "affected": [
+        "@mockoon/cli",
+        "@mockoon/commons-server"
+      ],
+      "references": [
+        "https://github.com/mockoon/mockoon/security/advisories/GHSA-rqx4-3f6q-3x2v",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59148",
+        "https://github.com/mockoon/mockoon/pull/2254",
+        "https://github.com/mockoon/mockoon/commit/c420b5a56918475b8663977b51e5f986e45b3299",
+        "https://github.com/mockoon/mockoon/releases/tag/v9.7.0",
+        "https://mockoon.com/releases/9.7.0",
+        "https://github.com/advisories/GHSA-rqx4-3f6q-3x2v"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@mockoon/cli",
+            "@mockoon/commons-server"
+          ]
+        },
+        "compromised_actions": [
+          "@mockoon/cli",
+          "@mockoon/commons-server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8wqc-v2q8-vff2",
+      "name": "@Mockoon/commons-server: Path traversal in templated `filePath` lets a request escape the served dir",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-8wqc-v2q8-vff2",
+      "description": "@Mockoon/commons-server: Path traversal in templated `filePath` lets a request escape the served directory (prefix-only base check)",
+      "date": "2026-09-11",
+      "affected": [
+        "@mockoon/cli",
+        "@mockoon/commons-server"
+      ],
+      "references": [
+        "https://github.com/mockoon/mockoon/security/advisories/GHSA-8wqc-v2q8-vff2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59149",
+        "https://github.com/mockoon/mockoon/pull/2255",
+        "https://github.com/mockoon/mockoon/commit/b42bdfb7f82e83f0e81bea8e6fe41adf5ec82585",
+        "https://github.com/mockoon/mockoon/releases/tag/v9.7.0",
+        "https://mockoon.com/releases/9.7.0",
+        "https://github.com/advisories/GHSA-8wqc-v2q8-vff2"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@mockoon/cli",
+            "@mockoon/commons-server"
+          ]
+        },
+        "compromised_actions": [
+          "@mockoon/cli",
+          "@mockoon/commons-server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-65h7-9wrw-629c",
+      "name": "FrontMCP and mcp-from-openapi have bypass of OpenAPI external $ref SSRF fix",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-65h7-9wrw-629c",
+      "description": "FrontMCP and mcp-from-openapi have bypass of OpenAPI external $ref SSRF fix",
+      "date": "2026-09-11",
+      "affected": [
+        "frontmcp",
+        "@frontmcp/adapters",
+        "mcp-from-openapi"
+      ],
+      "references": [
+        "https://github.com/agentfront/frontmcp/security/advisories/GHSA-65h7-9wrw-629c",
+        "https://github.com/advisories/GHSA-65h7-9wrw-629c"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "frontmcp",
+            "@frontmcp/adapters",
+            "mcp-from-openapi"
+          ]
+        },
+        "compromised_actions": [
+          "@frontmcp/adapters"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h8m9-jgf8-vwvp",
+      "name": "Prowler: SAML Domain Claiming Enables Cross-Tenant Account Takeover",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-h8m9-jgf8-vwvp",
+      "description": "Prowler: SAML Domain Claiming Enables Cross-Tenant Account Takeover",
+      "date": "2026-09-11",
+      "affected": [
+        "prowler-cloud"
+      ],
+      "references": [
+        "https://github.com/prowler-cloud/prowler/security/advisories/GHSA-h8m9-jgf8-vwvp",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59151",
+        "https://github.com/prowler-cloud/prowler/pull/11650",
+        "https://github.com/prowler-cloud/prowler/commit/bf3b5c2ba713e533014927141b64948c82c8f32e",
+        "https://github.com/prowler-cloud/prowler/commit/f5ff30ad175bd2edf02cd28872653c1cda5867b7",
+        "https://github.com/prowler-cloud/prowler/releases/tag/5.30.3",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/prowler-cloud/PYSEC-2026-3725.yaml",
+        "https://github.com/advisories/GHSA-h8m9-jgf8-vwvp"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v77h-2w3m-94hx",
+      "name": "ZITADEL: Missing Token Expiration (`exp`) Validation in JWT IdP Provider",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-v77h-2w3m-94hx",
+      "description": "ZITADEL: Missing Token Expiration (`exp`) Validation in JWT IdP Provider",
+      "date": "2026-09-11",
+      "affected": [
+        "github.com/zitadel/zitadel",
+        "github.com/zitadel/zitadel"
+      ],
+      "references": [
+        "https://github.com/zitadel/zitadel/security/advisories/GHSA-v77h-2w3m-94hx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-56665",
+        "https://github.com/zitadel/zitadel/commit/4925fab849d39a88674485d937b79e54318b48a8",
+        "https://github.com/zitadel/zitadel/commit/d1c3aa84af8fcb0f33910ada30b866f4afb551ac",
+        "https://github.com/zitadel/zitadel/releases/tag/v3.4.12",
+        "https://github.com/zitadel/zitadel/releases/tag/v4.15.2",
+        "https://github.com/advisories/GHSA-v77h-2w3m-94hx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/zitadel/zitadel",
+            "github.com/zitadel/zitadel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/zitadel/zitadel",
+          "github.com/zitadel/zitadel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2cg9-97gq-9mqp",
+      "name": "Shopper: Missing authorization on product removal actions in CollectionProducts component",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2cg9-97gq-9mqp",
+      "description": "Shopper: Missing authorization on product removal actions in CollectionProducts component",
+      "date": "2026-09-11",
+      "affected": [
+        "shopper/framework"
+      ],
+      "references": [
+        "https://github.com/shopperlabs/shopper/security/advisories/GHSA-2cg9-97gq-9mqp",
+        "https://github.com/advisories/GHSA-2cg9-97gq-9mqp"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "shopper/framework"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-99h5-jhh7-v3r3",
+      "name": "Shopper: Media sub-form store() still lacks authorization (Incomplete fix for GHSA-h4mp-g9c6-xwph)",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-99h5-jhh7-v3r3",
+      "description": "Shopper: Media sub-form store() still lacks authorization (Incomplete fix for GHSA-h4mp-g9c6-xwph)",
+      "date": "2026-09-11",
+      "affected": [
+        "shopper/framework"
+      ],
+      "references": [
+        "https://github.com/shopperlabs/shopper/security/advisories/GHSA-99h5-jhh7-v3r3",
+        "https://github.com/advisories/GHSA-99h5-jhh7-v3r3"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "shopper/framework"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g3f9-g5vj-p62f",
+      "name": "Shopper: Unauthorized inventory stock manipulation via unlocked variant property in VariantStock com",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-g3f9-g5vj-p62f",
+      "description": "Shopper: Unauthorized inventory stock manipulation via unlocked variant property in VariantStock component",
+      "date": "2026-09-11",
+      "affected": [
+        "shopper/framework"
+      ],
+      "references": [
+        "https://github.com/shopperlabs/shopper/security/advisories/GHSA-g3f9-g5vj-p62f",
+        "https://github.com/advisories/GHSA-g3f9-g5vj-p62f"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "shopper/framework"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-j328-xmgp-j4q3",
+      "name": "Shopper: privilege escalation via improper Livewire admin component authorization",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-j328-xmgp-j4q3",
+      "description": "Shopper: privilege escalation via improper Livewire admin component authorization",
+      "date": "2026-09-11",
+      "affected": [
+        "shopper/framework"
+      ],
+      "references": [
+        "https://github.com/shopperlabs/shopper/security/advisories/GHSA-j328-xmgp-j4q3",
+        "https://github.com/advisories/GHSA-j328-xmgp-j4q3"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "shopper/framework"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f7h9-qv4x-9x57",
+      "name": "Shopping privilege escalation through missing authorization in Settings components",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-f7h9-qv4x-9x57",
+      "description": "Shopping privilege escalation through missing authorization in Settings components",
+      "date": "2026-09-11",
+      "affected": [
+        "shopper/framework"
+      ],
+      "references": [
+        "https://github.com/shopperlabs/shopper/security/advisories/GHSA-f7h9-qv4x-9x57",
+        "https://github.com/advisories/GHSA-f7h9-qv4x-9x57"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "shopper/framework"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5vf4-452p-jjhf",
+      "name": "Shopper: Negative discount values accepted and propagated through order calculation pipeline",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-5vf4-452p-jjhf",
+      "description": "Shopper: Negative discount values accepted and propagated through order calculation pipeline",
+      "date": "2026-09-11",
+      "affected": [
+        "shopper/framework"
+      ],
+      "references": [
+        "https://github.com/shopperlabs/shopper/security/advisories/GHSA-5vf4-452p-jjhf",
+        "https://github.com/advisories/GHSA-5vf4-452p-jjhf"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "shopper/framework"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-243p-f3cv-c5wh",
+      "name": "Shopper: Authorization bypass in Filament bulk actions allows browse-only staff to mass-delete attri",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-243p-f3cv-c5wh",
+      "description": "Shopper: Authorization bypass in Filament bulk actions allows browse-only staff to mass-delete attributes/tags and mass-toggle visibility of brands/categories/suppliers",
+      "date": "2026-09-11",
+      "affected": [
+        "shopper/framework"
+      ],
+      "references": [
+        "https://github.com/shopperlabs/shopper/security/advisories/GHSA-243p-f3cv-c5wh",
+        "https://github.com/advisories/GHSA-243p-f3cv-c5wh"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "shopper/framework"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vjfw-cpmh-xwv3",
+      "name": "Central Dogma: SSH host-key verification permanently disabled in Git mirror (SshGitMirror)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-vjfw-cpmh-xwv3",
+      "description": "Central Dogma: SSH host-key verification permanently disabled in Git mirror (SshGitMirror)",
+      "date": "2026-09-11",
+      "affected": [
+        "com.linecorp.centraldogma:centraldogma-server-mirror-git"
+      ],
+      "references": [
+        "https://github.com/line/centraldogma/security/advisories/GHSA-vjfw-cpmh-xwv3",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-11745",
+        "https://github.com/advisories/GHSA-vjfw-cpmh-xwv3"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2j95-gqxf-v3vg",
+      "name": "Central Dogma: Hard-coded ZooKeeper replication secret 'ch4n63m3' with silent fallback enables clust",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-2j95-gqxf-v3vg",
+      "description": "Central Dogma: Hard-coded ZooKeeper replication secret 'ch4n63m3' with silent fallback enables cluster takeover",
+      "date": "2026-09-11",
+      "affected": [
+        "com.linecorp.centraldogma:centraldogma-server"
+      ],
+      "references": [
+        "https://github.com/line/centraldogma/security/advisories/GHSA-2j95-gqxf-v3vg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-11746",
+        "https://github.com/advisories/GHSA-2j95-gqxf-v3vg"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-98q5-5qh2-7w75",
+      "name": "Central Dogma: LDAP injection in SearchFirstActiveDirectoryRealm enables authentication confusion an",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-98q5-5qh2-7w75",
+      "description": "Central Dogma: LDAP injection in SearchFirstActiveDirectoryRealm enables authentication confusion and audit log evasion",
+      "date": "2026-09-11",
+      "affected": [
+        "com.linecorp.centraldogma:centraldogma-server-auth-shiro"
+      ],
+      "references": [
+        "https://github.com/line/centraldogma/security/advisories/GHSA-98q5-5qh2-7w75",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-11748",
+        "https://github.com/advisories/GHSA-98q5-5qh2-7w75"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rqfv-2mw9-78g2",
+      "name": "MySQL MCP Server: Missing Origin/Host Validation in SSE Transport Enables Unauthenticated SQL Execut",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-rqfv-2mw9-78g2",
+      "description": "MySQL MCP Server: Missing Origin/Host Validation in SSE Transport Enables Unauthenticated SQL Execution (DNS Rebinding / Direct Exposure)",
+      "date": "2026-09-11",
+      "affected": [
+        "mysql-mcp-server"
+      ],
+      "references": [
+        "https://github.com/designcomputer/mysql_mcp_server/security/advisories/GHSA-rqfv-2mw9-78g2",
+        "https://github.com/designcomputer/mysql_mcp_server/issues/92",
+        "https://github.com/designcomputer/mysql_mcp_server/releases/tag/v0.4.2",
+        "https://github.com/advisories/GHSA-rqfv-2mw9-78g2"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-wvm9-9g5j-623f",
       "name": "Open WebUI: Users denied by the OAuth role policy can still sign in via token exchange",
@@ -904,627 +1349,20 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f2cp-m7mv-8jpv",
-      "name": "n8n: Path Injection in Elasticsearch and ElasticSecurity Nodes via Unencoded Identifiers",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-f2cp-m7mv-8jpv",
-      "description": "n8n: Path Injection in Elasticsearch and ElasticSecurity Nodes via Unencoded Identifiers",
-      "date": "2026-09-10",
-      "affected": [
-        "n8n",
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-f2cp-m7mv-8jpv",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86079",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.38.2",
-        "https://github.com/advisories/GHSA-f2cp-m7mv-8jpv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-679f-58pq-4v2c",
-      "name": "n8n: Prototype Pollution via Workflow Structure Summary Can Lead to Denial of Service",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-679f-58pq-4v2c",
-      "description": "n8n: Prototype Pollution via Workflow Structure Summary Can Lead to Denial of Service",
-      "date": "2026-09-10",
-      "affected": [
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-679f-58pq-4v2c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86078",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.38.2",
-        "https://github.com/advisories/GHSA-679f-58pq-4v2c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-65xw-2v52-jhxc",
-      "name": "n8n: Cross-User Active Workflow ID and Lifecycle Event Disclosure via Missing userId Filter",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-65xw-2v52-jhxc",
-      "description": "n8n: Cross-User Active Workflow ID and Lifecycle Event Disclosure via Missing userId Filter",
-      "date": "2026-09-10",
-      "affected": [
-        "n8n",
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-65xw-2v52-jhxc",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86994",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.38.2",
-        "https://github.com/advisories/GHSA-65xw-2v52-jhxc"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6xcw-7xm6-48c6",
-      "name": "n8n: Expression Sandbox Escape via Shared Builtin Tampering and Code-Printer Injection Leads to Code",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-6xcw-7xm6-48c6",
-      "description": "n8n: Expression Sandbox Escape via Shared Builtin Tampering and Code-Printer Injection Leads to Code Execution",
-      "date": "2026-09-10",
-      "affected": [
-        "n8n",
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-6xcw-7xm6-48c6",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86083",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.38.2",
-        "https://github.com/advisories/GHSA-6xcw-7xm6-48c6"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-35jj-42hp-8gmq",
-      "name": "n8n: Anonymous Approval-Gate Bypass via Reused resumeToken over the Chat WebSocket",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-35jj-42hp-8gmq",
-      "description": "n8n: Anonymous Approval-Gate Bypass via Reused resumeToken over the Chat WebSocket",
-      "date": "2026-09-10",
-      "affected": [
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-35jj-42hp-8gmq",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86077",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.38.2",
-        "https://github.com/advisories/GHSA-35jj-42hp-8gmq"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rf44-j88r-hh8c",
-      "name": "Traefik: ForwardAuth identity spoofing via dot-form header alias",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-rf44-j88r-hh8c",
-      "description": "Traefik: ForwardAuth identity spoofing via dot-form header alias",
-      "date": "2026-09-10",
-      "affected": [
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v2"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-rf44-j88r-hh8c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-88011",
-        "https://github.com/traefik/traefik/pull/13720",
-        "https://github.com/traefik/traefik/commit/0331801c72329e0eaeb850e53ccce87c57fbecf8",
-        "https://github.com/traefik/traefik/releases/tag/v2.11.56",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.12",
-        "https://github.com/advisories/GHSA-rf44-j88r-hh8c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7ghq-v6jf-g56c",
-      "name": "Traefik: respondingTimeouts.readTimeout is not applied to HTTP/3, leaving slow-body uploads unbounde",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-7ghq-v6jf-g56c",
-      "description": "Traefik: respondingTimeouts.readTimeout is not applied to HTTP/3, leaving slow-body uploads unbounded",
-      "date": "2026-09-10",
-      "affected": [
-        "github.com/traefik/traefik/v3",
-        "github.com/traefik/traefik/v2"
-      ],
-      "references": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-7ghq-v6jf-g56c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-88012",
-        "https://github.com/traefik/traefik/pull/13717",
-        "https://github.com/traefik/traefik/commit/a8d0bc425859dde7481a6c9a324e610b81d754d0",
-        "https://github.com/traefik/traefik/releases/tag/v2.11.56",
-        "https://github.com/traefik/traefik/releases/tag/v3.7.12",
-        "https://github.com/advisories/GHSA-7ghq-v6jf-g56c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/traefik/traefik/v3",
-            "github.com/traefik/traefik/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/traefik/traefik/v3",
-          "github.com/traefik/traefik/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-v3p8-whq6-r5jg",
-      "name": "Angular: SSR XSS via Unescaped <template> Content Across DocumentFragment Boundaries in Fallback Raw",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-v3p8-whq6-r5jg",
-      "description": "Angular: SSR XSS via Unescaped <template> Content Across DocumentFragment Boundaries in Fallback Raw-Content Elements",
-      "date": "2026-09-10",
-      "affected": [
-        "@angular/platform-server",
-        "@angular/platform-server",
-        "@angular/platform-server",
-        "@angular/platform-server"
-      ],
-      "references": [
-        "https://github.com/angular/angular/security/advisories/GHSA-v3p8-whq6-r5jg",
-        "https://github.com/angular/angular/commit/73d8bbd27cb46495426d4132975a1355b47ad915",
-        "https://github.com/angular/angular/commit/89b20568dfaee1ec8e0b3bcf1872acdddd2f4fef",
-        "https://github.com/angular/angular/commit/ba3bc47b20b3d12f5eb141ec9c651373ae4d15e8",
-        "https://github.com/angular/domino/commit/04f987dc08ff3736b427f50941adf1722458528f",
-        "https://github.com/angular/angular/releases/tag/v20.3.30",
-        "https://github.com/angular/angular/releases/tag/v21.2.22",
-        "https://github.com/angular/angular/releases/tag/v22.1.4",
-        "https://github.com/advisories/GHSA-v3p8-whq6-r5jg"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@angular/platform-server",
-            "@angular/platform-server",
-            "@angular/platform-server",
-            "@angular/platform-server"
-          ]
-        },
-        "compromised_actions": [
-          "@angular/platform-server",
-          "@angular/platform-server",
-          "@angular/platform-server",
-          "@angular/platform-server"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f6mr-pjwc-34m4",
-      "name": "Angular: SSRF and Cross-Origin Credential Disclosure via URL Resolution Discrepancy in SSR",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-f6mr-pjwc-34m4",
-      "description": "Angular: SSRF and Cross-Origin Credential Disclosure via URL Resolution Discrepancy in SSR",
-      "date": "2026-09-10",
-      "affected": [
-        "@angular/platform-server",
-        "@angular/platform-server",
-        "@angular/platform-server",
-        "@angular/platform-server"
-      ],
-      "references": [
-        "https://github.com/angular/angular/security/advisories/GHSA-f6mr-pjwc-34m4",
-        "https://github.com/angular/angular/commit/3e924cc8dbbb57f23b262cb8f0d7e2bd0673034c",
-        "https://github.com/angular/angular/commit/5aa6d97deb9ef1de14e23748b7fa74f97d183132",
-        "https://github.com/angular/angular/commit/71e52d1396b9cef98652929b73e08c4cde645970",
-        "https://github.com/angular/angular/commit/9339a7a2de437ed93f9cc3da7f32d0100412d599",
-        "https://github.com/angular/angular/releases/tag/v20.3.30",
-        "https://github.com/angular/angular/releases/tag/v21.2.22",
-        "https://github.com/angular/angular/releases/tag/v22.1.4",
-        "https://github.com/advisories/GHSA-f6mr-pjwc-34m4"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@angular/platform-server",
-            "@angular/platform-server",
-            "@angular/platform-server",
-            "@angular/platform-server"
-          ]
-        },
-        "compromised_actions": [
-          "@angular/platform-server",
-          "@angular/platform-server",
-          "@angular/platform-server",
-          "@angular/platform-server"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-p297-fm68-3q8c",
-      "name": "Angular: Information Leak via `HttpTransferCache` Bypass When Using `withRequestsMadeViaParent`",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-p297-fm68-3q8c",
-      "description": "Angular: Information Leak via `HttpTransferCache` Bypass When Using `withRequestsMadeViaParent`",
-      "date": "2026-09-10",
-      "affected": [
-        "@angular/common",
-        "@angular/common",
-        "@angular/common",
-        "@angular/common"
-      ],
-      "references": [
-        "https://github.com/angular/angular/security/advisories/GHSA-p297-fm68-3q8c",
-        "https://github.com/angular/angular/issues/69777",
-        "https://github.com/angular/angular/pull/69778",
-        "https://github.com/angular/angular/commit/c45028e44f5f3c1e0006eaccf86642deca51b2af",
-        "https://github.com/angular/angular/commit/caf616670fd20d528aa69e0131cc17d60f0cc27d",
-        "https://github.com/angular/angular/commit/e4c416c20a1cb222ce73d29c035452b257380c56",
-        "https://github.com/angular/angular/releases/tag/v20.3.28",
-        "https://github.com/angular/angular/releases/tag/v21.2.20",
-        "https://github.com/angular/angular/releases/tag/v22.1.1",
-        "https://github.com/advisories/GHSA-p297-fm68-3q8c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@angular/common",
-            "@angular/common",
-            "@angular/common",
-            "@angular/common"
-          ]
-        },
-        "compromised_actions": [
-          "@angular/common",
-          "@angular/common",
-          "@angular/common",
-          "@angular/common"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hh8m-fm6v-7cvg",
-      "name": "Angular: Sanitization bypass via directive host bindings on concrete host elements in @angular/core ",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hh8m-fm6v-7cvg",
-      "description": "Angular: Sanitization bypass via directive host bindings on concrete host elements in @angular/core and @angular/compiler",
-      "date": "2026-09-10",
-      "affected": [
-        "@angular/compiler",
-        "@angular/core",
-        "@angular/compiler",
-        "@angular/core",
-        "@angular/compiler",
-        "@angular/core",
-        "@angular/compiler",
-        "@angular/core"
-      ],
-      "references": [
-        "https://github.com/angular/angular/security/advisories/GHSA-hh8m-fm6v-7cvg",
-        "https://github.com/angular/angular/issues/69550",
-        "https://github.com/angular/angular/pull/69558",
-        "https://github.com/angular/angular/commit/2f96c8020f85ccb715a76de4b79a0c680c2c7264",
-        "https://github.com/angular/angular/commit/6afe6fa781c2f0931f0aedd729b9884a8fe212ee",
-        "https://github.com/angular/angular/commit/6caa298dee58319b2d674dc91364e26ffe3ecb2b",
-        "https://github.com/angular/angular/releases/tag/v20.3.28",
-        "https://github.com/angular/angular/releases/tag/v21.2.20",
-        "https://github.com/angular/angular/releases/tag/v22.1.0",
-        "https://github.com/advisories/GHSA-hh8m-fm6v-7cvg"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@angular/compiler",
-            "@angular/core",
-            "@angular/compiler",
-            "@angular/core",
-            "@angular/compiler",
-            "@angular/core",
-            "@angular/compiler",
-            "@angular/core"
-          ]
-        },
-        "compromised_actions": [
-          "@angular/compiler",
-          "@angular/core",
-          "@angular/compiler",
-          "@angular/core",
-          "@angular/compiler",
-          "@angular/core",
-          "@angular/compiler",
-          "@angular/core"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-23rh-xw42-fq82",
-      "name": "Pimcore: SQL Injection in Custom Reports via Malicious Report Configuration",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-23rh-xw42-fq82",
-      "description": "Pimcore: SQL Injection in Custom Reports via Malicious Report Configuration",
-      "date": "2026-09-10",
-      "affected": [
-        "pimcore/pimcore",
-        "pimcore/pimcore",
-        "pimcore/pimcore"
-      ],
-      "references": [
-        "https://github.com/pimcore/pimcore/security/advisories/GHSA-23rh-xw42-fq82",
-        "https://github.com/pimcore/pimcore/releases/tag/v11.5.19",
-        "https://github.com/pimcore/pimcore/releases/tag/v12.3.10",
-        "https://github.com/pimcore/pimcore/releases/tag/v2026.1.6",
-        "https://github.com/advisories/GHSA-23rh-xw42-fq82"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "pimcore/pimcore",
-          "pimcore/pimcore",
-          "pimcore/pimcore"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-34ff-336r-5q23",
-      "name": "n8n: Domain-Restriction Bypass via Unguarded Model-Search Endpoint in OpenAI Chat Model Node",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-34ff-336r-5q23",
-      "description": "n8n: Domain-Restriction Bypass via Unguarded Model-Search Endpoint in OpenAI Chat Model Node",
-      "date": "2026-09-10",
-      "affected": [
-        "n8n",
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-34ff-336r-5q23",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86082",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.38.2",
-        "https://github.com/advisories/GHSA-34ff-336r-5q23"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-j535-v25q-vx3q",
-      "name": "n8n: Regular Expression Denial of Service in the Default Blocked-File-Pattern Match via a Git Node C",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-j535-v25q-vx3q",
-      "description": "n8n: Regular Expression Denial of Service in the Default Blocked-File-Pattern Match via a Git Node Clone Path",
-      "date": "2026-09-10",
-      "affected": [
-        "n8n",
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-j535-v25q-vx3q",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86081",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.38.2",
-        "https://github.com/advisories/GHSA-j535-v25q-vx3q"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hh89-3r9w-qj3j",
-      "name": "n8n: Unauthenticated Persistent Storage Exhaustion via OAuth Dynamic Client Registration Endpoint",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-hh89-3r9w-qj3j",
-      "description": "n8n: Unauthenticated Persistent Storage Exhaustion via OAuth Dynamic Client Registration Endpoint",
-      "date": "2026-09-10",
-      "affected": [
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-hh89-3r9w-qj3j",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86075",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.38.2",
-        "https://github.com/advisories/GHSA-hh89-3r9w-qj3j"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hw8v-xxg5-vvvx",
-      "name": "n8n: Expression Sandbox Escape via Class-Field Sanitizer Rebinding Can Lead to Code Execution",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-hw8v-xxg5-vvvx",
-      "description": "n8n: Expression Sandbox Escape via Class-Field Sanitizer Rebinding Can Lead to Code Execution",
-      "date": "2026-09-10",
-      "affected": [
-        "n8n",
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-hw8v-xxg5-vvvx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86076",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.38.2",
-        "https://github.com/advisories/GHSA-hw8v-xxg5-vvvx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-pcvc-8vrv-8q6w",
-      "name": "Open WebUI: Inaccessible knowledge bases are exposed through the built-in knowledge tool on most vec",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-pcvc-8vrv-8q6w",
-      "description": "Open WebUI: Inaccessible knowledge bases are exposed through the built-in knowledge tool on most vector backends",
-      "date": "2026-09-10",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-pcvc-8vrv-8q6w",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-87017",
-        "https://github.com/open-webui/open-webui/commit/1d6d4e6e6647e1d403438ede7bd9ba20bc4cc8f6",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.1",
-        "https://github.com/advisories/GHSA-pcvc-8vrv-8q6w"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fmqh-xp37-5hr8",
-      "name": "Open WebUI: Channel members can overwrite another member's message via the chat completions endpoint",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-fmqh-xp37-5hr8",
-      "description": "Open WebUI: Channel members can overwrite another member's message via the chat completions endpoint",
-      "date": "2026-09-10",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-fmqh-xp37-5hr8",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-87994",
-        "https://github.com/open-webui/open-webui/pull/28631",
-        "https://github.com/open-webui/open-webui/commit/7d392bedc9c1aaecc94509a58e59186b614433dc",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.1",
-        "https://github.com/advisories/GHSA-fmqh-xp37-5hr8"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/zitadel/zitadel": " ZITADEL: Auto-linking by email: IdP-side email verification is not checked",
+    "@mockoon/cli": "@Mockoon/commons-server: Unauthenticated admin API + wildcard CORS allows mock-state hijack and secr",
+    "@mockoon/commons-server": "@Mockoon/commons-server: Unauthenticated admin API + wildcard CORS allows mock-state hijack and secr",
+    "@frontmcp/adapters": "FrontMCP and mcp-from-openapi have bypass of OpenAPI external $ref SSRF fix",
+    "shopper/framework": "Shopper: Missing authorization on product removal actions in CollectionProducts component",
     "github.com/traefik/traefik/v2": "Traefik: Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') and Incorr",
     "github.com/traefik/traefik/v3": "Traefik: Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') and Incorr",
     "github.com/rclone/rclone": "rclone archive/zip: Zip Slip via unsanitized zip entry names lets a malicious archive escape its own",
     "@jhb.software/payload-alt-text-plugin": "@jhb.software/payload-alt-text-plugin: Alt Text Endpoint Authorization Bypass via Payload Local API ",
-    "@argos-ci/core": "@argos-ci/core: CI Branch Name OS Command Injection",
-    "@angular/platform-server": "Angular: SSR XSS via Unescaped <template> Content Across DocumentFragment Boundaries in Fallback Raw",
-    "@angular/common": "Angular: Information Leak via `HttpTransferCache` Bypass When Using `withRequestsMadeViaParent`",
-    "@angular/compiler": "Angular: Sanitization bypass via directive host bindings on concrete host elements in @angular/core ",
-    "@angular/core": "Angular: Sanitization bypass via directive host bindings on concrete host elements in @angular/core ",
-    "pimcore/pimcore": "Pimcore: SQL Injection in Custom Reports via Malicious Report Configuration"
+    "@argos-ci/core": "@argos-ci/core: CI Branch Name OS Command Injection"
   },
   "malicious_packages": {
     "npm": {},
