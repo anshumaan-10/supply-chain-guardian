@@ -1,8 +1,37 @@
 {
-  "version": "2026.09.14",
-  "last_updated": "2026-09-14T21:30:03.946243+00:00",
+  "version": "2026.09.15",
+  "last_updated": "2026-09-15T03:29:17.399425+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-v859-c572-qh5p",
+      "name": "ZITADEL: Improper Role Revocation on Granted Projects during Multiple Role Deletions",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-v859-c572-qh5p",
+      "description": "ZITADEL: Improper Role Revocation on Granted Projects during Multiple Role Deletions",
+      "date": "2026-09-14",
+      "affected": [
+        "github.com/zitadel/zitadel"
+      ],
+      "references": [
+        "https://github.com/zitadel/zitadel/security/advisories/GHSA-v859-c572-qh5p",
+        "https://github.com/zitadel/zitadel/commit/9d60e83d6faa5e7e7a5339e031cdb26e0efe4d59",
+        "https://github.com/zitadel/zitadel/releases/tag/v4.16.0",
+        "https://github.com/advisories/GHSA-v859-c572-qh5p"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/zitadel/zitadel"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/zitadel/zitadel"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-vrh8-c9cm-wh8v",
       "name": "ZITADEL: Unauthorized Token Privilege Escalation in OAuth2 Token Exchange",
@@ -1284,40 +1313,11 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-q5wm-mgqx-fv2f",
-      "name": "n8n: Instance AI Credential Setup Accepts Unvalidated Probe URL from Fetched Content",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-q5wm-mgqx-fv2f",
-      "description": "n8n: Instance AI Credential Setup Accepts Unvalidated Probe URL from Fetched Content",
-      "date": "2026-09-10",
-      "affected": [
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-q5wm-mgqx-fv2f",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86074",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.38.2",
-        "https://github.com/advisories/GHSA-q5wm-mgqx-fv2f"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
-    "github.com/zitadel/zitadel": "ZITADEL: Unauthorized Token Privilege Escalation in OAuth2 Token Exchange",
+    "github.com/zitadel/zitadel": "ZITADEL: Improper Role Revocation on Granted Projects during Multiple Role Deletions",
     "october/october": "October CMS: Incomplete Scheme Validation in Image Resizer",
     "october/system": "October CMS: PHP Object Injection via Backend Widget Session Storage",
     "@mockoon/cli": "@Mockoon/commons-server: Unauthenticated admin API + wildcard CORS allows mock-state hijack and secr",
