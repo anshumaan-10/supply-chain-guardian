@@ -1,8 +1,471 @@
 {
   "version": "2026.09.15",
-  "last_updated": "2026-09-15T16:17:40.476492+00:00",
+  "last_updated": "2026-09-15T20:52:39.997908+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-5648-rgj9-v224",
+      "name": "@zereight/mcp-gitlab has multiple safety-control bypasses: execute_graphql read-only + allow-list by",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-5648-rgj9-v224",
+      "description": "@zereight/mcp-gitlab has multiple safety-control bypasses: execute_graphql read-only + allow-list bypass, unauthenticated transports, session-exhaustion DoS",
+      "date": "2026-09-15",
+      "affected": [
+        "@zereight/mcp-gitlab"
+      ],
+      "references": [
+        "https://github.com/zereight/gitlab-mcp/security/advisories/GHSA-5648-rgj9-v224",
+        "https://github.com/zereight/gitlab-mcp/issues/596",
+        "https://github.com/zereight/gitlab-mcp/issues/748",
+        "https://github.com/zereight/gitlab-mcp/pull/571",
+        "https://github.com/zereight/gitlab-mcp/pull/624",
+        "https://github.com/zereight/gitlab-mcp/commit/69e784da33e96e64867b511c6f14d3f21f91ba8b",
+        "https://github.com/zereight/gitlab-mcp/releases/tag/v2.1.30",
+        "https://github.com/advisories/GHSA-5648-rgj9-v224"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@zereight/mcp-gitlab"
+          ]
+        },
+        "compromised_actions": [
+          "@zereight/mcp-gitlab"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4595-rvpx-4q34",
+      "name": "emp3r0r has an unauthenticated HTTP Polling DoS",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-4595-rvpx-4q34",
+      "description": "emp3r0r has an unauthenticated HTTP Polling DoS",
+      "date": "2026-09-15",
+      "affected": [
+        "github.com/jm33-m0/emp3r0r/core"
+      ],
+      "references": [
+        "https://github.com/jm33-m0/emp3r0r/security/advisories/GHSA-4595-rvpx-4q34",
+        "https://github.com/jm33-m0/emp3r0r/releases/tag/v4.2.5",
+        "https://github.com/advisories/GHSA-4595-rvpx-4q34"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/jm33-m0/emp3r0r/core"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/jm33-m0/emp3r0r/core"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-gq9p-f254-h286",
+      "name": "Http4s: Ember HTTP/2 buffers a frame's declared payload before checking SETTINGS_MAX_FRAME_SIZE",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-gq9p-f254-h286",
+      "description": "Http4s: Ember HTTP/2 buffers a frame's declared payload before checking SETTINGS_MAX_FRAME_SIZE",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.12",
+        "org.http4s:http4s-ember-core_2.13"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-gq9p-f254-h286",
+        "https://github.com/http4s/http4s/commit/87cf334fa3f608ef7d3eb359e71e037ba3336d29",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.37",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M48",
+        "https://github.com/advisories/GHSA-gq9p-f254-h286"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5hq8-qhww-jm7q",
+      "name": "libp2p-quic: Remote panic via certificate expiry race during QUIC handshake",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-5hq8-qhww-jm7q",
+      "description": "libp2p-quic: Remote panic via certificate expiry race during QUIC handshake",
+      "date": "2026-09-15",
+      "affected": [
+        "libp2p-quic"
+      ],
+      "references": [
+        "https://github.com/libp2p/rust-libp2p/security/advisories/GHSA-5hq8-qhww-jm7q",
+        "https://github.com/libp2p/rust-libp2p/pull/6525",
+        "https://github.com/libp2p/rust-libp2p/commit/212f3774af048e2cecfb2e6b1e08477685e52b22",
+        "https://github.com/libp2p/rust-libp2p/commit/e8f35e12c2418b04df6e9cdf036005e8aee3c7a2",
+        "https://github.com/advisories/GHSA-5hq8-qhww-jm7q"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-crq5-92j2-j7wv",
+      "name": "Http4s: ResourceService and Webjar Service path escape via percent-encoded separators",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-crq5-92j2-j7wv",
+      "description": "Http4s: ResourceService and Webjar Service path escape via percent-encoded separators",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-server_2.13",
+        "org.http4s:http4s-server_3",
+        "org.http4s:http4s-server_3",
+        "org.http4s:http4s-server_2.13",
+        "org.http4s:http4s-server_2.12"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-crq5-92j2-j7wv",
+        "https://github.com/http4s/http4s/commit/bcd99cdc1342ef58a0f132acb814af06a668a8d3",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
+        "https://github.com/advisories/GHSA-crq5-92j2-j7wv"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cp4q-fqw9-4hf6",
+      "name": "Http4s Ember HTTP/2: unbounded continuation frame accumulation",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-cp4q-fqw9-4hf6",
+      "description": "Http4s Ember HTTP/2: unbounded continuation frame accumulation",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_2.12"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-cp4q-fqw9-4hf6",
+        "https://github.com/http4s/http4s/commit/6e8eccd64a6a74ab4811897881e95e0e1b3a818e",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
+        "https://github.com/advisories/GHSA-cp4q-fqw9-4hf6"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jrpm-956j-96jg",
+      "name": "Http4s: Ember chunk parser lenience (TE.TE request smuggling)",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-jrpm-956j-96jg",
+      "description": "Http4s: Ember chunk parser lenience (TE.TE request smuggling)",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_2.12"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-jrpm-956j-96jg",
+        "https://github.com/http4s/http4s/commit/d78612a5abd5a2547487598d3342be05573e16f0",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
+        "https://github.com/advisories/GHSA-jrpm-956j-96jg"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-grh8-3p95-f9rr",
+      "name": "Http4s: CookieJar middleware matches by substring, leaking cookies cross-origin",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-grh8-3p95-f9rr",
+      "description": "Http4s: CookieJar middleware matches by substring, leaking cookies cross-origin",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-client_3",
+        "org.http4s:http4s-client_2.13",
+        "org.http4s:http4s-client_3",
+        "org.http4s:http4s-client_2.13",
+        "org.http4s:http4s-client_2.12"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-grh8-3p95-f9rr",
+        "https://github.com/http4s/http4s/commit/c0a37f38d5ee2a568ba57bd9da62f8d79b8b1fcc",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
+        "https://github.com/advisories/GHSA-grh8-3p95-f9rr"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wv64-j4fq-5f9x",
+      "name": "Http4s: CookieJar middleware accepts arbitrary Set-Cookie domain",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-wv64-j4fq-5f9x",
+      "description": "Http4s: CookieJar middleware accepts arbitrary Set-Cookie domain",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-client_3",
+        "org.http4s:http4s-client_3",
+        "org.http4s:http4s-client_2.13",
+        "org.http4s:http4s-client_2.13",
+        "org.http4s:http4s-client_2.12"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-wv64-j4fq-5f9x",
+        "https://github.com/http4s/http4s/commit/87535f7288f3baaf6736e2735087e473762b5b2f",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
+        "https://github.com/advisories/GHSA-wv64-j4fq-5f9x"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8f3q-3jmv-7prw",
+      "name": "Http4s Ember HTTP/2 has an unbounded outbound frame queue",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-8f3q-3jmv-7prw",
+      "description": "Http4s Ember HTTP/2 has an unbounded outbound frame queue",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_2.12"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-8f3q-3jmv-7prw",
+        "https://github.com/http4s/http4s/commit/13fe24d6440bde2f1eb70121486cf59c278e6bae",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
+        "https://github.com/advisories/GHSA-8f3q-3jmv-7prw"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fm4g-76c9-7w69",
+      "name": "Http4s: DigestAuth nonce map grows unbounded",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-fm4g-76c9-7w69",
+      "description": "Http4s: DigestAuth nonce map grows unbounded",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-ember-server_3",
+        "org.http4s:http4s-ember-server_2.13",
+        "org.http4s:http4s-ember-server_3",
+        "org.http4s:http4s-ember-server_2.13",
+        "org.http4s:http4s-ember-server_2.12"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-fm4g-76c9-7w69",
+        "https://github.com/http4s/http4s/commit/8cfeda8472954d631dfbe5dc026463a27653e482",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
+        "https://github.com/advisories/GHSA-fm4g-76c9-7w69"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9xww-74xv-gjfp",
+      "name": "Http4s: DigestAuth allows replay of captured requests",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-9xww-74xv-gjfp",
+      "description": "Http4s: DigestAuth allows replay of captured requests",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_2.12"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-9xww-74xv-gjfp",
+        "https://github.com/http4s/http4s/commit/7f065101c45f3d86bc105e8fc6323c2c4a11471f",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
+        "https://github.com/advisories/GHSA-9xww-74xv-gjfp"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9998-894r-fwvr",
+      "name": "Http4s Ember Transfer-Encoding value parsing (TE.CL / TE.0 request smuggling)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9998-894r-fwvr",
+      "description": "Http4s Ember Transfer-Encoding value parsing (TE.CL / TE.0 request smuggling)",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_2.12",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_3"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-9998-894r-fwvr",
+        "https://github.com/http4s/http4s/commit/5e88b2e7b4e6ea2f0c61040a4bc9de0d73e51217",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
+        "https://github.com/advisories/GHSA-9998-894r-fwvr"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8h4c-x2wg-6xp8",
+      "name": "Http4s Ember accepts Transfer-Encoding combined with Content-Length (CL.TE request smuggling)",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-8h4c-x2wg-6xp8",
+      "description": "Http4s Ember accepts Transfer-Encoding combined with Content-Length (CL.TE request smuggling)",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_2.12"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-8h4c-x2wg-6xp8",
+        "https://github.com/http4s/http4s/commit/9feaf8677951a52af906ae9664ff6f0543d9d810",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
+        "https://github.com/advisories/GHSA-8h4c-x2wg-6xp8"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9vwc-pc8p-253q",
+      "name": "Http4s Ember HTTP/2 does not enforce SETTINGS_MAX_CONCURRENT_STREAMS",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9vwc-pc8p-253q",
+      "description": "Http4s Ember HTTP/2 does not enforce SETTINGS_MAX_CONCURRENT_STREAMS",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_2.12"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-9vwc-pc8p-253q",
+        "https://github.com/http4s/http4s/commit/4983de1f93f2caaa3b9de310cf6a9db32c50d66e",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
+        "https://github.com/advisories/GHSA-9vwc-pc8p-253q"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6m4x-pp6q-5jmm",
+      "name": "Http4s Ember HTTP/2: unbounded inbound body buffering",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-6m4x-pp6q-5jmm",
+      "description": "Http4s Ember HTTP/2: unbounded inbound body buffering",
+      "date": "2026-09-15",
+      "affected": [
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_3",
+        "org.http4s:http4s-ember-core_2.13",
+        "org.http4s:http4s-ember-core_2.12"
+      ],
+      "references": [
+        "https://github.com/http4s/http4s/security/advisories/GHSA-6m4x-pp6q-5jmm",
+        "https://github.com/http4s/http4s/commit/22d2335975d02dc9fb9fb75cfe002279521d86ac",
+        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
+        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
+        "https://github.com/advisories/GHSA-6m4x-pp6q-5jmm"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rf68-8gjr-36q7",
+      "name": "Nezha: OAuth2 redirect_uri Host header injection regression when dashboard_host is empty",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-rf68-8gjr-36q7",
+      "description": "Nezha: OAuth2 redirect_uri Host header injection regression when dashboard_host is empty",
+      "date": "2026-09-15",
+      "affected": [
+        "github.com/nezhahq/nezha"
+      ],
+      "references": [
+        "https://github.com/nezhahq/nezha/security/advisories/GHSA-rf68-8gjr-36q7",
+        "https://github.com/nezhahq/nezha/commit/38824dbc11a63964c5b9296ae4c68e62b34fa04b",
+        "https://github.com/advisories/GHSA-rf68-8gjr-36q7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/nezhahq/nezha"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/nezhahq/nezha"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-r8cr-4f9w-7r75",
+      "name": "Netmaker has a boolean\u2011based SQL Injection",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-r8cr-4f9w-7r75",
+      "description": "Netmaker has a boolean\u2011based SQL Injection",
+      "date": "2026-09-15",
+      "affected": [
+        "github.com/gravitl/netmaker"
+      ],
+      "references": [
+        "https://github.com/gravitl/netmaker/security/advisories/GHSA-r8cr-4f9w-7r75",
+        "https://github.com/gravitl/netmaker/releases/tag/v1.5.0",
+        "https://github.com/advisories/GHSA-r8cr-4f9w-7r75"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/gravitl/netmaker"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/gravitl/netmaker"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-v859-c572-qh5p",
       "name": "ZITADEL: Improper Role Revocation on Granted Projects during Multiple Role Deletions",
@@ -848,475 +1311,14 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-p6m2-r3w9-mpxw",
-      "name": "rclone local: crafted Range request against a translated symlink panics (DoS)",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-p6m2-r3w9-mpxw",
-      "description": "rclone local: crafted Range request against a translated symlink panics (DoS)",
-      "date": "2026-09-10",
-      "affected": [
-        "github.com/rclone/rclone"
-      ],
-      "references": [
-        "https://github.com/rclone/rclone/security/advisories/GHSA-p6m2-r3w9-mpxw",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-88015",
-        "https://github.com/rclone/rclone/commit/28bf49d66f94acc3f4f7f318504a706686281af9",
-        "https://github.com/rclone/rclone/releases/tag/v1.75.1",
-        "https://github.com/advisories/GHSA-p6m2-r3w9-mpxw"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/rclone/rclone"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/rclone/rclone"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xwwr-4h3p-r22c",
-      "name": "rclone serve s3: --auth-proxy without --auth-key authenticates nobody - full SigV4 signature bypass",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-xwwr-4h3p-r22c",
-      "description": "rclone serve s3: --auth-proxy without --auth-key authenticates nobody - full SigV4 signature bypass",
-      "date": "2026-09-10",
-      "affected": [
-        "github.com/rclone/rclone"
-      ],
-      "references": [
-        "https://github.com/rclone/rclone/security/advisories/GHSA-xwwr-4h3p-r22c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-88018",
-        "https://github.com/rclone/rclone/commit/90595f34f27f569be6b27c57fe5ab65057d323bd",
-        "https://github.com/rclone/rclone/releases/tag/v1.75.1",
-        "https://github.com/advisories/GHSA-xwwr-4h3p-r22c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/rclone/rclone"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/rclone/rclone"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-p569-5gjg-9cmj",
-      "name": "rclone: RC per-server auth-proxy bypass",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-p569-5gjg-9cmj",
-      "description": "rclone: RC per-server auth-proxy bypass",
-      "date": "2026-09-10",
-      "affected": [
-        "github.com/rclone/rclone"
-      ],
-      "references": [
-        "https://github.com/rclone/rclone/security/advisories/GHSA-p569-5gjg-9cmj",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-88044",
-        "https://github.com/rclone/rclone/commit/739403963abf6f58003c2becd5f7c4ad0d644153",
-        "https://github.com/rclone/rclone/releases/tag/v1.75.1",
-        "https://github.com/advisories/GHSA-p569-5gjg-9cmj"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/rclone/rclone"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/rclone/rclone"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c476-6w5q-jw77",
-      "name": "rclone: FTP cross-session auth-proxy backend confusion",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-c476-6w5q-jw77",
-      "description": "rclone: FTP cross-session auth-proxy backend confusion",
-      "date": "2026-09-10",
-      "affected": [
-        "github.com/rclone/rclone"
-      ],
-      "references": [
-        "https://github.com/rclone/rclone/security/advisories/GHSA-c476-6w5q-jw77",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-88017",
-        "https://github.com/rclone/rclone/commit/c6af0b57c2b4af848bc968c2b407354476184b99",
-        "https://github.com/rclone/rclone/releases/tag/v1.75.1",
-        "https://github.com/advisories/GHSA-c476-6w5q-jw77"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/rclone/rclone"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/rclone/rclone"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-38xv-hf3p-h7mq",
-      "name": "rclone: source object names can escape the configured root on upload",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-38xv-hf3p-h7mq",
-      "description": "rclone: source object names can escape the configured root on upload",
-      "date": "2026-09-10",
-      "affected": [
-        "github.com/rclone/rclone"
-      ],
-      "references": [
-        "https://github.com/rclone/rclone/security/advisories/GHSA-38xv-hf3p-h7mq",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-88046",
-        "https://github.com/rclone/rclone/commit/57842c5ee4e1407eda06a414a36510cce2db4252",
-        "https://github.com/rclone/rclone/releases/tag/v1.75.1",
-        "https://github.com/advisories/GHSA-38xv-hf3p-h7mq"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/rclone/rclone"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/rclone/rclone"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2p48-j3qc-rx9f",
-      "name": "rclone: S3 multipart declared-length memory exhaustion",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-2p48-j3qc-rx9f",
-      "description": "rclone: S3 multipart declared-length memory exhaustion",
-      "date": "2026-09-10",
-      "affected": [
-        "github.com/rclone/rclone"
-      ],
-      "references": [
-        "https://github.com/rclone/rclone/security/advisories/GHSA-2p48-j3qc-rx9f",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-88045",
-        "https://github.com/rclone/rclone/issues/9616",
-        "https://github.com/rclone/rclone/commit/7c1dfd99f3e6a22fcefd8686cc478226a15e63a1",
-        "https://github.com/rclone/rclone/commit/ab1f458013aaf6356e4bdeca61f7cb9139f8eb86",
-        "https://github.com/rclone/rclone/releases/tag/v1.75.1",
-        "https://github.com/advisories/GHSA-2p48-j3qc-rx9f"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/rclone/rclone"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/rclone/rclone"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3g9q-v48f-hh9w",
-      "name": "Open WebUI: Unauthenticated requests can stall the server via uncached OIDC fetches in back-channel ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-3g9q-v48f-hh9w",
-      "description": "Open WebUI: Unauthenticated requests can stall the server via uncached OIDC fetches in back-channel logout",
-      "date": "2026-09-10",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-3g9q-v48f-hh9w",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-87011",
-        "https://github.com/open-webui/open-webui/commit/aeda6ff13a25d3b3ba1b303609f35382db22142c",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.1",
-        "https://github.com/advisories/GHSA-3g9q-v48f-hh9w"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-v39v-59xw-j98g",
-      "name": "Open WebUI: Any authenticated user can suppress calendar alerts instance-wide via a non-numeric aler",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-v39v-59xw-j98g",
-      "description": "Open WebUI: Any authenticated user can suppress calendar alerts instance-wide via a non-numeric alert value",
-      "date": "2026-09-10",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-v39v-59xw-j98g",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-87012",
-        "https://github.com/open-webui/open-webui/pull/28790",
-        "https://github.com/open-webui/open-webui/commit/abc69000b33b4894fbd97fc2c962139cf9a8d784",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.1",
-        "https://github.com/advisories/GHSA-v39v-59xw-j98g"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8r35-5x5r-hv74",
-      "name": "Open WebUI: Any authenticated user can start a non-terminating request via a folder parent cycle",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-8r35-5x5r-hv74",
-      "description": "Open WebUI: Any authenticated user can start a non-terminating request via a folder parent cycle",
-      "date": "2026-09-10",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-8r35-5x5r-hv74",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-87013",
-        "https://github.com/open-webui/open-webui/pull/28748",
-        "https://github.com/open-webui/open-webui/commit/23b3a69bc26839bfa74edd1be6bfa2568ae902f4",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.1",
-        "https://github.com/advisories/GHSA-8r35-5x5r-hv74"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wjwr-xfp9-r66p",
-      "name": "Open WebUI: Admin demoted through SSO role sync keeps read and write access to all users' notes",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-wjwr-xfp9-r66p",
-      "description": "Open WebUI: Admin demoted through SSO role sync keeps read and write access to all users' notes",
-      "date": "2026-09-10",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-wjwr-xfp9-r66p",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-87014",
-        "https://github.com/open-webui/open-webui/commit/ce3c175e260709f359d7e6cbb3132f0572098b95",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.1",
-        "https://github.com/advisories/GHSA-wjwr-xfp9-r66p"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4qpv-39hg-f7fx",
-      "name": "@jhb.software/payload-alt-text-plugin: Alt Text Endpoint Authorization Bypass via Payload Local API ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-4qpv-39hg-f7fx",
-      "description": "@jhb.software/payload-alt-text-plugin: Alt Text Endpoint Authorization Bypass via Payload Local API `overrideAccess` Omission",
-      "date": "2026-09-10",
-      "affected": [
-        "@jhb.software/payload-alt-text-plugin"
-      ],
-      "references": [
-        "https://github.com/jhb-software/payload-plugins/security/advisories/GHSA-4qpv-39hg-f7fx",
-        "https://github.com/advisories/GHSA-4qpv-39hg-f7fx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@jhb.software/payload-alt-text-plugin"
-          ]
-        },
-        "compromised_actions": [
-          "@jhb.software/payload-alt-text-plugin"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4x45-gxvp-6283",
-      "name": "@argos-ci/core: CI Branch Name OS Command Injection",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-4x45-gxvp-6283",
-      "description": "@argos-ci/core: CI Branch Name OS Command Injection",
-      "date": "2026-09-10",
-      "affected": [
-        "@argos-ci/core"
-      ],
-      "references": [
-        "https://github.com/argos-ci/argos-javascript/security/advisories/GHSA-4x45-gxvp-6283",
-        "https://github.com/argos-ci/argos-javascript/commit/8355f3af3be3f4fe361d58a688d21535cf672717",
-        "https://github.com/argos-ci/argos-javascript/releases/tag/@argos-ci/core@6.2.1",
-        "https://github.com/advisories/GHSA-4x45-gxvp-6283"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@argos-ci/core"
-          ]
-        },
-        "compromised_actions": [
-          "@argos-ci/core"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-m3wp-48jr-vr4g",
-      "name": " mistral.rs: Unbounded Remote Media Fetch and Video Frame Expansion DoS",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-m3wp-48jr-vr4g",
-      "description": " mistral.rs: Unbounded Remote Media Fetch and Video Frame Expansion DoS",
-      "date": "2026-09-10",
-      "affected": [
-        "mistralrs-server-core"
-      ],
-      "references": [
-        "https://github.com/EricLBuehler/mistral.rs/security/advisories/GHSA-m3wp-48jr-vr4g",
-        "https://github.com/EricLBuehler/mistral.rs/releases/tag/v0.8.18",
-        "https://github.com/advisories/GHSA-m3wp-48jr-vr4g"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wfgq-w7cq-qj7j",
-      "name": "mistral.rs Media Loader: Unauthenticated SSRF and arbitrary local file read via image_url",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-wfgq-w7cq-qj7j",
-      "description": "mistral.rs Media Loader: Unauthenticated SSRF and arbitrary local file read via image_url",
-      "date": "2026-09-10",
-      "affected": [
-        "mistralrs-server-core"
-      ],
-      "references": [
-        "https://github.com/EricLBuehler/mistral.rs/security/advisories/GHSA-wfgq-w7cq-qj7j",
-        "https://github.com/EricLBuehler/mistral.rs/commit/74793379649febc758b6a0d4b71aa6aeabc80f9c",
-        "https://github.com/advisories/GHSA-wfgq-w7cq-qj7j"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-p78m-89r6-pgf7",
-      "name": "Open WebUI: A user's session cookies are sent to tool servers configured for bearer authentication",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-p78m-89r6-pgf7",
-      "description": "Open WebUI: A user's session cookies are sent to tool servers configured for bearer authentication",
-      "date": "2026-09-10",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-p78m-89r6-pgf7",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-87015",
-        "https://github.com/open-webui/open-webui/pull/28630",
-        "https://github.com/open-webui/open-webui/commit/cd9db21c5276807a2975ddba17cef369ad1114b7",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.1",
-        "https://github.com/advisories/GHSA-p78m-89r6-pgf7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wpmr-8h3q-fwj7",
-      "name": "Open WebUI: Sign-in as another user via wildcard characters in the OAuth subject claim on SQLite",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-wpmr-8h3q-fwj7",
-      "description": "Open WebUI: Sign-in as another user via wildcard characters in the OAuth subject claim on SQLite",
-      "date": "2026-09-10",
-      "affected": [
-        "open-webui"
-      ],
-      "references": [
-        "https://github.com/open-webui/open-webui/security/advisories/GHSA-wpmr-8h3q-fwj7",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-87016",
-        "https://github.com/open-webui/open-webui/pull/28624",
-        "https://github.com/open-webui/open-webui/commit/73c1f5806aeb6345dad5de8f5aa26d1f3d0bef80",
-        "https://github.com/open-webui/open-webui/releases/tag/v0.11.1",
-        "https://github.com/advisories/GHSA-wpmr-8h3q-fwj7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hf57-cqmx-p4gr",
-      "name": " OmniRoute ACP Custom-Agent Remote Code Execution (RCE)",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-hf57-cqmx-p4gr",
-      "description": " OmniRoute ACP Custom-Agent Remote Code Execution (RCE)",
-      "date": "2026-09-10",
-      "affected": [
-        "omniroute"
-      ],
-      "references": [
-        "https://github.com/diegosouzapw/OmniRoute/security/advisories/GHSA-hf57-cqmx-p4gr",
-        "https://github.com/diegosouzapw/OmniRoute/pull/11028",
-        "https://github.com/diegosouzapw/OmniRoute/commit/60829241fd64d0317aa6a0dd8cd7a445a5287fed",
-        "https://github.com/advisories/GHSA-hf57-cqmx-p4gr"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "omniroute"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-cw9w-vv67-hf73",
-      "name": "n8n: Per-Resource OAuth Consent Bypass via Unbound Refresh Token Resource Substitution",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-cw9w-vv67-hf73",
-      "description": "n8n: Per-Resource OAuth Consent Bypass via Unbound Refresh Token Resource Substitution",
-      "date": "2026-09-10",
-      "affected": [
-        "n8n",
-        "n8n"
-      ],
-      "references": [
-        "https://github.com/n8n-io/n8n/security/advisories/GHSA-cw9w-vv67-hf73",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86073",
-        "https://github.com/n8n-io/n8n/pull/37122",
-        "https://github.com/n8n-io/n8n/pull/37588",
-        "https://github.com/n8n-io/n8n/commit/18458482861097a26f874f30ad7e8136e268475c",
-        "https://github.com/n8n-io/n8n/commit/380788fd9a3264c83161e868026a98731d274d88",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7",
-        "https://github.com/n8n-io/n8n/releases/tag/n8n@2.38.1",
-        "https://github.com/advisories/GHSA-cw9w-vv67-hf73"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "n8n",
-            "n8n"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@zereight/mcp-gitlab": "@zereight/mcp-gitlab has multiple safety-control bypasses: execute_graphql read-only + allow-list by",
+    "github.com/jm33-m0/emp3r0r/core": "emp3r0r has an unauthenticated HTTP Polling DoS",
+    "github.com/nezhahq/nezha": "Nezha: OAuth2 redirect_uri Host header injection regression when dashboard_host is empty",
+    "github.com/gravitl/netmaker": "Netmaker has a boolean\u2011based SQL Injection",
     "github.com/zitadel/zitadel": "ZITADEL: Improper Role Revocation on Granted Projects during Multiple Role Deletions",
     "october/october": "October CMS: Incomplete Scheme Validation in Image Resizer",
     "october/system": "October CMS: PHP Object Injection via Backend Widget Session Storage",
@@ -1326,9 +1328,7 @@
     "shopper/framework": "Shopper: Missing authorization on product removal actions in CollectionProducts component",
     "github.com/traefik/traefik/v2": "Traefik: Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') and Incorr",
     "github.com/traefik/traefik/v3": "Traefik: Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') and Incorr",
-    "github.com/rclone/rclone": "rclone archive/zip: Zip Slip via unsanitized zip entry names lets a malicious archive escape its own",
-    "@jhb.software/payload-alt-text-plugin": "@jhb.software/payload-alt-text-plugin: Alt Text Endpoint Authorization Bypass via Payload Local API ",
-    "@argos-ci/core": "@argos-ci/core: CI Branch Name OS Command Injection"
+    "github.com/rclone/rclone": "rclone archive/zip: Zip Slip via unsanitized zip entry names lets a malicious archive escape its own"
   },
   "malicious_packages": {
     "npm": {},
