@@ -1,8 +1,42 @@
 {
   "version": "2026.09.16",
-  "last_updated": "2026-09-16T16:09:57.652637+00:00",
+  "last_updated": "2026-09-16T20:53:14.734951+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-r2pf-9cw4-5j65",
+      "name": "node-opcua: TCP Socket Leak (FIN-WAIT-2) via keepalive reconnection cycle - Resource Exhaustion",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-r2pf-9cw4-5j65",
+      "description": "node-opcua: TCP Socket Leak (FIN-WAIT-2) via keepalive reconnection cycle - Resource Exhaustion",
+      "date": "2026-09-16",
+      "affected": [
+        "node-opcua",
+        "node-opcua-client",
+        "node-opcua-transport"
+      ],
+      "references": [
+        "https://github.com/node-opcua/node-opcua/security/advisories/GHSA-r2pf-9cw4-5j65",
+        "https://github.com/node-opcua/node-opcua/pull/1497",
+        "https://github.com/node-opcua/node-opcua/commit/1959cbb8946b386d2e24a1cce05b7148099d36e7",
+        "https://github.com/node-opcua/node-opcua/commit/481664fa6ba8204737c5a92797ff68c3ae780c1c",
+        "https://github.com/node-opcua/node-opcua/commit/4d59197e2dbd82791d7f36dad7da178715e0c27a",
+        "https://github.com/node-opcua/node-opcua/commit/dc406fd2d364aa69dd173be21ed32a7ff425017a",
+        "https://github.com/node-opcua/node-opcua/releases/tag/v2.170.0",
+        "https://github.com/advisories/GHSA-r2pf-9cw4-5j65"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "node-opcua",
+            "node-opcua-client",
+            "node-opcua-transport"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-pg97-jvmf-qfvc",
       "name": "djust has Cross-Site Request Forgery on the Server-Sent-Events transport: a cross-origin page can dr",
@@ -1227,25 +1261,6 @@
         "https://github.com/line/centraldogma/security/advisories/GHSA-2j95-gqxf-v3vg",
         "https://nvd.nist.gov/vuln/detail/CVE-2026-11746",
         "https://github.com/advisories/GHSA-2j95-gqxf-v3vg"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-98q5-5qh2-7w75",
-      "name": "Central Dogma: LDAP injection in SearchFirstActiveDirectoryRealm enables authentication confusion an",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-98q5-5qh2-7w75",
-      "description": "Central Dogma: LDAP injection in SearchFirstActiveDirectoryRealm enables authentication confusion and audit log evasion",
-      "date": "2026-09-11",
-      "affected": [
-        "com.linecorp.centraldogma:centraldogma-server-auth-shiro"
-      ],
-      "references": [
-        "https://github.com/line/centraldogma/security/advisories/GHSA-98q5-5qh2-7w75",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-11748",
-        "https://github.com/advisories/GHSA-98q5-5qh2-7w75"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
