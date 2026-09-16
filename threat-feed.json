@@ -1,8 +1,68 @@
 {
-  "version": "2026.09.15",
-  "last_updated": "2026-09-15T20:52:39.997908+00:00",
+  "version": "2026.09.16",
+  "last_updated": "2026-09-16T03:25:19.922564+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-2h44-8472-frjj",
+      "name": "@zereight/mcp-gitlab Vulnerable to Server-Side Request Forgery",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-2h44-8472-frjj",
+      "description": "@zereight/mcp-gitlab Vulnerable to Server-Side Request Forgery",
+      "date": "2026-09-15",
+      "affected": [
+        "@zereight/mcp-gitlab"
+      ],
+      "references": [
+        "https://github.com/zereight/gitlab-mcp/security/advisories/GHSA-2h44-8472-frjj",
+        "https://github.com/zereight/gitlab-mcp/pull/625",
+        "https://github.com/zereight/gitlab-mcp/commit/6ffb4cc70706fd05b1ab80901676bc2998b6db6d",
+        "https://github.com/zereight/gitlab-mcp/releases/tag/v2.1.27",
+        "https://github.com/advisories/GHSA-2h44-8472-frjj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@zereight/mcp-gitlab"
+          ]
+        },
+        "compromised_actions": [
+          "@zereight/mcp-gitlab"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vmp7-252j-cwp7",
+      "name": "@zereight/mcp-gitlab: DNS rebinding reaches local Streamable HTTP MCP transport",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-vmp7-252j-cwp7",
+      "description": "@zereight/mcp-gitlab: DNS rebinding reaches local Streamable HTTP MCP transport",
+      "date": "2026-09-15",
+      "affected": [
+        "@zereight/mcp-gitlab"
+      ],
+      "references": [
+        "https://github.com/zereight/gitlab-mcp/security/advisories/GHSA-vmp7-252j-cwp7",
+        "https://github.com/zereight/gitlab-mcp/pull/555",
+        "https://github.com/zereight/gitlab-mcp/commit/52207c6f5c0e7a39e9235d491225edbb562a0290",
+        "https://github.com/zereight/gitlab-mcp/releases/tag/v2.1.30",
+        "https://github.com/advisories/GHSA-vmp7-252j-cwp7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@zereight/mcp-gitlab"
+          ]
+        },
+        "compromised_actions": [
+          "@zereight/mcp-gitlab"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-5648-rgj9-v224",
       "name": "@zereight/mcp-gitlab has multiple safety-control bypasses: execute_graphql read-only + allow-list by",
@@ -1248,74 +1308,11 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-486v-q2wf-fp2r",
-      "name": "rclone: http backend forwards custom/auth headers to a different host on redirect",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-486v-q2wf-fp2r",
-      "description": "rclone: http backend forwards custom/auth headers to a different host on redirect",
-      "date": "2026-09-10",
-      "affected": [
-        "github.com/rclone/rclone"
-      ],
-      "references": [
-        "https://github.com/rclone/rclone/security/advisories/GHSA-486v-q2wf-fp2r",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-88013",
-        "https://github.com/rclone/rclone/commit/22859b7e696cea3c563c6ba04c6b7f91f74456b4",
-        "https://github.com/rclone/rclone/commit/79fbc0842f74e02cb84f0e3e7261d169983c8831",
-        "https://github.com/rclone/rclone/commit/925fb4fb21eb25e75cd1b64fdd17ded857784bfc",
-        "https://github.com/rclone/rclone/releases/tag/v1.75.1",
-        "https://github.com/advisories/GHSA-486v-q2wf-fp2r"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/rclone/rclone"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/rclone/rclone"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f8g7-2xjc-7mfh",
-      "name": "rclone: Directory metadata (chmod/chown/chtimes) applied through a planted symlink in rclone local -",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-f8g7-2xjc-7mfh",
-      "description": "rclone: Directory metadata (chmod/chown/chtimes) applied through a planted symlink in rclone local --links escapes the destination",
-      "date": "2026-09-10",
-      "affected": [
-        "github.com/rclone/rclone"
-      ],
-      "references": [
-        "https://github.com/rclone/rclone/security/advisories/GHSA-f8g7-2xjc-7mfh",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-88016",
-        "https://github.com/rclone/rclone/commit/17b0c03338a857bcb0a68d2d4c82ddbdec3f7893",
-        "https://github.com/rclone/rclone/commit/a7ab39d3d1958afa1446982c1dc4e4a73a887e3e",
-        "https://github.com/rclone/rclone/releases/tag/v1.75.1",
-        "https://github.com/advisories/GHSA-f8g7-2xjc-7mfh"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/rclone/rclone"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/rclone/rclone"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
-    "@zereight/mcp-gitlab": "@zereight/mcp-gitlab has multiple safety-control bypasses: execute_graphql read-only + allow-list by",
+    "@zereight/mcp-gitlab": "@zereight/mcp-gitlab Vulnerable to Server-Side Request Forgery",
     "github.com/jm33-m0/emp3r0r/core": "emp3r0r has an unauthenticated HTTP Polling DoS",
     "github.com/nezhahq/nezha": "Nezha: OAuth2 redirect_uri Host header injection regression when dashboard_host is empty",
     "github.com/gravitl/netmaker": "Netmaker has a boolean\u2011based SQL Injection",
