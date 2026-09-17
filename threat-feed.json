@@ -1,158 +1,24 @@
 {
   "version": "2026.09.17",
-  "last_updated": "2026-09-17T16:16:11.379900+00:00",
+  "last_updated": "2026-09-17T20:57:32.063874+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
     {
-      "id": "FEED-GHSA-wmj6-g64g-j7q5",
-      "name": "sanic chunked trailer request smuggling allows hidden second request execution",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-wmj6-g64g-j7q5",
-      "description": "sanic chunked trailer request smuggling allows hidden second request execution",
-      "date": "2026-09-17",
-      "affected": [
-        "sanic",
-        "sanic"
-      ],
-      "references": [
-        "https://github.com/sanic-org/sanic/security/advisories/GHSA-wmj6-g64g-j7q5",
-        "https://github.com/sanic-org/sanic/pull/3164",
-        "https://github.com/sanic-org/sanic/pull/3165",
-        "https://github.com/sanic-org/sanic/commit/47349d689d65fa1907977ac100e867894aeafb22",
-        "https://github.com/sanic-org/sanic/commit/69a10d3b06babaa9e5f6d1af577364e9e53b6dea",
-        "https://github.com/sanic-org/sanic/commit/a332796506c7c588b6930b02a8886e43eb8ea8d6",
-        "https://github.com/sanic-org/sanic/releases/tag/v24.12.1",
-        "https://github.com/sanic-org/sanic/releases/tag/v25.12.1",
-        "https://github.com/advisories/GHSA-wmj6-g64g-j7q5"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-g74q-6g2f-874x",
-      "name": "Tina: [Broken Access Control] letting any TinaCloud user authorize against any self-hosted site",
+      "id": "FEED-GHSA-xhfv-7758-r9hx",
+      "name": "Grav: Missing admin.super guard on core group blueprint access field allows admin.users operator to ",
       "category": "ghsa_advisory",
       "severity": "high",
-      "cve": "GHSA-g74q-6g2f-874x",
-      "description": "Tina: [Broken Access Control] letting any TinaCloud user authorize against any self-hosted site",
-      "date": "2026-09-17",
-      "affected": [
-        "next-tinacms-azure",
-        "@tinacms/auth"
-      ],
-      "references": [
-        "https://github.com/tinacms/tinacms/security/advisories/GHSA-g74q-6g2f-874x",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63506",
-        "https://github.com/tinacms/tinacms/pull/7168",
-        "https://github.com/tinacms/tinacms/commit/0a927a4f8d228dd05ee7ca4be32899bc190e73af",
-        "https://github.com/tinacms/tinacms/releases/tag/@tinacms/auth@1.1.4",
-        "https://github.com/tinacms/tinacms/releases/tag/next-tinacms-azure@15.0.1",
-        "https://github.com/advisories/GHSA-g74q-6g2f-874x"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "next-tinacms-azure",
-            "@tinacms/auth"
-          ]
-        },
-        "compromised_actions": [
-          "@tinacms/auth"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-657c-g7qc-r9j2",
-      "name": "Redocly CLI: Path traversal when using `split` command",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-657c-g7qc-r9j2",
-      "description": "Redocly CLI: Path traversal when using `split` command",
-      "date": "2026-09-17",
-      "affected": [
-        "@redocly/cli",
-        "@redocly/cli"
-      ],
-      "references": [
-        "https://github.com/Redocly/redocly-cli/security/advisories/GHSA-657c-g7qc-r9j2",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63225",
-        "https://github.com/Redocly/redocly-cli/pull/2891",
-        "https://github.com/Redocly/redocly-cli/pull/2923",
-        "https://github.com/Redocly/redocly-cli/commit/26a0f299fae0b3bb7bd513043d2f1e90e69f79ee",
-        "https://github.com/Redocly/redocly-cli/commit/504120419a72b5c684471478337ee3b45d8bfad3",
-        "https://github.com/Redocly/redocly-cli/releases/tag/@redocly/cli@1.34.17",
-        "https://github.com/Redocly/redocly-cli/releases/tag/@redocly/cli@2.33.2",
-        "https://github.com/advisories/GHSA-657c-g7qc-r9j2"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@redocly/cli",
-            "@redocly/cli"
-          ]
-        },
-        "compromised_actions": [
-          "@redocly/cli",
-          "@redocly/cli"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-84vh-m24q-wjjx",
-      "name": "Pocketbase: Unhandled panic in worker goroutines",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-84vh-m24q-wjjx",
-      "description": "Pocketbase: Unhandled panic in worker goroutines",
-      "date": "2026-09-17",
-      "affected": [
-        "github.com/pocketbase/pocketbase",
-        "github.com/pocketbase/pocketbase"
-      ],
-      "references": [
-        "https://github.com/pocketbase/pocketbase/security/advisories/GHSA-84vh-m24q-wjjx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-82410",
-        "https://github.com/pocketbase/pocketbase/commit/30b4184305904fae0d1b78216c4e3cc34700b220",
-        "https://github.com/pocketbase/pocketbase/commit/f1618ee59b6d1c0308bb474c827a2b1f24b12a95",
-        "https://github.com/pocketbase/pocketbase/discussions/7762",
-        "https://github.com/pocketbase/pocketbase/releases/tag/v0.22.48",
-        "https://github.com/pocketbase/pocketbase/releases/tag/v0.39.7",
-        "https://github.com/advisories/GHSA-84vh-m24q-wjjx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/pocketbase/pocketbase",
-            "github.com/pocketbase/pocketbase"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/pocketbase/pocketbase",
-          "github.com/pocketbase/pocketbase"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8h9x-89f2-m7x3",
-      "name": "Grav: Decompression-bomb size cap bypassed by forged ZIP size in ZipArchiver/Installer",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-8h9x-89f2-m7x3",
-      "description": "Grav: Decompression-bomb size cap bypassed by forged ZIP size in ZipArchiver/Installer",
+      "cve": "GHSA-xhfv-7758-r9hx",
+      "description": "Grav: Missing admin.super guard on core group blueprint access field allows admin.users operator to escalate to super-admin",
       "date": "2026-09-17",
       "affected": [
         "getgrav/grav"
       ],
       "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-8h9x-89f2-m7x3",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-61449",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-61841",
-        "https://www.vulncheck.com/advisories/grav-before-decompression-bomb-via-forged-zip-size",
-        "https://github.com/advisories/GHSA-8h9x-89f2-m7x3"
+        "https://github.com/getgrav/grav/security/advisories/GHSA-xhfv-7758-r9hx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75837",
+        "https://www.vulncheck.com/advisories/grav-before-privilege-escalation-via-group-access-field",
+        "https://github.com/advisories/GHSA-xhfv-7758-r9hx"
       ],
       "detection_signatures": {
         "compromised_actions": [
@@ -162,372 +28,606 @@
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-rw4j-r22c-9gc3",
-      "name": "AsyncSSH: asyncio event-loop freeze via SSH maximum packet size = 0 in SSH_MSG_CHANNEL_OPEN / OPEN_C",
+      "id": "FEED-GHSA-q2j8-x8hf-63ch",
+      "name": "Grav: Single invalid UTF-8 byte disables every rule in Security::detectXss(), bypassing the page-con",
       "category": "ghsa_advisory",
       "severity": "medium",
-      "cve": "GHSA-rw4j-r22c-9gc3",
-      "description": "AsyncSSH: asyncio event-loop freeze via SSH maximum packet size = 0 in SSH_MSG_CHANNEL_OPEN / OPEN_CONFIRMATION",
+      "cve": "GHSA-q2j8-x8hf-63ch",
+      "description": "Grav: Single invalid UTF-8 byte disables every rule in Security::detectXss(), bypassing the page-content XSS safety gate",
       "date": "2026-09-17",
       "affected": [
-        "asyncssh"
+        "getgrav/grav"
       ],
       "references": [
-        "https://github.com/ronf/asyncssh/security/advisories/GHSA-rw4j-r22c-9gc3",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-62949",
-        "https://github.com/ronf/asyncssh/commit/756cbae5350789ce9735f15f704bae9b5a3608b8",
-        "https://github.com/ronf/asyncssh/commit/9c354270c009285525e126721e8ed5fbed1f8a67",
-        "https://github.com/ronf/asyncssh/releases/tag/v2.24.0",
-        "https://github.com/advisories/GHSA-rw4j-r22c-9gc3"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9rm7-3qhh-h2mc",
-      "name": "Wire: Unauthenticated decoder crash via 32-bit length integer overflow in ByteArrayProtoReader32 (in",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-9rm7-3qhh-h2mc",
-      "description": "Wire: Unauthenticated decoder crash via 32-bit length integer overflow in ByteArrayProtoReader32 (incomplete fix of CVE-2026-45799)",
-      "date": "2026-09-17",
-      "affected": [
-        "com.squareup.wire:wire-runtime",
-        "com.squareup.wire:wire-runtime"
-      ],
-      "references": [
-        "https://github.com/square/wire/security/advisories/GHSA-9rm7-3qhh-h2mc",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63126",
-        "https://github.com/square/wire/pull/3635",
-        "https://github.com/square/wire/commit/082d5d83cec57ef68f1dd7d3e3d1d641c1fb670f",
-        "https://github.com/square/wire/commit/25ebcabb9ab7f12d1d77af75ecbc51726fddc015",
-        "https://github.com/square/wire/releases/tag/6.4.5",
-        "https://github.com/square/wire/releases/tag/7.0.0-alpha04",
-        "https://github.com/advisories/GHSA-9rm7-3qhh-h2mc"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-j9v4-rhgr-4m5f",
-      "name": "oRPC: Vary Header Injection in CORS Plugin leading to potential Cache/CORS Bypass",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-j9v4-rhgr-4m5f",
-      "description": "oRPC: Vary Header Injection in CORS Plugin leading to potential Cache/CORS Bypass",
-      "date": "2026-09-17",
-      "affected": [
-        "@orpc/server"
-      ],
-      "references": [
-        "https://github.com/middleapi/orpc/security/advisories/GHSA-j9v4-rhgr-4m5f",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77360",
-        "https://github.com/middleapi/orpc/issues/1661",
-        "https://github.com/middleapi/orpc/pull/1662",
-        "https://github.com/middleapi/orpc/commit/daabded122a89d323357c4c401e879701864cb2f",
-        "https://github.com/middleapi/orpc/releases/tag/v1.14.8",
-        "https://github.com/advisories/GHSA-j9v4-rhgr-4m5f"
+        "https://github.com/getgrav/grav/security/advisories/GHSA-q2j8-x8hf-63ch",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75834",
+        "https://www.vulncheck.com/advisories/grav-before-stored-xss-via-invalid-utf-8-byte",
+        "https://github.com/advisories/GHSA-q2j8-x8hf-63ch"
       ],
       "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@orpc/server"
-          ]
-        },
         "compromised_actions": [
-          "@orpc/server"
+          "getgrav/grav"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-jh4v-gfqj-7rhx",
-      "name": "RabbitMQ Java client has frame-level OOM: Math.min(maxInboundMessageBodySize, 0) defeats frame size ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-jh4v-gfqj-7rhx",
-      "description": "RabbitMQ Java client has frame-level OOM: Math.min(maxInboundMessageBodySize, 0) defeats frame size enforcement",
-      "date": "2026-09-17",
-      "affected": [
-        "com.rabbitmq:amqp-client"
-      ],
-      "references": [
-        "https://github.com/rabbitmq/rabbitmq-java-client/security/advisories/GHSA-jh4v-gfqj-7rhx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-75516",
-        "https://github.com/rabbitmq/rabbitmq-java-client/pull/2015",
-        "https://github.com/rabbitmq/rabbitmq-java-client/pull/2016",
-        "https://github.com/rabbitmq/rabbitmq-java-client/commit/6d7c2bfe89796ca34d3531098fb59dd657fea39e",
-        "https://github.com/rabbitmq/rabbitmq-java-client/commit/e7f10bf99aee103dd9f64b3e52a725fc9f9d3763",
-        "https://github.com/rabbitmq/rabbitmq-java-client/releases/tag/v5.34.0",
-        "https://github.com/advisories/GHSA-jh4v-gfqj-7rhx"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rfx3-98h7-v3xp",
-      "name": "Marten's LINQ provider has SQL injection via unescaped string literals",
+      "id": "FEED-GHSA-f8wv-xp27-6gq7",
+      "name": "Grav: Blueprint dynamic-data bare-function branch is denylist-gated and omits error_log, giving arbi",
       "category": "ghsa_advisory",
       "severity": "critical",
-      "cve": "GHSA-rfx3-98h7-v3xp",
-      "description": "Marten's LINQ provider has SQL injection via unescaped string literals",
+      "cve": "GHSA-f8wv-xp27-6gq7",
+      "description": "Grav: Blueprint dynamic-data bare-function branch is denylist-gated and omits error_log, giving arbitrary file write",
       "date": "2026-09-17",
       "affected": [
-        "Marten"
+        "getgrav/grav"
       ],
       "references": [
-        "https://github.com/JasperFx/marten/security/advisories/GHSA-rfx3-98h7-v3xp",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-75513",
-        "https://github.com/JasperFx/marten/pull/4911",
-        "https://github.com/JasperFx/marten/commit/61882d0424854cb48703f08bdb246894ac576bed",
-        "https://github.com/JasperFx/marten/releases/tag/9.13.0",
-        "https://github.com/advisories/GHSA-rfx3-98h7-v3xp"
+        "https://github.com/getgrav/grav/security/advisories/GHSA-f8wv-xp27-6gq7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75827",
+        "https://www.vulncheck.com/advisories/grav-before-arbitrary-file-write-via-error-log",
+        "https://github.com/advisories/GHSA-f8wv-xp27-6gq7"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4v9q-p283-qc2m",
+      "name": "Grav: Unauthenticated Path Traversal via Missing Directory-Boundary Check in `plugin-asset-map.php` ",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-4v9q-p283-qc2m",
+      "description": "Grav: Unauthenticated Path Traversal via Missing Directory-Boundary Check in `plugin-asset-map.php` Static Asset Server (`index.php`)",
+      "date": "2026-09-17",
+      "affected": [
+        "getgrav/grav"
+      ],
+      "references": [
+        "https://github.com/getgrav/grav/security/advisories/GHSA-4v9q-p283-qc2m",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-74907",
+        "https://www.vulncheck.com/advisories/grav-before-path-traversal-via-plugin-asset-map-php",
+        "https://github.com/advisories/GHSA-4v9q-p283-qc2m"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jq29-c7v8-rg55",
+      "name": "Grav: Path Traversal in MediaUploadTrait::deleteFile() Allows Arbitrary File Deletion",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-jq29-c7v8-rg55",
+      "description": "Grav: Path Traversal in MediaUploadTrait::deleteFile() Allows Arbitrary File Deletion",
+      "date": "2026-09-17",
+      "affected": [
+        "getgrav/grav"
+      ],
+      "references": [
+        "https://github.com/getgrav/grav/security/advisories/GHSA-jq29-c7v8-rg55",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-72695",
+        "https://www.vulncheck.com/advisories/grav-before-path-traversal-via-mediauploadtrait-deletefile",
+        "https://github.com/advisories/GHSA-jq29-c7v8-rg55"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9gm5-9rfh-m6vx",
+      "name": "CoreDNS DoH/DoQ/gRPC bypass UPDATE rejection enforced on UDP/TCP",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9gm5-9rfh-m6vx",
+      "description": "CoreDNS DoH/DoQ/gRPC bypass UPDATE rejection enforced on UDP/TCP",
+      "date": "2026-09-17",
+      "affected": [
+        "github.com/coredns/coredns"
+      ],
+      "references": [
+        "https://github.com/coredns/coredns/security/advisories/GHSA-9gm5-9rfh-m6vx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-86003",
+        "https://github.com/coredns/coredns/commit/530b0a5ff2ad68cc0421f10dd93568945cc671c9",
+        "https://github.com/coredns/coredns/releases/tag/v1.14.7",
+        "https://github.com/advisories/GHSA-9gm5-9rfh-m6vx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/coredns/coredns"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/coredns/coredns"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-gjv8-xp57-g29c",
+      "name": "Soup Sieve: Polynomial-time ReDoS (O(n\u00b2)) in the `IDENTIFIER` / `VALUE` selector sub-patterns",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-gjv8-xp57-g29c",
+      "description": "Soup Sieve: Polynomial-time ReDoS (O(n\u00b2)) in the `IDENTIFIER` / `VALUE` selector sub-patterns",
+      "date": "2026-09-17",
+      "affected": [
+        "soupsieve"
+      ],
+      "references": [
+        "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-gjv8-xp57-g29c",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-86000",
+        "https://github.com/facelessuser/soupsieve/commit/ce44e4996e6632871c18cdd7a7fb641be8ef34ef",
+        "https://github.com/facelessuser/soupsieve/releases/tag/2.9",
+        "https://github.com/advisories/GHSA-gjv8-xp57-g29c"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-hx8v-g79f-8w5f",
-      "name": "LiteLLM Proxy has server-side request forgery via the `user_config` request parameter",
+      "id": "FEED-GHSA-j934-xhv5-fg8f",
+      "name": "Soup Sieve: Polynomial-time ReDoS (O(n\u00b2)) in the whitespace/comment trimming regex `RE_WS_END` (trig",
       "category": "ghsa_advisory",
       "severity": "medium",
-      "cve": "GHSA-hx8v-g79f-8w5f",
-      "description": "LiteLLM Proxy has server-side request forgery via the `user_config` request parameter",
+      "cve": "GHSA-j934-xhv5-fg8f",
+      "description": "Soup Sieve: Polynomial-time ReDoS (O(n\u00b2)) in the whitespace/comment trimming regex `RE_WS_END` (triggers on VALID selectors)",
       "date": "2026-09-17",
       "affected": [
-        "litellm"
+        "soupsieve"
       ],
       "references": [
-        "https://github.com/BerriAI/litellm/security/advisories/GHSA-hx8v-g79f-8w5f",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-59823",
-        "https://github.com/BerriAI/litellm/pull/25827",
-        "https://github.com/BerriAI/litellm/commit/47214be317f45a2d2ac08258362e0481411eb427",
-        "https://github.com/advisories/GHSA-hx8v-g79f-8w5f"
+        "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-j934-xhv5-fg8f",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-85999",
+        "https://github.com/facelessuser/soupsieve/commit/cf198fcddc9230f06ed39f974eba0ce076b85cda",
+        "https://github.com/facelessuser/soupsieve/releases/tag/2.9",
+        "https://github.com/advisories/GHSA-j934-xhv5-fg8f"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-q69g-4hcv-6jg4",
-      "name": "@cyclonedx/cyclonedx-npm: Shell Injection via Unsanitized --workspace Argument on Windows",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-q69g-4hcv-6jg4",
-      "description": "@cyclonedx/cyclonedx-npm: Shell Injection via Unsanitized --workspace Argument on Windows",
-      "date": "2026-09-17",
-      "affected": [
-        "@cyclonedx/cyclonedx-npm"
-      ],
-      "references": [
-        "https://github.com/CycloneDX/cyclonedx-node-npm/security/advisories/GHSA-q69g-4hcv-6jg4",
-        "https://github.com/CycloneDX/cyclonedx-node-npm/pull/1489",
-        "https://github.com/CycloneDX/cyclonedx-node-npm/commit/15d3beb5bcd2b0b6eccfdf31192f5103b3f12c0f",
-        "https://github.com/CycloneDX/cyclonedx-node-npm/releases/tag/v6.0.0",
-        "https://github.com/advisories/GHSA-q69g-4hcv-6jg4"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@cyclonedx/cyclonedx-npm"
-          ]
-        },
-        "compromised_actions": [
-          "@cyclonedx/cyclonedx-npm"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6j36-r6pr-59x4",
-      "name": "Vendure affected by external-authentication account takeover: external login linked to a pre-existin",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-6j36-r6pr-59x4",
-      "description": "Vendure affected by external-authentication account takeover: external login linked to a pre-existing account by email without verification",
-      "date": "2026-09-17",
-      "affected": [
-        "@vendure/core"
-      ],
-      "references": [
-        "https://github.com/vendurehq/vendure/security/advisories/GHSA-6j36-r6pr-59x4",
-        "https://github.com/vendurehq/vendure/commit/3bb04718ea4f9395fda731bd2a4bcfc3afb0a485",
-        "https://github.com/vendurehq/vendure/releases/tag/v3.7.0",
-        "https://github.com/advisories/GHSA-6j36-r6pr-59x4"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@vendure/core"
-          ]
-        },
-        "compromised_actions": [
-          "@vendure/core"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xf65-r35x-wmmv",
-      "name": "Vendure: Shop API list queries can return non-public entities when filterOperator is OR",
+      "id": "FEED-GHSA-qrfj-mgw8-j9c6",
+      "name": "@platejs/core HTML deserialization can trigger browser behavior during parsing",
       "category": "ghsa_advisory",
       "severity": "medium",
-      "cve": "GHSA-xf65-r35x-wmmv",
-      "description": "Vendure: Shop API list queries can return non-public entities when filterOperator is OR",
+      "cve": "GHSA-qrfj-mgw8-j9c6",
+      "description": "@platejs/core HTML deserialization can trigger browser behavior during parsing",
       "date": "2026-09-17",
       "affected": [
-        "@vendure/core"
+        "@platejs/core",
+        "@platejs/core"
       ],
       "references": [
-        "https://github.com/vendurehq/vendure/security/advisories/GHSA-xf65-r35x-wmmv",
-        "https://github.com/vendurehq/vendure/commit/6daf5cb8571321eb6c6afa1d8e95a390c060be02",
-        "https://github.com/vendurehq/vendure/releases/tag/v3.6.5",
-        "https://github.com/advisories/GHSA-xf65-r35x-wmmv"
+        "https://github.com/udecode/plate/security/advisories/GHSA-qrfj-mgw8-j9c6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-88976",
+        "https://github.com/udecode/plate/pull/5117",
+        "https://github.com/udecode/plate/commit/d02afe45d5ec3a9fb95e0745bc5820ff18a3c12b",
+        "https://github.com/udecode/plate/releases/tag/v53.3.11",
+        "https://github.com/advisories/GHSA-qrfj-mgw8-j9c6"
       ],
       "detection_signatures": {
         "malicious_packages": {
           "npm": [
-            "@vendure/core"
+            "@platejs/core",
+            "@platejs/core"
           ]
         },
         "compromised_actions": [
-          "@vendure/core"
+          "@platejs/core",
+          "@platejs/core"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-jgm3-qmp2-c4p7",
-      "name": "Vendure: Unauthenticated ReDoS via `regex` filter on SQLite backends",
+      "id": "FEED-GHSA-x424-64qh-5j54",
+      "name": "react/http: A malformed HTTP chunked body can lead to a denial-of-service and peg the CPU",
       "category": "ghsa_advisory",
       "severity": "high",
-      "cve": "GHSA-jgm3-qmp2-c4p7",
-      "description": "Vendure: Unauthenticated ReDoS via `regex` filter on SQLite backends",
+      "cve": "GHSA-x424-64qh-5j54",
+      "description": "react/http: A malformed HTTP chunked body can lead to a denial-of-service and peg the CPU",
       "date": "2026-09-17",
       "affected": [
-        "vendure/core"
+        "react/http"
       ],
       "references": [
-        "https://github.com/vendurehq/vendure/security/advisories/GHSA-jgm3-qmp2-c4p7",
-        "https://github.com/vendurehq/vendure/commit/f74cbbb0b9a50b5b0131822835fe7ee9b71b42c9",
-        "https://github.com/vendurehq/vendure/releases/tag/v3.6.5",
-        "https://github.com/advisories/GHSA-jgm3-qmp2-c4p7"
+        "https://github.com/reactphp/http/security/advisories/GHSA-x424-64qh-5j54",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84997",
+        "https://github.com/reactphp/http/commit/b6d4688790adf3797071fcf88a3fc4225f30486a",
+        "https://github.com/FriendsOfPHP/security-advisories/blob/master/react/http/CVE-2026-84997.yaml",
+        "https://github.com/reactphp/http/releases/tag/v1.11.1",
+        "https://github.com/advisories/GHSA-x424-64qh-5j54"
       ],
       "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "vendure/core"
-          ]
-        },
         "compromised_actions": [
-          "vendure/core"
+          "react/http"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-xhq9-whgq-49j5",
-      "name": "Vendure has stored XSS in the Admin Dashboard via unsafe HTML-stripping (innerHTML) of entity descri",
+      "id": "FEED-GHSA-mrg3-qvqr-jw29",
+      "name": "CoreDNS: Unauthenticated memory exhaustion in custom transports",
       "category": "ghsa_advisory",
       "severity": "high",
-      "cve": "GHSA-xhq9-whgq-49j5",
-      "description": "Vendure has stored XSS in the Admin Dashboard via unsafe HTML-stripping (innerHTML) of entity descriptions",
+      "cve": "GHSA-mrg3-qvqr-jw29",
+      "description": "CoreDNS: Unauthenticated memory exhaustion in custom transports",
       "date": "2026-09-17",
       "affected": [
-        "@vendure/dashboard"
+        "github.com/coredns/coredns"
       ],
       "references": [
-        "https://github.com/vendurehq/vendure/security/advisories/GHSA-xhq9-whgq-49j5",
-        "https://github.com/vendurehq/vendure/commit/d7aa42a3f0cb524297a1a2fdf700e4aba9aca684",
-        "https://github.com/vendurehq/vendure/releases/tag/v3.6.5",
-        "https://github.com/advisories/GHSA-xhq9-whgq-49j5"
+        "https://github.com/coredns/coredns/security/advisories/GHSA-mrg3-qvqr-jw29",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-82399",
+        "https://github.com/coredns/coredns/commit/530b0a5ff2ad68cc0421f10dd93568945cc671c9",
+        "https://github.com/coredns/coredns/releases/tag/v1.14.7",
+        "https://github.com/advisories/GHSA-mrg3-qvqr-jw29"
       ],
       "detection_signatures": {
         "malicious_packages": {
-          "npm": [
-            "@vendure/dashboard"
+          "go": [
+            "github.com/coredns/coredns"
           ]
         },
         "compromised_actions": [
-          "@vendure/dashboard"
+          "github.com/coredns/coredns"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-q8hw-4fvp-9rwv",
-      "name": "Nuxt OG Image has unauthenticated SSRF via `fonts[].path` URL parameter",
+      "id": "FEED-GHSA-gq9c-wmrm-5hvr",
+      "name": "HAPI FHIR: SHCParser DEFLATE infinite loop causes denial of service",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-gq9c-wmrm-5hvr",
+      "description": "HAPI FHIR: SHCParser DEFLATE infinite loop causes denial of service",
+      "date": "2026-09-17",
+      "affected": [
+        "ca.uhn.hapi.fhir:org.hl7.fhir.validation.cli",
+        "ca.uhn.hapi.fhir:org.hl7.fhir.validation",
+        "ca.uhn.hapi.fhir:org.hl7.fhir.r5"
+      ],
+      "references": [
+        "https://github.com/hapifhir/org.hl7.fhir.core/security/advisories/GHSA-gq9c-wmrm-5hvr",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-81876",
+        "https://github.com/hapifhir/org.hl7.fhir.core/pull/2493",
+        "https://github.com/hapifhir/org.hl7.fhir.core/commit/d804558bd77372b1629e55a5b901cad3f5134cdc",
+        "https://github.com/hapifhir/org.hl7.fhir.core/commit/edd5d8c139e669e39270785f08be7b63aefef24c",
+        "https://github.com/advisories/GHSA-gq9c-wmrm-5hvr"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3w98-rrpr-fprr",
+      "name": "HAPI FHIR: SHCParser unbounded DEFLATE decompression causes denial of service",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-3w98-rrpr-fprr",
+      "description": "HAPI FHIR: SHCParser unbounded DEFLATE decompression causes denial of service",
+      "date": "2026-09-17",
+      "affected": [
+        "ca.uhn.hapi.fhir:org.hl7.fhir.validation.cli",
+        "ca.uhn.hapi.fhir:org.hl7.fhir.validation",
+        "ca.uhn.hapi.fhir:org.hl7.fhir.r5"
+      ],
+      "references": [
+        "https://github.com/hapifhir/org.hl7.fhir.core/security/advisories/GHSA-3w98-rrpr-fprr",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-81875",
+        "https://github.com/hapifhir/org.hl7.fhir.core/pull/2493",
+        "https://github.com/hapifhir/org.hl7.fhir.core/commit/fbb94216e0ad21ded75be77e5e20242ba194e83f",
+        "https://github.com/hapifhir/org.hl7.fhir.core/releases/tag/6.9.11",
+        "https://github.com/hapifhir/org.hl7.fhir.core/releases/tag/6.9.12",
+        "https://github.com/advisories/GHSA-3w98-rrpr-fprr"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xjw9-38cr-6372",
+      "name": "djust: A template binding inherits a context safety grant it never earned (XSS)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-xjw9-38cr-6372",
+      "description": "djust: A template binding inherits a context safety grant it never earned (XSS)",
+      "date": "2026-09-17",
+      "affected": [
+        "djust"
+      ],
+      "references": [
+        "https://github.com/djust-org/djust/security/advisories/GHSA-xjw9-38cr-6372",
+        "https://github.com/djust-org/djust/releases/tag/v1.1.2",
+        "https://github.com/advisories/GHSA-xjw9-38cr-6372"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9395-2g46-rj3f",
+      "name": "djust: Six template-layer defects emit attacker-controlled markup unescaped (XSS)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9395-2g46-rj3f",
+      "description": "djust: Six template-layer defects emit attacker-controlled markup unescaped (XSS)",
+      "date": "2026-09-17",
+      "affected": [
+        "djust"
+      ],
+      "references": [
+        "https://github.com/djust-org/djust/security/advisories/GHSA-9395-2g46-rj3f",
+        "https://github.com/djust-org/djust/releases/tag/v1.1.1",
+        "https://github.com/advisories/GHSA-9395-2g46-rj3f"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-w34q-cm8f-9c5x",
+      "name": "OpenTelemetry-Go: Log gRPC exporter ignores env TLS certs, bypassing mTLS/pinning",
       "category": "ghsa_advisory",
       "severity": "medium",
-      "cve": "GHSA-q8hw-4fvp-9rwv",
-      "description": "Nuxt OG Image has unauthenticated SSRF via `fonts[].path` URL parameter",
+      "cve": "GHSA-w34q-cm8f-9c5x",
+      "description": "OpenTelemetry-Go: Log gRPC exporter ignores env TLS certs, bypassing mTLS/pinning",
       "date": "2026-09-17",
       "affected": [
-        "nuxt-og-image"
+        "go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc"
       ],
       "references": [
-        "https://github.com/nuxt-modules/og-image/security/advisories/GHSA-q8hw-4fvp-9rwv",
-        "https://github.com/nuxt-modules/og-image/pull/637",
-        "https://github.com/nuxt-modules/og-image/commit/243cac2228671d3711c2bd65e300c278fcdf5a4e",
-        "https://github.com/nuxt-modules/og-image/releases/tag/v6.7.0",
-        "https://github.com/advisories/GHSA-q8hw-4fvp-9rwv"
+        "https://github.com/open-telemetry/opentelemetry-go/security/advisories/GHSA-w34q-cm8f-9c5x",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-81871",
+        "https://github.com/open-telemetry/opentelemetry-go/commit/c65d435b43e5e6b82310e6b18dd4cdcb8ac63a0c",
+        "https://github.com/open-telemetry/opentelemetry-go/releases/tag/exporters/otlp/otlplog/otlploggrpc/v0.21.0",
+        "https://github.com/advisories/GHSA-w34q-cm8f-9c5x"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc"
+          ]
+        },
+        "compromised_actions": [
+          "go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8wmf-6v46-5gfg",
+      "name": "OpenTelemetry-Go: Exporter config logging may leak endpoint URLs in info logs",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-8wmf-6v46-5gfg",
+      "description": "OpenTelemetry-Go: Exporter config logging may leak endpoint URLs in info logs",
+      "date": "2026-09-17",
+      "affected": [
+        "go.opentelemetry.io/otel/exporters/zipkin",
+        "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp",
+        "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc",
+        "go.opentelemetry.io/otel/exporters/otlp/otlptrace",
+        "go.opentelemetry.io/otel/sdk"
+      ],
+      "references": [
+        "https://github.com/open-telemetry/opentelemetry-go/security/advisories/GHSA-8wmf-6v46-5gfg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-81870",
+        "https://github.com/open-telemetry/opentelemetry-go/pull/8438",
+        "https://github.com/open-telemetry/opentelemetry-go/commit/3a1412d2b3bc4e4231fbeac2ed42117ae541bb38",
+        "https://github.com/open-telemetry/opentelemetry-go/releases/tag/exporters/zipkin/v1.45.0",
+        "https://github.com/open-telemetry/opentelemetry-go/releases/tag/sdk/v1.45.0",
+        "https://github.com/advisories/GHSA-8wmf-6v46-5gfg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "go.opentelemetry.io/otel/exporters/zipkin",
+            "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp",
+            "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc",
+            "go.opentelemetry.io/otel/exporters/otlp/otlptrace",
+            "go.opentelemetry.io/otel/sdk"
+          ]
+        },
+        "compromised_actions": [
+          "go.opentelemetry.io/otel/exporters/zipkin",
+          "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp",
+          "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc",
+          "go.opentelemetry.io/otel/exporters/otlp/otlptrace",
+          "go.opentelemetry.io/otel/sdk"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5mq7-rwhj-4fh9",
+      "name": "Steeltoe: Header-forwarded client cert lacks proof of private-key possession",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-5mq7-rwhj-4fh9",
+      "description": "Steeltoe: Header-forwarded client cert lacks proof of private-key possession",
+      "date": "2026-09-17",
+      "affected": [
+        "Steeltoe.Security.Authorization.Certificate"
+      ],
+      "references": [
+        "https://github.com/SteeltoeOSS/security-advisories/security/advisories/GHSA-5mq7-rwhj-4fh9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-81868",
+        "https://github.com/SteeltoeOSS/Steeltoe/commit/b626ef3d60aaf19c68eeeed5ee81045406c8c6d0",
+        "https://github.com/SteeltoeOSS/Steeltoe/releases/tag/4.3.0",
+        "https://github.com/advisories/GHSA-5mq7-rwhj-4fh9"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-67c9-f6v2-qv86",
+      "name": "Steeltoe.Discovery.Consul: malformed 'secure' metadata aborts service instance lookup (DoS)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-67c9-f6v2-qv86",
+      "description": "Steeltoe.Discovery.Consul: malformed 'secure' metadata aborts service instance lookup (DoS)",
+      "date": "2026-09-17",
+      "affected": [
+        "Steeltoe.Discovery.Consul"
+      ],
+      "references": [
+        "https://github.com/SteeltoeOSS/security-advisories/security/advisories/GHSA-67c9-f6v2-qv86",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-81516",
+        "https://github.com/SteeltoeOSS/Steeltoe/commit/028569c4f4f0e9e393e3c22a4fa5d07987dd8673",
+        "https://github.com/SteeltoeOSS/Steeltoe/releases/tag/4.3.0",
+        "https://github.com/advisories/GHSA-67c9-f6v2-qv86"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hr73-3gpv-hh6q",
+      "name": "Steeltoe.Discovery.Eureka: malformed enum/bool/timestamp field aborts entire registry fetch (DoS)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-hr73-3gpv-hh6q",
+      "description": "Steeltoe.Discovery.Eureka: malformed enum/bool/timestamp field aborts entire registry fetch (DoS)",
+      "date": "2026-09-17",
+      "affected": [
+        "Steeltoe.Discovery.Eureka"
+      ],
+      "references": [
+        "https://github.com/SteeltoeOSS/security-advisories/security/advisories/GHSA-hr73-3gpv-hh6q",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-81515",
+        "https://github.com/SteeltoeOSS/Steeltoe/commit/bc1c3763aacc1fee82ef9932f338ec08dcb00432",
+        "https://github.com/SteeltoeOSS/Steeltoe/releases/tag/4.3.0",
+        "https://github.com/advisories/GHSA-j8ph-6fxj-g533",
+        "https://github.com/advisories/GHSA-hr73-3gpv-hh6q"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-c3mw-737p-c7g2",
+      "name": "Jupyter Server: 5xx request logging leaks token-bearing Referer header values",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-c3mw-737p-c7g2",
+      "description": "Jupyter Server: 5xx request logging leaks token-bearing Referer header values",
+      "date": "2026-09-17",
+      "affected": [
+        "jupyter_server"
+      ],
+      "references": [
+        "https://github.com/jupyter-server/jupyter_server/security/advisories/GHSA-c3mw-737p-c7g2",
+        "https://github.com/jupyter-server/jupyter_server/pull/1681",
+        "https://github.com/jupyter-server/jupyter_server/commit/52513529af7096e622c00911b17627b266294717",
+        "https://github.com/jupyter-server/jupyter_server/releases/tag/v2.21.0",
+        "https://github.com/advisories/GHSA-c3mw-737p-c7g2"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9rgm-9g3h-6x36",
+      "name": "Svelte devalue: DoS via malformed input",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-9rgm-9g3h-6x36",
+      "description": "Svelte devalue: DoS via malformed input",
+      "date": "2026-09-17",
+      "affected": [
+        "devalue"
+      ],
+      "references": [
+        "https://github.com/sveltejs/devalue/security/advisories/GHSA-9rgm-9g3h-6x36",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-81176",
+        "https://github.com/sveltejs/devalue/commit/8b2a4562c446d7c36d9d629778079a5fae4243e1",
+        "https://github.com/sveltejs/devalue/releases/tag/v5.9.2",
+        "https://github.com/advisories/GHSA-9rgm-9g3h-6x36"
       ],
       "detection_signatures": {
         "malicious_packages": {
           "npm": [
-            "nuxt-og-image"
+            "devalue"
           ]
         }
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-g3pg-frfm-pr2m",
-      "name": "OpenFGA: ListUsers returns a deliberately-excluded user when a `but not` exclusion under a type-boun",
+      "id": "FEED-GHSA-vjqc-q4mp-2rvf",
+      "name": "CakePHP: Multiple methods in FunctionsBuilder vulnerable to SQL injection",
       "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-g3pg-frfm-pr2m",
-      "description": "OpenFGA: ListUsers returns a deliberately-excluded user when a `but not` exclusion under a type-bound wildcard is intersected (`and`) with another relation that also grants that user",
-      "date": "2026-09-16",
+      "severity": "critical",
+      "cve": "GHSA-vjqc-q4mp-2rvf",
+      "description": "CakePHP: Multiple methods in FunctionsBuilder vulnerable to SQL injection",
+      "date": "2026-09-17",
       "affected": [
-        "github.com/openfga/openfga"
+        "cakephp/cakephp",
+        "cakephp/cakephp",
+        "cakephp/cakephp",
+        "cakephp/cakephp",
+        "cakephp/cakephp",
+        "cakephp/database",
+        "cakephp/database",
+        "cakephp/database",
+        "cakephp/database",
+        "cakephp/database"
       ],
       "references": [
-        "https://github.com/openfga/openfga/security/advisories/GHSA-g3pg-frfm-pr2m",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-61709",
-        "https://github.com/openfga/openfga/commit/171806c93b86bca29e0212ceb8b6ee9c48eb9ac3",
-        "https://github.com/openfga/openfga/releases/tag/v1.18.1",
-        "https://github.com/advisories/GHSA-g3pg-frfm-pr2m"
+        "https://github.com/cakephp/cakephp/security/advisories/GHSA-vjqc-q4mp-2rvf",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-79752",
+        "https://github.com/cakephp/cakephp/pull/19520",
+        "https://github.com/cakephp/cakephp/pull/19528",
+        "https://github.com/cakephp/cakephp/commit/3349584ca3a891afaff2dbc324d6b1c09fb880f0",
+        "https://github.com/cakephp/cakephp/commit/3f4d13ea4280067f3381ecf935a8bef5b7cdcc2e",
+        "https://github.com/cakephp/cakephp/commit/79e1d6bc6f3a50fa01805579076a02c77370c676",
+        "https://github.com/cakephp/cakephp/commit/8699d6f38e25fe46fcc24f2b698809948e71ad7d",
+        "https://github.com/cakephp/cakephp/commit/ab608711674ac662af7315c5cdf1e0fbe2000e45",
+        "https://github.com/cakephp/cakephp/releases/tag/4.5.12",
+        "https://github.com/cakephp/cakephp/releases/tag/4.6.5",
+        "https://github.com/cakephp/cakephp/releases/tag/5.1.8",
+        "https://github.com/cakephp/cakephp/releases/tag/5.1.9",
+        "https://github.com/cakephp/cakephp/releases/tag/5.2.14",
+        "https://github.com/cakephp/cakephp/releases/tag/5.3.7",
+        "https://github.com/advisories/GHSA-vjqc-q4mp-2rvf"
       ],
       "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/openfga/openfga"
-          ]
-        },
         "compromised_actions": [
-          "github.com/openfga/openfga"
+          "cakephp/cakephp",
+          "cakephp/cakephp",
+          "cakephp/cakephp",
+          "cakephp/cakephp",
+          "cakephp/cakephp",
+          "cakephp/database",
+          "cakephp/database",
+          "cakephp/database",
+          "cakephp/database",
+          "cakephp/database"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-ffmg-hfvg-jhg9",
-      "name": "Grav: Stored CSS injection via Markdown image resize() bypasses prior media style sanitizers in Grav",
+      "id": "FEED-GHSA-47ch-6w46-6xm7",
+      "name": "Grav: media_directory() Twig function allows filesystem path traversal and file content disclosure f",
       "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-ffmg-hfvg-jhg9",
-      "description": "Grav: Stored CSS injection via Markdown image resize() bypasses prior media style sanitizers in Grav",
-      "date": "2026-09-16",
+      "severity": "high",
+      "cve": "GHSA-47ch-6w46-6xm7",
+      "description": "Grav: media_directory() Twig function allows filesystem path traversal and file content disclosure from sandboxed page content",
+      "date": "2026-09-17",
       "affected": [
         "getgrav/grav"
       ],
       "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-ffmg-hfvg-jhg9",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-58657",
-        "https://github.com/getgrav/grav/commit/6582166173bb8eb5869d96aea384e0e73777c94c",
-        "https://github.com/getgrav/grav/commit/e03d29aa0d3ece16d73c1ffccfa78df8bf5f28b8",
-        "https://www.vulncheck.com/advisories/grav-stored-css-injection-via-markdown-image-resize-action",
-        "https://github.com/advisories/GHSA-ffmg-hfvg-jhg9"
+        "https://github.com/getgrav/grav/security/advisories/GHSA-47ch-6w46-6xm7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-72697",
+        "https://www.vulncheck.com/advisories/grav-cms-before-path-traversal-via-media-directory",
+        "https://github.com/advisories/GHSA-47ch-6w46-6xm7"
       ],
       "detection_signatures": {
         "compromised_actions": [
@@ -537,97 +637,256 @@
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-mxm6-v9r6-r94c",
-      "name": "@nuxtjs/mdc's URL sanitizer misses SVG xlink:href and data:text/html, allowing XSS from untrusted ma",
+      "id": "FEED-GHSA-3jhr-mxmx-38cx",
+      "name": "Grav: UserInterface offsetget/offsetexists allow-listed in Twig sandbox let editor-authored content ",
       "category": "ghsa_advisory",
       "severity": "high",
-      "cve": "GHSA-mxm6-v9r6-r94c",
-      "description": "@nuxtjs/mdc's URL sanitizer misses SVG xlink:href and data:text/html, allowing XSS from untrusted markdown at the default configuration",
-      "date": "2026-09-16",
+      "cve": "GHSA-3jhr-mxmx-38cx",
+      "description": "Grav: UserInterface offsetget/offsetexists allow-listed in Twig sandbox let editor-authored content leak hashed_password and 2FA secrets via offsetGet()",
+      "date": "2026-09-17",
       "affected": [
-        "@nuxtjs/mdc"
+        "getgrav/grav"
       ],
       "references": [
-        "https://github.com/nuxt-content/mdc/security/advisories/GHSA-mxm6-v9r6-r94c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63671",
-        "https://github.com/nuxt-content/mdc/pull/491",
-        "https://github.com/nuxt-content/mdc/commit/61d636c2983f021288e4fc5c4006733b38cf0d53",
-        "https://github.com/nuxt-content/mdc/releases/tag/v0.22.1",
-        "https://github.com/advisories/GHSA-mxm6-v9r6-r94c"
+        "https://github.com/getgrav/grav/security/advisories/GHSA-3jhr-mxmx-38cx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-76839",
+        "https://www.vulncheck.com/advisories/grav-before-information-disclosure-via-offsetget",
+        "https://github.com/advisories/GHSA-3jhr-mxmx-38cx"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xjw5-q542-3vmr",
+      "name": "Grav: config_denied_paths default list omits `system`, exposing real secrets (e.g. system.cache.redi",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-xjw5-q542-3vmr",
+      "description": "Grav: config_denied_paths default list omits `system`, exposing real secrets (e.g. system.cache.redis.password) via the Twig sandbox when config_access is enabled",
+      "date": "2026-09-17",
+      "affected": [
+        "getgrav/grav"
+      ],
+      "references": [
+        "https://github.com/getgrav/grav/security/advisories/GHSA-xjw5-q542-3vmr",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-76846",
+        "https://www.vulncheck.com/advisories/grav-before-information-disclosure-via-twig-sandbox",
+        "https://github.com/advisories/GHSA-xjw5-q542-3vmr"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-p597-crqc-m349",
+      "name": "Grav: The system, site, and theme Twig variables bypass the content sandbox entirely and are never c",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-p597-crqc-m349",
+      "description": "Grav: The system, site, and theme Twig variables bypass the content sandbox entirely and are never covered by config_denied_paths",
+      "date": "2026-09-17",
+      "affected": [
+        "getgrav/grav"
+      ],
+      "references": [
+        "https://github.com/getgrav/grav/security/advisories/GHSA-p597-crqc-m349",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-72698",
+        "https://www.vulncheck.com/advisories/grav-cms-before-information-disclosure-via-twig-sandbox-bypass",
+        "https://github.com/advisories/GHSA-p597-crqc-m349"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-38p6-h87p-r4cg",
+      "name": "Grav: Non constant time nonce comparison in Utils::verifyNonce() used for CSRF protection",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-38p6-h87p-r4cg",
+      "description": "Grav: Non constant time nonce comparison in Utils::verifyNonce() used for CSRF protection",
+      "date": "2026-09-17",
+      "affected": [
+        "getgrav/grav"
+      ],
+      "references": [
+        "https://github.com/getgrav/grav/security/advisories/GHSA-38p6-h87p-r4cg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-72701",
+        "https://www.vulncheck.com/advisories/grav-cms-before-timing-attack-via-verifynonce",
+        "https://github.com/advisories/GHSA-38p6-h87p-r4cg"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9ccq-2jfg-qw33",
+      "name": "Grav: Origin validation bypass in Uri::referrer() and Pages::referrerRoute() via unanchored prefix m",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-9ccq-2jfg-qw33",
+      "description": "Grav: Origin validation bypass in Uri::referrer() and Pages::referrerRoute() via unanchored prefix match",
+      "date": "2026-09-17",
+      "affected": [
+        "getgrav/grav"
+      ],
+      "references": [
+        "https://github.com/getgrav/grav/security/advisories/GHSA-9ccq-2jfg-qw33",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-72702",
+        "https://www.vulncheck.com/advisories/grav-cms-before-origin-validation-bypass-via-referer",
+        "https://github.com/advisories/GHSA-9ccq-2jfg-qw33"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g4c3-4g96-6g4m",
+      "name": "Chamilo LMS CStudio upload flow allows unauthenticated remote code execution",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-g4c3-4g96-6g4m",
+      "description": "Chamilo LMS CStudio upload flow allows unauthenticated remote code execution",
+      "date": "2026-09-17",
+      "affected": [
+        "chamilo/chamilo-lms"
+      ],
+      "references": [
+        "https://github.com/chamilo/chamilo-lms/security/advisories/GHSA-g4c3-4g96-6g4m",
+        "https://github.com/chamilo/chamilo-lms/commit/4bdba1b9a8820bd70c0809317775d7f6eaa79844",
+        "https://github.com/chamilo/chamilo-lms/releases/tag/v2.0.1",
+        "https://github.com/advisories/GHSA-g4c3-4g96-6g4m"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "chamilo/chamilo-lms"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4rf6-qx84-q9fv",
+      "name": "Fulgur: Non-painting replaced elements amplify to thousands of blank PDF pages (denial of service)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-4rf6-qx84-q9fv",
+      "description": "Fulgur: Non-painting replaced elements amplify to thousands of blank PDF pages (denial of service)",
+      "date": "2026-09-17",
+      "affected": [
+        "fulgur"
+      ],
+      "references": [
+        "https://github.com/fulgur-rs/fulgur/security/advisories/GHSA-4rf6-qx84-q9fv",
+        "https://github.com/fulgur-rs/fulgur/pull/575",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0201.html",
+        "https://github.com/advisories/GHSA-4rf6-qx84-q9fv"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-j5cx-ph8g-95v3",
+      "name": "Fulgur: Unbounded page slicing from attacker-controlled CSS height causes denial of service",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-j5cx-ph8g-95v3",
+      "description": "Fulgur: Unbounded page slicing from attacker-controlled CSS height causes denial of service",
+      "date": "2026-09-17",
+      "affected": [
+        "fulgur"
+      ],
+      "references": [
+        "https://github.com/fulgur-rs/fulgur/security/advisories/GHSA-j5cx-ph8g-95v3",
+        "https://github.com/fulgur-rs/fulgur/pull/501",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0200.html",
+        "https://github.com/advisories/GHSA-j5cx-ph8g-95v3"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vrf4-mx87-p53w",
+      "name": "libp2p: PeerStore accepts attacker-signed PeerRecords for a victim peer ID and stores certified atta",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-vrf4-mx87-p53w",
+      "description": "libp2p: PeerStore accepts attacker-signed PeerRecords for a victim peer ID and stores certified attacker addresses",
+      "date": "2026-09-17",
+      "affected": [
+        "@libp2p/peer-store"
+      ],
+      "references": [
+        "https://github.com/libp2p/js-libp2p/security/advisories/GHSA-vrf4-mx87-p53w",
+        "https://github.com/libp2p/js-libp2p/pull/3570",
+        "https://github.com/libp2p/js-libp2p/commit/3bf5d395cbca1488eea6e87cd771e4613b661c30",
+        "https://github.com/libp2p/js-libp2p/releases/tag/peer-store-v12.0.24",
+        "https://github.com/advisories/GHSA-vrf4-mx87-p53w"
       ],
       "detection_signatures": {
         "malicious_packages": {
           "npm": [
-            "@nuxtjs/mdc"
+            "@libp2p/peer-store"
           ]
         },
         "compromised_actions": [
-          "@nuxtjs/mdc"
+          "@libp2p/peer-store"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-9pj6-vhgr-3mwh",
-      "name": "RMCP: Unauthenticated permanent session-table leak in rmcp Streamable HTTP server transport leads to",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-9pj6-vhgr-3mwh",
-      "description": "RMCP: Unauthenticated permanent session-table leak in rmcp Streamable HTTP server transport leads to remote denial-of-service",
-      "date": "2026-09-16",
-      "affected": [
-        "rmcp"
-      ],
-      "references": [
-        "https://github.com/modelcontextprotocol/rust-sdk/security/advisories/GHSA-9pj6-vhgr-3mwh",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63128",
-        "https://github.com/modelcontextprotocol/rust-sdk/pull/934",
-        "https://github.com/modelcontextprotocol/rust-sdk/commit/dfa7fd6f9309deab60bea230b041be9a3fcda846",
-        "https://github.com/modelcontextprotocol/rust-sdk/releases/tag/rmcp-v2.0.0",
-        "https://github.com/advisories/GHSA-9pj6-vhgr-3mwh"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-33f5-2c5q-wgwj",
-      "name": "RMCP: Missing Resource Field Validation in OAuth Protected Resource Metadata Discovery",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-33f5-2c5q-wgwj",
-      "description": "RMCP: Missing Resource Field Validation in OAuth Protected Resource Metadata Discovery",
-      "date": "2026-09-16",
-      "affected": [
-        "rmcp"
-      ],
-      "references": [
-        "https://github.com/modelcontextprotocol/rust-sdk/security/advisories/GHSA-33f5-2c5q-wgwj",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63127",
-        "https://github.com/modelcontextprotocol/rust-sdk/pull/937",
-        "https://github.com/modelcontextprotocol/rust-sdk/commit/c1a8b29ff2cc45e7820b900dae42cbb4958089ec",
-        "https://github.com/modelcontextprotocol/rust-sdk/releases/tag/rmcp-v2.0.0",
-        "https://github.com/advisories/GHSA-33f5-2c5q-wgwj"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2c4f-86xc-cr74",
-      "name": "Grav: XSS Blueprint Validation Bypass via Twig String Concatenation",
+      "id": "FEED-GHSA-8phw-xrj9-cpqp",
+      "name": "Steeltoe.Management.Endpoint: HttpExchanges URI masking leaks query-string secrets",
       "category": "ghsa_advisory",
       "severity": "medium",
-      "cve": "GHSA-2c4f-86xc-cr74",
-      "description": "Grav: XSS Blueprint Validation Bypass via Twig String Concatenation",
-      "date": "2026-09-16",
+      "cve": "GHSA-8phw-xrj9-cpqp",
+      "description": "Steeltoe.Management.Endpoint: HttpExchanges URI masking leaks query-string secrets",
+      "date": "2026-09-17",
+      "affected": [
+        "Steeltoe.Management.Endpoint"
+      ],
+      "references": [
+        "https://github.com/SteeltoeOSS/security-advisories/security/advisories/GHSA-8phw-xrj9-cpqp",
+        "https://github.com/SteeltoeOSS/Steeltoe/commit/9bf0ecb9f2d4a34b65f61d41c5625d49071ae9fa",
+        "https://github.com/SteeltoeOSS/Steeltoe/releases/tag/4.3.0",
+        "https://github.com/advisories/GHSA-8phw-xrj9-cpqp"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6qw9-4vv5-jr97",
+      "name": "Grav: Stored XSS via Markdown audio/video media <source> URL",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-6qw9-4vv5-jr97",
+      "description": "Grav: Stored XSS via Markdown audio/video media <source> URL",
+      "date": "2026-09-17",
       "affected": [
         "getgrav/grav"
       ],
       "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-2c4f-86xc-cr74",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-61453",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-61710",
-        "https://www.vulncheck.com/advisories/grav-before-xss-via-twig-string-concatenation",
-        "https://github.com/advisories/GHSA-2c4f-86xc-cr74"
+        "https://github.com/getgrav/grav/security/advisories/GHSA-6qw9-4vv5-jr97",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75831",
+        "https://github.com/getgrav/grav/commit/aba291a59cab29ddce491175791888d8d0b65e20",
+        "https://www.vulncheck.com/advisories/grav-before-stored-xss-via-audio-video-source-url",
+        "https://github.com/advisories/GHSA-6qw9-4vv5-jr97"
       ],
       "detection_signatures": {
         "compromised_actions": [
@@ -637,44 +896,230 @@
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-hcwq-8wjf-3gcr",
-      "name": "vLLM: Unauthenticated audio decompression-bomb DoS in /v1/chat/completions",
+      "id": "FEED-GHSA-c3gv-825q-fvmp",
+      "name": "libp2p: Gossipsub StrictSign accepts attacker-signed messages as a victim RSA peer ID",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-c3gv-825q-fvmp",
+      "description": "libp2p: Gossipsub StrictSign accepts attacker-signed messages as a victim RSA peer ID",
+      "date": "2026-09-17",
+      "affected": [
+        "@libp2p/gossipsub"
+      ],
+      "references": [
+        "https://github.com/libp2p/js-libp2p/security/advisories/GHSA-c3gv-825q-fvmp",
+        "https://github.com/libp2p/js-libp2p/pull/3569",
+        "https://github.com/libp2p/js-libp2p/commit/cec2b1f349d130065e561349a0336a239528267f",
+        "https://github.com/libp2p/js-libp2p/releases/tag/gossipsub-v16.0.5",
+        "https://github.com/advisories/GHSA-c3gv-825q-fvmp"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@libp2p/gossipsub"
+          ]
+        },
+        "compromised_actions": [
+          "@libp2p/gossipsub"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-269c-h76q-8cxw",
+      "name": "Grav: Stored XSS via quoted-attribute bypass in detectXss",
       "category": "ghsa_advisory",
       "severity": "medium",
-      "cve": "GHSA-hcwq-8wjf-3gcr",
-      "description": "vLLM: Unauthenticated audio decompression-bomb DoS in /v1/chat/completions",
-      "date": "2026-09-16",
+      "cve": "GHSA-269c-h76q-8cxw",
+      "description": "Grav: Stored XSS via quoted-attribute bypass in detectXss",
+      "date": "2026-09-17",
+      "affected": [
+        "getgrav/grav"
+      ],
+      "references": [
+        "https://github.com/getgrav/grav/security/advisories/GHSA-269c-h76q-8cxw",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-72832",
+        "https://github.com/getgrav/grav/commit/ad9709f865b09b68798fb1ac375b484a8cc1d892",
+        "https://www.vulncheck.com/advisories/grav-before-stored-xss-via-quoted-attribute-bypass",
+        "https://github.com/advisories/GHSA-269c-h76q-8cxw"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f8m2-889x-vw4x",
+      "name": "AsyncHttpClient re-sends client-wide realm credentials to a cross-origin redirect target",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-f8m2-889x-vw4x",
+      "description": "AsyncHttpClient re-sends client-wide realm credentials to a cross-origin redirect target",
+      "date": "2026-09-17",
+      "affected": [
+        "org.asynchttpclient:async-http-client",
+        "org.asynchttpclient:async-http-client"
+      ],
+      "references": [
+        "https://github.com/AsyncHttpClient/async-http-client/security/advisories/GHSA-f8m2-889x-vw4x",
+        "https://github.com/AsyncHttpClient/async-http-client/pull/2224",
+        "https://github.com/AsyncHttpClient/async-http-client/commit/43db7bba81430cbd61ec2dc2c7be464e0ff6a0ff",
+        "https://github.com/AsyncHttpClient/async-http-client/commit/b66757bec34def2e9867bb2b77bd848b1112abb4",
+        "https://github.com/advisories/GHSA-f8m2-889x-vw4x"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xr57-gcx8-52hf",
+      "name": "AsyncHttpClient sends origin credentials to the proxy on the plaintext CONNECT request",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-xr57-gcx8-52hf",
+      "description": "AsyncHttpClient sends origin credentials to the proxy on the plaintext CONNECT request",
+      "date": "2026-09-17",
+      "affected": [
+        "org.asynchttpclient:async-http-client",
+        "org.asynchttpclient:async-http-client"
+      ],
+      "references": [
+        "https://github.com/AsyncHttpClient/async-http-client/security/advisories/GHSA-xr57-gcx8-52hf",
+        "https://github.com/AsyncHttpClient/async-http-client/pull/2234",
+        "https://github.com/AsyncHttpClient/async-http-client/commit/9dba5ac988b7e750551f59b2eab550b60ac8a0d6",
+        "https://github.com/advisories/GHSA-xr57-gcx8-52hf"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7grg-jcf7-rpmx",
+      "name": "AsyncHttpClient's unbounded HTTP/1.1 response decompression enables a decompression-bomb denial of s",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-7grg-jcf7-rpmx",
+      "description": "AsyncHttpClient's unbounded HTTP/1.1 response decompression enables a decompression-bomb denial of service",
+      "date": "2026-09-17",
+      "affected": [
+        "org.asynchttpclient:async-http-client",
+        "org.asynchttpclient:async-http-client"
+      ],
+      "references": [
+        "https://github.com/AsyncHttpClient/async-http-client/security/advisories/GHSA-7grg-jcf7-rpmx",
+        "https://github.com/AsyncHttpClient/async-http-client/commit/5ee2841cbf268bba4a200578be3938ccfc6cc6d6",
+        "https://github.com/AsyncHttpClient/async-http-client/commit/663a1a91757904b22cfe37e2e6049f1f8ea6ae59",
+        "https://github.com/AsyncHttpClient/async-http-client/commit/e1871a19972fb496be1b8ac6be11d79e22ff2162",
+        "https://github.com/AsyncHttpClient/async-http-client/commit/e9f2f7423e0f6503f529656f2955a1317e56ba14",
+        "https://github.com/advisories/GHSA-7grg-jcf7-rpmx"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fj9w-c36g-h5x8",
+      "name": "AsyncHttpClient doesn't verify SCRAM and Digest mutual-authentication responses",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-fj9w-c36g-h5x8",
+      "description": "AsyncHttpClient doesn't verify SCRAM and Digest mutual-authentication responses",
+      "date": "2026-09-17",
+      "affected": [
+        "org.asynchttpclient:async-http-client"
+      ],
+      "references": [
+        "https://github.com/AsyncHttpClient/async-http-client/security/advisories/GHSA-fj9w-c36g-h5x8",
+        "https://github.com/AsyncHttpClient/async-http-client/pull/2235",
+        "https://github.com/AsyncHttpClient/async-http-client/commit/10b3db9910f0bbad2ea3dc7c7553bae12bc4a5e4",
+        "https://github.com/AsyncHttpClient/async-http-client/commit/685173afea07892462071d966ef6ce5c88cbc66f",
+        "https://github.com/AsyncHttpClient/async-http-client/commit/7fe8700fd5b46c668cee7774624f36b87b9dd32a",
+        "https://github.com/advisories/GHSA-fj9w-c36g-h5x8"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-mggc-4xg6-vcxf",
+      "name": "SSH.NET: ScpClient allows server-side RCE via default SCP path handling",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-mggc-4xg6-vcxf",
+      "description": "SSH.NET: ScpClient allows server-side RCE via default SCP path handling",
+      "date": "2026-09-17",
+      "affected": [
+        "SSH.NET"
+      ],
+      "references": [
+        "https://github.com/sshnet/SSH.NET/security/advisories/GHSA-mggc-4xg6-vcxf",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-85756",
+        "https://github.com/sshnet/SSH.NET/commit/c66b9f8fb06c12e71761e58a577b1e796026310f",
+        "https://github.com/sshnet/SSH.NET/releases/tag/2026.0.0",
+        "https://github.com/advisories/GHSA-mggc-4xg6-vcxf"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hpj9-grjp-7vc7",
+      "name": "Kestra: Unauthenticated management/actuator endpoints exposed on port 8081 (/env, /loggers) bypass A",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-hpj9-grjp-7vc7",
+      "description": "Kestra: Unauthenticated management/actuator endpoints exposed on port 8081 (/env, /loggers) bypass API basic-auth",
+      "date": "2026-09-17",
+      "affected": [
+        "io.kestra:kestra"
+      ],
+      "references": [
+        "https://github.com/kestra-io/kestra/security/advisories/GHSA-hpj9-grjp-7vc7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-73245",
+        "https://github.com/advisories/GHSA-hpj9-grjp-7vc7"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8pw2-6jv3-mj5j",
+      "name": "vLLM: Request-selected PyNvVideoCodec GPU decode bypasses static VRAM reservation",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-8pw2-6jv3-mj5j",
+      "description": "vLLM: Request-selected PyNvVideoCodec GPU decode bypasses static VRAM reservation",
+      "date": "2026-09-17",
       "affected": [
         "vllm"
       ],
       "references": [
-        "https://github.com/vllm-project/vllm/security/advisories/GHSA-hcwq-8wjf-3gcr",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-57173",
-        "https://github.com/vllm-project/vllm/pull/45908",
-        "https://github.com/vllm-project/vllm/commit/3d20275bb4d434f53055c3c0b645fd8bb072965e",
-        "https://github.com/vllm-project/vllm/releases/tag/v0.24.0",
-        "https://github.com/advisories/GHSA-hcwq-8wjf-3gcr"
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-8pw2-6jv3-mj5j",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-69147",
+        "https://github.com/vllm-project/vllm/pull/47259",
+        "https://github.com/vllm-project/vllm/commit/283893c72292ede38d277e3cd2b9b64c3e4f1dda",
+        "https://github.com/vllm-project/vllm/commit/ba22152096b2484faa3579624a253d54804d876d",
+        "https://github.com/vllm-project/vllm/releases/tag/v0.25.0",
+        "https://github.com/advisories/GHSA-8pw2-6jv3-mj5j"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-2vcx-h8p2-9pg9",
-      "name": "Grav CMS \u2014 Improper Handling of Highly Compressed Data in Installer::unZip()",
+      "id": "FEED-GHSA-w3f4-8pj2-599w",
+      "name": "Grav: Path Traversal in ImageMedium::watermark() \u2014 arbitrary file disclosure via publicly-cached ima",
       "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-2vcx-h8p2-9pg9",
-      "description": "Grav CMS \u2014 Improper Handling of Highly Compressed Data in Installer::unZip()",
-      "date": "2026-09-16",
+      "severity": "high",
+      "cve": "GHSA-w3f4-8pj2-599w",
+      "description": "Grav: Path Traversal in ImageMedium::watermark() \u2014 arbitrary file disclosure via publicly-cached images",
+      "date": "2026-09-17",
       "affected": [
         "getgrav/grav"
       ],
       "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-2vcx-h8p2-9pg9",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-59193",
-        "https://github.com/getgrav/grav/commit/23d6f2adf4ce11889c088ac8557c8314baeef781",
-        "https://github.com/getgrav/grav/releases/tag/2.0.0",
-        "https://github.com/advisories/GHSA-2vcx-h8p2-9pg9"
+        "https://github.com/getgrav/grav/security/advisories/GHSA-w3f4-8pj2-599w",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-69089",
+        "https://github.com/getgrav/grav/commit/b282200a65ce979377963180629babd2335212ba",
+        "https://github.com/getgrav/grav/commit/c569a53304cd7d95ff21bffa6fc590adcf0be83d",
+        "https://github.com/getgrav/grav/commit/db8c1fcd63aaaf6d6b244bc6b4cfa5f7b96bbc7f",
+        "https://www.vulncheck.com/advisories/grav-cms-before-path-traversal-via-watermark",
+        "https://github.com/advisories/GHSA-w3f4-8pj2-599w"
       ],
       "detection_signatures": {
         "compromised_actions": [
@@ -684,598 +1129,153 @@
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-7prp-2623-8g45",
-      "name": "djust has an unauthenticated arbitrary module import via the WebSocket/SSE view-mount path",
+      "id": "FEED-GHSA-7pgq-cr25-xvc8",
+      "name": "Grav: Incomplete callable validation in blueprint dynamic fields allows arbitrary static method invo",
       "category": "ghsa_advisory",
       "severity": "high",
-      "cve": "GHSA-7prp-2623-8g45",
-      "description": "djust has an unauthenticated arbitrary module import via the WebSocket/SSE view-mount path",
-      "date": "2026-09-16",
+      "cve": "GHSA-7pgq-cr25-xvc8",
+      "description": "Grav: Incomplete callable validation in blueprint dynamic fields allows arbitrary static method invocation and file disclosure",
+      "date": "2026-09-17",
       "affected": [
-        "djust"
+        "getgrav/grav"
       ],
       "references": [
-        "https://github.com/djust-org/djust/security/advisories/GHSA-7prp-2623-8g45",
-        "https://github.com/djust-org/djust/releases/tag/v1.0.7",
-        "https://github.com/advisories/GHSA-7prp-2623-8g45"
+        "https://github.com/getgrav/grav/security/advisories/GHSA-7pgq-cr25-xvc8",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-69088",
+        "https://www.vulncheck.com/advisories/grav-cms-through-arbitrary-method-invocation-via-blueprint",
+        "https://github.com/advisories/GHSA-7pgq-cr25-xvc8"
       ],
-      "detection_signatures": {},
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-v9rj-xjfv-xj9r",
-      "name": "djust: WebSocket/runtime reconstructed request omits the client Host, causing host/subdomain TenantR",
+      "id": "FEED-GHSA-h7vf-4x9w-h99v",
+      "name": "oras-go: Blind SSRF via unvalidated Link header URL in pagination allows internal network probing",
       "category": "ghsa_advisory",
       "severity": "medium",
-      "cve": "GHSA-v9rj-xjfv-xj9r",
-      "description": "djust: WebSocket/runtime reconstructed request omits the client Host, causing host/subdomain TenantResolvers to misresolve the tenant on the live path",
-      "date": "2026-09-16",
+      "cve": "GHSA-h7vf-4x9w-h99v",
+      "description": "oras-go: Blind SSRF via unvalidated Link header URL in pagination allows internal network probing",
+      "date": "2026-09-17",
       "affected": [
-        "djust"
+        "oras.land/oras-go/v2"
       ],
       "references": [
-        "https://github.com/djust-org/djust/security/advisories/GHSA-v9rj-xjfv-xj9r",
-        "https://github.com/djust-org/djust/releases/tag/v1.0.7",
-        "https://github.com/advisories/GHSA-v9rj-xjfv-xj9r"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c7c5-5j6r-q957",
-      "name": "djust has broken object-level access control (IDOR)",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-c7c5-5j6r-q957",
-      "description": "djust has broken object-level access control (IDOR)",
-      "date": "2026-09-16",
-      "affected": [
-        "djust"
-      ],
-      "references": [
-        "https://github.com/djust-org/djust/security/advisories/GHSA-c7c5-5j6r-q957",
-        "https://github.com/djust-org/djust/releases/tag/v1.0.7",
-        "https://github.com/advisories/GHSA-c7c5-5j6r-q957"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-pvg3-6q9j-mj3x",
-      "name": "djust's Django model serialization has no sensitive-field denylist: password hashes, privilege flags",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-pvg3-6q9j-mj3x",
-      "description": "djust's Django model serialization has no sensitive-field denylist: password hashes, privilege flags, and PII on a public view attribute are sent to the client",
-      "date": "2026-09-16",
-      "affected": [
-        "djust"
-      ],
-      "references": [
-        "https://github.com/djust-org/djust/security/advisories/GHSA-pvg3-6q9j-mj3x",
-        "https://github.com/djust-org/djust/releases/tag/v1.0.7",
-        "https://github.com/advisories/GHSA-pvg3-6q9j-mj3x"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xhhm-f6hp-2qwj",
-      "name": "djust has an authorization bypass on the WebSocket/SSE mount path",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-xhhm-f6hp-2qwj",
-      "description": "djust has an authorization bypass on the WebSocket/SSE mount path",
-      "date": "2026-09-16",
-      "affected": [
-        "djust"
-      ],
-      "references": [
-        "https://github.com/djust-org/djust/security/advisories/GHSA-xhhm-f6hp-2qwj",
-        "https://github.com/djust-org/djust/releases/tag/v1.0.7",
-        "https://github.com/advisories/GHSA-xhhm-f6hp-2qwj"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c67v-vqrp-m5wj",
-      "name": "djust: Unsigned client state snapshot is restored as trusted view state (privilege escalation / stat",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-c67v-vqrp-m5wj",
-      "description": "djust: Unsigned client state snapshot is restored as trusted view state (privilege escalation / state injection)",
-      "date": "2026-09-16",
-      "affected": [
-        "djust"
-      ],
-      "references": [
-        "https://github.com/djust-org/djust/security/advisories/GHSA-c67v-vqrp-m5wj",
-        "https://github.com/djust-org/djust/releases/tag/v1.0.7",
-        "https://github.com/advisories/GHSA-c67v-vqrp-m5wj"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f795-p5jw-j6g2",
-      "name": "djust: SSE sessions are not bound to the authenticated user; the client-chosen session_id is the sol",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-f795-p5jw-j6g2",
-      "description": "djust: SSE sessions are not bound to the authenticated user; the client-chosen session_id is the sole authorization capability (session hijack)",
-      "date": "2026-09-16",
-      "affected": [
-        "djust"
-      ],
-      "references": [
-        "https://github.com/djust-org/djust/security/advisories/GHSA-f795-p5jw-j6g2",
-        "https://github.com/djust-org/djust/releases/tag/v1.0.7",
-        "https://github.com/advisories/GHSA-f795-p5jw-j6g2"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4mf4-73j6-mvrw",
-      "name": "djust is vulnerable to stored/reflected XSS via javascript: URLs in built-in component template tags",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-4mf4-73j6-mvrw",
-      "description": "djust is vulnerable to stored/reflected XSS via javascript: URLs in built-in component template tags",
-      "date": "2026-09-16",
-      "affected": [
-        "djust"
-      ],
-      "references": [
-        "https://github.com/djust-org/djust/security/advisories/GHSA-4mf4-73j6-mvrw",
-        "https://github.com/djust-org/djust/releases/tag/v1.0.7",
-        "https://github.com/advisories/GHSA-4mf4-73j6-mvrw"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r2pf-9cw4-5j65",
-      "name": "node-opcua: TCP Socket Leak (FIN-WAIT-2) via keepalive reconnection cycle - Resource Exhaustion",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-r2pf-9cw4-5j65",
-      "description": "node-opcua: TCP Socket Leak (FIN-WAIT-2) via keepalive reconnection cycle - Resource Exhaustion",
-      "date": "2026-09-16",
-      "affected": [
-        "node-opcua",
-        "node-opcua-client",
-        "node-opcua-transport"
-      ],
-      "references": [
-        "https://github.com/node-opcua/node-opcua/security/advisories/GHSA-r2pf-9cw4-5j65",
-        "https://github.com/node-opcua/node-opcua/pull/1497",
-        "https://github.com/node-opcua/node-opcua/commit/1959cbb8946b386d2e24a1cce05b7148099d36e7",
-        "https://github.com/node-opcua/node-opcua/commit/481664fa6ba8204737c5a92797ff68c3ae780c1c",
-        "https://github.com/node-opcua/node-opcua/commit/4d59197e2dbd82791d7f36dad7da178715e0c27a",
-        "https://github.com/node-opcua/node-opcua/commit/dc406fd2d364aa69dd173be21ed32a7ff425017a",
-        "https://github.com/node-opcua/node-opcua/releases/tag/v2.170.0",
-        "https://github.com/advisories/GHSA-r2pf-9cw4-5j65"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "node-opcua",
-            "node-opcua-client",
-            "node-opcua-transport"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-pg97-jvmf-qfvc",
-      "name": "djust has Cross-Site Request Forgery on the Server-Sent-Events transport: a cross-origin page can dr",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-pg97-jvmf-qfvc",
-      "description": "djust has Cross-Site Request Forgery on the Server-Sent-Events transport: a cross-origin page can drive a victim-authenticated SSE session",
-      "date": "2026-09-16",
-      "affected": [
-        "djust"
-      ],
-      "references": [
-        "https://github.com/djust-org/djust/security/advisories/GHSA-pg97-jvmf-qfvc",
-        "https://github.com/djust-org/djust/releases/tag/v1.0.7",
-        "https://github.com/advisories/GHSA-pg97-jvmf-qfvc"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5h8j-6crg-7rmw",
-      "name": "LMdeploy has Remote Code Execution by Pickle Deserialization via zmq_rpc.call_and_response() in Inte",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-5h8j-6crg-7rmw",
-      "description": "LMdeploy has Remote Code Execution by Pickle Deserialization via zmq_rpc.call_and_response() in InterLM/lmdeploy",
-      "date": "2026-09-16",
-      "affected": [
-        "lmdeploy"
-      ],
-      "references": [
-        "https://github.com/InternLM/lmdeploy/security/advisories/GHSA-5h8j-6crg-7rmw",
-        "https://github.com/InternLM/lmdeploy/releases/tag/v0.10.2",
-        "https://github.com/advisories/GHSA-5h8j-6crg-7rmw"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3492-cvg7-9mr2",
-      "name": "djust: Multi-tenant isolation fails open on the WebSocket/SSE path, disclosing other tenants' data",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-3492-cvg7-9mr2",
-      "description": "djust: Multi-tenant isolation fails open on the WebSocket/SSE path, disclosing other tenants' data",
-      "date": "2026-09-16",
-      "affected": [
-        "djust"
-      ],
-      "references": [
-        "https://github.com/djust-org/djust/security/advisories/GHSA-3492-cvg7-9mr2",
-        "https://github.com/djust-org/djust/releases/tag/v1.0.7",
-        "https://github.com/advisories/GHSA-3492-cvg7-9mr2"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-cc7c-9jff-58wj",
-      "name": "djust: Client mass-assignment of arbitrary view attributes via the default dj-model update_model han",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-cc7c-9jff-58wj",
-      "description": "djust: Client mass-assignment of arbitrary view attributes via the default dj-model update_model handler",
-      "date": "2026-09-16",
-      "affected": [
-        "djust"
-      ],
-      "references": [
-        "https://github.com/djust-org/djust/security/advisories/GHSA-cc7c-9jff-58wj",
-        "https://github.com/djust-org/djust/releases/tag/v1.0.7",
-        "https://github.com/advisories/GHSA-cc7c-9jff-58wj"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-v8pv-4842-x354",
-      "name": "OpenTelemetry.Resources.Host vulnerable to arbitrary code execution via local PATH hijacking on macO",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-v8pv-4842-x354",
-      "description": "OpenTelemetry.Resources.Host vulnerable to arbitrary code execution via local PATH hijacking on macOS",
-      "date": "2026-09-16",
-      "affected": [
-        "OpenTelemetry.Resources.Host"
-      ],
-      "references": [
-        "https://github.com/open-telemetry/opentelemetry-dotnet-contrib/security/advisories/GHSA-v8pv-4842-x354",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-81192",
-        "https://github.com/open-telemetry/opentelemetry-dotnet-contrib/pull/1631",
-        "https://github.com/open-telemetry/opentelemetry-dotnet-contrib/pull/4760",
-        "https://github.com/advisories/GHSA-v8pv-4842-x354"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8g2f-g3gq-5rjv",
-      "name": "djust's observability endpoints are network-exposed: the localhost gate is an opt-in middleware the ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-8g2f-g3gq-5rjv",
-      "description": "djust's observability endpoints are network-exposed: the localhost gate is an opt-in middleware the docs omit, and the views enforce only DEBUG",
-      "date": "2026-09-16",
-      "affected": [
-        "djust"
-      ],
-      "references": [
-        "https://github.com/djust-org/djust/security/advisories/GHSA-8g2f-g3gq-5rjv",
-        "https://github.com/djust-org/djust/releases/tag/v1.0.7",
-        "https://github.com/advisories/GHSA-8g2f-g3gq-5rjv"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-cv3r-c5h8-f4g5",
-      "name": "@zereight/mcp-gitlab: Unauthenticated arbitrary file read via `upload_markdown` enables PAT exfiltra",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-cv3r-c5h8-f4g5",
-      "description": "@zereight/mcp-gitlab: Unauthenticated arbitrary file read via `upload_markdown` enables PAT exfiltration and full account takeover",
-      "date": "2026-09-16",
-      "affected": [
-        "@zereight/mcp-gitlab"
-      ],
-      "references": [
-        "https://github.com/zereight/gitlab-mcp/security/advisories/GHSA-cv3r-c5h8-f4g5",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-61560",
-        "https://github.com/zereight/gitlab-mcp/pull/482",
-        "https://github.com/zereight/gitlab-mcp/pull/554",
-        "https://github.com/zereight/gitlab-mcp/pull/622",
-        "https://github.com/zereight/gitlab-mcp/commit/e436ee4ad067b64584ec9312c9e9c9a2641c1976",
-        "https://github.com/zereight/gitlab-mcp/releases/tag/v2.1.27",
-        "https://github.com/advisories/GHSA-cv3r-c5h8-f4g5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@zereight/mcp-gitlab"
-          ]
-        },
-        "compromised_actions": [
-          "@zereight/mcp-gitlab"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2h44-8472-frjj",
-      "name": "@zereight/mcp-gitlab Vulnerable to Server-Side Request Forgery",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-2h44-8472-frjj",
-      "description": "@zereight/mcp-gitlab Vulnerable to Server-Side Request Forgery",
-      "date": "2026-09-15",
-      "affected": [
-        "@zereight/mcp-gitlab"
-      ],
-      "references": [
-        "https://github.com/zereight/gitlab-mcp/security/advisories/GHSA-2h44-8472-frjj",
-        "https://github.com/zereight/gitlab-mcp/pull/625",
-        "https://github.com/zereight/gitlab-mcp/commit/6ffb4cc70706fd05b1ab80901676bc2998b6db6d",
-        "https://github.com/zereight/gitlab-mcp/releases/tag/v2.1.27",
-        "https://github.com/advisories/GHSA-2h44-8472-frjj"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@zereight/mcp-gitlab"
-          ]
-        },
-        "compromised_actions": [
-          "@zereight/mcp-gitlab"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vmp7-252j-cwp7",
-      "name": "@zereight/mcp-gitlab: DNS rebinding reaches local Streamable HTTP MCP transport",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-vmp7-252j-cwp7",
-      "description": "@zereight/mcp-gitlab: DNS rebinding reaches local Streamable HTTP MCP transport",
-      "date": "2026-09-15",
-      "affected": [
-        "@zereight/mcp-gitlab"
-      ],
-      "references": [
-        "https://github.com/zereight/gitlab-mcp/security/advisories/GHSA-vmp7-252j-cwp7",
-        "https://github.com/zereight/gitlab-mcp/pull/555",
-        "https://github.com/zereight/gitlab-mcp/commit/52207c6f5c0e7a39e9235d491225edbb562a0290",
-        "https://github.com/zereight/gitlab-mcp/releases/tag/v2.1.30",
-        "https://github.com/advisories/GHSA-vmp7-252j-cwp7"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@zereight/mcp-gitlab"
-          ]
-        },
-        "compromised_actions": [
-          "@zereight/mcp-gitlab"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5648-rgj9-v224",
-      "name": "@zereight/mcp-gitlab has multiple safety-control bypasses: execute_graphql read-only + allow-list by",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-5648-rgj9-v224",
-      "description": "@zereight/mcp-gitlab has multiple safety-control bypasses: execute_graphql read-only + allow-list bypass, unauthenticated transports, session-exhaustion DoS",
-      "date": "2026-09-15",
-      "affected": [
-        "@zereight/mcp-gitlab"
-      ],
-      "references": [
-        "https://github.com/zereight/gitlab-mcp/security/advisories/GHSA-5648-rgj9-v224",
-        "https://github.com/zereight/gitlab-mcp/issues/596",
-        "https://github.com/zereight/gitlab-mcp/issues/748",
-        "https://github.com/zereight/gitlab-mcp/pull/571",
-        "https://github.com/zereight/gitlab-mcp/pull/624",
-        "https://github.com/zereight/gitlab-mcp/commit/69e784da33e96e64867b511c6f14d3f21f91ba8b",
-        "https://github.com/zereight/gitlab-mcp/releases/tag/v2.1.30",
-        "https://github.com/advisories/GHSA-5648-rgj9-v224"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@zereight/mcp-gitlab"
-          ]
-        },
-        "compromised_actions": [
-          "@zereight/mcp-gitlab"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4595-rvpx-4q34",
-      "name": "emp3r0r has an unauthenticated HTTP Polling DoS",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-4595-rvpx-4q34",
-      "description": "emp3r0r has an unauthenticated HTTP Polling DoS",
-      "date": "2026-09-15",
-      "affected": [
-        "github.com/jm33-m0/emp3r0r/core"
-      ],
-      "references": [
-        "https://github.com/jm33-m0/emp3r0r/security/advisories/GHSA-4595-rvpx-4q34",
-        "https://github.com/jm33-m0/emp3r0r/releases/tag/v4.2.5",
-        "https://github.com/advisories/GHSA-4595-rvpx-4q34"
+        "https://github.com/oras-project/oras-go/security/advisories/GHSA-h7vf-4x9w-h99v",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-85732",
+        "https://github.com/oras-project/oras-go/commit/31da1963f8c327dd089cd29faeae95cf0fc50842",
+        "https://github.com/oras-project/oras-go/releases/tag/v2.6.2",
+        "https://github.com/advisories/GHSA-h7vf-4x9w-h99v"
       ],
       "detection_signatures": {
         "malicious_packages": {
           "go": [
-            "github.com/jm33-m0/emp3r0r/core"
+            "oras.land/oras-go/v2"
           ]
         },
         "compromised_actions": [
-          "github.com/jm33-m0/emp3r0r/core"
+          "oras.land/oras-go/v2"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-gq9p-f254-h286",
-      "name": "Http4s: Ember HTTP/2 buffers a frame's declared payload before checking SETTINGS_MAX_FRAME_SIZE",
+      "id": "FEED-GHSA-m37j-52j7-pjw7",
+      "name": "oras-go: Arbitrary file write outside file.Store root via symlink-chain bypass in tar extraction (pu",
       "category": "ghsa_advisory",
       "severity": "high",
-      "cve": "GHSA-gq9p-f254-h286",
-      "description": "Http4s: Ember HTTP/2 buffers a frame's declared payload before checking SETTINGS_MAX_FRAME_SIZE",
-      "date": "2026-09-15",
+      "cve": "GHSA-m37j-52j7-pjw7",
+      "description": "oras-go: Arbitrary file write outside file.Store root via symlink-chain bypass in tar extraction (pushDir)",
+      "date": "2026-09-17",
       "affected": [
-        "org.http4s:http4s-ember-core_3",
-        "org.http4s:http4s-ember-core_2.13",
-        "org.http4s:http4s-ember-core_3",
-        "org.http4s:http4s-ember-core_2.12",
-        "org.http4s:http4s-ember-core_2.13"
+        "oras.land/oras-go/v2"
       ],
       "references": [
-        "https://github.com/http4s/http4s/security/advisories/GHSA-gq9p-f254-h286",
-        "https://github.com/http4s/http4s/commit/87cf334fa3f608ef7d3eb359e71e037ba3336d29",
-        "https://github.com/http4s/http4s/releases/tag/v0.23.37",
-        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M48",
-        "https://github.com/advisories/GHSA-gq9p-f254-h286"
+        "https://github.com/oras-project/oras-go/security/advisories/GHSA-m37j-52j7-pjw7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-85731",
+        "https://github.com/oras-project/oras-go/commit/adab2f25ea95ef4e6e41f50db9266a6701399422",
+        "https://github.com/oras-project/oras-go/releases/tag/v2.6.2",
+        "https://github.com/advisories/GHSA-m37j-52j7-pjw7"
       ],
-      "detection_signatures": {},
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "oras.land/oras-go/v2"
+          ]
+        },
+        "compromised_actions": [
+          "oras.land/oras-go/v2"
+        ]
+      },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-5hq8-qhww-jm7q",
-      "name": "libp2p-quic: Remote panic via certificate expiry race during QUIC handshake",
+      "id": "FEED-GHSA-r56g-q4p6-m3p6",
+      "name": "Kestra: SSRF via Pebble http() function allows unauthenticated access to internal services & cloud m",
       "category": "ghsa_advisory",
       "severity": "high",
-      "cve": "GHSA-5hq8-qhww-jm7q",
-      "description": "libp2p-quic: Remote panic via certificate expiry race during QUIC handshake",
-      "date": "2026-09-15",
+      "cve": "GHSA-r56g-q4p6-m3p6",
+      "description": "Kestra: SSRF via Pebble http() function allows unauthenticated access to internal services & cloud metadata",
+      "date": "2026-09-17",
       "affected": [
-        "libp2p-quic"
+        "io.kestra:kestra-core",
+        "io.kestra:core"
       ],
       "references": [
-        "https://github.com/libp2p/rust-libp2p/security/advisories/GHSA-5hq8-qhww-jm7q",
-        "https://github.com/libp2p/rust-libp2p/pull/6525",
-        "https://github.com/libp2p/rust-libp2p/commit/212f3774af048e2cecfb2e6b1e08477685e52b22",
-        "https://github.com/libp2p/rust-libp2p/commit/e8f35e12c2418b04df6e9cdf036005e8aee3c7a2",
-        "https://github.com/advisories/GHSA-5hq8-qhww-jm7q"
+        "https://github.com/kestra-io/kestra/security/advisories/GHSA-r56g-q4p6-m3p6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-73247",
+        "https://github.com/advisories/GHSA-r56g-q4p6-m3p6"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-crq5-92j2-j7wv",
-      "name": "Http4s: ResourceService and Webjar Service path escape via percent-encoded separators",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-crq5-92j2-j7wv",
-      "description": "Http4s: ResourceService and Webjar Service path escape via percent-encoded separators",
-      "date": "2026-09-15",
-      "affected": [
-        "org.http4s:http4s-server_2.13",
-        "org.http4s:http4s-server_3",
-        "org.http4s:http4s-server_3",
-        "org.http4s:http4s-server_2.13",
-        "org.http4s:http4s-server_2.12"
-      ],
-      "references": [
-        "https://github.com/http4s/http4s/security/advisories/GHSA-crq5-92j2-j7wv",
-        "https://github.com/http4s/http4s/commit/bcd99cdc1342ef58a0f132acb814af06a668a8d3",
-        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
-        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
-        "https://github.com/advisories/GHSA-crq5-92j2-j7wv"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-cp4q-fqw9-4hf6",
-      "name": "Http4s Ember HTTP/2: unbounded continuation frame accumulation",
+      "id": "FEED-GHSA-c4wf-2xxc-68qm",
+      "name": "Grav: FlexDirectory::dynamicDataField() executes arbitrary callables from blueprint data with no val",
       "category": "ghsa_advisory",
       "severity": "high",
-      "cve": "GHSA-cp4q-fqw9-4hf6",
-      "description": "Http4s Ember HTTP/2: unbounded continuation frame accumulation",
-      "date": "2026-09-15",
+      "cve": "GHSA-c4wf-2xxc-68qm",
+      "description": "Grav: FlexDirectory::dynamicDataField() executes arbitrary callables from blueprint data with no validation",
+      "date": "2026-09-17",
       "affected": [
-        "org.http4s:http4s-ember-core_3",
-        "org.http4s:http4s-ember-core_2.13",
-        "org.http4s:http4s-ember-core_3",
-        "org.http4s:http4s-ember-core_2.13",
-        "org.http4s:http4s-ember-core_2.12"
+        "getgrav/grav"
       ],
       "references": [
-        "https://github.com/http4s/http4s/security/advisories/GHSA-cp4q-fqw9-4hf6",
-        "https://github.com/http4s/http4s/commit/6e8eccd64a6a74ab4811897881e95e0e1b3a818e",
-        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
-        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
-        "https://github.com/advisories/GHSA-cp4q-fqw9-4hf6"
+        "https://github.com/getgrav/grav/security/advisories/GHSA-c4wf-2xxc-68qm",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-65608",
+        "https://github.com/getgrav/grav/commit/fae9e1bf2c40ce0b50d0dfce647aaa1d22f98969",
+        "https://www.vulncheck.com/advisories/grav-before-remote-code-execution-via-flexdirectory",
+        "https://github.com/advisories/GHSA-c4wf-2xxc-68qm"
       ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jrpm-956j-96jg",
-      "name": "Http4s: Ember chunk parser lenience (TE.TE request smuggling)",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-jrpm-956j-96jg",
-      "description": "Http4s: Ember chunk parser lenience (TE.TE request smuggling)",
-      "date": "2026-09-15",
-      "affected": [
-        "org.http4s:http4s-ember-core_3",
-        "org.http4s:http4s-ember-core_2.13",
-        "org.http4s:http4s-ember-core_3",
-        "org.http4s:http4s-ember-core_2.13",
-        "org.http4s:http4s-ember-core_2.12"
-      ],
-      "references": [
-        "https://github.com/http4s/http4s/security/advisories/GHSA-jrpm-956j-96jg",
-        "https://github.com/http4s/http4s/commit/d78612a5abd5a2547487598d3342be05573e16f0",
-        "https://github.com/http4s/http4s/releases/tag/v0.23.35",
-        "https://github.com/http4s/http4s/releases/tag/v1.0.0-M47",
-        "https://github.com/advisories/GHSA-jrpm-956j-96jg"
-      ],
-      "detection_signatures": {},
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
       "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
-    "@tinacms/auth": "Tina: [Broken Access Control] letting any TinaCloud user authorize against any self-hosted site",
-    "@redocly/cli": "Redocly CLI: Path traversal when using `split` command",
-    "github.com/pocketbase/pocketbase": "Pocketbase: Unhandled panic in worker goroutines",
-    "getgrav/grav": "Grav: Decompression-bomb size cap bypassed by forged ZIP size in ZipArchiver/Installer",
-    "@orpc/server": "oRPC: Vary Header Injection in CORS Plugin leading to potential Cache/CORS Bypass",
-    "@cyclonedx/cyclonedx-npm": "@cyclonedx/cyclonedx-npm: Shell Injection via Unsanitized --workspace Argument on Windows",
-    "@vendure/core": "Vendure affected by external-authentication account takeover: external login linked to a pre-existin",
-    "vendure/core": "Vendure: Unauthenticated ReDoS via `regex` filter on SQLite backends",
-    "@vendure/dashboard": "Vendure has stored XSS in the Admin Dashboard via unsafe HTML-stripping (innerHTML) of entity descri",
-    "github.com/openfga/openfga": "OpenFGA: ListUsers returns a deliberately-excluded user when a `but not` exclusion under a type-boun",
-    "@nuxtjs/mdc": "@nuxtjs/mdc's URL sanitizer misses SVG xlink:href and data:text/html, allowing XSS from untrusted ma",
-    "@zereight/mcp-gitlab": "@zereight/mcp-gitlab: Unauthenticated arbitrary file read via `upload_markdown` enables PAT exfiltra",
-    "github.com/jm33-m0/emp3r0r/core": "emp3r0r has an unauthenticated HTTP Polling DoS"
+    "getgrav/grav": "Grav: Missing admin.super guard on core group blueprint access field allows admin.users operator to ",
+    "github.com/coredns/coredns": "CoreDNS DoH/DoQ/gRPC bypass UPDATE rejection enforced on UDP/TCP",
+    "@platejs/core": "@platejs/core HTML deserialization can trigger browser behavior during parsing",
+    "react/http": "react/http: A malformed HTTP chunked body can lead to a denial-of-service and peg the CPU",
+    "go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc": "OpenTelemetry-Go: Log gRPC exporter ignores env TLS certs, bypassing mTLS/pinning",
+    "go.opentelemetry.io/otel/exporters/zipkin": "OpenTelemetry-Go: Exporter config logging may leak endpoint URLs in info logs",
+    "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp": "OpenTelemetry-Go: Exporter config logging may leak endpoint URLs in info logs",
+    "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc": "OpenTelemetry-Go: Exporter config logging may leak endpoint URLs in info logs",
+    "go.opentelemetry.io/otel/exporters/otlp/otlptrace": "OpenTelemetry-Go: Exporter config logging may leak endpoint URLs in info logs",
+    "go.opentelemetry.io/otel/sdk": "OpenTelemetry-Go: Exporter config logging may leak endpoint URLs in info logs",
+    "cakephp/cakephp": "CakePHP: Multiple methods in FunctionsBuilder vulnerable to SQL injection",
+    "cakephp/database": "CakePHP: Multiple methods in FunctionsBuilder vulnerable to SQL injection",
+    "chamilo/chamilo-lms": "Chamilo LMS CStudio upload flow allows unauthenticated remote code execution",
+    "@libp2p/peer-store": "libp2p: PeerStore accepts attacker-signed PeerRecords for a victim peer ID and stores certified atta",
+    "@libp2p/gossipsub": "libp2p: Gossipsub StrictSign accepts attacker-signed messages as a victim RSA peer ID",
+    "oras.land/oras-go/v2": "oras-go: Blind SSRF via unvalidated Link header URL in pagination allows internal network probing"
   },
   "malicious_packages": {
     "npm": {},
