@@ -1,8 +1,98 @@
 {
   "version": "2026.09.18",
-  "last_updated": "2026-09-18T10:36:18.017316+00:00",
+  "last_updated": "2026-09-18T15:51:24.462926+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-26vp-8gxg-v4pg",
+      "name": "org.xwiki.rendering:xwiki-rendering-xml has an Eval Injection issue",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-26vp-8gxg-v4pg",
+      "description": "org.xwiki.rendering:xwiki-rendering-xml has an Eval Injection issue",
+      "date": "2026-09-18",
+      "affected": [
+        "org.xwiki.rendering:xwiki-rendering-xml"
+      ],
+      "references": [
+        "https://github.com/xwiki/xwiki-rendering/security/advisories/GHSA-26vp-8gxg-v4pg",
+        "https://github.com/xwiki/xwiki-rendering/commit/92bc8095ed3acce15ab200c8525e1623b4898be5",
+        "https://github.com/xwiki/xwiki-rendering/releases/tag/xwiki-rendering-14.10.2",
+        "https://github.com/xwiki/xwiki-rendering/releases/tag/xwiki-rendering-15.0-rc-1",
+        "https://jira.xwiki.org/browse/XRENDERING-693",
+        "https://jira.xwiki.org/browse/XWIKI-20313",
+        "https://jira.xwiki.org/browse/XWIKI-20327",
+        "https://github.com/advisories/GHSA-26vp-8gxg-v4pg"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-m6c8-jcw2-5r25",
+      "name": "Opencast: Stored XSS in Paella player via WebVTT/DFXP caption cue text",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-m6c8-jcw2-5r25",
+      "description": "Opencast: Stored XSS in Paella player via WebVTT/DFXP caption cue text",
+      "date": "2026-09-18",
+      "affected": [
+        "paella-core",
+        "org.opencastproject:opencast-engage-paella-player-7",
+        "org.opencastproject:opencast-engage-paella-player-7"
+      ],
+      "references": [
+        "https://github.com/opencast/opencast/security/advisories/GHSA-m6c8-jcw2-5r25",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-77615",
+        "https://github.com/opencast/opencast/pull/7736",
+        "https://github.com/opencast/opencast/commit/701682c635f668228c3e8fb7b4564b3294788e40",
+        "https://github.com/polimediaupv/paella-core/commit/94a36490808ac5a1f60a0745d71ec9253f6d206b",
+        "https://github.com/polimediaupv/paella-core/commit/9b2f14ec4cf55efaf4c045c77a5ed8f5ec559ab4",
+        "https://github.com/polimediaupv/paella-player/commit/6fe4af7306044198c8e91e2e7f4128428b83cf03",
+        "https://github.com/opencast/opencast/releases/tag/19.7",
+        "https://github.com/opencast/opencast/releases/tag/20.2",
+        "https://github.com/polimediaupv/paella-player/blob/a1b6c42467938a00a4b4d0b8c68435cd4f9d2a16/repos/paella-core/CHANGELOG.md?plain=1#L21",
+        "https://github.com/advisories/GHSA-m6c8-jcw2-5r25"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "paella-core"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-j8px-rmrx-76h9",
+      "name": "Caddy: rewrite placeholder re-expansion, unbounded body buffer DoS, and fileHidden case-sensitivity ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-j8px-rmrx-76h9",
+      "description": "Caddy: rewrite placeholder re-expansion, unbounded body buffer DoS, and fileHidden case-sensitivity bypass",
+      "date": "2026-09-18",
+      "affected": [
+        "github.com/caddyserver/caddy/v2"
+      ],
+      "references": [
+        "https://github.com/caddyserver/caddy/security/advisories/GHSA-j8px-rmrx-76h9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-77281",
+        "https://github.com/caddyserver/caddy/pull/7761",
+        "https://github.com/caddyserver/caddy/commit/176b043b0104cee3f894023cd5a598ac29e404bb",
+        "https://github.com/caddyserver/caddy/releases/tag/v2.11.4",
+        "https://github.com/advisories/GHSA-j8px-rmrx-76h9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/caddyserver/caddy/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/caddyserver/caddy/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-r94f-hx44-8jqf",
       "name": "Grav CMS vulnerable to remote code execution via .zip file upload",
@@ -1175,94 +1265,11 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7pgq-cr25-xvc8",
-      "name": "Grav: Incomplete callable validation in blueprint dynamic fields allows arbitrary static method invo",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7pgq-cr25-xvc8",
-      "description": "Grav: Incomplete callable validation in blueprint dynamic fields allows arbitrary static method invocation and file disclosure",
-      "date": "2026-09-17",
-      "affected": [
-        "getgrav/grav"
-      ],
-      "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-7pgq-cr25-xvc8",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-69088",
-        "https://www.vulncheck.com/advisories/grav-cms-through-arbitrary-method-invocation-via-blueprint",
-        "https://github.com/advisories/GHSA-7pgq-cr25-xvc8"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "getgrav/grav"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h7vf-4x9w-h99v",
-      "name": "oras-go: Blind SSRF via unvalidated Link header URL in pagination allows internal network probing",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-h7vf-4x9w-h99v",
-      "description": "oras-go: Blind SSRF via unvalidated Link header URL in pagination allows internal network probing",
-      "date": "2026-09-17",
-      "affected": [
-        "oras.land/oras-go/v2"
-      ],
-      "references": [
-        "https://github.com/oras-project/oras-go/security/advisories/GHSA-h7vf-4x9w-h99v",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-85732",
-        "https://github.com/oras-project/oras-go/commit/31da1963f8c327dd089cd29faeae95cf0fc50842",
-        "https://github.com/oras-project/oras-go/releases/tag/v2.6.2",
-        "https://github.com/advisories/GHSA-h7vf-4x9w-h99v"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "oras.land/oras-go/v2"
-          ]
-        },
-        "compromised_actions": [
-          "oras.land/oras-go/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-m37j-52j7-pjw7",
-      "name": "oras-go: Arbitrary file write outside file.Store root via symlink-chain bypass in tar extraction (pu",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-m37j-52j7-pjw7",
-      "description": "oras-go: Arbitrary file write outside file.Store root via symlink-chain bypass in tar extraction (pushDir)",
-      "date": "2026-09-17",
-      "affected": [
-        "oras.land/oras-go/v2"
-      ],
-      "references": [
-        "https://github.com/oras-project/oras-go/security/advisories/GHSA-m37j-52j7-pjw7",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-85731",
-        "https://github.com/oras-project/oras-go/commit/adab2f25ea95ef4e6e41f50db9266a6701399422",
-        "https://github.com/oras-project/oras-go/releases/tag/v2.6.2",
-        "https://github.com/advisories/GHSA-m37j-52j7-pjw7"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "oras.land/oras-go/v2"
-          ]
-        },
-        "compromised_actions": [
-          "oras.land/oras-go/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/caddyserver/caddy/v2": "Caddy: rewrite placeholder re-expansion, unbounded body buffer DoS, and fileHidden case-sensitivity ",
     "getgrav/grav": "Grav CMS vulnerable to remote code execution via .zip file upload",
     "github.com/coredns/coredns": "CoreDNS DoH/DoQ/gRPC bypass UPDATE rejection enforced on UDP/TCP",
     "@platejs/core": "@platejs/core HTML deserialization can trigger browser behavior during parsing",
@@ -1277,8 +1284,7 @@
     "cakephp/database": "CakePHP: Multiple methods in FunctionsBuilder vulnerable to SQL injection",
     "chamilo/chamilo-lms": "Chamilo LMS CStudio upload flow allows unauthenticated remote code execution",
     "@libp2p/peer-store": "libp2p: PeerStore accepts attacker-signed PeerRecords for a victim peer ID and stores certified atta",
-    "@libp2p/gossipsub": "libp2p: Gossipsub StrictSign accepts attacker-signed messages as a victim RSA peer ID",
-    "oras.land/oras-go/v2": "oras-go: Blind SSRF via unvalidated Link header URL in pagination allows internal network probing"
+    "@libp2p/gossipsub": "libp2p: Gossipsub StrictSign accepts attacker-signed messages as a victim RSA peer ID"
   },
   "malicious_packages": {
     "npm": {},
