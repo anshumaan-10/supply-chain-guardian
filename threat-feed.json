@@ -1,8 +1,32 @@
 {
-  "version": "2026.09.17",
-  "last_updated": "2026-09-17T20:57:32.063874+00:00",
+  "version": "2026.09.18",
+  "last_updated": "2026-09-18T03:16:49.921508+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-r94f-hx44-8jqf",
+      "name": "Grav CMS vulnerable to remote code execution via .zip file upload",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-r94f-hx44-8jqf",
+      "description": "Grav CMS vulnerable to remote code execution via .zip file upload",
+      "date": "2026-09-17",
+      "affected": [
+        "getgrav/grav"
+      ],
+      "references": [
+        "https://github.com/getgrav/grav/security/advisories/GHSA-r94f-hx44-8jqf",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-72819",
+        "https://www.vulncheck.com/advisories/grav-cms-before-remote-code-execution-via-zip-upload",
+        "https://github.com/advisories/GHSA-r94f-hx44-8jqf"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-xhfv-7758-r9hx",
       "name": "Grav: Missing admin.super guard on core group blueprint access field allows admin.users operator to ",
@@ -67,6 +91,30 @@
         "https://nvd.nist.gov/vuln/detail/CVE-2026-75827",
         "https://www.vulncheck.com/advisories/grav-before-arbitrary-file-write-via-error-log",
         "https://github.com/advisories/GHSA-f8wv-xp27-6gq7"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "getgrav/grav"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vfmf-q6x9-cw96",
+      "name": "Grav: detectXss() misses an event-handler attribute after an unpaired quote in an unquoted attribute",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-vfmf-q6x9-cw96",
+      "description": "Grav: detectXss() misses an event-handler attribute after an unpaired quote in an unquoted attribute value, giving stored XSS",
+      "date": "2026-09-17",
+      "affected": [
+        "getgrav/grav"
+      ],
+      "references": [
+        "https://github.com/getgrav/grav/security/advisories/GHSA-vfmf-q6x9-cw96",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75828",
+        "https://www.vulncheck.com/advisories/grav-before-stored-xss-via-detectxss-quote-bypass",
+        "https://github.com/advisories/GHSA-vfmf-q6x9-cw96"
       ],
       "detection_signatures": {
         "compromised_actions": [
@@ -1211,56 +1259,11 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r56g-q4p6-m3p6",
-      "name": "Kestra: SSRF via Pebble http() function allows unauthenticated access to internal services & cloud m",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-r56g-q4p6-m3p6",
-      "description": "Kestra: SSRF via Pebble http() function allows unauthenticated access to internal services & cloud metadata",
-      "date": "2026-09-17",
-      "affected": [
-        "io.kestra:kestra-core",
-        "io.kestra:core"
-      ],
-      "references": [
-        "https://github.com/kestra-io/kestra/security/advisories/GHSA-r56g-q4p6-m3p6",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-73247",
-        "https://github.com/advisories/GHSA-r56g-q4p6-m3p6"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c4wf-2xxc-68qm",
-      "name": "Grav: FlexDirectory::dynamicDataField() executes arbitrary callables from blueprint data with no val",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-c4wf-2xxc-68qm",
-      "description": "Grav: FlexDirectory::dynamicDataField() executes arbitrary callables from blueprint data with no validation",
-      "date": "2026-09-17",
-      "affected": [
-        "getgrav/grav"
-      ],
-      "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-c4wf-2xxc-68qm",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-65608",
-        "https://github.com/getgrav/grav/commit/fae9e1bf2c40ce0b50d0dfce647aaa1d22f98969",
-        "https://www.vulncheck.com/advisories/grav-before-remote-code-execution-via-flexdirectory",
-        "https://github.com/advisories/GHSA-c4wf-2xxc-68qm"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "getgrav/grav"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
-    "getgrav/grav": "Grav: Missing admin.super guard on core group blueprint access field allows admin.users operator to ",
+    "getgrav/grav": "Grav CMS vulnerable to remote code execution via .zip file upload",
     "github.com/coredns/coredns": "CoreDNS DoH/DoQ/gRPC bypass UPDATE rejection enforced on UDP/TCP",
     "@platejs/core": "@platejs/core HTML deserialization can trigger browser behavior during parsing",
     "react/http": "react/http: A malformed HTTP chunked body can lead to a denial-of-service and peg the CPU",
