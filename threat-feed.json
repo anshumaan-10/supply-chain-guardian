@@ -1,8 +1,150 @@
 {
-  "version": "2026.09.21",
-  "last_updated": "2026-09-21T21:42:31.919796+00:00",
+  "version": "2026.09.22",
+  "last_updated": "2026-09-22T03:24:05.017715+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-pxcx-fv34-x9p5",
+      "name": " nginx ignition has Unauthenticated Admin Account Creation via Onboarding Race Condition",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-pxcx-fv34-x9p5",
+      "description": " nginx ignition has Unauthenticated Admin Account Creation via Onboarding Race Condition",
+      "date": "2026-09-21",
+      "affected": [
+        "github.com/lucasdillmann/nginx-ignition"
+      ],
+      "references": [
+        "https://github.com/lucasdillmann/nginx-ignition/security/advisories/GHSA-pxcx-fv34-x9p5",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-61628",
+        "https://github.com/lucasdillmann/nginx-ignition/pull/131",
+        "https://github.com/lucasdillmann/nginx-ignition/commit/0586b4e55ab780676d3553a2592979dfa2fb0183",
+        "https://github.com/lucasdillmann/nginx-ignition/releases/tag/2.41.1",
+        "https://github.com/advisories/GHSA-pxcx-fv34-x9p5"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/lucasdillmann/nginx-ignition"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/lucasdillmann/nginx-ignition"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jr34-h97m-9hpx",
+      "name": "nginx ignition has  ParseAcceptLanguage `_` separator bypass that enables ~75x CPU amplification via",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-jr34-h97m-9hpx",
+      "description": "nginx ignition has  ParseAcceptLanguage `_` separator bypass that enables ~75x CPU amplification via Accept-Language header in i18nMiddleware",
+      "date": "2026-09-21",
+      "affected": [
+        "github.com/lucasdillmann/nginx-ignition"
+      ],
+      "references": [
+        "https://github.com/lucasdillmann/nginx-ignition/security/advisories/GHSA-jr34-h97m-9hpx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-61629",
+        "https://github.com/lucasdillmann/nginx-ignition/pull/125",
+        "https://github.com/lucasdillmann/nginx-ignition/commit/0c988fc1277c7d291725e8373313f8486fa1b31a",
+        "https://github.com/lucasdillmann/nginx-ignition/commit/cbaf0fc16ed873f7178a2ca9b0d00a696e44b485",
+        "https://github.com/lucasdillmann/nginx-ignition/releases/tag/2.40.1",
+        "https://github.com/advisories/GHSA-jr34-h97m-9hpx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/lucasdillmann/nginx-ignition"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/lucasdillmann/nginx-ignition"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hf33-q6cf-c66f",
+      "name": "nginx ignition has TOTP Reuse During Validity Window",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-hf33-q6cf-c66f",
+      "description": "nginx ignition has TOTP Reuse During Validity Window",
+      "date": "2026-09-21",
+      "affected": [
+        "github.com/lucasdillmann/nginx-ignition"
+      ],
+      "references": [
+        "https://github.com/lucasdillmann/nginx-ignition/security/advisories/GHSA-hf33-q6cf-c66f",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-61630",
+        "https://github.com/pquerna/otp/issues/61",
+        "https://github.com/lucasdillmann/nginx-ignition/pull/104",
+        "https://github.com/lucasdillmann/nginx-ignition/commit/1cbfae0296f1b186158f5a294ec484060e00102e",
+        "https://github.com/lucasdillmann/nginx-ignition/commit/8d35e1eb5dd6a40fef94a45511fe08b0603af107",
+        "https://github.com/lucasdillmann/nginx-ignition/releases/tag/2.35.1",
+        "https://github.com/advisories/GHSA-hf33-q6cf-c66f"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/lucasdillmann/nginx-ignition"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/lucasdillmann/nginx-ignition"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jhjp-4c2q-xmx4",
+      "name": "k8saudit shipped rules do not detect privileged/sensitive settings on init or ephemeral containers",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-jhjp-4c2q-xmx4",
+      "description": "k8saudit shipped rules do not detect privileged/sensitive settings on init or ephemeral containers",
+      "date": "2026-09-21",
+      "affected": [
+        "github.com/falcosecurity/plugins/plugins/k8saudit-ovh",
+        "github.com/falcosecurity/plugins/plugins/k8saudit-aks",
+        "github.com/falcosecurity/plugins/plugins/k8saudit-gke",
+        "github.com/falcosecurity/plugins/plugins/k8saudit-eks",
+        "github.com/falcosecurity/plugins/plugins/k8saudit"
+      ],
+      "references": [
+        "https://github.com/falcosecurity/plugins/security/advisories/GHSA-jhjp-4c2q-xmx4",
+        "https://github.com/falcosecurity/plugins/pull/1400",
+        "https://github.com/falcosecurity/plugins/commit/0adb9b3c7e2c8bad53f30d01c057e038b2afa5e1",
+        "https://github.com/falcosecurity/plugins/releases/tag/plugins/k8saudit-aks/v0.6.0",
+        "https://github.com/falcosecurity/plugins/releases/tag/plugins/k8saudit-eks/v0.12.0",
+        "https://github.com/falcosecurity/plugins/releases/tag/plugins/k8saudit-gke/v0.9.0",
+        "https://github.com/falcosecurity/plugins/releases/tag/plugins/k8saudit-ovh/v0.6.0",
+        "https://github.com/falcosecurity/plugins/releases/tag/plugins/k8saudit/v0.18.0",
+        "https://github.com/advisories/GHSA-jhjp-4c2q-xmx4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/falcosecurity/plugins/plugins/k8saudit-ovh",
+            "github.com/falcosecurity/plugins/plugins/k8saudit-aks",
+            "github.com/falcosecurity/plugins/plugins/k8saudit-gke",
+            "github.com/falcosecurity/plugins/plugins/k8saudit-eks",
+            "github.com/falcosecurity/plugins/plugins/k8saudit"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/falcosecurity/plugins/plugins/k8saudit-ovh",
+          "github.com/falcosecurity/plugins/plugins/k8saudit-aks",
+          "github.com/falcosecurity/plugins/plugins/k8saudit-gke",
+          "github.com/falcosecurity/plugins/plugins/k8saudit-eks",
+          "github.com/falcosecurity/plugins/plugins/k8saudit"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-phg3-3g28-wq9v",
       "name": "Hatchet - Unauthenticated OAuth state CSRF / login-CSRF via empty-state collision in ValidateOAuthSt",
@@ -1188,109 +1330,16 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4v9q-p283-qc2m",
-      "name": "Grav: Unauthenticated Path Traversal via Missing Directory-Boundary Check in `plugin-asset-map.php` ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-4v9q-p283-qc2m",
-      "description": "Grav: Unauthenticated Path Traversal via Missing Directory-Boundary Check in `plugin-asset-map.php` Static Asset Server (`index.php`)",
-      "date": "2026-09-17",
-      "affected": [
-        "getgrav/grav"
-      ],
-      "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-4v9q-p283-qc2m",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-74907",
-        "https://www.vulncheck.com/advisories/grav-before-path-traversal-via-plugin-asset-map-php",
-        "https://github.com/advisories/GHSA-4v9q-p283-qc2m"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "getgrav/grav"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jq29-c7v8-rg55",
-      "name": "Grav: Path Traversal in MediaUploadTrait::deleteFile() Allows Arbitrary File Deletion",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-jq29-c7v8-rg55",
-      "description": "Grav: Path Traversal in MediaUploadTrait::deleteFile() Allows Arbitrary File Deletion",
-      "date": "2026-09-17",
-      "affected": [
-        "getgrav/grav"
-      ],
-      "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-jq29-c7v8-rg55",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-72695",
-        "https://www.vulncheck.com/advisories/grav-before-path-traversal-via-mediauploadtrait-deletefile",
-        "https://github.com/advisories/GHSA-jq29-c7v8-rg55"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "getgrav/grav"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9gm5-9rfh-m6vx",
-      "name": "CoreDNS DoH/DoQ/gRPC bypass UPDATE rejection enforced on UDP/TCP",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-9gm5-9rfh-m6vx",
-      "description": "CoreDNS DoH/DoQ/gRPC bypass UPDATE rejection enforced on UDP/TCP",
-      "date": "2026-09-17",
-      "affected": [
-        "github.com/coredns/coredns"
-      ],
-      "references": [
-        "https://github.com/coredns/coredns/security/advisories/GHSA-9gm5-9rfh-m6vx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86003",
-        "https://github.com/coredns/coredns/commit/530b0a5ff2ad68cc0421f10dd93568945cc671c9",
-        "https://github.com/coredns/coredns/releases/tag/v1.14.7",
-        "https://github.com/advisories/GHSA-9gm5-9rfh-m6vx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/coredns/coredns"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/coredns/coredns"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gjv8-xp57-g29c",
-      "name": "Soup Sieve: Polynomial-time ReDoS (O(n\u00b2)) in the `IDENTIFIER` / `VALUE` selector sub-patterns",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-gjv8-xp57-g29c",
-      "description": "Soup Sieve: Polynomial-time ReDoS (O(n\u00b2)) in the `IDENTIFIER` / `VALUE` selector sub-patterns",
-      "date": "2026-09-17",
-      "affected": [
-        "soupsieve"
-      ],
-      "references": [
-        "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-gjv8-xp57-g29c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86000",
-        "https://github.com/facelessuser/soupsieve/commit/ce44e4996e6632871c18cdd7a7fb641be8ef34ef",
-        "https://github.com/facelessuser/soupsieve/releases/tag/2.9",
-        "https://github.com/advisories/GHSA-gjv8-xp57-g29c"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/lucasdillmann/nginx-ignition": " nginx ignition has Unauthenticated Admin Account Creation via Onboarding Race Condition",
+    "github.com/falcosecurity/plugins/plugins/k8saudit-ovh": "k8saudit shipped rules do not detect privileged/sensitive settings on init or ephemeral containers",
+    "github.com/falcosecurity/plugins/plugins/k8saudit-aks": "k8saudit shipped rules do not detect privileged/sensitive settings on init or ephemeral containers",
+    "github.com/falcosecurity/plugins/plugins/k8saudit-gke": "k8saudit shipped rules do not detect privileged/sensitive settings on init or ephemeral containers",
+    "github.com/falcosecurity/plugins/plugins/k8saudit-eks": "k8saudit shipped rules do not detect privileged/sensitive settings on init or ephemeral containers",
+    "github.com/falcosecurity/plugins/plugins/k8saudit": "k8saudit shipped rules do not detect privileged/sensitive settings on init or ephemeral containers",
     "github.com/obot-platform/obot": "Obot: Server-Side Request Forgery via remote MCP server URL",
     "paymenter/paymenter": "Paymenter has a credit-refund double-spend race condition in service downgrade (doUpgrade)",
     "github.com/perses/perses": "Perses's unvalidated project parameter enables filesystem path traversal",
@@ -1304,8 +1353,7 @@
     "github.com/projectcapsule/capsule": "Capsule: hostnameRegexHandler.OnUpdate validates stale (old) Tenant regex, allowing invalid AllowedH",
     "mediawiki/semantic-media-wiki": "Semantic MediaWiki'a missing authorization in the smwtask API module allows unauthenticated access t",
     "github.com/caddyserver/caddy/v2": "Caddy: rewrite placeholder re-expansion, unbounded body buffer DoS, and fileHidden case-sensitivity ",
-    "getgrav/grav": "Grav CMS vulnerable to remote code execution via .zip file upload",
-    "github.com/coredns/coredns": "CoreDNS DoH/DoQ/gRPC bypass UPDATE rejection enforced on UDP/TCP"
+    "getgrav/grav": "Grav CMS vulnerable to remote code execution via .zip file upload"
   },
   "malicious_packages": {
     "npm": {},
