@@ -1,8 +1,194 @@
 {
   "version": "2026.09.22",
-  "last_updated": "2026-09-22T10:59:17.816417+00:00",
+  "last_updated": "2026-09-22T16:18:30.038944+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-798p-78g2-v556",
+      "name": "@aborruso/ckan-mcp-server has SSRF via DNS-name \u2192 internal IP \u2014 incomplete fix of CVE-2026-53509",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-798p-78g2-v556",
+      "description": "@aborruso/ckan-mcp-server has SSRF via DNS-name \u2192 internal IP \u2014 incomplete fix of CVE-2026-53509",
+      "date": "2026-09-22",
+      "affected": [
+        "@aborruso/ckan-mcp-server"
+      ],
+      "references": [
+        "https://github.com/ondata/ckan-mcp-server/security/advisories/GHSA-798p-78g2-v556",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-61612",
+        "https://github.com/ondata/ckan-mcp-server/commit/bb7439b553b9f965adc3d43bcd415c42eebe2f40",
+        "https://github.com/advisories/GHSA-3xm7-qw7j-qc8v",
+        "https://github.com/advisories/GHSA-g84h-j7jj-x32p",
+        "https://github.com/ondata/ckan-mcp-server/releases/tag/v0.4.108",
+        "https://github.com/advisories/GHSA-798p-78g2-v556"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@aborruso/ckan-mcp-server"
+          ]
+        },
+        "compromised_actions": [
+          "@aborruso/ckan-mcp-server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-29hq-23m2-2j47",
+      "name": "Sync-in Server has Username/Login Enumeration via Timing Side-Channel on POST /api/auth/login (incom",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-29hq-23m2-2j47",
+      "description": "Sync-in Server has Username/Login Enumeration via Timing Side-Channel on POST /api/auth/login (incomplete fix of the prior timing-attack advisory)",
+      "date": "2026-09-22",
+      "affected": [
+        "@sync-in/server"
+      ],
+      "references": [
+        "https://github.com/Sync-in/server/security/advisories/GHSA-29hq-23m2-2j47",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-58272",
+        "https://github.com/Sync-in/server/commit/b80efe04574039a7a302c0e1007f03a7dbe6a633",
+        "https://github.com/Sync-in/server/releases/tag/v2.4.1",
+        "https://github.com/advisories/GHSA-29hq-23m2-2j47"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@sync-in/server"
+          ]
+        },
+        "compromised_actions": [
+          "@sync-in/server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jx63-h26r-8cph",
+      "name": "Sync-in Server has a ReDoS via Unsanitized Regex in Sync Diff `pathFilters`",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-jx63-h26r-8cph",
+      "description": "Sync-in Server has a ReDoS via Unsanitized Regex in Sync Diff `pathFilters`",
+      "date": "2026-09-22",
+      "affected": [
+        "@sync-in/server"
+      ],
+      "references": [
+        "https://github.com/Sync-in/server/security/advisories/GHSA-jx63-h26r-8cph",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-58270",
+        "https://github.com/Sync-in/server/pull/228",
+        "https://github.com/Sync-in/server/commit/b1dcaa1d1c1bb17ab6c31a404cc9cead7efdd979",
+        "https://github.com/Sync-in/server/releases/tag/v2.4.0",
+        "https://github.com/advisories/GHSA-jx63-h26r-8cph"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@sync-in/server"
+          ]
+        },
+        "compromised_actions": [
+          "@sync-in/server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-92cr-jxw4-5wjg",
+      "name": "Sync-in Server has a complete 2FA Bypass via `POST /api/auth/token`",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-92cr-jxw4-5wjg",
+      "description": "Sync-in Server has a complete 2FA Bypass via `POST /api/auth/token`",
+      "date": "2026-09-22",
+      "affected": [
+        "@sync-in/server"
+      ],
+      "references": [
+        "https://github.com/Sync-in/server/security/advisories/GHSA-92cr-jxw4-5wjg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-58269",
+        "https://github.com/Sync-in/server/pull/228",
+        "https://github.com/Sync-in/server/commit/3ec74e2ea1f538fe1a3ac9487bdf24a19e548361",
+        "https://github.com/Sync-in/server/releases/tag/v2.4.0",
+        "https://github.com/advisories/GHSA-92cr-jxw4-5wjg"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@sync-in/server"
+          ]
+        },
+        "compromised_actions": [
+          "@sync-in/server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-274f-6w77-8qm9",
+      "name": "@sync-in/server vulnerable to TOTP Brute-Force via `POST /api/app/sync/register`",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-274f-6w77-8qm9",
+      "description": "@sync-in/server vulnerable to TOTP Brute-Force via `POST /api/app/sync/register`",
+      "date": "2026-09-22",
+      "affected": [
+        "@sync-in/server"
+      ],
+      "references": [
+        "https://github.com/Sync-in/server/security/advisories/GHSA-274f-6w77-8qm9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-58271",
+        "https://github.com/Sync-in/server/pull/228",
+        "https://github.com/Sync-in/server/commit/b13a4aad5c2b38fe8231a0d007cd08a086ec5bdb",
+        "https://github.com/Sync-in/server/releases/tag/v2.4.0",
+        "https://github.com/advisories/GHSA-274f-6w77-8qm9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@sync-in/server"
+          ]
+        },
+        "compromised_actions": [
+          "@sync-in/server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jjhp-8crj-mppq",
+      "name": "@roomi-fields/notebooklm-mcp has a path traversal in vault.batch tool that allows arbitrary file wri",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-jjhp-8crj-mppq",
+      "description": "@roomi-fields/notebooklm-mcp has a path traversal in vault.batch tool that allows arbitrary file write outside intended vault directory",
+      "date": "2026-09-22",
+      "affected": [
+        "@roomi-fields/notebooklm-mcp"
+      ],
+      "references": [
+        "https://github.com/roomi-fields/notebooklm-mcp/security/advisories/GHSA-jjhp-8crj-mppq",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-61647",
+        "https://github.com/roomi-fields/notebooklm-mcp/issues/15",
+        "https://github.com/roomi-fields/notebooklm-mcp/commit/13828d9ff3933839ce14c1797d3b20a6bb7694a6",
+        "https://github.com/roomi-fields/notebooklm-mcp/releases/tag/v2.0.3",
+        "https://github.com/advisories/GHSA-jjhp-8crj-mppq"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@roomi-fields/notebooklm-mcp"
+          ]
+        },
+        "compromised_actions": [
+          "@roomi-fields/notebooklm-mcp"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-pxcx-fv34-x9p5",
       "name": " nginx ignition has Unauthenticated Admin Account Creation via Onboarding Race Condition",
@@ -1179,161 +1365,13 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-j8px-rmrx-76h9",
-      "name": "Caddy: rewrite placeholder re-expansion, unbounded body buffer DoS, and fileHidden case-sensitivity ",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-j8px-rmrx-76h9",
-      "description": "Caddy: rewrite placeholder re-expansion, unbounded body buffer DoS, and fileHidden case-sensitivity bypass",
-      "date": "2026-09-18",
-      "affected": [
-        "github.com/caddyserver/caddy/v2"
-      ],
-      "references": [
-        "https://github.com/caddyserver/caddy/security/advisories/GHSA-j8px-rmrx-76h9",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77281",
-        "https://github.com/caddyserver/caddy/pull/7761",
-        "https://github.com/caddyserver/caddy/commit/176b043b0104cee3f894023cd5a598ac29e404bb",
-        "https://github.com/caddyserver/caddy/releases/tag/v2.11.4",
-        "https://github.com/advisories/GHSA-j8px-rmrx-76h9"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/caddyserver/caddy/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/caddyserver/caddy/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r94f-hx44-8jqf",
-      "name": "Grav CMS vulnerable to remote code execution via .zip file upload",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-r94f-hx44-8jqf",
-      "description": "Grav CMS vulnerable to remote code execution via .zip file upload",
-      "date": "2026-09-17",
-      "affected": [
-        "getgrav/grav"
-      ],
-      "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-r94f-hx44-8jqf",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-72819",
-        "https://www.vulncheck.com/advisories/grav-cms-before-remote-code-execution-via-zip-upload",
-        "https://github.com/advisories/GHSA-r94f-hx44-8jqf"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "getgrav/grav"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xhfv-7758-r9hx",
-      "name": "Grav: Missing admin.super guard on core group blueprint access field allows admin.users operator to ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-xhfv-7758-r9hx",
-      "description": "Grav: Missing admin.super guard on core group blueprint access field allows admin.users operator to escalate to super-admin",
-      "date": "2026-09-17",
-      "affected": [
-        "getgrav/grav"
-      ],
-      "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-xhfv-7758-r9hx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-75837",
-        "https://www.vulncheck.com/advisories/grav-before-privilege-escalation-via-group-access-field",
-        "https://github.com/advisories/GHSA-xhfv-7758-r9hx"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "getgrav/grav"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-q2j8-x8hf-63ch",
-      "name": "Grav: Single invalid UTF-8 byte disables every rule in Security::detectXss(), bypassing the page-con",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-q2j8-x8hf-63ch",
-      "description": "Grav: Single invalid UTF-8 byte disables every rule in Security::detectXss(), bypassing the page-content XSS safety gate",
-      "date": "2026-09-17",
-      "affected": [
-        "getgrav/grav"
-      ],
-      "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-q2j8-x8hf-63ch",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-75834",
-        "https://www.vulncheck.com/advisories/grav-before-stored-xss-via-invalid-utf-8-byte",
-        "https://github.com/advisories/GHSA-q2j8-x8hf-63ch"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "getgrav/grav"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f8wv-xp27-6gq7",
-      "name": "Grav: Blueprint dynamic-data bare-function branch is denylist-gated and omits error_log, giving arbi",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-f8wv-xp27-6gq7",
-      "description": "Grav: Blueprint dynamic-data bare-function branch is denylist-gated and omits error_log, giving arbitrary file write",
-      "date": "2026-09-17",
-      "affected": [
-        "getgrav/grav"
-      ],
-      "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-f8wv-xp27-6gq7",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-75827",
-        "https://www.vulncheck.com/advisories/grav-before-arbitrary-file-write-via-error-log",
-        "https://github.com/advisories/GHSA-f8wv-xp27-6gq7"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "getgrav/grav"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vfmf-q6x9-cw96",
-      "name": "Grav: detectXss() misses an event-handler attribute after an unpaired quote in an unquoted attribute",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-vfmf-q6x9-cw96",
-      "description": "Grav: detectXss() misses an event-handler attribute after an unpaired quote in an unquoted attribute value, giving stored XSS",
-      "date": "2026-09-17",
-      "affected": [
-        "getgrav/grav"
-      ],
-      "references": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-vfmf-q6x9-cw96",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-75828",
-        "https://www.vulncheck.com/advisories/grav-before-stored-xss-via-detectxss-quote-bypass",
-        "https://github.com/advisories/GHSA-vfmf-q6x9-cw96"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "getgrav/grav"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@aborruso/ckan-mcp-server": "@aborruso/ckan-mcp-server has SSRF via DNS-name \u2192 internal IP \u2014 incomplete fix of CVE-2026-53509",
+    "@sync-in/server": "Sync-in Server has Username/Login Enumeration via Timing Side-Channel on POST /api/auth/login (incom",
+    "@roomi-fields/notebooklm-mcp": "@roomi-fields/notebooklm-mcp has a path traversal in vault.batch tool that allows arbitrary file wri",
     "github.com/lucasdillmann/nginx-ignition": " nginx ignition has Unauthenticated Admin Account Creation via Onboarding Race Condition",
     "github.com/falcosecurity/plugins/plugins/k8saudit-ovh": "k8saudit shipped rules do not detect privileged/sensitive settings on init or ephemeral containers",
     "github.com/falcosecurity/plugins/plugins/k8saudit-aks": "k8saudit shipped rules do not detect privileged/sensitive settings on init or ephemeral containers",
@@ -1351,9 +1389,7 @@
     "github.com/kcp-dev/kcp": "kcp front-proxy does not strip inbound X-Remote-* identity headers, allowing any authenticated clien",
     "zotregistry.dev/zot/v2": "zot: Bearer authentication maps DELETE to push scope, allowing unauthorized deletion",
     "github.com/projectcapsule/capsule": "Capsule: hostnameRegexHandler.OnUpdate validates stale (old) Tenant regex, allowing invalid AllowedH",
-    "mediawiki/semantic-media-wiki": "Semantic MediaWiki'a missing authorization in the smwtask API module allows unauthenticated access t",
-    "github.com/caddyserver/caddy/v2": "Caddy: rewrite placeholder re-expansion, unbounded body buffer DoS, and fileHidden case-sensitivity ",
-    "getgrav/grav": "Grav CMS vulnerable to remote code execution via .zip file upload"
+    "mediawiki/semantic-media-wiki": "Semantic MediaWiki'a missing authorization in the smwtask API module allows unauthenticated access t"
   },
   "malicious_packages": {
     "npm": {},
