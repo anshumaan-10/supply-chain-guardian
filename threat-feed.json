@@ -1,8 +1,497 @@
 {
   "version": "2026.09.23",
-  "last_updated": "2026-09-23T16:08:24.006973+00:00",
+  "last_updated": "2026-09-23T21:05:49.980379+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-97cv-x867-6xhm",
+      "name": "Klever-Go Account takeover: `kleverUpdateAccountPermission` authorizes on attacker-controlled `Recip",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-97cv-x867-6xhm",
+      "description": "Klever-Go Account takeover: `kleverUpdateAccountPermission` authorizes on attacker-controlled `RecipientAddr` instead of the authenticated caller",
+      "date": "2026-09-23",
+      "affected": [
+        "github.com/klever-io/klever-go"
+      ],
+      "references": [
+        "https://github.com/klever-io/klever-go/security/advisories/GHSA-97cv-x867-6xhm",
+        "https://github.com/klever-io/klever-go/commit/c58740eb74d7ee8f07db1e18a7d6214b5559ba32",
+        "https://gist.github.com/mabdullah22/a41f90aa5ba86bbebf121f739bd5f5e9",
+        "https://github.com/klever-io/klever-go/releases/tag/v1.7.20",
+        "https://github.com/advisories/GHSA-97cv-x867-6xhm"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/klever-io/klever-go"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/klever-io/klever-go"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4fwh-wrm6-97xm",
+      "name": "Klever-Go: Unauthenticated WebSocket /subscribe: no read-size limit, no connection cap, permissive o",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-4fwh-wrm6-97xm",
+      "description": "Klever-Go: Unauthenticated WebSocket /subscribe: no read-size limit, no connection cap, permissive origin -> remote node memory/goroutine exhaustion (DoS)",
+      "date": "2026-09-23",
+      "affected": [
+        "github.com/klever-io/klever-go"
+      ],
+      "references": [
+        "https://github.com/klever-io/klever-go/security/advisories/GHSA-4fwh-wrm6-97xm",
+        "https://github.com/klever-io/klever-go/pull/76",
+        "https://github.com/klever-io/klever-go/commit/b8af922e749ec1fa7451b2c6e7c9f634d8603be2",
+        "https://github.com/klever-io/klever-go/releases/tag/v1.7.20",
+        "https://github.com/advisories/GHSA-4fwh-wrm6-97xm"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/klever-io/klever-go"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/klever-io/klever-go"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9v8p-frvj-2pcm",
+      "name": "Klever-Go: /log controls global node logging",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9v8p-frvj-2pcm",
+      "description": "Klever-Go: /log controls global node logging",
+      "date": "2026-09-23",
+      "affected": [
+        "github.com/klever-io/klever-go"
+      ],
+      "references": [
+        "https://github.com/klever-io/klever-go/security/advisories/GHSA-9v8p-frvj-2pcm",
+        "https://github.com/klever-io/klever-go/pull/74",
+        "https://github.com/klever-io/klever-go/commit/a2740c985a788fb69e17742ea4f0c37c440733b2",
+        "https://github.com/klever-io/klever-go/releases/tag/v1.7.20",
+        "https://github.com/advisories/GHSA-9v8p-frvj-2pcm"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/klever-io/klever-go"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/klever-io/klever-go"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g7f6-rxc4-qhph",
+      "name": "Mesop: Unauthenticated ANSI Escape Sequence Injection in CSP Reporting Endpoint",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-g7f6-rxc4-qhph",
+      "description": "Mesop: Unauthenticated ANSI Escape Sequence Injection in CSP Reporting Endpoint",
+      "date": "2026-09-23",
+      "affected": [
+        "mesop"
+      ],
+      "references": [
+        "https://github.com/mesop-dev/mesop/security/advisories/GHSA-g7f6-rxc4-qhph",
+        "https://github.com/mesop-dev/mesop/pull/1397",
+        "https://github.com/mesop-dev/mesop/commit/f38c42a1d3eba246941ef8d7f645072d53c58785",
+        "https://github.com/mesop-dev/mesop/releases/tag/v1.3.4",
+        "https://github.com/advisories/GHSA-g7f6-rxc4-qhph"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jjq7-m736-w977",
+      "name": "OpenC3 COSMOS: Authenticated remote code execution via the user-writable config overlay (table defin",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-jjq7-m736-w977",
+      "description": "OpenC3 COSMOS: Authenticated remote code execution via the user-writable config overlay (table definitions, cmd/tlm definitions, and script suites)",
+      "date": "2026-09-23",
+      "affected": [
+        "openc3"
+      ],
+      "references": [
+        "https://github.com/OpenC3/cosmos/security/advisories/GHSA-jjq7-m736-w977",
+        "https://github.com/OpenC3/cosmos/pull/3488",
+        "https://github.com/OpenC3/cosmos/commit/71943352a28128ef3e7e894319d97a656b5cd4f2",
+        "https://github.com/OpenC3/cosmos/commit/7a1538a4626f82c0d1540fcaa27ffdcbbd71ff81",
+        "https://github.com/advisories/GHSA-jjq7-m736-w977"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "openc3"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vp3w-52v9-q57f",
+      "name": "OpenC3 COSMOS: Authenticated OS command injection via the `pypi_url` setting",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-vp3w-52v9-q57f",
+      "description": "OpenC3 COSMOS: Authenticated OS command injection via the `pypi_url` setting",
+      "date": "2026-09-23",
+      "affected": [
+        "openc3"
+      ],
+      "references": [
+        "https://github.com/OpenC3/cosmos/security/advisories/GHSA-vp3w-52v9-q57f",
+        "https://github.com/OpenC3/cosmos/pull/3489",
+        "https://github.com/OpenC3/cosmos/commit/be70d1d836c83c3b084e768e31a399312d4cbe0b",
+        "https://github.com/OpenC3/cosmos/releases/tag/v7.2.1",
+        "https://github.com/advisories/GHSA-vp3w-52v9-q57f"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "openc3"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-86wm-r4c5-2rc9",
+      "name": "Wire Swift runtime: negative LENGTH_DELIMITED length in skipGroup() crashes any protobuf-decoding se",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-86wm-r4c5-2rc9",
+      "description": "Wire Swift runtime: negative LENGTH_DELIMITED length in skipGroup() crashes any protobuf-decoding service",
+      "date": "2026-09-23",
+      "affected": [
+        "github.com/square/wire"
+      ],
+      "references": [
+        "https://github.com/square/wire/security/advisories/GHSA-86wm-r4c5-2rc9",
+        "https://github.com/square/wire/pull/3616",
+        "https://github.com/square/wire/commit/24043b6b3a5e5974a978f2745b76d50b31407c1c",
+        "https://github.com/square/wire/commit/81ff7f24a6795d9a8be2e03f272b2d979a5d2c7e",
+        "https://github.com/square/wire/releases/tag/6.4.1",
+        "https://github.com/square/wire/releases/tag/7.0.0-alpha04",
+        "https://github.com/advisories/GHSA-86wm-r4c5-2rc9"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "github.com/square/wire"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-584p-f93j-wpgc",
+      "name": "Formie: Unauthenticated users can overwrite incomplete submissions via submit action",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-584p-f93j-wpgc",
+      "description": "Formie: Unauthenticated users can overwrite incomplete submissions via submit action",
+      "date": "2026-09-23",
+      "affected": [
+        "verbb/formie",
+        "verbb/formie"
+      ],
+      "references": [
+        "https://github.com/verbb/formie/security/advisories/GHSA-584p-f93j-wpgc",
+        "https://github.com/verbb/formie/commit/323c2fe647a76fbccadf749728ee4ad9420efee1",
+        "https://github.com/verbb/formie/commit/78a298ac3baf85ac283988dfce9cd42c9b958f16",
+        "https://github.com/verbb/formie/releases/tag/2.2.23",
+        "https://github.com/verbb/formie/releases/tag/3.1.31",
+        "https://github.com/advisories/GHSA-584p-f93j-wpgc"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "verbb/formie",
+          "verbb/formie"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v3f3-cmj4-cvj9",
+      "name": "Formie: Integration form-settings action allows SSRF and exfiltration of stored integration credenti",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-v3f3-cmj4-cvj9",
+      "description": "Formie: Integration form-settings action allows SSRF and exfiltration of stored integration credentials",
+      "date": "2026-09-23",
+      "affected": [
+        "verbb/formie",
+        "verbb/formie"
+      ],
+      "references": [
+        "https://github.com/verbb/formie/security/advisories/GHSA-v3f3-cmj4-cvj9",
+        "https://github.com/verbb/formie/commit/6735fe4ae8f6a2a76930716ad7876b236f7c530d",
+        "https://github.com/verbb/formie/commit/dde7799dfa7e4d0a11e28754ad8544dba62d5def",
+        "https://github.com/advisories/GHSA-cvpc-hccg-wmw4",
+        "https://github.com/verbb/formie/releases/tag/2.2.23",
+        "https://github.com/verbb/formie/releases/tag/3.1.31",
+        "https://github.com/advisories/GHSA-v3f3-cmj4-cvj9"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "verbb/formie",
+          "verbb/formie"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jg26-q8hg-3pq4",
+      "name": "Sulu: JCR-SQL2 injection via `categories` query parameter (unauthenticated)",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-jg26-q8hg-3pq4",
+      "description": "Sulu: JCR-SQL2 injection via `categories` query parameter (unauthenticated)",
+      "date": "2026-09-23",
+      "affected": [
+        "sulu/sulu",
+        "sulu/sulu"
+      ],
+      "references": [
+        "https://github.com/sulu/sulu/security/advisories/GHSA-jg26-q8hg-3pq4",
+        "https://github.com/sulu/sulu/commit/d19c01487af8c3de2fb3aa145856707a6367392c",
+        "https://github.com/sulu/sulu/releases/tag/2.6.25",
+        "https://github.com/sulu/sulu/releases/tag/3.0.8",
+        "https://github.com/advisories/GHSA-jg26-q8hg-3pq4"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "sulu/sulu",
+          "sulu/sulu"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-ph9c-7hw9-vhhw",
+      "name": "JLine: ReDoS in Nano Editor Regex Search Mode",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-ph9c-7hw9-vhhw",
+      "description": "JLine: ReDoS in Nano Editor Regex Search Mode",
+      "date": "2026-09-23",
+      "affected": [
+        "org.jline:jline-builtins",
+        "org.jline:jline-builtins"
+      ],
+      "references": [
+        "https://github.com/jline/jline3/security/advisories/GHSA-ph9c-7hw9-vhhw",
+        "https://github.com/jline/jline3/pull/2012",
+        "https://github.com/jline/jline3/pull/2018",
+        "https://github.com/jline/jline3/commit/1d5fc3099e77938b971e197211cad2d4fbb17541",
+        "https://github.com/jline/jline3/commit/341ee69ccc57b7733c1b40d6993219b64b3206ae",
+        "https://github.com/jline/jline3/releases/tag/4.3.1",
+        "https://github.com/jline/jline3/releases/tag/jline-3.30.15",
+        "https://github.com/advisories/GHSA-ph9c-7hw9-vhhw"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-r2xf-8xr9-62gw",
+      "name": "JLine: ReDoS in Built-in grep Command Amplified by Automatic `.*` Wrapping",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-r2xf-8xr9-62gw",
+      "description": "JLine: ReDoS in Built-in grep Command Amplified by Automatic `.*` Wrapping",
+      "date": "2026-09-23",
+      "affected": [
+        "org.jline:jline-builtins",
+        "org.jline:jline-builtins"
+      ],
+      "references": [
+        "https://github.com/jline/jline3/security/advisories/GHSA-r2xf-8xr9-62gw",
+        "https://github.com/jline/jline3/pull/2012",
+        "https://github.com/jline/jline3/pull/2018",
+        "https://github.com/jline/jline3/commit/1d5fc3099e77938b971e197211cad2d4fbb17541",
+        "https://github.com/jline/jline3/commit/341ee69ccc57b7733c1b40d6993219b64b3206ae",
+        "https://github.com/jline/jline3/releases/tag/4.3.1",
+        "https://github.com/jline/jline3/releases/tag/jline-3.30.15",
+        "https://github.com/advisories/GHSA-r2xf-8xr9-62gw"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vmjq-hvgq-2wv4",
+      "name": "9router: Mass assignment in PATCH /api/settings allows authenticated authorization downgrade",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-vmjq-hvgq-2wv4",
+      "description": "9router: Mass assignment in PATCH /api/settings allows authenticated authorization downgrade",
+      "date": "2026-09-23",
+      "affected": [
+        "9router"
+      ],
+      "references": [
+        "https://github.com/decolua/9router/security/advisories/GHSA-vmjq-hvgq-2wv4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-56679",
+        "https://github.com/advisories/GHSA-vmjq-hvgq-2wv4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "9router"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6mwv-4mrm-5p3m",
+      "name": "9router: Kiro region injection allows authenticated SSRF with Authorization header forwarding",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-6mwv-4mrm-5p3m",
+      "description": "9router: Kiro region injection allows authenticated SSRF with Authorization header forwarding",
+      "date": "2026-09-23",
+      "affected": [
+        "9router"
+      ],
+      "references": [
+        "https://github.com/decolua/9router/security/advisories/GHSA-6mwv-4mrm-5p3m",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-56678",
+        "https://github.com/decolua/9router/commit/126aa244c5b51b74ab8c7594e3418fcf4437bf6f",
+        "https://github.com/decolua/9router/releases/tag/v0.5.6",
+        "https://github.com/advisories/GHSA-6mwv-4mrm-5p3m"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "9router"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cmhj-wh2f-9cgx",
+      "name": "9router: Image prefetch DNS rebinding allows SSRF to internal services",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-cmhj-wh2f-9cgx",
+      "description": "9router: Image prefetch DNS rebinding allows SSRF to internal services",
+      "date": "2026-09-23",
+      "affected": [
+        "9router"
+      ],
+      "references": [
+        "https://github.com/decolua/9router/security/advisories/GHSA-cmhj-wh2f-9cgx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-56676",
+        "https://github.com/decolua/9router/commit/c7d07448c58bec1200741de0b73305b860416b82",
+        "https://github.com/decolua/9router/releases/tag/v0.5.2",
+        "https://github.com/advisories/GHSA-cmhj-wh2f-9cgx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "9router"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-x5c9-v98j-722r",
+      "name": "9router /v1 APIs has unauthenticated access via reverse proxy locality collapse",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-x5c9-v98j-722r",
+      "description": "9router /v1 APIs has unauthenticated access via reverse proxy locality collapse",
+      "date": "2026-09-23",
+      "affected": [
+        "9router"
+      ],
+      "references": [
+        "https://github.com/decolua/9router/security/advisories/GHSA-x5c9-v98j-722r",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-56675",
+        "https://github.com/decolua/9router/commit/da667836cc7584bea0edd893de1d590c9ea279dc",
+        "https://github.com/decolua/9router/releases/tag/v0.5.2",
+        "https://github.com/advisories/GHSA-x5c9-v98j-722r"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "9router"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5q95-hrpc-m3w3",
+      "name": "JLine: ReDoS via `HISTORY_IGNORE` Configuration Variable",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-5q95-hrpc-m3w3",
+      "description": "JLine: ReDoS via `HISTORY_IGNORE` Configuration Variable",
+      "date": "2026-09-23",
+      "affected": [
+        "org.jline:jline-reader",
+        "org.jline:jline-reader"
+      ],
+      "references": [
+        "https://github.com/jline/jline3/security/advisories/GHSA-5q95-hrpc-m3w3",
+        "https://github.com/jline/jline3/pull/2012",
+        "https://github.com/jline/jline3/pull/2018",
+        "https://github.com/jline/jline3/commit/1d5fc3099e77938b971e197211cad2d4fbb17541",
+        "https://github.com/jline/jline3/commit/341ee69ccc57b7733c1b40d6993219b64b3206ae",
+        "https://github.com/jline/jline3/releases/tag/4.3.1",
+        "https://github.com/jline/jline3/releases/tag/jline-3.30.15",
+        "https://github.com/advisories/GHSA-5q95-hrpc-m3w3"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5f42-97gr-vfhq",
+      "name": "Moquette: Pattern-ACL wildcard injection (cross-tenant authorization bypass) plus a remote-unauthent",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-5f42-97gr-vfhq",
+      "description": "Moquette: Pattern-ACL wildcard injection (cross-tenant authorization bypass) plus a remote-unauthenticated DoS cluster, a Will-message authorization bypass, and a cross-session durable-corruption bug",
+      "date": "2026-09-23",
+      "affected": [
+        "io.moquette:moquette-broker"
+      ],
+      "references": [
+        "https://github.com/moquette-io/moquette/security/advisories/GHSA-5f42-97gr-vfhq",
+        "https://github.com/moquette-io/moquette/pull/957",
+        "https://github.com/moquette-io/moquette/pull/958",
+        "https://github.com/moquette-io/moquette/pull/959",
+        "https://github.com/moquette-io/moquette/commit/14a2f4fd280c8f6a791600c306cbccecb7c67007",
+        "https://github.com/moquette-io/moquette/commit/26498631e92d50440b4e3ed42fa546253cc4090c",
+        "https://github.com/moquette-io/moquette/commit/72d6c8257191d2e4b2e3aa11ab25fd09f88c6cb7",
+        "https://github.com/moquette-io/moquette/commit/86feb7c31e6fac849c465d8079d08c0e7ef01cdf",
+        "https://github.com/moquette-io/moquette/commit/affdc71fdba92dc020421678970ae70518fb6da2",
+        "https://github.com/moquette-io/moquette/commit/b4a98bb3f3425ece476ed073aa080c627c1239af",
+        "https://github.com/moquette-io/moquette/commit/c65b3e90fa03e562e2c2fa69c3ee916c2cbfbd2b",
+        "https://github.com/moquette-io/moquette/commit/ca17e0be19e86d5e291f4532dfdc94616c8e0049",
+        "https://github.com/moquette-io/moquette/commit/d77753542e262b7aa573dee3c2b05e44439bbd96",
+        "https://github.com/moquette-io/moquette/commit/f5a323fe782d1505c0097498cb22eb6ec6c96973",
+        "https://github.com/moquette-io/moquette/releases/tag/v0.18.1",
+        "https://github.com/advisories/GHSA-5f42-97gr-vfhq"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-gxrg-x694-283w",
       "name": "Solspace Freeform: Limited Twig template injection via submitted field values",
@@ -848,598 +1337,14 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9xhm-w3wj-xhqh",
-      "name": "Tinyauth: Unauthenticated login attempts can trigger global login lockdown denial of service",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-9xhm-w3wj-xhqh",
-      "description": "Tinyauth: Unauthenticated login attempts can trigger global login lockdown denial of service",
-      "date": "2026-09-22",
-      "affected": [
-        "github.com/steveiliop56/tinyauth"
-      ],
-      "references": [
-        "https://github.com/tinyauthapp/tinyauth/security/advisories/GHSA-9xhm-w3wj-xhqh",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77561",
-        "https://github.com/tinyauthapp/tinyauth/pull/1008",
-        "https://github.com/tinyauthapp/tinyauth/pull/943",
-        "https://github.com/tinyauthapp/tinyauth/commit/654b5cc436fc67865c1f55edf9ba9fbded50b74f",
-        "https://github.com/tinyauthapp/tinyauth/commit/dade1e2c8f27a23df56ac216dcaf4b37081698e7",
-        "https://github.com/tinyauthapp/tinyauth/releases/tag/v5.1.0",
-        "https://github.com/advisories/GHSA-9xhm-w3wj-xhqh"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/steveiliop56/tinyauth"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/steveiliop56/tinyauth"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-328g-jx67-v94g",
-      "name": "Tinyauth: forward-auth per-app ACL is matched case-sensitively against the (case-insensitive) hostna",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-328g-jx67-v94g",
-      "description": "Tinyauth: forward-auth per-app ACL is matched case-sensitively against the (case-insensitive) hostname, letting an authenticated user reach apps they are not on the allowlist for",
-      "date": "2026-09-22",
-      "affected": [
-        "github.com/tinyauthapp/tinyauth"
-      ],
-      "references": [
-        "https://github.com/tinyauthapp/tinyauth/security/advisories/GHSA-328g-jx67-v94g",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77560",
-        "https://github.com/tinyauthapp/tinyauth/pull/1000",
-        "https://github.com/tinyauthapp/tinyauth/pull/1028",
-        "https://github.com/tinyauthapp/tinyauth/commit/80bc87188ec3aabc5104c249eaa7b997973b9275",
-        "https://github.com/tinyauthapp/tinyauth/commit/e75605b2c534ec83525a33603e16d76baca13399",
-        "https://github.com/tinyauthapp/tinyauth/releases/tag/v5.1.2",
-        "https://github.com/advisories/GHSA-328g-jx67-v94g"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/tinyauthapp/tinyauth"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/tinyauthapp/tinyauth"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-456h-ww26-f758",
-      "name": "Tinyauth: User enumeration attack by timing oracle",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-456h-ww26-f758",
-      "description": "Tinyauth: User enumeration attack by timing oracle",
-      "date": "2026-09-22",
-      "affected": [
-        "github.com/tinyauthapp/tinyauth"
-      ],
-      "references": [
-        "https://github.com/tinyauthapp/tinyauth/security/advisories/GHSA-456h-ww26-f758",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77582",
-        "https://github.com/tinyauthapp/tinyauth/pull/1004",
-        "https://github.com/tinyauthapp/tinyauth/commit/c22925c2fba981875d0a2b09dd3ee41c0ae4c310",
-        "https://github.com/tinyauthapp/tinyauth/releases/tag/v5.1.0",
-        "https://github.com/advisories/GHSA-456h-ww26-f758"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/tinyauthapp/tinyauth"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/tinyauthapp/tinyauth"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5jpj-293f-rhvj",
-      "name": "KubeEdge: Command Injection in NodeUpgradeJob - RCE on edge nodes via v1alpha2 API",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-5jpj-293f-rhvj",
-      "description": "KubeEdge: Command Injection in NodeUpgradeJob - RCE on edge nodes via v1alpha2 API",
-      "date": "2026-09-22",
-      "affected": [
-        "github.com/kubeedge/kubeedge",
-        "github.com/kubeedge/kubeedge",
-        "github.com/kubeedge/kubeedge"
-      ],
-      "references": [
-        "https://github.com/kubeedge/kubeedge/security/advisories/GHSA-5jpj-293f-rhvj",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-62371",
-        "https://github.com/kubeedge/kubeedge/pull/7028",
-        "https://github.com/kubeedge/kubeedge/pull/7029",
-        "https://github.com/kubeedge/kubeedge/pull/7030",
-        "https://github.com/kubeedge/kubeedge/commit/552af457a4c7ce80ea1678ab5889f475b36ea103",
-        "https://github.com/kubeedge/kubeedge/commit/657b745bebcdd7a221eb34c0aac13231ef12c37f",
-        "https://github.com/kubeedge/kubeedge/commit/b72db7f8a0f7be23261b4349eab33024b2007df0",
-        "https://github.com/kubeedge/kubeedge/blob/master/CHANGELOG/CHANGELOG-1.21.md",
-        "https://github.com/kubeedge/kubeedge/blob/master/CHANGELOG/CHANGELOG-1.22.md",
-        "https://github.com/kubeedge/kubeedge/blob/master/CHANGELOG/CHANGELOG-1.23.md",
-        "https://github.com/kubeedge/kubeedge/releases/tag/v1.21.2",
-        "https://github.com/kubeedge/kubeedge/releases/tag/v1.22.2",
-        "https://github.com/kubeedge/kubeedge/releases/tag/v1.23.1",
-        "https://github.com/advisories/GHSA-5jpj-293f-rhvj"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/kubeedge/kubeedge",
-            "github.com/kubeedge/kubeedge",
-            "github.com/kubeedge/kubeedge"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/kubeedge/kubeedge",
-          "github.com/kubeedge/kubeedge",
-          "github.com/kubeedge/kubeedge"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gfw4-49f9-cp25",
-      "name": "KubeEdge: Unbounded allocation in viaduct packer enables authenticated remote DoS against CloudHub",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-gfw4-49f9-cp25",
-      "description": "KubeEdge: Unbounded allocation in viaduct packer enables authenticated remote DoS against CloudHub",
-      "date": "2026-09-22",
-      "affected": [
-        "github.com/kubeedge/kubeedge",
-        "github.com/kubeedge/kubeedge",
-        "github.com/kubeedge/kubeedge"
-      ],
-      "references": [
-        "https://github.com/kubeedge/kubeedge/security/advisories/GHSA-gfw4-49f9-cp25",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-62370",
-        "https://github.com/kubeedge/kubeedge/pull/7028",
-        "https://github.com/kubeedge/kubeedge/pull/7029",
-        "https://github.com/kubeedge/kubeedge/pull/7030",
-        "https://github.com/kubeedge/kubeedge/commit/0fe1ea18e5d7fde29633286ddf1c7e71cb39606f",
-        "https://github.com/kubeedge/kubeedge/commit/725a73ca35a65d91aa6338e52b8faaab6058f528",
-        "https://github.com/kubeedge/kubeedge/commit/cc79621943fff9d3f62638d9403ef0cfeda3d0e7",
-        "https://github.com/kubeedge/kubeedge/blob/master/CHANGELOG/CHANGELOG-1.21.md",
-        "https://github.com/kubeedge/kubeedge/blob/master/CHANGELOG/CHANGELOG-1.22.md",
-        "https://github.com/kubeedge/kubeedge/blob/master/CHANGELOG/CHANGELOG-1.23.md",
-        "https://github.com/kubeedge/kubeedge/releases/tag/v1.21.2",
-        "https://github.com/kubeedge/kubeedge/releases/tag/v1.22.2",
-        "https://github.com/kubeedge/kubeedge/releases/tag/v1.23.1",
-        "https://github.com/advisories/GHSA-gfw4-49f9-cp25"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/kubeedge/kubeedge",
-            "github.com/kubeedge/kubeedge",
-            "github.com/kubeedge/kubeedge"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/kubeedge/kubeedge",
-          "github.com/kubeedge/kubeedge",
-          "github.com/kubeedge/kubeedge"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9vm9-pqxx-x83v",
-      "name": "KubeEdge: keadm DecompressTarGz path traversal enables arbitrary file write on Windows during edge n",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-9vm9-pqxx-x83v",
-      "description": "KubeEdge: keadm DecompressTarGz path traversal enables arbitrary file write on Windows during edge node join",
-      "date": "2026-09-22",
-      "affected": [
-        "github.com/kubeedge/kubeedge",
-        "github.com/kubeedge/kubeedge",
-        "github.com/kubeedge/kubeedge"
-      ],
-      "references": [
-        "https://github.com/kubeedge/kubeedge/security/advisories/GHSA-9vm9-pqxx-x83v",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-62369",
-        "https://github.com/kubeedge/kubeedge/pull/7028",
-        "https://github.com/kubeedge/kubeedge/pull/7029",
-        "https://github.com/kubeedge/kubeedge/pull/7030",
-        "https://github.com/kubeedge/kubeedge/commit/47767b7f2649afcfa3a856e87d556f7777e0428d",
-        "https://github.com/kubeedge/kubeedge/commit/a524a66a1ae1691eb8ff16b6ff9a93fb370d4047",
-        "https://github.com/kubeedge/kubeedge/commit/ee02dea9d08114afc4a8f401b1c2f30e84e1de40",
-        "https://github.com/kubeedge/kubeedge/blob/master/CHANGELOG/CHANGELOG-1.21.md",
-        "https://github.com/kubeedge/kubeedge/blob/master/CHANGELOG/CHANGELOG-1.22.md",
-        "https://github.com/kubeedge/kubeedge/blob/master/CHANGELOG/CHANGELOG-1.23.md",
-        "https://github.com/kubeedge/kubeedge/releases/tag/v1.21.2",
-        "https://github.com/kubeedge/kubeedge/releases/tag/v1.22.2",
-        "https://github.com/kubeedge/kubeedge/releases/tag/v1.23.1",
-        "https://github.com/advisories/GHSA-9vm9-pqxx-x83v"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/kubeedge/kubeedge",
-            "github.com/kubeedge/kubeedge",
-            "github.com/kubeedge/kubeedge"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/kubeedge/kubeedge",
-          "github.com/kubeedge/kubeedge",
-          "github.com/kubeedge/kubeedge"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xp3c-3jw3-4vcr",
-      "name": "OpenBao Skips Stricter Deny Policy for LIST operations",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-xp3c-3jw3-4vcr",
-      "description": "OpenBao Skips Stricter Deny Policy for LIST operations",
-      "date": "2026-09-22",
-      "affected": [
-        "github.com/openbao/openbao",
-        "github.com/openbao/openbao"
-      ],
-      "references": [
-        "https://github.com/openbao/openbao/security/advisories/GHSA-xp3c-3jw3-4vcr",
-        "https://github.com/openbao/openbao/pull/3389",
-        "https://github.com/openbao/openbao/pull/3474",
-        "https://github.com/openbao/openbao/commit/2e9625d6cebe4639d051ef53dd6ce7c49914ae6a",
-        "https://github.com/openbao/openbao/commit/f58d848c139e5ba71aa63103fcfe101972b999fc",
-        "https://github.com/hashicorp/vault/blob/main/CHANGELOG.md#203",
-        "https://github.com/openbao/openbao/releases/tag/v2.6.0",
-        "https://github.com/advisories/GHSA-xp3c-3jw3-4vcr"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/openbao/openbao",
-            "github.com/openbao/openbao"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/openbao/openbao",
-          "github.com/openbao/openbao"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-34fc-gh42-pj53",
-      "name": "OpenBao's Recovery Mode Vulnerable To Token Leakage via Timing Attack",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-34fc-gh42-pj53",
-      "description": "OpenBao's Recovery Mode Vulnerable To Token Leakage via Timing Attack",
-      "date": "2026-09-22",
-      "affected": [
-        "github.com/openbao/openbao",
-        "github.com/openbao/openbao"
-      ],
-      "references": [
-        "https://github.com/openbao/openbao/security/advisories/GHSA-34fc-gh42-pj53",
-        "https://github.com/openbao/openbao/pull/3388",
-        "https://github.com/openbao/openbao/pull/3472",
-        "https://github.com/openbao/openbao/commit/0f2d90c331f25d1c6cd108638da03f4c7bd949a8",
-        "https://github.com/hashicorp/vault/blob/main/CHANGELOG.md#203",
-        "https://github.com/openbao/openbao/releases/tag/v2.6.0",
-        "https://github.com/advisories/GHSA-34fc-gh42-pj53"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/openbao/openbao",
-            "github.com/openbao/openbao"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/openbao/openbao",
-          "github.com/openbao/openbao"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-59w7-v8rr-pr4p",
-      "name": " OpenBao's Templated Policies Allow Privilege Escalation via Wildcard Characters",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-59w7-v8rr-pr4p",
-      "description": " OpenBao's Templated Policies Allow Privilege Escalation via Wildcard Characters",
-      "date": "2026-09-22",
-      "affected": [
-        "github.com/openbao/openbao",
-        "github.com/openbao/openbao"
-      ],
-      "references": [
-        "https://github.com/openbao/openbao/security/advisories/GHSA-59w7-v8rr-pr4p",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-71543",
-        "https://github.com/openbao/openbao/pull/3401",
-        "https://github.com/openbao/openbao/pull/3473",
-        "https://github.com/openbao/openbao/commit/2d4ebafec5c524408b3d4ac1198df909cb7ac8c1",
-        "https://github.com/openbao/openbao/commit/e516ce508e1481504cadbfbf62052364339093bc",
-        "https://github.com/hashicorp/vault/blob/main/CHANGELOG.md#201",
-        "https://github.com/openbao/openbao/releases/tag/v2.6.0",
-        "https://github.com/advisories/GHSA-59w7-v8rr-pr4p"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/openbao/openbao",
-            "github.com/openbao/openbao"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/openbao/openbao",
-          "github.com/openbao/openbao"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-444v-8vxr-p36h",
-      "name": "OpenBao Agent Writes Secrets to Stdout",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-444v-8vxr-p36h",
-      "description": "OpenBao Agent Writes Secrets to Stdout",
-      "date": "2026-09-22",
-      "affected": [
-        "github.com/openbao/openbao",
-        "github.com/openbao/openbao"
-      ],
-      "references": [
-        "https://github.com/openbao/openbao/security/advisories/GHSA-444v-8vxr-p36h",
-        "https://github.com/openbao/openbao/pull/3494",
-        "https://github.com/openbao/openbao/pull/3495",
-        "https://github.com/openbao/openbao/commit/90272575e5f58b3883fbb0ccb2238e9285722d1a",
-        "https://github.com/openbao/openbao/commit/ee3aa4aff72c5176cf02af21eac7158899080878",
-        "https://github.com/openbao/openbao/releases/tag/v2.6.0",
-        "https://github.com/advisories/GHSA-444v-8vxr-p36h"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/openbao/openbao",
-            "github.com/openbao/openbao"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/openbao/openbao",
-          "github.com/openbao/openbao"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-m3c6-2p7h-cfr3",
-      "name": "KubeEdge: ConfigUpdateJob updateFields enables remote shell injection and code execution on edge nod",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-m3c6-2p7h-cfr3",
-      "description": "KubeEdge: ConfigUpdateJob updateFields enables remote shell injection and code execution on edge nodes",
-      "date": "2026-09-22",
-      "affected": [
-        "github.com/kubeedge/kubeedge",
-        "github.com/kubeedge/kubeedge",
-        "github.com/kubeedge/kubeedge"
-      ],
-      "references": [
-        "https://github.com/kubeedge/kubeedge/security/advisories/GHSA-m3c6-2p7h-cfr3",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-62182",
-        "https://github.com/kubeedge/kubeedge/pull/7028",
-        "https://github.com/kubeedge/kubeedge/pull/7029",
-        "https://github.com/kubeedge/kubeedge/pull/7030",
-        "https://github.com/kubeedge/kubeedge/commit/14f65fc6207787f266cbcb0dceac7f09a81bab2b",
-        "https://github.com/kubeedge/kubeedge/commit/6309a335c8e5e3c154b6bb0a09292f5c7dc598dc",
-        "https://github.com/kubeedge/kubeedge/commit/ee78415a36911c1a93e59a921c23b8e4ecd83e90",
-        "https://github.com/kubeedge/kubeedge/blob/master/CHANGELOG/CHANGELOG-1.21.md",
-        "https://github.com/kubeedge/kubeedge/blob/master/CHANGELOG/CHANGELOG-1.22.md",
-        "https://github.com/kubeedge/kubeedge/blob/master/CHANGELOG/CHANGELOG-1.23.md",
-        "https://github.com/kubeedge/kubeedge/releases/tag/v1.21.2",
-        "https://github.com/kubeedge/kubeedge/releases/tag/v1.22.2",
-        "https://github.com/kubeedge/kubeedge/releases/tag/v1.23.1",
-        "https://github.com/advisories/GHSA-m3c6-2p7h-cfr3"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/kubeedge/kubeedge",
-            "github.com/kubeedge/kubeedge",
-            "github.com/kubeedge/kubeedge"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/kubeedge/kubeedge",
-          "github.com/kubeedge/kubeedge",
-          "github.com/kubeedge/kubeedge"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-72h8-wp98-7hch",
-      "name": "Unleash: Missing await on permission check + cross-project IDOR in admin API",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-72h8-wp98-7hch",
-      "description": "Unleash: Missing await on permission check + cross-project IDOR in admin API",
-      "date": "2026-09-22",
-      "affected": [
-        "unleash-server"
-      ],
-      "references": [
-        "https://github.com/Unleash/unleash/security/advisories/GHSA-72h8-wp98-7hch",
-        "https://github.com/Unleash/unleash/commit/7bb2829fc40791aa478e8ffca149c11b0f9cb05a",
-        "https://github.com/Unleash/unleash/commit/ace121c922d2e3eb6f68d95b0b6ab2fc8d824ea1",
-        "https://github.com/Unleash/unleash/commit/bea7effd3687425630423f662136d548e100154d",
-        "https://github.com/Unleash/unleash/commit/c93a963e95e1b7bf1bca2a7729282a48d0eb2f6a",
-        "https://github.com/Unleash/unleash/commit/dd61d0e10f5977a2e5de78df467c3a17c09fbcef",
-        "https://github.com/Unleash/unleash/releases/tag/v8.0.3",
-        "https://github.com/advisories/GHSA-72h8-wp98-7hch"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "unleash-server"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5ffh-6f9q-5hhr",
-      "name": "Unleash: A project member can reorder activation strategies belonging to any other project / environ",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-5ffh-6f9q-5hhr",
-      "description": "Unleash: A project member can reorder activation strategies belonging to any other project / environment (cross-project integrity write), bypassing project RBAC and the audit log",
-      "date": "2026-09-22",
-      "affected": [
-        "unleash-server"
-      ],
-      "references": [
-        "https://github.com/Unleash/unleash/security/advisories/GHSA-5ffh-6f9q-5hhr",
-        "https://github.com/Unleash/unleash/commit/43e8db37b846921c8a94db58b44935ecbd15d9d1",
-        "https://github.com/Unleash/unleash/releases/tag/v8.0.3",
-        "https://github.com/advisories/GHSA-5ffh-6f9q-5hhr"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "unleash-server"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-93xw-j965-9mx3",
-      "name": "MCP Atlassian: Arbitrary file read/exfiltration via upload_attachment missing validate_safe_path()",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-93xw-j965-9mx3",
-      "description": "MCP Atlassian: Arbitrary file read/exfiltration via upload_attachment missing validate_safe_path()",
-      "date": "2026-09-22",
-      "affected": [
-        "mcp-atlassian"
-      ],
-      "references": [
-        "https://github.com/sooperset/mcp-atlassian/security/advisories/GHSA-93xw-j965-9mx3",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77258",
-        "https://github.com/sooperset/mcp-atlassian/pull/1448",
-        "https://github.com/sooperset/mcp-atlassian/commit/b041733473f95119dd539542a43c280737a8e460",
-        "https://github.com/sooperset/mcp-atlassian/releases/tag/v0.22.0",
-        "https://github.com/advisories/GHSA-93xw-j965-9mx3"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-g5xv-mhgm-v5f6",
-      "name": "MCP Atlassian: OAuth fallback token storage writes plaintext access and refresh tokens with group-re",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-g5xv-mhgm-v5f6",
-      "description": "MCP Atlassian: OAuth fallback token storage writes plaintext access and refresh tokens with group-readable permissions",
-      "date": "2026-09-22",
-      "affected": [
-        "mcp-atlassian"
-      ],
-      "references": [
-        "https://github.com/sooperset/mcp-atlassian/security/advisories/GHSA-g5xv-mhgm-v5f6",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77250",
-        "https://github.com/sooperset/mcp-atlassian/pull/1448",
-        "https://github.com/sooperset/mcp-atlassian/commit/b041733473f95119dd539542a43c280737a8e460",
-        "https://github.com/sooperset/mcp-atlassian/releases/tag/v0.22.0",
-        "https://github.com/advisories/GHSA-g5xv-mhgm-v5f6"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-v9m3-wfh8-5646",
-      "name": "MCP Atlassian:  Incomplete fix for GHSA-7r34-79r5-rcc9: redirect-based SSRF via unhooked requests se",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-v9m3-wfh8-5646",
-      "description": "MCP Atlassian:  Incomplete fix for GHSA-7r34-79r5-rcc9: redirect-based SSRF via unhooked requests session in Jira user-permission lookup",
-      "date": "2026-09-22",
-      "affected": [
-        "mcp-atlassian"
-      ],
-      "references": [
-        "https://github.com/sooperset/mcp-atlassian/security/advisories/GHSA-v9m3-wfh8-5646",
-        "https://github.com/sooperset/mcp-atlassian/pull/1448",
-        "https://github.com/sooperset/mcp-atlassian/commit/b041733473f95119dd539542a43c280737a8e460",
-        "https://github.com/sooperset/mcp-atlassian/releases/tag/v0.22.0",
-        "https://github.com/advisories/GHSA-v9m3-wfh8-5646"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f6pj-qv47-g96w",
-      "name": "MCP Atlassian: Arbitrary server-local file upload to Jira/Confluence attachments via unrestricted fi",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-f6pj-qv47-g96w",
-      "description": "MCP Atlassian: Arbitrary server-local file upload to Jira/Confluence attachments via unrestricted file_path parameters",
-      "date": "2026-09-22",
-      "affected": [
-        "mcp-atlassian"
-      ],
-      "references": [
-        "https://github.com/sooperset/mcp-atlassian/security/advisories/GHSA-f6pj-qv47-g96w",
-        "https://github.com/sooperset/mcp-atlassian/pull/1448",
-        "https://github.com/sooperset/mcp-atlassian/commit/b041733473f95119dd539542a43c280737a8e460",
-        "https://github.com/sooperset/mcp-atlassian/releases/tag/v0.22.0",
-        "https://github.com/advisories/GHSA-f6pj-qv47-g96w"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wrhw-j3f9-8vc6",
-      "name": "[mcp-atlassian] Authentication bypass in HTTP transport: AtlassianOpaqueTokenVerifier accepts any no",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-wrhw-j3f9-8vc6",
-      "description": "[mcp-atlassian] Authentication bypass in HTTP transport: AtlassianOpaqueTokenVerifier accepts any non-empty token",
-      "date": "2026-09-22",
-      "affected": [
-        "mcp-atlassian"
-      ],
-      "references": [
-        "https://github.com/sooperset/mcp-atlassian/security/advisories/GHSA-wrhw-j3f9-8vc6",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77244",
-        "https://github.com/sooperset/mcp-atlassian/pull/1448",
-        "https://github.com/sooperset/mcp-atlassian/commit/b041733473f95119dd539542a43c280737a8e460",
-        "https://github.com/sooperset/mcp-atlassian/releases/tag/v0.22.0",
-        "https://github.com/advisories/GHSA-wrhw-j3f9-8vc6"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/klever-io/klever-go": "Klever-Go Account takeover: `kleverUpdateAccountPermission` authorizes on attacker-controlled `Recip",
+    "github.com/square/wire": "Wire Swift runtime: negative LENGTH_DELIMITED length in skipGroup() crashes any protobuf-decoding se",
+    "verbb/formie": "Formie: Unauthenticated users can overwrite incomplete submissions via submit action",
+    "sulu/sulu": "Sulu: JCR-SQL2 injection via `categories` query parameter (unauthenticated)",
     "solspace/craft-freeform": "Solspace Freeform: Limited Twig template injection via submitted field values",
     "wp-graphql/wp-graphql": "WPGraphQL: Contributor can publish and modify posts without the required capabilities via updatePost",
     "redaxo/source": "REDAXO: Missing CSRF Protection on Package Update Action Allows Forced Addon Updates",
@@ -1447,11 +1352,7 @@
     "github.com/cloudreve/Cloudreve/v4": "Cloudreve: SSRF guard bypass: checkIP does not decode IPv6-transition wrappers (NAT64, IPv4-compatib",
     "gardener/gardener": "Gardener: Authorization Bypass via Group Subject Injection",
     "github.com/gardener/gardener": "Gardener: Authorization Bypass via Group Subject Injection",
-    "github.com/projectdiscovery/nuclei/v3": "Nuclei: Environment Variable Disclosure via Response-Derived Data in DAST/Fuzz Mode",
-    "github.com/steveiliop56/tinyauth": "Tinyauth: Unauthenticated login attempts can trigger global login lockdown denial of service",
-    "github.com/tinyauthapp/tinyauth": "Tinyauth: forward-auth per-app ACL is matched case-sensitively against the (case-insensitive) hostna",
-    "github.com/kubeedge/kubeedge": "KubeEdge: Command Injection in NodeUpgradeJob - RCE on edge nodes via v1alpha2 API",
-    "github.com/openbao/openbao": "OpenBao Skips Stricter Deny Policy for LIST operations"
+    "github.com/projectdiscovery/nuclei/v3": "Nuclei: Environment Variable Disclosure via Response-Derived Data in DAST/Fuzz Mode"
   },
   "malicious_packages": {
     "npm": {},
