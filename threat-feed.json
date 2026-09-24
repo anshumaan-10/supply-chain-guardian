@@ -1,8 +1,123 @@
 {
   "version": "2026.09.24",
-  "last_updated": "2026-09-24T11:08:12.533297+00:00",
+  "last_updated": "2026-09-24T16:31:44.540692+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-fx76-2j3w-2mx6",
+      "name": "podman quadlet install --replace does not fully replace the old file",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-fx76-2j3w-2mx6",
+      "description": "podman quadlet install --replace does not fully replace the old file",
+      "date": "2026-09-24",
+      "affected": [
+        "github.com/containers/podman/v5"
+      ],
+      "references": [
+        "https://github.com/podman-container-tools/podman/security/advisories/GHSA-fx76-2j3w-2mx6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-19730",
+        "https://github.com/podman-container-tools/podman/issues/29013",
+        "https://github.com/podman-container-tools/podman/pull/27980",
+        "https://github.com/podman-container-tools/podman/commit/0ea4eaee70b7458bcc99d875529761faf5172651",
+        "https://github.com/podman-container-tools/podman/commit/a38a9b7d20915c55e6f3c451101ae72d6da33742",
+        "https://github.com/podman-container-tools/podman/commit/d3adfdeec7d5c9eee5a6978df3bee62a866c958d",
+        "https://github.com/podman-container-tools/podman/commit/d4fe9154ec6e32a02d5fcd096c4a27c38f2040f4",
+        "https://access.redhat.com/errata/RHSA-2026:69961",
+        "https://access.redhat.com/errata/RHSA-2026:70201",
+        "https://access.redhat.com/security/cve/CVE-2026-19730",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=2508234",
+        "https://github.com/podman-container-tools/podman/releases/tag/v5.8.6",
+        "https://github.com/podman-container-tools/podman/releases/tag/v6.0.0",
+        "https://github.com/advisories/GHSA-fx76-2j3w-2mx6"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/containers/podman/v5"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/containers/podman/v5"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vf2x-4v53-pm7v",
+      "name": "Streamlink: HTTPSession follows HTTP redirects into file:// URLs, reading local files",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vf2x-4v53-pm7v",
+      "description": "Streamlink: HTTPSession follows HTTP redirects into file:// URLs, reading local files",
+      "date": "2026-09-24",
+      "affected": [
+        "streamlink"
+      ],
+      "references": [
+        "https://github.com/streamlink/streamlink/security/advisories/GHSA-vf2x-4v53-pm7v",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-92164",
+        "https://github.com/streamlink/streamlink/commit/4b99c64dde21ea70c24d9ffdbd15849b05f465c6",
+        "https://github.com/streamlink/streamlink/releases/tag/8.6.0",
+        "https://github.com/advisories/GHSA-vf2x-4v53-pm7v"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6rf4-v2fh-m6p4",
+      "name": "SunEditor: Critical XSS vulnerability - sanitizer bypass",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-6rf4-v2fh-m6p4",
+      "description": "SunEditor: Critical XSS vulnerability - sanitizer bypass",
+      "date": "2026-09-24",
+      "affected": [
+        "suneditor"
+      ],
+      "references": [
+        "https://github.com/JiHong88/suneditor/security/advisories/GHSA-6rf4-v2fh-m6p4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59167",
+        "https://github.com/JiHong88/suneditor/issues/1646",
+        "https://github.com/JiHong88/suneditor/commit/a94ace269c7102bfb6de58a27a6547bc4eb09045",
+        "https://github.com/JiHong88/suneditor/releases/tag/2.47.11",
+        "https://github.com/advisories/GHSA-6rf4-v2fh-m6p4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "suneditor"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4f5f-j737-pm58",
+      "name": "REDAXO: Unwhitelisted ORDER BY Column in rex_list Allows Authenticated Column Enumeration",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-4f5f-j737-pm58",
+      "description": "REDAXO: Unwhitelisted ORDER BY Column in rex_list Allows Authenticated Column Enumeration",
+      "date": "2026-09-24",
+      "affected": [
+        "redaxo/source"
+      ],
+      "references": [
+        "https://github.com/redaxo/core/security/advisories/GHSA-4f5f-j737-pm58",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-62998",
+        "https://github.com/redaxo/core/pull/6580",
+        "https://github.com/redaxo/core/commit/c44ba5206a28427984100c994010f2aaa6703efd",
+        "https://github.com/redaxo/core/releases/tag/5.21.2",
+        "https://github.com/advisories/GHSA-4f5f-j737-pm58"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "redaxo/source"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-9643-4qgh-g8mx",
       "name": "elysia has Inefficient Algorithmic Complexity and Interpretation Conflict",
@@ -1254,117 +1369,12 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xj3h-wwxq-gfcj",
-      "name": "Cloudreve: Storage-quota TOCTOU race allows quota bypass and storage-based denial of service",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-xj3h-wwxq-gfcj",
-      "description": "Cloudreve: Storage-quota TOCTOU race allows quota bypass and storage-based denial of service",
-      "date": "2026-09-22",
-      "affected": [
-        "github.com/cloudreve/Cloudreve/v4"
-      ],
-      "references": [
-        "https://github.com/cloudreve/cloudreve/security/advisories/GHSA-xj3h-wwxq-gfcj",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77633",
-        "https://github.com/cloudreve/cloudreve/commit/7329602751c00bb4136fe9ad8b364d0df70773df",
-        "https://github.com/cloudreve/cloudreve/releases/tag/4.18.0",
-        "https://github.com/advisories/GHSA-xj3h-wwxq-gfcj"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/cloudreve/Cloudreve/v4"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/cloudreve/Cloudreve/v4"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4825-p4xm-pcf2",
-      "name": "Spree: Broken Access Control in `PATCH /api/v3/store/carts/:id/associate` (IDOR)",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-4825-p4xm-pcf2",
-      "description": "Spree: Broken Access Control in `PATCH /api/v3/store/carts/:id/associate` (IDOR)",
-      "date": "2026-09-22",
-      "affected": [
-        "spree_api",
-        "spree_api"
-      ],
-      "references": [
-        "https://github.com/spree/spree/security/advisories/GHSA-4825-p4xm-pcf2",
-        "https://github.com/spree/spree/pull/14314",
-        "https://github.com/spree/spree/commit/8834230a1f47bb5988f23f45dbd162776cf592bd",
-        "https://github.com/spree/spree/commit/af0d1a2d582a60d179de65b7d3ea024cb26426a8",
-        "https://github.com/spree/spree/releases/tag/v5.4.4",
-        "https://github.com/spree/spree/releases/tag/v5.5.4",
-        "https://github.com/advisories/GHSA-4825-p4xm-pcf2"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "spree_api",
-            "spree_api"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xpjq-3w4w-w5wr",
-      "name": "lightrag-hku: Stored Cross-Site Scripting (XSS) in the LightRAG WebUI chat/answer renderer via inges",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-xpjq-3w4w-w5wr",
-      "description": "lightrag-hku: Stored Cross-Site Scripting (XSS) in the LightRAG WebUI chat/answer renderer via ingested content",
-      "date": "2026-09-22",
-      "affected": [
-        "lightrag-hku"
-      ],
-      "references": [
-        "https://github.com/HKUDS/LightRAG/security/advisories/GHSA-xpjq-3w4w-w5wr",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-86062",
-        "https://github.com/HKUDS/LightRAG/pull/3437",
-        "https://github.com/HKUDS/LightRAG/commit/8bf032a5200f293b482dd945d436e25cd08bd953",
-        "https://github.com/HKUDS/LightRAG/releases/tag/v1.5.5",
-        "https://github.com/advisories/GHSA-xpjq-3w4w-w5wr"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vv3m-f8x4-7377",
-      "name": "lightrag-hku: SSRF via IPv6-transition address bypass (NAT64, IPv4-compatible, 6to4) of the native-m",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-vv3m-f8x4-7377",
-      "description": "lightrag-hku: SSRF via IPv6-transition address bypass (NAT64, IPv4-compatible, 6to4) of the native-markdown image-download guard",
-      "date": "2026-09-22",
-      "affected": [
-        "lightrag-hku"
-      ],
-      "references": [
-        "https://github.com/HKUDS/LightRAG/security/advisories/GHSA-vv3m-f8x4-7377",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-85740",
-        "https://github.com/HKUDS/LightRAG/pull/3426",
-        "https://github.com/HKUDS/LightRAG/commit/9207e7fd10cf6df3cf26e3dd1921490b34a2f132",
-        "https://github.com/HKUDS/LightRAG/commit/a25862177a9b00e0edb870778a42b4155924de09",
-        "https://github.com/HKUDS/LightRAG/commit/c598545aa0084a427bcb19a84ade5e0ec31fa673",
-        "https://github.com/HKUDS/LightRAG/releases/tag/v1.5.5",
-        "https://github.com/advisories/GHSA-vv3m-f8x4-7377"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/containers/podman/v5": "podman quadlet install --replace does not fully replace the old file",
+    "redaxo/source": "REDAXO: Unwhitelisted ORDER BY Column in rex_list Allows Authenticated Column Enumeration",
     "@fecommunity/reactpress": "ReactPress has SQL injection via dynamic column names in TypeORM query builders",
     "@openc3/vue-common": "OpenC3 COSMOS: Stored, cross-user XSS via Telemetry screen BUTTON widget",
     "github.com/klever-io/klever-go": "Klever-Go: Validator registration accepts an unvalidated BLS public key \u2192 consensus liveness DoS",
@@ -1373,7 +1383,6 @@
     "sulu/sulu": "Sulu: JCR-SQL2 injection via `categories` query parameter (unauthenticated)",
     "solspace/craft-freeform": "Solspace Freeform: Limited Twig template injection via submitted field values",
     "wp-graphql/wp-graphql": "WPGraphQL: Contributor can publish and modify posts without the required capabilities via updatePost",
-    "redaxo/source": "REDAXO: Missing CSRF Protection on Package Update Action Allows Forced Addon Updates",
     "github.com/hatchet-dev/hatchet": "Hatchet DurableTask WorkerStatus gRPC resolves caller-supplied durable-task UUIDs via ListSatisfiedE",
     "github.com/cloudreve/Cloudreve/v4": "Cloudreve: SSRF guard bypass: checkIP does not decode IPv6-transition wrappers (NAT64, IPv4-compatib",
     "gardener/gardener": "Gardener: Authorization Bypass via Group Subject Injection",
