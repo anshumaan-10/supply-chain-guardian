@@ -1,8 +1,127 @@
 {
   "version": "2026.09.25",
-  "last_updated": "2026-09-25T16:34:42.973006+00:00",
+  "last_updated": "2026-09-25T21:06:32.212188+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-9gfj-28hw-jchp",
+      "name": "Knowns Unrestricted Path Traversal leading to out-of-bounds arbitrary .md file read, write, and dele",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9gfj-28hw-jchp",
+      "description": "Knowns Unrestricted Path Traversal leading to out-of-bounds arbitrary .md file read, write, and deletion in MCP Docs + Memory Tools",
+      "date": "2026-09-25",
+      "affected": [
+        "knowns"
+      ],
+      "references": [
+        "https://github.com/knowns-dev/knowns/security/advisories/GHSA-9gfj-28hw-jchp",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-86439",
+        "https://github.com/knowns-dev/knowns/commit/09c5a96fd5817b941dc86669278c1a17db10ed4e",
+        "https://github.com/knowns-dev/knowns/blob/v0.29.1/internal/storage/doc_store.go#L124-L129",
+        "https://github.com/knowns-dev/knowns/blob/v0.29.1/internal/storage/memory_store.go#L203-L211",
+        "https://github.com/knowns-dev/knowns/releases/tag/v0.30.0",
+        "https://www.vulncheck.com/advisories/knowns-before-0.30.0-path-traversal-via-mcp-doc-and-memory-tools",
+        "https://github.com/advisories/GHSA-9gfj-28hw-jchp"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "knowns"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-29h2-jr22-frmh",
+      "name": "OpenZeppelin Confidential Contracts `VestingWalletConfidential`: a malicious ERC-7984 token is able ",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-29h2-jr22-frmh",
+      "description": "OpenZeppelin Confidential Contracts `VestingWalletConfidential`: a malicious ERC-7984 token is able to extract private data from the vesting wallet",
+      "date": "2026-09-25",
+      "affected": [
+        "@openzeppelin/confidential-contracts",
+        "@openzeppelin/confidential-contracts",
+        "@openzeppelin/confidential-contracts"
+      ],
+      "references": [
+        "https://github.com/OpenZeppelin/openzeppelin-confidential-contracts/security/advisories/GHSA-29h2-jr22-frmh",
+        "https://github.com/OpenZeppelin/openzeppelin-confidential-contracts/pull/423",
+        "https://github.com/OpenZeppelin/openzeppelin-confidential-contracts/pull/428",
+        "https://github.com/OpenZeppelin/openzeppelin-confidential-contracts/pull/431",
+        "https://github.com/OpenZeppelin/openzeppelin-confidential-contracts/commit/93e75ceed2b9648f53f9d133f431064353456805",
+        "https://github.com/OpenZeppelin/openzeppelin-confidential-contracts/commit/ee47edf189ab681cebdad18bfb53dee541987be2",
+        "https://github.com/OpenZeppelin/openzeppelin-confidential-contracts/commit/fe0863af2c9dce7614acce98720a913bf6a767a5",
+        "https://github.com/OpenZeppelin/openzeppelin-confidential-contracts/releases/tag/v0.3.2",
+        "https://github.com/OpenZeppelin/openzeppelin-confidential-contracts/releases/tag/v0.4.2",
+        "https://github.com/OpenZeppelin/openzeppelin-confidential-contracts/releases/tag/v0.5.2",
+        "https://github.com/advisories/GHSA-29h2-jr22-frmh"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@openzeppelin/confidential-contracts",
+            "@openzeppelin/confidential-contracts",
+            "@openzeppelin/confidential-contracts"
+          ]
+        },
+        "compromised_actions": [
+          "@openzeppelin/confidential-contracts",
+          "@openzeppelin/confidential-contracts",
+          "@openzeppelin/confidential-contracts"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-pg57-6jwg-q645",
+      "name": "Containerd has image-pull DoS via crafted OCI index graph amplification",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-pg57-6jwg-q645",
+      "description": "Containerd has image-pull DoS via crafted OCI index graph amplification",
+      "date": "2026-09-25",
+      "affected": [
+        "github.com/containerd/containerd/v2",
+        "github.com/containerd/containerd/v2",
+        "github.com/containerd/containerd/v2",
+        "github.com/containerd/containerd",
+        "github.com/containerd/containerd/v2"
+      ],
+      "references": [
+        "https://github.com/containerd/containerd/security/advisories/GHSA-pg57-6jwg-q645",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-53493",
+        "https://github.com/containerd/containerd/commit/4f5f32636d47f051751065cf824a10da70c619fe",
+        "https://github.com/containerd/containerd/commit/94e83c14c8aac963e24e28105dab9c9af812a2a8",
+        "https://github.com/containerd/containerd/releases/tag/v1.7.36",
+        "https://github.com/containerd/containerd/releases/tag/v2.0.13",
+        "https://github.com/containerd/containerd/releases/tag/v2.2.9",
+        "https://github.com/containerd/containerd/releases/tag/v2.3.6",
+        "https://github.com/containerd/containerd/releases/tag/v2.4.1",
+        "https://github.com/advisories/GHSA-pg57-6jwg-q645"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/containerd/containerd/v2",
+            "github.com/containerd/containerd/v2",
+            "github.com/containerd/containerd/v2",
+            "github.com/containerd/containerd",
+            "github.com/containerd/containerd/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/containerd/containerd/v2",
+          "github.com/containerd/containerd/v2",
+          "github.com/containerd/containerd/v2",
+          "github.com/containerd/containerd",
+          "github.com/containerd/containerd/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-g7vj-c29h-3h5m",
       "name": "FriendsOfFlarum OAuth: Unauthenticated account takeover via unverified email trust in Discord OAuth ",
@@ -21,6 +140,7 @@
         "https://github.com/FriendsOfFlarum/oauth/commit/bb4bf376832e6bb68c579715d2a4b5a92c4a2567",
         "https://github.com/FriendsOfFlarum/oauth/releases/tag/1.7.4",
         "https://github.com/FriendsOfFlarum/oauth/releases/tag/2.0.0-beta.4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-92161",
         "https://github.com/advisories/GHSA-g7vj-c29h-3h5m"
       ],
       "detection_signatures": {
@@ -1335,100 +1455,13 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8pcw-h6w9-h46g",
-      "name": "plone.app.contenttypes has a Denial of Service in File Upload due to excessive filename length",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-8pcw-h6w9-h46g",
-      "description": "plone.app.contenttypes has a Denial of Service in File Upload due to excessive filename length",
-      "date": "2026-09-23",
-      "affected": [
-        "plone.app.contenttypes",
-        "plone.app.contenttypes",
-        "plone.app.contenttypes"
-      ],
-      "references": [
-        "https://github.com/plone/plone.app.contenttypes/security/advisories/GHSA-8pcw-h6w9-h46g",
-        "https://github.com/plone/plone.app.contenttypes/pull/744",
-        "https://github.com/plone/plone.app.contenttypes/commit/13dc98a578341aac24a1e65fd9bc7ac8a07d168a",
-        "https://github.com/plone/plone.app.contenttypes/commit/21bae6ebe424689eeac9a5884fc0da35f4944e63",
-        "https://github.com/plone/plone.app.contenttypes/commit/639c0619f371df578e69ec94e5ca98e60fd6ed58",
-        "https://github.com/plone/plone.app.contenttypes/commit/7bb03e8ec6c6bd0e645f445b0755e85a51afb158",
-        "https://github.com/plone/plone.app.contenttypes/commit/bed1547d4f8b1fc995f2c76f30ba5f20276a8ad6",
-        "https://github.com/plone/plone.app.contenttypes/releases/tag/3.0.12",
-        "https://github.com/plone/plone.app.contenttypes/releases/tag/4.0.10",
-        "https://github.com/plone/plone.app.contenttypes/releases/tag/5.0.1",
-        "https://github.com/advisories/GHSA-8pcw-h6w9-h46g"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5426-92w4-wvhv",
-      "name": "plone.app.dexterity has a Denial of Service due to excessive title or description length",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-5426-92w4-wvhv",
-      "description": "plone.app.dexterity has a Denial of Service due to excessive title or description length",
-      "date": "2026-09-23",
-      "affected": [
-        "plone.app.dexterity",
-        "plone.app.dexterity",
-        "plone.app.dexterity"
-      ],
-      "references": [
-        "https://github.com/plone/plone.app.dexterity/security/advisories/GHSA-5426-92w4-wvhv",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-57576",
-        "https://github.com/plone/plone.app.dexterity/pull/433",
-        "https://github.com/plone/plone.app.dexterity/commit/0d317df663823445200d0569a66a95b7e4a9c50d",
-        "https://github.com/plone/plone.app.dexterity/commit/2fdceb120ca86682a408f3a14753cfcf5126d9d9",
-        "https://github.com/plone/plone.app.dexterity/commit/411689047f9a3521899ae6992a9b0efbd0592a8f",
-        "https://github.com/plone/plone.app.dexterity/commit/cbcef731c0882146b9bf30688cdc639d879878fb",
-        "https://github.com/plone/plone.app.dexterity/commit/f3596538cf7670bb8bc27b0dfa0b1da41c8b8a3a",
-        "https://github.com/plone/plone.app.dexterity/commit/fb45bfdb18f1dfb3ed55e477947a3df9a6ee9e20",
-        "https://github.com/plone/plone.app.dexterity/releases/tag/3.2.3",
-        "https://github.com/plone/plone.app.dexterity/releases/tag/4.1.3",
-        "https://github.com/plone/plone.app.dexterity/releases/tag/5.0.1",
-        "https://github.com/advisories/GHSA-5426-92w4-wvhv"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gvf2-2rh5-mpgf",
-      "name": "OpenC3 COSMOS: Stored, cross-user XSS via Telemetry screen BUTTON widget",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-gvf2-2rh5-mpgf",
-      "description": "OpenC3 COSMOS: Stored, cross-user XSS via Telemetry screen BUTTON widget",
-      "date": "2026-09-23",
-      "affected": [
-        "@openc3/vue-common"
-      ],
-      "references": [
-        "https://github.com/OpenC3/cosmos/security/advisories/GHSA-gvf2-2rh5-mpgf",
-        "https://github.com/OpenC3/cosmos/pull/3560",
-        "https://github.com/OpenC3/cosmos/commit/10371f8f410b9ad588f98dfa3befaaacb6587cd3",
-        "https://github.com/OpenC3/cosmos/releases/tag/v7.3.0",
-        "https://github.com/advisories/GHSA-gvf2-2rh5-mpgf"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@openc3/vue-common"
-          ]
-        },
-        "compromised_actions": [
-          "@openc3/vue-common"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@openzeppelin/confidential-contracts": "OpenZeppelin Confidential Contracts `VestingWalletConfidential`: a malicious ERC-7984 token is able ",
+    "github.com/containerd/containerd/v2": "Containerd has image-pull DoS via crafted OCI index graph amplification",
+    "github.com/containerd/containerd": "Containerd has image-pull DoS via crafted OCI index graph amplification",
     "fof/oauth": "FriendsOfFlarum OAuth: Unauthenticated account takeover via unverified email trust in Discord OAuth ",
     "starcitizenwiki/embedvideo": "Mediawiki EmbedVideo Extension has stored XSS via malformed src url with $wgEmbedVideoRequireConsent",
     "code16/sharp": "code16 Sharp vulnerable to stored XSS via iframe srcdoc Attribute",
@@ -1462,8 +1495,7 @@
     "github.com/zitadel/zitadel": "ZITADEL: MFA bypass via session reuse in Login V2",
     "github.com/amir20/dozzle": "Dozzle label filters do not restrict container event and statistics streams",
     "redaxo/source": "REDAXO: Unwhitelisted ORDER BY Column in rex_list Allows Authenticated Column Enumeration",
-    "@fecommunity/reactpress": "ReactPress has SQL injection via dynamic column names in TypeORM query builders",
-    "@openc3/vue-common": "OpenC3 COSMOS: Stored, cross-user XSS via Telemetry screen BUTTON widget"
+    "@fecommunity/reactpress": "ReactPress has SQL injection via dynamic column names in TypeORM query builders"
   },
   "malicious_packages": {
     "npm": {},
