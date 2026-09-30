@@ -1,8 +1,41 @@
 {
   "version": "2026.09.30",
-  "last_updated": "2026-09-30T17:46:31.003113+00:00",
+  "last_updated": "2026-09-30T21:52:59.668050+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-3cv6-jpf6-8222",
+      "name": "LiteLLM: Authenticated SSRF and provider-credential exfiltration via unvalidated request-body routin",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3cv6-jpf6-8222",
+      "description": "LiteLLM: Authenticated SSRF and provider-credential exfiltration via unvalidated request-body routing parameters",
+      "date": "2026-09-30",
+      "affected": [
+        "litellm",
+        "litellm",
+        "litellm",
+        "litellm",
+        "litellm",
+        "litellm",
+        "litellm",
+        "litellm",
+        "litellm"
+      ],
+      "references": [
+        "https://github.com/BerriAI/litellm/security/advisories/GHSA-3cv6-jpf6-8222",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84377",
+        "https://github.com/BerriAI/litellm/pull/36011",
+        "https://github.com/BerriAI/litellm/pull/36314",
+        "https://github.com/BerriAI/litellm/pull/36494",
+        "https://github.com/BerriAI/litellm/commit/473f72e63a9777d793fbbf57194d8ec4fb97bc1b",
+        "https://github.com/BerriAI/litellm/commit/820f247a6abba55cd87d130bef7bba7be3b29d37",
+        "https://github.com/BerriAI/litellm/commit/c898d341c02299cf2506d0d8e84cc67953043593",
+        "https://github.com/advisories/GHSA-3cv6-jpf6-8222"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-42vr-xj54-vc7v",
       "name": "PyJWT: Unauthenticated RecursionError DoS in pre-verification payload parse (PyJWKClient.get_signing",
@@ -1375,27 +1408,6 @@
         "https://github.com/jpadilla/pyjwt/commit/0a795b8e1f6ef08f634aa7086fc41cc6d5ce3e56",
         "https://github.com/jpadilla/pyjwt/releases/tag/2.14.0",
         "https://github.com/advisories/GHSA-9v7f-9g4p-ffgj"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-p4g4-x82p-q773",
-      "name": "PyJWT: Public keys in DER form are accepted as HMAC secrets, bypassing the CVE-2022-29217 guard",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-p4g4-x82p-q773",
-      "description": "PyJWT: Public keys in DER form are accepted as HMAC secrets, bypassing the CVE-2022-29217 guard",
-      "date": "2026-09-29",
-      "affected": [
-        "pyjwt"
-      ],
-      "references": [
-        "https://github.com/jpadilla/pyjwt/security/advisories/GHSA-p4g4-x82p-q773",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-102271",
-        "https://github.com/jpadilla/pyjwt/commit/2798504fa2663364573cf2d1043d8d7fef389499",
-        "https://github.com/jpadilla/pyjwt/releases/tag/2.14.0",
-        "https://github.com/advisories/GHSA-p4g4-x82p-q773"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
