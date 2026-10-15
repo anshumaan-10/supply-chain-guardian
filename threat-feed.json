@@ -1,1334 +1,1515 @@
 {
   "version": "2026.10.15",
-  "last_updated": "2026-10-15T16:20:08.995401+00:00",
+  "last_updated": "2026-10-15T20:56:25.961123+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
     {
-      "id": "FEED-GHSA-7pxr-59rr-hqj2",
-      "name": "Microsoft.OpenApi.YamlReader vulnerable to denial of service via YAML alias expansion",
+      "id": "FEED-GHSA-qx66-fv34-fjm8",
+      "name": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
       "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7pxr-59rr-hqj2",
-      "description": "Microsoft.OpenApi.YamlReader vulnerable to denial of service via YAML alias expansion",
-      "date": "2026-10-14",
+      "severity": "critical",
+      "cve": "GHSA-qx66-fv34-fjm8",
+      "description": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
+      "date": "2026-10-15",
       "affected": [
-        "Microsoft.OpenApi.Readers",
-        "Microsoft.OpenApi.YamlReader",
-        "Microsoft.OpenApi.YamlReader"
+        "@tanstack/vue-start",
+        "@tanstack/solid-start",
+        "@tanstack/react-start",
+        "@tanstack/start-server-core"
       ],
       "references": [
-        "https://github.com/microsoft/OpenAPI.NET/security/advisories/GHSA-7pxr-59rr-hqj2",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-72923",
-        "https://github.com/microsoft/OpenAPI.NET/pull/3000",
-        "https://github.com/microsoft/OpenAPI.NET/pull/3005",
-        "https://github.com/microsoft/OpenAPI.NET/pull/3020",
-        "https://github.com/microsoft/OpenAPI.NET/commit/1f9aea9bdcbf4066b59ce33b3bd8f97ed9cb4766",
-        "https://github.com/microsoft/OpenAPI.NET/commit/21793261d6860fb6e607b71fd95c0bd320724764",
-        "https://github.com/microsoft/OpenAPI.NET/commit/4db9af07d112cdf45170b7a946f956ffe74fa14e",
-        "https://github.com/microsoft/OpenAPI.NET/releases/tag/v1.6.30",
-        "https://github.com/microsoft/OpenAPI.NET/releases/tag/v2.12.0",
-        "https://github.com/microsoft/OpenAPI.NET/releases/tag/v3.10.0",
-        "https://github.com/advisories/GHSA-7pxr-59rr-hqj2"
+        "https://github.com/TanStack/router/security/advisories/GHSA-qx66-fv34-fjm8",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-102989",
+        "https://github.com/TanStack/router/pull/8573",
+        "https://github.com/TanStack/router/commit/d521abd71c69f1ff010bb3def4d417cb5fa058cb",
+        "https://github.com/TanStack/router/releases/tag/release-2026-09-30-1747",
+        "https://github.com/advisories/GHSA-qx66-fv34-fjm8"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@tanstack/vue-start",
+            "@tanstack/solid-start",
+            "@tanstack/react-start",
+            "@tanstack/start-server-core"
+          ]
+        },
+        "compromised_actions": [
+          "@tanstack/vue-start",
+          "@tanstack/solid-start",
+          "@tanstack/react-start",
+          "@tanstack/start-server-core"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hqm2-cfx2-2vgh",
+      "name": "Pipecat: Public exposure of Pipecat\u2019s development runner can allow unauthenticated bot session creat",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-hqm2-cfx2-2vgh",
+      "description": "Pipecat: Public exposure of Pipecat\u2019s development runner can allow unauthenticated bot session creation",
+      "date": "2026-10-15",
+      "affected": [
+        "pipecat-ai"
+      ],
+      "references": [
+        "https://github.com/pipecat-ai/pipecat/security/advisories/GHSA-hqm2-cfx2-2vgh",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-102682",
+        "https://github.com/pipecat-ai/pipecat/pull/5060",
+        "https://github.com/pipecat-ai/pipecat/commit/acaac3e49f50968f3ffb645a42ecc48d71c4e723",
+        "https://github.com/pipecat-ai/pipecat/releases/tag/v1.6.0",
+        "https://github.com/advisories/GHSA-hqm2-cfx2-2vgh"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-xpf3-p7gm-7756",
-      "name": "BBOT's Symlink guard bypass in unarchive module allows planting symlinks during extraction",
+      "id": "FEED-GHSA-2cvf-wqm6-wr9g",
+      "name": "Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotat",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-2cvf-wqm6-wr9g",
+      "description": "Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotation",
+      "date": "2026-10-15",
+      "affected": [
+        "go.podman.io/podman/v6",
+        "github.com/containers/podman"
+      ],
+      "references": [
+        "https://github.com/podman-container-tools/podman/security/advisories/GHSA-2cvf-wqm6-wr9g",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-94603",
+        "https://github.com/podman-container-tools/podman/commit/24706290d5c974f078d8ca284026802515f28e92",
+        "https://github.com/podman-container-tools/podman/commit/3721ff82ffb44a4ceeaecc5abd3808e924a6b669",
+        "https://github.com/podman-container-tools/podman/commit/450c64426dbcff1097d3c7911d791101e3d16f4c",
+        "https://github.com/podman-container-tools/podman/commit/7728ba0a90094408ad9078e36c3622a651d49616",
+        "https://github.com/podman-container-tools/podman/commit/c74b1d37b3fb834b0de43e176565d9d8c254b627",
+        "https://github.com/podman-container-tools/podman/commit/ea9243e04d1db3886dc3a51ee3300ffb547cfc02",
+        "https://github.com/podman-container-tools/podman/releases/tag/v5.8.8",
+        "https://github.com/podman-container-tools/podman/releases/tag/v6.1.3",
+        "https://github.com/advisories/GHSA-2cvf-wqm6-wr9g"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "go.podman.io/podman/v6",
+            "github.com/containers/podman"
+          ]
+        },
+        "compromised_actions": [
+          "go.podman.io/podman/v6",
+          "github.com/containers/podman"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jwrc-gm9j-263p",
+      "name": "JupyterLab: Command link trust prompt in JupyterLab can trust a document other than the one clicked",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-jwrc-gm9j-263p",
+      "description": "JupyterLab: Command link trust prompt in JupyterLab can trust a document other than the one clicked",
+      "date": "2026-10-15",
+      "affected": [
+        "jupyterlite-core",
+        "notebook",
+        "jupyterlab",
+        "jupyterlab"
+      ],
+      "references": [
+        "https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-jwrc-gm9j-263p",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-102832",
+        "https://github.com/jupyterlab/jupyterlab/commit/0fc18ab4ef67e431a8f6560e387193baf786c70a",
+        "https://github.com/jupyterlab/jupyterlab/commit/b64bc88b8ca034cf158604a5cc48ca9170ea453b",
+        "https://github.com/jupyterlab/jupyterlab/commit/f7e5f9803fdf2aaaa0e9bfb9cc73386a8cc5f0b2",
+        "https://github.com/jupyterlab/jupyterlab/releases/tag/v4.5.11",
+        "https://github.com/jupyterlab/jupyterlab/releases/tag/v4.6.4",
+        "https://github.com/advisories/GHSA-jwrc-gm9j-263p"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wwv9-g5x4-966q",
+      "name": "SFTPGo source-side file-pattern filter bypass during copy operations",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-wwv9-g5x4-966q",
+      "description": "SFTPGo source-side file-pattern filter bypass during copy operations",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/drakkan/sftpgo/v2"
+      ],
+      "references": [
+        "https://github.com/drakkan/sftpgo/security/advisories/GHSA-wwv9-g5x4-966q",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-103028",
+        "https://github.com/drakkan/sftpgo/commit/dc8886bc079094b4ac2338df683f358b7676b5eb",
+        "https://github.com/drakkan/sftpgo/releases/tag/v2.7.6",
+        "https://github.com/advisories/GHSA-wwv9-g5x4-966q"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/drakkan/sftpgo/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/drakkan/sftpgo/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-pq7j-f95f-qfcv",
+      "name": "Claude Code: Plugin Hash Pin Bypass Allows Bypass of Hash Pinning",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-pq7j-f95f-qfcv",
+      "description": "Claude Code: Plugin Hash Pin Bypass Allows Bypass of Hash Pinning",
+      "date": "2026-10-15",
+      "affected": [
+        "@anthropic-ai/claude-code"
+      ],
+      "references": [
+        "https://github.com/anthropics/claude-code/security/advisories/GHSA-pq7j-f95f-qfcv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-86063",
+        "https://github.com/anthropics/claude-code/releases/tag/v2.1.179",
+        "https://github.com/advisories/GHSA-pq7j-f95f-qfcv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@anthropic-ai/claude-code"
+          ]
+        },
+        "compromised_actions": [
+          "@anthropic-ai/claude-code"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rp3h-jf77-q9p4",
+      "name": "containerd: Unpack DoS via repeated opaque whiteouts",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-rp3h-jf77-q9p4",
+      "description": "containerd: Unpack DoS via repeated opaque whiteouts",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/containerd/containerd/v2",
+        "github.com/containerd/containerd/v2",
+        "github.com/containerd/containerd",
+        "github.com/containerd/containerd/v2"
+      ],
+      "references": [
+        "https://github.com/containerd/containerd/security/advisories/GHSA-rp3h-jf77-q9p4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-95838",
+        "https://github.com/containerd/containerd/commit/e6ca378dcfa610d06589a3ac96aa992de866e4f0",
+        "https://github.com/advisories/GHSA-rp3h-jf77-q9p4"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/containerd/containerd/v2",
+            "github.com/containerd/containerd/v2",
+            "github.com/containerd/containerd",
+            "github.com/containerd/containerd/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/containerd/containerd/v2",
+          "github.com/containerd/containerd/v2",
+          "github.com/containerd/containerd",
+          "github.com/containerd/containerd/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-685w-q87j-wqw3",
+      "name": "Distribution: Client `manifests.Get()` does not verify returned content against requested digest",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-685w-q87j-wqw3",
+      "description": "Distribution: Client `manifests.Get()` does not verify returned content against requested digest",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/distribution/distribution/v3",
+        "github.com/docker/distribution"
+      ],
+      "references": [
+        "https://github.com/distribution/distribution/security/advisories/GHSA-685w-q87j-wqw3",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-85747",
+        "https://github.com/distribution/distribution/commit/8f91c26c8888a95a36c2357a6e30bc15d4dd76d3",
+        "https://github.com/distribution/distribution/commit/960439b09f342cdeb8f1c0e18e8c7349bdcfbf80",
+        "https://github.com/distribution/distribution/releases/tag/v3.1.2",
+        "https://github.com/advisories/GHSA-685w-q87j-wqw3"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/distribution/distribution/v3",
+            "github.com/docker/distribution"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/distribution/distribution/v3",
+          "github.com/docker/distribution"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-x586-xvc8-g7q6",
+      "name": "Qwik: Crashing any Qwik Server via Resource thenable",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-x586-xvc8-g7q6",
+      "description": "Qwik: Crashing any Qwik Server via Resource thenable",
+      "date": "2026-10-15",
+      "affected": [
+        "@qwik.dev/core",
+        "@builder.io/qwik"
+      ],
+      "references": [
+        "https://github.com/QwikDev/qwik/security/advisories/GHSA-x586-xvc8-g7q6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84994",
+        "https://github.com/QwikDev/qwik/pull/8655",
+        "https://github.com/QwikDev/qwik/commit/c1e7444402f9592b5cf9096e10bf303ab4640511",
+        "https://github.com/QwikDev/qwik/releases/tag/@builder.io/qwik@1.20.0",
+        "https://github.com/advisories/GHSA-x586-xvc8-g7q6"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@qwik.dev/core",
+            "@builder.io/qwik"
+          ]
+        },
+        "compromised_actions": [
+          "@qwik.dev/core",
+          "@builder.io/qwik"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-p7v4-vr35-mj6f",
+      "name": "containerd CRI plugin: Checkpoint restore bypasses destination security context",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-p7v4-vr35-mj6f",
+      "description": "containerd CRI plugin: Checkpoint restore bypasses destination security context",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/containerd/containerd/v2",
+        "github.com/containerd/containerd/v2"
+      ],
+      "references": [
+        "https://github.com/containerd/containerd/security/advisories/GHSA-p7v4-vr35-mj6f",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-95837",
+        "https://github.com/containerd/containerd/pull/13913",
+        "https://github.com/containerd/containerd/commit/928c03c6898cad95f795300281fdff0dbc55a32f",
+        "https://github.com/advisories/GHSA-p7v4-vr35-mj6f"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/containerd/containerd/v2",
+            "github.com/containerd/containerd/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/containerd/containerd/v2",
+          "github.com/containerd/containerd/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3xr5-8w6c-p5gw",
+      "name": "Backstage: Improper access control in backend action invocation",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3xr5-8w6c-p5gw",
+      "description": "Backstage: Improper access control in backend action invocation",
+      "date": "2026-10-15",
+      "affected": [
+        "@backstage/backend-defaults"
+      ],
+      "references": [
+        "https://github.com/backstage/backstage/security/advisories/GHSA-3xr5-8w6c-p5gw",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-106495",
+        "https://github.com/backstage/backstage/commit/a8fb34a990a69bcb745e85a3213cf9e5ba2d31a3",
+        "https://github.com/backstage/backstage/releases/tag/v1.54.6",
+        "https://github.com/advisories/GHSA-3xr5-8w6c-p5gw"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@backstage/backend-defaults"
+          ]
+        },
+        "compromised_actions": [
+          "@backstage/backend-defaults"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vrcc-3ch7-hppw",
+      "name": "kin-openapi: Incomplete Fix for GHSA-p6wj-qrr4-pgh5: Three Unpatched nil-Items Panic Paths in openap",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-vrcc-3ch7-hppw",
+      "description": "kin-openapi: Incomplete Fix for GHSA-p6wj-qrr4-pgh5: Three Unpatched nil-Items Panic Paths in openapi3filter",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/getkin/kin-openapi"
+      ],
+      "references": [
+        "https://github.com/getkin/kin-openapi/security/advisories/GHSA-vrcc-3ch7-hppw",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-100353",
+        "https://github.com/getkin/kin-openapi/commit/9814d1f2b212f3508bf52296aa9e248b2122a5a9",
+        "https://github.com/getkin/kin-openapi/releases/tag/v0.149.0",
+        "https://github.com/advisories/GHSA-vrcc-3ch7-hppw"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getkin/kin-openapi"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getkin/kin-openapi"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g8cf-rcjf-c8cf",
+      "name": "kin-openapi: Uncontrolled Recursion on Circular allOf/anyOf/oneOf Schemas Causes Fatal Process Crash",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-g8cf-rcjf-c8cf",
+      "description": "kin-openapi: Uncontrolled Recursion on Circular allOf/anyOf/oneOf Schemas Causes Fatal Process Crash",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/getkin/kin-openapi"
+      ],
+      "references": [
+        "https://github.com/getkin/kin-openapi/security/advisories/GHSA-g8cf-rcjf-c8cf",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-100354",
+        "https://github.com/getkin/kin-openapi/commit/9245cef66c840e27a08409a8a5cd0ee930c5bcff",
+        "https://github.com/getkin/kin-openapi/releases/tag/v0.149.0",
+        "https://github.com/advisories/GHSA-g8cf-rcjf-c8cf"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getkin/kin-openapi"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getkin/kin-openapi"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rj39-cv6w-8wv7",
+      "name": "kin-openapi: YAML NaN/Inf Values Bypass Built-in Guards and Panic via OAS 3.1 Validation Path",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-rj39-cv6w-8wv7",
+      "description": "kin-openapi: YAML NaN/Inf Values Bypass Built-in Guards and Panic via OAS 3.1 Validation Path",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/getkin/kin-openapi"
+      ],
+      "references": [
+        "https://github.com/getkin/kin-openapi/security/advisories/GHSA-rj39-cv6w-8wv7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-100352",
+        "https://github.com/getkin/kin-openapi/commit/4487f198ab8be0c37d6ca72c54f5dca4dc25270e",
+        "https://github.com/getkin/kin-openapi/releases/tag/v0.148.0",
+        "https://github.com/advisories/GHSA-rj39-cv6w-8wv7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getkin/kin-openapi"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getkin/kin-openapi"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7cxh-94cf-mfp6",
+      "name": "Talos Linux: Support bundle does not redact registry credentials",
       "category": "ghsa_advisory",
       "severity": "low",
-      "cve": "GHSA-xpf3-p7gm-7756",
-      "description": "BBOT's Symlink guard bypass in unarchive module allows planting symlinks during extraction",
-      "date": "2026-10-14",
+      "cve": "GHSA-7cxh-94cf-mfp6",
+      "description": "Talos Linux: Support bundle does not redact registry credentials",
+      "date": "2026-10-15",
       "affected": [
-        "bbot"
+        "github.com/talos-systems/talos"
       ],
       "references": [
-        "https://github.com/blacklanternsecurity/bbot/security/advisories/GHSA-xpf3-p7gm-7756",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-14966",
-        "https://github.com/blacklanternsecurity/bbot/commit/3bc8d3a96f34f312853c9fcf8decee2a4e905f26",
-        "https://github.com/blacklanternsecurity/bbot/commit/a3f1a2292e2b0a553827c6175b761abe28807735",
-        "https://github.com/pypa/advisory-database/tree/main/vulns/bbot/PYSEC-2026-3719.yaml",
-        "https://github.com/advisories/GHSA-xpf3-p7gm-7756"
+        "https://github.com/siderolabs/talos/security/advisories/GHSA-7cxh-94cf-mfp6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-77564",
+        "https://github.com/siderolabs/talos/pull/13345",
+        "https://github.com/siderolabs/talos/pull/13434",
+        "https://github.com/siderolabs/talos/pull/13611",
+        "https://github.com/siderolabs/talos/commit/4c288caf2de1db7f84bba0539ca5ed7d6ecb9142",
+        "https://github.com/siderolabs/talos/commit/76080416beee6460375c0d0db3cab76cc493ad3e",
+        "https://github.com/siderolabs/talos/commit/7dc716d850e43373ba8702c702105f4edd68fceb",
+        "https://github.com/siderolabs/talos/releases/tag/v1.12.9",
+        "https://github.com/siderolabs/talos/releases/tag/v1.13.3",
+        "https://github.com/advisories/GHSA-7cxh-94cf-mfp6"
       ],
-      "detection_signatures": {},
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/talos-systems/talos"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/talos-systems/talos"
+        ]
+      },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-m6wq-39m7-9xpp",
-      "name": "Metalama allows local code execution through DLL planting in shared temporary directories",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-m6wq-39m7-9xpp",
-      "description": "Metalama allows local code execution through DLL planting in shared temporary directories",
-      "date": "2026-10-14",
-      "affected": [
-        "Metalama.Framework",
-        "Metalama.Tool",
-        "Metalama.Tool",
-        "Metalama.Framework",
-        "Metalama.Tool",
-        "Metalama.Framework"
-      ],
-      "references": [
-        "https://github.com/metalama/Metalama/security/advisories/GHSA-m6wq-39m7-9xpp",
-        "https://github.com/metalama/Metalama/pull/1719",
-        "https://github.com/metalama/Metalama/commit/09911349a916e82194b1cfaa6d0a38acad928fc9",
-        "https://github.com/metalama/Metalama/commit/92c4feecfce86d18fcb007ab6d3a1b4383326a2e",
-        "https://github.com/metalama/Metalama/commit/ab9407263203c66d7c5680a34c28dba31f9951c9",
-        "https://github.com/advisories/GHSA-m6wq-39m7-9xpp"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-856c-92hv-3vxx",
-      "name": "Apprise forwards configured auth headers across cross-origin HTTP redirects",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-856c-92hv-3vxx",
-      "description": "Apprise forwards configured auth headers across cross-origin HTTP redirects",
-      "date": "2026-10-14",
-      "affected": [
-        "apprise"
-      ],
-      "references": [
-        "https://github.com/caronc/apprise/security/advisories/GHSA-856c-92hv-3vxx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-59180",
-        "https://github.com/caronc/apprise/pull/1610",
-        "https://github.com/caronc/apprise/commit/68c0aef218055e4586cf4605fd6b56358f5f462d",
-        "https://github.com/caronc/apprise/releases/tag/v1.11.0",
-        "https://github.com/advisories/GHSA-856c-92hv-3vxx"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4j9v-h7pp-725h",
-      "name": "Microsoft Security Advisory CVE-2026-70035 - .NET and Visual Studio Remote Code Execution Vulnerabil",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-4j9v-h7pp-725h",
-      "description": "Microsoft Security Advisory CVE-2026-70035 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86"
-      ],
-      "references": [
-        "https://github.com/dotnet/wpf/security/advisories/GHSA-4j9v-h7pp-725h",
-        "https://github.com/dotnet/announcements/issues/451",
-        "https://github.com/dotnet/wpf/issues/12017",
-        "https://github.com/advisories/GHSA-4j9v-h7pp-725h"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mf4x-w4gh-4656",
-      "name": "Microsoft Security Advisory CVE-2026-70186 - ASP.NET Core Denial of Service Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-mf4x-w4gh-4656",
-      "description": "Microsoft Security Advisory CVE-2026-70186 - ASP.NET Core Denial of Service Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.AspNetCore.App.Runtime.win-x86",
-        "Microsoft.AspNetCore.App.Runtime.win-x64",
-        "Microsoft.AspNetCore.App.Runtime.win-arm64",
-        "Microsoft.AspNetCore.App.Runtime.osx-x64",
-        "Microsoft.AspNetCore.App.Runtime.osx-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm",
-        "Microsoft.AspNetCore.App.Runtime.linux-arm64"
-      ],
-      "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-mf4x-w4gh-4656",
-        "https://github.com/dotnet/announcements/issues/461",
-        "https://github.com/dotnet/aspnetcore/discussions/69797",
-        "https://github.com/advisories/GHSA-mf4x-w4gh-4656"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-pfwj-2f93-rf42",
-      "name": "Microsoft Security Advisory CVE-2026-70007 - .NET and Visual Studio Remote Code Execution Vulnerabil",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-pfwj-2f93-rf42",
-      "description": "Microsoft Security Advisory CVE-2026-70007 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86"
-      ],
-      "references": [
-        "https://github.com/dotnet/wpf/security/advisories/GHSA-pfwj-2f93-rf42",
-        "https://github.com/dotnet/announcements/issues/450",
-        "https://github.com/dotnet/wpf/issues/12016",
-        "https://github.com/advisories/GHSA-pfwj-2f93-rf42"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c27m-942f-rcfh",
-      "name": "Microsoft Security Advisory CVE-2026-87697 - .NET and Visual Studio Remote Code Execution Vulnerabil",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-c27m-942f-rcfh",
-      "description": "Microsoft Security Advisory CVE-2026-87697 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86"
-      ],
-      "references": [
-        "https://github.com/dotnet/wpf/security/advisories/GHSA-c27m-942f-rcfh",
-        "https://github.com/dotnet/announcements/issues/471",
-        "https://github.com/dotnet/wpf/issues/12021",
-        "https://github.com/advisories/GHSA-c27m-942f-rcfh"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-w6wh-p4g7-mpj2",
-      "name": "Microsoft Security Advisory CVE-2026-96225 - .NET and Visual Studio Elevation of Privilege Vulnerabi",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-w6wh-p4g7-mpj2",
-      "description": "Microsoft Security Advisory CVE-2026-96225 - .NET and Visual Studio Elevation of Privilege Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.NETCore.App.Runtime.osx-x64",
-        "Microsoft.NETCore.App.Runtime.osx-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm",
-        "Microsoft.NETCore.App.Runtime.linux-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-arm",
-        "Microsoft.NETCore.App.Runtime.osx-x64",
-        "Microsoft.NETCore.App.Runtime.osx-arm64"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-w6wh-p4g7-mpj2",
-        "https://github.com/dotnet/announcements/issues/476",
-        "https://github.com/dotnet/runtime/issues/135706",
-        "https://github.com/advisories/GHSA-w6wh-p4g7-mpj2"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qjpx-jqm5-h2c4",
-      "name": "Microsoft Security Advisory CVE-2026-96230 - ASP.NET Core Remote Code Execution Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-qjpx-jqm5-h2c4",
-      "description": "Microsoft Security Advisory CVE-2026-96230 - ASP.NET Core Remote Code Execution Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.AspNetCore.Components.WebAssembly.Server",
-        "Microsoft.AspNetCore.Components.WebAssembly.Server",
-        "Microsoft.AspNetCore.Components.WebAssembly.Server",
-        "Microsoft.AspNetCore.Components.WebAssembly.Server"
-      ],
-      "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-qjpx-jqm5-h2c4",
-        "https://github.com/dotnet/announcements/issues/478",
-        "https://github.com/dotnet/aspnetcore/discussions/69802",
-        "https://github.com/advisories/GHSA-qjpx-jqm5-h2c4"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vrrp-6v32-2p8g",
-      "name": "Microsoft Security Advisory CVE-2026-70179 - ASP.NET Core Elevation of Privilege Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-vrrp-6v32-2p8g",
-      "description": "Microsoft Security Advisory CVE-2026-70179 - ASP.NET Core Elevation of Privilege Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.AspNetCore.Authentication.Negotiate",
-        "Microsoft.AspNetCore.Authentication.Negotiate",
-        "Microsoft.AspNetCore.Authentication.Negotiate"
-      ],
-      "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-vrrp-6v32-2p8g",
-        "https://github.com/dotnet/announcements/issues/458",
-        "https://github.com/dotnet/aspnetcore/discussions/69794",
-        "https://github.com/advisories/GHSA-vrrp-6v32-2p8g"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-xq57-crx4-g373",
-      "name": "Microsoft Security Advisory CVE-2026-96224 - .NET and Visual Studio Remote Code Execution Vulnerabil",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-xq57-crx4-g373",
-      "description": "Microsoft Security Advisory CVE-2026-96224 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86"
-      ],
-      "references": [
-        "https://github.com/dotnet/wpf/security/advisories/GHSA-xq57-crx4-g373",
-        "https://github.com/dotnet/announcements/issues/475",
-        "https://github.com/dotnet/wpf/issues/12022",
-        "https://github.com/advisories/GHSA-xq57-crx4-g373"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f63g-mx39-3r38",
-      "name": "Microsoft Security Advisory CVE-2026-85363 - .NET and Visual Studio Remote Code Execution Vulnerabil",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-f63g-mx39-3r38",
-      "description": "Microsoft Security Advisory CVE-2026-85363 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86"
-      ],
-      "references": [
-        "https://github.com/dotnet/wpf/security/advisories/GHSA-f63g-mx39-3r38",
-        "https://github.com/dotnet/announcements/issues/469",
-        "https://github.com/dotnet/wpf/issues/12020",
-        "https://github.com/advisories/GHSA-f63g-mx39-3r38"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-c399-9853-6jmj",
-      "name": "Microsoft Security Advisory CVE-2026-96959 - .NET and Visual Studio Denial of Service Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-c399-9853-6jmj",
-      "description": "Microsoft Security Advisory CVE-2026-96959 - .NET and Visual Studio Denial of Service Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "System.Security.Cryptography.Xml",
-        "System.Security.Cryptography.Xml",
-        "System.Security.Cryptography.Xml",
-        "System.Security.Cryptography.Xml"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-c399-9853-6jmj",
-        "https://github.com/dotnet/announcements/issues/489",
-        "https://github.com/dotnet/runtime/issues/135710",
-        "https://github.com/advisories/GHSA-c399-9853-6jmj"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4w5f-7jp2-w48g",
-      "name": "Microsoft Security Advisory CVE-2026-83520 - .NET and Visual Studio Remote Code Execution Vulnerabil",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-4w5f-7jp2-w48g",
-      "description": "Microsoft Security Advisory CVE-2026-83520 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86"
-      ],
-      "references": [
-        "https://github.com/dotnet/wpf/security/advisories/GHSA-4w5f-7jp2-w48g",
-        "https://github.com/dotnet/announcements/issues/467",
-        "https://github.com/dotnet/wpf/issues/12019",
-        "https://github.com/advisories/GHSA-4w5f-7jp2-w48g"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f749-vhgx-39h6",
-      "name": "Microsoft Security Advisory CVE-2026-70174 - .NET and Visual Studio Remote Code Execution Vulnerabil",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-f749-vhgx-39h6",
-      "description": "Microsoft Security Advisory CVE-2026-70174 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86"
-      ],
-      "references": [
-        "https://github.com/dotnet/wpf/security/advisories/GHSA-f749-vhgx-39h6",
-        "https://github.com/dotnet/announcements/issues/456",
-        "https://github.com/dotnet/wpf/issues/12018",
-        "https://github.com/advisories/GHSA-f749-vhgx-39h6"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f8qh-mqg4-9939",
-      "name": "Microsoft Security Advisory CVE-2026-96232 - .NET and Visual Studio Information Disclosure Vulnerabi",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-f8qh-mqg4-9939",
-      "description": "Microsoft Security Advisory CVE-2026-96232 - .NET and Visual Studio Information Disclosure Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86"
-      ],
-      "references": [
-        "https://github.com/dotnet/wpf/security/advisories/GHSA-f8qh-mqg4-9939",
-        "https://github.com/dotnet/announcements/issues/480",
-        "https://github.com/dotnet/wpf/issues/12024",
-        "https://github.com/advisories/GHSA-f8qh-mqg4-9939"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fq6x-pvr9-888r",
-      "name": "Microsoft Security Advisory CVE-2026-96234 - .NET and Visual Studio Information Disclosure Vulnerabi",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-fq6x-pvr9-888r",
-      "description": "Microsoft Security Advisory CVE-2026-96234 - .NET and Visual Studio Information Disclosure Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86"
-      ],
-      "references": [
-        "https://github.com/dotnet/wpf/security/advisories/GHSA-fq6x-pvr9-888r",
-        "https://github.com/dotnet/announcements/issues/482",
-        "https://github.com/dotnet/wpf/issues/12025",
-        "https://github.com/advisories/GHSA-fq6x-pvr9-888r"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5qr9-xxm9-6cmq",
-      "name": "Microsoft Security Advisory CVE-2026-96229 - .NET and Visual Studio Information Disclosure Vulnerabi",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-5qr9-xxm9-6cmq",
-      "description": "Microsoft Security Advisory CVE-2026-96229 - .NET and Visual Studio Information Disclosure Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86"
-      ],
-      "references": [
-        "https://github.com/dotnet/wpf/security/advisories/GHSA-5qr9-xxm9-6cmq",
-        "https://github.com/dotnet/announcements/issues/477",
-        "https://github.com/dotnet/wpf/issues/12023",
-        "https://github.com/advisories/GHSA-5qr9-xxm9-6cmq"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-g44w-h65v-4cw9",
-      "name": "Microsoft Security Advisory CVE-2026-96235 - .NET and Visual Studio Remote Code Execution Vulnerabil",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-g44w-h65v-4cw9",
-      "description": "Microsoft Security Advisory CVE-2026-96235 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-        "Microsoft.WindowsDesktop.App.Runtime.win-x86"
-      ],
-      "references": [
-        "https://github.com/dotnet/wpf/security/advisories/GHSA-g44w-h65v-4cw9",
-        "https://github.com/dotnet/announcements/issues/483",
-        "https://github.com/dotnet/wpf/issues/12026",
-        "https://github.com/advisories/GHSA-g44w-h65v-4cw9"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vrv5-2jg9-4mmr",
-      "name": "Microsoft Security Advisory CVE-2026-96222 - .NET Spoofing Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-vrv5-2jg9-4mmr",
-      "description": "Microsoft Security Advisory CVE-2026-96222 - .NET Spoofing Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "System.Security.Cryptography.Xml"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-vrv5-2jg9-4mmr",
-        "https://github.com/dotnet/announcements/issues/474",
-        "https://github.com/dotnet/runtime/issues/135705",
-        "https://github.com/advisories/GHSA-vrv5-2jg9-4mmr"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2j93-m82w-73j2",
-      "name": "Microsoft Security Advisory CVE-2026-96231 - .NET and Visual Studio Elevation of Privilege Vulnerabi",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-2j93-m82w-73j2",
-      "description": "Microsoft Security Advisory CVE-2026-96231 - .NET and Visual Studio Elevation of Privilege Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.NETCore.App.Runtime.osx-x64",
-        "Microsoft.NETCore.App.Runtime.osx-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm",
-        "Microsoft.NETCore.App.Runtime.linux-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-arm",
-        "Microsoft.NETCore.App.Runtime.osx-x64",
-        "Microsoft.NETCore.App.Runtime.osx-arm64"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-2j93-m82w-73j2",
-        "https://github.com/dotnet/announcements/issues/479",
-        "https://github.com/dotnet/runtime/issues/135707",
-        "https://github.com/advisories/GHSA-2j93-m82w-73j2"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2mxg-prvg-9jfg",
-      "name": "Microsoft Security Advisory CVE-2026-85790 - .NET Information Disclosure Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-2mxg-prvg-9jfg",
-      "description": "Microsoft Security Advisory CVE-2026-85790 - .NET Information Disclosure Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.Native.Quic.MsQuic.Schannel"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-2mxg-prvg-9jfg",
-        "https://github.com/dotnet/announcements/issues/470",
-        "https://github.com/dotnet/runtime/issues/135704",
-        "https://github.com/advisories/GHSA-2mxg-prvg-9jfg"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wxxw-5cvc-53j7",
-      "name": "Microsoft Security Advisory CVE-2026-66822 - .NET and Visual Studio Information Disclosure Vulnerabi",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-wxxw-5cvc-53j7",
-      "description": "Microsoft Security Advisory CVE-2026-66822 - .NET and Visual Studio Information Disclosure Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.NETCore.App.Runtime.win-x86",
-        "Microsoft.NETCore.App.Runtime.win-x64",
-        "Microsoft.NETCore.App.Runtime.win-arm64",
-        "Microsoft.NETCore.App.Runtime.osx-x64",
-        "Microsoft.NETCore.App.Runtime.osx-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm",
-        "Microsoft.NETCore.App.Runtime.linux-arm64"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-wxxw-5cvc-53j7",
-        "https://github.com/dotnet/announcements/issues/448",
-        "https://github.com/dotnet/runtime/issues/135697",
-        "https://github.com/advisories/GHSA-wxxw-5cvc-53j7"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rv87-ccxw-8ggf",
-      "name": "Microsoft Security Advisory CVE-2026-88092 - ASP.NET Core Security Feature Bypass Vulnerability",
+      "id": "FEED-GHSA-637c-6jxx-4rwm",
+      "name": "KEDA: Privilege escalation from namespace admin to cluster admin via KEDA TriggerAuthentication",
       "category": "ghsa_advisory",
       "severity": "critical",
-      "cve": "GHSA-rv87-ccxw-8ggf",
-      "description": "Microsoft Security Advisory CVE-2026-88092 - ASP.NET Core Security Feature Bypass Vulnerability",
-      "date": "2026-10-13",
+      "cve": "GHSA-637c-6jxx-4rwm",
+      "description": "KEDA: Privilege escalation from namespace admin to cluster admin via KEDA TriggerAuthentication",
+      "date": "2026-10-15",
       "affected": [
-        "Microsoft.AspNetCore.App.Runtime.win-x86",
-        "Microsoft.AspNetCore.App.Runtime.win-x64",
-        "Microsoft.AspNetCore.App.Runtime.win-arm64",
-        "Microsoft.AspNetCore.App.Runtime.osx-x64",
-        "Microsoft.AspNetCore.App.Runtime.osx-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm",
-        "Microsoft.AspNetCore.App.Runtime.linux-arm64"
+        "github.com/kedacore/keda/v2",
+        "github.com/kedacore/keda"
       ],
       "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-rv87-ccxw-8ggf",
-        "https://github.com/dotnet/announcements/issues/472",
-        "https://github.com/advisories/GHSA-rv87-ccxw-8ggf"
+        "https://github.com/kedacore/keda/security/advisories/GHSA-637c-6jxx-4rwm",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-77524",
+        "https://github.com/kedacore/keda/commit/1e21cc798dedd079e696cdb45388eddc5e18365d",
+        "https://github.com/kedacore/keda/releases/tag/v2.21.0",
+        "https://github.com/advisories/GHSA-637c-6jxx-4rwm"
       ],
-      "detection_signatures": {},
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/kedacore/keda/v2",
+            "github.com/kedacore/keda"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/kedacore/keda/v2",
+          "github.com/kedacore/keda"
+        ]
+      },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-fpq8-4vhr-rcxx",
-      "name": "Microsoft Security Advisory CVE-2026-70188 - ASP.NET Core Security Feature Bypass Vulnerability",
+      "id": "FEED-GHSA-fmxq-cgp8-87wp",
+      "name": "Argo CD: AppProject destination-namespace and resource restrictions bypassed by PreDelete/PostDelete",
       "category": "ghsa_advisory",
       "severity": "critical",
-      "cve": "GHSA-fpq8-4vhr-rcxx",
-      "description": "Microsoft Security Advisory CVE-2026-70188 - ASP.NET Core Security Feature Bypass Vulnerability",
-      "date": "2026-10-13",
+      "cve": "GHSA-fmxq-cgp8-87wp",
+      "description": "Argo CD: AppProject destination-namespace and resource restrictions bypassed by PreDelete/PostDelete resource hooks",
+      "date": "2026-10-15",
       "affected": [
-        "Microsoft.AspNetCore.App.Runtime.win-x86",
-        "Microsoft.AspNetCore.App.Runtime.win-x64",
-        "Microsoft.AspNetCore.App.Runtime.win-arm64",
-        "Microsoft.AspNetCore.App.Runtime.osx-x64",
-        "Microsoft.AspNetCore.App.Runtime.osx-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm",
-        "Microsoft.AspNetCore.App.Runtime.linux-arm64"
+        "github.com/argoproj/argo-cd/v3",
+        "github.com/argoproj/argo-cd/v3",
+        "github.com/argoproj/argo-cd/v3",
+        "github.com/argoproj/argo-cd/v3",
+        "github.com/argoproj/argo-cd/v2"
       ],
       "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-fpq8-4vhr-rcxx",
-        "https://github.com/dotnet/announcements/issues/462",
-        "https://github.com/dotnet/aspnetcore/discussions/69798",
-        "https://github.com/advisories/GHSA-fpq8-4vhr-rcxx"
+        "https://github.com/argoproj/argo-cd/security/advisories/GHSA-fmxq-cgp8-87wp",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-77459",
+        "https://github.com/argoproj/argo-cd/commit/1149cdc6e932208c4402183cc3d7b7485239940c",
+        "https://github.com/argoproj/argo-cd/commit/4bc8085b0a6d2296b849539d3d09fc7be7a4a511",
+        "https://github.com/argoproj/argo-cd/commit/7f0a05834b05103d69d7c150e1ee36541b314696",
+        "https://github.com/argoproj/argo-cd/commit/d5dd7019ee65be8895133fe4df554e28074242c4",
+        "https://github.com/argoproj/argo-cd/releases/tag/v3.3.15",
+        "https://github.com/argoproj/argo-cd/releases/tag/v3.4.10",
+        "https://github.com/argoproj/argo-cd/releases/tag/v3.5.4",
+        "https://github.com/argoproj/argo-cd/releases/tag/v3.6.0-rc2",
+        "https://github.com/advisories/GHSA-fmxq-cgp8-87wp"
       ],
-      "detection_signatures": {},
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/argoproj/argo-cd/v3",
+            "github.com/argoproj/argo-cd/v3",
+            "github.com/argoproj/argo-cd/v3",
+            "github.com/argoproj/argo-cd/v3",
+            "github.com/argoproj/argo-cd/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/argoproj/argo-cd/v3",
+          "github.com/argoproj/argo-cd/v3",
+          "github.com/argoproj/argo-cd/v3",
+          "github.com/argoproj/argo-cd/v3",
+          "github.com/argoproj/argo-cd/v2"
+        ]
+      },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-f4g7-52wc-p8x7",
-      "name": "Microsoft Security Advisory CVE-2026-96236 - ASP.NET Core Denial of Service Vulnerability",
+      "id": "FEED-GHSA-23vg-4cjm-66q5",
+      "name": "kin-openapi: ValidationHandler security-requirement bypass via encoded-path operation confusion",
       "category": "ghsa_advisory",
       "severity": "high",
-      "cve": "GHSA-f4g7-52wc-p8x7",
-      "description": "Microsoft Security Advisory CVE-2026-96236 - ASP.NET Core Denial of Service Vulnerability",
-      "date": "2026-10-13",
+      "cve": "GHSA-23vg-4cjm-66q5",
+      "description": "kin-openapi: ValidationHandler security-requirement bypass via encoded-path operation confusion",
+      "date": "2026-10-15",
       "affected": [
-        "Microsoft.AspNetCore.App.Runtime.win-x86",
-        "Microsoft.AspNetCore.App.Runtime.win-x64",
-        "Microsoft.AspNetCore.App.Runtime.win-arm64",
-        "Microsoft.AspNetCore.App.Runtime.osx-x64",
-        "Microsoft.AspNetCore.App.Runtime.osx-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm",
-        "Microsoft.AspNetCore.App.Runtime.linux-arm64"
+        "github.com/getkin/kin-openapi"
       ],
       "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-f4g7-52wc-p8x7",
-        "https://github.com/dotnet/announcements/issues/484",
-        "https://github.com/dotnet/aspnetcore/discussions/69803",
-        "https://github.com/advisories/GHSA-f4g7-52wc-p8x7"
+        "https://github.com/getkin/kin-openapi/security/advisories/GHSA-23vg-4cjm-66q5",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-100351",
+        "https://github.com/getkin/kin-openapi/commit/eda80e2676e9f577ceed2dd80e64f16083edb041",
+        "https://github.com/getkin/kin-openapi/releases/tag/v0.147.0",
+        "https://github.com/advisories/GHSA-23vg-4cjm-66q5"
       ],
-      "detection_signatures": {},
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getkin/kin-openapi"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getkin/kin-openapi"
+        ]
+      },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-4mpw-cpwj-hxxj",
-      "name": "Microsoft Security Advisory CVE-2026-70197 - .NET and Visual Studio Remote Code Execution Vulnerabil",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-4mpw-cpwj-hxxj",
-      "description": "Microsoft Security Advisory CVE-2026-70197 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.NETCore.App.Runtime.win-x86",
-        "Microsoft.NETCore.App.Runtime.win-x64",
-        "Microsoft.NETCore.App.Runtime.win-arm64",
-        "Microsoft.NETCore.App.Runtime.win-x86",
-        "Microsoft.NETCore.App.Runtime.win-x64",
-        "Microsoft.NETCore.App.Runtime.win-arm64",
-        "Microsoft.NETCore.App.Runtime.win-x86",
-        "Microsoft.NETCore.App.Runtime.win-x64",
-        "Microsoft.NETCore.App.Runtime.win-arm64",
-        "Microsoft.NETCore.App.Runtime.win-x86"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-4mpw-cpwj-hxxj",
-        "https://github.com/dotnet/announcements/issues/466",
-        "https://github.com/dotnet/runtime/issues/135702",
-        "https://github.com/advisories/GHSA-4mpw-cpwj-hxxj"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3rxq-g8rj-r2cf",
-      "name": "Microsoft Security Advisory CVE-2026-69651 - .NET and Visual Studio Denial of Service Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-3rxq-g8rj-r2cf",
-      "description": "Microsoft Security Advisory CVE-2026-69651 - .NET and Visual Studio Denial of Service Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.NETCore.App.Runtime.win-x86",
-        "Microsoft.NETCore.App.Runtime.win-x64",
-        "Microsoft.NETCore.App.Runtime.win-arm64",
-        "Microsoft.NETCore.App.Runtime.osx-x64",
-        "Microsoft.NETCore.App.Runtime.osx-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm",
-        "Microsoft.NETCore.App.Runtime.linux-arm64"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-3rxq-g8rj-r2cf",
-        "https://github.com/dotnet/announcements/issues/449",
-        "https://github.com/dotnet/runtime/issues/135698",
-        "https://github.com/advisories/GHSA-3rxq-g8rj-r2cf"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-g27p-qf6j-c96c",
-      "name": "Microsoft Security Advisory CVE-2026-102870 - ASP.NET Core Remote Code Execution Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-g27p-qf6j-c96c",
-      "description": "Microsoft Security Advisory CVE-2026-102870 - ASP.NET Core Remote Code Execution Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.AspNetCore.Components.WebAssembly.Server",
-        "Microsoft.AspNetCore.Components.WebAssembly.Server"
-      ],
-      "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-g27p-qf6j-c96c",
-        "https://github.com/dotnet/announcements/issues/445",
-        "https://github.com/dotnet/aspnetcore/discussions/69791",
-        "https://github.com/advisories/GHSA-g27p-qf6j-c96c"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7hqp-7c5m-4vq6",
-      "name": "Microsoft Security Advisory CVE-2026-96960 - .NET and Visual Studio Denial of Service Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7hqp-7c5m-4vq6",
-      "description": "Microsoft Security Advisory CVE-2026-96960 - .NET and Visual Studio Denial of Service Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "System.Security.Cryptography.Xml",
-        "System.Security.Cryptography.Xml",
-        "System.Security.Cryptography.Xml",
-        "System.Security.Cryptography.Xml"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-7hqp-7c5m-4vq6",
-        "https://github.com/dotnet/announcements/issues/490",
-        "https://github.com/advisories/GHSA-7hqp-7c5m-4vq6"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-87vj-4hqv-22p9",
-      "name": "Microsoft Security Advisory CVE-2026-96233 - .NET and Visual Studio Denial of Service Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-87vj-4hqv-22p9",
-      "description": "Microsoft Security Advisory CVE-2026-96233 - .NET and Visual Studio Denial of Service Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.NETCore.App.Runtime.win-x86",
-        "Microsoft.NETCore.App.Runtime.win-x64",
-        "Microsoft.NETCore.App.Runtime.win-arm64",
-        "Microsoft.NETCore.App.Runtime.win-arm",
-        "Microsoft.NETCore.App.Runtime.osx-x64",
-        "Microsoft.NETCore.App.Runtime.osx-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-87vj-4hqv-22p9",
-        "https://github.com/dotnet/announcements/issues/481",
-        "https://github.com/dotnet/runtime/issues/135708",
-        "https://github.com/advisories/GHSA-87vj-4hqv-22p9"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-86xp-94pg-8r6r",
-      "name": "Microsoft Security Advisory CVE-2026-92707 - ASP.NET Core Denial of Service Vulnerability",
+      "id": "FEED-GHSA-qfxx-c367-67f8",
+      "name": "Appium: Symlink based Zip Slip in @appium/support ZIP extraction",
       "category": "ghsa_advisory",
       "severity": "medium",
-      "cve": "GHSA-86xp-94pg-8r6r",
-      "description": "Microsoft Security Advisory CVE-2026-92707 - ASP.NET Core Denial of Service Vulnerability",
-      "date": "2026-10-13",
+      "cve": "GHSA-qfxx-c367-67f8",
+      "description": "Appium: Symlink based Zip Slip in @appium/support ZIP extraction",
+      "date": "2026-10-15",
       "affected": [
-        "Microsoft.AspNetCore.SignalR.Protocols.MessagePack",
-        "Microsoft.AspNetCore.SignalR.Protocols.MessagePack",
-        "Microsoft.AspNetCore.SignalR.Protocols.MessagePack",
-        "Microsoft.AspNetCore.SignalR.Protocols.MessagePack"
+        "@appium/support"
       ],
       "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-86xp-94pg-8r6r",
-        "https://github.com/dotnet/announcements/issues/473",
-        "https://github.com/dotnet/aspnetcore/discussions/69801",
-        "https://github.com/advisories/GHSA-86xp-94pg-8r6r"
+        "https://github.com/appium/appium/security/advisories/GHSA-qfxx-c367-67f8",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-103975",
+        "https://github.com/appium/appium/pull/22436",
+        "https://github.com/appium/appium/commit/d9eb36f413153e28b04b92d8ce4447da270371c0",
+        "https://github.com/appium/appium/releases/tag/@appium/support@7.2.6",
+        "https://github.com/advisories/GHSA-qfxx-c367-67f8"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@appium/support"
+          ]
+        },
+        "compromised_actions": [
+          "@appium/support"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cr65-55v9-xhvv",
+      "name": "Dio: Cross-origin redirect leaks sensitive request headers in `dio_http2_adapter`",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-cr65-55v9-xhvv",
+      "description": "Dio: Cross-origin redirect leaks sensitive request headers in `dio_http2_adapter`",
+      "date": "2026-10-15",
+      "affected": [
+        "dio_http2_adapter"
+      ],
+      "references": [
+        "https://github.com/cfug/dio/security/advisories/GHSA-cr65-55v9-xhvv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-103030",
+        "https://github.com/cfug/dio/commit/9d7ac913340084f3b4987b121e076f28d637a81e",
+        "https://github.com/cfug/dio/releases/tag/http2_adapter_v2.8.0",
+        "https://github.com/advisories/GHSA-cr65-55v9-xhvv"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-2fmv-rv2c-59x7",
-      "name": "Microsoft Security Advisory CVE-2026-70162 - .NET Denial of Service Vulnerability",
+      "id": "FEED-GHSA-h4r5-mxv5-8mjc",
+      "name": "kin-openapi deepObject query decoding repeatedly compiles an invariant regular expression",
       "category": "ghsa_advisory",
       "severity": "medium",
-      "cve": "GHSA-2fmv-rv2c-59x7",
-      "description": "Microsoft Security Advisory CVE-2026-70162 - .NET Denial of Service Vulnerability",
-      "date": "2026-10-13",
+      "cve": "GHSA-h4r5-mxv5-8mjc",
+      "description": "kin-openapi deepObject query decoding repeatedly compiles an invariant regular expression",
+      "date": "2026-10-15",
       "affected": [
-        "System.Security.Cryptography.Pkcs",
-        "System.Security.Cryptography.Pkcs",
-        "System.Security.Cryptography.Pkcs",
-        "System.Security.Cryptography.Pkcs"
+        "github.com/getkin/kin-openapi"
       ],
       "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-2fmv-rv2c-59x7",
-        "https://github.com/dotnet/announcements/issues/454",
-        "https://github.com/dotnet/runtime/issues/135699",
-        "https://github.com/advisories/GHSA-2fmv-rv2c-59x7"
+        "https://github.com/getkin/kin-openapi/security/advisories/GHSA-h4r5-mxv5-8mjc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-100350",
+        "https://github.com/getkin/kin-openapi/commit/d090e36b2f1c42c898ba2a687a8f6e25f5ca727f",
+        "https://github.com/getkin/kin-openapi/releases/tag/v0.146.0",
+        "https://github.com/advisories/GHSA-h4r5-mxv5-8mjc"
       ],
-      "detection_signatures": {},
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getkin/kin-openapi"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getkin/kin-openapi"
+        ]
+      },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-r955-8q5j-3h83",
-      "name": "Microsoft Security Advisory CVE-2026-96958 - .NET and Visual Studio Denial of Service Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-r955-8q5j-3h83",
-      "description": "Microsoft Security Advisory CVE-2026-96958 - .NET and Visual Studio Denial of Service Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "System.Security.Cryptography.Xml",
-        "System.Security.Cryptography.Xml",
-        "System.Security.Cryptography.Xml",
-        "System.Security.Cryptography.Xml"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-r955-8q5j-3h83",
-        "https://github.com/dotnet/announcements/issues/488",
-        "https://github.com/dotnet/runtime/issues/135709",
-        "https://github.com/advisories/GHSA-r955-8q5j-3h83"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-846f-f764-76mx",
-      "name": "Microsoft Security Advisory CVE-2026-84008 - .NET Denial of Service Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-846f-f764-76mx",
-      "description": "Microsoft Security Advisory CVE-2026-84008 - .NET Denial of Service Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "System.Security.Cryptography.Pkcs",
-        "System.Security.Cryptography.Pkcs",
-        "System.Security.Cryptography.Pkcs",
-        "System.Security.Cryptography.Pkcs"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-846f-f764-76mx",
-        "https://github.com/dotnet/announcements/issues/468",
-        "https://github.com/dotnet/runtime/issues/135703",
-        "https://github.com/advisories/GHSA-846f-f764-76mx"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mc4q-93x5-f6hj",
-      "name": "Microsoft Security Advisory CVE-2026-58280 - .NET and Visual Studio Denial of Service Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-mc4q-93x5-f6hj",
-      "description": "Microsoft Security Advisory CVE-2026-58280 - .NET and Visual Studio Denial of Service Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.NETCore.App.Runtime.win-x86",
-        "Microsoft.NETCore.App.Runtime.win-x64",
-        "Microsoft.NETCore.App.Runtime.win-arm64",
-        "Microsoft.NETCore.App.Runtime.win-arm",
-        "Microsoft.NETCore.App.Runtime.osx-x64",
-        "Microsoft.NETCore.App.Runtime.osx-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-mc4q-93x5-f6hj",
-        "https://github.com/dotnet/announcements/issues/447",
-        "https://github.com/dotnet/runtime/issues/135696",
-        "https://github.com/advisories/GHSA-mc4q-93x5-f6hj"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fqpq-cx42-9jmm",
-      "name": "Microsoft Security Advisory CVE-2026-70194 - .NET and Visual Studio Security Feature Bypass Vulnerab",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-fqpq-cx42-9jmm",
-      "description": "Microsoft Security Advisory CVE-2026-70194 - .NET and Visual Studio Security Feature Bypass Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.NETCore.App.Runtime.osx-x64",
-        "Microsoft.NETCore.App.Runtime.osx-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-x64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-musl-arm",
-        "Microsoft.NETCore.App.Runtime.linux-arm64",
-        "Microsoft.NETCore.App.Runtime.linux-arm"
-      ],
-      "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-fqpq-cx42-9jmm",
-        "https://github.com/dotnet/announcements/issues/464",
-        "https://github.com/dotnet/runtime/issues/135701",
-        "https://github.com/advisories/GHSA-fqpq-cx42-9jmm"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-494h-xx7x-5frh",
-      "name": "Microsoft Security Advisory CVE-2026-70183 - ASP.NET Core Security Feature Bypass Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-494h-xx7x-5frh",
-      "description": "Microsoft Security Advisory CVE-2026-70183 - ASP.NET Core Security Feature Bypass Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.AspNetCore.App.Runtime.win-x86",
-        "Microsoft.AspNetCore.App.Runtime.win-x64",
-        "Microsoft.AspNetCore.App.Runtime.win-arm64",
-        "Microsoft.AspNetCore.App.Runtime.win-arm",
-        "Microsoft.AspNetCore.App.Runtime.osx-x64",
-        "Microsoft.AspNetCore.App.Runtime.osx-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm"
-      ],
-      "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-494h-xx7x-5frh",
-        "https://github.com/dotnet/announcements/issues/460",
-        "https://github.com/dotnet/aspnetcore/discussions/69796",
-        "https://github.com/advisories/GHSA-494h-xx7x-5frh"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-57xr-hfxx-jw5x",
-      "name": "Microsoft Security Advisory CVE-2026-70196 - ASP.NET Core Denial of Service Vulnerability",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-57xr-hfxx-jw5x",
-      "description": "Microsoft Security Advisory CVE-2026-70196 - ASP.NET Core Denial of Service Vulnerability",
-      "date": "2026-10-13",
-      "affected": [
-        "Microsoft.AspNetCore.App.Runtime.win-x86",
-        "Microsoft.AspNetCore.App.Runtime.win-x64",
-        "Microsoft.AspNetCore.App.Runtime.win-arm64",
-        "Microsoft.AspNetCore.App.Runtime.win-arm",
-        "Microsoft.AspNetCore.App.Runtime.osx-x64",
-        "Microsoft.AspNetCore.App.Runtime.osx-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm"
-      ],
-      "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-57xr-hfxx-jw5x",
-        "https://github.com/dotnet/announcements/issues/465",
-        "https://github.com/dotnet/aspnetcore/discussions/69799",
-        "https://github.com/advisories/GHSA-57xr-hfxx-jw5x"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5gjq-3f94-rcf7",
-      "name": "Microsoft Security Advisory CVE-2026-105016 - Microsoft QUIC Remote Code Execution Vulnerability",
+      "id": "FEED-GHSA-qj98-gp63-54xj",
+      "name": "Dgraph: Zero Unauthenticated HTTP Admin removeNode Denial of Service",
       "category": "ghsa_advisory",
       "severity": "critical",
-      "cve": "GHSA-5gjq-3f94-rcf7",
-      "description": "Microsoft Security Advisory CVE-2026-105016 - Microsoft QUIC Remote Code Execution Vulnerability",
-      "date": "2026-10-13",
+      "cve": "GHSA-qj98-gp63-54xj",
+      "description": "Dgraph: Zero Unauthenticated HTTP Admin removeNode Denial of Service",
+      "date": "2026-10-15",
       "affected": [
-        "Microsoft.Native.Quic.MsQuic.Schannel"
+        "github.com/dgraph-io/dgraph/v25"
       ],
       "references": [
-        "https://github.com/dotnet/runtime/security/advisories/GHSA-5gjq-3f94-rcf7",
-        "https://github.com/dotnet/announcements/issues/446",
-        "https://github.com/dotnet/runtime/issues/135695",
-        "https://github.com/advisories/GHSA-5gjq-3f94-rcf7"
+        "https://github.com/dgraph-io/dgraph/security/advisories/GHSA-qj98-gp63-54xj",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-102748",
+        "https://github.com/dgraph-io/dgraph/commit/c32f6041387fa631dbc057e265b71aec3384ead1",
+        "https://github.com/dgraph-io/dgraph/releases/tag/v25.4.0",
+        "https://github.com/advisories/GHSA-qj98-gp63-54xj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/dgraph-io/dgraph/v25"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/dgraph-io/dgraph/v25"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-24cc-9352-h2pg",
+      "name": "tinytag: Infinite loop when parsing certain M4A files containing invalid atoms",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-24cc-9352-h2pg",
+      "description": "tinytag: Infinite loop when parsing certain M4A files containing invalid atoms",
+      "date": "2026-10-15",
+      "affected": [
+        "tinytag"
+      ],
+      "references": [
+        "https://github.com/tinytag/tinytag/security/advisories/GHSA-24cc-9352-h2pg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-104266",
+        "https://github.com/tinytag/tinytag/pull/326",
+        "https://github.com/tinytag/tinytag/commit/9ada221ba44990cb02cd9002d992186e037b515e",
+        "https://github.com/tinytag/tinytag/releases/tag/2.3.0",
+        "https://github.com/advisories/GHSA-24cc-9352-h2pg"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-w5qq-qrpp-rf4c",
-      "name": "Microsoft Security Advisory CVE-2026-70181 - ASP.NET Core Denial of Service Vulnerability",
+      "id": "FEED-GHSA-phv8-wgjp-g4p9",
+      "name": "copyparty FTP: upload outside defined volumes (limited path traversal)",
       "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-w5qq-qrpp-rf4c",
-      "description": "Microsoft Security Advisory CVE-2026-70181 - ASP.NET Core Denial of Service Vulnerability",
-      "date": "2026-10-13",
+      "severity": "medium",
+      "cve": "GHSA-phv8-wgjp-g4p9",
+      "description": "copyparty FTP: upload outside defined volumes (limited path traversal)",
+      "date": "2026-10-15",
       "affected": [
-        "Microsoft.AspNetCore.App.Runtime.win-x86",
-        "Microsoft.AspNetCore.App.Runtime.win-x64",
-        "Microsoft.AspNetCore.App.Runtime.win-arm64",
-        "Microsoft.AspNetCore.App.Runtime.win-arm",
-        "Microsoft.AspNetCore.App.Runtime.osx-x64",
-        "Microsoft.AspNetCore.App.Runtime.osx-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm"
+        "copyparty"
       ],
       "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-w5qq-qrpp-rf4c",
-        "https://github.com/dotnet/announcements/issues/459",
-        "https://github.com/dotnet/aspnetcore/discussions/69795",
-        "https://github.com/advisories/GHSA-w5qq-qrpp-rf4c"
+        "https://github.com/9001/copyparty/security/advisories/GHSA-phv8-wgjp-g4p9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-104102",
+        "https://github.com/9001/copyparty/commit/b331bb1c8c8cc306b91e4d94221969335a7a3e86",
+        "https://github.com/9001/copyparty/releases/tag/v1.20.19",
+        "https://github.com/advisories/GHSA-phv8-wgjp-g4p9"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-x3vp-85cm-q97r",
-      "name": "Microsoft Security Advisory CVE-2026-70175 - ASP.NET Core Elevation of Privilege Vulnerability",
+      "id": "FEED-GHSA-v75v-6fpf-gvw8",
+      "name": "Vitess vttablet /twopcz reflected XSS",
       "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-x3vp-85cm-q97r",
-      "description": "Microsoft Security Advisory CVE-2026-70175 - ASP.NET Core Elevation of Privilege Vulnerability",
-      "date": "2026-10-13",
+      "severity": "critical",
+      "cve": "GHSA-v75v-6fpf-gvw8",
+      "description": "Vitess vttablet /twopcz reflected XSS",
+      "date": "2026-10-15",
       "affected": [
-        "Microsoft.AspNetCore.App.Runtime.win-x86",
-        "Microsoft.AspNetCore.App.Runtime.win-x64",
-        "Microsoft.AspNetCore.App.Runtime.win-arm64",
-        "Microsoft.AspNetCore.App.Runtime.win-arm",
-        "Microsoft.AspNetCore.App.Runtime.osx-x64",
-        "Microsoft.AspNetCore.App.Runtime.osx-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-x64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm64",
-        "Microsoft.AspNetCore.App.Runtime.linux-musl-arm"
+        "vitess.io/vitess",
+        "vitess.io/vitess"
       ],
       "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-x3vp-85cm-q97r",
-        "https://github.com/dotnet/announcements/issues/457",
-        "https://github.com/dotnet/aspnetcore/discussions/69793",
-        "https://github.com/advisories/GHSA-x3vp-85cm-q97r"
+        "https://github.com/vitessio/vitess/security/advisories/GHSA-v75v-6fpf-gvw8",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-104252",
+        "https://github.com/vitessio/vitess/pull/20255",
+        "https://github.com/vitessio/vitess/pull/20273",
+        "https://github.com/vitessio/vitess/pull/20274",
+        "https://github.com/vitessio/vitess/commit/3140c1846cd120db34f33b2083139b4ab638aed2",
+        "https://github.com/vitessio/vitess/commit/976e1e0d78f9d29d02e5e31b4aa7e180648f08af",
+        "https://github.com/vitessio/vitess/commit/c1ed96302e658190168c971afdac730cf70e43f7",
+        "https://github.com/vitessio/vitess/releases/tag/v23.0.5",
+        "https://github.com/vitessio/vitess/releases/tag/v24.0.2",
+        "https://github.com/advisories/GHSA-v75v-6fpf-gvw8"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "vitess.io/vitess",
+            "vitess.io/vitess"
+          ]
+        },
+        "compromised_actions": [
+          "vitess.io/vitess",
+          "vitess.io/vitess"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-v5mq-3xhg-98m9",
+      "name": "unstructured: Stored XSS via unescaped HTML generation",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-v5mq-3xhg-98m9",
+      "description": "unstructured: Stored XSS via unescaped HTML generation",
+      "date": "2026-10-15",
+      "affected": [
+        "unstructured"
+      ],
+      "references": [
+        "https://github.com/Unstructured-IO/unstructured/security/advisories/GHSA-v5mq-3xhg-98m9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-104250",
+        "https://github.com/Unstructured-IO/unstructured/pull/4394",
+        "https://github.com/Unstructured-IO/unstructured/commit/cda16b3f2170019be9c6ea5635946fb3eaa2d66f",
+        "https://github.com/Unstructured-IO/unstructured/releases/tag/0.24.1",
+        "https://github.com/advisories/GHSA-v5mq-3xhg-98m9"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-334f-vvp4-7g6p",
-      "name": "Microsoft Security Advisory CVE-2026-70159 - ASP.NET Core Denial of Service Vulnerability",
+      "id": "FEED-GHSA-g74g-rg72-j2p3",
+      "name": "mise permits untrusted local configuration to override default shell arguments",
       "category": "ghsa_advisory",
       "severity": "high",
-      "cve": "GHSA-334f-vvp4-7g6p",
-      "description": "Microsoft Security Advisory CVE-2026-70159 - ASP.NET Core Denial of Service Vulnerability",
-      "date": "2026-10-13",
+      "cve": "GHSA-g74g-rg72-j2p3",
+      "description": "mise permits untrusted local configuration to override default shell arguments",
+      "date": "2026-10-15",
       "affected": [
-        "Microsoft.AspNetCore.SignalR.Common",
-        "Microsoft.AspNetCore.SignalR.Common",
-        "Microsoft.AspNetCore.SignalR.Common",
-        "Microsoft.AspNetCore.SignalR.Core",
-        "Microsoft.AspNetCore.SignalR.Common"
+        "mise"
       ],
       "references": [
-        "https://github.com/dotnet/aspnetcore/security/advisories/GHSA-334f-vvp4-7g6p",
-        "https://github.com/dotnet/announcements/issues/452",
-        "https://github.com/dotnet/aspnetcore/discussions/69792",
-        "https://github.com/advisories/GHSA-334f-vvp4-7g6p"
+        "https://github.com/jdx/mise/security/advisories/GHSA-g74g-rg72-j2p3",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-103929",
+        "https://github.com/jdx/mise/pull/11293",
+        "https://github.com/jdx/mise/commit/c6cd7a9a2ca580918562566126646e5d04317895",
+        "https://github.com/jdx/mise/releases/tag/v2026.7.14",
+        "https://github.com/advisories/GHSA-g74g-rg72-j2p3"
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-m687-p538-r5hp",
-      "name": "Vikunja: Permissive Cross-domain Security Policy trusts every localhost origin which should not be t",
+      "id": "FEED-GHSA-mh7x-f8wq-4jhx",
+      "name": "kin-openapi spec loader panics on a self-referential additionalProperties $ref (nil-pointer DoS)",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-mh7x-f8wq-4jhx",
+      "description": "kin-openapi spec loader panics on a self-referential additionalProperties $ref (nil-pointer DoS)",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/getkin/kin-openapi"
+      ],
+      "references": [
+        "https://github.com/getkin/kin-openapi/security/advisories/GHSA-mh7x-f8wq-4jhx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-100348",
+        "https://github.com/getkin/kin-openapi/commit/88aa64c7cbd03ecadbb419c473bdcaa8b0124c6b",
+        "https://github.com/getkin/kin-openapi/releases/tag/v0.145.0",
+        "https://github.com/advisories/GHSA-mh7x-f8wq-4jhx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getkin/kin-openapi"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getkin/kin-openapi"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fh4f-47mf-f2gj",
+      "name": "kin-openapi: Unauthenticated panic (DoS) in openapi3filter legacy router via non-canonical/unsupport",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-fh4f-47mf-f2gj",
+      "description": "kin-openapi: Unauthenticated panic (DoS) in openapi3filter legacy router via non-canonical/unsupported HTTP method on a static path",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/getkin/kin-openapi"
+      ],
+      "references": [
+        "https://github.com/getkin/kin-openapi/security/advisories/GHSA-fh4f-47mf-f2gj",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-100347",
+        "https://github.com/getkin/kin-openapi/commit/f1a5b523b82868d2d9be2e116b4e942892be72c3",
+        "https://github.com/getkin/kin-openapi/releases/tag/v0.145.0",
+        "https://github.com/advisories/GHSA-fh4f-47mf-f2gj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getkin/kin-openapi"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getkin/kin-openapi"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3hcj-9m7p-wwm9",
+      "name": "Gotify: Insufficiently Protected Password Change endpoint",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3hcj-9m7p-wwm9",
+      "description": "Gotify: Insufficiently Protected Password Change endpoint",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/gotify/server/v3",
+        "github.com/gotify/server/v2"
+      ],
+      "references": [
+        "https://github.com/gotify/server/security/advisories/GHSA-3hcj-9m7p-wwm9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-102603",
+        "https://github.com/gotify/server/pull/952",
+        "https://github.com/gotify/server/commit/a8744482c668e07a61798573ec8e17bd3f6009f9",
+        "https://github.com/gotify/server/releases/tag/v3.0.0",
+        "https://github.com/advisories/GHSA-3hcj-9m7p-wwm9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/gotify/server/v3",
+            "github.com/gotify/server/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/gotify/server/v3",
+          "github.com/gotify/server/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2x6f-rp82-ppmj",
+      "name": "Nuxt OG Image cache poisoning through derivable cache keys on unsigned dynamic image routes",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-2x6f-rp82-ppmj",
+      "description": "Nuxt OG Image cache poisoning through derivable cache keys on unsigned dynamic image routes",
+      "date": "2026-10-15",
+      "affected": [
+        "nuxt-og-image"
+      ],
+      "references": [
+        "https://github.com/nuxt-modules/og-image/security/advisories/GHSA-2x6f-rp82-ppmj",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-102527",
+        "https://github.com/nuxt-modules/og-image/pull/638",
+        "https://github.com/nuxt-modules/og-image/commit/e6c5b53ce7f434ab8cbc91298dccfb2b515c56a5",
+        "https://github.com/nuxt-modules/og-image/releases/tag/v6.7.0",
+        "https://github.com/advisories/GHSA-2x6f-rp82-ppmj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "nuxt-og-image"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2vc4-c4r6-p6v6",
+      "name": "OpenNext Cloudflare: Cache interception can bypass middleware protection for encoded paths",
       "category": "ghsa_advisory",
       "severity": "high",
-      "cve": "GHSA-m687-p538-r5hp",
-      "description": "Vikunja: Permissive Cross-domain Security Policy trusts every localhost origin which should not be trusted",
-      "date": "2026-10-09",
+      "cve": "GHSA-2vc4-c4r6-p6v6",
+      "description": "OpenNext Cloudflare: Cache interception can bypass middleware protection for encoded paths",
+      "date": "2026-10-15",
       "affected": [
-        "code.vikunja.io/api"
+        "@opennextjs/cloudflare"
       ],
       "references": [
-        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-m687-p538-r5hp",
-        "https://github.com/advisories/GHSA-m687-p538-r5hp"
+        "https://github.com/opennextjs/opennextjs-cloudflare/security/advisories/GHSA-2vc4-c4r6-p6v6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-100409",
+        "https://github.com/opennextjs/opennextjs-aws/pull/1199",
+        "https://github.com/opennextjs/opennextjs-aws/pull/1200",
+        "https://github.com/opennextjs/opennextjs-cloudflare/commit/38ea40b669be272ddf09a7df7e70c69d0b57404b",
+        "https://github.com/opennextjs/opennextjs-cloudflare/releases/tag/@opennextjs/cloudflare@1.20.2",
+        "https://github.com/advisories/GHSA-2vc4-c4r6-p6v6"
       ],
       "detection_signatures": {
         "malicious_packages": {
-          "go": [
-            "code.vikunja.io/api"
+          "npm": [
+            "@opennextjs/cloudflare"
           ]
         },
         "compromised_actions": [
-          "code.vikunja.io/api"
+          "@opennextjs/cloudflare"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-fmmf-xq98-g327",
-      "name": "Vikunja: Write-level project members can delete admin-tier link shares through an unloaded permissio",
+      "id": "FEED-GHSA-qjpp-gffx-2wm9",
+      "name": "Nezha Monitoring: Whole-instance DoS in Nezha dashboard: a member can crash the process for every te",
       "category": "ghsa_advisory",
       "severity": "medium",
-      "cve": "GHSA-fmmf-xq98-g327",
-      "description": "Vikunja: Write-level project members can delete admin-tier link shares through an unloaded permission check",
-      "date": "2026-10-09",
+      "cve": "GHSA-qjpp-gffx-2wm9",
+      "description": "Nezha Monitoring: Whole-instance DoS in Nezha dashboard: a member can crash the process for every tenant",
+      "date": "2026-10-15",
       "affected": [
-        "code.vikunja.io/api"
+        "github.com/nezhahq/nezha"
       ],
       "references": [
-        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-fmmf-xq98-g327",
-        "https://github.com/advisories/GHSA-fmmf-xq98-g327"
+        "https://github.com/nezhahq/nezha/security/advisories/GHSA-qjpp-gffx-2wm9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-100394",
+        "https://github.com/nezhahq/nezha/commit/c893aa57867d8a3d608e2f2f16d1594c9766cdf3",
+        "https://github.com/nezhahq/nezha/releases/tag/v2.2.11",
+        "https://github.com/nezhahq/nezha/releases/tag/v2.3.0",
+        "https://github.com/advisories/GHSA-qjpp-gffx-2wm9"
       ],
       "detection_signatures": {
         "malicious_packages": {
           "go": [
-            "code.vikunja.io/api"
+            "github.com/nezhahq/nezha"
           ]
         },
         "compromised_actions": [
-          "code.vikunja.io/api"
+          "github.com/nezhahq/nezha"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-pjr3-86v4-5p7w",
-      "name": "Vikunja: Explicit lower-permission share on a sub-project is silently overridden by an inherited par",
+      "id": "FEED-GHSA-p6wj-qrr4-pgh5",
+      "name": "kin-openapi: Nil-pointer dereference panic in openapi3filter for OpenAPI 3.1 array schemas missing i",
       "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-pjr3-86v4-5p7w",
-      "description": "Vikunja: Explicit lower-permission share on a sub-project is silently overridden by an inherited parent permission (broken access control / privilege-management regression in v2.6.0)",
-      "date": "2026-10-09",
+      "severity": "high",
+      "cve": "GHSA-p6wj-qrr4-pgh5",
+      "description": "kin-openapi: Nil-pointer dereference panic in openapi3filter for OpenAPI 3.1 array schemas missing items",
+      "date": "2026-10-15",
       "affected": [
-        "code.vikunja.io/api"
+        "github.com/getkin/kin-openapi"
       ],
       "references": [
-        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-pjr3-86v4-5p7w",
-        "https://github.com/advisories/GHSA-pjr3-86v4-5p7w"
+        "https://github.com/getkin/kin-openapi/security/advisories/GHSA-p6wj-qrr4-pgh5",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-97394",
+        "https://github.com/getkin/kin-openapi/commit/30e292371a89ca6d1f91a9553e0aa518b49f838d",
+        "https://github.com/getkin/kin-openapi/releases/tag/v0.143.0",
+        "https://github.com/advisories/GHSA-p6wj-qrr4-pgh5"
       ],
       "detection_signatures": {
         "malicious_packages": {
           "go": [
-            "code.vikunja.io/api"
+            "github.com/getkin/kin-openapi"
           ]
         },
         "compromised_actions": [
-          "code.vikunja.io/api"
+          "github.com/getkin/kin-openapi"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-hjx8-qv73-f7cm",
-      "name": "Vikunja: Webhooks and link shares survive every revocation path, so a removed collaborator keeps a l",
+      "id": "FEED-GHSA-54mm-6729-r5wp",
+      "name": "Leantime: Any Authenticated User Can Self-Escalate to Admin via Unauthorized JSON-RPC Methods",
       "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hjx8-qv73-f7cm",
-      "description": "Vikunja: Webhooks and link shares survive every revocation path, so a removed collaborator keeps a live feed",
-      "date": "2026-10-09",
+      "severity": "high",
+      "cve": "GHSA-54mm-6729-r5wp",
+      "description": "Leantime: Any Authenticated User Can Self-Escalate to Admin via Unauthorized JSON-RPC Methods",
+      "date": "2026-10-15",
       "affected": [
-        "code.vikunja.io/api"
+        "leantime/leantime"
       ],
       "references": [
-        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-hjx8-qv73-f7cm",
-        "https://github.com/advisories/GHSA-hjx8-qv73-f7cm"
+        "https://github.com/Leantime/leantime/security/advisories/GHSA-54mm-6729-r5wp",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-85990",
+        "https://github.com/Leantime/leantime/pull/3583",
+        "https://github.com/Leantime/leantime/pull/3797",
+        "https://github.com/Leantime/leantime/commit/5605e5ee86bbd01acb85c6b5d8fb337faf8bcf02",
+        "https://github.com/Leantime/leantime/commit/7ebf7a9517e2aaa05ec15b8130ab1841a4bde43e",
+        "https://github.com/Leantime/leantime/releases/tag/v3.10.0",
+        "https://github.com/advisories/GHSA-54mm-6729-r5wp"
       ],
       "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "code.vikunja.io/api"
-          ]
-        },
         "compromised_actions": [
-          "code.vikunja.io/api"
+          "leantime/leantime"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-fprf-r6rv-xg99",
-      "name": "Vikunja: Saved filter creation with an empty filter string recalculates task positions across all te",
+      "id": "FEED-GHSA-v3ph-cgqh-r8p5",
+      "name": "FrankenPHP: Cross-request PHP session ID leak in worker mode when the session extension is a shared ",
       "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-fprf-r6rv-xg99",
-      "description": "Vikunja: Saved filter creation with an empty filter string recalculates task positions across all tenants",
-      "date": "2026-10-09",
+      "severity": "high",
+      "cve": "GHSA-v3ph-cgqh-r8p5",
+      "description": "FrankenPHP: Cross-request PHP session ID leak in worker mode when the session extension is a shared module",
+      "date": "2026-10-15",
       "affected": [
-        "code.vikunja.io/api"
+        "github.com/dunglas/frankenphp"
       ],
       "references": [
-        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-fprf-r6rv-xg99",
-        "https://github.com/advisories/GHSA-fprf-r6rv-xg99"
+        "https://github.com/php/frankenphp/security/advisories/GHSA-v3ph-cgqh-r8p5",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-82416",
+        "https://github.com/php/frankenphp/pull/2523",
+        "https://github.com/php/frankenphp/commit/be24d82531675f90862b8cde1e9fc7e9ee855aa5",
+        "https://github.com/php/frankenphp/releases/tag/caddy/v1.12.5",
+        "https://github.com/advisories/GHSA-v3ph-cgqh-r8p5"
       ],
       "detection_signatures": {
         "malicious_packages": {
           "go": [
-            "code.vikunja.io/api"
+            "github.com/dunglas/frankenphp"
           ]
         },
         "compromised_actions": [
-          "code.vikunja.io/api"
+          "github.com/dunglas/frankenphp"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
     },
     {
-      "id": "FEED-GHSA-4hv6-xc92-j86g",
-      "name": "Vikunja: WebSocket authentication ignores server-side session state, so revoked sessions keep receiv",
+      "id": "FEED-GHSA-q7pc-356p-hggc",
+      "name": "SFTPGo: Denial of service via malformed SSH channel request",
       "category": "ghsa_advisory",
       "severity": "medium",
-      "cve": "GHSA-4hv6-xc92-j86g",
-      "description": "Vikunja: WebSocket authentication ignores server-side session state, so revoked sessions keep receiving live pushes",
-      "date": "2026-10-09",
+      "cve": "GHSA-q7pc-356p-hggc",
+      "description": "SFTPGo: Denial of service via malformed SSH channel request",
+      "date": "2026-10-15",
       "affected": [
-        "code.vikunja.io/api"
+        "github.com/drakkan/sftpgo/v2"
       ],
       "references": [
-        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-4hv6-xc92-j86g",
-        "https://github.com/advisories/GHSA-4hv6-xc92-j86g"
+        "https://github.com/drakkan/sftpgo/security/advisories/GHSA-q7pc-356p-hggc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-77375",
+        "https://github.com/drakkan/sftpgo/commit/4f751232d7025cf2f7360e01ee8dca81e74b48b0",
+        "https://github.com/drakkan/sftpgo/releases/tag/v2.7.5",
+        "https://github.com/advisories/GHSA-q7pc-356p-hggc"
       ],
       "detection_signatures": {
         "malicious_packages": {
           "go": [
-            "code.vikunja.io/api"
+            "github.com/drakkan/sftpgo/v2"
           ]
         },
         "compromised_actions": [
-          "code.vikunja.io/api"
+          "github.com/drakkan/sftpgo/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vc32-4gwf-77xp",
+      "name": "Nginx UI: OTP secure-session step-up can be bypassed via MCP configuration tools",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-vc32-4gwf-77xp",
+      "description": "Nginx UI: OTP secure-session step-up can be bypassed via MCP configuration tools",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/0xJacky/Nginx-UI"
+      ],
+      "references": [
+        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-vc32-4gwf-77xp",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84360",
+        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
+        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
+        "https://github.com/advisories/GHSA-vc32-4gwf-77xp"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/0xJacky/Nginx-UI"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/0xJacky/Nginx-UI"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-wq4w-vwvq-q3x9",
+      "name": "Nginx UI: Standalone short tokens survive administrative revocation in cache and authenticate again ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-wq4w-vwvq-q3x9",
+      "description": "Nginx UI: Standalone short tokens survive administrative revocation in cache and authenticate again after account re-enable",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/0xJacky/Nginx-UI"
+      ],
+      "references": [
+        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-wq4w-vwvq-q3x9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84321",
+        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
+        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
+        "https://github.com/advisories/GHSA-wq4w-vwvq-q3x9"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/0xJacky/Nginx-UI"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/0xJacky/Nginx-UI"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-cf23-7qxj-xmhr",
+      "name": "Nginx UI: nginx config directive denylist (ValidateConfigFile) is bypassable via same-line \";\" separ",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-cf23-7qxj-xmhr",
+      "description": "Nginx UI: nginx config directive denylist (ValidateConfigFile) is bypassable via same-line \";\" separation \u2192 authenticated directive injection (RCE on the official image)",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/0xJacky/Nginx-UI"
+      ],
+      "references": [
+        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-cf23-7qxj-xmhr",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84316",
+        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
+        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
+        "https://github.com/advisories/GHSA-cf23-7qxj-xmhr"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/0xJacky/Nginx-UI"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/0xJacky/Nginx-UI"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-84m7-p3x7-pcfv",
+      "name": "MCP Python SDK: Unbounded Session Accumulation in StreamableHTTP Transport Enables Resource Exhausti",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-84m7-p3x7-pcfv",
+      "description": "MCP Python SDK: Unbounded Session Accumulation in StreamableHTTP Transport Enables Resource Exhaustion",
+      "date": "2026-10-15",
+      "affected": [
+        "mcp",
+        "mcp"
+      ],
+      "references": [
+        "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-84m7-p3x7-pcfv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59951",
+        "https://github.com/modelcontextprotocol/python-sdk/pull/3395",
+        "https://github.com/modelcontextprotocol/python-sdk/pull/3426",
+        "https://github.com/modelcontextprotocol/python-sdk/commit/92120b4b0f50385af096592d7cee932fc1d994e7",
+        "https://github.com/modelcontextprotocol/python-sdk/commit/d2290ca3434731b68ea3e2270bc06a6e6575931b",
+        "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.30.0",
+        "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.2.0",
+        "https://github.com/advisories/GHSA-84m7-p3x7-pcfv"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f8ff-652m-j5rx",
+      "name": "YOURLS: Unauthenticated File Inclusion",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-f8ff-652m-j5rx",
+      "description": "YOURLS: Unauthenticated File Inclusion",
+      "date": "2026-10-15",
+      "affected": [
+        "yourls/yourls"
+      ],
+      "references": [
+        "https://github.com/YOURLS/YOURLS/security/advisories/GHSA-f8ff-652m-j5rx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-62858",
+        "https://github.com/YOURLS/YOURLS/pull/4142",
+        "https://github.com/YOURLS/YOURLS/commit/4e85972160a96e03a419a442d5bd8f21f2f02ddb",
+        "https://github.com/YOURLS/YOURLS/releases/tag/1.10.5",
+        "https://github.com/advisories/GHSA-f8ff-652m-j5rx"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "yourls/yourls"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-44xr-mrhh-qm78",
+      "name": "Nginx UI: Casdoor SSO callback uses a constant `state` parameter (login CSRF)",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-44xr-mrhh-qm78",
+      "description": "Nginx UI: Casdoor SSO callback uses a constant `state` parameter (login CSRF)",
+      "date": "2026-10-15",
+      "affected": [
+        "Nginx-UI"
+      ],
+      "references": [
+        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-44xr-mrhh-qm78",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84312",
+        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
+        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
+        "https://github.com/advisories/GHSA-44xr-mrhh-qm78"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "Nginx-UI"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5v7c-xpfp-p65m",
+      "name": "Nginx UI OTP secure-session step-up is missing on sensitive mutation routes",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-5v7c-xpfp-p65m",
+      "description": "Nginx UI OTP secure-session step-up is missing on sensitive mutation routes",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/0xJacky/Nginx-UI"
+      ],
+      "references": [
+        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-5v7c-xpfp-p65m",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84315",
+        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
+        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
+        "https://github.com/advisories/GHSA-5v7c-xpfp-p65m"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/0xJacky/Nginx-UI"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/0xJacky/Nginx-UI"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2gc7-j998-5xx6",
+      "name": "Nginx UI: Account Takeover via Missing `RequireSecureSession` on User Management Endpoint",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2gc7-j998-5xx6",
+      "description": "Nginx UI: Account Takeover via Missing `RequireSecureSession` on User Management Endpoint",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/0xJacky/Nginx-UI"
+      ],
+      "references": [
+        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-2gc7-j998-5xx6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84314",
+        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
+        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
+        "https://github.com/advisories/GHSA-2gc7-j998-5xx6"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/0xJacky/Nginx-UI"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/0xJacky/Nginx-UI"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-gfrc-g87h-7h5w",
+      "name": "Nginx UI: TOTP / passkey enrolment requires no re-authentication, enabling persistent account takeov",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-gfrc-g87h-7h5w",
+      "description": "Nginx UI: TOTP / passkey enrolment requires no re-authentication, enabling persistent account takeover",
+      "date": "2026-10-15",
+      "affected": [
+        "Nginx-UI"
+      ],
+      "references": [
+        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-gfrc-g87h-7h5w",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84313",
+        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
+        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
+        "https://github.com/advisories/GHSA-gfrc-g87h-7h5w"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "Nginx-UI"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9jww-cxg5-rj9m",
+      "name": "Nginx UI: MCP `nginx_config_add` Bypasses Directive Validation \u2014 Authenticated RCE",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9jww-cxg5-rj9m",
+      "description": "Nginx UI: MCP `nginx_config_add` Bypasses Directive Validation \u2014 Authenticated RCE",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/0xJacky/Nginx-UI"
+      ],
+      "references": [
+        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-9jww-cxg5-rj9m",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84318",
+        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
+        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
+        "https://github.com/advisories/GHSA-9jww-cxg5-rj9m"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/0xJacky/Nginx-UI"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/0xJacky/Nginx-UI"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-76pm-mq2q-9gcr",
+      "name": "Nginx UI: MCP nginx_config_add skips config directive validation \u2192 authenticated nginx directive inj",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-76pm-mq2q-9gcr",
+      "description": "Nginx UI: MCP nginx_config_add skips config directive validation \u2192 authenticated nginx directive injection (RCE on the official image)",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/0xJacky/Nginx-UI"
+      ],
+      "references": [
+        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-76pm-mq2q-9gcr",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84317",
+        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
+        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
+        "https://github.com/advisories/GHSA-76pm-mq2q-9gcr"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/0xJacky/Nginx-UI"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/0xJacky/Nginx-UI"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jrq7-xrjx-pcfw",
+      "name": "Nginx UI: Auto backup name allows path traversal outside validated storage path",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-jrq7-xrjx-pcfw",
+      "description": "Nginx UI: Auto backup name allows path traversal outside validated storage path",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/0xJacky/Nginx-UI"
+      ],
+      "references": [
+        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-jrq7-xrjx-pcfw",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84320",
+        "https://github.com/0xJacky/nginx-ui/commit/f92218e01054491fc1e6684dc6f7facaf8ab41eb",
+        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.3",
+        "https://github.com/advisories/GHSA-jrq7-xrjx-pcfw"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/0xJacky/Nginx-UI"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/0xJacky/Nginx-UI"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5r62-gj48-897x",
+      "name": "Nginx UI: MCP configuration tools bypass restricted directive validation and allow secondary authent",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-5r62-gj48-897x",
+      "description": "Nginx UI: MCP configuration tools bypass restricted directive validation and allow secondary authenticated users to execute NJS in Nginx worker context",
+      "date": "2026-10-15",
+      "affected": [
+        "github.com/0xJacky/Nginx-UI"
+      ],
+      "references": [
+        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-5r62-gj48-897x",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-84319",
+        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
+        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
+        "https://github.com/advisories/GHSA-5r62-gj48-897x"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/0xJacky/Nginx-UI"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/0xJacky/Nginx-UI"
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
@@ -1336,7 +1517,38 @@
   ],
   "compromised_shas": {},
   "compromised_actions": {
-    "code.vikunja.io/api": "Vikunja: Permissive Cross-domain Security Policy trusts every localhost origin which should not be t"
+    "@tanstack/vue-start": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
+    "@tanstack/solid-start": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
+    "@tanstack/react-start": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
+    "@tanstack/start-server-core": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
+    "go.podman.io/podman/v6": "Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotat",
+    "github.com/containers/podman": "Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotat",
+    "github.com/drakkan/sftpgo/v2": "SFTPGo source-side file-pattern filter bypass during copy operations",
+    "@anthropic-ai/claude-code": "Claude Code: Plugin Hash Pin Bypass Allows Bypass of Hash Pinning",
+    "github.com/containerd/containerd/v2": "containerd: Unpack DoS via repeated opaque whiteouts",
+    "github.com/containerd/containerd": "containerd: Unpack DoS via repeated opaque whiteouts",
+    "github.com/distribution/distribution/v3": "Distribution: Client `manifests.Get()` does not verify returned content against requested digest",
+    "github.com/docker/distribution": "Distribution: Client `manifests.Get()` does not verify returned content against requested digest",
+    "@qwik.dev/core": "Qwik: Crashing any Qwik Server via Resource thenable",
+    "@builder.io/qwik": "Qwik: Crashing any Qwik Server via Resource thenable",
+    "@backstage/backend-defaults": "Backstage: Improper access control in backend action invocation",
+    "github.com/getkin/kin-openapi": "kin-openapi: Incomplete Fix for GHSA-p6wj-qrr4-pgh5: Three Unpatched nil-Items Panic Paths in openap",
+    "github.com/talos-systems/talos": "Talos Linux: Support bundle does not redact registry credentials",
+    "github.com/kedacore/keda/v2": "KEDA: Privilege escalation from namespace admin to cluster admin via KEDA TriggerAuthentication",
+    "github.com/kedacore/keda": "KEDA: Privilege escalation from namespace admin to cluster admin via KEDA TriggerAuthentication",
+    "github.com/argoproj/argo-cd/v3": "Argo CD: AppProject destination-namespace and resource restrictions bypassed by PreDelete/PostDelete",
+    "github.com/argoproj/argo-cd/v2": "Argo CD: AppProject destination-namespace and resource restrictions bypassed by PreDelete/PostDelete",
+    "@appium/support": "Appium: Symlink based Zip Slip in @appium/support ZIP extraction",
+    "github.com/dgraph-io/dgraph/v25": "Dgraph: Zero Unauthenticated HTTP Admin removeNode Denial of Service",
+    "vitess.io/vitess": "Vitess vttablet /twopcz reflected XSS",
+    "github.com/gotify/server/v3": "Gotify: Insufficiently Protected Password Change endpoint",
+    "github.com/gotify/server/v2": "Gotify: Insufficiently Protected Password Change endpoint",
+    "@opennextjs/cloudflare": "OpenNext Cloudflare: Cache interception can bypass middleware protection for encoded paths",
+    "github.com/nezhahq/nezha": "Nezha Monitoring: Whole-instance DoS in Nezha dashboard: a member can crash the process for every te",
+    "leantime/leantime": "Leantime: Any Authenticated User Can Self-Escalate to Admin via Unauthorized JSON-RPC Methods",
+    "github.com/dunglas/frankenphp": "FrankenPHP: Cross-request PHP session ID leak in worker mode when the session extension is a shared ",
+    "github.com/0xJacky/Nginx-UI": "Nginx UI: OTP secure-session step-up can be bypassed via MCP configuration tools",
+    "yourls/yourls": "YOURLS: Unauthenticated File Inclusion"
   },
   "malicious_packages": {
     "npm": {},
