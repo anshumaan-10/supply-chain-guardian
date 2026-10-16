@@ -1,8 +1,261 @@
 {
   "version": "2026.10.16",
-  "last_updated": "2026-10-16T16:06:30.165718+00:00",
+  "last_updated": "2026-10-16T20:30:58.136901+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-w5f2-9q9c-ff4h",
+      "name": "LMCache: Remote code execution via unsafe deserialization in multiprocess mode transport",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-w5f2-9q9c-ff4h",
+      "description": "LMCache: Remote code execution via unsafe deserialization in multiprocess mode transport",
+      "date": "2026-10-16",
+      "affected": [
+        "lmcache"
+      ],
+      "references": [
+        "https://github.com/LMCache/LMCache/security/advisories/GHSA-w5f2-9q9c-ff4h",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-105192",
+        "https://github.com/LMCache/LMCache/pull/5644",
+        "https://github.com/LMCache/LMCache/pull/5684",
+        "https://github.com/LMCache/LMCache/pull/5685",
+        "https://github.com/LMCache/LMCache/commit/160b6dec469edb765efd1fad42aca5a438b08bb5",
+        "https://github.com/LMCache/LMCache/commit/62f74c417dfe1ba56761733fd25dc8209a192f20",
+        "https://github.com/LMCache/LMCache/commit/767c7e367bbdc357c445cf7bd2ed259cff8d5865",
+        "https://blog.lmcache.ai/en/2026/10/13/an-update-on-cve-2026-105192",
+        "https://github.com/LMCache/LMCache/blob/v0.3.9/lmcache/v1/multiprocess/custom_types.py",
+        "https://github.com/LMCache/LMCache/blob/v0.5.5/lmcache/v1/platform/base/ipc_wrapper.py",
+        "https://research.jfrog.com/vulnerabilities/lmcache-is-vulnerable-to-unauthenticated-remote-code-execution-via-pickle-deserialization-on-the-multiprocess-zmq-transport-cve-2026-105192-jfsa-2026-001694382",
+        "https://github.com/advisories/GHSA-w5f2-9q9c-ff4h"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-74vm-87hj-r66f",
+      "name": "kin-openapi openapi3filter: nil-pointer panic in ValidateResponse on a response header declared with",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-74vm-87hj-r66f",
+      "description": "kin-openapi openapi3filter: nil-pointer panic in ValidateResponse on a response header declared with content",
+      "date": "2026-10-16",
+      "affected": [
+        "github.com/getkin/kin-openapi"
+      ],
+      "references": [
+        "https://github.com/getkin/kin-openapi/security/advisories/GHSA-74vm-87hj-r66f",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-100349",
+        "https://github.com/getkin/kin-openapi/commit/f5441d67f855ed34d975b3b85665764644ab1459",
+        "https://github.com/getkin/kin-openapi/releases/tag/v0.146.0",
+        "https://github.com/advisories/GHSA-74vm-87hj-r66f"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getkin/kin-openapi"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getkin/kin-openapi"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-4ch3-9j33-3pmj",
+      "name": "Wasmtime: WASI hard links bypass wasmtime-wasi's FilePerms for destination",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-4ch3-9j33-3pmj",
+      "description": "Wasmtime: WASI hard links bypass wasmtime-wasi's FilePerms for destination",
+      "date": "2026-10-16",
+      "affected": [
+        "wasmtime-wasi",
+        "wasmtime-wasi",
+        "wasmtime-wasi",
+        "wasmtime-wasi"
+      ],
+      "references": [
+        "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-4ch3-9j33-3pmj",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-58494",
+        "https://github.com/bytecodealliance/wasmtime/pull/13725",
+        "https://github.com/bytecodealliance/wasmtime/commit/5ddfd5f1ef28f2041fa07d237ad0336e167b0e0c",
+        "https://github.com/bytecodealliance/wasmtime/commit/7db94cdcf0c79cb3dfde884b534b653f2dd83367",
+        "https://github.com/bytecodealliance/wasmtime/commit/8a250aac0962ca1364b5f16525720e9d0b39edcd",
+        "https://github.com/bytecodealliance/wasmtime/commit/d3ceb56ec35f39e02496eeb4e2d9c7f4fb964d9e",
+        "https://github.com/bytecodealliance/wasmtime/releases/tag/v24.0.11",
+        "https://github.com/bytecodealliance/wasmtime/releases/tag/v36.0.12",
+        "https://github.com/bytecodealliance/wasmtime/releases/tag/v45.0.3",
+        "https://github.com/bytecodealliance/wasmtime/releases/tag/v46.0.1",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0188.html",
+        "https://github.com/advisories/GHSA-4ch3-9j33-3pmj"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6fj4-rcr3-r7rr",
+      "name": "lopdf has a stack overflow via deeply nested PDF objects",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-6fj4-rcr3-r7rr",
+      "description": "lopdf has a stack overflow via deeply nested PDF objects",
+      "date": "2026-10-16",
+      "affected": [
+        "lopdf"
+      ],
+      "references": [
+        "https://github.com/J-F-Liu/lopdf/issues/502",
+        "https://github.com/J-F-Liu/lopdf/pull/503",
+        "https://github.com/J-F-Liu/lopdf/commit/c755394ad7dd651ccfe77c618f90ab779da1dfd9",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0187.html",
+        "https://github.com/advisories/GHSA-6fj4-rcr3-r7rr"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rxjv-24xq-76wc",
+      "name": "JavaCV: Integer Overflow in IPCameraFrameGrabber Causes Infinite-Loop DoS",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-rxjv-24xq-76wc",
+      "description": "JavaCV: Integer Overflow in IPCameraFrameGrabber Causes Infinite-Loop DoS",
+      "date": "2026-10-16",
+      "affected": [
+        "org.bytedeco:javacv"
+      ],
+      "references": [
+        "https://github.com/bytedeco/javacv/security/advisories/GHSA-rxjv-24xq-76wc",
+        "https://github.com/bytedeco/javacv/commit/cd1977800b827beadf3c53c4032e57172845e0b4",
+        "https://github.com/bytedeco/javacv/releases/tag/1.5.14",
+        "https://github.com/advisories/GHSA-rxjv-24xq-76wc"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h4mw-j7qp-8mwm",
+      "name": "Claude Agent SDK: Argument Injection via resume Option Allows Arbitrary Command Execution",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-h4mw-j7qp-8mwm",
+      "description": "Claude Agent SDK: Argument Injection via resume Option Allows Arbitrary Command Execution",
+      "date": "2026-10-16",
+      "affected": [
+        "claude-agent-sdk"
+      ],
+      "references": [
+        "https://github.com/anthropics/claude-agent-sdk-python/security/advisories/GHSA-h4mw-j7qp-8mwm",
+        "https://github.com/anthropics/claude-agent-sdk-python/pull/1123",
+        "https://github.com/anthropics/claude-agent-sdk-python/commit/347a1cb88d7652199399db1b7f914e0a459a6662",
+        "https://github.com/anthropics/claude-agent-sdk-python/releases/tag/v0.2.121",
+        "https://github.com/advisories/GHSA-h4mw-j7qp-8mwm"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-74w3-63xv-x9mv",
+      "name": "CoreDNS `k8s_external` headless AXFR can emit an empty transfer batch that panics the `transfer` plu",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-74w3-63xv-x9mv",
+      "description": "CoreDNS `k8s_external` headless AXFR can emit an empty transfer batch that panics the `transfer` plugin",
+      "date": "2026-10-16",
+      "affected": [
+        "github.com/coredns/coredns"
+      ],
+      "references": [
+        "https://github.com/coredns/coredns/security/advisories/GHSA-74w3-63xv-x9mv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-62994",
+        "https://github.com/coredns/coredns/pull/8207",
+        "https://github.com/coredns/coredns/commit/ab318db7b4a3a19273852ed627f54888198c8efb",
+        "https://github.com/coredns/coredns/releases/tag/v1.14.5",
+        "https://github.com/advisories/GHSA-74w3-63xv-x9mv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/coredns/coredns"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/coredns/coredns"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vqff-r82h-9crc",
+      "name": "ckan-mcp-server: DataStore Table UI resource does not validate postMessage origin (in) and posts to ",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-vqff-r82h-9crc",
+      "description": "ckan-mcp-server: DataStore Table UI resource does not validate postMessage origin (in) and posts to targetOrigin \"*\" (out)",
+      "date": "2026-10-16",
+      "affected": [
+        "@aborruso/ckan-mcp-server"
+      ],
+      "references": [
+        "https://github.com/ondata/ckan-mcp-server/security/advisories/GHSA-vqff-r82h-9crc",
+        "https://github.com/advisories/GHSA-vqff-r82h-9crc"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@aborruso/ckan-mcp-server"
+          ]
+        },
+        "compromised_actions": [
+          "@aborruso/ckan-mcp-server"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-754j-98wh-57rf",
+      "name": "swoosh has email-derived URL path injection in Microsoft Graph endpoint",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-754j-98wh-57rf",
+      "description": "swoosh has email-derived URL path injection in Microsoft Graph endpoint",
+      "date": "2026-10-16",
+      "affected": [
+        "swoosh"
+      ],
+      "references": [
+        "https://github.com/swoosh/swoosh/security/advisories/GHSA-754j-98wh-57rf",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54893",
+        "https://github.com/swoosh/swoosh/commit/23bfcdab71aee4613858ba6d116bb3311b72aa58",
+        "https://github.com/swoosh/swoosh/commit/e38235453e81d1727bfc8d91e69ec4cb211ccf61",
+        "https://cna.erlef.org/cves/CVE-2026-54893.html",
+        "https://osv.dev/vulnerability/EEF-CVE-2026-54893",
+        "https://github.com/advisories/GHSA-754j-98wh-57rf"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vgf9-9mxx-hq54",
+      "name": "ClickMigrate has Path Traversal in \"revision -m\" argument",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-vgf9-9mxx-hq54",
+      "description": "ClickMigrate has Path Traversal in \"revision -m\" argument",
+      "date": "2026-10-16",
+      "affected": [
+        "ClickMigrate"
+      ],
+      "references": [
+        "https://github.com/QueueForge/ClickMigrate/security/advisories/GHSA-vgf9-9mxx-hq54",
+        "https://github.com/QueueForge/ClickMigrate/commit/6b1f2c0202630a82252b3331aa57e64327e112b6",
+        "https://github.com/advisories/GHSA-vgf9-9mxx-hq54"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-cv23-7vc5-jfh7",
       "name": "gomarkdown/markdown IsSafeURL panics on short URLs",
@@ -1225,296 +1478,13 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-cf23-7qxj-xmhr",
-      "name": "Nginx UI: nginx config directive denylist (ValidateConfigFile) is bypassable via same-line \";\" separ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-cf23-7qxj-xmhr",
-      "description": "Nginx UI: nginx config directive denylist (ValidateConfigFile) is bypassable via same-line \";\" separation \u2192 authenticated directive injection (RCE on the official image)",
-      "date": "2026-10-15",
-      "affected": [
-        "github.com/0xJacky/Nginx-UI"
-      ],
-      "references": [
-        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-cf23-7qxj-xmhr",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-84316",
-        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
-        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
-        "https://github.com/advisories/GHSA-cf23-7qxj-xmhr"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/0xJacky/Nginx-UI"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/0xJacky/Nginx-UI"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-84m7-p3x7-pcfv",
-      "name": "MCP Python SDK: Unbounded Session Accumulation in StreamableHTTP Transport Enables Resource Exhausti",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-84m7-p3x7-pcfv",
-      "description": "MCP Python SDK: Unbounded Session Accumulation in StreamableHTTP Transport Enables Resource Exhaustion",
-      "date": "2026-10-15",
-      "affected": [
-        "mcp",
-        "mcp"
-      ],
-      "references": [
-        "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-84m7-p3x7-pcfv",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-59951",
-        "https://github.com/modelcontextprotocol/python-sdk/pull/3395",
-        "https://github.com/modelcontextprotocol/python-sdk/pull/3426",
-        "https://github.com/modelcontextprotocol/python-sdk/commit/92120b4b0f50385af096592d7cee932fc1d994e7",
-        "https://github.com/modelcontextprotocol/python-sdk/commit/d2290ca3434731b68ea3e2270bc06a6e6575931b",
-        "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.30.0",
-        "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.2.0",
-        "https://github.com/advisories/GHSA-84m7-p3x7-pcfv"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f8ff-652m-j5rx",
-      "name": "YOURLS: Unauthenticated File Inclusion",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-f8ff-652m-j5rx",
-      "description": "YOURLS: Unauthenticated File Inclusion",
-      "date": "2026-10-15",
-      "affected": [
-        "yourls/yourls"
-      ],
-      "references": [
-        "https://github.com/YOURLS/YOURLS/security/advisories/GHSA-f8ff-652m-j5rx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-62858",
-        "https://github.com/YOURLS/YOURLS/pull/4142",
-        "https://github.com/YOURLS/YOURLS/commit/4e85972160a96e03a419a442d5bd8f21f2f02ddb",
-        "https://github.com/YOURLS/YOURLS/releases/tag/1.10.5",
-        "https://github.com/advisories/GHSA-f8ff-652m-j5rx"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "yourls/yourls"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-44xr-mrhh-qm78",
-      "name": "Nginx UI: Casdoor SSO callback uses a constant `state` parameter (login CSRF)",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-44xr-mrhh-qm78",
-      "description": "Nginx UI: Casdoor SSO callback uses a constant `state` parameter (login CSRF)",
-      "date": "2026-10-15",
-      "affected": [
-        "Nginx-UI"
-      ],
-      "references": [
-        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-44xr-mrhh-qm78",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-84312",
-        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
-        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
-        "https://github.com/advisories/GHSA-44xr-mrhh-qm78"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "Nginx-UI"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5v7c-xpfp-p65m",
-      "name": "Nginx UI OTP secure-session step-up is missing on sensitive mutation routes",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-5v7c-xpfp-p65m",
-      "description": "Nginx UI OTP secure-session step-up is missing on sensitive mutation routes",
-      "date": "2026-10-15",
-      "affected": [
-        "github.com/0xJacky/Nginx-UI"
-      ],
-      "references": [
-        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-5v7c-xpfp-p65m",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-84315",
-        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
-        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
-        "https://github.com/advisories/GHSA-5v7c-xpfp-p65m"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/0xJacky/Nginx-UI"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/0xJacky/Nginx-UI"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2gc7-j998-5xx6",
-      "name": "Nginx UI: Account Takeover via Missing `RequireSecureSession` on User Management Endpoint",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-2gc7-j998-5xx6",
-      "description": "Nginx UI: Account Takeover via Missing `RequireSecureSession` on User Management Endpoint",
-      "date": "2026-10-15",
-      "affected": [
-        "github.com/0xJacky/Nginx-UI"
-      ],
-      "references": [
-        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-2gc7-j998-5xx6",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-84314",
-        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
-        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
-        "https://github.com/advisories/GHSA-2gc7-j998-5xx6"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/0xJacky/Nginx-UI"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/0xJacky/Nginx-UI"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gfrc-g87h-7h5w",
-      "name": "Nginx UI: TOTP / passkey enrolment requires no re-authentication, enabling persistent account takeov",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-gfrc-g87h-7h5w",
-      "description": "Nginx UI: TOTP / passkey enrolment requires no re-authentication, enabling persistent account takeover",
-      "date": "2026-10-15",
-      "affected": [
-        "Nginx-UI"
-      ],
-      "references": [
-        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-gfrc-g87h-7h5w",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-84313",
-        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
-        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
-        "https://github.com/advisories/GHSA-gfrc-g87h-7h5w"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "Nginx-UI"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9jww-cxg5-rj9m",
-      "name": "Nginx UI: MCP `nginx_config_add` Bypasses Directive Validation \u2014 Authenticated RCE",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-9jww-cxg5-rj9m",
-      "description": "Nginx UI: MCP `nginx_config_add` Bypasses Directive Validation \u2014 Authenticated RCE",
-      "date": "2026-10-15",
-      "affected": [
-        "github.com/0xJacky/Nginx-UI"
-      ],
-      "references": [
-        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-9jww-cxg5-rj9m",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-84318",
-        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
-        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
-        "https://github.com/advisories/GHSA-9jww-cxg5-rj9m"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/0xJacky/Nginx-UI"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/0xJacky/Nginx-UI"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-76pm-mq2q-9gcr",
-      "name": "Nginx UI: MCP nginx_config_add skips config directive validation \u2192 authenticated nginx directive inj",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-76pm-mq2q-9gcr",
-      "description": "Nginx UI: MCP nginx_config_add skips config directive validation \u2192 authenticated nginx directive injection (RCE on the official image)",
-      "date": "2026-10-15",
-      "affected": [
-        "github.com/0xJacky/Nginx-UI"
-      ],
-      "references": [
-        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-76pm-mq2q-9gcr",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-84317",
-        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
-        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
-        "https://github.com/advisories/GHSA-76pm-mq2q-9gcr"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/0xJacky/Nginx-UI"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/0xJacky/Nginx-UI"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jrq7-xrjx-pcfw",
-      "name": "Nginx UI: Auto backup name allows path traversal outside validated storage path",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-jrq7-xrjx-pcfw",
-      "description": "Nginx UI: Auto backup name allows path traversal outside validated storage path",
-      "date": "2026-10-15",
-      "affected": [
-        "github.com/0xJacky/Nginx-UI"
-      ],
-      "references": [
-        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-jrq7-xrjx-pcfw",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-84320",
-        "https://github.com/0xJacky/nginx-ui/commit/f92218e01054491fc1e6684dc6f7facaf8ab41eb",
-        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.3",
-        "https://github.com/advisories/GHSA-jrq7-xrjx-pcfw"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/0xJacky/Nginx-UI"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/0xJacky/Nginx-UI"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/getkin/kin-openapi": "kin-openapi openapi3filter: nil-pointer panic in ValidateResponse on a response header declared with",
+    "github.com/coredns/coredns": "CoreDNS `k8s_external` headless AXFR can emit an empty transfer batch that panics the `transfer` plu",
+    "@aborruso/ckan-mcp-server": "ckan-mcp-server: DataStore Table UI resource does not validate postMessage origin (in) and posts to ",
     "github.com/gomarkdown/markdown": "gomarkdown/markdown IsSafeURL panics on short URLs",
     "@tanstack/vue-start": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
     "@tanstack/solid-start": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
@@ -1531,7 +1501,6 @@
     "@qwik.dev/core": "Qwik: Crashing any Qwik Server via Resource thenable",
     "@builder.io/qwik": "Qwik: Crashing any Qwik Server via Resource thenable",
     "@backstage/backend-defaults": "Backstage: Improper access control in backend action invocation",
-    "github.com/getkin/kin-openapi": "kin-openapi: Incomplete Fix for GHSA-p6wj-qrr4-pgh5: Three Unpatched nil-Items Panic Paths in openap",
     "github.com/talos-systems/talos": "Talos Linux: Support bundle does not redact registry credentials",
     "github.com/kedacore/keda/v2": "KEDA: Privilege escalation from namespace admin to cluster admin via KEDA TriggerAuthentication",
     "github.com/kedacore/keda": "KEDA: Privilege escalation from namespace admin to cluster admin via KEDA TriggerAuthentication",
@@ -1546,8 +1515,7 @@
     "github.com/nezhahq/nezha": "Nezha Monitoring: Whole-instance DoS in Nezha dashboard: a member can crash the process for every te",
     "leantime/leantime": "Leantime: Any Authenticated User Can Self-Escalate to Admin via Unauthorized JSON-RPC Methods",
     "github.com/dunglas/frankenphp": "FrankenPHP: Cross-request PHP session ID leak in worker mode when the session extension is a shared ",
-    "github.com/0xJacky/Nginx-UI": "Nginx UI: OTP secure-session step-up can be bypassed via MCP configuration tools",
-    "yourls/yourls": "YOURLS: Unauthenticated File Inclusion"
+    "github.com/0xJacky/Nginx-UI": "Nginx UI: OTP secure-session step-up can be bypassed via MCP configuration tools"
   },
   "malicious_packages": {
     "npm": {},
