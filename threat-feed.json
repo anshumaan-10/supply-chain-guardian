@@ -1,8 +1,36 @@
 {
   "version": "2026.10.16",
-  "last_updated": "2026-10-16T10:43:54.434602+00:00",
+  "last_updated": "2026-10-16T16:06:30.165718+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-cv23-7vc5-jfh7",
+      "name": "gomarkdown/markdown IsSafeURL panics on short URLs",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-cv23-7vc5-jfh7",
+      "description": "gomarkdown/markdown IsSafeURL panics on short URLs",
+      "date": "2026-10-16",
+      "affected": [
+        "github.com/gomarkdown/markdown"
+      ],
+      "references": [
+        "https://github.com/gomarkdown/markdown/security/advisories/GHSA-cv23-7vc5-jfh7",
+        "https://github.com/gomarkdown/markdown/commit/61af6e1e69710c5ca13cfbaaaa1bc11bc763a8a9",
+        "https://github.com/advisories/GHSA-cv23-7vc5-jfh7"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/gomarkdown/markdown"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/gomarkdown/markdown"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-qx66-fv34-fjm8",
       "name": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
@@ -1483,40 +1511,11 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5r62-gj48-897x",
-      "name": "Nginx UI: MCP configuration tools bypass restricted directive validation and allow secondary authent",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-5r62-gj48-897x",
-      "description": "Nginx UI: MCP configuration tools bypass restricted directive validation and allow secondary authenticated users to execute NJS in Nginx worker context",
-      "date": "2026-10-15",
-      "affected": [
-        "github.com/0xJacky/Nginx-UI"
-      ],
-      "references": [
-        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-5r62-gj48-897x",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-84319",
-        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
-        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
-        "https://github.com/advisories/GHSA-5r62-gj48-897x"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/0xJacky/Nginx-UI"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/0xJacky/Nginx-UI"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/gomarkdown/markdown": "gomarkdown/markdown IsSafeURL panics on short URLs",
     "@tanstack/vue-start": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
     "@tanstack/solid-start": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
     "@tanstack/react-start": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
