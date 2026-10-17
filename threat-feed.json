@@ -1,8 +1,68 @@
 {
-  "version": "2026.10.16",
-  "last_updated": "2026-10-16T20:30:58.136901+00:00",
+  "version": "2026.10.17",
+  "last_updated": "2026-10-17T03:03:45.511882+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-pw5q-rjx4-7f7p",
+      "name": "Arcane: Delegated users:update permission allows admin account takeover via password reset (no privi",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-pw5q-rjx4-7f7p",
+      "description": "Arcane: Delegated users:update permission allows admin account takeover via password reset (no privilege-hierarchy check)",
+      "date": "2026-10-16",
+      "affected": [
+        "github.com/getarcaneapp/arcane/backend/v2"
+      ],
+      "references": [
+        "https://github.com/getarcaneapp/arcane/security/advisories/GHSA-pw5q-rjx4-7f7p",
+        "https://github.com/getarcaneapp/arcane/pull/3426",
+        "https://github.com/getarcaneapp/arcane/commit/21ea962f86d967dac8ae02a050f6e5f043d10fa1",
+        "https://github.com/getarcaneapp/arcane/releases/tag/backend/v2.6.0",
+        "https://github.com/advisories/GHSA-pw5q-rjx4-7f7p"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getarcaneapp/arcane/backend/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getarcaneapp/arcane/backend/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-mp22-58ff-6fhr",
+      "name": "Arcane: Environment access token bypasses the admin-required authorization gate on `/api/debug/pprof",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-mp22-58ff-6fhr",
+      "description": "Arcane: Environment access token bypasses the admin-required authorization gate on `/api/debug/pprof`",
+      "date": "2026-10-16",
+      "affected": [
+        "github.com/getarcaneapp/arcane/backend/v2"
+      ],
+      "references": [
+        "https://github.com/getarcaneapp/arcane/security/advisories/GHSA-mp22-58ff-6fhr",
+        "https://github.com/getarcaneapp/arcane/pull/3881",
+        "https://github.com/getarcaneapp/arcane/commit/4fe4c7ed9483dff7d43e3c4bee6a92037ce886b4",
+        "https://github.com/getarcaneapp/arcane/releases/tag/backend/v2.11.0",
+        "https://github.com/advisories/GHSA-mp22-58ff-6fhr"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/getarcaneapp/arcane/backend/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/getarcaneapp/arcane/backend/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-w5f2-9q9c-ff4h",
       "name": "LMCache: Remote code execution via unsafe deserialization in multiprocess mode transport",
@@ -1418,70 +1478,11 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vc32-4gwf-77xp",
-      "name": "Nginx UI: OTP secure-session step-up can be bypassed via MCP configuration tools",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-vc32-4gwf-77xp",
-      "description": "Nginx UI: OTP secure-session step-up can be bypassed via MCP configuration tools",
-      "date": "2026-10-15",
-      "affected": [
-        "github.com/0xJacky/Nginx-UI"
-      ],
-      "references": [
-        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-vc32-4gwf-77xp",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-84360",
-        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
-        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
-        "https://github.com/advisories/GHSA-vc32-4gwf-77xp"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/0xJacky/Nginx-UI"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/0xJacky/Nginx-UI"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wq4w-vwvq-q3x9",
-      "name": "Nginx UI: Standalone short tokens survive administrative revocation in cache and authenticate again ",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-wq4w-vwvq-q3x9",
-      "description": "Nginx UI: Standalone short tokens survive administrative revocation in cache and authenticate again after account re-enable",
-      "date": "2026-10-15",
-      "affected": [
-        "github.com/0xJacky/Nginx-UI"
-      ],
-      "references": [
-        "https://github.com/0xJacky/nginx-ui/security/advisories/GHSA-wq4w-vwvq-q3x9",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-84321",
-        "https://github.com/0xJacky/nginx-ui/commit/23d1934099b05b2a01589b48129dc3d3159d91c2",
-        "https://github.com/0xJacky/nginx-ui/releases/tag/v2.4.1",
-        "https://github.com/advisories/GHSA-wq4w-vwvq-q3x9"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/0xJacky/Nginx-UI"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/0xJacky/Nginx-UI"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/getarcaneapp/arcane/backend/v2": "Arcane: Delegated users:update permission allows admin account takeover via password reset (no privi",
     "github.com/getkin/kin-openapi": "kin-openapi openapi3filter: nil-pointer panic in ValidateResponse on a response header declared with",
     "github.com/coredns/coredns": "CoreDNS `k8s_external` headless AXFR can emit an empty transfer batch that panics the `transfer` plu",
     "@aborruso/ckan-mcp-server": "ckan-mcp-server: DataStore Table UI resource does not validate postMessage origin (in) and posts to ",
@@ -1514,8 +1515,7 @@
     "@opennextjs/cloudflare": "OpenNext Cloudflare: Cache interception can bypass middleware protection for encoded paths",
     "github.com/nezhahq/nezha": "Nezha Monitoring: Whole-instance DoS in Nezha dashboard: a member can crash the process for every te",
     "leantime/leantime": "Leantime: Any Authenticated User Can Self-Escalate to Admin via Unauthorized JSON-RPC Methods",
-    "github.com/dunglas/frankenphp": "FrankenPHP: Cross-request PHP session ID leak in worker mode when the session extension is a shared ",
-    "github.com/0xJacky/Nginx-UI": "Nginx UI: OTP secure-session step-up can be bypassed via MCP configuration tools"
+    "github.com/dunglas/frankenphp": "FrankenPHP: Cross-request PHP session ID leak in worker mode when the session extension is a shared "
   },
   "malicious_packages": {
     "npm": {},
