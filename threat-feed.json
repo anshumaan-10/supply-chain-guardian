@@ -1,8 +1,138 @@
 {
   "version": "2026.10.21",
-  "last_updated": "2026-10-21T11:11:53.058697+00:00",
+  "last_updated": "2026-10-21T16:38:22.178523+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-crwc-vw2r-qr6m",
+      "name": "OGNL stricter-invocation block list bypass via java.lang.reflect reflection proxies",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-crwc-vw2r-qr6m",
+      "description": "OGNL stricter-invocation block list bypass via java.lang.reflect reflection proxies",
+      "date": "2026-10-21",
+      "affected": [
+        "ognl:ognl"
+      ],
+      "references": [
+        "https://github.com/orphan-oss/ognl/security/advisories/GHSA-crwc-vw2r-qr6m",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-113730",
+        "https://github.com/orphan-oss/ognl/commit/16396fa4b560221294c2ab9ca04b76b161115e7d",
+        "https://github.com/orphan-oss/ognl/commit/f4c17f794754d516ea799c36ed8524d1b7fb98e2",
+        "https://github.com/orphan-oss/ognl/releases/tag/OGNL_3_4_13",
+        "https://github.com/advisories/GHSA-crwc-vw2r-qr6m"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-46r4-q7wv-32fc",
+      "name": "OpenChoreo: Authorization bypass on WorkflowRun update allows cross-project takeover of workflow run",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-46r4-q7wv-32fc",
+      "description": "OpenChoreo: Authorization bypass on WorkflowRun update allows cross-project takeover of workflow runs",
+      "date": "2026-10-21",
+      "affected": [
+        "github.com/openchoreo/openchoreo",
+        "github.com/openchoreo/openchoreo",
+        "github.com/openchoreo/openchoreo"
+      ],
+      "references": [
+        "https://github.com/openchoreo/openchoreo/security/advisories/GHSA-46r4-q7wv-32fc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-113727",
+        "https://github.com/openchoreo/openchoreo/pull/4596",
+        "https://github.com/openchoreo/openchoreo/pull/4618",
+        "https://github.com/openchoreo/openchoreo/pull/4626",
+        "https://github.com/openchoreo/openchoreo/pull/4627",
+        "https://github.com/openchoreo/openchoreo/commit/0e311468bb704b0dce7753b89c9d0204009285ca",
+        "https://github.com/openchoreo/openchoreo/commit/477031c6fece0666f144942fb02c0b579dacc0bb",
+        "https://github.com/openchoreo/openchoreo/commit/91e1e868eb8e0e67274109018d00a767b22eda14",
+        "https://github.com/openchoreo/openchoreo/commit/d5ed0ef62d9c9af7b05a72aed2bcbc0ac9d45426",
+        "https://github.com/openchoreo/openchoreo/releases/tag/v1.0.6",
+        "https://github.com/openchoreo/openchoreo/releases/tag/v1.1.7",
+        "https://github.com/openchoreo/openchoreo/releases/tag/v1.2.5",
+        "https://github.com/advisories/GHSA-46r4-q7wv-32fc"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/openchoreo/openchoreo",
+            "github.com/openchoreo/openchoreo",
+            "github.com/openchoreo/openchoreo"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/openchoreo/openchoreo",
+          "github.com/openchoreo/openchoreo",
+          "github.com/openchoreo/openchoreo"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5588-rp99-5fjh",
+      "name": "Moov signedxml: Unauthenticated denial of service in exclusive XML canonicalization",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-5588-rp99-5fjh",
+      "description": "Moov signedxml: Unauthenticated denial of service in exclusive XML canonicalization",
+      "date": "2026-10-21",
+      "affected": [
+        "github.com/moov-io/signedxml"
+      ],
+      "references": [
+        "https://github.com/moov-io/signedxml/security/advisories/GHSA-5588-rp99-5fjh",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-113729",
+        "https://github.com/moov-io/signedxml/commit/da2cd6126c4c53b7e59a367d287786e6f6a2d0d3",
+        "https://github.com/moov-io/signedxml/releases/tag/v1.4.1",
+        "https://github.com/advisories/GHSA-5588-rp99-5fjh"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/moov-io/signedxml"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/moov-io/signedxml"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-86wm-68pq-5jwq",
+      "name": "ApostropheCMS: Unauthenticated resource exhaustion via pre-auth aposBigUpload processing in @apostro",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-86wm-68pq-5jwq",
+      "description": "ApostropheCMS: Unauthenticated resource exhaustion via pre-auth aposBigUpload processing in @apostrophecms/import-export",
+      "date": "2026-10-21",
+      "affected": [
+        "@apostrophecms/import-export",
+        "apostrophe"
+      ],
+      "references": [
+        "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-86wm-68pq-5jwq",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-113711",
+        "https://github.com/apostrophecms/apostrophe/commit/9500b8b0e1d630d5e07fbb5fd2c25ed0943845ce",
+        "https://github.com/apostrophecms/apostrophe/commit/f84fd41cbf6c22eb8d0008fc9c25df1f7130b350",
+        "https://github.com/apostrophecms/apostrophe/releases/tag/apostrophe@4.33.0",
+        "https://github.com/advisories/GHSA-86wm-68pq-5jwq"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@apostrophecms/import-export",
+            "apostrophe"
+          ]
+        },
+        "compromised_actions": [
+          "@apostrophecms/import-export"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-x397-5hrv-j9m9",
       "name": "Cachet has Stored XSS in Incident Component",
@@ -1213,137 +1343,20 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-527g-ff96-x6wj",
-      "name": "ApostropheCMS: Host header controls server-side image fetch origin in @apostrophecms/ai-helper, enab",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-527g-ff96-x6wj",
-      "description": "ApostropheCMS: Host header controls server-side image fetch origin in @apostrophecms/ai-helper, enabling authenticated SSRF",
-      "date": "2026-10-20",
-      "affected": [
-        "@apostrophecms/ai-helper"
-      ],
-      "references": [
-        "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-527g-ff96-x6wj",
-        "https://github.com/apostrophecms/apostrophe/commit/9500b8b0e1d630d5e07fbb5fd2c25ed0943845ce",
-        "https://github.com/apostrophecms/apostrophe/commit/f84fd41cbf6c22eb8d0008fc9c25df1f7130b350",
-        "https://github.com/apostrophecms/apostrophe/releases/tag/@apostrophecms/ai-helper@1.0.0-beta.13",
-        "https://github.com/advisories/GHSA-527g-ff96-x6wj"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@apostrophecms/ai-helper"
-          ]
-        },
-        "compromised_actions": [
-          "@apostrophecms/ai-helper"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-qhcq-9pm2-c9w9",
-      "name": "ApostropheCMS: Unauthenticated CSV import requests leave rejected uploads in the system temporary di",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-qhcq-9pm2-c9w9",
-      "description": "ApostropheCMS: Unauthenticated CSV import requests leave rejected uploads in the system temporary directory",
-      "date": "2026-10-20",
-      "affected": [
-        "apostrophe"
-      ],
-      "references": [
-        "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-qhcq-9pm2-c9w9",
-        "https://github.com/apostrophecms/apostrophe/commit/9500b8b0e1d630d5e07fbb5fd2c25ed0943845ce",
-        "https://github.com/apostrophecms/apostrophe/commit/f84fd41cbf6c22eb8d0008fc9c25df1f7130b350",
-        "https://github.com/apostrophecms/apostrophe/releases/tag/apostrophe@4.33.0",
-        "https://github.com/advisories/GHSA-qhcq-9pm2-c9w9"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "apostrophe"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hhvr-8m24-qqr3",
-      "name": "ApostropheCMS: Cross-domain session token in URL confers session takeover",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-hhvr-8m24-qqr3",
-      "description": "ApostropheCMS: Cross-domain session token in URL confers session takeover",
-      "date": "2026-10-20",
-      "affected": [
-        "@apostrophecms/passport-bridge",
-        "apostrophe"
-      ],
-      "references": [
-        "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-hhvr-8m24-qqr3",
-        "https://github.com/advisories/GHSA-hhvr-8m24-qqr3"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@apostrophecms/passport-bridge",
-            "apostrophe"
-          ]
-        },
-        "compromised_actions": [
-          "@apostrophecms/passport-bridge"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-89mh-mm8c-mv7f",
-      "name": "ApostropheCMS: Unauthenticated unbounded multipart upload \u2192 disk-exhaustion DoS",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-89mh-mm8c-mv7f",
-      "description": "ApostropheCMS: Unauthenticated unbounded multipart upload \u2192 disk-exhaustion DoS",
-      "date": "2026-10-20",
-      "affected": [
-        "@apostrophecms/form"
-      ],
-      "references": [
-        "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-89mh-mm8c-mv7f",
-        "https://github.com/apostrophecms/apostrophe/commit/9500b8b0e1d630d5e07fbb5fd2c25ed0943845ce",
-        "https://github.com/apostrophecms/apostrophe/commit/f84fd41cbf6c22eb8d0008fc9c25df1f7130b350",
-        "https://github.com/apostrophecms/apostrophe/releases/tag/@apostrophecms/form@1.5.5",
-        "https://github.com/advisories/GHSA-89mh-mm8c-mv7f"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@apostrophecms/form"
-          ]
-        },
-        "compromised_actions": [
-          "@apostrophecms/form"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/openchoreo/openchoreo": "OpenChoreo: Authorization bypass on WorkflowRun update allows cross-project takeover of workflow run",
+    "github.com/moov-io/signedxml": "Moov signedxml: Unauthenticated denial of service in exclusive XML canonicalization",
+    "@apostrophecms/import-export": "ApostropheCMS: Unauthenticated resource exhaustion via pre-auth aposBigUpload processing in @apostro",
     "cachethq/cachet": "Cachet has Stored XSS in Incident Component",
     "@angular/common": "@angular/common: XSRF Token Leakage via URL Parsing Discrepancy in Angular HTTP Client (Incomplete f",
     "@modelcontextprotocol/server": "MCP  TypeScript server SDK: Shared transport or server instances delivered one HTTP client's message",
     "@modelcontextprotocol/sdk": "MCP TypeScript SDK: One HTTP request within the default size limit could exhaust server memory durin",
     "@modelcontextprotocol/server-legacy": "MCP TypeScript SDK: Server bearer authentication accepted tokens issued for another service",
     "@modelcontextprotocol/express": "MCP TypeScript SDK: Server bearer authentication accepted tokens issued for another service",
-    "@modelcontextprotocol/client": "MCP TypeScript client SDK: HTTP client transports and OAuth requests followed cross-origin redirects",
-    "@apostrophecms/import-export": "ApostropheCMS import-export tar guard misses './..' because it is a literal '../' substring test",
-    "@apostrophecms/ai-helper": "ApostropheCMS: Host header controls server-side image fetch origin in @apostrophecms/ai-helper, enab",
-    "@apostrophecms/passport-bridge": "ApostropheCMS: Cross-domain session token in URL confers session takeover",
-    "@apostrophecms/form": "ApostropheCMS: Unauthenticated unbounded multipart upload \u2192 disk-exhaustion DoS"
+    "@modelcontextprotocol/client": "MCP TypeScript client SDK: HTTP client transports and OAuth requests followed cross-origin redirects"
   },
   "malicious_packages": {
     "npm": {},
