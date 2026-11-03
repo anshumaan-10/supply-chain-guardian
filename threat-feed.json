@@ -1,8 +1,71 @@
 {
-  "version": "2026.11.02",
-  "last_updated": "2026-11-02T14:48:00.930174+00:00",
+  "version": "2026.11.03",
+  "last_updated": "2026-11-03T00:31:46.380011+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-j656-3hf2-fvjc",
+      "name": "DBHub: MySQL and MariaDB comment interpretation bypasses read-only SQL validation",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-j656-3hf2-fvjc",
+      "description": "DBHub: MySQL and MariaDB comment interpretation bypasses read-only SQL validation",
+      "date": "2026-11-02",
+      "affected": [
+        "@bytebase/dbhub"
+      ],
+      "references": [
+        "https://github.com/bytebase/dbhub/security/advisories/GHSA-j656-3hf2-fvjc",
+        "https://github.com/bytebase/dbhub/pull/342",
+        "https://github.com/bytebase/dbhub/commit/872bb338f7d31f6afe517a076ac3e3edafaaaf08",
+        "https://github.com/bytebase/dbhub/releases/tag/v0.22.6",
+        "https://github.com/advisories/GHSA-j656-3hf2-fvjc"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@bytebase/dbhub"
+          ]
+        },
+        "compromised_actions": [
+          "@bytebase/dbhub"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f9j6-8p6x-r9j6",
+      "name": "SD JWT JS: Tampered disclosures silently dropped instead of rejected",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-f9j6-8p6x-r9j6",
+      "description": "SD JWT JS: Tampered disclosures silently dropped instead of rejected",
+      "date": "2026-11-02",
+      "affected": [
+        "@sd-jwt/core",
+        "@sd-jwt/decode"
+      ],
+      "references": [
+        "https://github.com/openwallet-foundation/sd-jwt-js/security/advisories/GHSA-f9j6-8p6x-r9j6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-62374",
+        "https://github.com/openwallet-foundation/sd-jwt-js/pull/380",
+        "https://github.com/openwallet-foundation/sd-jwt-js/commit/3d8a72a0a279d67439db038c9c2b52621568b866",
+        "https://github.com/advisories/GHSA-f9j6-8p6x-r9j6"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@sd-jwt/core",
+            "@sd-jwt/decode"
+          ]
+        },
+        "compromised_actions": [
+          "@sd-jwt/core",
+          "@sd-jwt/decode"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-8fmv-6rg5-5924",
       "name": "Kubeflow Pipelines: Pipeline archive upload allows decompression bomb to exhaust server memory",
@@ -1251,71 +1314,20 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9gh4-xw24-9xh5",
-      "name": "OpenWISP Controller CA CRL REST API does not scope requests to managed organizations",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-9gh4-xw24-9xh5",
-      "description": "OpenWISP Controller CA CRL REST API does not scope requests to managed organizations",
-      "date": "2026-10-30",
-      "affected": [
-        "openwisp-controller"
-      ],
-      "references": [
-        "https://github.com/openwisp/openwisp-controller/security/advisories/GHSA-9gh4-xw24-9xh5",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-116677",
-        "https://github.com/openwisp/openwisp-controller/commit/90ded783267aa11b89768b0ec9ae69895cc3730c",
-        "https://github.com/openwisp/openwisp-controller/commit/9e1869e17734a0f34bc428622d463c1a8c230720",
-        "https://github.com/openwisp/openwisp-controller/releases/tag/1.3.2",
-        "https://github.com/advisories/GHSA-9gh4-xw24-9xh5"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-g5jq-qmqr-qrwf",
-      "name": "Fiber: CORS wildcard origins matched without a dot boundary, allowing credentialed cross-origin read",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-g5jq-qmqr-qrwf",
-      "description": "Fiber: CORS wildcard origins matched without a dot boundary, allowing credentialed cross-origin reads",
-      "date": "2026-10-30",
-      "affected": [
-        "github.com/gofiber/fiber/v2"
-      ],
-      "references": [
-        "https://github.com/gofiber/fiber/security/advisories/GHSA-g5jq-qmqr-qrwf",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119285",
-        "https://github.com/gofiber/fiber/pull/2915",
-        "https://github.com/gofiber/fiber/commit/1aac6f618b6bd3e159d2449acb4232a2170b976b",
-        "https://github.com/gofiber/fiber/releases/tag/v2.52.3",
-        "https://github.com/advisories/GHSA-g5jq-qmqr-qrwf"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/gofiber/fiber/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/gofiber/fiber/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@bytebase/dbhub": "DBHub: MySQL and MariaDB comment interpretation bypasses read-only SQL validation",
+    "@sd-jwt/core": "SD JWT JS: Tampered disclosures silently dropped instead of rejected",
+    "@sd-jwt/decode": "SD JWT JS: Tampered disclosures silently dropped instead of rejected",
     "github.com/kubeflow/pipelines": "Kubeflow Pipelines: Pipeline archive upload allows decompression bomb to exhaust server memory",
     "@hapi/joi": "joi: quadratic-time split in `string().email({ multiple: true })` allows denial of service",
     "@hapi/content": "@hapi/content: quadratic-time parsing of Content-Disposition parameters allows denial of service",
     "phpunit/phpunit": "PHPUnit vulnerable to code execution by other local users via shared temporary directory in PHPT cod",
     "@nuxt/vite-builder": "Nuxt dev server exposes generated appSecret through Vite file serving",
     "@nuxt/nitro-server": "Nuxt: Dot segments in the request path bypass `server/middleware` path checks and server route rules",
-    "@sigstore/oci": "@sigstore/oci sends the registry Authorization header to a cross-host blob-upload Location",
-    "github.com/gofiber/fiber/v2": "Fiber: CORS wildcard origins matched without a dot boundary, allowing credentialed cross-origin read"
+    "@sigstore/oci": "@sigstore/oci sends the registry Authorization header to a cross-host blob-upload Location"
   },
   "malicious_packages": {
     "npm": {},
