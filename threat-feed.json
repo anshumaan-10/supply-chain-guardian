@@ -1,8 +1,292 @@
 {
   "version": "2026.11.03",
-  "last_updated": "2026-11-03T13:39:08.623417+00:00",
+  "last_updated": "2026-11-03T22:54:56.471657+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-gh9r-c94j-cmp5",
+      "name": "Stanza: RCE via pickle deserialization in the lemmatizer",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-gh9r-c94j-cmp5",
+      "description": "Stanza: RCE via pickle deserialization in the lemmatizer",
+      "date": "2026-11-03",
+      "affected": [
+        "stanza"
+      ],
+      "references": [
+        "https://github.com/stanfordnlp/stanza/security/advisories/GHSA-gh9r-c94j-cmp5",
+        "https://github.com/stanfordnlp/stanza/pull/1649",
+        "https://github.com/stanfordnlp/stanza/commit/b21e1c9b47b4fccff21d3b0a6c0687a19410c2f0",
+        "https://github.com/stanfordnlp/stanza/releases/tag/v1.15.0",
+        "https://github.com/advisories/GHSA-gh9r-c94j-cmp5"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-33r5-xmm8-v6x5",
+      "name": "Elo JavaScript emitter has sandbox escape to arbitrary Node.js / browser code execution via unfilter",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-33r5-xmm8-v6x5",
+      "description": "Elo JavaScript emitter has sandbox escape to arbitrary Node.js / browser code execution via unfiltered `.constructor` member access",
+      "date": "2026-11-03",
+      "affected": [
+        "@enspirit/elo"
+      ],
+      "references": [
+        "https://github.com/enspirit/elo/security/advisories/GHSA-33r5-xmm8-v6x5",
+        "https://github.com/advisories/GHSA-33r5-xmm8-v6x5"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@enspirit/elo"
+          ]
+        },
+        "compromised_actions": [
+          "@enspirit/elo"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7w38-ggh5-v542",
+      "name": "Elo Ruby backend has Remote Code Execution via unescaped `#{...}` interpolation in emitted string li",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-7w38-ggh5-v542",
+      "description": "Elo Ruby backend has Remote Code Execution via unescaped `#{...}` interpolation in emitted string literals and subtype-constraint labels",
+      "date": "2026-11-03",
+      "affected": [
+        "@enspirit/elo"
+      ],
+      "references": [
+        "https://github.com/enspirit/elo/security/advisories/GHSA-7w38-ggh5-v542",
+        "https://github.com/enspirit/elo/commit/51b869963fbe445c18328714a7ccfbd76b21ba38",
+        "https://github.com/enspirit/elo/commit/d2a89a8db76a244eb740687524a7e8529b7554b5",
+        "https://github.com/advisories/GHSA-7w38-ggh5-v542"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@enspirit/elo"
+          ]
+        },
+        "compromised_actions": [
+          "@enspirit/elo"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-x9rp-7wh3-2rj5",
+      "name": "Elo backends have code injection via unvalidated emission of programmatic AST fields",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-x9rp-7wh3-2rj5",
+      "description": "Elo backends have code injection via unvalidated emission of programmatic AST fields",
+      "date": "2026-11-03",
+      "affected": [
+        "@enspirit/elo"
+      ],
+      "references": [
+        "https://github.com/enspirit/elo/security/advisories/GHSA-x9rp-7wh3-2rj5",
+        "https://github.com/enspirit/elo/commit/d2a89a8db76a244eb740687524a7e8529b7554b5",
+        "https://github.com/enspirit/elo/commit/fb57dd37a2669d9c412454225c5b89a2adba5d93",
+        "https://github.com/advisories/GHSA-x9rp-7wh3-2rj5"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@enspirit/elo"
+          ]
+        },
+        "compromised_actions": [
+          "@enspirit/elo"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-p3jp-9v83-76w9",
+      "name": "Microsoft Security Advisory CVE-2026-111497 - .NET Brotli Decoder Out-of-bounds Write Vulnerability",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-p3jp-9v83-76w9",
+      "description": "Microsoft Security Advisory CVE-2026-111497 - .NET Brotli Decoder Out-of-bounds Write Vulnerability",
+      "date": "2026-11-03",
+      "affected": [
+        "Microsoft.NETCore.App.Runtime.win-x86",
+        "Microsoft.NETCore.App.Runtime.win-x64",
+        "Microsoft.NETCore.App.Runtime.win-arm64",
+        "Microsoft.NETCore.App.Runtime.tvossimulator-x64",
+        "Microsoft.NETCore.App.Runtime.tvossimulator-arm64",
+        "Microsoft.NETCore.App.Runtime.tvos-arm64",
+        "Microsoft.NETCore.App.Runtime.osx-x64",
+        "Microsoft.NETCore.App.Runtime.osx-arm64",
+        "Microsoft.NETCore.App.Runtime.maccatalyst-x64",
+        "Microsoft.NETCore.App.Runtime.maccatalyst-arm64"
+      ],
+      "references": [
+        "https://github.com/dotnet/runtime/security/advisories/GHSA-p3jp-9v83-76w9",
+        "https://github.com/dotnet/announcements/issues/494",
+        "https://github.com/dotnet/runtime/issues/136446",
+        "https://github.com/dotnet/runtime/pull/136471",
+        "https://github.com/dotnet/runtime/commit/f3d8b2f230bc7c9899df6eef2d41e2748107cffa",
+        "https://github.com/advisories/GHSA-p3jp-9v83-76w9"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-48v2-6jcm-fc99",
+      "name": "praktor: Path traversal in Telegram file uploads allows writing outside the agent workspace uploads/",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-48v2-6jcm-fc99",
+      "description": "praktor: Path traversal in Telegram file uploads allows writing outside the agent workspace uploads/ directory (stored instruction injection)",
+      "date": "2026-11-03",
+      "affected": [
+        "github.com/mtzanidakis/praktor"
+      ],
+      "references": [
+        "https://github.com/mtzanidakis/praktor/security/advisories/GHSA-48v2-6jcm-fc99",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-62331",
+        "https://github.com/mtzanidakis/praktor/pull/228",
+        "https://github.com/mtzanidakis/praktor/commit/c3731eeda01c0b3ec1dbd13cccd5a147c3182141",
+        "https://github.com/mtzanidakis/praktor/releases/tag/v0.9.1",
+        "https://github.com/advisories/GHSA-48v2-6jcm-fc99"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/mtzanidakis/praktor"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/mtzanidakis/praktor"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-j97h-3f8r-mrjr",
+      "name": "Keycloak has authentication bypass via jwt algorithm confusion",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-j97h-3f8r-mrjr",
+      "description": "Keycloak has authentication bypass via jwt algorithm confusion",
+      "date": "2026-11-03",
+      "affected": [
+        "org.keycloak:keycloak-services"
+      ],
+      "references": [
+        "https://github.com/keycloak/keycloak/security/advisories/GHSA-j97h-3f8r-mrjr",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-11800",
+        "https://github.com/keycloak/keycloak/issues/50357",
+        "https://github.com/keycloak/keycloak/pull/50374",
+        "https://github.com/keycloak/keycloak/commit/6d61885f20ac59a2ff8b823fc9ed1f1ef1019951",
+        "https://github.com/keycloak/keycloak/commit/d343c7373dcc7bfeb9dc14de2309836299c81837",
+        "https://access.redhat.com/errata/RHSA-2026:30083",
+        "https://access.redhat.com/errata/RHSA-2026:30084",
+        "https://access.redhat.com/security/cve/CVE-2026-11800",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=2487006",
+        "https://github.com/keycloak/keycloak/releases/tag/26.6.4",
+        "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-11800.json",
+        "https://github.com/advisories/GHSA-j97h-3f8r-mrjr"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9ppr-wfw9-xvr2",
+      "name": "Netfoil doesn't decrement TTL",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-9ppr-wfw9-xvr2",
+      "description": "Netfoil doesn't decrement TTL",
+      "date": "2026-11-03",
+      "affected": [
+        "github.com/tinfoil-factory/netfoil"
+      ],
+      "references": [
+        "https://github.com/tinfoil-factory/netfoil/security/advisories/GHSA-9ppr-wfw9-xvr2",
+        "https://github.com/tinfoil-factory/netfoil/pull/44",
+        "https://github.com/tinfoil-factory/netfoil/commit/ea42977900c864b7b1c42f26c5870c86008118a0",
+        "https://github.com/tinfoil-factory/netfoil/releases/tag/v0.6.1",
+        "https://github.com/advisories/GHSA-9ppr-wfw9-xvr2"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/tinfoil-factory/netfoil"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/tinfoil-factory/netfoil"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-h26j-4vp7-x9w2",
+      "name": "Metalama: Unsafe deserialization over Metalama's Visual Studio inter-process named pipe enables loca",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-h26j-4vp7-x9w2",
+      "description": "Metalama: Unsafe deserialization over Metalama's Visual Studio inter-process named pipe enables local code execution",
+      "date": "2026-11-03",
+      "affected": [
+        "Metalama.Framework",
+        "Metalama.Framework",
+        "Metalama.Framework"
+      ],
+      "references": [
+        "https://github.com/metalama/Metalama/security/advisories/GHSA-h26j-4vp7-x9w2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-62848",
+        "https://github.com/metalama/Metalama/pull/1651",
+        "https://github.com/metalama/Metalama/commit/5b4ced29f2b25631cc2e44d05b0fd5fe838b6cbe",
+        "https://github.com/metalama/Metalama/commit/d97f52e1b53ffe4176b2b05c56ffdf1ccd2f53a9",
+        "https://github.com/metalama/Metalama/releases/tag/release/2025.1.18",
+        "https://github.com/metalama/Metalama/releases/tag/release/2026.0.25",
+        "https://github.com/metalama/Metalama/releases/tag/release/2026.1.19",
+        "https://github.com/advisories/GHSA-h26j-4vp7-x9w2"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-m3qr-fvp4-78xj",
+      "name": "Arc has unauthenticated application log disclosure via `/api/v1/logs`",
+      "category": "ghsa_advisory",
+      "severity": "low",
+      "cve": "GHSA-m3qr-fvp4-78xj",
+      "description": "Arc has unauthenticated application log disclosure via `/api/v1/logs`",
+      "date": "2026-11-03",
+      "affected": [
+        "github.com/basekick-labs/arc"
+      ],
+      "references": [
+        "https://github.com/Basekick-Labs/arc/security/advisories/GHSA-m3qr-fvp4-78xj",
+        "https://github.com/Basekick-Labs/arc/pull/506",
+        "https://github.com/Basekick-Labs/arc/commit/bb7d9761ad9801e93837762ff7d37460f1df19dd",
+        "https://github.com/Basekick-Labs/arc/releases/tag/v26.06.2",
+        "https://github.com/advisories/GHSA-m3qr-fvp4-78xj"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/basekick-labs/arc"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/basekick-labs/arc"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-j656-3hf2-fvjc",
       "name": "DBHub: MySQL and MariaDB comment interpretation bypasses read-only SQL validation",
@@ -1082,242 +1366,14 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fhx5-2xqw-2cgm",
-      "name": "MariaDB Connector/J: LOAD DATA LOCAL INFILE file check could be satisfied by text inside quoted iden",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-fhx5-2xqw-2cgm",
-      "description": "MariaDB Connector/J: LOAD DATA LOCAL INFILE file check could be satisfied by text inside quoted identifiers, letting a malicious server read client files",
-      "date": "2026-10-30",
-      "affected": [
-        "org.mariadb.jdbc:mariadb-java-client",
-        "org.mariadb.jdbc:mariadb-java-client",
-        "org.mariadb.jdbc:mariadb-java-client"
-      ],
-      "references": [
-        "https://github.com/mariadb-corporation/mariadb-connector-j/security/advisories/GHSA-fhx5-2xqw-2cgm",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119210",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/4d2f8002399949ed7f138e9c0b75b69229538120",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/5812e0ca7574c3934915179b76f2e819a556d099",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/a4891f877f1c885a573194771c1ed0aacec0ce1d",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.3.7",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.4.5",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.5.11",
-        "https://github.com/advisories/GHSA-fhx5-2xqw-2cgm"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-grfq-r75j-rw9x",
-      "name": "MariaDB Connector/J: Server could switch character_set_results away from UTF-8 without the client no",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-grfq-r75j-rw9x",
-      "description": "MariaDB Connector/J: Server could switch character_set_results away from UTF-8 without the client noticing",
-      "date": "2026-10-30",
-      "affected": [
-        "org.mariadb.jdbc:mariadb-java-client",
-        "org.mariadb.jdbc:mariadb-java-client",
-        "org.mariadb.jdbc:mariadb-java-client"
-      ],
-      "references": [
-        "https://github.com/mariadb-corporation/mariadb-connector-j/security/advisories/GHSA-grfq-r75j-rw9x",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119281",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/af5e565eb171cfc66ea8e948ddc616abed0c4623",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/d51b968c1b795c73d24e0b3f960205b7bc82d423",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/fdabe74a7df6dce1d6c099f4d0ca1e2acc25919a",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.3.7",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.4.5",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.5.11",
-        "https://github.com/advisories/GHSA-grfq-r75j-rw9x"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mrwp-f3q8-3g9p",
-      "name": "follow-redirects: Cross-realm sensitiveHeaders arrays are discarded and custom credentials can follo",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-mrwp-f3q8-3g9p",
-      "description": "follow-redirects: Cross-realm sensitiveHeaders arrays are discarded and custom credentials can follow redirects",
-      "date": "2026-10-30",
-      "affected": [
-        "follow-redirects"
-      ],
-      "references": [
-        "https://github.com/follow-redirects/follow-redirects/security/advisories/GHSA-mrwp-f3q8-3g9p",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-116689",
-        "https://github.com/follow-redirects/follow-redirects/commit/b0a7751e9cd64cd8eeb6ec67d2f206a9cc88d3f8",
-        "https://github.com/follow-redirects/follow-redirects/releases/tag/v1.16.2",
-        "https://github.com/advisories/GHSA-mrwp-f3q8-3g9p"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "follow-redirects"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-vp5q-ff62-jwqv",
-      "name": "russh: Agent server never calls `Agent::confirm`, so keys added with the confirm constraint (`ssh-ad",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-vp5q-ff62-jwqv",
-      "description": "russh: Agent server never calls `Agent::confirm`, so keys added with the confirm constraint (`ssh-add -c`) sign without confirmation",
-      "date": "2026-10-30",
-      "affected": [
-        "russh"
-      ],
-      "references": [
-        "https://github.com/Eugeny/russh/security/advisories/GHSA-vp5q-ff62-jwqv",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-116794",
-        "https://github.com/Eugeny/russh/commit/3e04597dc54e36bfc85c21996f7d8d9d224e9826",
-        "https://github.com/Eugeny/russh/commit/62db6e7defd6d244159da962ccccb029e785ce0f",
-        "https://github.com/Eugeny/russh/releases/tag/v0.65.0",
-        "https://github.com/advisories/GHSA-vp5q-ff62-jwqv"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-662x-8wvj-2276",
-      "name": "pageant: unbounded frame buffering on peer-controlled 4-byte length prefix (memory-exhaustion DoS)",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-662x-8wvj-2276",
-      "description": "pageant: unbounded frame buffering on peer-controlled 4-byte length prefix (memory-exhaustion DoS)",
-      "date": "2026-10-30",
-      "affected": [
-        "pageant"
-      ],
-      "references": [
-        "https://github.com/Eugeny/russh/security/advisories/GHSA-662x-8wvj-2276",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-116775",
-        "https://github.com/Eugeny/russh/commit/69e4b55513eaa8ac9d2ad4236f13171fc164e10a",
-        "https://github.com/Eugeny/russh/releases/tag/v0.65.0",
-        "https://github.com/advisories/GHSA-662x-8wvj-2276"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fw5c-8223-6h42",
-      "name": "russh: peer-declared zero maximum packet size permanently stalls channel writes (silent AsyncWrite h",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-fw5c-8223-6h42",
-      "description": "russh: peer-declared zero maximum packet size permanently stalls channel writes (silent AsyncWrite hang)",
-      "date": "2026-10-30",
-      "affected": [
-        "russh"
-      ],
-      "references": [
-        "https://github.com/Eugeny/russh/security/advisories/GHSA-fw5c-8223-6h42",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-116774",
-        "https://github.com/Eugeny/russh/commit/39cb9dbaa37caf555d34c6c22efa3bbbff9e186c",
-        "https://github.com/Eugeny/russh/releases/tag/v0.65.0",
-        "https://github.com/advisories/GHSA-fw5c-8223-6h42"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9wfm-jcj8-jfv9",
-      "name": "russh's SSH agent server is susceptible to unbound allocations via repeated SSH_AGENT_CONSTRAIN_CONF",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-9wfm-jcj8-jfv9",
-      "description": "russh's SSH agent server is susceptible to unbound allocations via repeated SSH_AGENT_CONSTRAIN_CONFIRM messages",
-      "date": "2026-10-30",
-      "affected": [
-        "russh"
-      ],
-      "references": [
-        "https://github.com/Eugeny/russh/security/advisories/GHSA-9wfm-jcj8-jfv9",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-116696",
-        "https://github.com/Eugeny/russh/commit/23aa5d28fe9601c5bdfe9e60b7ec5d4f882c3de6",
-        "https://github.com/Eugeny/russh/releases/tag/v0.65.0",
-        "https://github.com/advisories/GHSA-9wfm-jcj8-jfv9"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4p9f-7p9m-5vfg",
-      "name": "russh's SSH client is susceptible to unbounded allocations via EXT_INFO packets",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-4p9f-7p9m-5vfg",
-      "description": "russh's SSH client is susceptible to unbounded allocations via EXT_INFO packets",
-      "date": "2026-10-30",
-      "affected": [
-        "russh"
-      ],
-      "references": [
-        "https://github.com/Eugeny/russh/security/advisories/GHSA-4p9f-7p9m-5vfg",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-116773",
-        "https://github.com/Eugeny/russh/commit/b33e93beec393e6d29eee69c1b8831736724ee75",
-        "https://github.com/Eugeny/russh/releases/tag/v0.65.0",
-        "https://github.com/advisories/GHSA-4p9f-7p9m-5vfg"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mpqx-q82w-9x46",
-      "name": "GraphQL-core has denial of service via memory leak in aborted validations",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-mpqx-q82w-9x46",
-      "description": "GraphQL-core has denial of service via memory leak in aborted validations",
-      "date": "2026-10-30",
-      "affected": [
-        "graphql-core"
-      ],
-      "references": [
-        "https://github.com/graphql-python/graphql-core/security/advisories/GHSA-mpqx-q82w-9x46",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119286",
-        "https://github.com/graphql-python/graphql-core/issues/287",
-        "https://github.com/graphql-python/graphql-core/pull/288",
-        "https://github.com/graphql-python/graphql-core/commit/3c319fd9f4b8f6c9db4189520561bf8dd0e70be9",
-        "https://github.com/graphql-python/graphql-core/releases/tag/v3.3.1",
-        "https://github.com/advisories/GHSA-mpqx-q82w-9x46"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7984-qgvg-3j9c",
-      "name": "OAuthLib: Token grants can use attacker-supplied client_id for authorization after authenticating a ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7984-qgvg-3j9c",
-      "description": "OAuthLib: Token grants can use attacker-supplied client_id for authorization after authenticating a different client",
-      "date": "2026-10-30",
-      "affected": [
-        "oauthlib"
-      ],
-      "references": [
-        "https://github.com/oauthlib/oauthlib/security/advisories/GHSA-7984-qgvg-3j9c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-118669",
-        "https://github.com/oauthlib/oauthlib/pull/920",
-        "https://github.com/oauthlib/oauthlib/commit/c951a1d09f99f14e3240973fa83c4f4287d4753d",
-        "https://github.com/oauthlib/oauthlib/releases/tag/v4.0.0",
-        "https://github.com/advisories/GHSA-7984-qgvg-3j9c"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@enspirit/elo": "Elo JavaScript emitter has sandbox escape to arbitrary Node.js / browser code execution via unfilter",
+    "github.com/mtzanidakis/praktor": "praktor: Path traversal in Telegram file uploads allows writing outside the agent workspace uploads/",
+    "github.com/tinfoil-factory/netfoil": "Netfoil doesn't decrement TTL",
+    "github.com/basekick-labs/arc": "Arc has unauthenticated application log disclosure via `/api/v1/logs`",
     "@bytebase/dbhub": "DBHub: MySQL and MariaDB comment interpretation bypasses read-only SQL validation",
     "@sd-jwt/core": "SD JWT JS: Tampered disclosures silently dropped instead of rejected",
     "@sd-jwt/decode": "SD JWT JS: Tampered disclosures silently dropped instead of rejected",
