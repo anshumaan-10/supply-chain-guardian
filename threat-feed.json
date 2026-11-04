@@ -1,8 +1,100 @@
 {
   "version": "2026.11.04",
-  "last_updated": "2026-11-04T13:47:50.800417+00:00",
+  "last_updated": "2026-11-04T23:13:12.532237+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-93cm-2v4m-c56c",
+      "name": "Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-93cm-2v4m-c56c",
+      "description": "Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735",
+      "date": "2026-11-04",
+      "affected": [
+        "github.com/basekick-labs/arc"
+      ],
+      "references": [
+        "https://github.com/Basekick-Labs/arc/security/advisories/GHSA-93cm-2v4m-c56c",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-55098",
+        "https://github.com/Basekick-Labs/arc/pull/495",
+        "https://github.com/Basekick-Labs/arc/commit/5dc8f53b70a3871b16b0cebf328f07c578af7a45",
+        "https://github.com/Basekick-Labs/arc/tree/v26.06.2",
+        "https://github.com/advisories/GHSA-93cm-2v4m-c56c"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/basekick-labs/arc"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/basekick-labs/arc"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-mc8m-rr6c-r5qr",
+      "name": "@payloadcms/storage-vercel-blob has access control bypass of uploads in Vercel Storage adapter",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-mc8m-rr6c-r5qr",
+      "description": "@payloadcms/storage-vercel-blob has access control bypass of uploads in Vercel Storage adapter",
+      "date": "2026-11-04",
+      "affected": [
+        "@payloadcms/storage-vercel-blob",
+        "@payloadcms/storage-vercel-blob"
+      ],
+      "references": [
+        "https://github.com/payloadcms/payload/security/advisories/GHSA-mc8m-rr6c-r5qr",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-93363",
+        "https://github.com/payloadcms/payload/commit/47abe9bb5c444330dbfaa9a5bc2033337932270b",
+        "https://github.com/payloadcms/payload/releases/tag/v3.90.0",
+        "https://www.vulncheck.com/advisories/payload-cms-storage-vercel-blob-adapter-improper-access-control-on-upload-route",
+        "https://github.com/advisories/GHSA-mc8m-rr6c-r5qr"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@payloadcms/storage-vercel-blob",
+            "@payloadcms/storage-vercel-blob"
+          ]
+        },
+        "compromised_actions": [
+          "@payloadcms/storage-vercel-blob",
+          "@payloadcms/storage-vercel-blob"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3cgg-c5pp-57h6",
+      "name": "odf-kit: HTML injection leading to XSS in odtToHtml() and odsToHtml() via unescaped style attribute ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3cgg-c5pp-57h6",
+      "description": "odf-kit: HTML injection leading to XSS in odtToHtml() and odsToHtml() via unescaped style attribute values",
+      "date": "2026-11-04",
+      "affected": [
+        "odf-kit"
+      ],
+      "references": [
+        "https://github.com/GitHubNewbie0/odf-kit/security/advisories/GHSA-3cgg-c5pp-57h6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-113787",
+        "https://github.com/GitHubNewbie0/odf-kit/commit/fa3abc5a7a757f56c7212b2dbe99d1d2db995420",
+        "https://github.com/GitHubNewbie0/odf-kit/releases/tag/v0.14.2",
+        "https://github.com/advisories/GHSA-3cgg-c5pp-57h6"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "odf-kit"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-gh9r-c94j-cmp5",
       "name": "Stanza: RCE via pickle deserialization in the lemmatizer",
@@ -572,6 +664,8 @@
         "https://nvd.nist.gov/vuln/detail/CVE-2026-118764",
         "https://github.com/isaacs/minimatch/commit/77a0f5c4b80bdc641c3c930a1d9edf5ad2db57f8",
         "https://github.com/isaacs/minimatch/releases/tag/v11.0.1",
+        "https://github.com/isaacs/minimatch/commit/297b6c1a01f2410b3ba1ebed14ba222d0c3c1033",
+        "https://github.com/isaacs/minimatch/commit/fd0b3ab9cbc5bf1aff1c99f1f46e413c2b3340da",
         "https://github.com/advisories/GHSA-g3hv-75wg-m249"
       ],
       "detection_signatures": {
@@ -1285,95 +1379,15 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h599-m3w5-9m7x",
-      "name": "MariaDB Connector/J: Rogue server can drive large heap allocations from server-declared lengths in O",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-h599-m3w5-9m7x",
-      "description": "MariaDB Connector/J: Rogue server can drive large heap allocations from server-declared lengths in OK packets",
-      "date": "2026-10-30",
-      "affected": [
-        "org.mariadb.jdbc:mariadb-java-client",
-        "org.mariadb.jdbc:mariadb-java-client",
-        "org.mariadb.jdbc:mariadb-java-client"
-      ],
-      "references": [
-        "https://github.com/mariadb-corporation/mariadb-connector-j/security/advisories/GHSA-h599-m3w5-9m7x",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119276",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/b9e1ee8d9b4d820d70719504cdfd5c97f1aede5f",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/beb445fcf9294113878fc05ac77f0efdf0596ac6",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/ea8c7b6537e50053444188a9a3fd9cae99550f56",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.3.7",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.4.5",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.5.11",
-        "https://github.com/advisories/GHSA-h599-m3w5-9m7x"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-797x-p4mc-jwpm",
-      "name": "MariaDB Connector/J: Length-encoded integers larger than Integer.MAX_VALUE were truncated before bei",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-797x-p4mc-jwpm",
-      "description": "MariaDB Connector/J: Length-encoded integers larger than Integer.MAX_VALUE were truncated before being used as lengths",
-      "date": "2026-10-30",
-      "affected": [
-        "org.mariadb.jdbc:mariadb-java-client",
-        "org.mariadb.jdbc:mariadb-java-client",
-        "org.mariadb.jdbc:mariadb-java-client"
-      ],
-      "references": [
-        "https://github.com/mariadb-corporation/mariadb-connector-j/security/advisories/GHSA-797x-p4mc-jwpm",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119279",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/30d4a883377a9b7762e02ee2c60d54567032ab99",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/bfd9f5ad666a6f7f5401a5b78f2ac2fbd6df8667",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/dbbadc3e215c47bdb913ddf50739ada09a7f23ea",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.3.7",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.4.5",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.5.10",
-        "https://github.com/advisories/GHSA-797x-p4mc-jwpm"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4jq2-8v3c-97w8",
-      "name": "MariaDB Connector/J: XA recover() trusted server-supplied gtrid and bqual lengths",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-4jq2-8v3c-97w8",
-      "description": "MariaDB Connector/J: XA recover() trusted server-supplied gtrid and bqual lengths",
-      "date": "2026-10-30",
-      "affected": [
-        "org.mariadb.jdbc:mariadb-java-client",
-        "org.mariadb.jdbc:mariadb-java-client",
-        "org.mariadb.jdbc:mariadb-java-client"
-      ],
-      "references": [
-        "https://github.com/mariadb-corporation/mariadb-connector-j/security/advisories/GHSA-4jq2-8v3c-97w8",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119280",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/280efcfb4390055858fa2dd12b722d85a6a13ab8",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/47aba5a23548b35191865a428cc674316b95ee47",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/commit/e9d767103bfd178ed57caa4cb97bbfbf7e54da6b",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.3.7",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.4.5",
-        "https://github.com/mariadb-corporation/mariadb-connector-j/releases/tag/3.5.11",
-        "https://github.com/advisories/GHSA-4jq2-8v3c-97w8"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/basekick-labs/arc": "Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735",
+    "@payloadcms/storage-vercel-blob": "@payloadcms/storage-vercel-blob has access control bypass of uploads in Vercel Storage adapter",
     "@enspirit/elo": "Elo JavaScript emitter has sandbox escape to arbitrary Node.js / browser code execution via unfilter",
     "github.com/mtzanidakis/praktor": "praktor: Path traversal in Telegram file uploads allows writing outside the agent workspace uploads/",
     "github.com/tinfoil-factory/netfoil": "Netfoil doesn't decrement TTL",
-    "github.com/basekick-labs/arc": "Arc has unauthenticated application log disclosure via `/api/v1/logs`",
     "@bytebase/dbhub": "DBHub: MySQL and MariaDB comment interpretation bypasses read-only SQL validation",
     "@sd-jwt/core": "SD JWT JS: Tampered disclosures silently dropped instead of rejected",
     "@sd-jwt/decode": "SD JWT JS: Tampered disclosures silently dropped instead of rejected",
