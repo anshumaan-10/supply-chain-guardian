@@ -1,8 +1,122 @@
 {
   "version": "2026.11.05",
-  "last_updated": "2026-11-05T13:59:57.635765+00:00",
+  "last_updated": "2026-11-05T23:16:16.113779+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-m5ph-mmg5-6w5h",
+      "name": "filecoin-pin: Unbounded DAG pinning can exhaust server resources",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-m5ph-mmg5-6w5h",
+      "description": "filecoin-pin: Unbounded DAG pinning can exhaust server resources",
+      "date": "2026-11-05",
+      "affected": [
+        "filecoin-pin"
+      ],
+      "references": [
+        "https://github.com/filecoin-project/filecoin-pin/security/advisories/GHSA-m5ph-mmg5-6w5h",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-62300",
+        "https://github.com/filecoin-project/filecoin-pin/commit/8db22b47899deb78dadf415fc477cae4bd6e82c2",
+        "https://github.com/filecoin-project/filecoin-pin/commit/afa019307db23a703737675e94316edcc6572050",
+        "https://github.com/filecoin-project/filecoin-pin/releases/tag/v1.1.1",
+        "https://github.com/advisories/GHSA-m5ph-mmg5-6w5h"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "filecoin-pin"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-64vx-6h2c-rjh7",
+      "name": "Banks: Unsafe importlib.import_module of attacker-controlled Tool.import_path in CompletionExtension",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-64vx-6h2c-rjh7",
+      "description": "Banks: Unsafe importlib.import_module of attacker-controlled Tool.import_path in CompletionExtension allows RCE",
+      "date": "2026-11-05",
+      "affected": [
+        "banks"
+      ],
+      "references": [
+        "https://github.com/masci/banks/security/advisories/GHSA-64vx-6h2c-rjh7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-61536",
+        "https://github.com/masci/banks/pull/75",
+        "https://github.com/masci/banks/commit/e443f112b80a20ac24438afe4eb8f8a746a8396d",
+        "https://github.com/masci/banks/releases/tag/v2.4.3",
+        "https://github.com/advisories/GHSA-64vx-6h2c-rjh7"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5q7h-w9jf-cx97",
+      "name": "kaniko can send the build's Azure (Entra ID) access token to lookalike ACR registry hosts",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-5q7h-w9jf-cx97",
+      "description": "kaniko can send the build's Azure (Entra ID) access token to lookalike ACR registry hosts",
+      "date": "2026-11-05",
+      "affected": [
+        "github.com/chainguard-dev/kaniko"
+      ],
+      "references": [
+        "https://github.com/chainguard-forks/kaniko/security/advisories/GHSA-5q7h-w9jf-cx97",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-105769",
+        "https://github.com/chrismellard/docker-credential-acr-env/issues/21",
+        "https://github.com/chainguard-forks/kaniko/pull/495",
+        "https://github.com/chainguard-forks/kaniko/commit/08de01fe7fffaeb6bc030efa9eae723ea2dd4405",
+        "https://github.com/chainguard-forks/kaniko/commit/58915b22dbeca4d936d6bb51c0c889baf6ebbc48",
+        "https://github.com/chainguard-forks/kaniko/releases/tag/v1.25.20",
+        "https://pkg.go.dev/vuln/GO-2026-6225",
+        "https://github.com/advisories/GHSA-5q7h-w9jf-cx97"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/chainguard-dev/kaniko"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/chainguard-dev/kaniko"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hhf9-qw4v-72xp",
+      "name": "lxd allows Cross-guest volume hijack via DevLXD device patch",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-hhf9-qw4v-72xp",
+      "description": "lxd allows Cross-guest volume hijack via DevLXD device patch",
+      "date": "2026-11-05",
+      "affected": [
+        "github.com/canonical/lxd"
+      ],
+      "references": [
+        "https://github.com/canonical/lxd/security/advisories/GHSA-hhf9-qw4v-72xp",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-12411",
+        "https://github.com/canonical/lxd/pull/18585",
+        "https://github.com/canonical/lxd/commit/752e25cfb849a349ff08939ce02747ef4d4e69cc",
+        "https://github.com/advisories/GHSA-hhf9-qw4v-72xp"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/canonical/lxd"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/canonical/lxd"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-93cm-2v4m-c56c",
       "name": "Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735",
@@ -1254,135 +1368,12 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9v7c-q64q-vv33",
-      "name": "Nuxt: Dot segments in the request path bypass `server/middleware` path checks and server route rules",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-9v7c-q64q-vv33",
-      "description": "Nuxt: Dot segments in the request path bypass `server/middleware` path checks and server route rules on page routes",
-      "date": "2026-10-30",
-      "affected": [
-        "@nuxt/nitro-server",
-        "nuxt"
-      ],
-      "references": [
-        "https://github.com/nuxt/nuxt/security/advisories/GHSA-9v7c-q64q-vv33",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119200",
-        "https://github.com/nuxt/nuxt/commit/45463f8b58487e387149ebfb704d6a0834b3a450",
-        "https://github.com/nuxt/nuxt/releases/tag/v4.6.3",
-        "https://github.com/advisories/GHSA-9v7c-q64q-vv33"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@nuxt/nitro-server",
-            "nuxt"
-          ]
-        },
-        "compromised_actions": [
-          "@nuxt/nitro-server"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-x287-wcfc-q46c",
-      "name": "Nuxt dev server arbitrary file read through client error reports",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-x287-wcfc-q46c",
-      "description": "Nuxt dev server arbitrary file read through client error reports",
-      "date": "2026-10-30",
-      "affected": [
-        "@nuxt/vite-builder"
-      ],
-      "references": [
-        "https://github.com/nuxt/nuxt/security/advisories/GHSA-x287-wcfc-q46c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119198",
-        "https://github.com/nuxt/nuxt/commit/35856eb148bf8d6f1ad753c5b8b337c52b4fd6b3",
-        "https://github.com/nuxt/nuxt/commit/aec8129f68e9b870ca919f8f60e65a4608c8a6d8",
-        "https://github.com/nuxt/nuxt/releases/tag/v4.6.3",
-        "https://github.com/advisories/GHSA-x287-wcfc-q46c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@nuxt/vite-builder"
-          ]
-        },
-        "compromised_actions": [
-          "@nuxt/vite-builder"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-648h-gw55-m2g7",
-      "name": "Nuxt dev server exposes private runtime config through the Nitro dev bundle",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-648h-gw55-m2g7",
-      "description": "Nuxt dev server exposes private runtime config through the Nitro dev bundle",
-      "date": "2026-10-30",
-      "affected": [
-        "@nuxt/vite-builder"
-      ],
-      "references": [
-        "https://github.com/nuxt/nuxt/security/advisories/GHSA-648h-gw55-m2g7",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119199",
-        "https://github.com/nuxt/nuxt/commit/12b58f9d8768682611c3ad4ea4d403875129dbca",
-        "https://github.com/nuxt/nuxt/releases/tag/v4.6.3",
-        "https://github.com/advisories/GHSA-648h-gw55-m2g7"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@nuxt/vite-builder"
-          ]
-        },
-        "compromised_actions": [
-          "@nuxt/vite-builder"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-j63v-mwhm-56jx",
-      "name": "@sigstore/oci sends the registry Authorization header to a cross-host blob-upload Location",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-j63v-mwhm-56jx",
-      "description": "@sigstore/oci sends the registry Authorization header to a cross-host blob-upload Location",
-      "date": "2026-10-30",
-      "affected": [
-        "@sigstore/oci"
-      ],
-      "references": [
-        "https://github.com/sigstore/sigstore-js/security/advisories/GHSA-j63v-mwhm-56jx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-118763",
-        "https://github.com/sigstore/sigstore-js/pull/1762",
-        "https://github.com/sigstore/sigstore-js/commit/b855f46cfe81f26481c6d3f4b333dfd00f2fd1b1",
-        "https://github.com/sigstore/sigstore-js/commit/e4ca65c3ab3c675456ab9b0bd04217ceccad3558",
-        "https://github.com/sigstore/sigstore-js/releases/tag/@sigstore/oci@0.7.2",
-        "https://github.com/advisories/GHSA-j63v-mwhm-56jx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@sigstore/oci"
-          ]
-        },
-        "compromised_actions": [
-          "@sigstore/oci"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/chainguard-dev/kaniko": "kaniko can send the build's Azure (Entra ID) access token to lookalike ACR registry hosts",
+    "github.com/canonical/lxd": "lxd allows Cross-guest volume hijack via DevLXD device patch",
     "github.com/basekick-labs/arc": "Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735",
     "@payloadcms/storage-vercel-blob": "@payloadcms/storage-vercel-blob has access control bypass of uploads in Vercel Storage adapter",
     "@enspirit/elo": "Elo JavaScript emitter has sandbox escape to arbitrary Node.js / browser code execution via unfilter",
@@ -1395,9 +1386,7 @@
     "@hapi/joi": "joi: quadratic-time split in `string().email({ multiple: true })` allows denial of service",
     "@hapi/content": "@hapi/content: quadratic-time parsing of Content-Disposition parameters allows denial of service",
     "phpunit/phpunit": "PHPUnit vulnerable to code execution by other local users via shared temporary directory in PHPT cod",
-    "@nuxt/vite-builder": "Nuxt dev server exposes generated appSecret through Vite file serving",
-    "@nuxt/nitro-server": "Nuxt: Dot segments in the request path bypass `server/middleware` path checks and server route rules",
-    "@sigstore/oci": "@sigstore/oci sends the registry Authorization header to a cross-host blob-upload Location"
+    "@nuxt/vite-builder": "Nuxt dev server exposes generated appSecret through Vite file serving"
   },
   "malicious_packages": {
     "npm": {},
