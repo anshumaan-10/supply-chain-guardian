@@ -1,8 +1,523 @@
 {
   "version": "2026.11.06",
-  "last_updated": "2026-11-06T13:45:26.822044+00:00",
+  "last_updated": "2026-11-06T22:43:24.920583+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-47w9-6r3f-938g",
+      "name": "LXD has restricted project bypass leading to arbitrary command execution",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-47w9-6r3f-938g",
+      "description": "LXD has restricted project bypass leading to arbitrary command execution",
+      "date": "2026-11-06",
+      "affected": [
+        "github.com/canonical/lxd"
+      ],
+      "references": [
+        "https://github.com/canonical/lxd/security/advisories/GHSA-47w9-6r3f-938g",
+        "https://github.com/lxc/incus/security/advisories/GHSA-48q5-w887-33wv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-48751",
+        "https://github.com/canonical/lxd/commit/5aac658c888d52e3a2480a8f879799ac643fdc49",
+        "https://github.com/canonical/lxd/commit/6b93b2a0c4f6f3eaf91e1e813f6875d5eb66b59b",
+        "https://github.com/canonical/lxd/commit/a52e5d06a52fb7ad8862cb2a8659a8c47e446efe",
+        "https://github.com/canonical/lxd/commit/cfd9f66f6af89e1fa3b3acb12bfe72f51b7f1e19",
+        "https://github.com/canonical/lxd/releases/tag/lxd-5.0.7",
+        "https://github.com/canonical/lxd/releases/tag/lxd-5.21.5",
+        "https://github.com/advisories/GHSA-47w9-6r3f-938g"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/canonical/lxd"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/canonical/lxd"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-7mr3-28h5-m5vx",
+      "name": "LXD has project restriction bypass for custom volume copy across projects ",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-7mr3-28h5-m5vx",
+      "description": "LXD has project restriction bypass for custom volume copy across projects ",
+      "date": "2026-11-06",
+      "affected": [
+        "github.com/canonical/lxd"
+      ],
+      "references": [
+        "https://github.com/canonical/lxd/security/advisories/GHSA-7mr3-28h5-m5vx",
+        "https://github.com/lxc/incus/security/advisories/GHSA-64f3-v33m-w89f",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-55621",
+        "https://github.com/canonical/lxd/commit/8a4ed50ae855639d76021ba4bf26a50d7f2288fd",
+        "https://github.com/canonical/lxd/commit/e2635a26957737ec4a77dc28dd7b84bd380881d6",
+        "https://github.com/canonical/lxd/commit/eec1cf9504c18ad7c3c36ae0b62d21c05c25702c",
+        "https://github.com/canonical/lxd/releases/tag/lxd-5.0.7",
+        "https://github.com/canonical/lxd/releases/tag/lxd-5.21.5",
+        "https://github.com/canonical/lxd/releases/tag/lxd-6.8",
+        "https://github.com/advisories/GHSA-7mr3-28h5-m5vx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/canonical/lxd"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/canonical/lxd"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-qx75-2p3r-pwm5",
+      "name": "LXD has project restriction bypass in instance copy across projects ",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-qx75-2p3r-pwm5",
+      "description": "LXD has project restriction bypass in instance copy across projects ",
+      "date": "2026-11-06",
+      "affected": [
+        "github.com/canonical/lxd"
+      ],
+      "references": [
+        "https://github.com/canonical/lxd/security/advisories/GHSA-qx75-2p3r-pwm5",
+        "https://github.com/lxc/incus/security/advisories/GHSA-c9f5-j9c3-mhrg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-55622",
+        "https://github.com/canonical/lxd/commit/97cb037794cb6b21c5a184eb5f3292207adbf6b2",
+        "https://github.com/canonical/lxd/commit/bc1e20ea32dff6ae2df08803eee82832959ec80e",
+        "https://github.com/canonical/lxd/commit/f7849615eb89e71a12ea76daaab6110bdf0fdf7f",
+        "https://github.com/canonical/lxd/releases/tag/lxd-5.0.7",
+        "https://github.com/canonical/lxd/releases/tag/lxd-5.21.5",
+        "https://github.com/canonical/lxd/releases/tag/lxd-6.8",
+        "https://github.com/advisories/GHSA-qx75-2p3r-pwm5"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/canonical/lxd"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/canonical/lxd"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-r4hm-p9f9-fj9v",
+      "name": "GeoNode has Stored XSS in Documents metadata abstract field",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-r4hm-p9f9-fj9v",
+      "description": "GeoNode has Stored XSS in Documents metadata abstract field",
+      "date": "2026-11-06",
+      "affected": [
+        "GeoNode"
+      ],
+      "references": [
+        "https://github.com/GeoNode/geonode/security/advisories/GHSA-r4hm-p9f9-fj9v",
+        "https://github.com/GeoNode/geonode/pull/14322",
+        "https://github.com/GeoNode/geonode/pull/14343",
+        "https://github.com/GeoNode/geonode/commit/0803857b22eba5b55729145ef401b1bc1c23e332",
+        "https://github.com/GeoNode/geonode/commit/730d8fae206ea5b051f630718aeecae1bf7b5760",
+        "https://github.com/GeoNode/geonode/releases/tag/5.0.3",
+        "https://github.com/advisories/GHSA-r4hm-p9f9-fj9v"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fqpv-mq26-pr4j",
+      "name": "GeoNode has Unrestricted File Upload",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-fqpv-mq26-pr4j",
+      "description": "GeoNode has Unrestricted File Upload",
+      "date": "2026-11-06",
+      "affected": [
+        "GeoNode"
+      ],
+      "references": [
+        "https://github.com/GeoNode/geonode/security/advisories/GHSA-fqpv-mq26-pr4j",
+        "https://github.com/GeoNode/geonode/pull/14223",
+        "https://github.com/GeoNode/geonode/pull/14224",
+        "https://github.com/GeoNode/geonode/commit/16ec8b3914fe87d0a258c14cf73b0a4295bb072f",
+        "https://github.com/GeoNode/geonode/commit/239a6b49c925957197033831df5f20c4c13a14da",
+        "https://github.com/GeoNode/geonode/releases/tag/5.0.3",
+        "https://github.com/advisories/GHSA-fqpv-mq26-pr4j"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9fpx-fr6j-2vh6",
+      "name": "GeoNode has OS command injection via uploaded file layer name",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-9fpx-fr6j-2vh6",
+      "description": "GeoNode has OS command injection via uploaded file layer name",
+      "date": "2026-11-06",
+      "affected": [
+        "GeoNode"
+      ],
+      "references": [
+        "https://github.com/GeoNode/geonode/security/advisories/GHSA-9fpx-fr6j-2vh6",
+        "https://github.com/GeoNode/geonode/commit/1408290c0bb54872924a9b334a516db9758a2180",
+        "https://github.com/advisories/GHSA-9fpx-fr6j-2vh6"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-j93m-3j9p-m5m8",
+      "name": "LXD has CreateCustomVolumeFromBackup nil-pointer dereference on volumes[0].snapshots[*].expires_at",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-j93m-3j9p-m5m8",
+      "description": "LXD has CreateCustomVolumeFromBackup nil-pointer dereference on volumes[0].snapshots[*].expires_at",
+      "date": "2026-11-06",
+      "affected": [
+        "github.com/canonical/lxd"
+      ],
+      "references": [
+        "https://github.com/canonical/lxd/security/advisories/GHSA-j93m-3j9p-m5m8",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-9639",
+        "https://github.com/canonical/lxd/pull/18320",
+        "https://github.com/canonical/lxd/pull/18390",
+        "https://github.com/canonical/lxd/commit/05bc2729e99707a766d5c4705167a3322c9ef424",
+        "https://github.com/canonical/lxd/commit/c7cdfadb6044dfeaac592dc225978b4125ee23fe",
+        "https://github.com/canonical/lxd/commit/d15520809e6e2ac2af0c6354dfb7be5854b0e859",
+        "https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/9xxx/CVE-2026-9639.json",
+        "https://github.com/canonical/lxd/blob/lxd-5.0.7/lxd/storage/backend_lxd.go",
+        "https://github.com/canonical/lxd/releases/tag/lxd-5.21.5",
+        "https://github.com/canonical/lxd/releases/tag/lxd-6.9",
+        "https://github.com/advisories/GHSA-j93m-3j9p-m5m8"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/canonical/lxd"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/canonical/lxd"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-pjff-c2wc-f6jm",
+      "name": "LXD has arbitrary file write on client due to trusted image hash",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-pjff-c2wc-f6jm",
+      "description": "LXD has arbitrary file write on client due to trusted image hash",
+      "date": "2026-11-06",
+      "affected": [
+        "github.com/canonical/lxd"
+      ],
+      "references": [
+        "https://github.com/canonical/lxd/security/advisories/GHSA-pjff-c2wc-f6jm",
+        "https://github.com/lxc/incus/security/advisories/GHSA-f6m5-xw2g-xc4x",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-48769",
+        "https://github.com/advisories/GHSA-pjff-c2wc-f6jm"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/canonical/lxd"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/canonical/lxd"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-fmc8-p6q7-75cc",
+      "name": "LXD has argument injection in backup compression algorithm leading to AFW and ACE",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-fmc8-p6q7-75cc",
+      "description": "LXD has argument injection in backup compression algorithm leading to AFW and ACE",
+      "date": "2026-11-06",
+      "affected": [
+        "github.com/canonical/lxd"
+      ],
+      "references": [
+        "https://github.com/canonical/lxd/security/advisories/GHSA-fmc8-p6q7-75cc",
+        "https://github.com/lxc/incus/security/advisories/GHSA-v6mj-8pf4-hhw4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-48755",
+        "https://github.com/canonical/lxd/commit/0915bb88cbb0baed5ac1aef8e62079c57ac877da",
+        "https://github.com/canonical/lxd/commit/0ab30d1bbe398ef6359fb8116d6852790a1f151d",
+        "https://github.com/canonical/lxd/commit/1887e3da0f33af250d941e4e9ffafc8fd0911a89",
+        "https://github.com/canonical/lxd/commit/32fd88560ddfc10b0a808c9f176d93faf0e0069a",
+        "https://github.com/canonical/lxd/commit/932592daa790ddd1c0d074daee9c0522d8e268fe",
+        "https://github.com/canonical/lxd/commit/9b09906b3b4c27ba4416e522644bd1d5191cdf5f",
+        "https://github.com/canonical/lxd/commit/a2808429c2506d6fa5bf506e4790909c5bd3aac9",
+        "https://github.com/canonical/lxd/commit/afc0e7ff003b81fa00f3aff147b99838a610f796",
+        "https://github.com/canonical/lxd/commit/b3e8cedb39838e5effe7b9d0ae3a3ad3ce85f9ec",
+        "https://github.com/canonical/lxd/commit/c6c999561ccf0024337e9f3746087c7f9c5f096f",
+        "https://github.com/canonical/lxd/commit/e1e6018c509f52db0fb531c7c20fa7aac59858de",
+        "https://github.com/canonical/lxd/commit/e224d6f8230a2da7ed7e60ab2aee44c788f9dba8",
+        "https://github.com/advisories/GHSA-fmc8-p6q7-75cc"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/canonical/lxd"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/canonical/lxd"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vghh-5rfx-xhq8",
+      "name": "LXD has arbitrary file read+write on host via rootfs/ symlink in malicious image",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-vghh-5rfx-xhq8",
+      "description": "LXD has arbitrary file read+write on host via rootfs/ symlink in malicious image",
+      "date": "2026-11-06",
+      "affected": [
+        "github.com/canonical/lxd"
+      ],
+      "references": [
+        "https://github.com/canonical/lxd/security/advisories/GHSA-vghh-5rfx-xhq8",
+        "https://github.com/lxc/incus/security/advisories/GHSA-2q3f-q5pq-g8wv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-48749",
+        "https://github.com/canonical/lxd/commit/190e2451544a60f6f924ef50a2112fb65d1923cd",
+        "https://github.com/canonical/lxd/commit/254b85c9301397e25304116b63da9154093199da",
+        "https://github.com/canonical/lxd/commit/3dbf4cea14124abda420dd5048d7e657cd30c1b7",
+        "https://github.com/canonical/lxd/commit/4cd63344f8a523acf39fdc02a80fd64b2e3b584f",
+        "https://github.com/canonical/lxd/commit/51dc11ed5258fbb54dd8993b802af02d6d7b0235",
+        "https://github.com/canonical/lxd/commit/62bcee5471c2581fce10a648f6b27410ce081b87",
+        "https://github.com/canonical/lxd/commit/8751ea69e24583996a20fb5519dcf2d89470d8e9",
+        "https://github.com/canonical/lxd/commit/b499ec4b91dcc90f43aea444b1e19a58109772c2",
+        "https://github.com/canonical/lxd/commit/e2aeca6b78677751bab36a7e4efaad0c840ed9fd",
+        "https://github.com/canonical/lxd/commit/edb6d994f77333c9c33f4d9a137c754d142f3818",
+        "https://github.com/advisories/GHSA-vghh-5rfx-xhq8"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/canonical/lxd"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/canonical/lxd"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jpf8-86f3-wp38",
+      "name": "LXD has arbitrary file read+write on host via templates/ symlink in malicious image",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-jpf8-86f3-wp38",
+      "description": "LXD has arbitrary file read+write on host via templates/ symlink in malicious image",
+      "date": "2026-11-06",
+      "affected": [
+        "github.com/canonical/lxd"
+      ],
+      "references": [
+        "https://github.com/canonical/lxd/security/advisories/GHSA-jpf8-86f3-wp38",
+        "https://github.com/lxc/incus/security/advisories/GHSA-vxp5-584q-c479",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-48752",
+        "https://github.com/canonical/lxd/commit/190e2451544a60f6f924ef50a2112fb65d1923cd",
+        "https://github.com/canonical/lxd/commit/254b85c9301397e25304116b63da9154093199da",
+        "https://github.com/canonical/lxd/commit/4cd63344f8a523acf39fdc02a80fd64b2e3b584f",
+        "https://github.com/canonical/lxd/commit/734fcc4d2c8fd0332d42010e34fe856077c2f7f3",
+        "https://github.com/canonical/lxd/commit/79f3879047b94344e17750551fddc74ed7f14ff7",
+        "https://github.com/canonical/lxd/commit/8751ea69e24583996a20fb5519dcf2d89470d8e9",
+        "https://github.com/canonical/lxd/commit/8a3b8d77a0279c3a9da15f4c4aa639ef0631d805",
+        "https://github.com/canonical/lxd/commit/be6df3b49e79344ec461daadd82d80139697dc1a",
+        "https://github.com/lxc/incus/commit/cbefa31ae0da8fd96361178aed3a3c631e098fef",
+        "https://github.com/advisories/GHSA-jpf8-86f3-wp38"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/canonical/lxd"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/canonical/lxd"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9j25-mm2h-2f76",
+      "name": "LXD has arbitrary file write on host via `exec-output` symlink in crafted image",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-9j25-mm2h-2f76",
+      "description": "LXD has arbitrary file write on host via `exec-output` symlink in crafted image",
+      "date": "2026-11-06",
+      "affected": [
+        "github.com/canonical/lxd"
+      ],
+      "references": [
+        "https://github.com/canonical/lxd/security/advisories/GHSA-9j25-mm2h-2f76",
+        "https://github.com/lxc/incus/security/advisories/GHSA-73hr-m85f-64v9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-48750",
+        "https://github.com/canonical/lxd/commit/124f901006400f634d54d908911c9ea93bae9a70",
+        "https://github.com/canonical/lxd/commit/254b85c9301397e25304116b63da9154093199da",
+        "https://github.com/canonical/lxd/commit/4cd63344f8a523acf39fdc02a80fd64b2e3b584f",
+        "https://github.com/canonical/lxd/commit/937b761393af48fe4f5ff7e610ebfc1c9144e953",
+        "https://github.com/canonical/lxd/commit/bb0f2521a59edacff2a0cb2e9532fdfbe68cf764",
+        "https://github.com/canonical/lxd/releases/tag/lxd-5.21.5",
+        "https://manpages.debian.org/bookworm/cron/cron.8.en.html",
+        "https://github.com/advisories/GHSA-9j25-mm2h-2f76"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/canonical/lxd"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/canonical/lxd"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3gq2-x4qg-p4g6",
+      "name": "LXD: SSRF via image import from URL allows internal network probing by authenticated users",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3gq2-x4qg-p4g6",
+      "description": "LXD: SSRF via image import from URL allows internal network probing by authenticated users",
+      "date": "2026-11-06",
+      "affected": [
+        "github.com/canonical/lxd"
+      ],
+      "references": [
+        "https://github.com/canonical/lxd/security/advisories/GHSA-3gq2-x4qg-p4g6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-28385",
+        "https://github.com/canonical/lxd/pull/18210",
+        "https://github.com/canonical/lxd/pull/18462",
+        "https://github.com/canonical/lxd/commit/08996fa031eebc2bc2f8e27148c2ba24386c01d0",
+        "https://github.com/canonical/lxd/commit/4bbdb17ab67010446668e4b00a5175df5b6d55b4",
+        "https://github.com/canonical/lxd/commit/5976c92117b79d73437d7fab55e34cb80083edff",
+        "https://github.com/canonical/lxd/commit/886fcf5b7686bf59de78e239cec90a69e8fb9c65",
+        "https://github.com/canonical/lxd/commit/c4a919f3f4e21249d535d4030a33484313026111",
+        "https://github.com/canonical/lxd/blob/lxd-6.10.0/lxd/image_source_transitional.go",
+        "https://github.com/canonical/lxd/blob/lxd-6.9/lxd/daemon_images.go",
+        "https://github.com/canonical/lxd/blob/lxd-6.9/lxd/images.go",
+        "https://github.com/canonical/lxd/releases/tag/lxd-6.9",
+        "https://github.com/advisories/GHSA-3gq2-x4qg-p4g6"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/canonical/lxd"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/canonical/lxd"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xgjr-7j9q-2h4r",
+      "name": "listmonk: SQL Injection in `/api/subscribers/export` bypasses table access control, leaking admin pa",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-xgjr-7j9q-2h4r",
+      "description": "listmonk: SQL Injection in `/api/subscribers/export` bypasses table access control, leaking admin password hashes and SMTP credentials",
+      "date": "2026-11-06",
+      "affected": [
+        "github.com/knadh/listmonk"
+      ],
+      "references": [
+        "https://github.com/knadh/listmonk/security/advisories/GHSA-xgjr-7j9q-2h4r",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-62361",
+        "https://github.com/knadh/listmonk/commit/c0a6525009a65265230185f16e8674dcc83aa024",
+        "https://github.com/knadh/listmonk/releases/tag/v6.2.0",
+        "https://github.com/advisories/GHSA-xgjr-7j9q-2h4r"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/knadh/listmonk"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/knadh/listmonk"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-5w5g-j6hw-6p8f",
+      "name": "OSAC operator: Kubeconfig credential-plugin execution and SSRF in console proxy",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-5w5g-j6hw-6p8f",
+      "description": "OSAC operator: Kubeconfig credential-plugin execution and SSRF in console proxy",
+      "date": "2026-11-06",
+      "affected": [
+        "github.com/osac-project/osac-operator"
+      ],
+      "references": [
+        "https://github.com/osac-project/osac-operator/security/advisories/GHSA-5w5g-j6hw-6p8f",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-62284",
+        "https://github.com/osac-project/osac-operator/pull/321",
+        "https://github.com/osac-project/osac-operator/commit/7e4222b6ab465fc00606c8cfed980b226820cb1b",
+        "https://github.com/osac-project/osac-operator/commit/86466378aa3603253dca7fa2f59a2733af0dc092",
+        "https://github.com/advisories/GHSA-5w5g-j6hw-6p8f"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/osac-project/osac-operator"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/osac-project/osac-operator"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-92r3-p8c2-3fpx",
+      "name": "Eclipse hawkBit DDI has Privilege Escalation that allows Tenant-Isolated Firmware Exfiltration",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-92r3-p8c2-3fpx",
+      "description": "Eclipse hawkBit DDI has Privilege Escalation that allows Tenant-Isolated Firmware Exfiltration",
+      "date": "2026-11-06",
+      "affected": [
+        "org.eclipse.hawkbit:hawkbit-ddi-resource"
+      ],
+      "references": [
+        "https://github.com/eclipse-hawkbit/hawkbit/security/advisories/GHSA-92r3-p8c2-3fpx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-16454",
+        "https://github.com/eclipse-hawkbit/hawkbit/pull/3156",
+        "https://github.com/eclipse-hawkbit/hawkbit/pull/3161",
+        "https://github.com/eclipse-hawkbit/hawkbit/commit/6cb34fd77f6a60cfb0ee5b379093593cbe56591a",
+        "https://github.com/eclipse-hawkbit/hawkbit/commit/914b8b406bd77838cffbef80c1ea4cff5a15c710",
+        "https://github.com/eclipse-hawkbit/hawkbit/releases/tag/1.0.4",
+        "https://gitlab.eclipse.org/security/cve-assignment/-/work_items/196",
+        "https://github.com/advisories/GHSA-92r3-p8c2-3fpx"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-m5ph-mmg5-6w5h",
       "name": "filecoin-pin: Unbounded DAG pinning can exhaust server resources",
@@ -948,432 +1463,14 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mm57-4v3p-rchx",
-      "name": "pyasn1 has quadratic-complexity denial of service in binary REAL decoding",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-mm57-4v3p-rchx",
-      "description": "pyasn1 has quadratic-complexity denial of service in binary REAL decoding",
-      "date": "2026-10-30",
-      "affected": [
-        "pyasn1"
-      ],
-      "references": [
-        "https://github.com/pyasn1/pyasn1/security/advisories/GHSA-mm57-4v3p-rchx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119197",
-        "https://github.com/pyasn1/pyasn1/pull/132",
-        "https://github.com/pyasn1/pyasn1/commit/ce3ec3390784780a530047e0e77be5ff457636a4",
-        "https://github.com/pyasn1/pyasn1/releases/tag/v0.6.5",
-        "https://github.com/advisories/GHSA-mm57-4v3p-rchx"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9m75-vc3g-4x39",
-      "name": "pyasn1 has quadratic-time denial of service in constructed string and indefinite-length ANY decoding",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-9m75-vc3g-4x39",
-      "description": "pyasn1 has quadratic-time denial of service in constructed string and indefinite-length ANY decoding",
-      "date": "2026-10-30",
-      "affected": [
-        "pyasn1"
-      ],
-      "references": [
-        "https://github.com/pyasn1/pyasn1/security/advisories/GHSA-9m75-vc3g-4x39",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119195",
-        "https://github.com/pyasn1/pyasn1/pull/132",
-        "https://github.com/pyasn1/pyasn1/commit/4ce00797c594b59c1fd6b86d9ebc3ba87b7ec9f9",
-        "https://github.com/pyasn1/pyasn1/releases/tag/v0.6.5",
-        "https://github.com/advisories/GHSA-9m75-vc3g-4x39"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-fm9c-5rcf-2q5p",
-      "name": "pyasn1 has quadratic CPU use in schemaless BER/CER/DER container decoding",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-fm9c-5rcf-2q5p",
-      "description": "pyasn1 has quadratic CPU use in schemaless BER/CER/DER container decoding",
-      "date": "2026-10-30",
-      "affected": [
-        "pyasn1"
-      ],
-      "references": [
-        "https://github.com/pyasn1/pyasn1/security/advisories/GHSA-fm9c-5rcf-2q5p",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119194",
-        "https://github.com/pyasn1/pyasn1/pull/132",
-        "https://github.com/pyasn1/pyasn1/commit/a36e3a3d067148d26197a6b7221fd0e2cde9cc86",
-        "https://github.com/pyasn1/pyasn1/releases/tag/v0.6.5",
-        "https://github.com/advisories/GHSA-fm9c-5rcf-2q5p"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4642-5mcj-2rqw",
-      "name": "Forge: ASN.1 OID first arc truncation in asn1.oidToDer",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-4642-5mcj-2rqw",
-      "description": "Forge: ASN.1 OID first arc truncation in asn1.oidToDer",
-      "date": "2026-10-30",
-      "affected": [
-        "node-forge"
-      ],
-      "references": [
-        "https://github.com/digitalbazaar/forge/security/advisories/GHSA-4642-5mcj-2rqw",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-118775",
-        "https://github.com/digitalbazaar/forge/commit/e56a3dde8e4e63bae566bb32546eeaf92f515e1e",
-        "https://github.com/digitalbazaar/forge/releases/tag/v1.4.1",
-        "https://github.com/advisories/GHSA-4642-5mcj-2rqw"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "node-forge"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6wvx-3r32-xmcg",
-      "name": "Forge: Prototype Pollution in forge.http cookie handling via a malicious Set-Cookie",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-6wvx-3r32-xmcg",
-      "description": "Forge: Prototype Pollution in forge.http cookie handling via a malicious Set-Cookie",
-      "date": "2026-10-30",
-      "affected": [
-        "node-forge"
-      ],
-      "references": [
-        "https://github.com/digitalbazaar/forge/security/advisories/GHSA-6wvx-3r32-xmcg",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-118777",
-        "https://github.com/digitalbazaar/forge/commit/797c3f816a22748a96fceebb34eb3a6716853991",
-        "https://github.com/digitalbazaar/forge/releases/tag/v1.4.1",
-        "https://github.com/advisories/GHSA-6wvx-3r32-xmcg"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "node-forge"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-525v-9gp9-w22h",
-      "name": "Forge: TLS client crash when the server sends no certificate",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-525v-9gp9-w22h",
-      "description": "Forge: TLS client crash when the server sends no certificate",
-      "date": "2026-10-30",
-      "affected": [
-        "node-forge"
-      ],
-      "references": [
-        "https://github.com/digitalbazaar/forge/security/advisories/GHSA-525v-9gp9-w22h",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-118778",
-        "https://github.com/digitalbazaar/forge/commit/7be9fbd40df2e2f15f29fea2846b1c87d58f6888",
-        "https://github.com/digitalbazaar/forge/releases/tag/v1.4.1",
-        "https://github.com/advisories/GHSA-525v-9gp9-w22h"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "node-forge"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7wch-p9px-956x",
-      "name": "Forge: Regular expression denial of service in PEM decoding (pem.decode)",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7wch-p9px-956x",
-      "description": "Forge: Regular expression denial of service in PEM decoding (pem.decode)",
-      "date": "2026-10-30",
-      "affected": [
-        "node-forge"
-      ],
-      "references": [
-        "https://github.com/digitalbazaar/forge/security/advisories/GHSA-7wch-p9px-956x",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-118779",
-        "https://github.com/digitalbazaar/forge/commit/412345db583cd28a9d23636d0d93e9f751b935f3",
-        "https://github.com/digitalbazaar/forge/releases/tag/v1.4.1",
-        "https://github.com/advisories/GHSA-7wch-p9px-956x"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "node-forge"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-h6cr-wjv9-3cpp",
-      "name": "Forge: Denial of Service via infinite loop in BigInteger.modInverse() with negative input (incomplet",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-h6cr-wjv9-3cpp",
-      "description": "Forge: Denial of Service via infinite loop in BigInteger.modInverse() with negative input (incomplete fix of CVE-2026-33891)",
-      "date": "2026-10-30",
-      "affected": [
-        "node-forge"
-      ],
-      "references": [
-        "https://github.com/digitalbazaar/forge/security/advisories/GHSA-h6cr-wjv9-3cpp",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-118781",
-        "https://github.com/digitalbazaar/forge/commit/e96c47b7f006dec66fb7bb1934e7375498b04a72",
-        "https://github.com/digitalbazaar/forge/releases/tag/v1.4.1",
-        "https://github.com/advisories/GHSA-h6cr-wjv9-3cpp"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "node-forge"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4487-j8r4-4g2f",
-      "name": "Forge: verifyCertificateChain() removes trusted CA certificates with the same subject from the CA st",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-4487-j8r4-4g2f",
-      "description": "Forge: verifyCertificateChain() removes trusted CA certificates with the same subject from the CA store",
-      "date": "2026-10-30",
-      "affected": [
-        "node-forge"
-      ],
-      "references": [
-        "https://github.com/digitalbazaar/forge/security/advisories/GHSA-4487-j8r4-4g2f",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-118780",
-        "https://github.com/digitalbazaar/forge/commit/f6555609bd30f442fbfacd543155928ceccf98d0",
-        "https://github.com/digitalbazaar/forge/releases/tag/v1.4.1",
-        "https://github.com/advisories/GHSA-4487-j8r4-4g2f"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "node-forge"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5cwg-6vw7-rj6p",
-      "name": "Forge: AES-GCM authentication bypass via unvalidated tagLength option",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-5cwg-6vw7-rj6p",
-      "description": "Forge: AES-GCM authentication bypass via unvalidated tagLength option",
-      "date": "2026-10-30",
-      "affected": [
-        "node-forge"
-      ],
-      "references": [
-        "https://github.com/digitalbazaar/forge/security/advisories/GHSA-5cwg-6vw7-rj6p",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119186",
-        "https://github.com/digitalbazaar/forge/commit/236845d96c71207259f91638d0138bba8e2fd624",
-        "https://github.com/digitalbazaar/forge/releases/tag/v1.4.1",
-        "https://github.com/advisories/GHSA-5cwg-6vw7-rj6p"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "node-forge"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jc66-7q78-782g",
-      "name": "Forge: PKCS#12 MAC forgery and constant-key PBE via zero iteration count",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-jc66-7q78-782g",
-      "description": "Forge: PKCS#12 MAC forgery and constant-key PBE via zero iteration count",
-      "date": "2026-10-30",
-      "affected": [
-        "node-forge"
-      ],
-      "references": [
-        "https://github.com/digitalbazaar/forge/security/advisories/GHSA-jc66-7q78-782g",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-118782",
-        "https://github.com/digitalbazaar/forge/commit/d9584aa56824972858366d5187b3d29e46bf3656",
-        "https://github.com/digitalbazaar/forge/releases/tag/v1.4.1",
-        "https://github.com/advisories/GHSA-jc66-7q78-782g"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "node-forge"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-8hrf-8g6f-7xwp",
-      "name": "Forge: Denial of service in TLS record processing via a record interleaved with a fragmented handsha",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-8hrf-8g6f-7xwp",
-      "description": "Forge: Denial of service in TLS record processing via a record interleaved with a fragmented handshake message",
-      "date": "2026-10-30",
-      "affected": [
-        "node-forge"
-      ],
-      "references": [
-        "https://github.com/digitalbazaar/forge/security/advisories/GHSA-8hrf-8g6f-7xwp",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119188",
-        "https://github.com/digitalbazaar/forge/commit/700d977d39f9f8f896c55b0763eebb940a2c087e",
-        "https://github.com/digitalbazaar/forge/releases/tag/v1.4.1",
-        "https://github.com/advisories/GHSA-8hrf-8g6f-7xwp"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "node-forge"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hqq3-7jhf-c5jx",
-      "name": "Forge: Denial of service in TLS record processing via call stack exhaustion",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-hqq3-7jhf-c5jx",
-      "description": "Forge: Denial of service in TLS record processing via call stack exhaustion",
-      "date": "2026-10-30",
-      "affected": [
-        "node-forge"
-      ],
-      "references": [
-        "https://github.com/digitalbazaar/forge/security/advisories/GHSA-hqq3-7jhf-c5jx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119187",
-        "https://github.com/digitalbazaar/forge/commit/817e2ce0d0f6d8a25bc9c2670615c38a9ffdc51c",
-        "https://github.com/digitalbazaar/forge/releases/tag/v1.4.1",
-        "https://github.com/advisories/GHSA-hqq3-7jhf-c5jx"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "node-forge"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-5x38-2vff-x55p",
-      "name": "Forge: X.509 basicConstraints bypass in verifyCertificateChain() via deprecated extension OIDs 2.5.2",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-5x38-2vff-x55p",
-      "description": "Forge: X.509 basicConstraints bypass in verifyCertificateChain() via deprecated extension OIDs 2.5.29.10 and 2.5.29.13",
-      "date": "2026-10-30",
-      "affected": [
-        "node-forge"
-      ],
-      "references": [
-        "https://github.com/digitalbazaar/forge/security/advisories/GHSA-5x38-2vff-x55p",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119190",
-        "https://github.com/digitalbazaar/forge/commit/58c06bc251856b409c30ecb35a93f5f6c9bbc84a",
-        "https://github.com/digitalbazaar/forge/releases/tag/v1.4.1",
-        "https://github.com/advisories/GHSA-5x38-2vff-x55p"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "node-forge"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-9vw2-f4vp-x7gf",
-      "name": "PHPUnit vulnerable to code execution by other local users via shared temporary directory in PHPT cod",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-9vw2-f4vp-x7gf",
-      "description": "PHPUnit vulnerable to code execution by other local users via shared temporary directory in PHPT code coverage handling",
-      "date": "2026-10-30",
-      "affected": [
-        "phpunit/phpunit"
-      ],
-      "references": [
-        "https://github.com/sebastianbergmann/phpunit/security/advisories/GHSA-9vw2-f4vp-x7gf",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119193",
-        "https://github.com/sebastianbergmann/phpunit/commit/ae31c78a86e9d6c641497bacf47462d7bb7d7f34",
-        "https://github.com/FriendsOfPHP/security-advisories/blob/master/phpunit/phpunit/CVE-2026-119193.yaml",
-        "https://github.com/sebastianbergmann/phpunit/releases/tag/13.4.4",
-        "https://github.com/advisories/GHSA-9vw2-f4vp-x7gf"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "phpunit/phpunit"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3xf4-9g3c-4h4w",
-      "name": "Nuxt dev server exposes generated appSecret through Vite file serving",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-3xf4-9g3c-4h4w",
-      "description": "Nuxt dev server exposes generated appSecret through Vite file serving",
-      "date": "2026-10-30",
-      "affected": [
-        "@nuxt/vite-builder"
-      ],
-      "references": [
-        "https://github.com/nuxt/nuxt/security/advisories/GHSA-3xf4-9g3c-4h4w",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-119201",
-        "https://github.com/nuxt/nuxt/commit/2981290f36d9c5412c022758f3d89ba21a845308",
-        "https://github.com/nuxt/nuxt/commit/545004cc350be7003dea4116ce6206d6f980b1fd",
-        "https://github.com/nuxt/nuxt/releases/tag/v4.6.3",
-        "https://github.com/advisories/GHSA-3xf4-9g3c-4h4w"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@nuxt/vite-builder"
-          ]
-        },
-        "compromised_actions": [
-          "@nuxt/vite-builder"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "github.com/canonical/lxd": "LXD has restricted project bypass leading to arbitrary command execution",
+    "github.com/knadh/listmonk": "listmonk: SQL Injection in `/api/subscribers/export` bypasses table access control, leaking admin pa",
+    "github.com/osac-project/osac-operator": "OSAC operator: Kubeconfig credential-plugin execution and SSRF in console proxy",
     "github.com/chainguard-dev/kaniko": "kaniko can send the build's Azure (Entra ID) access token to lookalike ACR registry hosts",
-    "github.com/canonical/lxd": "lxd allows Cross-guest volume hijack via DevLXD device patch",
     "github.com/basekick-labs/arc": "Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735",
     "@payloadcms/storage-vercel-blob": "@payloadcms/storage-vercel-blob has access control bypass of uploads in Vercel Storage adapter",
     "@enspirit/elo": "Elo JavaScript emitter has sandbox escape to arbitrary Node.js / browser code execution via unfilter",
@@ -1384,9 +1481,7 @@
     "@sd-jwt/decode": "SD JWT JS: Tampered disclosures silently dropped instead of rejected",
     "github.com/kubeflow/pipelines": "Kubeflow Pipelines: Pipeline archive upload allows decompression bomb to exhaust server memory",
     "@hapi/joi": "joi: quadratic-time split in `string().email({ multiple: true })` allows denial of service",
-    "@hapi/content": "@hapi/content: quadratic-time parsing of Content-Disposition parameters allows denial of service",
-    "phpunit/phpunit": "PHPUnit vulnerable to code execution by other local users via shared temporary directory in PHPT cod",
-    "@nuxt/vite-builder": "Nuxt dev server exposes generated appSecret through Vite file serving"
+    "@hapi/content": "@hapi/content: quadratic-time parsing of Content-Disposition parameters allows denial of service"
   },
   "malicious_packages": {
     "npm": {},
