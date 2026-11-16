@@ -1,8 +1,117 @@
 {
   "version": "2026.11.16",
-  "last_updated": "2026-11-16T04:49:57.841095+00:00",
+  "last_updated": "2026-11-16T14:49:55.043677+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-6cf5-gc4q-fm3x",
+      "name": "SvelteKit: Private `query.batch` functions could collide, producing unexpected parameter / function ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-6cf5-gc4q-fm3x",
+      "description": "SvelteKit: Private `query.batch` functions could collide, producing unexpected parameter / function combinations",
+      "date": "2026-11-16",
+      "affected": [
+        "@sveltejs/kit"
+      ],
+      "references": [
+        "https://github.com/sveltejs/kit/security/advisories/GHSA-6cf5-gc4q-fm3x",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-128119",
+        "https://github.com/sveltejs/kit/commit/2c190febe78a15cac21be539ed9e99dc2d414b60",
+        "https://github.com/sveltejs/kit/releases/tag/@sveltejs/kit@3.1.1",
+        "https://github.com/advisories/GHSA-6cf5-gc4q-fm3x"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@sveltejs/kit"
+          ]
+        },
+        "compromised_actions": [
+          "@sveltejs/kit"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-rqp5-r3wg-vg35",
+      "name": "SvelteKit: Protocol-relative module import during server-side route resolution allows cross-origin s",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-rqp5-r3wg-vg35",
+      "description": "SvelteKit: Protocol-relative module import during server-side route resolution allows cross-origin script execution",
+      "date": "2026-11-16",
+      "affected": [
+        "@sveltejs/kit",
+        "@sveltejs/kit"
+      ],
+      "references": [
+        "https://github.com/sveltejs/kit/security/advisories/GHSA-rqp5-r3wg-vg35",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-128116",
+        "https://github.com/sveltejs/kit/pull/17620",
+        "https://github.com/sveltejs/kit/commit/0a2e58cbccdd46cac20aa5af4e2edf17e0da11dd",
+        "https://github.com/sveltejs/kit/commit/a8f7c1e09f13524d3b71d814bad9c15c9f33ef49",
+        "https://github.com/sveltejs/kit/releases/tag/@sveltejs/kit@2.70.4",
+        "https://github.com/sveltejs/kit/releases/tag/@sveltejs/kit@3.1.1",
+        "https://github.com/advisories/GHSA-rqp5-r3wg-vg35"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@sveltejs/kit",
+            "@sveltejs/kit"
+          ]
+        },
+        "compromised_actions": [
+          "@sveltejs/kit",
+          "@sveltejs/kit"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-xmfg-f9cm-w86q",
+      "name": "NLTK: Symlink escape in chat80.sql_query bypasses the pathsec data-root sandbox to read out-of-root ",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-xmfg-f9cm-w86q",
+      "description": "NLTK: Symlink escape in chat80.sql_query bypasses the pathsec data-root sandbox to read out-of-root SQLite databases",
+      "date": "2026-11-16",
+      "affected": [
+        "nltk"
+      ],
+      "references": [
+        "https://github.com/nltk/nltk/security/advisories/GHSA-xmfg-f9cm-w86q",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-126302",
+        "https://www.vulncheck.com/advisories/nltk-3.9.4-before-3.10.4-symlink-sandbox-escape-via-chat80-sql-query",
+        "https://github.com/advisories/GHSA-xmfg-f9cm-w86q"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-59f9-gqg8-mqpj",
+      "name": "NLTK: Path Traversal in save_maxent_params / load_maxent_params Allow Arbitrary File READ/WRITE",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-59f9-gqg8-mqpj",
+      "description": "NLTK: Path Traversal in save_maxent_params / load_maxent_params Allow Arbitrary File READ/WRITE",
+      "date": "2026-11-16",
+      "affected": [
+        "nltk"
+      ],
+      "references": [
+        "https://github.com/nltk/nltk/security/advisories/GHSA-59f9-gqg8-mqpj",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-126296",
+        "https://github.com/nltk/nltk/pull/3759",
+        "https://github.com/nltk/nltk/commit/2a92b71827d754ae8920261e7ed0c4bb283ab2d7",
+        "https://github.com/nltk/nltk/releases/tag/v3.10.4",
+        "https://www.vulncheck.com/advisories/nltk-before-3.10.4-path-traversal-via-save-maxent-params-and-load-maxent-params",
+        "https://github.com/advisories/GHSA-59f9-gqg8-mqpj"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-89p3-fcch-88ph",
       "name": "NLTK: Quadratic-time CPU denial of service in CCG lexicon parser (fromstring) on wide bracket bodies",
@@ -947,6 +1056,26 @@
       "remediation": "Update affected packages per advisory guidance."
     },
     {
+      "id": "FEED-GHSA-w2j9-qh3j-4h63",
+      "name": "Duplicate Advisory: Symlink escape in chat80.sql_query bypasses the pathsec data-root sandbox to rea",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-w2j9-qh3j-4h63",
+      "description": "Duplicate Advisory: Symlink escape in chat80.sql_query bypasses the pathsec data-root sandbox to read out-of-root SQLite databases",
+      "date": "2026-11-13",
+      "affected": [
+        "nltk"
+      ],
+      "references": [
+        "https://github.com/nltk/nltk/security/advisories/GHSA-xmfg-f9cm-w86q",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-126302",
+        "https://www.vulncheck.com/advisories/nltk-3.9.4-before-3.10.4-symlink-sandbox-escape-via-chat80-sql-query",
+        "https://github.com/advisories/GHSA-w2j9-qh3j-4h63"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
       "id": "FEED-GHSA-rg32-vgf9-927c",
       "name": "Duplicate Advisory: Quadratic CPU exhaustion in TreebankWordTokenizer.span_tokenize via list.pop(0) ",
       "category": "ghsa_advisory",
@@ -1163,166 +1292,12 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-4j63-6c4x-wfg4",
-      "name": "Soup Sieve: General sibling combinator inside :has() matches untrusted HTML in quadratic time",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-4j63-6c4x-wfg4",
-      "description": "Soup Sieve: General sibling combinator inside :has() matches untrusted HTML in quadratic time",
-      "date": "2026-11-13",
-      "affected": [
-        "soupsieve"
-      ],
-      "references": [
-        "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-4j63-6c4x-wfg4",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-126192",
-        "https://github.com/facelessuser/soupsieve/pull/304",
-        "https://github.com/facelessuser/soupsieve/commit/ffb88cca745c591224f74a8e86414a85e8f35fc0",
-        "https://github.com/facelessuser/soupsieve/releases/tag/2.10",
-        "https://github.com/advisories/GHSA-4j63-6c4x-wfg4"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-f3w6-w445-fwh9",
-      "name": "Active Storage: Possible arbitrary file write and read in image analysis",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-f3w6-w445-fwh9",
-      "description": "Active Storage: Possible arbitrary file write and read in image analysis",
-      "date": "2026-11-12",
-      "affected": [
-        "activestorage",
-        "activestorage"
-      ],
-      "references": [
-        "https://github.com/rails/rails/security/advisories/GHSA-f3w6-w445-fwh9",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-122006",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-126082",
-        "https://github.com/digitalocean/droplet-1-clicks/pull/488",
-        "https://github.com/rubysec/ruby-advisory-db/pull/1300",
-        "https://github.com/rails/rails/commit/468aa9a93fc98f5476b6821770f4ccfcb7f7d328",
-        "https://github.com/rails/rails/commit/ea8c40121ce53a3d0255cd4eb6d13bfe3bc01776",
-        "https://github.com/alan-turing-institute/cyber-threat-observatory/blob/main/reports/2026-11-04/TIER_2_CVE-2026-122006.md",
-        "https://github.com/rails/rails/releases/tag/v8.0.5.2",
-        "https://github.com/rails/rails/releases/tag/v8.1.4.1",
-        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/activestorage/GHSA-f3w6-w445-fwh9.yml",
-        "https://github.com/advisories/GHSA-f3w6-w445-fwh9"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "activestorage",
-            "activestorage"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-rwvh-fw6r-pwvp",
-      "name": "Action Pack: Possible DoS vulnerability in Action Controller Live streaming",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-rwvh-fw6r-pwvp",
-      "description": "Action Pack: Possible DoS vulnerability in Action Controller Live streaming",
-      "date": "2026-11-12",
-      "affected": [
-        "actionpack",
-        "actionpack"
-      ],
-      "references": [
-        "https://github.com/rails/rails/security/advisories/GHSA-rwvh-fw6r-pwvp",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-126072",
-        "https://github.com/rails/rails/commit/27ad18ed5900dee28ba20e9c6fc718ff751fa215",
-        "https://github.com/rails/rails/commit/ccbfc09690fef05fdd2a9969c917a71b92cc98fc",
-        "https://github.com/rails/rails/releases/tag/v8.0.5.2",
-        "https://github.com/rails/rails/releases/tag/v8.1.4.1",
-        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/actionpack/GHSA-rwvh-fw6r-pwvp.yml",
-        "https://github.com/advisories/GHSA-rwvh-fw6r-pwvp"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "actionpack",
-            "actionpack"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-x6mj-8jx9-qhqv",
-      "name": "Action Pack: Possible sensitive session information leak in Active Storage proxy mode",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-x6mj-8jx9-qhqv",
-      "description": "Action Pack: Possible sensitive session information leak in Active Storage proxy mode",
-      "date": "2026-11-12",
-      "affected": [
-        "actionpack",
-        "actionpack"
-      ],
-      "references": [
-        "https://github.com/rails/rails/security/advisories/GHSA-x6mj-8jx9-qhqv",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-126077",
-        "https://github.com/rails/rails/commit/0e6cf8faa89caf4c64311d35ca2bc88c1458d4e3",
-        "https://github.com/rails/rails/commit/849a6c30eacbb6ca4722132f43c4333a93188556",
-        "https://github.com/rails/rails/releases/tag/v8.0.5.2",
-        "https://github.com/rails/rails/releases/tag/v8.1.4.1",
-        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/actionpack/GHSA-x6mj-8jx9-qhqv.yml",
-        "https://github.com/advisories/GHSA-x6mj-8jx9-qhqv"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "actionpack",
-            "actionpack"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-v6rj-xm57-3p59",
-      "name": "Action View: Possible XSS vulnerability in highlight helper",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-v6rj-xm57-3p59",
-      "description": "Action View: Possible XSS vulnerability in highlight helper",
-      "date": "2026-11-12",
-      "affected": [
-        "actionview",
-        "actionview"
-      ],
-      "references": [
-        "https://github.com/rails/rails/security/advisories/GHSA-v6rj-xm57-3p59",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-126078",
-        "https://github.com/rails/rails/commit/06938194b4fd59e1d2c8ab4a781f3c1e2b763425",
-        "https://github.com/rails/rails/commit/c796f6198837479ada13290eb8fa767b5219a58a",
-        "https://github.com/rails/rails/releases/tag/v8.0.5.2",
-        "https://github.com/rails/rails/releases/tag/v8.1.4.1",
-        "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/actionview/GHSA-v6rj-xm57-3p59.yml",
-        "https://github.com/advisories/GHSA-v6rj-xm57-3p59"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "rubygems": [
-            "actionview",
-            "actionview"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@sveltejs/kit": "SvelteKit: Private `query.batch` functions could collide, producing unexpected parameter / function ",
     "github.com/filebrowser/filebrowser/v2": "File Browser: Trailing-slash directory deletion leaves public shares active for recreated paths",
-    "@sveltejs/kit": "SvelteKit: adapter-node crashes with an unhandled URIError when `reroute` rewrites malformed pathnam",
     "@sveltejs/adapter-static": "SvelteKit: Prerendered paths are interpreted as regular expressions in Vercel route config generated",
     "@sveltejs/adapter-vercel": "SvelteKit: Prerendered paths are interpreted as regular expressions in Vercel route config generated",
     "@sveltejs/adapter-cloudflare": "SvelteKit: Prerendered redirect paths can inject arbitrary rules into the `_redirects` file generate",
