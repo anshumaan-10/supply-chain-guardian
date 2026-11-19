@@ -1,8 +1,126 @@
 {
-  "version": "2026.11.18",
-  "last_updated": "2026-11-18T23:53:23.193517+00:00",
+  "version": "2026.11.19",
+  "last_updated": "2026-11-19T05:58:06.803997+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-cvx8-9ff6-54xq",
+      "name": "PGPainless: Unbounded Compressed Packet Descent in inline-detach and MessageInspector leads to Denia",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-cvx8-9ff6-54xq",
+      "description": "PGPainless: Unbounded Compressed Packet Descent in inline-detach and MessageInspector leads to Denial of Service (DoS)",
+      "date": "2026-11-19",
+      "affected": [
+        "org.pgpainless:pgpainless-core",
+        "org.pgpainless:pgpainless-core"
+      ],
+      "references": [
+        "https://github.com/pgpainless/pgpainless/security/advisories/GHSA-cvx8-9ff6-54xq",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-76088",
+        "https://github.com/pgpainless/pgpainless/commit/7662f084595945f1000f3f2e1bc4e15302194dec",
+        "https://github.com/pgpainless/pgpainless/commit/94572773f62e313ae905c48314de44efcf82420e",
+        "https://github.com/pgpainless/pgpainless/releases/tag/1.7.8",
+        "https://github.com/pgpainless/pgpainless/releases/tag/2.0.4",
+        "https://github.com/advisories/GHSA-cvx8-9ff6-54xq"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jc42-994r-vvwp",
+      "name": "cassandra-jdbc-wrapper: Authentication Token Exposed in Logs",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-jc42-994r-vvwp",
+      "description": "cassandra-jdbc-wrapper: Authentication Token Exposed in Logs",
+      "date": "2026-11-19",
+      "affected": [
+        "com.ing.data:cassandra-jdbc-wrapper",
+        "com.ing.data:cassandra-jdbc-wrapper"
+      ],
+      "references": [
+        "https://github.com/ing-bank/cassandra-jdbc-wrapper/security/advisories/GHSA-jc42-994r-vvwp",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-73504",
+        "https://github.com/ing-bank/cassandra-jdbc-wrapper/commit/0b7ea0322e538304119f58f1214e4171312b245b",
+        "https://github.com/ing-bank/cassandra-jdbc-wrapper/commit/ace58f7cf5c981d8dfe302f1a514ae4c6f827f38",
+        "https://github.com/ing-bank/cassandra-jdbc-wrapper/releases/tag/v4.16.4",
+        "https://github.com/ing-bank/cassandra-jdbc-wrapper/releases/tag/v5.0.2",
+        "https://github.com/advisories/GHSA-jc42-994r-vvwp"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2m9m-6cr5-9x25",
+      "name": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE cla",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2m9m-6cr5-9x25",
+      "description": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE clauses",
+      "date": "2026-11-19",
+      "affected": [
+        "@connorbritain/mssql-mcp-server",
+        "@connorbritain/mssql-mcp-writer",
+        "@connorbritain/mssql-mcp-reader",
+        "@connorbritain/mssql-mcp-core"
+      ],
+      "references": [
+        "https://github.com/ConnorBritain/mssql-mcp-core/security/advisories/GHSA-2m9m-6cr5-9x25",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63129",
+        "https://github.com/ConnorBritain/mssql-mcp-core/pull/1",
+        "https://github.com/ConnorBritain/mssql-mcp-core/commit/227e2efc4e3311c477b7ae509c3ae15437a4f815",
+        "https://github.com/ConnorBritain/mssql-mcp-core/commit/a9727f83768598e4fdbddfbc717ccfebb84ae7af",
+        "https://github.com/advisories/GHSA-2m9m-6cr5-9x25"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@connorbritain/mssql-mcp-server",
+            "@connorbritain/mssql-mcp-writer",
+            "@connorbritain/mssql-mcp-reader",
+            "@connorbritain/mssql-mcp-core"
+          ]
+        },
+        "compromised_actions": [
+          "@connorbritain/mssql-mcp-server",
+          "@connorbritain/mssql-mcp-writer",
+          "@connorbritain/mssql-mcp-reader",
+          "@connorbritain/mssql-mcp-core"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8fh7-7q4q-cq52",
+      "name": "Miren Runtime: Authentication bypass in RPC layer: unverified TLS client certificates grant cluster ",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-8fh7-7q4q-cq52",
+      "description": "Miren Runtime: Authentication bypass in RPC layer: unverified TLS client certificates grant cluster superuser access",
+      "date": "2026-11-19",
+      "affected": [
+        "miren.dev/runtime"
+      ],
+      "references": [
+        "https://github.com/mirendev/runtime/security/advisories/GHSA-8fh7-7q4q-cq52",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75521",
+        "https://github.com/mirendev/runtime/commit/e2159c8c8559da3f1c1485b463c794d656cd2fe4",
+        "https://github.com/mirendev/runtime/releases/tag/v0.11.1",
+        "https://github.com/advisories/GHSA-8fh7-7q4q-cq52"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "miren.dev/runtime"
+          ]
+        },
+        "compromised_actions": [
+          "miren.dev/runtime"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-vc6p-m6vx-6cwq",
       "name": "OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
@@ -1215,125 +1333,15 @@
         }
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7mxv-7h3q-9324",
-      "name": "NLTK dot2img runs Graphviz 'dot' without the trusted-exec chokepoint, enabling local code execution ",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7mxv-7h3q-9324",
-      "description": "NLTK dot2img runs Graphviz 'dot' without the trusted-exec chokepoint, enabling local code execution via a writable PATH element",
-      "date": "2026-11-16",
-      "affected": [
-        "nltk"
-      ],
-      "references": [
-        "https://github.com/nltk/nltk/security/advisories/GHSA-7mxv-7h3q-9324",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-128134",
-        "https://github.com/nltk/nltk/pull/3887",
-        "https://github.com/nltk/nltk/commit/b002a7288c22db86fd6ca2d9526e3f91d6fda797",
-        "https://github.com/nltk/nltk/releases/tag/v3.10.4",
-        "https://github.com/advisories/GHSA-7mxv-7h3q-9324"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hf59-9xwc-2g4p",
-      "name": "Nuxt: Colliding island props can share one `/__nuxt_island` path (incomplete fix for CVE-2026-46342)",
-      "category": "ghsa_advisory",
-      "severity": "low",
-      "cve": "GHSA-hf59-9xwc-2g4p",
-      "description": "Nuxt: Colliding island props can share one `/__nuxt_island` path (incomplete fix for CVE-2026-46342)",
-      "date": "2026-11-16",
-      "affected": [
-        "@nuxt/nitro-server",
-        "@nuxt/nitro-server",
-        "nuxt",
-        "nuxt"
-      ],
-      "references": [
-        "https://github.com/nuxt/nuxt/security/advisories/GHSA-hf59-9xwc-2g4p",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-128076",
-        "https://github.com/nuxt/nuxt/commit/6f1b93c643355688bc9e2d7434723f7fd3f25092",
-        "https://github.com/nuxt/nuxt/releases/tag/v4.6.4",
-        "https://github.com/advisories/GHSA-hf59-9xwc-2g4p"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@nuxt/nitro-server",
-            "@nuxt/nitro-server",
-            "nuxt",
-            "nuxt"
-          ]
-        },
-        "compromised_actions": [
-          "@nuxt/nitro-server",
-          "@nuxt/nitro-server"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-96x6-fvhx-49hg",
-      "name": "Nuxt exposes the message and data of unhandled errors thrown during server rendering",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-96x6-fvhx-49hg",
-      "description": "Nuxt exposes the message and data of unhandled errors thrown during server rendering",
-      "date": "2026-11-16",
-      "affected": [
-        "nuxt",
-        "nuxt"
-      ],
-      "references": [
-        "https://github.com/nuxt/nuxt/security/advisories/GHSA-96x6-fvhx-49hg",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-128075",
-        "https://github.com/nuxt/nuxt/commit/8c56b71e4d0377c5c047799078db09c6b3d4fde5",
-        "https://github.com/nuxt/nuxt/releases/tag/v4.6.4",
-        "https://github.com/advisories/GHSA-96x6-fvhx-49hg"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "nuxt",
-            "nuxt"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r9jc-w898-3fv6",
-      "name": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-r9jc-w898-3fv6",
-      "description": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
-      "date": "2026-11-16",
-      "affected": [
-        "nuxt"
-      ],
-      "references": [
-        "https://github.com/nuxt/nuxt/security/advisories/GHSA-r9jc-w898-3fv6",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-128074",
-        "https://github.com/nuxt/nuxt/commit/97424dd21c59b60cc7ece28576e15069ca0fdbc4",
-        "https://github.com/nuxt/nuxt/releases/tag/v4.6.4",
-        "https://github.com/advisories/GHSA-r9jc-w898-3fv6"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "nuxt"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@connorbritain/mssql-mcp-server": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE cla",
+    "@connorbritain/mssql-mcp-writer": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE cla",
+    "@connorbritain/mssql-mcp-reader": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE cla",
+    "@connorbritain/mssql-mcp-core": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE cla",
+    "miren.dev/runtime": "Miren Runtime: Authentication bypass in RPC layer: unverified TLS client certificates grant cluster ",
     "github.com/OliveTin/OliveTin": "OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
     "github.com/defilantech/llmkube": "LLMKube: Arbitrary Host File Read via Model.spec.source hostPath Injection",
     "chainguard.dev/sdk": "Chainguard SDK: AWS SigV4 token replay in auth/aws.VerifyToken \u2014 Chainguard-Audience/Chainguard-Iden",
@@ -1347,8 +1355,7 @@
     "egroupware/egroupware": "EGroupware: User-Controlled Identity Provider Selection in SAML Authentication",
     "silverstripe/framework": "Silverstripe Framework: RCE via i18nTextCollectorTask writer parameter",
     "github.com/kubeshark/kubeshark": "Kubeshark: MCP `download_file` writes fetched bytes to an unvalidated destination path",
-    "litesaml/lightsaml": "lightsaml allows Signature wrapping bypass",
-    "@nuxt/nitro-server": "Nuxt: Colliding island props can share one `/__nuxt_island` path (incomplete fix for CVE-2026-46342)"
+    "litesaml/lightsaml": "lightsaml allows Signature wrapping bypass"
   },
   "malicious_packages": {
     "npm": {},
