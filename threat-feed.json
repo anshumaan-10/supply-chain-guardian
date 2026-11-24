@@ -1,8 +1,201 @@
 {
-  "version": "2026.11.23",
-  "last_updated": "2026-11-23T17:25:58.222451+00:00",
+  "version": "2026.11.24",
+  "last_updated": "2026-11-24T03:49:16.370280+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-j44m-77cc-p3cc",
+      "name": "AVideo API vulnerable to OS command injection through an unescaped FFmpeg process keyword",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-j44m-77cc-p3cc",
+      "description": "AVideo API vulnerable to OS command injection through an unescaped FFmpeg process keyword",
+      "date": "2026-11-23",
+      "affected": [
+        "wwbn/avideo"
+      ],
+      "references": [
+        "https://github.com/WWBN/AVideo/security/advisories/GHSA-j44m-77cc-p3cc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63492",
+        "https://github.com/WWBN/AVideo/commit/7559ddf72f48684cc40ae78be9cebcaa07f5fa06",
+        "https://github.com/WWBN/AVideo/releases/tag/v29.1.0",
+        "https://github.com/advisories/GHSA-j44m-77cc-p3cc"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "wwbn/avideo"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-9x82-4j54-863h",
+      "name": "isomorphic-git allows unbounded memory allocation from attacker-controlled delta target size (DoS)",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-9x82-4j54-863h",
+      "description": "isomorphic-git allows unbounded memory allocation from attacker-controlled delta target size (DoS)",
+      "date": "2026-11-23",
+      "affected": [
+        "isomorphic-git"
+      ],
+      "references": [
+        "https://github.com/isomorphic-git/isomorphic-git/security/advisories/GHSA-9x82-4j54-863h",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63476",
+        "https://github.com/isomorphic-git/isomorphic-git/pull/2370",
+        "https://github.com/isomorphic-git/isomorphic-git/pull/2373",
+        "https://github.com/isomorphic-git/isomorphic-git/commit/5c37ea69e9691183fc52d41ba7b6361263e9fedd",
+        "https://github.com/isomorphic-git/isomorphic-git/commit/823843d1cd19182df79bc907c767f5bcecb39a0b",
+        "https://github.com/isomorphic-git/isomorphic-git/releases/tag/v1.38.6",
+        "https://github.com/advisories/GHSA-9x82-4j54-863h"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "isomorphic-git"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2v9w-34q6-wpqx",
+      "name": "jline3 leads to ReDoS in Built-in Less Viewer Search",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-2v9w-34q6-wpqx",
+      "description": "jline3 leads to ReDoS in Built-in Less Viewer Search",
+      "date": "2026-11-23",
+      "affected": [
+        "org.jline:jline-builtins",
+        "org.jline:jline-builtins"
+      ],
+      "references": [
+        "https://github.com/jline/jline3/security/advisories/GHSA-2v9w-34q6-wpqx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-77423",
+        "https://github.com/jline/jline3/pull/2012",
+        "https://github.com/jline/jline3/pull/2018",
+        "https://github.com/jline/jline3/commit/1d5fc3099e77938b971e197211cad2d4fbb17541",
+        "https://github.com/jline/jline3/commit/341ee69ccc57b7733c1b40d6993219b64b3206ae",
+        "https://github.com/jline/jline3/releases/tag/4.3.1",
+        "https://github.com/jline/jline3/releases/tag/jline-3.30.15",
+        "https://github.com/advisories/GHSA-2v9w-34q6-wpqx"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-vp2j-gqfm-r3cf",
+      "name": "secp256k1-native has a compiler-induced timing side channel in scalar multiplication",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-vp2j-gqfm-r3cf",
+      "description": "secp256k1-native has a compiler-induced timing side channel in scalar multiplication",
+      "date": "2026-11-23",
+      "affected": [
+        "secp256k1-native"
+      ],
+      "references": [
+        "https://github.com/sgbett/secp256k1-native/security/advisories/GHSA-vp2j-gqfm-r3cf",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63410",
+        "https://github.com/sgbett/secp256k1-native/pull/32",
+        "https://github.com/sgbett/secp256k1-native/commit/a89bea1617a2d063c6545ad44565dc22098c880e",
+        "https://github.com/sgbett/secp256k1-native/blob/master/docs/advisories/0001-compiler-reconstructed-ct-branch.md",
+        "https://github.com/sgbett/secp256k1-native/releases/tag/v0.18.0",
+        "https://github.com/advisories/GHSA-vp2j-gqfm-r3cf"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "rubygems": [
+            "secp256k1-native"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-f9h7-4mmq-vgcq",
+      "name": "Klever Go counts bitmap padding bits toward BLS quorum, allowing blocks with insufficient signatures",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-f9h7-4mmq-vgcq",
+      "description": "Klever Go counts bitmap padding bits toward BLS quorum, allowing blocks with insufficient signatures",
+      "date": "2026-11-23",
+      "affected": [
+        "github.com/klever-io/klever-go"
+      ],
+      "references": [
+        "https://github.com/klever-io/klever-go/security/advisories/GHSA-f9h7-4mmq-vgcq",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-58262",
+        "https://github.com/klever-io/klever-go/commit/a11cb28e495e608d8034dbe83a91e89d0c68e0f7",
+        "https://github.com/advisories/GHSA-f9h7-4mmq-vgcq"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/klever-io/klever-go"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/klever-io/klever-go"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-6jcc-5g8w-32mx",
+      "name": "i18next deepExtend recurses into inherited built-ins, allowing corruption of shared built-in objects",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-6jcc-5g8w-32mx",
+      "description": "i18next deepExtend recurses into inherited built-ins, allowing corruption of shared built-in objects (DoS)",
+      "date": "2026-11-23",
+      "affected": [
+        "i18next"
+      ],
+      "references": [
+        "https://github.com/i18next/i18next/security/advisories/GHSA-6jcc-5g8w-32mx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63402",
+        "https://github.com/i18next/i18next/commit/642137b7786d83661ec3ee53027798dc4b81d30a",
+        "https://github.com/i18next/i18next/releases/tag/v26.3.4",
+        "https://github.com/advisories/GHSA-6jcc-5g8w-32mx"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "i18next"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-2r3w-c2vx-fv5g",
+      "name": "Xen Orchestra: Empty-object login token",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-2r3w-c2vx-fv5g",
+      "description": "Xen Orchestra: Empty-object login token",
+      "date": "2026-11-23",
+      "affected": [
+        "xo-server"
+      ],
+      "references": [
+        "https://github.com/vatesfr/xen-orchestra/security/advisories/GHSA-2r3w-c2vx-fv5g",
+        "https://github.com/vatesfr/xen-orchestra/pull/10748",
+        "https://github.com/vatesfr/xen-orchestra/commit/50166fe3a49c02069d35ba9046ca4a1f77f4e11d",
+        "https://docs.vates.tech/security-advisories/advisories/2026/vates-sa-2026-062",
+        "https://github.com/advisories/GHSA-2r3w-c2vx-fv5g"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "xo-server"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-mqwm-5m85-gmcv",
       "name": "Gradle causes failure to disable repositories exposing builds to malicious artifacts",
@@ -1195,190 +1388,12 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-wgvx-x5g3-9v29",
-      "name": "baserCMS administrative API authorization bypass through session fallback",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-wgvx-x5g3-9v29",
-      "description": "baserCMS administrative API authorization bypass through session fallback",
-      "date": "2026-11-20",
-      "affected": [
-        "baserproject/baser-core"
-      ],
-      "references": [
-        "https://github.com/baserproject/basercms/security/advisories/GHSA-wgvx-x5g3-9v29",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63012",
-        "https://github.com/baserproject/basercms/commit/2d7f74d3d5d584b9478c210016b81a1b7c30e9fb",
-        "https://github.com/baserproject/basercms/commit/464227b8770704076ee6eddd4bd464c184786eca",
-        "https://github.com/baserproject/basercms/releases/tag/5.3.0",
-        "https://github.com/advisories/GHSA-wgvx-x5g3-9v29"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "baserproject/baser-core"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2pj4-v76f-wjvx",
-      "name": "baserCMS: Path Traversal Bypass via realpath() in BcThemeFileService (CVE-2026-30940 Patch Bypass)",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-2pj4-v76f-wjvx",
-      "description": "baserCMS: Path Traversal Bypass via realpath() in BcThemeFileService (CVE-2026-30940 Patch Bypass)",
-      "date": "2026-11-20",
-      "affected": [
-        "baserproject/baser-core"
-      ],
-      "references": [
-        "https://github.com/baserproject/basercms/security/advisories/GHSA-2pj4-v76f-wjvx",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-62955",
-        "https://github.com/baserproject/basercms/commit/464227b8770704076ee6eddd4bd464c184786eca",
-        "https://github.com/baserproject/basercms/commit/c650017acf5dfbfd15eb2f3eda07967bcb002be2",
-        "https://github.com/baserproject/bc-theme-file/commit/a8f90096f13eca576a87cb25aa02e8f54642af7e",
-        "https://github.com/baserproject/basercms/releases/tag/5.3.0",
-        "https://github.com/advisories/GHSA-2pj4-v76f-wjvx"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "baserproject/baser-core"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-25rm-9wvm-m38v",
-      "name": "falcon-rust: Discrete-Gaussian sampler runs at 2^-33 precision, far below Falcon's requirement (refe",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-25rm-9wvm-m38v",
-      "description": "falcon-rust: Discrete-Gaussian sampler runs at 2^-33 precision, far below Falcon's requirement (reference KAT vectors no longer pass)",
-      "date": "2026-11-20",
-      "affected": [
-        "falcon-rust"
-      ],
-      "references": [
-        "https://github.com/aszepieniec/falcon-rust/security/advisories/GHSA-25rm-9wvm-m38v",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77382",
-        "https://github.com/aszepieniec/falcon-rust/commit/930d766256f9d67ec9b6d437557286cf47f042ca",
-        "https://github.com/aszepieniec/falcon-rust/commit/bf2cf000e63a9803f7ab1a34f629a5a0e9c49cf6",
-        "https://github.com/aszepieniec/falcon-rust/releases/tag/v0.2.0",
-        "https://github.com/advisories/GHSA-25rm-9wvm-m38v"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-r7h9-qx4h-77j5",
-      "name": "Bolt ListFormatHelper SQL injection",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-r7h9-qx4h-77j5",
-      "description": "Bolt ListFormatHelper SQL injection",
-      "date": "2026-11-20",
-      "affected": [
-        "bolt/core"
-      ],
-      "references": [
-        "https://github.com/bolt/core/security/advisories/GHSA-r7h9-qx4h-77j5",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77378",
-        "https://github.com/Vondry/bolt-cms/pull/2",
-        "https://github.com/bolt/core/commit/2818347a7ebd399a036f35ada750f0b151464489",
-        "https://github.com/bolt/core/releases/tag/6.1.4",
-        "https://github.com/advisories/GHSA-r7h9-qx4h-77j5"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "bolt/core"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3xjf-9q55-vxw4",
-      "name": "Bolt: Prevent SSRF due to unchecked followed redirects",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-3xjf-9q55-vxw4",
-      "description": "Bolt: Prevent SSRF due to unchecked followed redirects",
-      "date": "2026-11-20",
-      "affected": [
-        "bolt/core"
-      ],
-      "references": [
-        "https://github.com/bolt/core/security/advisories/GHSA-3xjf-9q55-vxw4",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77380",
-        "https://github.com/Vondry/bolt-cms/pull/4",
-        "https://github.com/bolt/core/commit/41d7aaf73f7b75c70819208cde513da70f0d2055",
-        "https://github.com/bolt/core/releases/tag/6.1.5",
-        "https://github.com/advisories/GHSA-3xjf-9q55-vxw4"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "bolt/core"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-6358-jg5p-hmjj",
-      "name": "Bolt: Information disclosure through unfiltered public relation API endpoint",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-6358-jg5p-hmjj",
-      "description": "Bolt: Information disclosure through unfiltered public relation API endpoint",
-      "date": "2026-11-20",
-      "affected": [
-        "bolt/core"
-      ],
-      "references": [
-        "https://github.com/bolt/core/security/advisories/GHSA-6358-jg5p-hmjj",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77379",
-        "https://github.com/Vondry/bolt-cms/pull/1",
-        "https://github.com/bolt/core/commit/577b2232209c9285143a2f505ca306416b38f3f9",
-        "https://github.com/bolt/core/releases/tag/6.1.4",
-        "https://github.com/advisories/GHSA-6358-jg5p-hmjj"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "bolt/core"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-2535-j2pq-qq4r",
-      "name": "Bolt: Server-Side Request Forgery (SSRF) in URL-upload and embed endpoints",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-2535-j2pq-qq4r",
-      "description": "Bolt: Server-Side Request Forgery (SSRF) in URL-upload and embed endpoints",
-      "date": "2026-11-20",
-      "affected": [
-        "bolt/core"
-      ],
-      "references": [
-        "https://github.com/bolt/core/security/advisories/GHSA-2535-j2pq-qq4r",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77377",
-        "https://github.com/Vondry/bolt-cms/pull/3",
-        "https://github.com/bolt/core/commit/4be8861fb5dd3706db363598631026d683bbf4b7",
-        "https://github.com/bolt/core/commit/c5686bfacc4461cb141b38cc5ff00d7bd224f5f2",
-        "https://github.com/bolt/core/releases/tag/6.1.4",
-        "https://github.com/advisories/GHSA-2535-j2pq-qq4r"
-      ],
-      "detection_signatures": {
-        "compromised_actions": [
-          "bolt/core"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "wwbn/avideo": "AVideo API vulnerable to OS command injection through an unescaped FFmpeg process keyword",
+    "github.com/klever-io/klever-go": "Klever Go counts bitmap padding bits toward BLS quorum, allowing blocks with insufficient signatures",
     "@budibase/server": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-ti",
     "contao/core-bundle": "contao/core-bundle: Cross-site scripting in the frontend search results",
     "contao/newsletter-bundle": "contao/newsletter-bundle: Contao newsletter custom actions bypass channel-scoped authorization",
@@ -1395,9 +1410,7 @@
     "@appium/storage-plugin": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
     "github.com/altcha-org/altcha-lib-go/v2": "ALTCHA: Nil-map panic (pre-verification DoS) in v1 parseServerSignature on malformed VerificationDat",
     "github.com/bep/imagemeta": "bep/imagemeta: Unbounded memory allocation decoding PNG `zTXt` \"Raw profile type iptc\" chunks",
-    "github.com/omec-project/amf": "Aether Project amf: panic on an unrecovered NGAP goroutine",
-    "baserproject/baser-core": "baserCMS administrative API authorization bypass through session fallback",
-    "bolt/core": "Bolt ListFormatHelper SQL injection"
+    "github.com/omec-project/amf": "Aether Project amf: panic on an unrecovered NGAP goroutine"
   },
   "malicious_packages": {
     "npm": {},
