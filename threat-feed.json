@@ -1,8 +1,36 @@
 {
   "version": "2026.11.25",
-  "last_updated": "2026-11-25T01:54:54.090232+00:00",
+  "last_updated": "2026-11-25T16:48:59.761207+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-crj3-q72p-ggqm",
+      "name": "@waline/client vulnerable to stored XSS through unsanitized comment edit previews",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-crj3-q72p-ggqm",
+      "description": "@waline/client vulnerable to stored XSS through unsanitized comment edit previews",
+      "date": "2026-11-25",
+      "affected": [
+        "@waline/client"
+      ],
+      "references": [
+        "https://github.com/walinejs/waline/security/advisories/GHSA-crj3-q72p-ggqm",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-64670",
+        "https://github.com/advisories/GHSA-crj3-q72p-ggqm"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "@waline/client"
+          ]
+        },
+        "compromised_actions": [
+          "@waline/client"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-859w-52fx-hcm6",
       "name": "soapbar: verify_envelope_bsp accepts an unauthenticated embedded certificate (signature forgery / au",
@@ -1351,44 +1379,11 @@
       ],
       "detection_signatures": {},
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-hghq-53p7-c582",
-      "name": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-hghq-53p7-c582",
-      "description": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
-      "date": "2026-11-20",
-      "affected": [
-        "github.com/phires/go-guerrilla",
-        "github.com/phires/go-guerrilla"
-      ],
-      "references": [
-        "https://github.com/phires/go-guerrilla/security/advisories/GHSA-hghq-53p7-c582",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-115578",
-        "https://github.com/phires/go-guerrilla/commit/b6deed97ff70f52bf34c386d33967694e7330d33",
-        "https://github.com/phires/go-guerrilla/commit/f0d0f2c40dcacf212e3a6a055ae67f7b412affc4",
-        "https://github.com/phires/go-guerrilla/releases/tag/v1.6.7-1",
-        "https://github.com/advisories/GHSA-hghq-53p7-c582"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/phires/go-guerrilla",
-            "github.com/phires/go-guerrilla"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/phires/go-guerrilla",
-          "github.com/phires/go-guerrilla"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
+    "@waline/client": "@waline/client vulnerable to stored XSS through unsanitized comment edit previews",
     "cakephp/twig-view": "TwigView FileLoader may allow arbitrary file reads through user-controlled template paths",
     "github.com/cli/cli/v2": "GitHub CLI gh codespace jupyter may allow code execution via unvalidated URLs from malicious Codespa",
     "github.com/insomniacslk/dhcp": "github.com/insomniacslk/dhcp permits denial of service through a malformed IPv4 payload length",
@@ -1404,8 +1399,7 @@
     "paymenter/paymenter": "Paymenter: Unauthenticated arbitrary method invocation in Livewire components",
     "poweradmin/poweradmin": "Poweradmin: The email second factor is an mt_rand() six-digit code verified with no attempt limit or",
     "github.com/fabiolb/fabio": "Fabio: Access-control bypass through unnormalized request paths",
-    "nilsteampassnet/TeamPass": "TeamPass folder re-parenting authorization bypass",
-    "github.com/phires/go-guerrilla": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)"
+    "nilsteampassnet/TeamPass": "TeamPass folder re-parenting authorization bypass"
   },
   "malicious_packages": {
     "npm": {},
