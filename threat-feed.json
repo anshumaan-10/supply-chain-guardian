@@ -1,8 +1,245 @@
 {
-  "version": "2026.11.24",
-  "last_updated": "2026-11-24T16:58:40.635909+00:00",
+  "version": "2026.11.25",
+  "last_updated": "2026-11-25T01:54:54.090232+00:00",
   "generator": "supply-chain-guardian/update_threat_db.py",
   "patterns": [
+    {
+      "id": "FEED-GHSA-859w-52fx-hcm6",
+      "name": "soapbar: verify_envelope_bsp accepts an unauthenticated embedded certificate (signature forgery / au",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-859w-52fx-hcm6",
+      "description": "soapbar: verify_envelope_bsp accepts an unauthenticated embedded certificate (signature forgery / authentication bypass)",
+      "date": "2026-11-24",
+      "affected": [
+        "soapbar"
+      ],
+      "references": [
+        "https://github.com/hitoshyamamoto/soapbar/security/advisories/GHSA-859w-52fx-hcm6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-64855",
+        "https://github.com/hitoshyamamoto/soapbar/pull/71",
+        "https://github.com/hitoshyamamoto/soapbar/commit/8daaf221c1a681e6656a580b01f89f155ad97200",
+        "https://github.com/hitoshyamamoto/soapbar/releases/tag/v0.13.0",
+        "https://github.com/advisories/GHSA-859w-52fx-hcm6"
+      ],
+      "detection_signatures": {},
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-hq9r-72jq-2pxp",
+      "name": "TwigView FileLoader may allow arbitrary file reads through user-controlled template paths",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-hq9r-72jq-2pxp",
+      "description": "TwigView FileLoader may allow arbitrary file reads through user-controlled template paths",
+      "date": "2026-11-24",
+      "affected": [
+        "cakephp/twig-view",
+        "cakephp/twig-view"
+      ],
+      "references": [
+        "https://github.com/cakephp/twig-view/security/advisories/GHSA-hq9r-72jq-2pxp",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59191",
+        "https://github.com/cakephp/twig-view/commit/1c5107c9f562ab285273ceafd1c28bf314faa6d5",
+        "https://github.com/cakephp/twig-view/commit/65f5035ee65e76925242fdca2dc2bb0d732b6c1d",
+        "https://github.com/cakephp/twig-view/releases/tag/1.3.3",
+        "https://github.com/cakephp/twig-view/releases/tag/2.1.2",
+        "https://github.com/advisories/GHSA-hq9r-72jq-2pxp"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "cakephp/twig-view",
+          "cakephp/twig-view"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-8cg3-r6g9-fpg2",
+      "name": "GitHub CLI gh codespace jupyter may allow code execution via unvalidated URLs from malicious Codespa",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-8cg3-r6g9-fpg2",
+      "description": "GitHub CLI gh codespace jupyter may allow code execution via unvalidated URLs from malicious Codespaces",
+      "date": "2026-11-24",
+      "affected": [
+        "github.com/cli/cli/v2"
+      ],
+      "references": [
+        "https://github.com/cli/cli/security/advisories/GHSA-8cg3-r6g9-fpg2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59831",
+        "https://github.com/cli/cli/commit/b300f2ec7ec9dc9addc39b2ad88c54097ded7ca0",
+        "https://github.com/cli/cli/releases/tag/v2.96.0",
+        "https://github.com/advisories/GHSA-8cg3-r6g9-fpg2"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/cli/cli/v2"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/cli/cli/v2"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-jp3c-6v3g-mpxv",
+      "name": "github.com/insomniacslk/dhcp permits denial of service through a malformed IPv4 payload length",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-jp3c-6v3g-mpxv",
+      "description": "github.com/insomniacslk/dhcp permits denial of service through a malformed IPv4 payload length",
+      "date": "2026-11-24",
+      "affected": [
+        "github.com/insomniacslk/dhcp"
+      ],
+      "references": [
+        "https://github.com/insomniacslk/dhcp/pull/583",
+        "https://github.com/insomniacslk/dhcp/commit/c76316d4aa825673b208730779843d0711021e81",
+        "https://pkg.go.dev/vuln/GO-2026-6237",
+        "https://github.com/advisories/GHSA-jp3c-6v3g-mpxv"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "github.com/insomniacslk/dhcp"
+          ]
+        },
+        "compromised_actions": [
+          "github.com/insomniacslk/dhcp"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-3wh4-j44w-pg92",
+      "name": "etcd: CRL enforcement bypass on gRPC listener when `--listen-client-http-urls` is configured",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-3wh4-j44w-pg92",
+      "description": "etcd: CRL enforcement bypass on gRPC listener when `--listen-client-http-urls` is configured",
+      "date": "2026-11-24",
+      "affected": [
+        "go.etcd.io/etcd/v3",
+        "go.etcd.io/etcd/v3"
+      ],
+      "references": [
+        "https://github.com/etcd-io/etcd/security/advisories/GHSA-3wh4-j44w-pg92",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59818",
+        "https://github.com/etcd-io/etcd/pull/22007",
+        "https://github.com/etcd-io/etcd/pull/22021",
+        "https://github.com/etcd-io/etcd/pull/22025",
+        "https://github.com/etcd-io/etcd/commit/2308ce1578064641d4d67c40f0487309267d1bef",
+        "https://github.com/etcd-io/etcd/commit/24838af5a53dd0245adced920e42a9bf0e7a267f",
+        "https://github.com/etcd-io/etcd/commit/8221ae82bc25d4d55ca64382207b69be71038cbb",
+        "https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.5.md#v3532-2026-07-01",
+        "https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.6.md#v3613-2026-07-01",
+        "https://github.com/etcd-io/etcd/releases/tag/v3.5.32",
+        "https://github.com/etcd-io/etcd/releases/tag/v3.6.13",
+        "https://github.com/advisories/GHSA-3wh4-j44w-pg92"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "go": [
+            "go.etcd.io/etcd/v3",
+            "go.etcd.io/etcd/v3"
+          ]
+        },
+        "compromised_actions": [
+          "go.etcd.io/etcd/v3",
+          "go.etcd.io/etcd/v3"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-c4hm-4h84-2cf3",
+      "name": "ruflo MCP bridge allows unauthenticated remote code execution in default Docker Compose deployments",
+      "category": "ghsa_advisory",
+      "severity": "critical",
+      "cve": "GHSA-c4hm-4h84-2cf3",
+      "description": "ruflo MCP bridge allows unauthenticated remote code execution in default Docker Compose deployments",
+      "date": "2026-11-24",
+      "affected": [
+        "ruflo"
+      ],
+      "references": [
+        "https://github.com/ruvnet/ruflo/security/advisories/GHSA-c4hm-4h84-2cf3",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59726",
+        "https://github.com/ruvnet/ruflo/pull/2521",
+        "https://github.com/ruvnet/ruflo/commit/d00a0a40cd8bdbca877ac7f675f416bdc69accd1",
+        "https://github.com/ruvnet/ruflo/blob/main/v3/docs/adr/ADR-166-mcp-bridge-unauthenticated-rce-remediation.md",
+        "https://github.com/ruvnet/ruflo/releases/tag/v3.16.3",
+        "https://github.com/advisories/GHSA-c4hm-4h84-2cf3"
+      ],
+      "detection_signatures": {
+        "malicious_packages": {
+          "npm": [
+            "ruflo"
+          ]
+        }
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-g9x9-q7qj-6mv5",
+      "name": "AVideo API FFmpeg process permits OS command injection via notifyCode/callback",
+      "category": "ghsa_advisory",
+      "severity": "high",
+      "cve": "GHSA-g9x9-q7qj-6mv5",
+      "description": "AVideo API FFmpeg process permits OS command injection via notifyCode/callback",
+      "date": "2026-11-24",
+      "affected": [
+        "wwbn/avideo"
+      ],
+      "references": [
+        "https://github.com/WWBN/AVideo/security/advisories/GHSA-g9x9-q7qj-6mv5",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63305",
+        "https://github.com/WWBN/AVideo/commit/56cd4e90983bbd8f800f42be29718f7ee2ca3a5a",
+        "https://github.com/WWBN/AVideo/releases/tag/v29.1.0",
+        "https://www.vulncheck.com/advisories/avideo-through-os-command-injection-via-ffmpeg-json-php",
+        "https://github.com/advisories/GHSA-g9x9-q7qj-6mv5"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "wwbn/avideo"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
+    {
+      "id": "FEED-GHSA-48qj-5wxh-m8hc",
+      "name": "Cakephp twig-view unserialize Twig filter allows arbitrary object deserialization",
+      "category": "ghsa_advisory",
+      "severity": "medium",
+      "cve": "GHSA-48qj-5wxh-m8hc",
+      "description": "Cakephp twig-view unserialize Twig filter allows arbitrary object deserialization",
+      "date": "2026-11-24",
+      "affected": [
+        "cakephp/twig-view",
+        "cakephp/twig-view"
+      ],
+      "references": [
+        "https://github.com/cakephp/twig-view/security/advisories/GHSA-48qj-5wxh-m8hc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59192",
+        "https://github.com/cakephp/twig-view/pull/119",
+        "https://github.com/cakephp/twig-view/pull/120",
+        "https://github.com/cakephp/twig-view/commit/65f5035ee65e76925242fdca2dc2bb0d732b6c1d",
+        "https://github.com/cakephp/twig-view/commit/99a59407b138a0efff0ce3896cbf67e71a9c9cd3",
+        "https://github.com/cakephp/twig-view/releases/tag/1.3.3",
+        "https://github.com/cakephp/twig-view/releases/tag/2.1.2",
+        "https://github.com/advisories/GHSA-48qj-5wxh-m8hc"
+      ],
+      "detection_signatures": {
+        "compromised_actions": [
+          "cakephp/twig-view",
+          "cakephp/twig-view"
+        ]
+      },
+      "remediation": "Update affected packages per advisory guidance."
+    },
     {
       "id": "FEED-GHSA-j44m-77cc-p3cc",
       "name": "AVideo API vulnerable to OS command injection through an unescaped FFmpeg process keyword",
@@ -16,9 +253,10 @@
       ],
       "references": [
         "https://github.com/WWBN/AVideo/security/advisories/GHSA-j44m-77cc-p3cc",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63492",
         "https://github.com/WWBN/AVideo/commit/7559ddf72f48684cc40ae78be9cebcaa07f5fa06",
         "https://github.com/WWBN/AVideo/releases/tag/v29.1.0",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63304",
+        "https://www.vulncheck.com/advisories/avideo-through-os-command-injection-via-listffmpegprocesses",
         "https://github.com/advisories/GHSA-j44m-77cc-p3cc"
       ],
       "detection_signatures": {
@@ -1147,252 +1385,15 @@
         ]
       },
       "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-v9v2-98xq-627c",
-      "name": "pREST _groupby function-expression SQL injection (incomplete fix of CVE-2025-58450)",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-v9v2-98xq-627c",
-      "description": "pREST _groupby function-expression SQL injection (incomplete fix of CVE-2025-58450)",
-      "date": "2026-11-20",
-      "affected": [
-        "github.com/prest/prest/v2",
-        "github.com/prest/prest"
-      ],
-      "references": [
-        "https://github.com/prest/prest/security/advisories/GHSA-v9v2-98xq-627c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-104129",
-        "https://github.com/prest/prest/pull/1014",
-        "https://github.com/prest/prest/commit/084348fa82701b098492fc520557ff290b7691e2",
-        "https://github.com/prest/prest/commit/73e4b2aea81e2dbd33942efcb1a313fe3b151a41",
-        "https://github.com/prest/prest/releases/tag/v2.4.0",
-        "https://github.com/advisories/GHSA-v9v2-98xq-627c"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/prest/prest/v2",
-            "github.com/prest/prest"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/prest/prest/v2",
-          "github.com/prest/prest"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-3g82-77xr-68x5",
-      "name": "js-toml allows uncontrolled recursion in `load()` leading `RangeError` (stack exhaustion) on deeply ",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-3g82-77xr-68x5",
-      "description": "js-toml allows uncontrolled recursion in `load()` leading `RangeError` (stack exhaustion) on deeply nested input",
-      "date": "2026-11-20",
-      "affected": [
-        "js-toml"
-      ],
-      "references": [
-        "https://github.com/sunnyadn/js-toml/security/advisories/GHSA-3g82-77xr-68x5",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63386",
-        "https://github.com/sunnyadn/js-toml/commit/4e10acf1f99ff3cb443c58b8f0a57664e41e87c6",
-        "https://github.com/sunnyadn/js-toml/releases/tag/v1.1.3",
-        "https://github.com/advisories/GHSA-3g82-77xr-68x5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "js-toml"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-x6w4-f264-3vvr",
-      "name": "Refitter: Unrestricted OpenAPI references permit build-host SSRF and file inclusion",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-x6w4-f264-3vvr",
-      "description": "Refitter: Unrestricted OpenAPI references permit build-host SSRF and file inclusion",
-      "date": "2026-11-20",
-      "affected": [
-        "Refitter"
-      ],
-      "references": [
-        "https://github.com/christianhelle/refitter/security/advisories/GHSA-x6w4-f264-3vvr",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63184",
-        "https://github.com/christianhelle/refitter/pull/1173",
-        "https://github.com/christianhelle/refitter/commit/6ad20a3803561225100b0a4bb6b12f947d23db7b",
-        "https://github.com/christianhelle/refitter/releases/tag/2.1.1",
-        "https://github.com/user-attachments/files/29395269/reproduce.sh",
-        "https://github.com/user-attachments/files/29395271/maintainer-report.txt",
-        "https://github.com/user-attachments/files/29395272/advisory.md",
-        "https://github.com/user-attachments/files/29395283/reproduce.sh",
-        "https://github.com/user-attachments/files/29395284/maintainer-report.txt",
-        "https://github.com/user-attachments/files/29395285/advisory.md",
-        "https://github.com/user-attachments/files/29395286/listener.py",
-        "https://github.com/user-attachments/files/29395288/make_spec.py",
-        "https://github.com/advisories/GHSA-x6w4-f264-3vvr"
-      ],
-      "detection_signatures": {},
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-jwgx-mp9m-jwcr",
-      "name": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-jwgx-mp9m-jwcr",
-      "description": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
-      "date": "2026-11-20",
-      "affected": [
-        "@appium/storage-plugin"
-      ],
-      "references": [
-        "https://github.com/appium/appium/security/advisories/GHSA-jwgx-mp9m-jwcr",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-58192",
-        "https://github.com/appium/appium/pull/22362",
-        "https://github.com/appium/appium/commit/5fee01752f2782e96fbe64fd13520b433d4a7535",
-        "https://github.com/appium/appium/releases/tag/%40appium/storage-plugin%401.1.6",
-        "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "@appium/storage-plugin"
-          ]
-        },
-        "compromised_actions": [
-          "@appium/storage-plugin"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-mc8w-wjhw-45x5",
-      "name": "Etherpad: Pre-auth arbitrary file read",
-      "category": "ghsa_advisory",
-      "severity": "critical",
-      "cve": "GHSA-mc8w-wjhw-45x5",
-      "description": "Etherpad: Pre-auth arbitrary file read",
-      "date": "2026-11-20",
-      "affected": [
-        "ep_etherpad-lite"
-      ],
-      "references": [
-        "https://github.com/ether/etherpad/security/advisories/GHSA-mc8w-wjhw-45x5",
-        "https://github.com/ether/etherpad/pull/8081",
-        "https://github.com/ether/etherpad/commit/9c8d16d50e2fdfd9693ab35c43280410cb4db2fc",
-        "https://github.com/advisories/GHSA-mc8w-wjhw-45x5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "npm": [
-            "ep_etherpad-lite"
-          ]
-        }
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-gfwj-45pc-w6r5",
-      "name": "ALTCHA: Nil-map panic (pre-verification DoS) in v1 parseServerSignature on malformed VerificationDat",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-gfwj-45pc-w6r5",
-      "description": "ALTCHA: Nil-map panic (pre-verification DoS) in v1 parseServerSignature on malformed VerificationData",
-      "date": "2026-11-20",
-      "affected": [
-        "github.com/altcha-org/altcha-lib-go/v2"
-      ],
-      "references": [
-        "https://github.com/altcha-org/altcha-lib-go/security/advisories/GHSA-gfwj-45pc-w6r5",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-103033",
-        "https://github.com/altcha-org/altcha-lib-go/commit/2c4fc27a7b2d5b89f7175676445efcacc564c27c",
-        "https://github.com/altcha-org/altcha-lib-go/releases/tag/v2.1.0",
-        "https://github.com/advisories/GHSA-gfwj-45pc-w6r5"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/altcha-org/altcha-lib-go/v2"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/altcha-org/altcha-lib-go/v2"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-7hvw-3c2q-45qg",
-      "name": "bep/imagemeta: Unbounded memory allocation decoding PNG `zTXt` \"Raw profile type iptc\" chunks",
-      "category": "ghsa_advisory",
-      "severity": "high",
-      "cve": "GHSA-7hvw-3c2q-45qg",
-      "description": "bep/imagemeta: Unbounded memory allocation decoding PNG `zTXt` \"Raw profile type iptc\" chunks",
-      "date": "2026-11-20",
-      "affected": [
-        "github.com/bep/imagemeta"
-      ],
-      "references": [
-        "https://github.com/bep/imagemeta/security/advisories/GHSA-7hvw-3c2q-45qg",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-103025",
-        "https://github.com/bep/imagemeta/pull/69",
-        "https://github.com/bep/imagemeta/commit/2289fdf83fcd238d86f72e65c588da687c998437",
-        "https://github.com/bep/imagemeta/releases/tag/v0.17.3",
-        "https://github.com/advisories/GHSA-7hvw-3c2q-45qg"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/bep/imagemeta"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/bep/imagemeta"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
-    },
-    {
-      "id": "FEED-GHSA-v6w5-38cf-pcv8",
-      "name": "Aether Project amf: panic on an unrecovered NGAP goroutine",
-      "category": "ghsa_advisory",
-      "severity": "medium",
-      "cve": "GHSA-v6w5-38cf-pcv8",
-      "description": "Aether Project amf: panic on an unrecovered NGAP goroutine",
-      "date": "2026-11-20",
-      "affected": [
-        "github.com/omec-project/amf"
-      ],
-      "references": [
-        "https://github.com/omec-project/amf/security/advisories/GHSA-v6w5-38cf-pcv8",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-102945",
-        "https://github.com/omec-project/amf/pull/767",
-        "https://github.com/omec-project/amf/commit/d28042aaaea0221c5ea93c3e069a1dd5e7436f4c",
-        "https://github.com/omec-project/amf/releases/tag/v3.1.6",
-        "https://github.com/advisories/GHSA-v6w5-38cf-pcv8"
-      ],
-      "detection_signatures": {
-        "malicious_packages": {
-          "go": [
-            "github.com/omec-project/amf"
-          ]
-        },
-        "compromised_actions": [
-          "github.com/omec-project/amf"
-        ]
-      },
-      "remediation": "Update affected packages per advisory guidance."
     }
   ],
   "compromised_shas": {},
   "compromised_actions": {
-    "wwbn/avideo": "AVideo API vulnerable to OS command injection through an unescaped FFmpeg process keyword",
+    "cakephp/twig-view": "TwigView FileLoader may allow arbitrary file reads through user-controlled template paths",
+    "github.com/cli/cli/v2": "GitHub CLI gh codespace jupyter may allow code execution via unvalidated URLs from malicious Codespa",
+    "github.com/insomniacslk/dhcp": "github.com/insomniacslk/dhcp permits denial of service through a malformed IPv4 payload length",
+    "go.etcd.io/etcd/v3": "etcd: CRL enforcement bypass on gRPC listener when `--listen-client-http-urls` is configured",
+    "wwbn/avideo": "AVideo API FFmpeg process permits OS command injection via notifyCode/callback",
     "github.com/klever-io/klever-go": "Klever Go counts bitmap padding bits toward BLS quorum, allowing blocks with insufficient signatures",
     "@budibase/server": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-ti",
     "contao/core-bundle": "contao/core-bundle: Cross-site scripting in the frontend search results",
@@ -1404,13 +1405,7 @@
     "poweradmin/poweradmin": "Poweradmin: The email second factor is an mt_rand() six-digit code verified with no attempt limit or",
     "github.com/fabiolb/fabio": "Fabio: Access-control bypass through unnormalized request paths",
     "nilsteampassnet/TeamPass": "TeamPass folder re-parenting authorization bypass",
-    "github.com/phires/go-guerrilla": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
-    "github.com/prest/prest/v2": "pREST _groupby function-expression SQL injection (incomplete fix of CVE-2025-58450)",
-    "github.com/prest/prest": "pREST _groupby function-expression SQL injection (incomplete fix of CVE-2025-58450)",
-    "@appium/storage-plugin": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
-    "github.com/altcha-org/altcha-lib-go/v2": "ALTCHA: Nil-map panic (pre-verification DoS) in v1 parseServerSignature on malformed VerificationDat",
-    "github.com/bep/imagemeta": "bep/imagemeta: Unbounded memory allocation decoding PNG `zTXt` \"Raw profile type iptc\" chunks",
-    "github.com/omec-project/amf": "Aether Project amf: panic on an unrecovered NGAP goroutine"
+    "github.com/phires/go-guerrilla": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)"
   },
   "malicious_packages": {
     "npm": {},
